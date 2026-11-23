@@ -1,0 +1,158 @@
+{
+  "version": "1.0.0",
+  "film_id": "synthetic_validation_fixture",
+  "stage": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "total_frames": 60
+  },
+  "source": {
+    "script_file": "fixtures/01_SCRIPT.md",
+    "script_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "direction_spec": "inputs/EXPERIENCE_DIRECTOR_V1.md",
+    "art_skill": "construct-kurzgesagt-art",
+    "source_witness_manifest": null
+  },
+  "story": {
+    "audience_question": "What moves on screen?",
+    "central_insight": "A simple visible action has an explicit result.",
+    "mechanisms": [
+      {
+        "id": "m1",
+        "claim": "This is an illustrative diagnostic claim.",
+        "epistemic_status": "METAPHOR",
+        "visual_mechanism": "The painted object visibly moves."
+      }
+    ],
+    "narration": [
+      {
+        "id": "n1",
+        "text": "Watch this move.",
+        "frames": [
+          0,
+          60
+        ]
+      }
+    ]
+  },
+  "shots": [
+    {
+      "id": "sh1",
+      "frames": [
+        0,
+        60
+      ],
+      "world_id": "world1",
+      "opening_state": "Object at rest",
+      "ending_state": "Object displaced",
+      "attention_target": "object1",
+      "camera_purpose": "Stable viewpoint to show the object's movement",
+      "transition": null
+    }
+  ],
+  "decisions": [
+    {
+      "id": "dir1",
+      "shot_id": "sh1",
+      "frames": [
+        0,
+        60
+      ],
+      "viewer_effect": "Understand the movement",
+      "intent": "Visually reveal change",
+      "consumer_ids": [
+        "a1"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "a1",
+      "shot_id": "sh1",
+      "owner": "object1",
+      "target": null,
+      "frames": [
+        0,
+        60
+      ],
+      "mode": "RIGID",
+      "intent": "Translate the object",
+      "phases": [
+        {
+          "name": "prepare",
+          "frames": [
+            0,
+            20
+          ],
+          "state": "Stationary"
+        },
+        {
+          "name": "translate",
+          "frames": [
+            20,
+            60
+          ],
+          "state": "Object changes position"
+        }
+      ],
+      "precondition": "Object starts stationary",
+      "postcondition": "Object moved to another point",
+      "visible_result": "Owner-pixel centroid visibly moves by an approved amount",
+      "art_ids": [
+        "art1"
+      ],
+      "direction_ids": [
+        "dir1"
+      ],
+      "contact_events": []
+    }
+  ],
+  "art_requirements": [
+    {
+      "id": "art1",
+      "identity": "object1",
+      "kind": "MASTER",
+      "purpose": "Approved art for rigid object",
+      "state": {
+        "view": null,
+        "pose": null,
+        "expression": null,
+        "eyes": null,
+        "mouth": null,
+        "hand": null,
+        "lighting": null,
+        "occlusion": null
+      },
+      "required_by": [
+        "a1"
+      ],
+      "required_parts": [],
+      "landmarks": [
+        "center"
+      ],
+      "construction": "F01-F80 skill-dependent authoring, absent for fixture",
+      "review_checks": [
+        "Painted-object identity persists"
+      ],
+      "alpha_required": true,
+      "overscan_required": false
+    }
+  ],
+  "audio_cues": [
+    {
+      "id": "audio1",
+      "kind": "NARRATION",
+      "frames": [
+        0,
+        60
+      ],
+      "intent": "Deliver sentence",
+      "related_action": "a1"
+    }
+  ],
+  "approval": {
+    "status": "DRAFT",
+    "receipt": null
+  }
+}
