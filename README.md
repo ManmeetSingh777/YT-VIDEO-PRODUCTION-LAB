@@ -601,6 +601,297 @@ Each must be caught by the **appropriate** action-specific verifier. Whole-frame
 If review fails, preserve previous evidence and re-enter at the **earliest incorrect producer** (story, direction, art, registration, motion, sound or QA). Re-run only logically affected stages plus all dependent evidence. Do not camouflage defects with overlays or unsupported camera movements.
 
 
+
+---
+
+## 9. Invariants across EVERY stage — what cannot fail silently
+
+These rules apply whether a future film is 10 seconds or 20 minutes, whether it depicts a human, organism, machine, educational diagram, nested world or mixed scene.
+
+### 9.1 Fail closed when the system doesn't know
+
+- **Unknown is not false and not pass.** Unknown creative source, unknown rig landmark, missing approved image, missing state, unknown semantic verb, untested contact, missing camera coverage or absent evidence must produce an explicit blocker.
+- **No creative substitution without authority.** Claude may optimize internals but cannot replace a hard moving visual metaphor with a static slide, replace a difficult pose with generic geometry, delete required secondary action, or weaken a camera move to make the renderer pass.
+- **No fabricated work.** A generated prompt is not generated pixels. A review packet is not a reviewed image. An audio cue file is not actual narration. A complete frame log is not a beautiful film. A signed diagnostic receipt is not production human approval.
+- **No test/diagnostic to production contamination.** Separate namespaces, keys, assets, render paths and signed trust anchors. Production rejects diagnostic art and fixture authority even if an MP4 looks valid.
+- **No unexplained "not applicable".** Every excluded art state, F-method, motion class, QA requirement or review task has a verified applicability predicate and reason.
+- **No fixed counts in reusable producers.** Do not hard-code exact picture count, 28 shots, human skeleton count, one particular lever/door/washer, or 7,200 frames into universal logic.
+- **No hidden work.** The ledger must identify actual executed tasks and outcomes, not statuses claimed by narrative summaries.
+
+### 9.2 Read-only readiness vs mutating work
+
+A user querying **preflight** must not cause generation, video rendering, audio mixing, approval changes, cache promotion, report overwrite, or manifest edits. Preflight may inspect hashes, schema, file existence and proposed tasks. Executable work only begins in an authorized run, with checkpoint, provenance and appropriate billing authorization.
+
+### 9.3 Source identity, security and authorization
+
+- All production-reachable source code, dependencies and relevant generated artifacts must be traceable to a Git commit or exact content digest. Beware modified uncommitted code.
+- Same-size or same-mtime code changes must still invalidate content-addressed proofs; mtime alone is insufficient.
+- Manual external ChatGPT sessions should be represented with operator-attested provenance and exact output-image bytes. Don't claim automatic cross-app authentication where it doesn't exist.
+- External reviewer keys stay outside repo and outside Claude. Human decisions are verified on the exact bundle/scope, not on an arbitrary review string.
+- A changed source art image, rig, creative intent, motion plan, audio file or human review invalidates only affected downstream proofs according to the declared DAG.
+- Expired/revoked/replayed approvals, two simultaneous conflicting writers, crash mid-write, stale chunk and wrong version after resume must all be refused.
+- Public GitHub excludes secrets, local private keys, non-republishable film stills and copyrighted source-witness files. Locally authorized assets are resolved by hashes, not posted publicly.
+
+### 9.4 The earliest-wrong-producer rule
+
+When a final animation looks wrong, locate the first wrong stage, instead of applying a late cosmetic patch:
+
+| Symptom seen in final output | Earliest likely producer to inspect | The wrong shortcut |
+|---|---|---|
+| Viewer cannot understand the mechanism | Story truth or direction | Add decorative arrows after rendering |
+| Scene feels boring/static | Experience Director and choreography | Add random particles/camera motion |
+| Character style changes | Art canonical master/derived edit | Add color filter to hide mismatch |
+| Elbow becomes a tube/tears | Missing pose cel, wrong underpaint or rig/deform contract | Stretch image or redraw generic limb in code |
+| Grip misses/prop floats | Socket measurement, contact, HAND state or object reaction | Move prop by hand until screenshot looks aligned |
+| Face looks wrong in 3/4 | Missing approved view art | Rotate flat front face |
+| Camera sees empty plate | Pre-art world coverage or stage camera plan | Black rectangle, fake blur or arbitrary zoom |
+| Shot continuity pops | Shared state timeline/transition contract | Reset actor on cut and crossfade |
+| Audio cue is late | Actual audio alignment and mux | Edit metadata so timing appears correct |
+| Render freezes while background moves | Owner-specific motion compiler or render QA | Test only whole-frame hashes |
+| Verification passes missing behavior | Stage task, applicability, consumer or QA evidence | Add a success flag to JSON |
+
+A defect is repaired only when the correct producer changes, its real consumer changes the pixels/audio as intended, negative reproduction is caught, and unrelated subjects do not regress.
+
+### 9.5 Required failure record
+
+Each failure needs:
+- **Failure ID and affected action/shot/frame interval**.
+- **What was expected**, in viewer-visible and machine-checkable terms.
+- **What actually happened** and where the evidence is.
+- **Exact source producer and consumed inputs**, hashes, code revision.
+- **First violated invariant** (not only a last-stage MP4 symptom).
+- **Repair route:** story/direction, missing art, registration, rig/physics, visual runtime, sound, human review, environment or unsupported operation.
+- **Blast radius:** what existing art, approvals, compiled tracks, render chunks and review receipts become stale.
+- **Next permitted operation and owner**, including whether GPT/user approval is needed.
+- **Original failing reproduction**, corrected positive, negative/counterfactual and unlike-subject transfer.
+- **Honest status:** BLOCKED, FAILED, IN_PROGRESS, CORRECTED_UNVERIFIED or VERIFIED_CLOSED.
+
+### 9.6 Runtime/ledger handoff invariants
+
+The S00–S09 stage engine described by **engine/production/stages.mjs** and **engine/tools/production_run.mjs** must preserve:
+- S00 idea/intent and provenance;
+- S01 sourced story and actual approval;
+- S02 complete Experience Director;
+- S03 typed action/motion plan and camera/physical feasibility;
+- S04 artwork demands, source-grounded visual design and GPT ArtJobs;
+- S05 real pixel intake/registration and post-art fitting;
+- S06 authority/approval and exact art-state closure;
+- S07 verified Neutrino/Chrome video essence;
+- S08 rendered owner/action/camera QA and visual review obligations;
+- S09 real audio mix, verified mux and final publication.
+
+**Stage names are implementation labels**; this README's seven conceptual stages are responsibility boundaries. There must be a documented map from each conceptual gate to executable S00–S09 tasks, with **no unowned obligation**. Reconcile actual stage ordering where approval, final audio mux or independent final review require different dependencies.
+
+**Task integrity:** if a required obligation exists but produces no task, that is a failed task-generation invariant, not automatic success. If a frame throws an exception, record it as failed, not skipped. If zero required frames were evaluated, the result cannot say "feasible." If an owner is expected but attribution is absent, fail rather than skip.
+
+---
+
+## 10. Known integration risks requiring source and test closure
+
+**Snapshot basis:** these are source-level risks and defects identified in/around P03 SHA **900a6b14e2dfeeb2d59ec87a0e84e71ce45e1835**, together with the still-binding historical F001–F092 failure categories. They are **not** claims about a newer, uninspected local Claude working tree. A later repair must reproduce each issue on the old SHA and prove corrected behavior on its new SHA.
+
+| Priority | Component / function area | Risk and exact invariant to prove |
+|---|---|---|
+| P0 | GPT creative packet → existing film | The new **docs/gpt-creative-control/** creative schema/validator is a draft on a separate branch. No verified producer currently imports its packet and compiles all S00–S09 authority inputs. Implement a tested lossless adapter; unsupported creative decisions fail, not get dropped. |
+| P0 | **schemas/motion_art_manifest_v2.schema.json** | The P03 schema constrains **total_frames = 7200**. Parameterize positive duration/frame total and all dependent consumers. Prove 600 and 7200 *schema/logic* compatibility without another 7200-frame render. |
+| P0 | **engine/story/action_coverage.mjs** | A limited known-word scan cannot prove semantic completeness of arbitrary GPT scripts. Unknown actions must become typed requirements/refusals; CONTACT_END must prove real release, not merely any contact event. |
+| P0 | **engine/tools/compile_film_contracts.mjs** | Direction and ACTION_PHRASES can be separately validated while runtime reads **plan.phrases**; require direct source-to-render consumption and causal mutation proof. |
+| P0 | **engine/story/experience.mjs** | "Attention owner has some overlapping track" is weaker than "specified intended action visibly happened"; require director-decision-specific consumer and observable consequence. |
+| P0 | **engine/art_bridge/asset_state.mjs** | State intervals starting from defaults for each separate action can lose carried pose/view/HAND/possession continuity; maintain one canonical state history across actions/cuts. |
+| P0 | **engine/art_bridge/art_demand.mjs** | Grip artwork demand partly relies on body pose rather than independent HAND channel; requirement closure must include real grip/eye/mouth/view states and transitions from acting + direction. |
+| P0 | **engine/art_bridge/art_intake.mjs#feasibilityFor** | Zero matching motion plans/zero evaluated required action frames can falsely return FEASIBLE; check complete actual state and count failures including thrown frames. |
+| P0 | **engine/art_bridge/state_channels.mjs** | Directed vs generated event precedence and same-frame conflicts require stable explicit priorities; don't let optional blink/mouth event erase directed art state. |
+| P0 | **engine/art_bridge/scene_graph.mjs** | Locked GRIP with no actual grip contract cannot continue unchecked. Validation must read approved HAND-channel closure and painted palm/finger ordering. |
+| P0 | **engine/art_bridge/execution.mjs** | Raster deformation mesh coverage cannot be proven by summed triangle areas (overlap can hide a hole); require actual union/topology/alpha validity and signed approved deformation. |
+| P0 | **engine/film/chrome_frames.mjs** | Motion-blur rendering must supply owner-specific attribution corresponding to the actual composited shutter result; unblurred or missing owner evidence is not proof. |
+| P0 | **engine/film/coverage_gate.mjs** | Missing owner data or <2 samples cannot be silently skipped. Background motion cannot mask a frozen actor, absent blink, wrong grip or inert object response. |
+| P0 | **engine/production/stages.mjs** | Frame-evaluation exceptions must never be caught and silently ignored; stage tasks and actual frame counts must cover every required operation. |
+| P0 | **engine/tools/production_run.mjs#preflight** | A "read-only" preflight currently calls ordinary task run functions in P03, some of which may have side effects. Separate inspections from actual generation/render/mix and prove tree hashes unchanged. |
+| P0 | **engine/production/stages.mjs S07/S09** | Video may be rendered/assembled before final audio mix, and later mix may not be muxed into **the published MP4**. Bind actual muxed audio stream to final video receipt. |
+| P1 | **engine/film/film_revision.mjs** | Code closure uses a cache keyed on file stat metadata (size/mtime); strong content changes must never accidentally reuse a stale digest. |
+| P1 | **engine/film/segment_render.mjs / CLI** | User-facing optional motion-plan args must resolve a unique authoritative plan or fail before render; never read an undefined path or render a stale plan. |
+| P1 | **engine/art_bridge/approvals.mjs** | The global approval sweep must include all reachable independent state-channel drawings/edges, deformations, masks and affected review scopes. |
+| P1 | **engine/art_bridge/acting.mjs** | Blink/breathing/speech timing must validate finite positive parameters, film/cut boundaries, joint limits and conflicts; fake text-vowel lip-sync isn't measured phoneme alignment. |
+| P1 | **engine/art_bridge/contact_solver.mjs / constraints.mjs** | Geometric reach/balance alone cannot prove painted contact or believable applied force; connect hand/foot artwork and actual mechanism response with visual qualification. |
+| P1 | **engine/art_bridge/source_method_causality.mjs** | Camera/world coverage sampled sparsely can miss an extreme between samples. Full camera-path maxima/continuous safe bounds or frame-by-frame check required for final film. |
+| P1 | Legacy P02 regression **P02-R14** | Diagnostic world plate **rt_world_far** had no design trace record in the reported fresh-checkout test. Repair fixture producer while preserving required trace gate. |
+| Release | **F001–F092 original two repair directives** | Historical failures include artwork completeness, source method control, state coverage, visual QA, render memory, proof provenance, review authority, resume/concurrency and actual ChatGPT art handoff. Every row requires a verified disposition. The code's own "PASS" report cannot substitute for original reproduction and negative test evidence. |
+
+**Do not address this table by hardcoding a test story or weakening constraints.** Each row is a reusable producer/consumer invariant; every repair needs its own precise regression and cross-subject proof.
+
+### 10.1 Readiness matrix — what is actually demonstrated vs not yet demonstrated
+
+| Capability | Source-level support in P03 | Required proof before declaring ready |
+|---|---|---|
+| Original Neutrino runtime and actual raster transforms | Present; diagnostic Chrome proof reported | Real approved GPT part pixels traced to output |
+| State-channel acting / breathing / blink / morph | Implemented diagnostic behavior, with remaining bypass risks | Correct artwork/state approval, actual visible expression and whole-film continuity |
+| Contact/grip/support and object reaction | Diagnostic tests exist | Real painted hand/grip/weight/prop video across every required contact frame |
+| Artistic F01–F80 image generation | Art contract and manual handoff code exist | Correct installed skill, witnesses, actual beautiful master and complete derived states |
+| GPT screenplay/Experience Director import | Existing typed validators; new creative packet is separate draft | Complete lossless adapter and approved creative package |
+| Pixel registration and rig fitting | Real algorithms and diagnostic input | Real GPT image part fitting and appearance preservation |
+| Renderer/FFv1 chunk pipeline | Long diagnostics and short P03 fixture tests reported | Fresh committed real-art 600-frame run and independent frame QA |
+| Final soundtrack and approved MP4 | Mixer code and fixture audio test exist | Actual recorded narration, SFX, final mix, muxed output and synchronized listening review |
+| Generalization | Multiple synthetic subject types tested | New script + unfamiliar genuine artwork + no scene-specific fixes |
+
+Engineering and aesthetic readiness are **independent**. A developer can finish technical repair while the future film still requires manual GPT image creation and human visual approval.
+
+---
+
+## 11. Molecular system-level simulation — from arbitrary new idea to final MP4
+
+This is an **adversarial dry-run of the intended contracts**, not a claim that a film was executed. The future real canary must use a user/GPT-approved NEW script rather than hardcoded test content.
+
+### 11.1 Start with an unfamiliar idea
+
+Assume the user asks a short educational film about how a living structure mechanically changes the surrounding world. The exact subject is deliberately not baked into the engine.
+
+- **Stage 1:** GPT identifies the accurate scientific/mechanical claim, misconception and visually showable causal sequence. **Risk:** invented facts or false analogy. **Protection:** sourced claim ladder, question-first script and human truth review.
+- **Stage 2:** GPT directs the visible cause/effect, acting and camera, its explanatory hierarchy and sound; every visible operation gets a typed action. **Risk:** lovely prose that never becomes motion. **Protection:** per-shot 12-field director contract and action→consumer→effect trace.
+- **Stage 3:** The story may require the subject to bend, touch, transfer force, reveal a hidden surface, change view and transform an object. **Risk:** static masters without the necessary states. **Protection:** full state/art requirement closure BEFORE GPT image generation and engine-supported-class preflight.
+- **Stage 4:** GPT generates an original beautiful master, then true dependent parts/views/occluders from that master. **Risk:** character identity drift, fake transparency, poor anatomy, missing underpaint. **Protection:** actual image review and approved alpha/lineage requirements.
+- **Stage 5:** Claude measures part interfaces, fits approved geometry, then solves each required frame including state/paint continuity. **Risk:** impossible reach, bad pivots, anatomical seams, zero evaluated frames. **Protection:** real-art frame feasibility, rest overlays, impossible-motion typed refusal.
+- **Stage 6:** Neutrino actually moves the approved layers; reactions follow contact, face/view shifts use approved drawings, camera reveals authored worlds. **Risk:** animation code changes but actor pixels don't, frozen art hidden by particles, stiff or wrong grip. **Protection:** direct owner/cel/morph/contact/camera proof and subjective full-motion review.
+- **Stage 7:** FFmpeg produces verified video, audio buses yield the genuine mix, system muxes exact streams and verifies the final film. **Risk:** wrong audio/file despite a PASS report. **Protection:** final media stream identity, independent decode and human review.
+
+At no point can Claude "solve" a missing view by generating its own generic face, nor can GPT declare joint feasibility before actual art exists.
+
+### 11.2 Failure-injection walk: the critical boundaries
+
+| Injected defect | Where it MUST be caught | Correct response |
+|---|---|---|
+| Script contains an unsupported factual claim | Stage 1 story-truth review | Request evidence/revision; don't animate misleading certainty |
+| Director asks a camera orbit of one flat front plate | Stage 2/3 pre-art feasibility | Demand real alternate planes/views, or request approved restaging |
+| Action requires a hand to grip but no HAND state | Stage 3 art-state closure | Create exact hand+near/far finger ArtJobs |
+| GPT provides one lovely flattened character PNG | Stage 4 image/part inventory gate | Approve only as master, demand true parts and cels before articulated animation |
+| Shoulder/palm landmarks are mislabeled | Stage 5 registration | Fail residual/overlay/painted contact, request reviewed corrections |
+| No motion-plan entry matches the character action | Stage 5 feasibility | Fail NOT_EVALUATED; never return FEASIBLE |
+| Two equal-priority expression events disagree | Stage 6 channel resolver | Fail explicit state conflict, preserve director authority |
+| Hand reaches handle but stays visually open | Stage 6 grip/render QA | Fail HAND state and painted contact consequence |
+| Contact ends but prop remains glued to palm | Stage 6 semantic release QA | Fail possession/separation and actual rendered release |
+| Mechanism track moves unrelated piece | Stage 6 source/action consequence QA | Fail owner/driver mechanical relationship |
+| Wrong head view appears for one frame | Stage 6 art-state and native visual QA | Fail view/canonical identity/transition |
+| World plate disappears at maximum zoom | Stage 3/5 camera art and Stage 6 render | Demand larger correctly painted plate or approved camera change |
+| Blur path omits owner trace | Stage 6/7 per-owner QA | Fail missing evidence; don't infer movement from background pixels |
+| Render task catches a thrown frame and keeps going | Stage 7 task bookkeeping | Record failure, block stage; never silently count as inspected |
+| Narration SFX WAV correct but final MP4 contains old audio | Stage 7 mux validation | Fail source hash and audio stream proof |
+| Source/asset bytes changed but mtimes similar | Stage 7 revision validation | Invalidate all affected cached evidence |
+| GPT manually approves nothing, Claude claims HUMAN_APPROVED | Every authority gate | Reject unauthorized receipt |
+| Output looks flat/ugly despite technical success | Independent artistic review | Reject finished film, repair creative/art/motion cause |
+
+### 11.3 Unfamiliar transfer coverage
+
+Do not overfit solely to humans with a hand and a lever. The reusable engine requires meaningful diagnostic transfer across:
+
+1. **Human/character performance:** face, gaze, grasp, support, weight, release and emotional acting.
+2. **Nonhuman organism:** topology not matching human bones, squash/deform/cel need, secondary motion and natural mass.
+3. **Mechanical apparatus:** linkage, driven constraints, distinct material parts, visible state changes.
+4. **Educational diagram / environment:** approved symbols, quantities, world planes, masks, transitions, camera/attention without imaginary character rigs.
+
+For each type, run **positive, deliberate negative and source-independent transfer** using the same general producer code and a short bounded render. These diagnostic fixtures qualify engine operations only. **The ultimate test remains an entirely new script and real GPT-generated art.**
+
+### 11.4 What a genuine first 10-second test proves
+
+Only after P04 engineering is verified and GPT creative packet import works:
+
+- New idea and original script (not cloned from existing tests).
+- Fully directed 600-frame film with actual user-approved creative decisions.
+- Complete art state inventory created before image generation.
+- GPT manually creates approved source-grounded artwork including its moving parts/states.
+- Artwork actually ingested and measured, with tested feasibility.
+- All 600 frames rendered by the same actual Neutrino production path with source hashes.
+- At least one nontrivial articulated/secondary movement and meaningful physical or graphic cause-effect, whichever the approved story genuinely requires; no forced test-template subject.
+- Genuine spoken audio and effects when directed; correct final MP4 mix.
+- Complete technical checks, source/action traces, and visual inspection of difficult frames and motion.
+- Actual independent human film review.
+
+**A successful 600-frame canary proves THIS integration for the selected script/art/action set. It does not universally qualify every imaginable future action; the action registry and refusal gates must remain active.**
+
+---
+
+## 12. Release gates and exact operator workflow
+
+### 12.1 Before anybody says "engineering ready"
+
+Required successful evidence:
+1. Every production-required decision has a real consuming producer or a typed refusal.
+2. Every specified movement class has a reachable runtime implementation, with a causal perturbation test.
+3. Art-state closure covers pose/view/face/HAND/occlusion, camera planes and transitions consistently across consecutive actions.
+4. Creative authoring import is actually connected to the existing manifest/motion plan, not a parallel unusable schema.
+5. Manual GPT ArtJob export/import works with actual files, hashes, native witnesses and dependency-aware resumes.
+6. Registration and post-art feasibility are correctly implemented; no empty-plan false successes.
+7. Contact, acting, deformation, mechanism, camera and audio proof uses real consumers.
+8. Every demanded owner/action has actual evidence, including blurred frames.
+9. All negative tests and historical F001–F092 dispositions are reproducible and current; no silently ignored failures.
+10. Preflight is side-effect free. Revision invalidation/approval trust and crash recovery work on current committed code.
+11. Exact final audio mix reaches actual final MP4 and is independently verified.
+12. At least one **short end-to-end DIAGNOSTIC** execution exercises real Neutrino/Chrome code without masquerading as GPT artwork.
+13. A fresh frozen checkout runs the expected complete regression suite, with evidence hashes and precise remaining blockers.
+14. The final readiness report differentiates engineering readiness, GPT-art pending, real-art motion qualification and final film approval.
+
+If any mandatory condition fails: **ENGINEERING_READY = NO**, with exact missing invariant, source file, test, owner and next operation.
+
+### 12.2 Operating sequence for the FIRST real 10-second film
+
+**Do not start with Claude choosing an engineering-friendly test story.** GPT and the user choose a genuinely worthwhile original micro-story.
+
+1. Create one NEW GPT creative conversation; pin Experience Director V1, all required script/reference context and the current F01–F80 skill version.
+2. Produce idea, actual script/claim evidence, complete Experience Director direction, 600-frame shot/action score and pre-art motion-ready artwork inventory (Stages 1–3).
+3. Export a versioned **CREATIVE_PACKET.json** and all narrative/direction documents with stable IDs and hashes. The draft new-chat framework is at **docs/gpt-creative-control/NEW_CHAT_CREATIVE_DIRECTOR.md**, currently on **design/gpt-creative-production-contract-v1** pending production integration.
+4. Run the deterministic creative packet validator plus engine pre-art support check. Return exact missing motion/visual requirements to GPT; resolve and obtain human creative approval.
+5. Generate artwork **manually in another ChatGPT conversation** using the actual installed F01–F80 skill and exported approved ArtJobs; produce and approve canonical masters and all required derivative images.
+6. Import actual image files; verify provenance, visual quality, registration, actual pivots and required states; obtain human art approvals. Stop with exact missing drawing on failure.
+7. Run post-art physical/visual feasibility for every action frame. If impossible, request a specific art edit or authorized staging change; never silently stretch/rotate anatomy to fake success.
+8. Freeze approved contracts, execute Neutrino 600-frame render, inspect source-specific animation and art identity.
+9. Mix narration/music/SFX, mux final verified audio, decode actual finished film and conduct full-frame visual/technical review.
+10. Approve exact final MP4 with a human receipt. Preserve every artifact, state, source hash, failure/repair and repeatable production recipe.
+
+### 12.3 What Claude should do RIGHT NOW while engineering P04 is still running
+
+**Do not interrupt or restart the active P04 task simply to install another authoring instruction.** Existing diagnostics at S03/manifest gates are reasonable if they are bounded code tests and fixture proofs, not substitutes for real artwork.
+
+When the current run completes:
+
+1. Return its actual Git branch, full commit SHA, regression status, execution evidence and blockers.
+2. Read this root README (current main) **and** the creative-authoring package on the named design branch.
+3. Integrate the draft GPT packet schema/validator into the actual production S00–S09 interface with real adapters, tests and version/approval ownership. Do not silently merge unrelated code or rewrite approved creativity.
+4. Correct any new verified source-level defects it discovers; retain the P04 repair branch and trace every change.
+5. Run short targeted diagnostic tests and a short chained engineering test, not another 120-second artless rehearsal by default.
+6. Report **ENGINEERING_READY** only with evidence. Explicitly separate remaining **NEEDS_GPT_CREATIVE_PACKET**, **NEEDS_GPT_ARTWORK**, **NEEDS_HUMAN_APPROVAL**, **NEEDS_RECORDED_VOICE** and **NEEDS_FINAL_ARTISTIC_REVIEW**.
+7. Only then begin the real 10-second creative session. Do not assume the existence of a staged ArtJob is the existence of a generated image.
+
+### 12.4 Proof coverage tracker for ongoing independent audits
+
+Maintain one live table per commit:
+
+| Field | Meaning |
+|---|---|
+| SOURCE_VERSION | Exact Git SHA and outstanding working-tree changes |
+| PRODUCER | Real module/function responsible |
+| INPUT | Actual required exact artifact and source ID |
+| OUTPUT | Exact schema/artifact/hash |
+| CONSUMER | Real next function and call reachability |
+| PROOF | Concrete test, actual pixels/audio, recorded event and human review where applicable |
+| NEGATIVE | Deliberate failure whose expected invariant was caught |
+| TRANSFER | Test on genuinely unlike subject |
+| STATUS | VERIFIED, FAILED, BLOCKED_EXTERNAL, NOT_TESTED, OBSOLETE_WITH_PROOF |
+| NEXT_ACTION | Exact operation needed and owner |
+
+A file inventory can show that a file was **indexed**. It does not show that every relevant implementation was **deeply inspected**. A long passed test report does not show an artistic master was approved. The audit must keep all these statuses distinct.
+
+### 12.5 Pinned authority documents
+
+- **inputs/EXPERIENCE_DIRECTOR_V1.md** — full creative standard; read whole text.
+- **inputs/MOTION_NATIVE_HYBRID_V2_COMPLETE_IMPLEMENTATION_SPEC.md** — the approved art-and-motion architecture.
+- **inputs/HYBRID_V2_ZERO_AMBIGUITY_CORRECTION_DIRECTIVE.md** — historical F001–F072 defect inventory.
+- **inputs/HYBRID_V2_P02_SYSTEM_REPAIR_AND_PROOF_DIRECTIVE.md** — historical F073–F092 and production evidence/authority standards.
+- **reference/neutrino_2m_SOURCE_PACKAGE/** — original functioning engine/acting benchmark.
+- **reference/construct-kurzgesagt-art/** — locally available source-grounded skill; some native witness imagery is deliberately not public and must be available separately for art production.
+- **docs/gpt-creative-control/** on branch **design/gpt-creative-production-contract-v1** — provisional new-chat prompt, creative-packet schema, structural validator, and Claude adapter integration instruction; these are NOT yet proven production integrations.
+- **engine/art_bridge/**, **engine/film/**, **engine/story/**, **engine/production/** — real executable implementations; inspect actual versioned source.
+- **hybrid_v2/evidence/** — diagnostic/review proof bundles; treat evidence status and hashes critically.
+
+**Root acceptance principle:** the only real success is a film whose **approved meaning, artistic decisions and genuine artwork** survive every technical handoff and appear correctly in the **actual moving, sounding final video**. Anything less must carry an honest incomplete status.
+
 ---
 
 ## Appendix A — original published source snapshot information (preserved)
