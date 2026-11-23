@@ -1,0 +1,204 @@
+{
+ "id": "planA",
+ "tracks": {
+  "actor2": {
+   "root": {
+    "x": [
+     [
+      0,
+      0
+     ],
+     [
+      120,
+      6,
+      "sine.inOut"
+     ],
+     [
+      300,
+      -8,
+      "sine.inOut"
+     ],
+     [
+      480,
+      6,
+      "sine.inOut"
+     ],
+     [
+      600,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "y": [
+     [
+      0,
+      0
+     ],
+     [
+      150,
+      14,
+      "sine.inOut"
+     ],
+     [
+      300,
+      4,
+      "sine.inOut"
+     ],
+     [
+      450,
+      16,
+      "sine.inOut"
+     ],
+     [
+      600,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "rot": [
+     [
+      0,
+      0
+     ],
+     [
+      240,
+      4,
+      "sine.inOut"
+     ],
+     [
+      600,
+      0,
+      "sine.inOut"
+     ]
+    ]
+   },
+   "joints": {
+    "shoulder": [
+     [
+      0,
+      -20
+     ],
+     [
+      600,
+      -20
+     ]
+    ],
+    "elbow": [
+     [
+      0,
+      -25
+     ],
+     [
+      540,
+      -25
+     ],
+     [
+      570,
+      -138,
+      "power2.inOut"
+     ],
+     [
+      600,
+      -25,
+      "power2.inOut"
+     ]
+    ],
+    "wrist": [
+     [
+      0,
+      0
+     ],
+     [
+      600,
+      0
+     ]
+    ],
+    "hip": [
+     [
+      0,
+      0
+     ]
+    ],
+    "knee": [
+     [
+      0,
+      0
+     ]
+    ],
+    "ankle": [
+     [
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "crank2": {
+   "joints": {
+    "wheel": [
+     [
+      0,
+      0
+     ],
+     [
+      90,
+      0
+     ],
+     [
+      480,
+      720,
+      "sine.inOut"
+     ],
+     [
+      600,
+      720
+     ]
+    ]
+   }
+  }
+ },
+ "reaches": {
+  "operate_crank:grip2": {
+   "approach": [
+    20,
+    90
+   ],
+   "release": [
+    480,
+    540
+   ],
+   "orient": "RELATIVE"
+  }
+ },
+ "secondary": [
+  {
+   "id": "tag_swing",
+   "rig": "crank2",
+   "joint": "tag",
+   "driver": {
+    "rig": "crank2",
+    "joint": "wheel"
+   },
+   "stiffness": 60,
+   "damping": 3.5,
+   "gain": 1.6,
+   "substeps": 8
+  }
+ ],
+ "lighting": {
+  "torso2_shade": {
+   "mode": "ATTACHED_LIGHT_PLANE",
+   "owner_part": "torso2",
+   "opacity": [
+    [
+     0,
+     1
+    ],
+    [
+     600,
+     1
+    ]
+   ]
+  }
+ }
+}

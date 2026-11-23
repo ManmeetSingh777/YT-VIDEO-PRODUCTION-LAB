@@ -1,0 +1,1970 @@
+{
+ "status": "STORY_APPROVAL_PENDING__WAITING_FOR_GPT_ART",
+ "note": "Derived from the action graph; no fixed image count. Order 1 = canonical masters (approve whole look first); 2 = registered parts/layers as source-attached edits; 3 = contact/expression/view/symbol states; 4 = transition plates.",
+ "assets": [
+  {
+   "asset_id": "ines_master",
+   "identity_id": "ines",
+   "kind": "MASTER",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "threeq_r",
+   "pose_id": "neutral",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "canonical whole-look identity; every Ines state is a source-attached edit of it",
+   "depth_band": "FOCAL",
+   "overscan_rect": null,
+   "registration": {
+    "mode": "FIT_RIG",
+    "frame_anchors": [
+     "head_top",
+     "neck",
+     "pelvis"
+    ]
+   }
+  },
+  {
+   "asset_id": "washer_master",
+   "identity_id": "washer",
+   "kind": "MASTER",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "canonical machine identity with door, drum, coin slot",
+   "depth_band": "FOCAL",
+   "overscan_rect": null,
+   "registration": {
+    "mode": "FIT_RIG",
+    "frame_anchors": [
+     "base",
+     "hub",
+     "coin_slot"
+    ]
+   }
+  },
+  {
+   "asset_id": "laundromat_far",
+   "identity_id": "laundromat",
+   "kind": "WORLD_PLANE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S06",
+    "S07"
+   ],
+   "why": "canonical interior with camera overscan for the S01 pull-back and S02 push",
+   "depth_band": "FAR",
+   "overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ]
+  },
+  {
+   "asset_id": "ledger_master",
+   "identity_id": "ledger_glyphs",
+   "kind": "MASTER",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S04"
+   ],
+   "why": "canonical diagram language: wheel, pipes, glyph family",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "street_far",
+   "identity_id": "street_night",
+   "kind": "WORLD_PLANE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S05"
+   ],
+   "why": "canonical night street with overscan for the pull-back",
+   "depth_band": "FAR",
+   "overscan_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ]
+  },
+  {
+   "asset_id": "drum_in",
+   "identity_id": "drum_world",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02",
+    "S03"
+   ],
+   "why": "IN plate of the porthole push and S03 world",
+   "depth_band": "FAR",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_leg_l_far",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "hip_l",
+   "pivot_landmark_id": "hip_l",
+   "pivot_xy": [
+    270,
+    630
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint hip_l for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_shin_l_far",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "knee_l",
+   "pivot_landmark_id": "knee_l",
+   "pivot_xy": [
+    265,
+    800
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint knee_l for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_foot_l_far",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "ankle_l",
+   "pivot_landmark_id": "ankle_l",
+   "pivot_xy": [
+    260,
+    960
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint ankle_l for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_arm_l_far",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "shoulder_l",
+   "pivot_landmark_id": "shoulder_l",
+   "pivot_xy": [
+    240,
+    360
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint shoulder_l for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_forearm_l_far",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "elbow_l",
+   "pivot_landmark_id": "elbow_l",
+   "pivot_xy": [
+    225,
+    480
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint elbow_l for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_l_far",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_l",
+   "pivot_landmark_id": "wrist_l",
+   "pivot_xy": [
+    215,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint wrist_l for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_torso",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "pelvis",
+   "pivot_landmark_id": "pelvis",
+   "pivot_xy": [
+    300,
+    620
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint pelvis for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_coat_hem",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "pelvis",
+   "pivot_landmark_id": "pelvis",
+   "pivot_xy": [
+    300,
+    620
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint pelvis for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_head",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint neck for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_eyes",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint neck for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_mouth",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint neck for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_brow",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint neck for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hair_back",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint neck for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_leg_r",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "hip_r",
+   "pivot_landmark_id": "hip_r",
+   "pivot_xy": [
+    330,
+    630
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint hip_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_shin_r",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "knee_r",
+   "pivot_landmark_id": "knee_r",
+   "pivot_xy": [
+    335,
+    800
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint knee_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_foot_r",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "ankle_r",
+   "pivot_landmark_id": "ankle_r",
+   "pivot_xy": [
+    340,
+    960
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint ankle_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_sleeve_r",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "shoulder_r",
+   "pivot_landmark_id": "shoulder_r",
+   "pivot_xy": [
+    360,
+    360
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint shoulder_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_elbow_r_underpaint",
+   "identity_id": "ines",
+   "kind": "UNDERPAINT",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "elbow_r",
+   "pivot_landmark_id": "elbow_r",
+   "pivot_xy": [
+    380,
+    480
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "BELOW",
+     "asset_id": "ines_forearm_r"
+    },
+    {
+     "relation": "BELOW",
+     "asset_id": "ines_sleeve_r"
+    },
+    {
+     "relation": "ABOVE",
+     "asset_id": "ines_torso"
+    }
+   ],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint elbow_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_forearm_r",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "elbow_r",
+   "pivot_landmark_id": "elbow_r",
+   "pivot_xy": [
+    380,
+    480
+   ],
+   "hidden_surfaces": [
+    "elbow_inner_sleeve"
+   ],
+   "surface_underpaint": {
+    "elbow_inner_sleeve": "ines_elbow_r_underpaint"
+   },
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint elbow_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_far_fingers",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "BELOW",
+     "asset_id": "washer_door_ring"
+    },
+    {
+     "relation": "ABOVE",
+     "asset_id": "washer_cabinet"
+    }
+   ],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint wrist_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_palm",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "BELOW",
+     "asset_id": "washer_door_ring"
+    },
+    {
+     "relation": "ABOVE",
+     "asset_id": "washer_cabinet"
+    }
+   ],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint wrist_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_near_fingers",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "washer_door_ring"
+    }
+   ],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered cutout on joint wrist_r for the S02 reach/grip/insert action",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_near_open",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": "hand_open",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "contact pose family: approach-open, closed grip, coin pinch, release (palm/near/far subsets)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_far_open",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": "hand_open",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "contact pose family: approach-open, closed grip, coin pinch, release (palm/near/far subsets)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_near_pinch",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": "hand_pinch",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "contact pose family: approach-open, closed grip, coin pinch, release (palm/near/far subsets)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hand_r_far_pinch",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": "hand_pinch",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "contact pose family: approach-open, closed grip, coin pinch, release (palm/near/far subsets)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "coin_prop",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": "hand_pinch",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    395,
+    590
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "contact pose family: approach-open, closed grip, coin pinch, release (palm/near/far subsets)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_eyes_curious",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": "curious",
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "expression state curious on the exact acting beat",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_brow_raised",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": "curious",
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "expression state curious on the exact acting beat",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_mouth_open",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "threeq_r",
+   "pose_id": null,
+   "expression_id": "curious",
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "expression state curious on the exact acting beat",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_mouth_smile_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": "satisfied",
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "profile-view expression satisfied: the satisfied beat happens after the turn to the porthole",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_eyes_soft_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": "satisfied",
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "profile-view expression satisfied: the satisfied beat happens after the turn to the porthole",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_head_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_eyes_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_face_mouth_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_brow_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_hair_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "neck",
+   "pivot_landmark_id": "neck",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ines_torso_profile",
+   "identity_id": "ines",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "ines_master",
+   "view_id": "profile_r",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "pelvis",
+   "pivot_landmark_id": "pelvis",
+   "pivot_xy": [
+    300,
+    620
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02"
+   ],
+   "why": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_drum_interior",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "drum",
+   "pivot_landmark_id": "hub",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on drum",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_laundry_load",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "drum",
+   "pivot_landmark_id": "hub",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on drum",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_laundry_load_tumbling",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "drum",
+   "pivot_landmark_id": "hub",
+   "pivot_xy": [
+    300,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on drum",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_cabinet",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "body",
+   "pivot_landmark_id": "base",
+   "pivot_xy": [
+    300,
+    600
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on body",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_door_ring",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "door",
+   "pivot_landmark_id": "hinge",
+   "pivot_xy": [
+    432,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on door",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_door_glass",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "door",
+   "pivot_landmark_id": "hinge",
+   "pivot_xy": [
+    432,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on door",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_door_ring_half",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "door",
+   "pivot_landmark_id": "hinge",
+   "pivot_xy": [
+    432,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on door",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_door_glass_half",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "door",
+   "pivot_landmark_id": "hinge",
+   "pivot_xy": [
+    432,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on door",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_door_ring_open",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "door",
+   "pivot_landmark_id": "hinge",
+   "pivot_xy": [
+    432,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on door",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_door_glass_open",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "door",
+   "pivot_landmark_id": "hinge",
+   "pivot_xy": [
+    432,
+    330
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on door",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "washer_coin_flap",
+   "identity_id": "washer",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "coin_flap",
+   "pivot_landmark_id": "coin_slot",
+   "pivot_xy": [
+    110,
+    380
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "why": "moving machine part on coin_flap",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "laundromat_mid_machines",
+   "identity_id": "laundromat",
+   "kind": "WORLD_PLANE",
+   "manufacturing_order": 2,
+   "derived_from": "laundromat_far",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02"
+   ],
+   "why": "depth-owned layer for parallax and foreground occlusion",
+   "depth_band": "MID",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "laundromat_fg_counter",
+   "identity_id": "laundromat",
+   "kind": "OCCLUDER",
+   "manufacturing_order": 2,
+   "derived_from": "laundromat_far",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S01",
+    "S02"
+   ],
+   "why": "depth-owned layer for parallax and foreground occlusion",
+   "depth_band": "FOREGROUND",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "porthole_out",
+   "identity_id": "laundromat",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 4,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02",
+    "S03"
+   ],
+   "why": "OUT/MIDDLE/IN transition state with registered porthole_centre",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "porthole_glass_middle",
+   "identity_id": "laundromat",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 4,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02",
+    "S03"
+   ],
+   "why": "OUT/MIDDLE/IN transition state with registered porthole_centre",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "porthole_aperture",
+   "identity_id": "laundromat",
+   "kind": "MASK",
+   "manufacturing_order": 4,
+   "derived_from": "washer_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S02",
+    "S03"
+   ],
+   "why": "OUT/MIDDLE/IN transition state with registered porthole_centre",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "drum_rim_out",
+   "identity_id": "drum_world",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 4,
+   "derived_from": "drum_in",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04"
+   ],
+   "why": "OUT/MIDDLE/IN transition state with registered porthole_centre",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "rim_to_ledger_middle",
+   "identity_id": "drum_world",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 4,
+   "derived_from": "drum_in",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04"
+   ],
+   "why": "OUT/MIDDLE/IN transition state with registered porthole_centre",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "rim_aperture",
+   "identity_id": "drum_world",
+   "kind": "MASK",
+   "manufacturing_order": 4,
+   "derived_from": "drum_in",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04"
+   ],
+   "why": "OUT/MIDDLE/IN transition state with registered porthole_centre",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "drum_paddles",
+   "identity_id": "drum_world",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "drum_in",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_turn_counter",
+   "identity_id": "ledger_glyphs",
+   "kind": "SYMBOL",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_coin_symbol",
+   "identity_id": "ledger_glyphs",
+   "kind": "SYMBOL",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_water_symbol",
+   "identity_id": "ledger_glyphs",
+   "kind": "SYMBOL",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_power_symbol",
+   "identity_id": "ledger_glyphs",
+   "kind": "SYMBOL",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_gas_symbol",
+   "identity_id": "ledger_glyphs",
+   "kind": "SYMBOL",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_lever_symbols",
+   "identity_id": "ledger_glyphs",
+   "kind": "SYMBOL",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "why": "approved symbol animated procedurally (code computes quantities, never the symbol)",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "ledger_type_values",
+   "identity_id": "ledger_glyphs",
+   "kind": "TYPE",
+   "manufacturing_order": 3,
+   "derived_from": "ledger_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S04",
+    "S06"
+   ],
+   "why": "approved font + vector type; digits stay live text",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "street_mid_shops",
+   "identity_id": "street_night",
+   "kind": "WORLD_PLANE",
+   "manufacturing_order": 2,
+   "derived_from": "street_far",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S05"
+   ],
+   "why": "street depth layers + lit window interior seen from outside",
+   "depth_band": "MID",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "street_fg_lamp",
+   "identity_id": "street_night",
+   "kind": "OCCLUDER",
+   "manufacturing_order": 2,
+   "derived_from": "street_far",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S05"
+   ],
+   "why": "street depth layers + lit window interior seen from outside",
+   "depth_band": "FOREGROUND",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "laundromat_window_interior",
+   "identity_id": "street_night",
+   "kind": "WORLD_PLANE",
+   "manufacturing_order": 2,
+   "derived_from": "street_far",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "S05"
+   ],
+   "why": "street depth layers + lit window interior seen from outside",
+   "depth_band": "MID",
+   "overscan_rect": null
+  }
+ ]
+}

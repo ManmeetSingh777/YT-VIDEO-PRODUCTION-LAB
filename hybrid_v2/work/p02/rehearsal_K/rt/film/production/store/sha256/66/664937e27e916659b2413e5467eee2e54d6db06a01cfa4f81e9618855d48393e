@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:198",
+ "sequence": 198,
+ "prev_event_sha256": "28dc1b6a82f60b24c80d4f528053f1dec3a110a5b87c638ac69ddfc792330e11",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S08_QA_REPAIR",
+ "attempt_id": "Amwryc2mm",
+ "operation_id": null,
+ "task_id": "frame_trace_index",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:197"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:23.298Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "frame_trace_index",
+  "producer": "engine/production/stages.mjs#buildFrameTraceIndex",
+  "inputs": [],
+  "expected_outputs": [
+   "FRAME_TRACE_INDEX.json covering every frame"
+  ],
+  "deps": [
+   "render_receipt"
+  ],
+  "invariants": [
+   "every frame owned by a shot, with actions/states/assets/camera/chunk"
+  ],
+  "verification": "coverage 0..total-1 and no unowned frame",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 198,
+ "event_sha256": "a0a422320cb233d02346cbb9550627e413590113ba367fd7a300d036461b4e79"
+}

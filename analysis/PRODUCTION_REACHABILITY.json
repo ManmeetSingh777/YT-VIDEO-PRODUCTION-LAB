@@ -1,0 +1,1017 @@
+{
+ "method": "static closure over relative ES imports + dynamic import literals from the production entry points; renderer modules from segment_render.mjs#RENDERERS; page-runtime files copied into every composition by render.mjs#buildComposition; skill Python scripts named by reachable code (+ their sibling imports)",
+ "entry_points": [
+  "engine/tools/production_run.mjs",
+  "engine/tools/art_outbox.mjs",
+  "engine/tools/art_bridge_check.mjs",
+  "engine/tools/art_bridge_qa.mjs",
+  "engine/tools/art_bridge_film_qa.mjs",
+  "engine/tools/build_failure_ledger.mjs",
+  "engine/tools/compile_film_contracts.mjs",
+  "engine/film/segment_render.mjs",
+  "engine/film/chrome_frames.mjs"
+ ],
+ "page_runtime": [
+  "engine/runtime/nu.js",
+  "engine/runtime/gsap.min.js",
+  "engine/art_bridge/runtime/bridge_rt.js"
+ ],
+ "production_reachable": [
+  "engine/art_bridge/approvals.mjs",
+  "engine/art_bridge/art_contract.mjs",
+  "engine/art_bridge/art_demand.mjs",
+  "engine/art_bridge/art_families.mjs",
+  "engine/art_bridge/art_intake.mjs",
+  "engine/art_bridge/art_requests.mjs",
+  "engine/art_bridge/art_review.mjs",
+  "engine/art_bridge/asset_geometry.mjs",
+  "engine/art_bridge/asset_registry.mjs",
+  "engine/art_bridge/asset_state.mjs",
+  "engine/art_bridge/candidate_store.mjs",
+  "engine/art_bridge/constraints.mjs",
+  "engine/art_bridge/contact_solver.mjs",
+  "engine/art_bridge/coverage.mjs",
+  "engine/art_bridge/deform.mjs",
+  "engine/art_bridge/errors.mjs",
+  "engine/art_bridge/gpt_handoff.mjs",
+  "engine/art_bridge/graph.mjs",
+  "engine/art_bridge/jsonschema.mjs",
+  "engine/art_bridge/lighting.mjs",
+  "engine/art_bridge/load_manifest.mjs",
+  "engine/art_bridge/math2d.mjs",
+  "engine/art_bridge/method_applicability.mjs",
+  "engine/art_bridge/method_trace.mjs",
+  "engine/art_bridge/motion_systems.mjs",
+  "engine/art_bridge/outbox_store.mjs",
+  "engine/art_bridge/png.mjs",
+  "engine/art_bridge/providers/image_provider.mjs",
+  "engine/art_bridge/registration.mjs",
+  "engine/art_bridge/registration_evidence.mjs",
+  "engine/art_bridge/render.mjs",
+  "engine/art_bridge/repair_memory.mjs",
+  "engine/art_bridge/request_stages.mjs",
+  "engine/art_bridge/reviewer_auth.mjs",
+  "engine/art_bridge/runtime/bridge_rt.js",
+  "engine/art_bridge/scene_graph.mjs",
+  "engine/art_bridge/source_method_causality.mjs",
+  "engine/art_bridge/state_router.mjs",
+  "engine/art_bridge/svg_parts.mjs",
+  "engine/art_bridge/temporal.mjs",
+  "engine/art_bridge/transitions.mjs",
+  "engine/art_bridge/witness_regions.mjs",
+  "engine/film/chrome_frames.mjs",
+  "engine/film/coverage_gate.mjs",
+  "engine/film/evidence_auth.mjs",
+  "engine/film/film_revision.mjs",
+  "engine/film/qa_layers.mjs",
+  "engine/film/segment_render.mjs",
+  "engine/production/ledger.mjs",
+  "engine/production/run_authorization.mjs",
+  "engine/production/stages.mjs",
+  "engine/runtime/gsap.min.js",
+  "engine/runtime/nu.js",
+  "engine/story/action_coverage.mjs",
+  "engine/story/continuity.mjs",
+  "engine/story/experience.mjs",
+  "engine/story/mechanism.mjs",
+  "engine/story/narration.mjs",
+  "engine/tools/art_bridge_check.mjs",
+  "engine/tools/art_bridge_film_qa.mjs",
+  "engine/tools/art_bridge_qa.mjs",
+  "engine/tools/art_outbox.mjs",
+  "engine/tools/build_failure_ledger.mjs",
+  "engine/tools/compile_film_contracts.mjs",
+  "engine/tools/production_run.mjs",
+  "reference/construct-kurzgesagt-art/scripts/compile_art_job.py",
+  "reference/construct-kurzgesagt-art/scripts/prepare_first_pass.py",
+  "reference/construct-kurzgesagt-art/scripts/repair_learning.py"
+ ],
+ "executable_not_reachable": [
+  {
+   "path": "engine/art_bridge/audio_cues.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/art_bridge/rig_binding.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/authoring/construct.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/authoring/methods.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/authoring/raster.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/authoring/rules.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/authoring/stages.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/lib/geom.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/lib/nu_lib.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/lib/rig.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/lib/scene.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/lib/style.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/bindings.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/body.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/color.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/contour.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/contracts.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/core.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/density.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/direction.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/effects.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/emit.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_face.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_hand.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_scene.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/evidence/stage1/DECISION_PLANS/mill_scene.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/face.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/faceview.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/family.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/figure.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/gears.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/grip.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/hand.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/knowledge.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/layers.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/machine.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/motion.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/network.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/optic.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/palette.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/plants.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/projection.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proof.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/contour_quality.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/gateA.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/measure_witnesses.py",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/p_character_core.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/p_character_ext.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/p_world.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/run.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/specimen1_candidates.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/specimen1_face_atlas.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/specimen1_render.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/specimen1_select.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/specimen2_motion.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/proofs/specimen2_render.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/provider.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/registry.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/render.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/repeat.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/rules.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/schematic.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/source/extract.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/states.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/status.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/subject.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/surface.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/surfaces.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/topology.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/transition.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/world.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/methods/worldgraph.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/production/inert_control.mjs",
+   "classification": "CURRENT_TOOLING_NOT_IN_PRODUCTION_PATH"
+  },
+  {
+   "path": "engine/runtime/form3d.js",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/runtime/mn.js",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/audio.py",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/audit_trace.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/build.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/build_hybrid_v2_audit.py",
+   "classification": "CURRENT_TOOLING_NOT_IN_PRODUCTION_PATH"
+  },
+  {
+   "path": "engine/tools/build_p02_audit.py",
+   "classification": "CURRENT_TOOLING_NOT_IN_PRODUCTION_PATH"
+  },
+  {
+   "path": "engine/tools/build_source_snapshot.py",
+   "classification": "CURRENT_TOOLING_NOT_IN_PRODUCTION_PATH"
+  },
+  {
+   "path": "engine/tools/build_system_correction_audit.py",
+   "classification": "CURRENT_TOOLING_NOT_IN_PRODUCTION_PATH"
+  },
+  {
+   "path": "engine/tools/control_proof.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/decision_proof.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/loop.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/mninspect.py",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/narrate.py",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "engine/tools/plan.mjs",
+   "classification": "LEGACY_OR_DISCONNECTED"
+  },
+  {
+   "path": "films/_foundation_test/assets/mn.js",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_foundation_test/assets/nu.js",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_foundation_test/cast/keeper.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_foundation_test/cast/world.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_foundation_test/scenes/room_common.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_foundation_test/scenes/sc01.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_foundation_test/scenes/sc02.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/assets/form3d.js",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/assets/mn.js",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/assets/nu.js",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/scenes/apiary.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/scenes/bkreview.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/scenes/hero.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/scenes/sheet.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/scenes/stages.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/subjects/apiary.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/subjects/beekeeper.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/subjects/engineer.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/subjects/smoker.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/subjects/turbine.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_qual_A/subjects/warden.mjs",
+   "classification": "LEGACY_V1_FILM"
+  },
+  {
+   "path": "films/_verify_neutrino/assets/nu.js",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/animatic.py",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/art_kitchen.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/art_space.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/audio.py",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/build.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/dupcheck.cjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/lib.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/mkscenes.py",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/motion.py",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_body.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_doors.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_end.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_flash.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_ice.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_kitchen.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_planet.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_source.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_space.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/scene_sun.mjs",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/_verify_neutrino/tools/timing.py",
+   "classification": "ORIGINAL_NEUTRINO_VERIFICATION_COPY"
+  },
+  {
+   "path": "films/hv2_film001/art_designs/build_designs.mjs",
+   "classification": "PRODUCTION_FILM_CONTRACTS"
+  },
+  {
+   "path": "films/hv2_film001/art_designs/ines_design.mjs",
+   "classification": "PRODUCTION_FILM_CONTRACTS"
+  },
+  {
+   "path": "films/hv2_film001/handoff/build_production_graph.mjs",
+   "classification": "PRODUCTION_FILM_CONTRACTS"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/audit_full_film_study.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/audit_source_witnesses.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/replay_native_full_hd_scan.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/summarize_native_full_hd_scan.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/test_film_art_package.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/test_first_pass_control.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/test_full_film_router.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/test_repair_learning.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/test_world_system_compiler.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/construct-kurzgesagt-art/scripts/validate_film_art_package.py",
+   "classification": "CURRENT_SKILL_TEXT"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/assets/nu.js",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/animatic.py",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/art_kitchen.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/art_space.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/audio.py",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/build.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/dupcheck.cjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/lib.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/mkscenes.py",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/motion.py",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_body.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_doors.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_end.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_flash.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_ice.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_kitchen.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_planet.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_source.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_space.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/scene_sun.mjs",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/source/tools/timing.py",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "reference/neutrino_2m_SOURCE_PACKAGE/vendor/gsap@3.15.0/gsap.min.js",
+   "classification": "ORIGINAL_NEUTRINO_REFERENCE"
+  },
+  {
+   "path": "style/build_catalog.mjs",
+   "classification": "DATA_OR_CONFIG"
+  },
+  {
+   "path": "tests/art_bridge/_dry.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/_jumps.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/_p.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/_p2.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/art_ancestry_and_registration.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/c0_reproduce_p02.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/film_revision_and_qa.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/fixtures_black_frame_renderer.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/full_contact_solver.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/ledger_rows.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/make_fixtures.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/motion_phrase.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p01_evidence.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p01_film_qa.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p01_geometry_report.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p01_probes.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p01_reaudit.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p0_audit.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/p0_roundtrip_evidence.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/repair_transfer.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/roundtrip_fixture.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/semantic_action_coverage.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/shot_continuity.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/source_method_causality.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage1.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage2.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage2_fixtures.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage2_lib.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage2_proofs.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage3_contract.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage3_contract_evidence.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage3_proofs.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/stage3_rigfit_fixture.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/story_mechanism_truth.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/system_correction_evidence.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/transition_render.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/universal_contract.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/universal_fixture.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/write_method_trace.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/write_stage1_proof.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/art_bridge/write_stage4_and_dependencies.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/canary_plan.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/ledger_rows_p02.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_auth.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_control.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_injection.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_ledger.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_portal.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_provider.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_render.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_repairs.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_scan.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/p02_trace.test.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/portal_fixture.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/production_closure.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/rehearsal_film.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/replay_audit.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/run_rehearsal.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/verify_snapshot.mjs",
+   "classification": "TEST"
+  },
+  {
+   "path": "tests/p02/write_p02_reports.mjs",
+   "classification": "TEST"
+  }
+ ],
+ "counts": {
+  "DATA_OR_CONFIG": 4,
+  "SPEC_OR_DOC": 15,
+  "CURRENT_PRODUCTION": 65,
+  "LEGACY_OR_DISCONNECTED": 421,
+  "CURRENT_TOOLING_NOT_IN_PRODUCTION_PATH": 5,
+  "LEGACY_V1_FILM": 121,
+  "ORIGINAL_NEUTRINO_VERIFICATION_COPY": 87,
+  "PRODUCTION_FILM_CONTRACTS": 26,
+  "COMPILED_ART_REQUESTS": 189,
+  "DIAGNOSTIC_EVIDENCE": 2020,
+  "CURRENT_SKILL_TEXT": 79,
+  "CURRENT_SKILL_EXECUTED": 3,
+  "ORIGINAL_NEUTRINO_REFERENCE": 109,
+  "SCHEMA": 7,
+  "TEST": 60,
+  "DIAGNOSTIC_FIXTURE": 101
+ }
+}

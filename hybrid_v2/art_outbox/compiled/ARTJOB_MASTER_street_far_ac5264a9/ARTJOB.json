@@ -1,0 +1,301 @@
+{
+ "job_id": "ARTJOB_MASTER_street_far_ac5264a9",
+ "original_content": {
+  "script_excerpt": "PROPOSED: night street with one lit laundromat shopfront among dark shops.",
+  "scene_goal": "canonical scenic_built plate: night street with one lit laundromat shopfront among dark shops; painted with overscan for camera moves",
+  "new_subjects": [
+   "night street with one lit laundromat shopfront among dark shops"
+  ],
+  "noncopy_source_content": true
+ },
+ "canvas": {
+  "aspect": "16:9",
+  "view": "eye-level, wide",
+  "scale": "full frame with declared overscan margins",
+  "focal_order": [
+   "primary read region",
+   "supporting depth"
+  ]
+ },
+ "method_bindings": [
+  {
+   "method_id": "F22",
+   "conditions": "scenic_built plate",
+   "source_witnesses": [
+    "assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "assets/conditional_native_anchors/SOLAR_04897_suited_figures.jpg"
+   ],
+   "invariant_transferred": "layered depth owners with a quiet substrate",
+   "variation_required": "new place design",
+   "observable_verification": "foreground/mid/far separable as layers"
+  },
+  {
+   "method_id": "F69",
+   "conditions": "scenic_built plate",
+   "source_witnesses": [
+    "assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "assets/conditional_native_anchors/SOLAR_04897_suited_figures.jpg"
+   ],
+   "invariant_transferred": "layered depth owners with a quiet substrate",
+   "variation_required": "new place design",
+   "observable_verification": "foreground/mid/far separable as layers"
+  },
+  {
+   "method_id": "F70",
+   "conditions": "scenic_built plate",
+   "source_witnesses": [
+    "assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "assets/conditional_native_anchors/SOLAR_04897_suited_figures.jpg"
+   ],
+   "invariant_transferred": "layered depth owners with a quiet substrate",
+   "variation_required": "new place design",
+   "observable_verification": "foreground/mid/far separable as layers"
+  }
+ ],
+ "subject_graph": [
+  {
+   "id": "street_far",
+   "family": "scenic_built",
+   "purpose": "night street with one lit laundromat shopfront among dark shops",
+   "whole_silhouette": "wide plate with a clear horizon/back wall",
+   "view_dependent_parts": [
+    "far layer",
+    "mid layer",
+    "foreground occluder"
+   ],
+   "attachment_and_contact": [
+    "floor/horizon line shared by all layers"
+   ],
+   "surface_materials": [
+    "flat painted planes"
+   ]
+  }
+ ],
+ "first_pass_control": {
+  "version": 2,
+  "viewer_proof": {
+   "what_changes": "identity only (plate)",
+   "recognition_test": "place is legible at 1/10 scale",
+   "focal_order": [
+    "focal region",
+    "depth"
+   ],
+   "camera_view": "eye level wide"
+  },
+  "references": [
+   {
+    "path": "assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region",
+    "noncopy": "no source worlds"
+   },
+   {
+    "path": "assets/conditional_native_anchors/SOLAR_04897_suited_figures.jpg",
+    "role": "STYLE_ONLY: night palette with one lit focal block",
+    "noncopy": "no figures or suits"
+   }
+  ],
+  "source_contrast": "Unlike the dense witness sheets: one place, three depth owners, large quiet regions for action",
+  "subject_specs": [
+   {
+    "subject_id": "street_far",
+    "family": "SCENIC_BUILT",
+    "shape_topology": "far plane → mid layer → foreground occluder, sharing one ground line",
+    "material_mapping": "one tone per plane plus one side plane for built forms",
+    "focal_scale_and_view": "wide, eye level",
+    "specific_negative_rendering": [
+     "no text or signage",
+     "no people",
+     "no photographic perspective blur"
+    ]
+   }
+  ],
+  "character_designs": [],
+  "palette_roles": {
+   "substrate": "dominant flat substrate per plane",
+   "focal_subject": "the action region stays lighter/clear",
+   "causal_active": "only causal elements carry the accent",
+   "supporting_shapes": "built forms one tone each",
+   "material_plane_rules": "one side plane per built form",
+   "optical_exceptions": "none"
+  },
+  "density_and_focus": {
+   "t1_major": "place structure",
+   "t2_owned_partwork": "machines/windows as owned repeats",
+   "t3_repeats_or_none": "repeats only where the place requires them",
+   "primary_read_region": "centre-right action region",
+   "quiet_support_region": "upper third"
+  },
+  "causal_frame_geometry": {
+   "named_visible_anchors": [
+    {
+     "name": "focal_region",
+     "screen_position_norm": [
+      0.6,
+      0.55
+     ],
+     "drawable_parent": "street_far",
+     "visible_mark": "clear area for action"
+    },
+    {
+     "name": "ground_line",
+     "screen_position_norm": [
+      0.5,
+      0.85
+     ],
+     "drawable_parent": "street_far",
+     "visible_mark": "floor/horizon"
+    }
+   ],
+   "essential_connections": "all layers share the ground line",
+   "frame_edge_policy": "paint overscan beyond the frame as declared",
+   "authorized_overlay_symbols": "NONE"
+  },
+  "asset_state_plan": {
+   "canonical_master": "this image",
+   "derivation_path": "mid and foreground layers as separate source-attached edits with alpha; overscan extensions as edits",
+   "motion_interfaces": [
+    "camera footprint",
+    "depth bands",
+    "transition anchors where declared"
+   ]
+  },
+  "forbidden_extras": [
+   "no copied source characters, faces, costumes, layouts or stories",
+   "no text, logos or watermarks",
+   "no extra props, people or machines beyond the subject graph"
+  ]
+ },
+ "world": {
+  "projection": "eye-level planar layers",
+  "layers": [
+   "far",
+   "mid",
+   "foreground"
+  ],
+  "focal_contrast_vs_environment": "action region left clear"
+ },
+ "lighting": {
+  "opaque_color_patches": [
+   "side planes"
+  ],
+  "optical_reflection_masks": [],
+  "emissive_connected_shapes": [
+   "lit shop window"
+  ],
+  "atmospheric_halation_only": []
+ },
+ "manufacturing": {
+  "route": "REFERENCE_GUIDED_IMAGE",
+  "source_reference_roles": [
+   "STYLE_ONLY: layered depth owners and quiet substrate around a focal region",
+   "STYLE_ONLY: night palette with one lit focal block"
+  ],
+  "canonical_asset_inputs": [
+   "NONE — this request creates the canonical master"
+  ],
+  "masks_and_layer_order": [
+   "far",
+   "mid",
+   "foreground"
+  ],
+  "seed_and_provider_config": {
+   "seed": "record if exposed"
+  },
+  "hybrid_v2_motion_context": {
+   "identity_id": "street_night",
+   "canonical_parent_asset": "street_far",
+   "shot_ids": [
+    "S05"
+   ],
+   "frame_ranges": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "required_continuity_landmarks": [
+    "shopfront"
+   ],
+   "required_joint_pivots": [],
+   "required_sockets": [],
+   "contact_type": null,
+   "alpha_requirement": "OPAQUE",
+   "hidden_surfaces_to_paint": [],
+   "near_far_order": [],
+   "camera_footprint": {
+    "camera_tracks": [
+     "cam_S05"
+    ],
+    "world_camera_footprint": [
+     0,
+     0,
+     1920,
+     1080
+    ],
+    "world_overscan_rect": [
+     -480,
+     -270,
+     2880,
+     1620
+    ],
+    "depth_band": "FAR"
+   },
+   "oversized_paint_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ],
+   "lighting_validity": null,
+   "target_motion_mode": "CAMERA_WORLD",
+   "predecessor_state_id": null,
+   "successor_state_id": [
+    "street_mid_shops",
+    "street_fg_lamp",
+    "laundromat_window_interior"
+   ],
+   "why_this_drawing_is_needed": "canonical night street with overscan for the pull-back. Required by: shot S05; action S05_street; world w_street in S05"
+  },
+  "hybrid_v2_null_reasons": {
+   "pose_id": "not bound to a pose state",
+   "expression_id": "not an expression state",
+   "required_joint_pivots": "not attached to a rig joint",
+   "required_sockets": "no socket on this state's joint",
+   "contact_type": "no contact in the action graph touches this state's joint",
+   "hidden_surfaces_to_paint": "no hidden surface declared",
+   "near_far_order": "no occlusion constraint involves this state",
+   "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+   "predecessor_state_id": "canonical master: no predecessor"
+  },
+  "hybrid_v2_registration_contract": {
+   "asset_kind": "WORLD_PLANE",
+   "pivot_landmark_id": null,
+   "planned_pivot_xy": null,
+   "joint_id": null,
+   "alpha_mode": "OPAQUE",
+   "view_id": "front",
+   "depth_band": "FAR",
+   "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+  },
+  "hybrid_v2_medium": {
+   "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+   "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+  }
+ },
+ "observable_negative_tests": [
+  "FAIL if text/signage appears",
+  "FAIL if layers cannot be separated"
+ ],
+ "uncontrolled_high_impact_decisions": [],
+ "knowledge_state": "FIRST_PASS_UNTESTED",
+ "proposal_status": "STORY_APPROVAL_PENDING",
+ "learning_context": {
+  "family": "SCENIC_BUILT",
+  "view": "front",
+  "world_class": "UNSPECIFIED",
+  "subject_id": "street_night"
+ }
+}

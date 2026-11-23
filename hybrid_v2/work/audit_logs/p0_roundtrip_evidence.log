@@ -1,0 +1,4 @@
+landmark probe on art: true gates {"manifest_valid":true,"approvals_verified":true,"no_diagnostic_assets":false,"production_ready":false} verified 13 | switch wrist err 1.14e-13 render failures 0
+landmark change → 7 stale; {"PENDING_REVIEW":1,"APPROVED":1,"INVALIDATED_MASTER_NOT_APPROVED":6}
+pixel change → 6 stale, 2 unreviewed; {"PENDING_REVIEW":1,"APPROVED":1,"INVALIDATED_MASTER_NOT_APPROVED":6}
+exit=0

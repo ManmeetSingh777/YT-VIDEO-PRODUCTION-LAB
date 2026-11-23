@@ -1,0 +1,3064 @@
+{
+ "built": "2026-11-21T15:18:09.205Z",
+ "qa": "",
+ "entries": [
+  {
+   "subject": "beekeeper",
+   "method": "F01",
+   "status": "CODE_EMITTED",
+   "condition": "Recognizable purpose-specific silhouette in its actual view; structural masses split only at real connections; overlap order before detail; subpart contours follow the gesture; 1/10-size test.",
+   "decisions": [
+    "silhouette.outer",
+    "silhouette.view",
+    "silhouette.identityFeatures"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "veil_f",
+     "element": "rv-c-veil_f",
+     "built": true
+    },
+    {
+     "id": "torso_f",
+     "element": "rv-c-torso_f",
+     "built": true
+    },
+    {
+     "id": "legB_f",
+     "element": "rv-c-legB_f",
+     "built": true
+    },
+    {
+     "id": "legF_f",
+     "element": "rv-c-legF_f",
+     "built": true
+    },
+    {
+     "id": "head_f",
+     "element": "rv-c-head_f",
+     "built": true
+    },
+    {
+     "id": "armF_f",
+     "element": "rv-c-armF_f",
+     "built": true
+    },
+    {
+     "id": "gloveF_f",
+     "element": "rv-c-gloveF_f",
+     "built": true
+    },
+    {
+     "id": "bootB_f",
+     "element": "rv-c-bootB_f",
+     "built": true
+    },
+    {
+     "id": "bootF_f",
+     "element": "rv-c-bootF_f",
+     "built": true
+    },
+    {
+     "id": "dome_f",
+     "element": "rv-c-dome_f",
+     "built": true
+    },
+    {
+     "id": "brim_f",
+     "element": "rv-c-brim_f",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F02",
+   "status": "CODE_EMITTED",
+   "condition": "Forms are colored surfaces",
+   "decisions": [
+    "materials"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "veil_f",
+     "element": "rv-c-veil_f",
+     "built": true
+    },
+    {
+     "id": "veil_shade0",
+     "element": "rv-c-veil_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_f",
+     "element": "rv-c-torso_f",
+     "built": true
+    },
+    {
+     "id": "legB_f",
+     "element": "rv-c-legB_f",
+     "built": true
+    },
+    {
+     "id": "legF_f",
+     "element": "rv-c-legF_f",
+     "built": true
+    },
+    {
+     "id": "head_f",
+     "element": "rv-c-head_f",
+     "built": true
+    },
+    {
+     "id": "armF_f",
+     "element": "rv-c-armF_f",
+     "built": true
+    },
+    {
+     "id": "gloveF_f",
+     "element": "rv-c-gloveF_f",
+     "built": true
+    },
+    {
+     "id": "torso_shade0",
+     "element": "rv-c-torso_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_light1",
+     "element": "rv-c-torso_light1",
+     "built": true
+    },
+    {
+     "id": "legB_shade0",
+     "element": "rv-c-legB_shade0",
+     "built": true
+    },
+    {
+     "id": "legF_shade0",
+     "element": "rv-c-legF_shade0",
+     "built": true
+    },
+    {
+     "id": "head_shade1",
+     "element": "rv-c-head_shade1",
+     "built": true
+    },
+    {
+     "id": "armF_shade0",
+     "element": "rv-c-armF_shade0",
+     "built": true
+    },
+    {
+     "id": "gloveF_shade0",
+     "element": "rv-c-gloveF_shade0",
+     "built": true
+    },
+    {
+     "id": "bootB_f",
+     "element": "rv-c-bootB_f",
+     "built": true
+    },
+    {
+     "id": "bootF_f",
+     "element": "rv-c-bootF_f",
+     "built": true
+    },
+    {
+     "id": "dome_f",
+     "element": "rv-c-dome_f",
+     "built": true
+    },
+    {
+     "id": "bootF_light0",
+     "element": "rv-c-bootF_light0",
+     "built": true
+    },
+    {
+     "id": "dome_shade0",
+     "element": "rv-c-dome_shade0",
+     "built": true
+    },
+    {
+     "id": "dome_light1",
+     "element": "rv-c-dome_light1",
+     "built": true
+    },
+    {
+     "id": "brim_f",
+     "element": "rv-c-brim_f",
+     "built": true
+    },
+    {
+     "id": "brim_shade0",
+     "element": "rv-c-brim_shade0",
+     "built": true
+    },
+    {
+     "id": "cheek",
+     "element": "rv-c-cheek",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F03",
+   "status": "CODE_EMITTED",
+   "condition": "Conditional color-role solver",
+   "decisions": [
+    "palette.support",
+    "palette.garment.bootF",
+    "palette.garment.bootB",
+    "palette.garment.bootB.far",
+    "palette.roles",
+    "palette.focalPair"
+   ],
+   "decision_consumers": [
+    "paletteRoles:palette"
+   ],
+   "operators": [
+    "paletteRoles"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F04",
+   "status": "CODE_EMITTED",
+   "condition": "Four lighting systems",
+   "decisions": [
+    "lighting.system"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "veil_shade0",
+     "element": "rv-c-veil_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_shade0",
+     "element": "rv-c-torso_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_light1",
+     "element": "rv-c-torso_light1",
+     "built": true
+    },
+    {
+     "id": "legB_shade0",
+     "element": "rv-c-legB_shade0",
+     "built": true
+    },
+    {
+     "id": "legF_shade0",
+     "element": "rv-c-legF_shade0",
+     "built": true
+    },
+    {
+     "id": "head_cast0",
+     "element": "rv-c-head_cast0",
+     "built": true
+    },
+    {
+     "id": "head_shade1",
+     "element": "rv-c-head_shade1",
+     "built": true
+    },
+    {
+     "id": "armF_shade0",
+     "element": "rv-c-armF_shade0",
+     "built": true
+    },
+    {
+     "id": "gloveF_shade0",
+     "element": "rv-c-gloveF_shade0",
+     "built": true
+    },
+    {
+     "id": "bootF_light0",
+     "element": "rv-c-bootF_light0",
+     "built": true
+    },
+    {
+     "id": "dome_shade0",
+     "element": "rv-c-dome_shade0",
+     "built": true
+    },
+    {
+     "id": "dome_light1",
+     "element": "rv-c-dome_light1",
+     "built": true
+    },
+    {
+     "id": "brim_shade0",
+     "element": "rv-c-brim_shade0",
+     "built": true
+    },
+    {
+     "id": "fingersS",
+     "element": "rv-c-fingersS",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F05",
+   "status": "CODE_EMITTED",
+   "condition": "Head built in order",
+   "decisions": [
+    "head.skull",
+    "head.hairMass",
+    "head.facePlane",
+    "head.eyeSystem",
+    "head.expressionStates",
+    "face.frame"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "attachRegion",
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "bangs",
+     "element": "rv-c-bangs",
+     "built": true
+    },
+    {
+     "id": "lock",
+     "element": "rv-c-lock",
+     "built": true
+    },
+    {
+     "id": "cheek",
+     "element": "rv-c-cheek",
+     "built": true
+    },
+    {
+     "id": "ear",
+     "element": "rv-c-ear",
+     "built": true
+    },
+    {
+     "id": "eye_near_mark",
+     "element": "rv-c-eye_near_mark",
+     "built": true
+    },
+    {
+     "id": "eye_far_mark",
+     "element": "rv-c-eye_far_mark",
+     "built": true
+    },
+    {
+     "id": "browN",
+     "element": "rv-c-browN",
+     "built": true
+    },
+    {
+     "id": "browF",
+     "element": "rv-c-browF",
+     "built": true
+    },
+    {
+     "id": "mouth",
+     "element": "rv-c-mouth",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F06",
+   "status": "CODE_EMITTED",
+   "condition": "Whole gesture+support first; pose-specific garment silhouette; task-specific hand art (reach/pinch/hook/grip); contact graph actor.hand→prop.handle with near/far occlusion; alternate drawings for significant change.",
+   "decisions": [
+    "contacts",
+    "contacts.geometry",
+    "body.gesture",
+    "body.support"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "contactLayering"
+   ],
+   "regions": [
+    {
+     "id": "fingers",
+     "element": "rv-c-fingers",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F07",
+   "status": "NOT_APPLICABLE",
+   "condition": "humans (F05/F06)",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F08",
+   "status": "NOT_APPLICABLE",
+   "condition": "flat diagram fields (BRAIN@150); natural worlds without architecture",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F09",
+   "status": "NOT_APPLICABLE",
+   "condition": "abstract schematics",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F10",
+   "status": "NOT_APPLICABLE",
+   "condition": "abstract stage with intentional emptiness",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F11",
+   "status": "NOT_APPLICABLE",
+   "condition": "interiors (no forced foliage frame)",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F12",
+   "status": "NOT_APPLICABLE",
+   "condition": "built/scenic worlds",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F13",
+   "status": "NOT_APPLICABLE",
+   "condition": "objects with no glass/emission",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F14",
+   "status": "CODE_EMITTED",
+   "condition": "State table per changing object",
+   "decisions": [
+    "states"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind",
+    "drawnState"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F15",
+   "status": "CODE_EMITTED",
+   "condition": "Exactly one primary motion owner per region (CAMERA/WORLD/SUBJECT_RIGID/SUBJECT_PART/REDRAWN_STATE/MATERIAL_LIGHT/MASK/EFFECT/UI); simultaneous tracks; purposeful stillness.",
+   "decisions": [
+    "motion.owners"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F16",
+   "status": "NOT_APPLICABLE",
+   "condition": "within-shot action",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F17",
+   "status": "PROVIDER_REPLACED",
+   "condition": "rendered hero frames from the production scene, inspected at native + 160×90",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F18",
+   "status": "RESEARCH_REQUIRED",
+   "condition": "Coverage states DECODED/VIEWED/NATIVE_INSPECTED/METHOD_MAPPED/OUTPUT_TESTED are separate; never claim inspection from frame counts.",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F19",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Production medium is conditional (vector / pixel illustration / infographic / selective 3D / hybrid) per visual demand.",
+   "decisions": [
+    "medium"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F20",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F21",
+   "status": "NOT_APPLICABLE",
+   "condition": "no viewport",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F22",
+   "status": "NOT_APPLICABLE",
+   "condition": "single lighting state",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F23",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F24",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F25",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F26",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F27",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F28",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F29",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F30",
+   "status": "CODE_EMITTED",
+   "condition": "Multi-state character library before animation",
+   "decisions": [
+    "identity.canonical",
+    "states",
+    "identity.views"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind",
+    "drawnState"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F31",
+   "status": "CODE_EMITTED",
+   "condition": "Owner-specific key states",
+   "decisions": [
+    "motion.keys"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F32",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F33",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Density by view depth/task",
+   "decisions": [
+    "detail.owner"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F34",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F35",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F36",
+   "status": "PROVIDER_REPLACED",
+   "condition": "EPISODE.json → plan.mjs cues + per-subject ICD validated by icd.mjs; build fails closed",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F37",
+   "status": "NOT_APPLICABLE",
+   "condition": "abstract fields need no scenic horizon",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F38",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F39",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F40",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F41",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F42",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F43",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F44",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F45",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F46",
+   "status": "CODE_EMITTED",
+   "condition": "Per-material table",
+   "decisions": [
+    "materials"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "veil_shade0",
+     "element": "rv-c-veil_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_shade0",
+     "element": "rv-c-torso_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_light1",
+     "element": "rv-c-torso_light1",
+     "built": true
+    },
+    {
+     "id": "legB_shade0",
+     "element": "rv-c-legB_shade0",
+     "built": true
+    },
+    {
+     "id": "legF_shade0",
+     "element": "rv-c-legF_shade0",
+     "built": true
+    },
+    {
+     "id": "head_shade1",
+     "element": "rv-c-head_shade1",
+     "built": true
+    },
+    {
+     "id": "armF_shade0",
+     "element": "rv-c-armF_shade0",
+     "built": true
+    },
+    {
+     "id": "gloveF_shade0",
+     "element": "rv-c-gloveF_shade0",
+     "built": true
+    },
+    {
+     "id": "bootF_light0",
+     "element": "rv-c-bootF_light0",
+     "built": true
+    },
+    {
+     "id": "dome_shade0",
+     "element": "rv-c-dome_shade0",
+     "built": true
+    },
+    {
+     "id": "dome_light1",
+     "element": "rv-c-dome_light1",
+     "built": true
+    },
+    {
+     "id": "brim_shade0",
+     "element": "rv-c-brim_shade0",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F47",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Detail tiers T0 skeleton / T1 modules / T2 parent-bound features / T3 state marks; marks need parent+function; erase-tier test.",
+   "decisions": [
+    "detail.tiers"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F48",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F49",
+   "status": "PROVIDER_REPLACED",
+   "condition": "icd.mjs validation fails closed on missing world/topology/regions",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F50",
+   "status": "RESEARCH_REQUIRED",
+   "condition": "Adversarial unfamiliar-world transfer tests; no certification by resemblance.",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F51",
+   "status": "CODE_EMITTED",
+   "condition": "Palette = role map (substrate, far/mid support, focal, causal-active, local inset, optic) + contiguous parent-owned base fills + chosen contrast relationship.",
+   "decisions": [
+    "palette.roles"
+   ],
+   "decision_consumers": [
+    "paletteRoles:palette"
+   ],
+   "operators": [
+    "paletteRoles"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F52",
+   "status": "CODE_EMITTED",
+   "condition": "Mark count from screen role and size",
+   "decisions": [
+    "face.headPx",
+    "face.eyeMode",
+    "face.roleBySize"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "attachRegion",
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "bangs",
+     "element": "rv-c-bangs",
+     "built": true
+    },
+    {
+     "id": "lock",
+     "element": "rv-c-lock",
+     "built": true
+    },
+    {
+     "id": "eye_near_mark",
+     "element": "rv-c-eye_near_mark",
+     "built": true
+    },
+    {
+     "id": "eye_far_mark",
+     "element": "rv-c-eye_far_mark",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F53",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Density caused by explanatory material",
+   "decisions": [
+    "detail.tiers"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F54",
+   "status": "CODE_EMITTED",
+   "condition": "Repeats from a parent-owned generator in local frame with count/size/exclusion rules; zero repeats can be correct.",
+   "decisions": [
+    "repeats.parent"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "repeatedOwnedModule"
+   ],
+   "regions": [
+    {
+     "id": "veilMesh",
+     "element": "rv-c-veilMesh",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F55",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F56",
+   "status": "PROVIDER_REPLACED",
+   "condition": "ICD geometry is authored before render; first render inspected; repair edits the producing operation",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F57",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F58",
+   "status": "CODE_EMITTED",
+   "condition": "Closed parent regions (outer, front/back mass, cutout voids, supports) with identity-bearing negative spaces; small-size read; derived small forms collapse marks.",
+   "decisions": [
+    "silhouette.outer",
+    "silhouette.voids",
+    "silhouette.smallRead"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "veil_f",
+     "element": "rv-c-veil_f",
+     "built": true
+    },
+    {
+     "id": "torso_f",
+     "element": "rv-c-torso_f",
+     "built": true
+    },
+    {
+     "id": "legB_f",
+     "element": "rv-c-legB_f",
+     "built": true
+    },
+    {
+     "id": "legF_f",
+     "element": "rv-c-legF_f",
+     "built": true
+    },
+    {
+     "id": "head_f",
+     "element": "rv-c-head_f",
+     "built": true
+    },
+    {
+     "id": "armF_f",
+     "element": "rv-c-armF_f",
+     "built": true
+    },
+    {
+     "id": "gloveF_f",
+     "element": "rv-c-gloveF_f",
+     "built": true
+    },
+    {
+     "id": "bootB_f",
+     "element": "rv-c-bootB_f",
+     "built": true
+    },
+    {
+     "id": "bootF_f",
+     "element": "rv-c-bootF_f",
+     "built": true
+    },
+    {
+     "id": "dome_f",
+     "element": "rv-c-dome_f",
+     "built": true
+    },
+    {
+     "id": "brim_f",
+     "element": "rv-c-brim_f",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F59",
+   "status": "CODE_EMITTED",
+   "condition": "Part DAG with insertion depth/in_front_of/hidden_when; joints with overlap masks; near fingers in front of prop, prop midplane, far fingers behind.",
+   "decisions": [
+    "parts",
+    "contacts"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "contactLayering"
+   ],
+   "regions": [
+    {
+     "id": "veil_f",
+     "element": "rv-c-veil_f",
+     "built": true
+    },
+    {
+     "id": "torso_f",
+     "element": "rv-c-torso_f",
+     "built": true
+    },
+    {
+     "id": "legB_f",
+     "element": "rv-c-legB_f",
+     "built": true
+    },
+    {
+     "id": "legF_f",
+     "element": "rv-c-legF_f",
+     "built": true
+    },
+    {
+     "id": "head_f",
+     "element": "rv-c-head_f",
+     "built": true
+    },
+    {
+     "id": "armF_f",
+     "element": "rv-c-armF_f",
+     "built": true
+    },
+    {
+     "id": "gloveF_f",
+     "element": "rv-c-gloveF_f",
+     "built": true
+    },
+    {
+     "id": "bootB_f",
+     "element": "rv-c-bootB_f",
+     "built": true
+    },
+    {
+     "id": "bootF_f",
+     "element": "rv-c-bootF_f",
+     "built": true
+    },
+    {
+     "id": "dome_f",
+     "element": "rv-c-dome_f",
+     "built": true
+    },
+    {
+     "id": "brim_f",
+     "element": "rv-c-brim_f",
+     "built": true
+    },
+    {
+     "id": "fingers",
+     "element": "rv-c-fingers",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F60",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F61",
+   "status": "CODE_EMITTED",
+   "condition": "Palette slots assigned after silhouette owners/neighbors; record luminance/hue/edge discrimination per adjacent pair.",
+   "decisions": [
+    "palette.garmentLift",
+    "palette.roles",
+    "palette.pairs"
+   ],
+   "decision_consumers": [
+    "paletteRoles:palette"
+   ],
+   "operators": [
+    "paletteRoles"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F62",
+   "status": "CODE_EMITTED",
+   "condition": "Edge roles per owner (COLOR_ADJACENCY, MATERIAL_SEAM, CAST_SHADOW, INTERNAL_CREASE, OPTICAL_RIM, EMISSIVE_EDGE); cast shadows on named receivers; patches by surface turning.",
+   "decisions": [
+    "edges"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch",
+    "edgeRole",
+    "repeatedOwnedModule"
+   ],
+   "regions": [
+    {
+     "id": "veil_shade0",
+     "element": "rv-c-veil_shade0",
+     "built": true
+    },
+    {
+     "id": "veil_e0",
+     "element": "rv-c-veil_e0",
+     "built": true
+    },
+    {
+     "id": "veil_e1",
+     "element": "rv-c-veil_e1",
+     "built": true
+    },
+    {
+     "id": "veilMesh",
+     "element": "rv-c-veilMesh",
+     "built": true
+    },
+    {
+     "id": "torso_shade0",
+     "element": "rv-c-torso_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_light1",
+     "element": "rv-c-torso_light1",
+     "built": true
+    },
+    {
+     "id": "legB_shade0",
+     "element": "rv-c-legB_shade0",
+     "built": true
+    },
+    {
+     "id": "legF_shade0",
+     "element": "rv-c-legF_shade0",
+     "built": true
+    },
+    {
+     "id": "head_cast0",
+     "element": "rv-c-head_cast0",
+     "built": true
+    },
+    {
+     "id": "head_shade1",
+     "element": "rv-c-head_shade1",
+     "built": true
+    },
+    {
+     "id": "armF_shade0",
+     "element": "rv-c-armF_shade0",
+     "built": true
+    },
+    {
+     "id": "gloveF_shade0",
+     "element": "rv-c-gloveF_shade0",
+     "built": true
+    },
+    {
+     "id": "torso_e0",
+     "element": "rv-c-torso_e0",
+     "built": true
+    },
+    {
+     "id": "torso_e1",
+     "element": "rv-c-torso_e1",
+     "built": true
+    },
+    {
+     "id": "legF_e0",
+     "element": "rv-c-legF_e0",
+     "built": true
+    },
+    {
+     "id": "bootF_light0",
+     "element": "rv-c-bootF_light0",
+     "built": true
+    },
+    {
+     "id": "dome_shade0",
+     "element": "rv-c-dome_shade0",
+     "built": true
+    },
+    {
+     "id": "dome_light1",
+     "element": "rv-c-dome_light1",
+     "built": true
+    },
+    {
+     "id": "dome_e0",
+     "element": "rv-c-dome_e0",
+     "built": true
+    },
+    {
+     "id": "brim_shade0",
+     "element": "rv-c-brim_shade0",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F63",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F64",
+   "status": "CODE_EMITTED",
+   "condition": "Identity routed by family (ACTING_FACE, GESTURE_FULL_BODY, REAR, DISTANT, ORGANISM, MASCOT, GEAR) with canonical identity record.",
+   "decisions": [
+    "identity.family",
+    "identity.canonical"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "veil_f",
+     "element": "rv-c-veil_f",
+     "built": true
+    },
+    {
+     "id": "torso_f",
+     "element": "rv-c-torso_f",
+     "built": true
+    },
+    {
+     "id": "legB_f",
+     "element": "rv-c-legB_f",
+     "built": true
+    },
+    {
+     "id": "legF_f",
+     "element": "rv-c-legF_f",
+     "built": true
+    },
+    {
+     "id": "head_f",
+     "element": "rv-c-head_f",
+     "built": true
+    },
+    {
+     "id": "armF_f",
+     "element": "rv-c-armF_f",
+     "built": true
+    },
+    {
+     "id": "gloveF_f",
+     "element": "rv-c-gloveF_f",
+     "built": true
+    },
+    {
+     "id": "bootB_f",
+     "element": "rv-c-bootB_f",
+     "built": true
+    },
+    {
+     "id": "bootF_f",
+     "element": "rv-c-bootF_f",
+     "built": true
+    },
+    {
+     "id": "dome_f",
+     "element": "rv-c-dome_f",
+     "built": true
+    },
+    {
+     "id": "brim_f",
+     "element": "rv-c-brim_f",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F65",
+   "status": "CODE_EMITTED",
+   "condition": "face_eye_mode chosen AFTER projected head size and emotional function",
+   "decisions": [
+    "face.headPx",
+    "face.eyeMode",
+    "face.frame"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "eye_near_mark",
+     "element": "rv-c-eye_near_mark",
+     "built": true
+    },
+    {
+     "id": "eye_far_mark",
+     "element": "rv-c-eye_far_mark",
+     "built": true
+    },
+    {
+     "id": "browN",
+     "element": "rv-c-browN",
+     "built": true
+    },
+    {
+     "id": "browF",
+     "element": "rv-c-browF",
+     "built": true
+    },
+    {
+     "id": "mouth",
+     "element": "rv-c-mouth",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F66",
+   "status": "CODE_EMITTED",
+   "condition": "Pelvis, shoulder axis, support foot, hand targets; arm segment seams hidden under sleeve/hand shapes; garments as large contours with collar/cuffs/hem; distinct views need drawings.",
+   "decisions": [
+    "body.support",
+    "body.garments"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F67",
+   "status": "CODE_EMITTED",
+   "condition": "Registered state family",
+   "decisions": [
+    "landmarks"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "drawnState"
+   ],
+   "regions": [
+    {
+     "id": "mouth",
+     "element": "rv-c-mouth",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F68",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F69",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F70",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F71",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F72",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F73",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F74",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F75",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F76",
+   "status": "CODE_EMITTED",
+   "condition": "Repeat generator spec",
+   "decisions": [
+    "repeats.parent"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "repeatedOwnedModule"
+   ],
+   "regions": [
+    {
+     "id": "veilMesh",
+     "element": "rv-c-veilMesh",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F77",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F78",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F79",
+   "status": "CODE_EMITTED",
+   "condition": "Own alpha/underpaint/overscan",
+   "decisions": [
+    "layers.underpaint"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "beekeeper",
+   "method": "F80",
+   "status": "PROVIDER_REPLACED",
+   "condition": "the first construction must consume routed decisions (with witness ids) as INPUTS to the geometry functions; the build verifies each routed method's ops executed on its bound regions before the first render",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F01",
+   "status": "CODE_EMITTED",
+   "condition": "Recognizable purpose-specific silhouette in its actual view; structural masses split only at real connections; overlap order before detail; subpart contours follow the gesture; 1/10-size test.",
+   "decisions": [
+    "silhouette.outer",
+    "silhouette.view",
+    "silhouette.identityFeatures"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "can",
+     "element": "rv-sm-can",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F02",
+   "status": "CODE_EMITTED",
+   "condition": "Forms are colored surfaces",
+   "decisions": [
+    "materials"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "canS",
+     "element": "rv-sm-canS",
+     "built": true
+    },
+    {
+     "id": "canL",
+     "element": "rv-sm-canL",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F03",
+   "status": "CODE_EMITTED",
+   "condition": "Conditional color-role solver",
+   "decisions": [
+    "palette.roles",
+    "palette.focalPair"
+   ],
+   "decision_consumers": [
+    "paletteRoles:palette"
+   ],
+   "operators": [
+    "paletteRoles"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F04",
+   "status": "CODE_EMITTED",
+   "condition": "Four lighting systems",
+   "decisions": [
+    "lighting.system"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "canS",
+     "element": "rv-sm-canS",
+     "built": true
+    },
+    {
+     "id": "canL",
+     "element": "rv-sm-canL",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F05",
+   "status": "NOT_APPLICABLE",
+   "condition": "rear/occluded head (no invented face); distant population collapses features",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F06",
+   "status": "NOT_APPLICABLE",
+   "condition": "no contact in the beat → contact graph empty but declared",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F07",
+   "status": "NOT_APPLICABLE",
+   "condition": "humans (F05/F06)",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F08",
+   "status": "NOT_APPLICABLE",
+   "condition": "flat diagram fields (BRAIN@150); natural worlds without architecture",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F09",
+   "status": "CODE_EMITTED",
+   "condition": "Machines from a mechanical dependency graph",
+   "decisions": [
+    "machine.truthTable",
+    "machine.partGraph"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "recess",
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "can",
+     "element": "rv-sm-can",
+     "built": true
+    },
+    {
+     "id": "vent",
+     "element": "rv-sm-vent",
+     "built": true
+    },
+    {
+     "id": "ventWall",
+     "element": "rv-sm-ventWall",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F10",
+   "status": "NOT_APPLICABLE",
+   "condition": "abstract stage with intentional emptiness",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F11",
+   "status": "NOT_APPLICABLE",
+   "condition": "interiors (no forced foliage frame)",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F12",
+   "status": "NOT_APPLICABLE",
+   "condition": "built/scenic worlds",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F13",
+   "status": "NOT_APPLICABLE",
+   "condition": "objects with no glass/emission",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F14",
+   "status": "CODE_EMITTED",
+   "condition": "State table per changing object",
+   "decisions": [
+    "states"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "drawnState"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F15",
+   "status": "CODE_EMITTED",
+   "condition": "Exactly one primary motion owner per region (CAMERA/WORLD/SUBJECT_RIGID/SUBJECT_PART/REDRAWN_STATE/MATERIAL_LIGHT/MASK/EFFECT/UI); simultaneous tracks; purposeful stillness.",
+   "decisions": [
+    "motion.owners"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F16",
+   "status": "NOT_APPLICABLE",
+   "condition": "within-shot action",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F17",
+   "status": "PROVIDER_REPLACED",
+   "condition": "rendered hero frames from the production scene, inspected at native + 160×90",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F18",
+   "status": "RESEARCH_REQUIRED",
+   "condition": "Coverage states DECODED/VIEWED/NATIVE_INSPECTED/METHOD_MAPPED/OUTPUT_TESTED are separate; never claim inspection from frame counts.",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F19",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Production medium is conditional (vector / pixel illustration / infographic / selective 3D / hybrid) per visual demand.",
+   "decisions": [
+    "medium"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F20",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F21",
+   "status": "NOT_APPLICABLE",
+   "condition": "no viewport",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F22",
+   "status": "NOT_APPLICABLE",
+   "condition": "single lighting state",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F23",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F24",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F25",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F26",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F27",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F28",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F29",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F30",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F31",
+   "status": "CODE_EMITTED",
+   "condition": "Owner-specific key states",
+   "decisions": [
+    "motion.keys"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F32",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F33",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Density by view depth/task",
+   "decisions": [
+    "detail.owner"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F34",
+   "status": "CODE_EMITTED",
+   "condition": "Generators by physical family (foliage, rock, architecture, machine, ocean/space, biological macro).",
+   "decisions": [
+    "generator.family"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "repeatedOwnedModule"
+   ],
+   "regions": [
+    {
+     "id": "can",
+     "element": "rv-sm-can",
+     "built": true
+    },
+    {
+     "id": "rivets",
+     "element": "rv-sm-rivets",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F35",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F36",
+   "status": "PROVIDER_REPLACED",
+   "condition": "EPISODE.json → plan.mjs cues + per-subject ICD validated by icd.mjs; build fails closed",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F37",
+   "status": "NOT_APPLICABLE",
+   "condition": "abstract fields need no scenic horizon",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F38",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F39",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F40",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F41",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F42",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F43",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F44",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F45",
+   "status": "CODE_EMITTED",
+   "condition": "Machines/corridors by functional topology",
+   "decisions": [
+    "machine.truthTable",
+    "machine.assemblies"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "recess",
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "can",
+     "element": "rv-sm-can",
+     "built": true
+    },
+    {
+     "id": "vent",
+     "element": "rv-sm-vent",
+     "built": true
+    },
+    {
+     "id": "ventWall",
+     "element": "rv-sm-ventWall",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F46",
+   "status": "CODE_EMITTED",
+   "condition": "Per-material table",
+   "decisions": [
+    "materials"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "canS",
+     "element": "rv-sm-canS",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F47",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Detail tiers T0 skeleton / T1 modules / T2 parent-bound features / T3 state marks; marks need parent+function; erase-tier test.",
+   "decisions": [
+    "detail.tiers"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F48",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F49",
+   "status": "PROVIDER_REPLACED",
+   "condition": "icd.mjs validation fails closed on missing world/topology/regions",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F50",
+   "status": "RESEARCH_REQUIRED",
+   "condition": "Adversarial unfamiliar-world transfer tests; no certification by resemblance.",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F51",
+   "status": "CODE_EMITTED",
+   "condition": "Palette = role map (substrate, far/mid support, focal, causal-active, local inset, optic) + contiguous parent-owned base fills + chosen contrast relationship.",
+   "decisions": [
+    "palette.roles"
+   ],
+   "decision_consumers": [
+    "paletteRoles:palette"
+   ],
+   "operators": [
+    "paletteRoles"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F52",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F53",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Density caused by explanatory material",
+   "decisions": [
+    "detail.tiers"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F54",
+   "status": "CODE_EMITTED",
+   "condition": "Repeats from a parent-owned generator in local frame with count/size/exclusion rules; zero repeats can be correct.",
+   "decisions": [
+    "repeats.parent"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "repeatedOwnedModule"
+   ],
+   "regions": [
+    {
+     "id": "rivets",
+     "element": "rv-sm-rivets",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F55",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F56",
+   "status": "PROVIDER_REPLACED",
+   "condition": "ICD geometry is authored before render; first render inspected; repair edits the producing operation",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F57",
+   "status": "DESIGN_SPECIFIED",
+   "condition": "Visible causal proof first",
+   "decisions": [
+    "proof.silent",
+    "proof.anchors"
+   ],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F58",
+   "status": "CODE_EMITTED",
+   "condition": "Closed parent regions (outer, front/back mass, cutout voids, supports) with identity-bearing negative spaces; small-size read; derived small forms collapse marks.",
+   "decisions": [
+    "silhouette.outer",
+    "silhouette.voids",
+    "silhouette.smallRead"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "leather",
+     "element": "rv-sm-leather",
+     "built": true
+    },
+    {
+     "id": "can",
+     "element": "rv-sm-can",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F59",
+   "status": "CODE_EMITTED",
+   "condition": "Part DAG with insertion depth/in_front_of/hidden_when; joints with overlap masks; near fingers in front of prop, prop midplane, far fingers behind.",
+   "decisions": [
+    "parts"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "attachRegion",
+    "authorContour"
+   ],
+   "regions": [
+    {
+     "id": "upperBoard",
+     "element": "rv-sm-upperBoard",
+     "built": true
+    },
+    {
+     "id": "board",
+     "element": "rv-sm-board",
+     "built": true
+    },
+    {
+     "id": "spout",
+     "element": "rv-sm-spout",
+     "built": true
+    },
+    {
+     "id": "lid",
+     "element": "rv-sm-lid",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F60",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F61",
+   "status": "CODE_EMITTED",
+   "condition": "Palette slots assigned after silhouette owners/neighbors; record luminance/hue/edge discrimination per adjacent pair.",
+   "decisions": [
+    "palette.roles",
+    "palette.pairs"
+   ],
+   "decision_consumers": [
+    "paletteRoles:palette"
+   ],
+   "operators": [
+    "paletteRoles"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F62",
+   "status": "CODE_EMITTED",
+   "condition": "Edge roles per owner (COLOR_ADJACENCY, MATERIAL_SEAM, CAST_SHADOW, INTERNAL_CREASE, OPTICAL_RIM, EMISSIVE_EDGE); cast shadows on named receivers; patches by surface turning.",
+   "decisions": [
+    "edges"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "materialPatch"
+   ],
+   "regions": [
+    {
+     "id": "canS",
+     "element": "rv-sm-canS",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F63",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F64",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F65",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F66",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F67",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F68",
+   "status": "CODE_EMITTED",
+   "condition": "Machines",
+   "decisions": [
+    "machine.truthTable",
+    "machine.surfacePolicy",
+    "machine.sockets"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "authorContour",
+    "recess",
+    "materialPatch",
+    "repeatedOwnedModule",
+    "attachRegion"
+   ],
+   "regions": [
+    {
+     "id": "upperBoard",
+     "element": "rv-sm-upperBoard",
+     "built": true
+    },
+    {
+     "id": "leather",
+     "element": "rv-sm-leather",
+     "built": true
+    },
+    {
+     "id": "board",
+     "element": "rv-sm-board",
+     "built": true
+    },
+    {
+     "id": "can",
+     "element": "rv-sm-can",
+     "built": true
+    },
+    {
+     "id": "vent",
+     "element": "rv-sm-vent",
+     "built": true
+    },
+    {
+     "id": "ventWall",
+     "element": "rv-sm-ventWall",
+     "built": true
+    },
+    {
+     "id": "rivets",
+     "element": "rv-sm-rivets",
+     "built": true
+    },
+    {
+     "id": "spout",
+     "element": "rv-sm-spout",
+     "built": true
+    },
+    {
+     "id": "lid",
+     "element": "rv-sm-lid",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F69",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F70",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F71",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F72",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F73",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F74",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F75",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F76",
+   "status": "CODE_EMITTED",
+   "condition": "Repeat generator spec",
+   "decisions": [
+    "repeats.parent"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "repeatedOwnedModule"
+   ],
+   "regions": [
+    {
+     "id": "rivets",
+     "element": "rv-sm-rivets",
+     "built": true
+    }
+   ],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F77",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F78",
+   "status": "NOT_APPLICABLE",
+   "condition": "condition false for this subject",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F79",
+   "status": "CODE_EMITTED",
+   "condition": "Own alpha/underpaint/overscan",
+   "decisions": [
+    "layers.underpaint"
+   ],
+   "decision_consumers": [],
+   "operators": [
+    "rigBind"
+   ],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  },
+  {
+   "subject": "smoker",
+   "method": "F80",
+   "status": "PROVIDER_REPLACED",
+   "condition": "the first construction must consume routed decisions (with witness ids) as INPUTS to the geometry functions; the build verifies each routed method's ops executed on its bound regions before the first render",
+   "decisions": [],
+   "decision_consumers": [],
+   "operators": [],
+   "regions": [],
+   "evidence": [],
+   "lessons_applied": []
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "chain": {
+  "ok": true,
+  "events": 196,
+  "head_sha256": "e7b7a0201bfd50f0e0de499b6e84a660631f305450358426bf8469ef40fe2004",
+  "problems": []
+ },
+ "handoffs": [
+  {
+   "stage": "S00_IDEA",
+   "ok": true
+  },
+  {
+   "stage": "S01_STORY",
+   "ok": true
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "ok": true
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "ok": true
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "ok": true
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "ok": true
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "ok": true
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "ok": false,
+   "reason": "output render/chunks/9acf6661ac857cd3/chunk_00000_00600.mkv: MISSING_ART_ASSET: store object c3882b6fffbf48ed0fd2d4608e2705b2fc9d5714f8f8e6e2158c5646ea11e3a6 missing"
+  }
+ ],
+ "ok": false
+}

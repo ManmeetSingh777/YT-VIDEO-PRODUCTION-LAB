@@ -1,0 +1,198 @@
+REVISION 094a1d07f338e04199e75fe9f8306d3490776636 — engine at the audited Stage-3 state (no engine diffs); new test files only
+TAP version 13
+# Subtest: S3C-1 method fidelity: the audited Ines brief (F64 bound as hand construction, F05/F52 mislabelled) is refused before compile
+not ok 1 - S3C-1 method fidelity: the audited Ines brief (F64 bound as hand construction, F05/F52 mislabelled) is refused before compile
+  ---
+  duration_ms: 346.5685
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:17:1'
+  failureType: 'testCodeFailure'
+  error: 'audited design compiled'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:19:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: S3C-2 rig-forced generic geometry without source grounding is refused
+not ok 2 - S3C-2 rig-forced generic geometry without source grounding is refused
+  ---
+  duration_ms: 328.6068
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: ''
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:23:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S3C-3 absent (or placeholder) molecular_visual_decisions cannot pass
+not ok 3 - S3C-3 absent (or placeholder) molecular_visual_decisions cannot pass
+  ---
+  duration_ms: 331.399
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:25:1'
+  failureType: 'testCodeFailure'
+  error: ''
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:26:171)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S3C-4 view agreement: the motion contract carries the rig's canonical view, and a design/motion view mismatch is refused
+not ok 4 - S3C-4 view agreement: the motion contract carries the rig's canonical view, and a design/motion view mismatch is refused
+  ---
+  duration_ms: 58.8372
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'front'
+    - 'threeq_r'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'threeq_r'
+  actual: 'front'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:31:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused
+not ok 5 - S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused
+  ---
+  duration_ms: 324.0436
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:35:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:37:70)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S3C-6 applicability: every method the subject family + motion contract makes applicable is bound faithfully (not all 80)
+not ok 6 - S3C-6 applicability: every method the subject family + motion contract makes applicable is bound faithfully (not all 80)
+  ---
+  duration_ms: 1.0744
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:41:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\art_contract.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:664:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:663:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: S3C-7 a faithful design passes every automated gate but cannot be submitted without a HUMAN design approval
+not ok 7 - S3C-7 a faithful design passes every automated gate but cannot be submitted without a HUMAN design approval
+  ---
+  duration_ms: 0.9166
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:49:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\art_contract.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:664:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:663:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible
+not ok 8 - S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible
+  ---
+  duration_ms: 1001.2463
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:59:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"asset":"pilot_master","identity":"pilot","status":"REGISTRATION_FAILED","raster_to_canonical":[0.5649769594862778,0.01883999191895795,-0.01883999191895795,0.5649769594862778,-36.3144597639735,-32.633721957456714],"scale":0.5652909959002227,"rotation_deg":1.9099047478172804,"residuals":[{"landmark":"head_top","residual_canonical_px":6.753527478171455},{"landmark":"neck","residual_canonical_px":5.
+    + actual - expected
+    
+    + 'REGISTRATION_FAILED'
+    - 'REGISTERED_PENDING_REVIEW'
+             ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'REGISTERED_PENDING_REVIEW'
+  actual: 'REGISTRATION_FAILED'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:63:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: S3C-9 (F) a genuinely unsuitable design fails before generation even when every field has text
+not ok 9 - S3C-9 (F) a genuinely unsuitable design fails before generation even when every field has text
+  ---
+  duration_ms: 0.9528
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:71:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot set properties of undefined (setting 'illustration_family')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:73:96)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 0
+# fail 9
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2594.9146

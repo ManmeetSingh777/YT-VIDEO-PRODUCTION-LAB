@@ -1,0 +1,3489 @@
+{
+ "F01/F58 constructSilhouette": {
+  "suite": "p_character_core.mjs",
+  "method": "F01",
+  "class": "GEOMETRY",
+  "name": "F01/F58 constructSilhouette",
+  "consumes": [
+   {
+    "input": "landmarks",
+    "read": true
+   },
+   {
+    "input": "spans",
+    "read": true
+   },
+   {
+    "input": "view",
+    "read": true
+   },
+   {
+    "input": "identity",
+    "read": true
+   },
+   {
+    "input": "voids",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "spans.1.character",
+    "value": "convex",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 12737,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "spans.2.amount",
+    "value": 0.4,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 5976,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "landmarks.1.joint",
+    "value": "smooth",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1754,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "landmarks.1.p",
+    "value": [
+     500,
+     230
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 16113,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "voids.0.landmarks.0.p",
+    "value": [
+     395,
+     300
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 6107,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "spans.0.character",
+    "why": "unknown contour vocabulary",
+    "refused": true,
+    "msg": "F01 silhouette span 0: input \"character\" must be one of straight|convex|concave|sCurve (got \"rounded\")"
+   },
+   {
+    "path": "identity",
+    "why": "no identity landmark",
+    "refused": true,
+    "msg": "F01 silhouette: name at least one identity-bearing landmark (what distinguishes this subject from its family)"
+   },
+   {
+    "path": "landmarks",
+    "why": "primitive (<4 landmarks)",
+    "refused": true,
+    "msg": "F01 silhouette: at least 4 structural landmarks are required (a silhouette is a designed whole, not a primitive)"
+   },
+   {
+    "path": "spans.4.to",
+    "why": "ring not closed",
+    "refused": true,
+    "msg": "F01 silhouette: span l→top2 references unknown landmarks"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "method": "F58",
+    "factor": 15,
+    "results": [
+     {
+      "id": "hole",
+      "openCellsAtTenth": 3,
+      "pass": true
+     }
+    ],
+    "pass": true
+   }
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 2,
+  "at": "2026-11-21T17:23:53.460Z"
+ },
+ "F03/F51/F61 solvePalette": {
+  "suite": "p_character_core.mjs",
+  "method": "F03",
+  "class": "ART_DESIGN",
+  "name": "F03/F51/F61 solvePalette",
+  "consumes": [
+   {
+    "input": "situation",
+    "read": true
+   },
+   {
+    "input": "roles",
+    "read": true
+   },
+   {
+    "input": "pairs",
+    "read": true
+   },
+   {
+    "input": "materials",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "situation",
+    "value": "dark_field",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   },
+   {
+    "path": "roles.body.hue",
+    "value": 140,
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true
+   },
+   {
+    "path": "pairs.0.min",
+    "value": 6,
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   },
+   {
+    "path": "materials.cloth.planeStep",
+    "value": 0.2,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "roles.body.owners",
+    "why": "colour before owners",
+    "refused": true,
+    "msg": "F61: role \"body\" has no silhouette owners — assign colour only after owners are specified"
+   },
+   {
+    "path": "roles.body.slot",
+    "why": "not a role slot",
+    "refused": true,
+    "msg": "F61 role body: input \"slot\" must be one of primary_substrate|secondary_support|main_subject|active_delta|material_dark_plane|material_light_plane|optional_emiss"
+   },
+   {
+    "path": "pairs.0.a",
+    "why": "unknown role",
+    "refused": true,
+    "msg": "F61: pair nope/field references unknown role"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "g": {
+     "method": "F61",
+     "focal": "body",
+     "support": "field",
+     "contrast": 3.21,
+     "pass": true
+    },
+    "pairs": [
+     {
+      "pair": "body/field",
+      "channel": "luminance",
+      "value": 3.21,
+      "min": 3,
+      "pass": true
+     },
+     {
+      "pair": "hair/skin",
+      "channel": "luminance",
+      "value": 6.92,
+      "min": 3,
+      "pass": true
+     }
+    ]
+   }
+  },
+  "pass": false,
+  "problems": [
+   "no perturbation changed emitted regions with confined pixels"
+  ],
+  "outputs": 12,
+  "at": "2026-11-21T17:23:53.464Z"
+ },
+ "F02/F04/F46 constructSurface": {
+  "suite": "p_character_core.mjs",
+  "method": "F02",
+  "class": "ART_DESIGN",
+  "name": "F02/F04/F46 constructSurface",
+  "consumes": [
+   {
+    "input": "material",
+    "read": true
+   },
+   {
+    "input": "light.dir",
+    "read": true
+   },
+   {
+    "input": "light.system",
+    "read": true
+   },
+   {
+    "input": "forms",
+    "read": true
+   },
+   {
+    "input": "transition_policy",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "light.dir",
+    "value": [
+     0.7,
+     -0.7
+    ],
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 82109,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "forms.0.depth",
+    "value": 4,
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 55873,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "forms.1.s1",
+    "value": 0.4,
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 3847,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "forms.1.tone",
+    "value": "shade",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 511,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "sil.landmarks.0.p",
+    "value": [
+     380,
+     120
+    ],
+    "changed": 4,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 24840,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "light.system",
+    "why": "F04: optics are not opaque patches",
+    "refused": true,
+    "msg": "F02 surface torso: F04 lighting system \"optical\" is not an opaque-form plane operation — construct it with optic.composeOptic"
+   },
+   {
+    "path": "forms.0.cause",
+    "why": "unknown cause",
+    "refused": true,
+    "msg": "F02 surface torso form 0: input \"cause\" must be one of view_plane|volume_turn|recess|glass|marking (got \"airbrush\")"
+   },
+   {
+    "path": "material",
+    "why": "F46 wall cannot own a volume_turn",
+    "refused": true,
+    "msg": "F02 surface torso: F46 material \"wall\" cannot own a \"volume_turn\" form (hard-material exception: one large planar fill, gradient forbidden)"
+   },
+   {
+    "path": "forms.0.depth",
+    "why": "zero turn",
+    "refused": true,
+    "msg": "F02 surface torso turn: input \"depth\" must be a positive number (got 0)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "method": "F02",
+    "fills": 3,
+    "strokes": 0,
+    "orphanForms": [],
+    "pass": true
+   }
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 5,
+  "at": "2026-11-21T17:23:53.464Z"
+ },
+ "F62 constructEdge": {
+  "suite": "p_character_core.mjs",
+  "method": "F62",
+  "class": "ART_DESIGN",
+  "name": "F62 constructEdge",
+  "consumes": [
+   {
+    "input": "seam.s0",
+    "read": true
+   },
+   {
+    "input": "seam.width",
+    "read": true
+   },
+   {
+    "input": "light",
+    "read": true
+   },
+   {
+    "input": "groundY",
+    "read": true
+   },
+   {
+    "input": "squash",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "seam.inset",
+    "value": 30,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1808,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "light",
+    "value": [
+     0.6,
+     -1
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 18452,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "squash",
+    "value": 2.5,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 26112,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "light",
+    "why": "light cannot travel upward onto a ground receiver",
+    "refused": true,
+    "msg": "F62 edge torso: light must travel downward onto a ground receiver"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 3,
+  "at": "2026-11-21T17:23:53.464Z"
+ },
+ "F59 assemble": {
+  "suite": "p_character_core.mjs",
+  "method": "F59",
+  "class": "GEOMETRY",
+  "name": "F59 assemble",
+  "consumes": [
+   {
+    "input": "parts",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "parts.1.angle",
+    "value": 40,
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 43307,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "parts.1.insertion_depth",
+    "value": 40,
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 18581,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "parts.0.design.landmarks.1.p",
+    "value": [
+     520,
+     400
+    ],
+    "changed": 4,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 37651,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "parts.3.front",
+    "value": true,
+    "changed": 4,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 693,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "parts.0.design",
+    "why": "ARTISTIC F01: default round root mass (sphere-with-cylinders class)",
+    "refused": true,
+    "msg": "F01 artistic rule \"generic_round\": F59 rig root torso: every span convex with uniform bulge and no designed corner — a default rounded silhouette. Design purpos"
+   },
+   {
+    "path": "distinguishes",
+    "why": "ARTISTIC F01: identity not named",
+    "refused": true,
+    "msg": "F01 artistic rule \"distinguishes\": F59 rig: name what distinguishes this subject from others of its family (identity landmarks)\n   source: \"Explicitly name what"
+   },
+   {
+    "path": "parts.1.anchor",
+    "why": "anchor not a parent landmark",
+    "refused": true,
+    "msg": "F59: anchor \"elbow\" is not a landmark of torso"
+   },
+   {
+    "path": "parts.2.parent",
+    "why": "parent missing",
+    "refused": true,
+    "msg": "F59 rig: occlusion order is cyclic — depth order must be decided, not delegated"
+   },
+   {
+    "path": "parts.1.joint_type",
+    "why": "unknown joint",
+    "refused": true,
+    "msg": "F59 part arm: input \"joint_type\" must be one of inserted|hinged|mounted|contained|rooted|wrapped (got \"glued\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": [
+    {
+     "part": "arm",
+     "parent": "torso",
+     "joint": "hinged",
+     "overlapFrac": 0.065,
+     "pass": true
+    },
+    {
+     "part": "hand",
+     "parent": "arm",
+     "joint": "inserted",
+     "overlapFrac": 0.037,
+     "pass": true
+    },
+    {
+     "part": "head",
+     "parent": "torso",
+     "joint": "inserted",
+     "overlapFrac": 0.024,
+     "pass": true
+    }
+   ]
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 5,
+  "at": "2026-11-21T17:23:53.464Z"
+ },
+ "F05/F52/F65 constructHead": {
+  "suite": "p_character_core.mjs",
+  "method": "F65",
+  "class": "ART_DESIGN",
+  "name": "F05/F52/F65 constructHead",
+  "consumes": [
+   {
+    "input": "role",
+    "read": true
+   },
+   {
+    "input": "finalHeadPx",
+    "read": true
+   },
+   {
+    "input": "gazeRequired",
+    "read": true
+   },
+   {
+    "input": "skull",
+    "read": true
+   },
+   {
+    "input": "hair",
+    "read": true
+   },
+   {
+    "input": "frame.yaw",
+    "read": true
+   },
+   {
+    "input": "eye.shape",
+    "read": true
+   },
+   {
+    "input": "expression.brow_tilt",
+    "read": true
+   },
+   {
+    "input": "expression.mouth_topology",
+    "read": true
+   },
+   {
+    "input": "expression.gaze_offset",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "expression.brow_tilt",
+    "value": 18,
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 594,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "expression.gaze_offset",
+    "value": [
+     0.8,
+     0
+    ],
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 545,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "expression.mouth_topology",
+    "value": "wide_open",
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 422,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "expression.lid_arc",
+    "value": 0.5,
+    "changed": 6,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 700,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "finalHeadPx",
+    "value": 70,
+    "changed": 13,
+    "expectedChanged": 6,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1318,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "role",
+    "value": "BIOLOGICAL_SUBJECT",
+    "changed": 10,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1164,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "frame.yaw",
+    "value": -75,
+    "changed": 14,
+    "expectedChanged": 10,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 4788,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "expression.cheek_shape",
+    "value": "raised",
+    "changed": 4,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1633,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "eye.shape",
+    "value": "hooded",
+    "changed": 6,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 380,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "features.earShape.landmarks.2.p",
+    "value": [
+     0.6,
+     1.3
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 288,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "role",
+    "why": "not an F52 role",
+    "refused": true,
+    "msg": "F05 head: input \"role\" must be one of ACTING_CUE|BIOLOGICAL_SUBJECT|SILHOUETTE_IDENTITY|MICRO_SYMBOL|SUPPORTING_BACKGROUND (got \"cute\")"
+   },
+   {
+    "path": "expression.mouth_topology",
+    "why": "scaled-oval mouth not a topology",
+    "refused": true,
+    "msg": "F65 expression: input \"mouth_topology\" must be one of closed|small_open|wide_open|smile|frown (got \"oval\")"
+   },
+   {
+    "path": "hair",
+    "why": "no hair construction and not declared bald",
+    "refused": true,
+    "msg": "F05 head hd: author hair lobes (contiguous masses with roots) or declare hair.bald = true"
+   },
+   {
+    "path": "eye.shape",
+    "why": "unknown eye construction",
+    "refused": true,
+    "msg": "F05 eye design: input \"shape\" must be one of almond|round|hooded|narrow (got \"anime\")"
+   },
+   {
+    "path": "features.earShape",
+    "why": "no authored ear contour (no generic ellipse fallback)",
+    "refused": true,
+    "msg": "F05 features: missing required input \"earShape\" (obj)"
+   },
+   {
+    "path": "skull.landmarks.2.id",
+    "why": "ARTISTIC F05: skull without jaw/chin structure",
+    "refused": true,
+    "msg": "F01: identity landmark \"jaw\" does not exist"
+   },
+   {
+    "path": "skull.landmarks",
+    "why": "ARTISTIC F05: unstructured oval skull (no jaw turn)",
+    "refused": true,
+    "msg": "F05 artistic rule \"skull_structure\": F05 head hd: skull has no jaw/cheek turn (all smooth) — an unstructured oval\n   source: \"construct one coherent skull/head "
+   },
+   {
+    "path": "frame",
+    "why": "ARTISTIC F05: tiny face on huge skull",
+    "refused": true,
+    "msg": "F05 artistic rule \"face_proportion\": F05 head hd: facial features span only 7% of the head height\n   source: \"Failure: ... tiny face on huge unstructured skull\""
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "eyesInProfile": 1,
+    "rear": "HIDDEN_REAR",
+    "identityStable": true
+   }
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 20,
+  "at": "2026-11-21T17:23:53.464Z"
+ },
+ "F06/F66 constructBody": {
+  "suite": "p_character_ext.mjs",
+  "method": "F66",
+  "class": "ART_DESIGN",
+  "name": "F06/F66 constructBody",
+  "consumes": [
+   {
+    "input": "pose",
+    "read": true
+   },
+   {
+    "input": "limbs",
+    "read": true
+   },
+   {
+    "input": "torsoGarment",
+    "read": true
+   },
+   {
+    "input": "support",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "limbs.0.angles",
+    "value": [
+     100,
+     -120
+    ],
+    "changed": 10,
+    "expectedChanged": 8,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 9769,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "limbs.0.stiffness",
+    "value": 0.9,
+    "changed": 4,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 498,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "torsoGarment.chestBulge",
+    "value": -0.1,
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 2255,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "pose.torsoAngle",
+    "value": 20,
+    "changed": 19,
+    "expectedChanged": 6,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 80315,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "torsoGarment.collar",
+    "value": "stand",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1616,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "limbs.2.target",
+    "why": "UNREACHABLE target (no silent IK clamp)",
+    "refused": true,
+    "msg": "F66 limb legNear: UNREACHABLE — target 662.9 beyond reach 328.0 (move the root/torso or redesign the pose; no silent clamp)"
+   },
+   {
+    "path": "limbs",
+    "why": "ARTISTIC F06: identical uniform tubes",
+    "refused": true,
+    "msg": "F06 artistic rule \"limb_variety\": F06 body bd: all limbs share one width/length profile\n   source: \"Not all arms or legs remain same width.\""
+   },
+   {
+    "path": "support.weightFoot",
+    "why": "support foot must be a constructed limb",
+    "refused": true,
+    "msg": "F66 bd: weight foot \"tail\" is not a constructed limb"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "folds": 3,
+    "weight": {
+     "com": [
+      419.3,
+      507.4
+     ],
+     "supportX": 410,
+     "footHalf": 45,
+     "balanced": true,
+     "grounded": true
+    }
+   }
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 19,
+  "at": "2026-11-21T16:59:37.235Z"
+ },
+ "F06/F59 constructHand": {
+  "suite": "p_character_ext.mjs",
+  "method": "F06",
+  "class": "ART_DESIGN",
+  "name": "F06/F59 constructHand",
+  "consumes": [
+   {
+    "input": "grip",
+    "read": true
+   },
+   {
+    "input": "prop.axisPoint",
+    "read": true
+   },
+   {
+    "input": "prop.axisDir",
+    "read": true
+   },
+   {
+    "input": "prop.radius",
+    "read": true
+   },
+   {
+    "input": "fingers",
+    "read": true
+   },
+   {
+    "input": "thumb.side",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "prop.radius",
+    "value": 9,
+    "changed": 5,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 3910,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "prop.axisDir",
+    "value": [
+     0.6,
+     1
+    ],
+    "changed": 7,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 25287,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "thumb.side",
+    "value": "far",
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 307,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "grip",
+    "value": "hook",
+    "changed": 5,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 6219,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "prop.radius",
+    "why": "grip cannot close around a thick handle",
+    "refused": true,
+    "msg": "F06 hand hd: grip cannot close (finger length 52 vs handle radius 60: closure 0.28) — redesign hand scale or prop"
+   },
+   {
+    "path": "forearmDir",
+    "why": "hand cannot close across a handle it runs along",
+    "refused": true,
+    "msg": "F06 hand hd: forearm runs along the handle axis — a power/hook grip needs the hand to approach across the handle"
+   },
+   {
+    "path": "grip",
+    "why": "unknown grip",
+    "refused": true,
+    "msg": "F06 hand: input \"grip\" must be one of power|hook|pinch|open_reach|flat_support|key_press (got \"claw\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "g": {
+     "pass": true,
+     "distToAxis": 0,
+     "radius": 14
+    },
+    "nearFingersOverPropPalmBehind": true
+   }
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 9,
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F64 routeFamily": {
+  "suite": "p_character_ext.mjs",
+  "method": "F64",
+  "class": "ROUTING",
+  "name": "F64 routeFamily",
+  "consumes": [
+   {
+    "input": "subjectKind",
+    "read": true
+   },
+   {
+    "input": "faceVisible",
+    "read": true
+   },
+   {
+    "input": "screenHeightPx",
+    "read": true
+   },
+   {
+    "input": "headPx",
+    "read": true
+   },
+   {
+    "input": "task",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "faceVisible",
+    "value": false,
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   },
+   {
+    "path": "screenHeightPx",
+    "value": 60,
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   },
+   {
+    "path": "task",
+    "value": "gesture",
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "subjectKind",
+    "why": "unknown kind",
+    "refused": true,
+    "msg": "F64 route: input \"subjectKind\" must be one of human|animal|mascot|organism|machine_agent (got \"cartoon\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 4,
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F07 constructCreature": {
+  "suite": "p_character_ext.mjs",
+  "method": "F07",
+  "class": "ART_DESIGN",
+  "name": "F07 constructCreature",
+  "consumes": [],
+  "causal": [],
+  "refuses": [],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "error": "base build failed: F59 cr: joint topology failed (neck→torso overlap 0) — non-renderable",
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F14/F30/F67 buildStateFamily": {
+  "suite": "p_character_ext.mjs",
+  "method": "F30",
+  "class": "MOTION_STATE",
+  "name": "F14/F30/F67 buildStateFamily",
+  "consumes": [
+   {
+    "input": "canonical",
+    "read": true
+   },
+   {
+    "input": "tolerance",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "reachLean",
+    "pass": false,
+    "error": "F66 bd: held pose not supported (non-renderable): COM x 457.9 vs support 410.0±45, foot on ground"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "reachLean",
+    "why": "ARTISTIC F06: pose state over a static pelvis/torso",
+    "refused": true,
+    "msg": "F06 artistic rule \"static_pelvis\": F06 bodyStates: pose state reach changes limbs over an unchanged pelvis/torso\n   source: \"A static pelvis with disjointedly r"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": [
+    {
+     "state": "reach",
+     "change": "view_pose",
+     "ownsNewDrawing": true,
+     "register": "canonical identity, scale/contact",
+     "track": "body, hand, hair",
+     "identityDrift": 0,
+     "registered": true,
+     "transitionFromCanonical": "DRAWN_STATE_OR_CUT"
+    },
+    {
+     "state": "lift",
+     "change": "expression_hand_contact",
+     "ownsNewDrawing": true,
+     "register": "identity, attachment points",
+     "track": "face, limb, object",
+     "identityDrift": 0,
+     "registered": true,
+     "transitionFromCanonical": "DRAWN_STATE_OR_CUT"
+    }
+   ]
+  },
+  "pass": false,
+  "problems": [],
+  "outputs": 15,
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F15/F31 ownership+schedule+contacts": {
+  "suite": "p_character_ext.mjs",
+  "method": "F31",
+  "class": "MOTION_STATE",
+  "name": "F15/F31 ownership+schedule+contacts",
+  "consumes": [
+   {
+    "input": "regions",
+    "read": true
+   },
+   {
+    "input": "events",
+    "read": true
+   },
+   {
+    "input": "tracks",
+    "read": true
+   },
+   {
+    "input": "contacts",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "events.1.duration",
+    "value": 0.6,
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   },
+   {
+    "path": "tracks.handle.keys.2.v",
+    "value": [
+     140,
+     -120
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   },
+   {
+    "path": "contacts.0.to",
+    "value": 1.2,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "regions.0.channels",
+    "why": "WORLD under camera pan cannot morph",
+    "refused": true,
+    "msg": "F15: owner WORLD cannot drive \"deform\" on city (e.g. a camera pan must not morph architecture)"
+   },
+   {
+    "path": "events.0.after",
+    "why": "cyclic events",
+    "refused": true,
+    "msg": "F31: cyclic event dependency reach → lift → grab → reach"
+   },
+   {
+    "path": "regions",
+    "why": "two primary owners",
+    "refused": true,
+    "msg": "F15: region city has more than one primary owner"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "drift": 0
+   }
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 5,
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F16/F35/F78 planTransition": {
+  "suite": "p_character_ext.mjs",
+  "method": "F78",
+  "class": "MOTION_STATE",
+  "name": "F16/F35/F78 planTransition",
+  "consumes": [
+   {
+    "input": "op",
+    "read": true
+   },
+   {
+    "input": "invariant.anchorsOut",
+    "read": true
+   },
+   {
+    "input": "invariant.anchorsIn",
+    "read": true
+   },
+   {
+    "input": "frames",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "invariant.anchorsIn",
+    "value": [
+     [
+      400,
+      300
+     ],
+     [
+      600,
+      320
+     ],
+     [
+      500,
+      500
+     ]
+    ],
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true
+   },
+   {
+    "path": "frames.mid",
+    "value": 1.2,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "invariant.anchorsOut",
+    "why": "<3 shared landmarks",
+    "refused": true,
+    "msg": "F78 tr: continuous part_to_whole needs ≥3 shared visible landmarks with correspondences (got 2/3)"
+   },
+   {
+    "path": "invariant.anchorsIn",
+    "why": "landmarks not related by one camera transform",
+    "refused": true,
+    "msg": "F78 tr: landmarks are not related by one camera transform (residual 90.7px) — author an intermediate drawn state or cut honestly"
+   },
+   {
+    "path": "op",
+    "why": "unknown op",
+    "refused": true,
+    "msg": "F35 transition: input \"op\" must be one of match_move|mask_reveal|part_to_whole|registered_world_relight|causal_graph_expand|exposure_or_impulse|semantic_cut (go"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 6,
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F79 ownLayers": {
+  "suite": "p_character_ext.mjs",
+  "method": "F79",
+  "class": "GEOMETRY",
+  "name": "F79 ownLayers",
+  "consumes": [
+   {
+    "input": "motion",
+    "read": true
+   },
+   {
+    "input": "cameras",
+    "read": true
+   },
+   {
+    "input": "master",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "under",
+    "pass": false,
+    "error": "F79: underpaint/overscan/occluder coverage failed (uncovered 863 cells, overscan 0 out, swaps 0 short) — non-renderable"
+   },
+   {
+    "path": "cameras.0.rect",
+    "pass": false,
+    "error": "F79: underpaint/overscan/occluder coverage failed (uncovered 0 cells, overscan 1 out, swaps 0 short) — non-renderable"
+   }
+  ],
+  "refuses": [],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "master": [
+     -100,
+     -100,
+     1200,
+     700
+    ],
+    "subjectHash": "0ea69c16af444920",
+    "underpaintHash": "fa62b3eb2d96f369",
+    "revealCells": 1832,
+    "uncoveredRevealCells": 0,
+    "overscan": [
+     {
+      "t": 0,
+      "inside": true
+     }
+    ],
+    "swaps": [],
+    "pass": true
+   }
+  },
+  "pass": false,
+  "problems": [
+   "no perturbation changed emitted regions with confined pixels"
+  ],
+  "outputs": 8,
+  "at": "2026-11-21T16:59:37.236Z"
+ },
+ "F60/F70/F38/F08 constructBlock+openings": {
+  "suite": "p_world.mjs",
+  "method": "F70",
+  "class": "GEOMETRY",
+  "name": "F60/F70/F38/F08 constructBlock+openings",
+  "consumes": [
+   {
+    "input": "proj.u",
+    "read": true
+   },
+   {
+    "input": "proj.v",
+    "read": true
+   },
+   {
+    "input": "proj.h",
+    "read": true
+   },
+   {
+    "input": "proj.light",
+    "read": true
+   },
+   {
+    "input": "block.footprint",
+    "read": true
+   },
+   {
+    "input": "block.height",
+    "read": true
+   },
+   {
+    "input": "block.roof",
+    "read": true
+   },
+   {
+    "input": "win.rows",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "proj.u",
+    "value": [
+     0.95,
+     0.35
+    ],
+    "changed": 27,
+    "expectedChanged": 27,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 80727,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "block.height",
+    "value": 300,
+    "changed": 27,
+    "expectedChanged": 27,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 82650,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "win.rows",
+    "value": 6,
+    "changed": 34,
+    "expectedChanged": 34,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 18145,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "proj.light.dir",
+    "value": [
+     -0.6,
+     -0.4,
+     0.7
+    ],
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 62414,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "block",
+    "value": "fn",
+    "changed": 5,
+    "expectedChanged": 5,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 18473,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "proj.h",
+    "why": "degenerate height axis in oblique",
+    "refused": true,
+    "msg": "F60: OBLIQUE_TWO_AXES needs a non-degenerate height axis h"
+   },
+   {
+    "path": "win.rows",
+    "why": "openings do not fit facet",
+    "refused": true,
+    "msg": "F70: 40×3 openings do not fit facet b1.wall0"
+   },
+   {
+    "path": "block.roof",
+    "why": "unknown roof family",
+    "refused": true,
+    "msg": "F70 block: input \"roof\" must be one of flat|recessed_cap|pitched|shallow_arch|parapet (got \"dome_blob\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "all facet edges on u/v/h"
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 28,
+  "at": "2026-11-21T16:59:48.507Z"
+ },
+ "F10 constructFixture": {
+  "suite": "p_world.mjs",
+  "method": "F10",
+  "class": "GEOMETRY",
+  "name": "F10 constructFixture",
+  "consumes": [
+   {
+    "input": "fx.height",
+    "read": true
+   },
+   {
+    "input": "fx.contacts",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "fx.height",
+    "value": 55,
+    "changed": 4,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 24865,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "fx.contacts.0.on",
+    "why": "contact must be on a surface",
+    "refused": true,
+    "msg": "F10 contact: input \"on\" must be one of top|front (got \"air\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 4,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F09/F28/F45/F68 constructMachine": {
+  "suite": "p_world.mjs",
+  "method": "F45",
+  "class": "ART_DESIGN",
+  "name": "F09/F28/F45/F68 constructMachine",
+  "consumes": [
+   {
+    "input": "m.truth",
+    "read": true
+   },
+   {
+    "input": "m.assemblies",
+    "read": true
+   },
+   {
+    "input": "m.conduits",
+    "read": true
+   },
+   {
+    "input": "m.controls",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "m.conduits.0.width",
+    "value": 20,
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1467,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "m.controls.0.rows",
+    "value": 3,
+    "changed": 6,
+    "expectedChanged": 6,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1472,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "m.assemblies.0.radius",
+    "value": 55,
+    "changed": 4,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 6967,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "m.conduits",
+    "why": "no flow from input to output",
+    "refused": true,
+    "msg": "F45 m: no continuous flow from input to output (water intake → clean water)"
+   },
+   {
+    "path": "m.conduits.0.to",
+    "why": "conduit without a socket",
+    "refused": true,
+    "msg": "F68: conduit intake→ghost must terminate on declared assemblies (visible sockets)"
+   },
+   {
+    "path": "m.truth.principle",
+    "why": "placeholder truth table",
+    "refused": true,
+    "msg": "F45/F28 truth table: input \"principle\" is a descriptive placeholder, not construction data (got \"TBD\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 20,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F39/F11/F69 constructTree": {
+  "suite": "p_world.mjs",
+  "method": "F39",
+  "class": "ART_DESIGN",
+  "name": "F39/F11/F69 constructTree",
+  "consumes": [
+   {
+    "input": "species",
+    "read": true
+   },
+   {
+    "input": "distance",
+    "read": true
+   },
+   {
+    "input": "root",
+    "read": true
+   },
+   {
+    "input": "seed",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "distance",
+    "value": "far",
+    "changed": 15,
+    "expectedChanged": 14,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 27537,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "species.lobeCharacter",
+    "value": "angular",
+    "changed": 14,
+    "expectedChanged": 12,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 29140,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "species.branchGroups",
+    "value": 5,
+    "changed": 26,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 27718,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "species.branchGroups",
+    "why": "outside 2–5 branch groups",
+    "refused": true,
+    "msg": "F39: 2–5 secondary branch groups (starting sketch complexity)"
+   },
+   {
+    "path": "species.lobeCharacter",
+    "why": "unknown crown character",
+    "refused": true,
+    "msg": "F39 species: input \"lobeCharacter\" must be one of rounded|angular|flat_layer|drooping (got \"lollipop\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "crown attached to tips of a rooted trunk"
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 21,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F39/F69 placeVegetation": {
+  "suite": "p_world.mjs",
+  "method": "F69",
+  "class": "ART_DESIGN",
+  "name": "F39/F69 placeVegetation",
+  "consumes": [
+   {
+    "input": "zones",
+    "read": true
+   },
+   {
+    "input": "apertures",
+    "read": true
+   },
+   {
+    "input": "speciesCatalog",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "apertures.0",
+    "value": [
+     [
+      0,
+      0
+     ],
+     [
+      400,
+      0
+     ],
+     [
+      400,
+      400
+     ],
+     [
+      0,
+      400
+     ]
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "speciesCatalog",
+    "why": "ARTISTIC F39: dense row of identical stamps",
+    "refused": true,
+    "msg": "F39 artistic rule \"row_variety\": F39 placement: dense population with <3 distinct species proportions\n   source: \"introduce species-like variation across a row:"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "aperture kept clear"
+  },
+  "pass": false,
+  "problems": [
+   "no perturbation changed emitted regions with confined pixels"
+  ],
+  "outputs": 3,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F12/F24/F41/F71 grow+draw network": {
+  "suite": "p_world.mjs",
+  "method": "F71",
+  "class": "ART_DESIGN",
+  "name": "F12/F24/F41/F71 grow+draw network",
+  "consumes": [
+   {
+    "input": "parent",
+    "read": true
+   },
+   {
+    "input": "roots",
+    "read": true
+   },
+   {
+    "input": "seed",
+    "read": true
+   },
+   {
+    "input": "clusters",
+    "read": true
+   },
+   {
+    "input": "terminalMorphs",
+    "read": true
+   },
+   {
+    "input": "active_path_display",
+    "read": true
+   },
+   {
+    "input": "source",
+    "read": true
+   },
+   {
+    "input": "hops",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "hops",
+    "value": 8,
+    "changed": 14,
+    "expectedChanged": 14,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 917,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "active_path_display",
+    "value": "SWITCHED_TERMINAL_PATCHES",
+    "changed": 6,
+    "expectedChanged": 6,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 408,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "seed",
+    "value": 12,
+    "changed": 201,
+    "expectedChanged": 131,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 13449,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "active_path_display",
+    "why": "no fourth active category",
+    "refused": true,
+    "msg": "F71 draw: input \"active_path_display\" must be one of CONTINUOUS_BAND|DISCRETE_PACKETS|SWITCHED_TERMINAL_PATCHES (got \"GLOW_CLOUD\")"
+   },
+   {
+    "path": "terminalMorphs",
+    "why": "no meaningful terminal morphologies",
+    "refused": true,
+    "msg": "F12: a finite set of meaningful terminal morphologies is required"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "activation follows real connected edges"
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 137,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F25 constructExchange": {
+  "suite": "p_world.mjs",
+  "method": "F25",
+  "class": "ART_DESIGN",
+  "name": "F25 constructExchange",
+  "consumes": [
+   {
+    "input": "E",
+    "read": true
+   },
+   {
+    "input": "R",
+    "read": true
+   },
+   {
+    "input": "carriers",
+    "read": true
+   },
+   {
+    "input": "mechanisms",
+    "read": true
+   },
+   {
+    "input": "active",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "active",
+    "value": false,
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 342,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "carriers",
+    "value": 3,
+    "changed": 6,
+    "expectedChanged": 5,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 326,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "R.landmarks.3.p",
+    "value": [
+     380,
+     250
+    ],
+    "changed": 14,
+    "expectedChanged": 13,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 4905,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "carrierShape",
+    "why": "carriers need a designed shape",
+    "refused": true,
+    "msg": "F25 exchange: missing required input \"carrierShape\" (obj)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 17,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F54/F76 generateRepeats": {
+  "suite": "p_world.mjs",
+  "method": "F76",
+  "class": "GEOMETRY",
+  "name": "F54/F76 generateRepeats",
+  "consumes": [
+   {
+    "input": "frame",
+    "read": true
+   },
+   {
+    "input": "unit",
+    "read": true
+   },
+   {
+    "input": "count",
+    "read": true
+   },
+   {
+    "input": "sizeFalloff",
+    "read": true
+   },
+   {
+    "input": "exclusions",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "count",
+    "value": 5,
+    "changed": 9,
+    "expectedChanged": 8,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 58,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "sizeFalloff",
+    "value": 0.6,
+    "changed": 8,
+    "expectedChanged": 8,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 16,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "exclusions",
+    "value": [
+     [
+      [
+       90,
+       80
+      ],
+      [
+       300,
+       80
+      ],
+      [
+       300,
+       120
+      ],
+      [
+       90,
+       120
+      ]
+     ]
+    ],
+    "changed": 10,
+    "expectedChanged": 9,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 16,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "variation",
+    "why": "unbounded identity variation",
+    "refused": true,
+    "msg": "F76: identity variation must stay bounded by role (0–0.5)"
+   },
+   {
+    "path": "frame",
+    "why": "no parent frame",
+    "refused": true,
+    "msg": "F76 repeat: input \"frame\" must be one of polyline|zone|ring|graph_tips (got \"everywhere\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 11,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F33/F47/F53/F77 allocate": {
+  "suite": "p_world.mjs",
+  "method": "F47",
+  "class": "ART_DESIGN",
+  "name": "F33/F47/F53/F77 allocate",
+  "consumes": [],
+  "causal": [],
+  "refuses": [],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "error": "base build failed: F53 attention: input \"causal_path\" must be an array (got \"pipe→tank\")",
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F21/F48/F63 composeOptic": {
+  "suite": "p_world.mjs",
+  "method": "F21",
+  "class": "ART_DESIGN",
+  "name": "F21/F48/F63 composeOptic",
+  "consumes": [
+   {
+    "input": "aperture",
+    "read": true
+   },
+   {
+    "input": "rimThickness",
+    "read": true
+   },
+   {
+    "input": "tilt",
+    "read": true
+   },
+   {
+    "input": "specular",
+    "read": true
+   },
+   {
+    "input": "tint",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "specular.normal",
+    "value": [
+     0.7,
+     -0.7
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 8429,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "tilt",
+    "value": 40,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 7781,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "dx",
+    "value": 15,
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 5728,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "reason",
+    "why": "F63: optical effect without a stated reason",
+    "refused": true,
+    "msg": "F21 optic: missing required input \"reason\" (str)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "inner clipped to M_in and under the near rim"
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 10,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F44 constructVolume": {
+  "suite": "p_world.mjs",
+  "method": "F44",
+  "class": "ART_DESIGN",
+  "name": "F44 constructVolume",
+  "consumes": [
+   {
+    "input": "v.footprint",
+    "read": true
+   },
+   {
+    "input": "v.height",
+    "read": true
+   },
+   {
+    "input": "v.edgeWidth",
+    "read": true
+   },
+   {
+    "input": "v.haloWidth",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "v.haloWidth",
+    "value": 0,
+    "changed": 8,
+    "expectedChanged": 8,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 20136,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "v.edgeWidth",
+    "value": 5,
+    "changed": 8,
+    "expectedChanged": 8,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 9194,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 23,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F13 constructRibbon": {
+  "suite": "p_world.mjs",
+  "method": "F13",
+  "class": "ART_DESIGN",
+  "name": "F13 constructRibbon",
+  "consumes": [
+   {
+    "input": "centre",
+    "read": true
+   },
+   {
+    "input": "width",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "width",
+    "value": [
+     20,
+     30,
+     12,
+     25,
+     15
+    ],
+    "changed": 4,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 2664,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "width",
+    "why": "one signed width per sample",
+    "refused": true,
+    "msg": "F13: one signed width per centreline sample (sign = which face is visible)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 4,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F32 constructEffect": {
+  "suite": "p_world.mjs",
+  "method": "F32",
+  "class": "ART_DESIGN",
+  "name": "F32 constructEffect",
+  "consumes": [
+   {
+    "input": "class",
+    "read": true
+   },
+   {
+    "input": "window",
+    "read": true
+   },
+   {
+    "input": "haloRings",
+    "read": true
+   },
+   {
+    "input": "allowed",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "haloRings",
+    "value": 1,
+    "changed": 8,
+    "expectedChanged": 8,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 31939,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "window.end",
+    "value": 1.5,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "window.end",
+    "why": "effects are time-bounded",
+    "refused": true,
+    "msg": "F32: effects are time-bounded"
+   },
+   {
+    "path": "class",
+    "why": "no global glow class",
+    "refused": true,
+    "msg": "F32 effect: input \"class\" must be one of surface_emission|volumetric_source|global_exposure|camera_perception (got \"bloom_everything\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "core clipped to owner; zero outside window"
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 15,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F23 perceptionPass": {
+  "suite": "p_world.mjs",
+  "method": "F23",
+  "class": "ART_DESIGN",
+  "name": "F23 perceptionPass",
+  "consumes": [
+   {
+    "input": "kind",
+    "read": true
+   },
+   {
+    "input": "exceptions",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "exceptions",
+    "value": [],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1444,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "kind",
+    "why": "role map required for remap",
+    "refused": true,
+    "msg": "Cannot read properties of undefined (reading '#335588')"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "geometry registered through the pass"
+  },
+  "pass": true,
+  "problems": [],
+  "outputs": 6,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F22 relightWorld": {
+  "suite": "p_world.mjs",
+  "method": "F22",
+  "class": "ART_DESIGN",
+  "name": "F22 relightWorld",
+  "consumes": [
+   {
+    "input": "recolor",
+    "read": true
+   },
+   {
+    "input": "state",
+    "read": true
+   },
+   {
+    "input": "n",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "recolor.bg",
+    "value": "#101010",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 105625,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "n",
+    "pass": false,
+    "error": "F22 w: relight not registered (anchors ok, emitter classes 2 < 3) — non-renderable"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "recolor",
+    "why": "global grade",
+    "refused": true,
+    "msg": "F22: an all-layer colour offset cannot illuminate selected windows, remove a sun or add cones — refused"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": {
+    "state": "night",
+    "emitterClasses": [
+     "windows",
+     "lamps",
+     "moon"
+    ],
+    "anchorsCoincide": true,
+    "pass": true
+   }
+  },
+  "pass": false,
+  "problems": [],
+  "outputs": 9,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F27/F74 drawGraph": {
+  "suite": "p_world.mjs",
+  "method": "F27",
+  "class": "ART_DESIGN",
+  "name": "F27/F74 drawGraph",
+  "consumes": [
+   {
+    "input": "g.nodes",
+    "read": true
+   },
+   {
+    "input": "g.edges",
+    "read": true
+   },
+   {
+    "input": "g.layout",
+    "read": true
+   },
+   {
+    "input": "d.revealed",
+    "read": true
+   },
+   {
+    "input": "d.active",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "g.layout",
+    "value": "ring",
+    "changed": 8,
+    "expectedChanged": 7,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 9963,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "d.active",
+    "value": [],
+    "changed": 2,
+    "expectedChanged": 2,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 1370,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "d.revealed",
+    "value": [
+     "a",
+     "b"
+    ],
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 3458,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "g.edges.0.to",
+    "why": "edge must end on a vertex",
+    "refused": true,
+    "msg": "F27: edge a→zz must terminate on defined vertices"
+   },
+   {
+    "path": "d.nodeShapes",
+    "why": "category without construction",
+    "refused": true,
+    "msg": "F74: no node construction for category store (category → shape, not decoration)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 8,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F26 constructMap": {
+  "suite": "p_world.mjs",
+  "method": "F26",
+  "class": "ART_DESIGN",
+  "name": "F26 constructMap",
+  "consumes": [
+   {
+    "input": "coast",
+    "read": true
+   },
+   {
+    "input": "origin",
+    "read": true
+   },
+   {
+    "input": "spreadRadius",
+    "read": true
+   },
+   {
+    "input": "flows",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "spreadRadius",
+    "value": 120,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 17509,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "origin",
+    "why": "spread origin must be a named node",
+    "refused": true,
+    "msg": "F26: spread origin must be a named geographic node"
+   },
+   {
+    "path": "flows.0.to",
+    "why": "flow must bind to nodes",
+    "refused": true,
+    "msg": "F26: flow port→x must bind to named nodes"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 4,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F73 scaleEncode": {
+  "suite": "p_world.mjs",
+  "method": "F73",
+  "class": "ART_DESIGN",
+  "name": "F73 scaleEncode",
+  "consumes": [
+   {
+    "input": "mode",
+    "read": true
+   },
+   {
+    "input": "encoding",
+    "read": true
+   },
+   {
+    "input": "items",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "encoding",
+    "value": "sqrt_area",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "items.0.value",
+    "why": "non-positive measurement",
+    "refused": true,
+    "msg": "F73 item: input \"value\" must be a positive number (got -1)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [
+   "no perturbation changed emitted regions with confined pixels"
+  ],
+  "outputs": 3,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F75 constructLabel": {
+  "suite": "p_world.mjs",
+  "method": "F75",
+  "class": "ART_DESIGN",
+  "name": "F75 constructLabel",
+  "consumes": [
+   {
+    "input": "text",
+    "read": true
+   },
+   {
+    "input": "anchor",
+    "read": true
+   },
+   {
+    "input": "fontPx",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "text",
+    "value": "Aquifer recharge zone",
+    "changed": 3,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 11615,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "role",
+    "why": "decorative text",
+    "refused": true,
+    "msg": "F75 label: input \"role\" must be one of identification|quantity|state|emphasis (got \"decoration\")"
+   },
+   {
+    "path": "exit",
+    "why": "label without exit",
+    "refused": true,
+    "msg": "F75: label needs an entry and an exit time"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 7,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F37 defineWorld": {
+  "suite": "p_world.mjs",
+  "method": "F37",
+  "class": "ROUTING",
+  "name": "F37 defineWorld",
+  "consumes": [
+   {
+    "input": "world_purpose",
+    "read": true
+   },
+   {
+    "input": "world_class",
+    "read": true
+   },
+   {
+    "input": "parts",
+    "read": true
+   },
+   {
+    "input": "relationships",
+    "read": true
+   },
+   {
+    "input": "masses",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "world_class",
+    "value": "BIOLOGICAL_MICRO",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "world_purpose",
+    "why": "adjectives instead of relations",
+    "refused": true,
+    "msg": "F37: world fields must name contours/relations, not adjectives"
+   },
+   {
+    "path": "relationships",
+    "why": "major object without a graph edge",
+    "refused": true,
+    "msg": "F37: major objects without a graph edge: well"
+   },
+   {
+    "path": "masses",
+    "why": "3–6 masses",
+    "refused": true,
+    "msg": "F37: 3–6 big spatial masses or regions"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 12,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F42 constructStage": {
+  "suite": "p_world.mjs",
+  "method": "F42",
+  "class": "ART_DESIGN",
+  "name": "F42 constructStage",
+  "consumes": [
+   {
+    "input": "vp",
+    "read": true
+   },
+   {
+    "input": "horizonY",
+    "read": true
+   },
+   {
+    "input": "spacing",
+    "read": true
+   },
+   {
+    "input": "actorContact",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "vp",
+    "value": [
+     700,
+     420
+    ],
+    "changed": 13,
+    "expectedChanged": 13,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 3418,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "actorContact",
+    "value": [
+     800,
+     760
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 372,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "kind",
+    "why": "unknown stage",
+    "refused": true,
+    "msg": "F42 stage: input \"kind\" must be one of open_dark|task_platform (got \"void\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 21,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F43 constructPaneRing": {
+  "suite": "p_world.mjs",
+  "method": "F43",
+  "class": "ART_DESIGN",
+  "name": "F43 constructPaneRing",
+  "consumes": [
+   {
+    "input": "panes",
+    "read": true
+   },
+   {
+    "input": "rx",
+    "read": true
+   },
+   {
+    "input": "barsPerPane",
+    "read": true
+   },
+   {
+    "input": "meaning",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "barsPerPane",
+    "value": 2,
+    "changed": 40,
+    "expectedChanged": 40,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 3929,
+     "outsideChangedRegions": 0
+    }
+   },
+   {
+    "path": "rx",
+    "value": 400,
+    "changed": 50,
+    "expectedChanged": 10,
+    "leaks": [],
+    "pass": true,
+    "pixels": {
+     "pass": true,
+     "changedPixels": 22752,
+     "outsideChangedRegions": 0
+    }
+   }
+  ],
+  "refuses": [
+   {
+    "path": "meaning",
+    "why": "pane without a reason for existing",
+    "refused": true,
+    "msg": "F43 pane ring: missing required input \"meaning\" (str)"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 51,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F20 routeMedium": {
+  "suite": "p_world.mjs",
+  "method": "F20",
+  "class": "ROUTING",
+  "name": "F20 routeMedium",
+  "consumes": [
+   {
+    "input": "entities",
+    "read": true
+   },
+   {
+    "input": "perspective",
+    "read": true
+   },
+   {
+    "input": "spatial_comparison",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "perspective",
+    "value": "inside_structure",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   },
+   {
+    "path": "spatial_comparison",
+    "value": true,
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "perspective",
+    "why": "unknown perspective",
+    "refused": true,
+    "msg": "F20 beat: input \"perspective\" must be one of external|inside_structure|abstract|through_device (got \"cinematic\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 4,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F19 selectRenderer": {
+  "suite": "p_world.mjs",
+  "method": "F19",
+  "class": "ROUTING",
+  "name": "F19 selectRenderer",
+  "consumes": [
+   {
+    "input": "demand",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "demand",
+    "value": "organic_optics",
+    "changed": 4,
+    "expectedChanged": 4,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "demand",
+    "why": "unknown demand",
+    "refused": true,
+    "msg": "F19 shot: input \"demand\" must be one of acting|built_machinery|organic_optics|infographic|rotating_volume|composite_transition (got \"vibes\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 4,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F34 routeGenerator": {
+  "suite": "p_world.mjs",
+  "method": "F34",
+  "class": "ROUTING",
+  "name": "F34 routeGenerator",
+  "consumes": [
+   {
+    "input": "family",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "family",
+    "value": "architecture",
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "family",
+    "why": "not a construction family",
+    "refused": true,
+    "msg": "F34 family: input \"family\" must be one of forest_foliage|rock_terrain|architecture|metal_glass_machine|ocean_space|biological_macro (got \"texture\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 2,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F55 chooseProjection": {
+  "suite": "p_world.mjs",
+  "method": "F55",
+  "class": "ROUTING",
+  "name": "F55 chooseProjection",
+  "consumes": [
+   {
+    "input": "relation",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "relation",
+    "value": "distribution",
+    "changed": 3,
+    "expectedChanged": 3,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "relation",
+    "why": "unknown relation",
+    "refused": true,
+    "msg": "F55 choice: input \"relation\" must be one of contact|expression|mechanism|network_extent|scale_comparison|data_relation|distribution (got \"pretty\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 3,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F57 causalProof": {
+  "suite": "p_world.mjs",
+  "method": "F57",
+  "class": "ROUTING",
+  "name": "F57 causalProof",
+  "consumes": [
+   {
+    "input": "primary_bbox",
+    "read": true
+   },
+   {
+    "input": "proof_projection",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "primary_bbox",
+    "value": [
+     200,
+     200,
+     500,
+     400
+    ],
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": false,
+    "error": "routing proof without observed downstream dispatch"
+   }
+  ],
+  "refuses": [
+   {
+    "path": "sp",
+    "why": "anchor not on a produced contour",
+    "refused": true,
+    "msg": "F57: source_anchor is 282.8px off the valve contour"
+   },
+   {
+    "path": "primary_bbox",
+    "why": "endpoints outside reserved bbox",
+    "refused": true,
+    "msg": "F57: causal endpoints must lie inside the reserved primary bbox"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "outputs": 3,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F18 coverageLedger": {
+  "suite": "p_world.mjs",
+  "method": "F18",
+  "class": "EVIDENCE_GATE",
+  "name": "F18 coverageLedger",
+  "consumes": [
+   {
+    "input": "e",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "e.0.frames",
+    "value": [
+     1,
+     2,
+     3
+    ],
+    "changed": 2,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "e.0.states",
+    "why": "inspection claim without per-frame records",
+    "refused": true,
+    "msg": "F18 AI@35: NATIVE_ART_INSPECTED requires per-frame inspection records"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 5,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F36 shotContract": {
+  "suite": "p_world.mjs",
+  "method": "F36",
+  "class": "EVIDENCE_GATE",
+  "name": "F36 shotContract",
+  "consumes": [
+   {
+    "input": "source_methods",
+    "read": true
+   },
+   {
+    "input": "source_witnesses",
+    "read": true
+   }
+  ],
+  "causal": [
+   {
+    "path": "beat_id",
+    "value": "B08",
+    "changed": 1,
+    "expectedChanged": 1,
+    "leaks": [],
+    "pass": true
+   }
+  ],
+  "refuses": [
+   {
+    "path": "source_methods",
+    "why": "inapplicable method dumped in",
+    "refused": true,
+    "msg": "F36: methods F21 are not applicable to this beat (a universal dump overdesigns)"
+   },
+   {
+    "path": "story_truth",
+    "why": "placeholder",
+    "refused": true,
+    "msg": "F36 contract: input \"story_truth\" is a descriptive placeholder, not construction data (got \"TBD\")"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": true,
+  "problems": [],
+  "outputs": 10,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F49 compileWorldJob": {
+  "suite": "p_world.mjs",
+  "method": "F49",
+  "class": "EVIDENCE_GATE",
+  "name": "F49 compileWorldJob",
+  "consumes": [
+   {
+    "input": "parts",
+    "read": true
+   },
+   {
+    "input": "relationships",
+    "read": true
+   },
+   {
+    "input": "effect_ownership",
+    "read": true
+   }
+  ],
+  "causal": [],
+  "refuses": [
+   {
+    "path": "relationships.0.to",
+    "why": "endpoint not a part",
+    "refused": true,
+    "msg": "F49: relationship well→ghost endpoint is not a parts[].id"
+   },
+   {
+    "path": "coord_system",
+    "why": "missing coord_system",
+    "refused": true,
+    "msg": "F49 job: missing required input \"coord_system\" (str)"
+   },
+   {
+    "path": "parts.0.silhouette",
+    "why": "schema placeholder text",
+    "refused": true,
+    "msg": "F49: illustrative schema text left in a real job"
+   }
+  ],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [
+   "evidence gate needs ≥1 accepted real record and ≥1 refusal"
+  ],
+  "outputs": 2,
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F56/F80 firstPassControl (code-native)": {
+  "suite": "p_world.mjs",
+  "method": "F80",
+  "class": "EVIDENCE_GATE",
+  "name": "F56/F80 firstPassControl (code-native)",
+  "consumes": [],
+  "causal": [],
+  "refuses": [],
+  "accepts": [],
+  "falsifier": null,
+  "pass": false,
+  "problems": [],
+  "error": "base build failed: F80: decision \"oblique two-axis facades\" claims projection.constructBlock read \"proj.u/v/h\" but no executed receipt shows that read",
+  "at": "2026-11-21T16:59:48.508Z"
+ },
+ "F50 transferMatrix": {
+  "suite": "p_world.mjs",
+  "method": "F50",
+  "class": "EVIDENCE_GATE",
+  "name": "F50 transferMatrix",
+  "consumes": [
+   {
+    "input": "rows",
+    "read": true
+   }
+  ],
+  "causal": [],
+  "refuses": [
+   {
+    "path": "rows.0.state",
+    "why": "pass claimed without an output file",
+    "refused": true,
+    "msg": "F50: built_world/F70 VISIBLE_PASS without an actual output file"
+   }
+  ],
+  "accepts": [],
+  "falsifier": {
+   "pass": true,
+   "detail": "never qualified without six visible passes"
+  },
+  "pass": false,
+  "problems": [
+   "evidence gate needs ≥1 accepted real record and ≥1 refusal"
+  ],
+  "outputs": 2,
+  "at": "2026-11-21T16:59:48.508Z"
+ }
+}

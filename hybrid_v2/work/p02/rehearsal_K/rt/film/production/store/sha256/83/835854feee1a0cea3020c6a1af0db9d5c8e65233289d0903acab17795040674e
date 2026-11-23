@@ -1,0 +1,49 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:79",
+ "sequence": 79,
+ "prev_event_sha256": "b6d925bdcdaacf08e75f83bb111c2c54713c7b106730d0e034f355e34e75b799",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwrxc86i",
+ "operation_id": null,
+ "task_id": "asset_pilot_body",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:78"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:29.920Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "asset_pilot_body",
+  "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+  "inputs": [
+   "plan:pilot_body"
+  ],
+  "expected_outputs": [
+   "assets/art/pilot_body.png"
+  ],
+  "deps": [],
+  "invariants": [
+   "bytes match the manifest hash",
+   "provenance is honest",
+   "approval verifies (HUMAN in production)"
+  ],
+  "verification": "byte hash + verifyApproval",
+  "evidence_location": "production/store",
+  "category": "MISSING_ART_STATE",
+  "group": null
+ },
+ "lock_generation": 79,
+ "event_sha256": "71e9d515e822dafb91a23f49af13374740886726e9044549e96fc5b7c6292109"
+}

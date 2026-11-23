@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:153",
+ "sequence": 153,
+ "prev_event_sha256": "a2120a5b646e2ce01ad70f75604b200592e5478b0a086ea4d970ca595f6b0824",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S06_REGISTRATION_RIG",
+ "attempt_id": "Amwrxcb5k",
+ "operation_id": null,
+ "task_id": "states_edges",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:152"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:38.248Z",
+ "elapsed_ms": 49,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "no failing/unreviewed state or edge",
+  "pass": true,
+  "measurement": "all verified"
+ },
+ "lock_generation": 153,
+ "event_sha256": "80f27dfd579b9d9098613d28cae7405b05beb3fae4fbfbfda638d6edf865265d"
+}

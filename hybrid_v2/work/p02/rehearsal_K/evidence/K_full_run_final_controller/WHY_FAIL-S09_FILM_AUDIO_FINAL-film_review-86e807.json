@@ -1,0 +1,16 @@
+{
+ "first_violated_invariant": "verified HUMAN film receipt over the current bundle",
+ "observed": "DIAGNOSTIC run: a film review can never be satisfied",
+ "stage": "S09_FILM_AUDIO_FINAL",
+ "task": "film_review",
+ "root_producer": "engine/tools/art_bridge_film_qa.mjs#reviewFilm (independent human)",
+ "failure_class": "EXTERNAL_HUMAN_REQUIRED",
+ "repair_owner": "INDEPENDENT_HUMAN_REVIEWER",
+ "blast_radius": [],
+ "frames": [],
+ "evidence_event": "DIAG-20261122142022-e1cc63:213",
+ "resume_from": "S09_FILM_AUDIO_FINAL",
+ "retry_safe": false,
+ "external_spend_risk": false,
+ "next_operation": "resolve film_review"
+}

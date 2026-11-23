@@ -1,0 +1,35 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:113",
+ "sequence": 113,
+ "prev_event_sha256": "af1cdc44ca502a9499fbd47a0ac3ce6f1d140dcf1e0ec04bf99ddaf0deb577b1",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwrxc86i",
+ "operation_id": null,
+ "task_id": null,
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "STAGE_HANDOFF",
+   "sha256": "9ca71f90e19c5febd7b7f468c67e27bfce0af34819735b69c0c42fd6699cd176",
+   "bytes": 5855
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMMITTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:112"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:33.254Z",
+ "elapsed_ms": null,
+ "event_type": "STAGE_COMMITTED",
+ "lock_generation": 113,
+ "event_sha256": "2f0c7a592a97d903c45eca50a7d97803d1eb9860b193ce5177213cad76fa613a"
+}

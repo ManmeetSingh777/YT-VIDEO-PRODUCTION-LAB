@@ -1,0 +1,111 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ines_coat_hem_0d4df647",
+ "root_dependency": "ines_coat_hem",
+ "identity_id": "ines",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "ines_master",
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    900,
+    1920
+   ]
+  ],
+  "view_id": "threeq_r",
+  "pose_id": "neutral|hand_open|hand_pinch|curious",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "pelvis"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "ines_rig",
+    "joint": "pelvis",
+    "rest_xy": [
+     300,
+     620
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "ines_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "registered cutout on joint pelvis for the S02 reach/grip/insert action. Required by: state ines_rig:neutral/- S02_operate_washer; state ines_rig:hand_open/- S02_operate_washer; state ines_rig:hand_pinch/- S02_operate_washer; state ines_rig:curious/- S02_operate_washer; state ines_rig:curious/profile_turn S02_operate_washer; state ines_rig:curious/profile_satisfied S02_operate_washer"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "552a64a74aa2a3aacd937cd2b8d54aea0f2285be6f59ce24d2d90d93ad13cb7c",
+ "frame_precision": "STATE_INTERVALS",
+ "generation": "c647d188055656996a861215",
+ "dependency_parts_digest": "c647d188055656996a861215b22a69a20318d3d8180dfe6e05788e235286e0ac",
+ "gate": {
+  "pass": true,
+  "family": "ACTING_HUMAN",
+  "failures": [],
+  "required_methods": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F14",
+   "F15",
+   "F16",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F30",
+   "F31",
+   "F33",
+   "F35",
+   "F36",
+   "F51",
+   "F52",
+   "F53",
+   "F56",
+   "F57",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F77",
+   "F78",
+   "F79",
+   "F80"
+  ]
+ }
+}

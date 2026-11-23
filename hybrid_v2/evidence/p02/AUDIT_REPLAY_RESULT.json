@@ -1,0 +1,23 @@
+{
+ "zip": "E:\\MOTION_NATIVE_STUDIO_V1\\audit_outbox\\HYBRID_V2_P02_REPAIR_AUDIT.zip",
+ "zip_sha256": "cdc28fc8fd5fa31cc2aeea5cb4e1087fe61c8677ea5af0fd9e1d281a40579dc9",
+ "extracted_to": "C:\\MOTION_NATIVE_STUDIO_V1_AUDIT_REPLAY_3\\HYBRID_V2_P02_REPAIR_AUDIT",
+ "integrity_failures": [],
+ "nu_js_sha256": "773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be",
+ "nu_js_preserved": true,
+ "suites": 27,
+ "replay": {
+  "tests": 185,
+  "passed": 184,
+  "failed": [
+   "P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families"
+  ],
+  "seconds": 5286
+ },
+ "shipped_tap": {
+  "tests": 185,
+  "passed": 184
+ },
+ "shipped_tests_missing_in_replay": [],
+ "outcome_changes": []
+}

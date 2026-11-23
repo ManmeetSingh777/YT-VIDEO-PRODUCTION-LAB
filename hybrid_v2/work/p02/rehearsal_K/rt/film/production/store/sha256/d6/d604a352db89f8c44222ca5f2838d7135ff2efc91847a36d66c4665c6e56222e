@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:6",
+ "sequence": 6,
+ "prev_event_sha256": "70db0f95bc24733b40ed676a79f9c809018c6b8e8e3b57e4debbbeab7b413888",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S00_IDEA",
+ "attempt_id": "Amwrxc4c9",
+ "operation_id": null,
+ "task_id": "film_intent",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "story/FILM_INTENT.json",
+   "sha256": "dc73da0f1383b1b87b7e5a7500a36b6f665035ce1299d4d38e190ab02ece56fc",
+   "bytes": 331,
+   "source": "story/FILM_INTENT.json"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:5"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:24.665Z",
+ "elapsed_ms": 7,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "fields present; provenance recorded",
+  "pass": true,
+  "measurement": "complete"
+ },
+ "lock_generation": 6,
+ "event_sha256": "ad4a78c51a6696d78e01ce15eb0bfcb36e7daac9f8e5747405779f17ae42e200"
+}

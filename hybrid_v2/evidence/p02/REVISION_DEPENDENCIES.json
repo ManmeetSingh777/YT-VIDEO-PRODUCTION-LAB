@@ -1,0 +1,989 @@
+{
+ "film": "hv2_film001",
+ "digest": "c9c068b73b3f1a0238049e74020bc79e795b9e8a4cac9fb0d5300511462a8494",
+ "scopes": {
+  "code": "65ead33fb8ff78532cfcd0629233c5eedbd5cf048de31815c3b77cc6dd3cb9ec",
+  "story": "b75eb6f3cc6857d5b771be2d05bb22e5bcecbcaecefa6f1d30ec7abc2ee19375",
+  "direction": "b441c574a5d997d97567f9cb67266ebbe9d60001691978f5f049d897a55080eb",
+  "contracts": "8257e3acf97ee604f35f366cd91b8c3248b697c2d316396254eb9ab900e04f72",
+  "designs": "e31b6c9d806373466fdb48f1de69d06bc6b670928bda7428fae6d4dad057569d",
+  "art": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "registration": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "audio": "44ab592601e1daf1c145e760e752ce52cce0aca1d503246d477d14f246be66f9",
+  "approvals": "00cd146c3babfb002109c3aa8dafec364ed869c64717dad8360a8088ad13f63d",
+  "canvas": "9bca9a9f492b39e592937840ab6788d9b57f44fe155d468026f7ae245090aac0"
+ },
+ "integrity": [],
+ "code_files": [
+  {
+   "file": "engine/art_bridge/approvals.mjs",
+   "sha256": "90beb6f158413677bcc01f101639d74e8aab2d7cca5511ecac0e3b70257e7e8b"
+  },
+  {
+   "file": "engine/art_bridge/art_contract.mjs",
+   "sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791"
+  },
+  {
+   "file": "engine/art_bridge/art_demand.mjs",
+   "sha256": "a742ccfcf8884d61bf8fd54b66e6e59bb5f4c385f1863936224eef40e8e15be4"
+  },
+  {
+   "file": "engine/art_bridge/art_families.mjs",
+   "sha256": "d7203325e31047551fd6b97f89f7a9367ddf3977f86f3dd7fb02cae8aaa465a5"
+  },
+  {
+   "file": "engine/art_bridge/art_intake.mjs",
+   "sha256": "eb2e6c8074f50947af00896b75e79da155e8670fc156a611ff79152bced13453"
+  },
+  {
+   "file": "engine/art_bridge/art_requests.mjs",
+   "sha256": "a57efb91e8a2d8717b18c830819de78b927683f58f45d8ea7be2e48115d2c501"
+  },
+  {
+   "file": "engine/art_bridge/art_review.mjs",
+   "sha256": "b73d490113af29929e21aa4dbba56987d99b74da3cf947ef710ec99aece3649d"
+  },
+  {
+   "file": "engine/art_bridge/asset_geometry.mjs",
+   "sha256": "3bb56fe8e39e741149d5dd7080157d33581d7f02d87eaceaea9e5bff62a97628"
+  },
+  {
+   "file": "engine/art_bridge/asset_registry.mjs",
+   "sha256": "d26b95456796d7402da8f8e1d19b1e3dfcf22fa1465aab3f8322b612de727287"
+  },
+  {
+   "file": "engine/art_bridge/asset_state.mjs",
+   "sha256": "2d6fefff256eb335fd5a029cc87903655de019c14cc08430e0d583fea1613c00"
+  },
+  {
+   "file": "engine/art_bridge/audio_cues.mjs",
+   "sha256": "17a68a03af3bc2fb39fd302f8704b1e0b2f87c80588a6b51100e493f6e91d072"
+  },
+  {
+   "file": "engine/art_bridge/candidate_store.mjs",
+   "sha256": "5a1331c372f0f00e80ed8d994d9b80e90a25e3014660f75b8d793a7195154ce8"
+  },
+  {
+   "file": "engine/art_bridge/constraints.mjs",
+   "sha256": "6fe63f7d42d0a4f9620f42e8ec6a587651fd0b116308fefb89fa49044842a486"
+  },
+  {
+   "file": "engine/art_bridge/contact_solver.mjs",
+   "sha256": "cd93109100611834d66898274b477fd54d6573b1de765e20425505ea13b9f678"
+  },
+  {
+   "file": "engine/art_bridge/coverage.mjs",
+   "sha256": "a4a77d21cf0d6f90c5f71f5871580e51bcdca1f2ac1fe366e5c409e6ba1949c5"
+  },
+  {
+   "file": "engine/art_bridge/deform.mjs",
+   "sha256": "cd29e5a99be42a154654b067b351e953c2a1e38ea04d526eb4d03a3a4bfc84bc"
+  },
+  {
+   "file": "engine/art_bridge/errors.mjs",
+   "sha256": "c192a62c74e95f5226881c71868fde141e5571d760d24bf78b03798ec2583cbd"
+  },
+  {
+   "file": "engine/art_bridge/gpt_handoff.mjs",
+   "sha256": "9373612231809823e3c087409c0f7dc1e90a21affba911a94f442501205bbe87"
+  },
+  {
+   "file": "engine/art_bridge/graph.mjs",
+   "sha256": "372b9801dcbbc5037d4aff4681d38ac228a2d4e790c7f19358a3f20315498442"
+  },
+  {
+   "file": "engine/art_bridge/jsonschema.mjs",
+   "sha256": "26cc7701fd3c1784217fc2cf13bc17ff2b21ef4c8c1fac104e6981c2f1605070"
+  },
+  {
+   "file": "engine/art_bridge/lighting.mjs",
+   "sha256": "41a6e6273e66055f9787fc2df99e0fa9b08b60d8f5c2127b9ddb90ba13289d62"
+  },
+  {
+   "file": "engine/art_bridge/load_manifest.mjs",
+   "sha256": "9bfcccd0baf91455bcdf30725bc7e756eef27c73c62e2ec603a7048defc2d99f"
+  },
+  {
+   "file": "engine/art_bridge/math2d.mjs",
+   "sha256": "cebfa6b63d6cf0193eae893dbaab0a4ad07ba204272f3aa018150cedc2a2f403"
+  },
+  {
+   "file": "engine/art_bridge/method_applicability.mjs",
+   "sha256": "e83adff2c657f407dd9f2c2f6b326029f83b8280b6feb085f1ac4edec38755e1"
+  },
+  {
+   "file": "engine/art_bridge/method_trace.mjs",
+   "sha256": "4cad946f0ccc481caf9fbdca000d7bd339b678d247f5966365e612a53687359a"
+  },
+  {
+   "file": "engine/art_bridge/motion_systems.mjs",
+   "sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff"
+  },
+  {
+   "file": "engine/art_bridge/outbox_store.mjs",
+   "sha256": "d7808828c628147f315f88517e0cb0f10fdbe00fe0862a6746824c50e61a4aa1"
+  },
+  {
+   "file": "engine/art_bridge/png.mjs",
+   "sha256": "de98bd1e6831d30f8b0571d285acebdca696283efb715b73cba7dd27aed695ee"
+  },
+  {
+   "file": "engine/art_bridge/providers/image_provider.mjs",
+   "sha256": "f33ad3f71f028099064807441c295e93284242229f43032fa471332ae7a0c76f"
+  },
+  {
+   "file": "engine/art_bridge/registration.mjs",
+   "sha256": "ac2d6f3dd0d9cb7632c53f6fbd9c9ef8fdb267f54996a77759845f3091c0b568"
+  },
+  {
+   "file": "engine/art_bridge/registration_evidence.mjs",
+   "sha256": "793fa20722689183bd8c6adcae924676ad31e671b6520aa1c0cf026da5a45ed5"
+  },
+  {
+   "file": "engine/art_bridge/render.mjs",
+   "sha256": "bf71d7ef7027e80e3e96a7a770bc6e565edc97c19354aa260029581c686afd0f"
+  },
+  {
+   "file": "engine/art_bridge/repair_memory.mjs",
+   "sha256": "f9619c028cb539857a5d18805cef580d12bcf63e15e89189ae60759052a93a6c"
+  },
+  {
+   "file": "engine/art_bridge/request_stages.mjs",
+   "sha256": "2259d20512e0ae4b03d56ebc571486449bcb7b45609b6525fb05ae9aa30012d6"
+  },
+  {
+   "file": "engine/art_bridge/reviewer_auth.mjs",
+   "sha256": "adb8b7619be702a679954009da4c7de4fd771a28ba49d65cde4d7f656a6f2291"
+  },
+  {
+   "file": "engine/art_bridge/rig_binding.mjs",
+   "sha256": "ee7f029ec062fb6b2289254a2cfb285fd8238b6df294e12d2d309aaf32077374"
+  },
+  {
+   "file": "engine/art_bridge/runtime/bridge_rt.js",
+   "sha256": "014dcc5b0b99862142eaa641d18c44065b4a6c624a70284dd2ddc5e5dff5cad8"
+  },
+  {
+   "file": "engine/art_bridge/scene_graph.mjs",
+   "sha256": "1b7037cb6a5761240a490d4e8c6a03302916a67d5da0009bcb2c5afffb463bdf"
+  },
+  {
+   "file": "engine/art_bridge/source_method_causality.mjs",
+   "sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93"
+  },
+  {
+   "file": "engine/art_bridge/state_router.mjs",
+   "sha256": "d040a1b82a2ac85a4000d6f9eef7d162ad9d5d39dcaf4fe5936b83d583cb41a0"
+  },
+  {
+   "file": "engine/art_bridge/svg_parts.mjs",
+   "sha256": "9861f445d44e09548ef18fc727d102bedc49ab0b1753979409f3e76bfdecc1ab"
+  },
+  {
+   "file": "engine/art_bridge/temporal.mjs",
+   "sha256": "aafd0ab259fd84450571f9bb542b97045a24cdb2d65ca8350effdfd24d7e4f98"
+  },
+  {
+   "file": "engine/art_bridge/transitions.mjs",
+   "sha256": "d3f7e29ad7f428d8c80a8da67442cc3c8bab1175cc1688abc9349ed92fc02b97"
+  },
+  {
+   "file": "engine/art_bridge/witness_regions.mjs",
+   "sha256": "7c5ac2181f8134466e26f5e3d56f9d09b0a6d16f1f12aa0467077c77293afe02"
+  },
+  {
+   "file": "engine/authoring/construct.mjs",
+   "sha256": "7309c5dc397631ee5cbc8bc0bc981111234f54a60e82a3ed7326da2a592447a0"
+  },
+  {
+   "file": "engine/authoring/methods.mjs",
+   "sha256": "d166a92cafaced5640d9eedc0b7ab3cf39e76e769c07d74b9cea8e24a481ca1a"
+  },
+  {
+   "file": "engine/authoring/raster.mjs",
+   "sha256": "28aabfb1785f91014052dfba5f735b1e31c8fce55975fe358cce0bc1c958aafa"
+  },
+  {
+   "file": "engine/authoring/rules.mjs",
+   "sha256": "b880b219195c2a59e1f0ce79e1ffc8af07845aca1b9683d0817cb66c4ff5e6c6"
+  },
+  {
+   "file": "engine/authoring/stages.mjs",
+   "sha256": "71f5ff971dbc4fb145566354a1fe4372c64ec8093e24cc1a395bc5dcf7256063"
+  },
+  {
+   "file": "engine/film/chrome_frames.mjs",
+   "sha256": "cd86e96ef17a07d1cb196fcd1942384b712c1b11f2cba99b3018517d2cf13472"
+  },
+  {
+   "file": "engine/film/coverage_gate.mjs",
+   "sha256": "6283ebd882d6e719c7d61d43ea1d6a4aa34d8707f47e310a9973cb4f4f4ad531"
+  },
+  {
+   "file": "engine/film/evidence_auth.mjs",
+   "sha256": "0e2d537f859b34de7e354ea1965079c883ed05a4961cc7e1f0ac74b928221cca"
+  },
+  {
+   "file": "engine/film/film_revision.mjs",
+   "sha256": "33c4fdf96a5fab7fc9244161c924bec6d2e5067b639b17fdfd7c6fbe6a9f30de"
+  },
+  {
+   "file": "engine/film/qa_layers.mjs",
+   "sha256": "e9594404b6e533daad45e17c9e8d785b66c284c4ce6cf0689642793b5c4a3dbe"
+  },
+  {
+   "file": "engine/film/segment_render.mjs",
+   "sha256": "55f5bab3c04d04b0ce928a749f4cecd35aedab4dabdec5a50a1e256e6dc5ca4e"
+  },
+  {
+   "file": "engine/lib/geom.mjs",
+   "sha256": "753bd7371f40839fffa6967c1e595ed1cc5077836f890f48788d1352ba389220"
+  },
+  {
+   "file": "engine/lib/nu_lib.mjs",
+   "sha256": "2b20a106357b6c397c0a696d01dbbb7e12bd1ca0709243fc2b98d12447a83dc1"
+  },
+  {
+   "file": "engine/lib/rig.mjs",
+   "sha256": "1d9a5fa2395f5acc04ee4e8d2c83ed73f1f701d6b653cd4e4505a57cea8f3660"
+  },
+  {
+   "file": "engine/lib/scene.mjs",
+   "sha256": "680dad65abc3d622e9c6877d8ce5767ba228f24eec46d1dbbfcfee675bf098e9"
+  },
+  {
+   "file": "engine/lib/style.mjs",
+   "sha256": "acffae9af68d877dcc06a5106da05ce29e3512f1ef617e0ac1ee0ab51321af14"
+  },
+  {
+   "file": "engine/methods/bindings.mjs",
+   "sha256": "b45c2f3031bbc382c71a6214353bfce9946c59c76d6ebbf4abc542309a28068f"
+  },
+  {
+   "file": "engine/methods/body.mjs",
+   "sha256": "87d83d0356a8a68a9a95e1ad2b2a0a2c9c6e42fc60fd9dcc52612b87c27781a4"
+  },
+  {
+   "file": "engine/methods/color.mjs",
+   "sha256": "bb3a9c73e3c52460e50aeebd26179ce062b6d730f0192a401a78ba1424090b3e"
+  },
+  {
+   "file": "engine/methods/contour.mjs",
+   "sha256": "624ae228e07bc8557c2712260e2bd66ea24bbb4dcb36911a86c21a38ce82587a"
+  },
+  {
+   "file": "engine/methods/contracts.mjs",
+   "sha256": "44d6bd3591f88ab3959de56f90ca46494311286df0dfb408181ac7e0066c3294"
+  },
+  {
+   "file": "engine/methods/core.mjs",
+   "sha256": "859c30add778f532cce2ca38bc1351e28802e266d64e37978868246e8a29ef38"
+  },
+  {
+   "file": "engine/methods/density.mjs",
+   "sha256": "7336c9c1087e7a8c850f595e583978802bfaa55037105ed75b490f68e205f2ea"
+  },
+  {
+   "file": "engine/methods/direction.mjs",
+   "sha256": "91926f5a5a765ef6195b49f861454f8a6b269c0f31c7dddc8ca73e88e8dcfdf0"
+  },
+  {
+   "file": "engine/methods/effects.mjs",
+   "sha256": "f66d71a2e80f28ce4ba3f889686cf0b5dac398900eecb77d7d708d0d6be85d8d"
+  },
+  {
+   "file": "engine/methods/emit.mjs",
+   "sha256": "725ba335ceda69aff62fce42603e9e1a2400efec6bbcc1bfaaf67691e5e77db0"
+  },
+  {
+   "file": "engine/methods/evidence/PROOFS.json",
+   "sha256": "c6e74ed5987b61eedd7eb5b8dae9913bded08c37ac2184b178b65e25eb27a04e"
+  },
+  {
+   "file": "engine/methods/evidence/STATUS.json",
+   "sha256": "4ac09d56fe641125f4cf4c73e4363e754564854110d4c483ca873f2376b111f2"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r1_trace.json",
+   "sha256": "f3376c104c4befed8a71f057c850b5a441ab01ef9ddcfe30cf25d930e9f3ff21"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r2_trace.json",
+   "sha256": "08a1e6226c866d26690ab85a02d9b9505adda33fdda0c89784dc26511fe80737"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r3_trace.json",
+   "sha256": "7b80fa1d2e5c575e0c91ecc106cace2a6d41affcfc5a5e22e29f690bd3aa4fd4"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r4_trace.json",
+   "sha256": "7b80fa1d2e5c575e0c91ecc106cace2a6d41affcfc5a5e22e29f690bd3aa4fd4"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r5_trace.json",
+   "sha256": "c813b54973ae3680c973622047aa313d4e49ab5be77d729b2887d0b3a8cab883"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r6_trace.json",
+   "sha256": "b650e910175453c8d0d78b40b95cb9a446860ce2d86386387e74e72d0a96d53d"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r7_trace.json",
+   "sha256": "984eda431680db0b1de8685bca0eac45f3240f55b63476d26f8799fef9f0a7b8"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen1_r8_trace.json",
+   "sha256": "984eda431680db0b1de8685bca0eac45f3240f55b63476d26f8799fef9f0a7b8"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen2_r1_trace.json",
+   "sha256": "d3680e5fd8050b27aefad7d1986c4fcd9ba0d92b3056ab7debcd83c2ba27998a"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen2_r2_trace.json",
+   "sha256": "a5095850ad071c017a4baf578d0957f9832d37ec361edbd5bbc1a04ed9d6e59c"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/AFTER_REPAIR/specimen2_r3_trace.json",
+   "sha256": "46aa59e3425a8eba2d6c47eced1671679b76753ed6a96ae997f263e4bd6a9d00"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist.mjs",
+   "sha256": "f3b1d514d8a6f3364c5e7b674cbb07736d4f8d0f7a3dd5be34a322035a7ba70d"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_face.mjs",
+   "sha256": "f020ce2386f89856d8933ec50953a3c54597506703f567dd94824d07f34529ad"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_hand.mjs",
+   "sha256": "ef203eb0469aaa62efaccce67c11335b77afbb8c3bf0b268450610da6f776d90"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_scene.mjs",
+   "sha256": "b056bb23bf494dac6e27f40a0a10ef3e200d5d773a963626320e8224c58b16b8"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/DECISION_PLANS/hydrologist_selection.json",
+   "sha256": "88f5143dd3e1a2f0e03c6a899b52cd19429d8a0874ece1320264eef542e0478a"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/DECISION_PLANS/mill_scene.mjs",
+   "sha256": "ac2a901b7054f02e94bc303a1cb79ee6103750acb8dc155d770cb72bfcf13b01"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/FIRST_PASS/specimen1_silhouette_candidates.json",
+   "sha256": "70430310728b641cee97a564230825a17ba9b3ca183d83413298670636e59ea3"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/FIRST_PASS/specimen1_trace.json",
+   "sha256": "463200eb6b966cb4fd53e1b565a267fe31742d38a615f030b42585426cffb453"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/FIRST_PASS/specimen2_trace.json",
+   "sha256": "f44d7004cc1881210ac2ba4f5036179c8375d45aefd23e62e25e3762ff236b30"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/GATE_A.json",
+   "sha256": "1283bcbb71b4e3e39b7feb78e4deb617d75bd215ed1c166e719accfb87e9e732"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/SOURCE_RULES.json",
+   "sha256": "d474204b1d1c973cf183ef3bdb552f333a2668f54b964fafda9624d165f5569c"
+  },
+  {
+   "file": "engine/methods/evidence/stage1/STYLE_MEASUREMENTS.json",
+   "sha256": "27f445f82a23d4f8dd437d76ca0f6802175ef6dbfe579803c31de887850e8d08"
+  },
+  {
+   "file": "engine/methods/face.mjs",
+   "sha256": "efd004ca718600753ea554ed5e2126e3962f4df9ea2c6e0e8928b9de539788b0"
+  },
+  {
+   "file": "engine/methods/faceview.mjs",
+   "sha256": "7e71925b2c244fc0e69e26a5e46a39581919dd62b950b313851eda3537de6e8e"
+  },
+  {
+   "file": "engine/methods/family.mjs",
+   "sha256": "22eaf4ae129c8ba0d88a836543f27f44968ebdd77570727775210677ca56d087"
+  },
+  {
+   "file": "engine/methods/figure.mjs",
+   "sha256": "60dd0dec4ae635229723236dc3f869ce5e8974eae727838c4271c9f22f6e05ac"
+  },
+  {
+   "file": "engine/methods/gears.mjs",
+   "sha256": "14e144c231fe3c23785be23998a7bcc2119c455514438ee2ca6cff1d167f3a3f"
+  },
+  {
+   "file": "engine/methods/grip.mjs",
+   "sha256": "9dd6c8c3771c52f41e45b8e76dd53274449c121fbcbfbc6bee3b84a2e42cdf41"
+  },
+  {
+   "file": "engine/methods/hand.mjs",
+   "sha256": "7736f063abed3c1df16640eb56567b8934fa34818908f573e807c757a7a0ed8c"
+  },
+  {
+   "file": "engine/methods/knowledge.mjs",
+   "sha256": "641a163035d9503b22ee1319601ea712a662fffe5c4b397d2ab89b6072b04b38"
+  },
+  {
+   "file": "engine/methods/layers.mjs",
+   "sha256": "e218349a81f6ea414c13ba916dc9410adabdcc04ae1c8cb64aa0043c94a2c957"
+  },
+  {
+   "file": "engine/methods/machine.mjs",
+   "sha256": "f36884e122ffd3383c48fecadcf6812b0882b5fcb818058d95e7e72b4f2a04a3"
+  },
+  {
+   "file": "engine/methods/motion.mjs",
+   "sha256": "0be593e8bd0187bbff10a34f19b036d9535f05398bfcb22acee9dc528cad9655"
+  },
+  {
+   "file": "engine/methods/network.mjs",
+   "sha256": "b5e89af9033b581f5fe5959234f7a09409b70a4679b24c5112ee27bfde033ab0"
+  },
+  {
+   "file": "engine/methods/optic.mjs",
+   "sha256": "acc5e4c7ae406012b75753c8bea4aaf1d56429bbedd4165353c56f142ad4f546"
+  },
+  {
+   "file": "engine/methods/palette.mjs",
+   "sha256": "4f0c953876e46f3643fe2f95b504abdf8147a061f5c5b6df5423273b1f6f873c"
+  },
+  {
+   "file": "engine/methods/plants.mjs",
+   "sha256": "611923d32ca8a8e9462c09302099521d72835cab835c081d7043e97b70e8b273"
+  },
+  {
+   "file": "engine/methods/projection.mjs",
+   "sha256": "21cffd723a10523a8156714ca6c465fd726115ff87c0cfd43c00060143900ac4"
+  },
+  {
+   "file": "engine/methods/proof.mjs",
+   "sha256": "305dd3e7218a0c58b8b62e49b7435a07ebfcb1067b9a5dfbe07df23f5bd4cf71"
+  },
+  {
+   "file": "engine/methods/proofs/contour_quality.mjs",
+   "sha256": "9fb9408ee7913b2487eff45bc85cfaa78a7ab688510e5d33be895587c570b5af"
+  },
+  {
+   "file": "engine/methods/proofs/gateA.mjs",
+   "sha256": "4c9607b38aa473f703dc2f50e35385ef3582a89f00d9096fe5243defd4da151e"
+  },
+  {
+   "file": "engine/methods/proofs/measure_witnesses.py",
+   "sha256": "02b447936420cf3fd3e16a2e5964ad324c9bae12502f71e7f05ff273f7051cc5"
+  },
+  {
+   "file": "engine/methods/proofs/p_character_core.mjs",
+   "sha256": "01f9c05bcb81ed70c9bb3b416cfa02494798d7c5e9153e5d7bb9bf431943222e"
+  },
+  {
+   "file": "engine/methods/proofs/p_character_ext.mjs",
+   "sha256": "1e3f40bf42e9a5219ee1fba32780b346f0d46cd3910c4e06b537bb4bec5f68ce"
+  },
+  {
+   "file": "engine/methods/proofs/p_world.mjs",
+   "sha256": "803dacfaa3b2403c90a9bd3ec60d45985aac6b5580e42098f7c78a94d3e53d80"
+  },
+  {
+   "file": "engine/methods/proofs/run.mjs",
+   "sha256": "1683ebe9bf21960e363bc7082b2155d54b09965fac96b9e563110eeb7385f1ac"
+  },
+  {
+   "file": "engine/methods/proofs/specimen1_candidates.mjs",
+   "sha256": "9fc7aa04b484c893eb4bc0fbba59b9387da646996b2d4d60cc80412b4ca93483"
+  },
+  {
+   "file": "engine/methods/proofs/specimen1_face_atlas.mjs",
+   "sha256": "9c31ba65f9c9f44b6a47a704f7c58673202b1c5099c8fa5f5348a60d918ad862"
+  },
+  {
+   "file": "engine/methods/proofs/specimen1_render.mjs",
+   "sha256": "efd7aa91b4cf1acaaf98a5e84947b57bda7272eaaeda952fec22148883c63fb2"
+  },
+  {
+   "file": "engine/methods/proofs/specimen1_select.mjs",
+   "sha256": "09af34e8bbafb0a1819d33efd36c423d39b811b9105da79177cc02ac40ac5e50"
+  },
+  {
+   "file": "engine/methods/proofs/specimen2_motion.mjs",
+   "sha256": "ce70f7ef5be21a56609d1cbc7848e259be1879561957036b5a725d8307c27523"
+  },
+  {
+   "file": "engine/methods/proofs/specimen2_render.mjs",
+   "sha256": "d8686e79f147cfa0c346f29ec30a586edbaedba6cbb478c308b046897999eda4"
+  },
+  {
+   "file": "engine/methods/provider.mjs",
+   "sha256": "06dc9e9023f24c2125611ca9c17ba6053fa8ded7be49333bf8146a682735ccd0"
+  },
+  {
+   "file": "engine/methods/registry.mjs",
+   "sha256": "f646d1eeb4ff6599cb1f168f5dc59edbac990c13b04da8999687ef6d956c8929"
+  },
+  {
+   "file": "engine/methods/render.mjs",
+   "sha256": "51acf19aa7f0d09619fefd1ba608487cbcb3b8f0f62da296cbbf7df637f52f16"
+  },
+  {
+   "file": "engine/methods/repeat.mjs",
+   "sha256": "43874fda73d05503ef4ebabf21544b4295ebdb87c7f1ffd6545b9127cdcc30f9"
+  },
+  {
+   "file": "engine/methods/rules.mjs",
+   "sha256": "a4d3ab1bed00aa271f37ead22d4c3ee274b730b4f580fd0c34376cfccbe01cf0"
+  },
+  {
+   "file": "engine/methods/schematic.mjs",
+   "sha256": "4738c06b76d1411d8fd2150537e0e71f3166443b7cd3421fc3e6027e33108fdc"
+  },
+  {
+   "file": "engine/methods/source/F_SOURCE.json",
+   "sha256": "1e37eaedaaade1b10c8450a0a0a916b79154de3e0ed75a2279c0f4ca804f0179"
+  },
+  {
+   "file": "engine/methods/source/extract.mjs",
+   "sha256": "7c7e384ecabc9a6e77fc034e1d231e47a2f0a4aacb6104043ee6085ae9046b82"
+  },
+  {
+   "file": "engine/methods/states.mjs",
+   "sha256": "059dbf21c520d6e8c3c69a279abad5212226418e2a8804d66c54beec1ace38a4"
+  },
+  {
+   "file": "engine/methods/status.mjs",
+   "sha256": "1148401251f8e51f6b69b3d1e7b9596a6210392e48503eaad75a9dc2652c20bd"
+  },
+  {
+   "file": "engine/methods/subject.mjs",
+   "sha256": "7d0145fbafe9171eb82cca96486dd0e41162fa41da5a9d2a46de97c3e43df011"
+  },
+  {
+   "file": "engine/methods/surface.mjs",
+   "sha256": "0b987ab897958f2e41378a229ccc3da660066bdcdc27ccf08b64fd3932b037b3"
+  },
+  {
+   "file": "engine/methods/surfaces.mjs",
+   "sha256": "6138d990441dbc35b89ef6186d172f37cbca1ee32496e9dbc263db9c3e1c42cb"
+  },
+  {
+   "file": "engine/methods/topology.mjs",
+   "sha256": "f18f608af64e276e74b832db595cc02b792f74f2d07ceb182de2ff8db6a5ca18"
+  },
+  {
+   "file": "engine/methods/transition.mjs",
+   "sha256": "0c83cf117a9f74fae6a4efa9864dbbe202c8a28daecdc10de75d0142b21a8c41"
+  },
+  {
+   "file": "engine/methods/world.mjs",
+   "sha256": "e38789685da6b877723b93fddf5cc223e9d59ab2535efcb7768df1f6b4340cc0"
+  },
+  {
+   "file": "engine/methods/worldgraph.mjs",
+   "sha256": "f9d08bbaf35df3e02171c4a95c2f5510fa81214c972f3fa6fbd1c3ddf33866ec"
+  },
+  {
+   "file": "engine/production/inert_control.mjs",
+   "sha256": "1ec286e3bde7ac814e8a89969e32140dc40b22da474f5369b4d05fe8523aecd0"
+  },
+  {
+   "file": "engine/production/ledger.mjs",
+   "sha256": "0c6d14c7ba073b5a060bc0d436177bc77b7dc3162673f8b7f7d2b5335d7c9add"
+  },
+  {
+   "file": "engine/production/run_authorization.mjs",
+   "sha256": "b42aa49a96e4ed72091164005a9e44b36578ce18562abe220ccc5637ed0c4713"
+  },
+  {
+   "file": "engine/production/stages.mjs",
+   "sha256": "23be583d679646403e99aab1aaaab9453548138431eb763ecb3045c851432d1e"
+  },
+  {
+   "file": "engine/runtime/form3d.js",
+   "sha256": "5721728cb518094a4a60bfd376a9582724381c1c846c2df7489cdf46ea3d5113"
+  },
+  {
+   "file": "engine/runtime/gsap.min.js",
+   "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+  },
+  {
+   "file": "engine/runtime/mn.js",
+   "sha256": "e2a06518f3c066779aa1b83daa79d63108d154f630e5be5a1056987900a56b39"
+  },
+  {
+   "file": "engine/runtime/nu.js",
+   "sha256": "773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be"
+  },
+  {
+   "file": "engine/story/action_coverage.mjs",
+   "sha256": "259cce0662a4a244b92fee4d5a16662d90d8ae2cb6483bb449e7f84d4cb471a6"
+  },
+  {
+   "file": "engine/story/continuity.mjs",
+   "sha256": "8e619e94073aff7d22772098fcce90d689213c60a9b2e924a6038cbe5990b5d8"
+  },
+  {
+   "file": "engine/story/experience.mjs",
+   "sha256": "e06484a390f0848cf36700395191a6b2940eb714bb1ffcbb71064aa4231a1386"
+  },
+  {
+   "file": "engine/story/mechanism.mjs",
+   "sha256": "573020b69f244d68e445d8d5d22c2403295f475a92693e51751e50dc133793e3"
+  },
+  {
+   "file": "engine/story/narration.mjs",
+   "sha256": "caf1a1c0c5fa705e0efba82159cb60f801ee17b442de08795a94bd161d1c137c"
+  },
+  {
+   "file": "engine/tools/art_bridge_check.mjs",
+   "sha256": "ff0d8af28d0922a575790cdf13782d97c49c91cc68bf5b44e49d0911320c23f3"
+  },
+  {
+   "file": "engine/tools/art_bridge_film_qa.mjs",
+   "sha256": "1e25a99c2b3fb24b543b68712cdd1b29aae207871563bf9c4c762bee61454d3f"
+  },
+  {
+   "file": "engine/tools/art_bridge_qa.mjs",
+   "sha256": "19fae8d66907668a227ac49a66631a786036936dc1802720da5d221517d0462e"
+  },
+  {
+   "file": "engine/tools/art_outbox.mjs",
+   "sha256": "4662f59011b3674099451b372979c4040f71b202fb0d38af55d86748c064582b"
+  },
+  {
+   "file": "engine/tools/audio.py",
+   "sha256": "e2a845ae08df0a94b98daa901ae2448b4734ae302f4bd8dcf3ebed218a3309fd"
+  },
+  {
+   "file": "engine/tools/audit_trace.mjs",
+   "sha256": "2b4abc353a2bf9808250c8f955cbf6e7cd8687e29f7893ecef8f09ac0b6afa9c"
+  },
+  {
+   "file": "engine/tools/build.mjs",
+   "sha256": "89e10f8426893c1d4821c905f12b57fc8c5d4f4c3489d9fcb0c7d0d5a614a68d"
+  },
+  {
+   "file": "engine/tools/build_failure_ledger.mjs",
+   "sha256": "d04ca74cebf936c303860b9cb654a146a0667a3456f159a456f48b7041ee121f"
+  },
+  {
+   "file": "engine/tools/build_hybrid_v2_audit.py",
+   "sha256": "d5322e120167d0da6c6bc9afd57cac8944be81a090172ea8f2db5b87b5e59cc0"
+  },
+  {
+   "file": "engine/tools/build_p02_audit.py",
+   "sha256": "f4721ff152db0a41cb8a1f534b60bef3510336e88d585a64bddd0d8ac63e6280"
+  },
+  {
+   "file": "engine/tools/build_system_correction_audit.py",
+   "sha256": "f8dc60a16886582b2644970a5314daa06ff3352f5a717b28583b84edbba0f87c"
+  },
+  {
+   "file": "engine/tools/compile_film_contracts.mjs",
+   "sha256": "c5703eaa1a6c81d19124769cc7f019a6246d952a5edca040ffb5409b3eec6a8b"
+  },
+  {
+   "file": "engine/tools/control_proof.mjs",
+   "sha256": "ca6d1a92cf076304957ef83f809ea1afdcb3443d137e2c55e49422f3074d4527"
+  },
+  {
+   "file": "engine/tools/decision_proof.mjs",
+   "sha256": "102499666aa1c7c75e49190f8d8b35df65d05f5099220cb118e5f996962d5297"
+  },
+  {
+   "file": "engine/tools/loop.mjs",
+   "sha256": "2a609d3d3cd84e72ec981da4557d06e385a39463218e6d0330ee2fcb22348dff"
+  },
+  {
+   "file": "engine/tools/mninspect.py",
+   "sha256": "ee080921010b3b650e0dc1c2a9cdd33a51771dbe4b6296b4a004410d3be38a62"
+  },
+  {
+   "file": "engine/tools/narrate.py",
+   "sha256": "aa7c74bfb8715c2d4304c936e8a15e5ff457303b48ef23cfa8fc0eaf6344c9a9"
+  },
+  {
+   "file": "engine/tools/plan.mjs",
+   "sha256": "39ceb6471b1fa3c6b66e6383d459f7160ce2bd4037458f125c802dca7d04443a"
+  },
+  {
+   "file": "engine/tools/production_run.mjs",
+   "sha256": "e2012b1a2b8adabb919ebadd6c7153a9081b52e199b5cc0350718f9e4be8eff5"
+  },
+  {
+   "file": "schemas/examples/invalid_illegal_view_morph.json",
+   "sha256": "f5610a1333194193f5117d8a665275262c3c99a093be4da82e48042b4bf9dc56"
+  },
+  {
+   "file": "schemas/examples/invalid_missing_underpaint.json",
+   "sha256": "73087b36acd4556cf0cbfe1343cfd1aae37ee2b969b5e17b6a048c8c8c3b3b85"
+  },
+  {
+   "file": "schemas/examples/invalid_unreachable_contact.json",
+   "sha256": "f08d8c74c5ad0cf2d40ddab73e955d4b049aab29102efe1c705335dec4ea8937"
+  },
+  {
+   "file": "schemas/examples/valid_human_grip.json",
+   "sha256": "77d10ed1450ff85712d15137a2485b21d6030f02a13f2781830a6526c314b1fa"
+  },
+  {
+   "file": "schemas/examples/valid_world_portal.json",
+   "sha256": "f0dad32cb34059c786e042b367384e3e7458f6b9d1db017c49235ed9414dd913"
+  },
+  {
+   "file": "schemas/failure_ledger.schema.json",
+   "sha256": "86f43e6f973ebc5ce28f0e636d0bdff28cf62139194b770aa7c80a97032a6c27"
+  },
+  {
+   "file": "schemas/motion_art_manifest_v2.schema.json",
+   "sha256": "4b1142f91c5e999c22e200195fb4d2dced7571422924ff605b88a2435bbe6fac"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/SKILL.md",
+   "sha256": "463856368742576d00aad2769eafdb3e386968a38404c1199e80b7af5e9e05cd"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/audit_full_film_study.py",
+   "sha256": "eca854c9b9ffe31974d6de7ff2226d6d222b897864a9add3cacd4b514f03640d"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/audit_source_witnesses.py",
+   "sha256": "60777191574a0a1813dfdb9c0a47eb6711f7b62aa898f3f1289713978f6c4c91"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/compile_art_job.py",
+   "sha256": "83be834da72efc02a82ac5c072305e699fc14de964b9284fe17dee97f82eddef"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/prepare_first_pass.py",
+   "sha256": "e33cd1f8dfbc61135b1cd25269c11e5ebb04a5b63120ac7b5b5afc21c54eb990"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/repair_learning.py",
+   "sha256": "115a1e923e047eb2e42b4298ecc5415f3d92f7410c2a0a8d038fae48eafd9515"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/replay_native_full_hd_scan.py",
+   "sha256": "f5e23ce6ba743a021657a47dd838d8370a9a7e5b50d9df55f21de80fabc2671b"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/summarize_native_full_hd_scan.py",
+   "sha256": "1d32911628e2546b67292c77db3191e743c71badbe597e9df36e8aac0aeddd51"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/test_film_art_package.py",
+   "sha256": "bcc91ca1104e551a84c30271abf5ed012b3fdd3f2974e7efb7b213e6e9b0eb24"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/test_first_pass_control.py",
+   "sha256": "57408fda2cbb90da927890bf8042bb3abf5f03c64e7f551cd2f50f9e62751d7b"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/test_full_film_router.py",
+   "sha256": "042b1cff60781ac68b831837b0c0337ca7ca2c51b3e31acd1ababfe67880c386"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/test_repair_learning.py",
+   "sha256": "f9648210ca39433c4a569054a060363c94e4a42a73ba0af34ee527852bec4717"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/test_world_system_compiler.py",
+   "sha256": "9dc4022e1ad36a29f09f3c171d4779b1756a33bd29310c18ab763a687a3bf293"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/scripts/validate_film_art_package.py",
+   "sha256": "7475aa9be84f8b1ade8991a44c8aed80f2749367c7a9b23f57cbdd8d05c3e437"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/AUTONOMOUS_VISUAL_PRODUCTION_LOOP.md",
+   "sha256": "a6e2b57cb7f156a5836b18496f900728f33e0d11b28268be5699d264ef84c601"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/CHARACTER_FAMILY_CONSTRUCTOR.md",
+   "sha256": "3bb267043c6416d57e3ae717f52985c740fb0ec6e36dc54c55f3a1f498ef65ba"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/COMPLETE_FILM_ART_ORCHESTRATION.md",
+   "sha256": "5b3b0127a0273cbd186a621be3f0c7d136b93dac42b50227eec7869e3db2cc56"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/CONDITIONAL_NATIVE_ANCHOR_MANIFEST.json",
+   "sha256": "c39a91d919c7ab1605e7725d463b437c738f96474551aa2644da5a9a26241408"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/CONDITIONAL_NATIVE_QUESTION_LOOP.md",
+   "sha256": "8f6a7dce3ca37afc362bb8ed7890f062b55dc8320e4dc6d260c99f5f6b343ce3"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "sha256": "2bf13164e1b5f84a043db5ba7654d095e642a9b5426fc678edb9011f7c08e4b5"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/CROSS_FILM_GRAMMAR.md",
+   "sha256": "e492e00b9698039dc37650a8d7072d3d1c28c100a08253b6256c453da244427d"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/EVERY_FRAME_NUMERIC_COVERAGE.json",
+   "sha256": "33d51858ad18e1d1fcda6d56b201438e414aab8f9a808069a3e5b5bdc3762bba"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/EVERY_FRAME_TECHNICAL_AUDIT.md",
+   "sha256": "7e5b7fb0edb451c8fc7191f1316d11bd0ebbe41b0ff3cd61aec5b61f5e041541"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/FIRST_PASS_UNFAMILIAR_2026_QUALIFICATION.md",
+   "sha256": "ede3da7027e64f7131ce46fe45eb2719a1257343ee0b86acbc284a207e03ff2c"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/FIRST_PASS_VISUAL_CONTROL.md",
+   "sha256": "617e7759396ce76a38158b5b419a5cd8f7ff9d097bd8a34609de1cb2bce7c84c"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/FRAME_DECODE.md",
+   "sha256": "d6286dc716501dda6d2fde8c78a380041deb6fc21851c3f5af10955eb8462b00"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/FULL_FILM_EVIDENCE.md",
+   "sha256": "0927f64b2aaf2f08c0e368ccb6b4860f405af2e65202eae1bf6d2ab16ef81fbe"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "sha256": "935dc734aa7bd83804d3e6b8d92c0c7b0b9bdf477a6f87fa69fbad36363105dd"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/FULL_FILM_SOURCE_REGISTRY.json",
+   "sha256": "0ee510194cf52b90e4f655631ddc4416112ae967aad0f42c0e3112c56237a07f"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/HISTORICAL_QUESTION_LOOP_RECONSTRUCTION.md",
+   "sha256": "878aff1da6c72acf90f6b24c98223cc9829cd564ed915a498213f21cf4fb9a14"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/IMAGEGEN_2026_PROVIDER_RECEIPTS.json",
+   "sha256": "8fdfd90f6c9b03404f191c1b812d1071eec0fb2c163e7abba8d56e4af04348b5"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/ITERATIVE_REPAIR.md",
+   "sha256": "1359a54e49687e5bfeb114182eb5b006be0a52e8d0f08d1a0b9ad7ddf90ca808"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/MEASURED_VISUAL_VARIATION.md",
+   "sha256": "9a45bc4f2c60678844ec686a1b5d4d9ae7ac57c63b6c2ce52af32ce0908b7fcb"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/MOLECULAR_2026_TRANSFER_PROOF.md",
+   "sha256": "4608bcac733744ae01ce534494ee14f0649c0e9cc04b3d4866673cf03120f62b"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "sha256": "11a2585a91a5abf7c35ace4bc2a68e5d534723b2bbf62ed733005246c2306a23"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/NATIVE_1080P_FRAME_STUDY_SUMMARY.json",
+   "sha256": "a3395e8f275b87a936a0cf970c1d42dd47fb96e5c037d6801baf2dc1217e8878"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/NATIVE_1080P_STUDY_INTERPRETATION.md",
+   "sha256": "b6ab197373cdada7ef4e4d0506d4d1aed44fd3d306431c2b9917f2fe7c9839f0"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/NATIVE_ANCHOR_ROUTER.md",
+   "sha256": "d9d3460bff0492e41c924515de0fea57c72a6551a40f3f607a16c687820ff875"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/NATIVE_WITNESS_MANIFEST.json",
+   "sha256": "eefa9c9adfc89147d2f176a1bf0f7c3dcef9157642ee2b8bbe3a1450be453b1c"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/PRODUCTION_PIPELINE.md",
+   "sha256": "d8fafd8032861f287ea2116082d836c1126a01c6a17943653f71d1cb180f6a79"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/PROMPT_AND_COMPILER.md",
+   "sha256": "7631e687c240b970c4ff7dfa4dd037a372acefc79ac5e96f875eefd9ebde43d2"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/QUESTION_NATIVE_WITNESS_MANIFEST.json",
+   "sha256": "6b0c43f59aa152029e54ca717d0e50b5dc47768773ee61563ebd94241a7bac1a"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/QUESTION_WITNESS_MANIFEST.json",
+   "sha256": "b832905db5211347f26d952b44c636f3dcfcc7f4a39965b4aa35800236c63652"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/QUESTION_WITNESS_PALETTES.json",
+   "sha256": "e8f77ef01300b9ec42430a57039bc3ad53e35c1e25aa4aacd728f9c2d20c147a"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/REPAIR_LEARNING_TO_FIRST_PASS.md",
+   "sha256": "cb68e1aab93096ca35378b35dffd21b5d051bcb386487de2e40cda8ab82040a6"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/SOURCE_CONDITIONAL_DOMINANT_COLOR_REGIONS.json",
+   "sha256": "cf1edcdd9fac6ee3293c0f1b6d7ba76dfdbfe78546d89a17b163a4a2836b3706"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/SOURCE_DERIVED_CONSTRUCTION.md",
+   "sha256": "b9f4a439b5fc9c1ab41b64a55bd1269efb235f4a94f9ee6545c4c52cac4843f5"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/SOURCE_MANIFEST.json",
+   "sha256": "7831b02229a2aed71bdbc13a634b909f9730020eaf8608b9748756abef2eca6f"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "sha256": "8f935f1c1c16f65fa38bc10e8119bc6b5e83b76b03b41c32b15ff693b57327ad"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/TRANSFERABLE_MOTION_DIRECTION_GRAMMAR.md",
+   "sha256": "164c859e137f946f1041dfd2fe4112a6ef8b09fb8599a4dc57143c7d44018f44"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/TRANSFER_TEST_REPORT.md",
+   "sha256": "fa58cb9aabac76c587cf76c19d9eb2f1f67612f003c6b2cfa6158ffcc1a563a4"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/VISUAL_CLUSTER_ATLAS_AND_DECODING_LOOP.md",
+   "sha256": "8e663c7daba80e20b18b32d7d251099b72e9aa996a3a243ffe8dc116984c64c7"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/WORLD_OUTPUT_TRANSFER_TESTS.md",
+   "sha256": "0d6281e6bd3b4bd46d7a55eac9209519493a418d4bb8863fb36d75c11eafb909"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "sha256": "0072ac1185c934db62fefb348fb4e051209078a3e4b4a6ded4faecc5ce38025c"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/native_scan_verifications/AI.json",
+   "sha256": "c428918bd544bc48b692e15f744e141344c7308ca1ba1454939c016e533ca4da"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/native_scan_verifications/BRAIN.json",
+   "sha256": "ec24a6c577a46ad1ed760383729f48a1930de3e6c1464b8ce70d8cfe0f2c8ac9"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/native_scan_verifications/MEMORIES.json",
+   "sha256": "03267344e729bf96f23b0f1e210c23a0fe321fcdf0ed10e4eaf8836c8f6d81a8"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/native_scan_verifications/NUCLEAR.json",
+   "sha256": "404aa734eab4d3c7e861fff8fa9c7aeb6282a2e375e7c079d6fecd23b97a93f4"
+  },
+  {
+   "file": "reference/construct-kurzgesagt-art/references/native_scan_verifications/SOLAR.json",
+   "sha256": "375c6f78368103a19d971e69a8d2a922834a9014885cd12c9ca8997bb3992803"
+  }
+ ],
+ "excluded_by_rule": [
+  "intake/INTAKE_LOG.jsonl and other *.log/*.jsonl logs (except reviews/HISTORY.jsonl, which carries revocations)",
+  "qa/ (QA outputs bind TO a revision)",
+  "downstream review receipts/history lines of scopes shot_review, unlike_transfer, film (they review a revision; their bundles bind its digest)",
+  "render/ (outputs)",
+  "production/ (the ledger records revisions; hashing it would cycle)",
+  "story/FILM_CONTRACT_REPORT.json (generated report)",
+  "hybrid_v2/art_outbox (request history)",
+  "hybrid_v2/work (scratch)"
+ ]
+}

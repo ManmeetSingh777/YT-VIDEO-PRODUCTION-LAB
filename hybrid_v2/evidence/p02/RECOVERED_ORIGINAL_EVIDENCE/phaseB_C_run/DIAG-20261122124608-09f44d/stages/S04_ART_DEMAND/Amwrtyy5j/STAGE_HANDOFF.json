@@ -1,0 +1,75 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S04_ART_DEMAND",
+ "stage_attempt_id": "Amwrtyy5j",
+ "input_artifact_refs": [
+  {
+   "name": "S03_TIMING_MOTION/STAGE_HANDOFF",
+   "sha256": "ca08158378675e4a0f924882c26b638393a255d2575b4687d5ddb840e76b7b6e"
+  }
+ ],
+ "input_revision_hash": "25096f3d920df94b68345d95dec178d5beb33256ab0c3bf9980b0e03f87897c1",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [],
+ "output_revision_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+ "required_checks": [
+  {
+   "task_id": "demand_pilot_body",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_body frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_underpaint",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_underpaint frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_upper_arm",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_upper_arm frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_forearm",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_forearm frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_hand_open",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_hand_open frames [[0,100]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_hand_grip",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig grip binds pilot_hand_open frames [[100,600]]"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T12:46:12.427Z",
+ "event_chain_head_sha256": "98da014d1a2a6764b4d6749587847b0cd80a1acd555bb73a25576075cec6c640",
+ "run_type": "DIAGNOSTIC"
+}

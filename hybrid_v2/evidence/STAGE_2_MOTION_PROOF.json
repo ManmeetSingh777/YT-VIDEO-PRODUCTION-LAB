@@ -1,0 +1,2433 @@
+{
+ "stage": "STAGE_2_MOTION",
+ "generated_by": "tests/art_bridge/stage2_proofs.mjs",
+ "exact_cli": "node tests/art_bridge/stage2_proofs.mjs",
+ "tested_revision": "611c9dd58abc46ac8e90d21e6cf041354edf3dcf",
+ "working_tree_dirty_at_test": false,
+ "generated_at": "2026-11-22T08:25:03.223Z",
+ "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED_PENDING_GPT_ART",
+ "gate_note": "All mechanisms are demonstrated on DIAGNOSTIC_FIXTURE rasters only. Criteria 1,3,4,5,6,7,8,10 name real approved art: they remain artistically BLOCKED until GPT assets exist. Not production-qualified.",
+ "fixtures_are_target_art": false,
+ "tested_asset_hashes": {
+  "diag2/actor_master.png": "c5afc1b348d4cd9659324c514a1b60d4cce8bb023fafceb400d7213dae26062a",
+  "diag2/brow.png": "e775b110c431a7ed14d0178bcf21d72d0da09387888847cc0a151f4bc4e26f08",
+  "diag2/brow_3q.png": "b7f7e1473a9f90eca531cd93a96280b8c1d855c6c32b9cb29ed752dcec218e62",
+  "diag2/brow_raised.png": "e775b110c431a7ed14d0178bcf21d72d0da09387888847cc0a151f4bc4e26f08",
+  "diag2/crank_base.png": "2a7458b5ba40ddeff310c1441d7c4d42bd52a405e9fda0a1d513febcb9c58fcc",
+  "diag2/crank_handle.png": "49138b1fbf49a894ff75f711b13926973589104783a09a12a97b8375697e2b7d",
+  "diag2/crank_master.png": "15d0bf90794148896380796b1aa11e751485a6271768929c49ca4441ae550bed",
+  "diag2/crank_tag.png": "073b7fb4b31bdca10c600637307af79c235d7008155a8f797c54ce618714e8cc",
+  "diag2/crank_wheel.png": "382776c8aaeac6c28241d8803735fcbbc8392d6cbf40c3d37c525edd5663dcb5",
+  "diag2/elbow_underpaint.png": "218375e253dfb14e2b569042a7e41647aca88b7a1e0d4185dabc5332ea48c271",
+  "diag2/eye_white.png": "4dd30f2846457bb3dc5cf28fc368727a4790aed3ac702360147234872fb320bf",
+  "diag2/eye_white_3q.png": "e0c2c34d091579948eb701c261f944cd3d09111bef18fd4ec52b8626e2b4bfc3",
+  "diag2/flow_symbol.png": "64b4daa7a9d17e0765b2f0670b42cd67766f7d3977c63dae827c7f52e74e68ac",
+  "diag2/foot.png": "33b8d82d39b24b6d65f895e3d1af3b81cb41fc9b86c2de7425cfa293db8519ac",
+  "diag2/forearm.png": "949cdc53681f9d575a477fc8abdbc9fc12cd0e6e2ede51b372a5861d46fe2979",
+  "diag2/gear_drive.png": "9be2f147323212442e54f18a9a370b5b9508acc4c98a5a0a48724f88676b691f",
+  "diag2/gear_follow.png": "20562d296d533aaabad689af2da168a714837b94193b7b24a4a4f1b4dd9bb086",
+  "diag2/hand_far_fingers.png": "e3679b8aa6f763c71c0832dfb75ac9f590134a1594768e977c3c73c6a7703a4c",
+  "diag2/hand_near_fingers.png": "db06e651dd7a12c73e77febceb6a772a3b9fcdd741ba85e28565917b9aae5b95",
+  "diag2/hand_palm.png": "cc3f0b9918ae9ff54f31ce18ee601d7acb621f06bda5b794f70f41f4358fd0c4",
+  "diag2/mouth_3q.png": "c3e3a11fcb711b4a968f45facba483ba110c7d416c932ed0b42278cba77e0e80",
+  "diag2/mouth_neutral.png": "a00e52c6e62201bff3a2faf9d1bcd2701ed8c0a1436e40448ff81ad60d77bb17",
+  "diag2/mouth_smile.png": "0d205196ceba2b6c9dd0e0b193cc1c41124cd080f5ef81140c4702f27aa2599d",
+  "diag2/portal_aperture.png": "1884156fdde427d65ed0c9e070aab471ad695ee19e71db4aafb37f48837e04d9",
+  "diag2/portal_in.png": "cc42b8f36f6c56e1b676219711d01738caf4bce67d83283ec137acb4a1e5b38d",
+  "diag2/portal_mid.png": "7ba584bad163efa949a8b8cd75af0acb87cc814b2704c09e70f2c0db63f52942",
+  "diag2/portal_out.png": "ffab3ab5fb62e92f066a00442e1dbefd5bf90fdd05fd9872951476b0a4ae3d89",
+  "diag2/probe_arm.png": "6a42d59dc9bf5685a50b42ef27063478fa0a7193f82c8c7aed4c711abc32e54e",
+  "diag2/pupil.png": "d3d00776b762bf7161a01621c2077b16df75ab4481f9481cf9842b0a2e820079",
+  "diag2/pupil_3q.png": "14eb3dfd9a9e93a0e131e685765db8a7e8180bcf095497edc93854e887c55513",
+  "diag2/room_far.png": "f00b6968379cd284ee37061091ece5bc250ad780acfbaed04f768fffe03df5e4",
+  "diag2/shin.png": "4fed9e53183d3a7aaac01d2085f9714c4c1f08804a7daa25b16119945639c314",
+  "diag2/skull_front.png": "a60292dff3392a314bd8ccf8ae9c93a098c44b15739c5f0a60a96700ea28573e",
+  "diag2/skull_threeq.png": "d3a6a8609f6b00fa35fd0a7ecb1755db2e40196ef92634761882039ed8c7706f",
+  "diag2/thigh.png": "b16e5d3f946e802351fb50087b7c0b286eecaaf1e37e1d0e949a3890f694db5c",
+  "diag2/torso.png": "54cdcbdf3f83c8a57a1aa873cdb92b1b04725f04aeef37a741ba019cfef3d67e",
+  "diag2/torso_shade.png": "ca1a1ecbf9ce44e4ec29ce9cf13452738451eca1cc875e444ccebae6c3459280",
+  "diag2/upper_arm.png": "f48c21877fc8022568f2b6ca43a216f5a5377c93068f301a259cfe52b56bdb8e",
+  "diag2/vista_far.png": "7babde7b981b0954423c20355573e4572c2125329e6adfa1f16695349fc5b7c5",
+  "diag2/vista_fg.png": "6d4904b64c6e86f255675ec7a4a1d6728e3730162c936608205161722068e1c7",
+  "diag2/vista_mid.png": "22d42f703f4f8d578a9c50546c8c9f647c27854d6b651b9760a0fb7f440f8cf3",
+  "diag2/walker_cel0.png": "46ff707a456ccdc511951824dc9b3abfd84cb7f33ef2cb52c1dc0b5d14ecb14b",
+  "diag2/walker_cel1.png": "db132992619b1c7a83150b439d5225f2c686ecd729be573aa3b0c9fa82dc9e49",
+  "diag2/walker_cel2.png": "4d132661b8674d355a7175759c29e3af69e9c3b4a78193ddad16a408a422efbf",
+  "diag2/walker_cel3.png": "52a9b0d27af9f9193af413ad7341ad79c314f04bf22aa53d4d22d4efda086210",
+  "diag2/walker_master.png": "abb9ffb62ba95786e049affff7aad4b63d1e7b642b101f022816ac522a625bd8"
+ },
+ "proofs": [
+  {
+   "id": "S2-1",
+   "title": "Approved transparent image part renders in <image> under a moving joint, pixel-identical at rest",
+   "spec": "§5 Stage 2 acceptance 1; §5.2",
+   "source": [
+    "engine/art_bridge/svg_parts.mjs#emitSpritePart",
+    "engine/art_bridge/scene_graph.mjs#composeShot",
+    "engine/art_bridge/render.mjs#capture"
+   ],
+   "input": "tests/art_bridge/fixtures/stage2/scene_P.manifest.json frame 5 (θ=0), omitBackground",
+   "output": {
+    "opaque_channel_diffs": 0,
+    "alpha_diff_max": 0,
+    "partial_premul_max": 0.8392156862745098,
+    "pixels": 6400,
+    "checker_light_max": 0.8392156862745139,
+    "checker_dark_max": 0.8392156862745139
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "opaque_diff": 0,
+    "alpha_diff": 0,
+    "partial_premul_max": 0.839,
+    "checker": [
+     0.839,
+     0.839
+    ]
+   },
+   "tolerance": "opaque RGB and alpha exact; partial-alpha premultiplied ≤1/255 (straight↔premultiplied round trip in the compositor)",
+   "dom_paint_order": [
+    "p1-probe--probe_arm--probe_arm"
+   ],
+   "negatives": [
+    {
+     "injection": "pivot moved 6px without moving pixels",
+     "expected": "UNREGISTERED_PIVOT",
+     "observed": [
+      "UNREGISTERED_PIVOT"
+     ],
+     "pass": true
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-1/f0005.png",
+     "sha256": "beebecf0db3011ee8366dbc6048f548a96bb8278ab73767e1d80e32f62649519"
+    }
+   ],
+   "artistic_dependency": "criterion names REAL approved art; only a DIAGNOSTIC_FIXTURE part exists",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-2",
+   "title": "Parent rotation moves child pixels and sockets together; pivots match registered landmarks at all angles",
+   "spec": "§5 Stage 2 acceptance 2",
+   "source": [
+    "engine/art_bridge/temporal.mjs#stateAtFrame (fk)",
+    "engine/art_bridge/scene_graph.mjs#composeShot"
+   ],
+   "input": "scene_P 8 angles 0..315°; scene_A shoulder→elbow→wrist chain at 6 poses",
+   "output": {
+    "probe": [
+     {
+      "frame": 10,
+      "angle": 0,
+      "predicted_marker": [
+       600,
+       420
+      ],
+      "rendered_marker": [
+       600,
+       420
+      ],
+      "error_px": 0,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       600,
+       420
+      ]
+     },
+     {
+      "frame": 55,
+      "angle": 45,
+      "predicted_marker": [
+       515.1471862576143,
+       384.8528137423857
+      ],
+      "rendered_marker": [
+       515,
+       385
+      ],
+      "error_px": 0.20815280171307474,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       515.1471862576143,
+       384.8528137423857
+      ]
+     },
+     {
+      "frame": 100,
+      "angle": 90,
+      "predicted_marker": [
+       480,
+       300
+      ],
+      "rendered_marker": [
+       480,
+       300
+      ],
+      "error_px": 0,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       480,
+       300
+      ]
+     },
+     {
+      "frame": 145,
+      "angle": 135,
+      "predicted_marker": [
+       515.1471862576143,
+       215.1471862576143
+      ],
+      "rendered_marker": [
+       515,
+       215
+      ],
+      "error_px": 0.20815280171307474,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       515.1471862576143,
+       215.1471862576143
+      ]
+     },
+     {
+      "frame": 190,
+      "angle": 180,
+      "predicted_marker": [
+       600,
+       180
+      ],
+      "rendered_marker": [
+       600,
+       180
+      ],
+      "error_px": 0,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       600,
+       180
+      ]
+     },
+     {
+      "frame": 235,
+      "angle": 225,
+      "predicted_marker": [
+       684.8528137423857,
+       215.1471862576143
+      ],
+      "rendered_marker": [
+       685,
+       215
+      ],
+      "error_px": 0.20815280171307474,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       684.8528137423857,
+       215.1471862576143
+      ]
+     },
+     {
+      "frame": 280,
+      "angle": 270,
+      "predicted_marker": [
+       720,
+       300
+      ],
+      "rendered_marker": [
+       720,
+       300
+      ],
+      "error_px": 0,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       720,
+       300
+      ]
+     },
+     {
+      "frame": 325,
+      "angle": 315,
+      "predicted_marker": [
+       684.8528137423857,
+       384.8528137423857
+      ],
+      "rendered_marker": [
+       685,
+       385
+      ],
+      "error_px": 0.20815280171307474,
+      "pivot_world": [
+       600,
+       300
+      ],
+      "socket_tip": [
+       684.8528137423857,
+       384.8528137423857
+      ]
+     }
+    ],
+    "chain": [
+     {
+      "frame": 0,
+      "elbow_pred": [
+       764.4951481695631,
+       453.5624793847968
+      ],
+      "elbow_px": [
+       764.5,
+       453.5
+      ],
+      "elbow_err": 0.06266748585331434,
+      "wrist_pred": [
+       825.1138448459195,
+       560.7996293030519
+      ],
+      "wrist_px": null,
+      "wrist_err": null,
+      "elbow_n": 61,
+      "wrist_n": 0,
+      "elbow_joint_world": [
+       791.1727193489653,
+       526.8585038060976
+      ],
+      "joint_gap_px": 0,
+      "wrist_occluded": true
+     },
+     {
+      "frame": 60,
+      "elbow_pred": [
+       749.2733412312839,
+       462.29731790789026
+      ],
+      "elbow_px": [
+       749.0666666666667,
+       462.1333333333333
+      ],
+      "elbow_err": 0.26382819476378416,
+      "wrist_pred": [
+       794.5889079915703,
+       530.1908919581977
+      ],
+      "wrist_px": [
+       792.8684210526316,
+       530.6315789473684
+      ],
+      "wrist_err": null,
+      "elbow_n": 60,
+      "wrist_n": 38,
+      "elbow_joint_world": [
+       747.6613403416368,
+       540.280658777154
+      ],
+      "joint_gap_px": 1.1368683772161603e-13,
+      "wrist_occluded": true
+     },
+     {
+      "frame": 200,
+      "elbow_pred": [
+       773.1032462774913,
+       470.58149409701343
+      ],
+      "elbow_px": [
+       773.078125,
+       470.609375
+      ],
+      "elbow_err": 0.0375289666010171,
+      "wrist_pred": [
+       838.0187746323569,
+       546.6333364742715
+      ],
+      "wrist_px": null,
+      "wrist_err": null,
+      "elbow_n": 64,
+      "wrist_n": 0,
+      "elbow_joint_world": [
+       790.0188625123228,
+       546.7251867274335
+      ],
+      "joint_gap_px": 0,
+      "wrist_occluded": true
+     },
+     {
+      "frame": 400,
+      "elbow_pred": [
+       724.376745055416,
+       463.11484522119446
+      ],
+      "elbow_px": [
+       724.3225806451613,
+       463.14516129032256
+      ],
+      "elbow_err": 0.06207130887628226,
+      "wrist_pred": [
+       727.3434409047863,
+       511.878330903074
+      ],
+      "wrist_px": [
+       727.3840579710145,
+       511.8478260869565
+      ],
+      "wrist_err": 0.05079655377429982,
+      "elbow_n": 62,
+      "wrist_n": 69,
+      "elbow_joint_world": [
+       682.4611656677173,
+       528.8954214165542
+      ],
+      "joint_gap_px": 0
+     },
+     {
+      "frame": 560,
+      "elbow_pred": [
+       766.3874791954017,
+       456.3456178640078
+      ],
+      "elbow_px": [
+       766.4180327868852,
+       456.4016393442623
+      ],
+      "elbow_err": 0.06381166196272237,
+      "wrist_pred": [
+       828.147780804966,
+       497.1039633578206
+      ],
+      "wrist_px": null,
+      "wrist_err": null,
+      "elbow_n": 61,
+      "wrist_n": 0,
+      "elbow_joint_world": [
+       792.9106941087275,
+       529.6976394493843
+      ],
+      "joint_gap_px": 0,
+      "wrist_occluded": true
+     },
+     {
+      "frame": 585,
+      "elbow_pred": [
+       764.7791826577911,
+       453.9732957969908
+      ],
+      "elbow_px": [
+       764.758064516129,
+       453.9516129032258
+      ],
+      "elbow_err": 0.030267536888295803,
+      "wrist_pred": [
+       838.4741057254573,
+       517.7216697730328
+      ],
+      "wrist_px": null,
+      "wrist_err": null,
+      "elbow_n": 62,
+      "wrist_n": 0,
+      "elbow_joint_world": [
+       791.4348642067889,
+       527.2772836909548
+      ],
+      "joint_gap_px": 0,
+      "wrist_occluded": true
+     }
+    ]
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "probe_marker_max_err_px": 0.208,
+    "pivot_drift": 0,
+    "chain_marker_max_err_px": 0.264,
+    "joint_gap_px": 1.1368683772161603e-13
+   },
+   "negatives": [
+    {
+     "injection": "camera-free double ownership: same joint written by a track and a secondary track",
+     "expected": "INVALID_TRANSFORM_OWNER",
+     "observed": [
+      "INVALID_TRANSFORM_OWNER"
+     ],
+     "pass": true
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-2/f0010.png",
+     "sha256": "a768554ba9e1eb4dc431a5e4e5708f65ae1ff47aa0859a7a9e3974429b0e9496"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-2/f0145.png",
+     "sha256": "9c6275638d1edbd4289c9b2e5da14afc16316ad9073fc4dd375b775513fed827"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-2/f0280.png",
+     "sha256": "b2b6156489b67b4479684a0c62045cb2f6ee6afdbf76eacf12e0e23bbb868274"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-2/f0200.png",
+     "sha256": "8f6348e05bb52f7ec7ee21eb2727e814f0400e8dee6a07c495be25a05244abdd"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-2/f0585.png",
+     "sha256": "acdc65b33bb97f8c4dde1999724f9b4a42db8800c97b92b2c69b43c5d10129af"
+    }
+   ],
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS"
+  },
+  {
+   "id": "S2-3",
+   "title": "Hand grip stays locked through the full crank action; near/far art layers cross the prop; impossible reach → UNREACHABLE_IK",
+   "spec": "§5 Stage 2 acceptance 3; §5.4 Grip; §11.3",
+   "source": [
+    "engine/art_bridge/temporal.mjs#solveConstraints",
+    "engine/art_bridge/constraints.mjs#solveTwoBonePosition",
+    "engine/art_bridge/scene_graph.mjs#topoOrder"
+   ],
+   "input": "scene_A: GRIP [90,480) wheel 0→720°, approach 20–90, release 480–540",
+   "output": {
+    "rows": [
+     {
+      "frame": 20,
+      "locked": false,
+      "grip_world": [
+       891.2925493108391,
+       627.3927801502048
+      ],
+      "handle_world": [
+       880,
+       431
+      ],
+      "numeric_err_px": 196.71717201369177,
+      "yellow_handle_marker_px": [
+       880,
+       431
+      ],
+      "marker_vs_handle_socket_px": 0,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 60,
+      "locked": false,
+      "grip_world": [
+       885.5110703133165,
+       510.6419687464696
+      ],
+      "handle_world": [
+       880,
+       431
+      ],
+      "numeric_err_px": 79.83241873958198,
+      "yellow_handle_marker_px": [
+       880,
+       431
+      ],
+      "marker_vs_handle_socket_px": 0,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 89,
+      "locked": false,
+      "grip_world": [
+       880.0098126218072,
+       431.1265097011935
+      ],
+      "handle_world": [
+       880,
+       431
+      ],
+      "numeric_err_px": 0.1268896845405758,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 90,
+      "locked": true,
+      "grip_world": [
+       880.0000001403525,
+       431.00000011418956
+      ],
+      "handle_world": [
+       880,
+       431
+      ],
+      "numeric_err_px": 1.8093670545006361e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 91,
+      "locked": true,
+      "grip_world": [
+       880.0140660283441,
+       431.00000154778877
+      ],
+      "handle_world": [
+       880.0140658876223,
+       431.0000014336898
+      ],
+      "numeric_err_px": 1.8116620706195816e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 150,
+      "locked": true,
+      "grip_world": [
+       925.4820307798599,
+       448.11180410388147
+      ],
+      "handle_world": [
+       925.4820306920101,
+       448.1118040000325
+      ],
+      "numeric_err_px": 1.3602275891661792e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 210,
+      "locked": true,
+      "grip_world": [
+       908.6174596476408,
+       562.7856752141579
+      ],
+      "handle_world": [
+       908.617459654916,
+       562.785675140905
+      ],
+      "numeric_err_px": 7.361325709170033e-8,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 270,
+      "locked": true,
+      "grip_world": [
+       832.5969079189738,
+       449.8607256409233
+      ],
+      "handle_world": [
+       832.596907789108,
+       449.86072548544735
+      ],
+      "numeric_err_px": 2.0257815782203273e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 330,
+      "locked": true,
+      "grip_world": [
+       934.6255169882787,
+       542.1551052581593
+      ],
+      "handle_world": [
+       934.6255169909741,
+       542.1551051886815
+      ],
+      "numeric_err_px": 6.953004279487509e-8,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 390,
+      "locked": true,
+      "grip_world": [
+       811.0030207499324,
+       500.64564063612823
+      ],
+      "handle_world": [
+       811.0030207302674,
+       500.6456404975598
+      ],
+      "numeric_err_px": 1.3995687748426477e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 450,
+      "locked": true,
+      "grip_world": [
+       867.4719964338497,
+       432.1468563187856
+      ],
+      "handle_world": [
+       867.4719962708671,
+       432.1468562072262
+      ],
+      "numeric_err_px": 1.9750649205359072e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 479,
+      "locked": true,
+      "grip_world": [
+       879.9859342589839,
+       431.00000154269503
+      ],
+      "handle_world": [
+       879.9859341123777,
+       431.0000014336898
+      ],
+      "numeric_err_px": 1.826896879256204e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 480,
+      "locked": false,
+      "grip_world": [
+       880.0000001463832,
+       431.0000001090941
+      ],
+      "handle_world": [
+       879.9999999999999,
+       431.00000000000006
+      ],
+      "numeric_err_px": 1.8256390752495627e-7,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 481,
+      "locked": false,
+      "grip_world": [
+       880.0140724971028,
+       431.17570571419185
+      ],
+      "handle_world": [
+       879.9999999999999,
+       431.00000000000006
+      ],
+      "numeric_err_px": 0.17626835556718476,
+      "yellow_handle_marker_px": null,
+      "marker_vs_handle_socket_px": null,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     },
+     {
+      "frame": 520,
+      "locked": false,
+      "grip_world": [
+       891.4653064143322,
+       583.5600107423593
+      ],
+      "handle_world": [
+       879.9999999999999,
+       431.00000000000006
+      ],
+      "numeric_err_px": 152.99022886734724,
+      "yellow_handle_marker_px": [
+       880,
+       431
+      ],
+      "marker_vs_handle_socket_px": 1.2710574864626038e-13,
+      "pixel_at_grip": [
+       250,
+       200,
+       160,
+       255
+      ],
+      "pixel_on_handle_below_grip": [
+       56,
+       56,
+       64,
+       255
+      ],
+      "near_fingers_over_handle": true,
+      "handle_over_palm_far": true
+     }
+    ],
+    "layering": {
+     "far_below_handle": true,
+     "palm_below_handle": true,
+     "near_above_handle": true
+    },
+    "every_locked_frame_numeric_max_err_px": 2.092086177092657e-7,
+    "locked_frames_checked": 390
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "locked_frames": 390,
+    "numeric_max_err_px": 2.092086177092657e-7,
+    "layering": {
+     "far_below_handle": true,
+     "palm_below_handle": true,
+     "near_above_handle": true
+    },
+    "pixel_layer_checks": "9/9"
+   },
+   "negatives": [
+    {
+     "injection": "crank moved beyond arm reach",
+     "expected": "UNREACHABLE_IK",
+     "observed": "UNREACHABLE_IK",
+     "pass": true,
+     "detail": {
+      "frames": 390,
+      "first": {
+       "f": 90,
+       "missing": 225.2252545146212
+      },
+      "worst_missing_px": 303.970063397156
+     }
+    },
+    {
+     "injection": "approved near-finger hand asset deleted",
+     "expected": [
+      "MISSING_ART_ASSET"
+     ],
+     "observed": [
+      "MISSING_ART_ASSET"
+     ],
+     "pass": true,
+     "art_jobs": [
+      {
+       "id": "ARTJOB_PART_OR_STATE_hand_near2_d2316601",
+       "state_kind": "PART_OR_STATE",
+       "root_dependency": "hand_near2"
+      }
+     ]
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-3/f0060.png",
+     "sha256": "1582404106109544002a3fe821b099e4e228c029bf115c0fd9ddad3064be90f1"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-3/f0090.png",
+     "sha256": "7c68ffa1c3c0a184d7c084f42475206d57045d3be749857ac4dd793184c6ed0a"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-3/f0210.png",
+     "sha256": "2ea1ba27ba3ea5d012a46e1bc2b1473bd5dc38070c344a9a1532f28b023b70b1"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-3/f0390.png",
+     "sha256": "cfd965520d6acce05450657cbb185f96a0cf7a3a515826f393e00775fb3f84aa"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-3/f0480.png",
+     "sha256": "1d38038b1e21f91ccd6710ddf538d9b41a540187d9aee6413ee883f67d4d7166"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-3/f0520.png",
+     "sha256": "27dad3590a3ac950c4810633e9464fff0e03fb7580cf61716f4412a07917f3e4"
+    }
+   ],
+   "artistic_dependency": "real GPT grip/open/release hand states with palm/near/far subsets are absent",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-4",
+   "title": "Foot stays planted through the stance; gait cel swaps keep the contact anchor",
+   "spec": "§5 Stage 2 acceptance 4; §5.4 Foot plants",
+   "source": [
+    "engine/art_bridge/temporal.mjs#solveConstraints (PLANT)",
+    "engine/art_bridge/temporal.mjs#celsAt",
+    "engine/tools/art_bridge_qa.mjs#footSlideReport"
+   ],
+   "input": "scene_A PLANT [0,600) with root bob/sway; scene_B 4 registered cels, distance-indexed",
+   "output": {
+    "articulated_sole_max_numeric_err_px": 5.084229945850415e-13,
+    "articulated_sole_rendered": [
+     [
+      715,
+      905
+     ],
+     [
+      715,
+      905
+     ],
+     [
+      715,
+      905
+     ],
+     [
+      715,
+      905
+     ],
+     [
+      715,
+      905
+     ]
+    ],
+    "articulated_rendered_spread_px": 0,
+    "cels": {
+     "stance_runs": [
+      {
+       "landmark": "right_foot",
+       "frames": [
+        0,
+        22
+       ],
+       "world": [
+        300,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        22,
+        65
+       ],
+       "world": [
+        380,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        65,
+        108
+       ],
+       "world": [
+        460,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        108,
+        150
+       ],
+       "world": [
+        540,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        150,
+        193
+       ],
+       "world": [
+        620,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        193,
+        236
+       ],
+       "world": [
+        700,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        236,
+        279
+       ],
+       "world": [
+        780,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        279,
+        322
+       ],
+       "world": [
+        860,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        322,
+        365
+       ],
+       "world": [
+        940,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        365,
+        408
+       ],
+       "world": [
+        1020,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        408,
+        450
+       ],
+       "world": [
+        1100,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        450,
+        493
+       ],
+       "world": [
+        1180,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        493,
+        536
+       ],
+       "world": [
+        1260,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "left_foot",
+       "frames": [
+        536,
+        579
+       ],
+       "world": [
+        1340,
+        800
+       ],
+       "max_slide_px": 0
+      },
+      {
+       "landmark": "right_foot",
+       "frames": [
+        579,
+        600
+       ],
+       "world": [
+        1420,
+        800
+       ],
+       "max_slide_px": 0
+      }
+     ],
+     "foot_slide_errors": [],
+     "worst_slide_px": 0
+    },
+    "swaps": [
+     {
+      "swap_frame": 22,
+      "held_landmark": "left_foot",
+      "from": "walker_cel0",
+      "to": "walker_cel1",
+      "numeric_jump_px": 0,
+      "rendered": [
+       [
+        380.27358490566036,
+        800.1415094339623
+       ],
+       [
+        380,
+        800
+       ],
+       [
+        380,
+        800
+       ]
+      ],
+      "rendered_spread_px": 0.30801561730779886
+     },
+     {
+      "swap_frame": 43,
+      "held_landmark": "left_foot",
+      "from": "walker_cel1",
+      "to": "walker_cel2",
+      "numeric_jump_px": 0,
+      "rendered": [
+       [
+        380,
+        800
+       ],
+       [
+        379.5740740740741,
+        800.3148148148148
+       ],
+       [
+        379.5740740740741,
+        800.3148148148148
+       ]
+      ],
+      "rendered_spread_px": 0.5296425794842409
+     },
+     {
+      "swap_frame": 65,
+      "held_landmark": "right_foot",
+      "from": "walker_cel2",
+      "to": "walker_cel3",
+      "numeric_jump_px": 0,
+      "rendered": [
+       [
+        460,
+        800
+       ],
+       [
+        460,
+        800
+       ],
+       [
+        460,
+        800
+       ]
+      ],
+      "rendered_spread_px": 0
+     }
+    ]
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "sole_numeric_max": 5.084229945850415e-13,
+    "sole_rendered_spread_px": 0,
+    "cel_swaps_checked": 3,
+    "cel_max_jump_px": 0,
+    "cel_rendered_spread_max": 0.53,
+    "stance_runs": 15
+   },
+   "negatives": [
+    {
+     "injection": "cels placed by pelvis instead of the planted foot (no registered anchor)",
+     "expected": "FOOT_SLIDE",
+     "observed": [
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE",
+      "FOOT_SLIDE"
+     ],
+     "pass": true,
+     "worst_slide_px": 40
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-4/f0000.png",
+     "sha256": "b09896964637994a77b205ece0bef5bbe3b0a955913757e6628829c91e4b33eb"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-4/f0300.png",
+     "sha256": "fb99007d4cc03e3743bd255f105dfbeea99883fe4ce290746f80b19eadddc483"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-4/f0021.png",
+     "sha256": "988efcab1aa3913082d3dd370a47028f7d0e75e8cbace1703e5d97877e4f99a8"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-4/f0022.png",
+     "sha256": "a4e9503a03595e0ae9501b4eb7cd27e2b8d3e22007d0e6ce3d47442011987b7d"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-4/f0023.png",
+     "sha256": "a4e9503a03595e0ae9501b4eb7cd27e2b8d3e22007d0e6ce3d47442011987b7d"
+    }
+   ],
+   "artistic_dependency": "approved GPT gait cel family is absent",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-5",
+   "title": "Hard elbow bend: underpaint keeps a coherent silhouette; beyond approved range the renderer requests a new cel",
+   "spec": "§5 Stage 2 acceptance 5; §5.5; §11.2(5)",
+   "source": [
+    "engine/art_bridge/scene_graph.mjs#composeShot (underpaint pass)",
+    "engine/art_bridge/temporal.mjs#solveConstraints (limits)",
+    "engine/art_bridge/art_requests.mjs#missingArtJobs"
+   ],
+   "input": "scene_A (plan override: shoulder swings clear of the crank 540–600) frame 572, elbow -137.0°",
+   "output": {
+    "elbow_world": [
+     669.4176720127293,
+     512.5462567158863
+    ],
+    "non_arm_pixels_in_r20_joint_disc": {
+     "with_underpaint": 0,
+     "underpaint_hidden_diagnostic": 119
+    },
+    "over_range_failures": 13,
+    "art_jobs": [
+     {
+      "id": "ARTJOB_POSE_OR_BEND_CEL_actor2_elbow_3ace3b19",
+      "kind": "POSE_OR_BEND_CEL",
+      "why": "elbow must reach -153.8° beyond its approved range [-150,150] on frames 564..564"
+     }
+    ]
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "holes_with_underpaint": 0,
+    "holes_without": 119,
+    "over_range_frames": 13,
+    "art_jobs": 1
+   },
+   "negatives": [
+    {
+     "injection": "underpaint removed from the manifest",
+     "expected": "MISSING_UNDERPAINT",
+     "observed": [
+      "MISSING_UNDERPAINT"
+     ],
+     "pass": true,
+     "art_jobs": [
+      {
+       "id": "ARTJOB_UNDERPAINT_elbow_inner_a50cf061",
+       "state_kind": "UNDERPAINT",
+       "root_dependency": "elbow_inner"
+      }
+     ]
+    },
+    {
+     "injection": "underpaint pass hidden in-page (diagnostic perturbation)",
+     "expected": "SEAM_VISIBLE",
+     "observed": "SEAM_VISIBLE",
+     "pass": true,
+     "background_pixels": 119
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-5/f0572.png",
+     "sha256": "67db141bad8cf445b050a280092db1416bb412dfdefc68a9ccfe9a87c7a0dbc5"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-5/f0572.png",
+     "sha256": "699f6e4ab5e589b752ad8fc0a091178a6b9610a63488731599c28789dd0b753c"
+    }
+   ],
+   "artistic_dependency": "approved GPT sleeve/bend states and authored underpaint are absent",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-6",
+   "title": "Face view and expression switches keep skull/eye/mouth identity anchors (not pupil animation on a sphere)",
+   "spec": "§5 Stage 2 acceptance 6; §5.4 Face/gaze; §12.2",
+   "source": [
+    "engine/art_bridge/state_router.mjs#validateStateEdge/anchorResiduals",
+    "engine/art_bridge/temporal.mjs#resolveApprovedArtStates",
+    "engine/art_bridge/asset_state.mjs#assetStateCoverage"
+   ],
+   "input": "scene_C: smile REGISTERED_SWAP @200, front→threeq REGISTERED_SWAP @400, gaze offsets",
+   "output": {
+    "anchors": [
+     {
+      "frame": 199,
+      "pose": "neutral",
+      "view": null,
+      "bound": [
+       "skull_front",
+       "eye_white_l",
+       "eye_white_r",
+       "pupil_l",
+       "pupil_r",
+       "mouth_neutral",
+       "brow_l"
+      ],
+      "top_pred": [
+       926.2664889628262,
+       260.9490420397402
+      ],
+      "top_px": [
+       926.2,
+       260.625
+      ],
+      "chin_pred": [
+       957.7510992641885,
+       820.0632694693161
+      ],
+      "chin_px": [
+       957.59375,
+       820.0625
+      ]
+     },
+     {
+      "frame": 200,
+      "pose": "smile",
+      "view": null,
+      "bound": [
+       "skull_front",
+       "eye_white_l",
+       "eye_white_r",
+       "pupil_l",
+       "pupil_r",
+       "mouth_smile",
+       "brow_l_raised"
+      ],
+      "top_pred": [
+       926.0079766188604,
+       260.9636552374672
+      ],
+      "top_px": [
+       925.9878048780488,
+       260.7439024390244
+      ],
+      "chin_pred": [
+       957.733865107924,
+       820.0642436824978
+      ],
+      "chin_px": [
+       957.59375,
+       820.0625
+      ]
+     },
+     {
+      "frame": 201,
+      "pose": "smile",
+      "view": null,
+      "bound": [
+       "skull_front",
+       "eye_white_l",
+       "eye_white_r",
+       "pupil_l",
+       "pupil_r",
+       "mouth_smile",
+       "brow_l_raised"
+      ],
+      "top_pred": [
+       925.7496476334456,
+       260.9783698706975
+      ],
+      "top_px": [
+       925.6891891891892,
+       260.77027027027026
+      ],
+      "chin_pred": [
+       957.716643175563,
+       820.0652246580465
+      ],
+      "chin_px": [
+       957.59375,
+       820.0625
+      ]
+     },
+     {
+      "frame": 399,
+      "pose": "smile",
+      "view": null,
+      "bound": [
+       "skull_front",
+       "eye_white_l",
+       "eye_white_r",
+       "pupil_l",
+       "pupil_r",
+       "mouth_smile",
+       "brow_l_raised"
+      ],
+      "top_pred": [
+       898.4259936450443,
+       263.16782782644856
+      ],
+      "top_px": [
+       898.4736842105264,
+       263.0263157894737
+      ],
+      "chin_pred": [
+       955.8950662430029,
+       820.2111885217632
+      ],
+      "chin_px": [
+       955.8235294117648,
+       820.3235294117648
+      ]
+     },
+     {
+      "frame": 400,
+      "pose": "smile",
+      "view": "threeq",
+      "bound": [
+       "skull_threeq",
+       "eye_white_l_3q",
+       "eye_white_r_3q",
+       "pupil_l_3q",
+       "pupil_r_3q",
+       "mouth_3q",
+       "brow_l_3q"
+      ],
+      "top_pred": [
+       898.5486566704188,
+       263.15518566130606
+      ],
+      "top_px": [
+       898.5526315789474,
+       263
+      ],
+      "chin_pred": [
+       955.9032437780279,
+       820.2103457107537
+      ],
+      "chin_px": [
+       955.7571428571429,
+       820.2714285714286
+      ]
+     },
+     {
+      "frame": 401,
+      "pose": "smile",
+      "view": "threeq",
+      "bound": [
+       "skull_threeq",
+       "eye_white_l_3q",
+       "eye_white_r_3q",
+       "pupil_l_3q",
+       "pupil_r_3q",
+       "mouth_3q",
+       "brow_l_3q"
+      ],
+      "top_pred": [
+       898.6774367535572,
+       263.14194046081104
+      ],
+      "top_px": [
+       898.6842105263158,
+       263.10526315789474
+      ],
+      "chin_pred": [
+       955.9118291169038,
+       820.2094626973874
+      ],
+      "chin_px": [
+       955.8235294117648,
+       820.3235294117648
+      ]
+     }
+    ],
+    "switch_frames": {
+     "smile": 200,
+     "threeq": 400
+    },
+    "landmark_residuals": [
+     {
+      "landmark": "skull_top",
+      "from": [
+       150,
+       20
+      ],
+      "to": [
+       150,
+       20
+      ],
+      "residual_px": 0
+     },
+     {
+      "landmark": "chin",
+      "from": [
+       150,
+       300
+      ],
+      "to": [
+       150,
+       300
+      ],
+      "residual_px": 0
+     },
+     {
+      "landmark": "skull_top",
+      "from": [
+       150,
+       20
+      ],
+      "to": [
+       150,
+       20
+      ],
+      "residual_px": 0
+     },
+     {
+      "landmark": "chin",
+      "from": [
+       150,
+       300
+      ],
+      "to": [
+       150,
+       300
+      ],
+      "residual_px": 0
+     }
+    ],
+    "gaze_failures_all_frames": 0
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "anchor_max_err_px": 0.331,
+    "switch_frames": {
+     "smile": 200,
+     "threeq": 400
+    },
+    "residuals": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "negatives": [
+    {
+     "injection": "view edge declared as MATCHED_VECTOR_MORPH on raster art",
+     "expected": "INVALID_MORPH_TOPOLOGY",
+     "observed": [
+      "INVALID_MORPH_TOPOLOGY"
+     ],
+     "pass": true
+    },
+    {
+     "injection": "front-only identity turned to three-quarter",
+     "expected": "UNSUPPORTED_VIEW",
+     "observed": [
+      "UNSUPPORTED_VIEW"
+     ],
+     "pass": true
+    },
+    {
+     "injection": "front-view eyes/mouth reused on the turned skull",
+     "expected": "MISSING_ART_ASSET",
+     "observed": [
+      "MISSING_ART_ASSET",
+      "MISSING_ART_ASSET",
+      "MISSING_ART_ASSET",
+      "MISSING_ART_ASSET",
+      "MISSING_ART_ASSET",
+      "MISSING_ART_ASSET"
+     ],
+     "pass": true,
+     "missing_cells": 6
+    },
+    {
+     "injection": "pupil pushed outside its owned eye surface",
+     "expected": "UNSUPPORTED_STATE_EDGE",
+     "observed": "UNSUPPORTED_STATE_EDGE",
+     "pass": true,
+     "frames": 159
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-6/f0199.png",
+     "sha256": "eda59bb5bef9f68748716acba697ab16d93940799c37d5cfc528d77589e453b5"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-6/f0200.png",
+     "sha256": "fdf3c2587cf3acdc26e4f370e172c56a8c3bfc20362e7b33b58df7ca4e7f599f"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-6/f0201.png",
+     "sha256": "8b4365146f55472b0d7751e04761798a2785945ab47f85d8d1f35f917c8a8b97"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-6/f0399.png",
+     "sha256": "fae30e689c58e110c72751152128a5bf317ed635e959d25fb10fd989ad419971"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-6/f0400.png",
+     "sha256": "c9d6653b018c330dba8a751b4ffc7f9277ad45ee08aec95d68a3b174f7b91d3a"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-6/f0401.png",
+     "sha256": "b6f3a651d7a12193ccb9a4f727dceccced163a46a0bdb1c0ee441f81096ecf87"
+    }
+   ],
+   "artistic_dependency": "registered GPT face views/expressions are absent; identity retention is an artistic judgment that cannot be made on fixtures",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-7",
+   "title": "Moving camera reveals registered background/midground/foreground; no blank camera rectangle; single transform owner",
+   "spec": "§5 Stage 2 acceptance 7; §5.6",
+   "source": [
+    "engine/art_bridge/scene_graph.mjs#cameraMatrix/validateFootprint",
+    "engine/art_bridge/render.mjs#capture"
+   ],
+   "input": "scene_D camD pan 960→1260→860, zoom 1→1.25→1.05, parallax FAR .35 MID .7 FG 1.45",
+   "output": {
+    "footprint_errors": [],
+    "sentinel_pixels_per_frame": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "camera_band_matrices": [
+     {
+      "cam-FAR": "matrix(1 0 0 1 0 0)",
+      "cam-MID": "matrix(1 0 0 1 0 0)",
+      "cam-FOREGROUND": "matrix(1 0 0 1 0 0)"
+     },
+     {
+      "cam-FAR": "matrix(1.021875 0 0 1.021875 -47.824219 -10.024219)",
+      "cam-MID": "matrix(1.04375 0 0 1.04375 -96.796875 -19.971875)",
+      "cam-FOREGROUND": "matrix(1.090625 0 0 1.090625 -205.605469 -41.030469)"
+     },
+     {
+      "cam-FAR": "matrix(1.065625 0 0 1.065625 -146.917969 -29.842969)",
+      "cam-MID": "matrix(1.13125 0 0 1.13125 -304.171875 -58.996875)",
+      "cam-FOREGROUND": "matrix(1.271875 0 0 1.271875 -675.949219 -119.149219)"
+     },
+     {
+      "cam-FAR": "matrix(1.0875 0 0 1.0875 -198.1875 -39.6375)",
+      "cam-MID": "matrix(1.175 0 0 1.175 -414.75 -78.05)",
+      "cam-FOREGROUND": "matrix(1.3625 0 0 1.3625 -940.6875 -156.2375)"
+     },
+     {
+      "cam-FAR": "matrix(1.07 0 0 1.07 -142.1 -34.055)",
+      "cam-MID": "matrix(1.14 0 0 1.14 -294 -67.62)",
+      "cam-FOREGROUND": "matrix(1.29 0 0 1.29 -652.5 -137.895)"
+     },
+     {
+      "cam-FAR": "matrix(1.035 0 0 1.035 -33.6 -22.5225)",
+      "cam-MID": "matrix(1.07 0 0 1.07 -67.2 -45.29)",
+      "cam-FOREGROUND": "matrix(1.145 0 0 1.145 -139.2 -94.9025)"
+     },
+     {
+      "cam-FAR": "matrix(1.017502 0 0 1.017502 18.80682 -16.573159)",
+      "cam-MID": "matrix(1.035004 0 0 1.035004 38.838639 -33.391332)",
+      "cam-FOREGROUND": "matrix(1.072508 0 0 1.072508 85.888967 -70.255318)"
+     }
+    ],
+    "camera_owner_ids": [
+     "x-cam-FAR",
+     "x-cam-MID",
+     "x-cam-FOREGROUND"
+    ]
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "footprint_errors": 0,
+    "sentinel_pixels_max": 0,
+    "bands": 3
+   },
+   "negatives": [
+    {
+     "injection": "camera zooms out to 0.25 beyond painted plates",
+     "expected": "OUTSIDE_CAMERA_FOOTPRINT",
+     "observed": [
+      "OUTSIDE_CAMERA_FOOTPRINT"
+     ],
+     "pass": true,
+     "spans": [
+      [
+       212,
+       386
+      ]
+     ],
+     "rendered_blank_pixels_at_300": 84240
+    },
+    {
+     "injection": "camera-band check agrees with pixels",
+     "expected": "BLANK_PIXELS_VISIBLE",
+     "observed": "BLANK_PIXELS_VISIBLE",
+     "pass": true
+    },
+    {
+     "injection": "motion track targets a rig that does not exist (unowned node)",
+     "expected": "UNKNOWN_REFERENCE",
+     "observed": [
+      "UNKNOWN_REFERENCE"
+     ],
+     "pass": true
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-7/f0000.png",
+     "sha256": "c26a1c0e1905d0365a4759a7eb197ecce5efadfabc00df0894c4147dfadcba6a"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-7/f0300.png",
+     "sha256": "3cdfe393b54f85beff39e15d320a712df7774563e683f93e8dd861b281b89fbe"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-7/f0599.png",
+     "sha256": "374fbc046f426dcccae9871c4c4ef5acb1d897cf43e39260a292924077e8d8f3"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-7/f0300.png",
+     "sha256": "6e9469f3cfb060d519e3a3c98fcf509abee8dc059989f9b3889b1f2f608d120c"
+    }
+   ],
+   "artistic_dependency": "GPT world planes with real overscan are absent",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-8",
+   "title": "OUT/MIDDLE/IN transition changes representation while holding the shared anchor",
+   "spec": "§5 Stage 2 acceptance 8; §5.6; §5.3 TRANSITION",
+   "source": [
+    "engine/art_bridge/transitions.mjs#compileTransition",
+    "engine/art_bridge/scene_graph.mjs (aperture masks)"
+   ],
+   "input": "scene_D transition [3420,3540) portal_out→portal_mid→portal_in through portal_aperture mask",
+   "output": {
+    "rows": [
+     {
+      "frame": 3420,
+      "stage": "OUT",
+      "zoom": 1,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960.4090909090909,
+       540.4090909090909
+      ],
+      "rendered_err_px": 0.5785419118798587,
+      "blank_px": 0
+     },
+     {
+      "frame": 3440,
+      "stage": "OUT",
+      "zoom": 1.1046565028451572,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960,
+       540
+      ],
+      "rendered_err_px": 0,
+      "blank_px": 0
+     },
+     {
+      "frame": 3460,
+      "stage": "OUT",
+      "zoom": 1.4492235497762815,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960,
+       540
+      ],
+      "rendered_err_px": 0,
+      "blank_px": 0
+     },
+     {
+      "frame": 3480,
+      "stage": "MIDDLE",
+      "zoom": 2.0970569741879994,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960.0888888888888,
+       540.0888888888888
+      ],
+      "rendered_err_px": 0.12570787221088106,
+      "blank_px": 0
+     },
+     {
+      "frame": 3500,
+      "stage": "IN",
+      "zoom": 3.026522544259335,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960.0813953488372,
+       540.0813953488372
+      ],
+      "rendered_err_px": 0.11511040623964436,
+      "blank_px": 0
+     },
+     {
+      "frame": 3520,
+      "stage": "IN",
+      "zoom": 3.942206462280331,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960.0428571428571,
+       540.0428571428571
+      ],
+      "rendered_err_px": 0.060609152673054556,
+      "blank_px": 0
+     },
+     {
+      "frame": 3539,
+      "stage": "IN",
+      "zoom": 4.313609467455622,
+      "anchor_screen": [
+       960,
+       540
+      ],
+      "anchor_residuals_px": [
+       0,
+       0,
+       0
+      ],
+      "rendered_anchor": [
+       960.0785714285714,
+       540.0785714285714
+      ],
+      "rendered_err_px": 0.111116779900734,
+      "blank_px": 0
+     }
+    ],
+    "numeric_anchor_max_residual_px": 0,
+    "aperture_ratios": [
+     0.48148148148148145,
+     0.48148148148148145
+    ],
+    "total_zoom": 4.313609467455622
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "stages": [
+     "OUT",
+     "MIDDLE",
+     "IN"
+    ],
+    "numeric_anchor_max": 0,
+    "rendered_anchor_max_err": 0.579,
+    "blank": 0
+   },
+   "negatives": [
+    {
+     "injection": "MIDDLE transition art deleted",
+     "expected": "MISSING_TRANSITION_STATE",
+     "observed": [
+      "MISSING_TRANSITION_STATE"
+     ],
+     "pass": true,
+     "art_jobs": [
+      {
+       "id": "ARTJOB_TRANSITION_PLATE_middle_asset_ids_fde08773",
+       "state_kind": "TRANSITION_PLATE",
+       "root_dependency": "middle_asset_ids"
+      }
+     ]
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3420.png",
+     "sha256": "9e5e98ddd20de47986ccf4fabb072f334ad4e2951e4eae8a5b1d686b52926a4e"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3440.png",
+     "sha256": "e2e41756907c9cdba4a62a94f126e1ea88af06d5c10542ad5e3a557e66db79ec"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3460.png",
+     "sha256": "cb228ecd9cc99ce1ef1e274828a455e4472a5d45c7ae1493bac1d35292fc1f48"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3480.png",
+     "sha256": "368d0fe72d8d8a8ab54377e6c8521d8977a2eec914322ff333f9aa1d8cb367a9"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3500.png",
+     "sha256": "63deeabbf98406e001af2d750bec67f7a7ed60dc35a66718035c9f7340a7150f"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3520.png",
+     "sha256": "7b77bee72d23a8588ca0320111781280bc2267e5bbf960651204232344b9932d"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-8/f3539.png",
+     "sha256": "3a1887cfa85967a08a5584eea8615cf84e22722b6080d510aa88df96cdb1b99c"
+    }
+   ],
+   "artistic_dependency": "GPT OUT/MIDDLE/IN plates are absent",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-9",
+   "title": "Random-seek renders are pixel-identical to linear capture; no JS exceptions or missing fetches",
+   "spec": "§5 Stage 2 acceptance 9; §7.5 random seek",
+   "source": [
+    "engine/art_bridge/runtime/bridge_rt.js#bind",
+    "engine/runtime/nu.js (unmodified)",
+    "engine/art_bridge/temporal.mjs#stateAtFrame"
+   ],
+   "input": "scene_A frames 495–505 linear vs order 1000,500,1000,503,… in a fresh page",
+   "output": {
+    "compared": 11,
+    "mismatches": [],
+    "failures_linear": [],
+    "failures_random": [],
+    "numeric_pure": true,
+    "lossless_path": "Chrome PNG screenshot (lossless) → RGBA byte compare"
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "compared": 11,
+    "mismatches": 0,
+    "js_or_fetch_failures": 0
+   },
+   "negatives": [
+    {
+     "injection": "runtime that skips writing unchanged elements would inherit state (structure check: every runtime element written every frame)",
+     "expected": "ALL_WRITTEN",
+     "observed": "ALL_WRITTEN",
+     "pass": true
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-9/f0500.png",
+     "sha256": "283f4d33193d3fcea0a91317a60e237113a2257732eba6fae6e59fbdf424053c"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-9/f0500.png",
+     "sha256": "283f4d33193d3fcea0a91317a60e237113a2257732eba6fae6e59fbdf424053c"
+    }
+   ],
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS"
+  },
+  {
+   "id": "S2-10",
+   "title": "Procedural mechanism: driver→follower gear ratio and flow-rate symbols computed from the declared mechanism and supplied symbols",
+   "spec": "§5 Stage 2 acceptance 10; §5.3 PROCEDURAL; §5.4 Mechanisms",
+   "source": [
+    "engine/art_bridge/temporal.mjs (GEAR_TRAIN, proceduralAt FLOW_PATH)"
+   ],
+   "input": "scene_E 30:18 gear train, flow symbol count track",
+   "output": {
+    "rows": [
+     {
+      "frame": 100,
+      "driver_deg": 30,
+      "follower_deg": -50,
+      "ratio": -1.6666666666666667,
+      "rendered_driver_marker_deg": -60.0332581293883,
+      "rendered_follower_marker_deg": -139.9408324472549,
+      "expected_driver_marker_deg": -60,
+      "expected_follower_marker_deg": -140,
+      "symbols": 2
+     },
+     {
+      "frame": 300,
+      "driver_deg": 270,
+      "follower_deg": -450,
+      "ratio": -1.6666666666666667,
+      "rendered_driver_marker_deg": 180,
+      "rendered_follower_marker_deg": 180,
+      "expected_driver_marker_deg": 180,
+      "expected_follower_marker_deg": -540,
+      "symbols": 6
+     },
+     {
+      "frame": 500,
+      "driver_deg": 510,
+      "follower_deg": -850,
+      "ratio": -1.6666666666666667,
+      "rendered_driver_marker_deg": 60.04677926514452,
+      "rendered_follower_marker_deg": 140.00344986388092,
+      "expected_driver_marker_deg": 420,
+      "expected_follower_marker_deg": -940,
+      "symbols": 7
+     }
+    ],
+    "marker_angle_max_err_deg": 0.05916755274506613
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "ratio": -1.6666666666666667,
+    "angle_err_deg": 0.059,
+    "symbols": [
+     2,
+     6,
+     7
+    ]
+   },
+   "negatives": [
+    {
+     "injection": "PROCEDURAL action with no declared mechanism",
+     "expected": "UNSUPPORTED_MOTION_CLASS",
+     "observed": [
+      "UNSUPPORTED_MOTION_CLASS"
+     ],
+     "pass": true
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-10/f0100.png",
+     "sha256": "384daeb2b6043fb35437d78793ddb487c8d9aa0ff43a5e0682cc54f12fed1f1f"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-10/f0300.png",
+     "sha256": "f0551b4cc07e2c4b15c0692a8f8a5fd414e1a618cb06a5241870c70632eb9463"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-10/f0500.png",
+     "sha256": "7e6f0abc8f19a70a305fca0b6f55d71cbdcf832cc4dafcbcee9fe137014b0a7e"
+    }
+   ],
+   "artistic_dependency": "approved GPT symbols/diagram art are absent",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  },
+  {
+   "id": "S2-60FPS",
+   "title": "Exact 60-fps capture of a 600-frame passage through nu.js; verified with ffprobe",
+   "spec": "§5.7",
+   "source": [
+    "engine/art_bridge/render.mjs#buildComposition/capture"
+   ],
+   "input": "scene_A frames 0..599",
+   "output": {
+    "mp4": "hybrid_v2/work/stage2/scene_A_60fps.mp4",
+    "mp4_sha256": "1c02cf41f2d0696828742b8d1ea4e3aadd49d4237d7a7b02be14b38fd3c1acbd",
+    "ffprobe": {
+     "width": 1920,
+     "height": 1080,
+     "r_frame_rate": "60/1",
+     "duration": "10.000000",
+     "nb_read_frames": "600"
+    },
+    "failures": []
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "ffprobe": {
+     "width": 1920,
+     "height": 1080,
+     "r_frame_rate": "60/1",
+     "duration": "10.000000",
+     "nb_read_frames": "600"
+    }
+   },
+   "negatives": [],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-60FPS/f0000.png",
+     "sha256": "b09896964637994a77b205ece0bef5bbe3b0a955913757e6628829c91e4b33eb"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-60FPS/f0299.png",
+     "sha256": "a220e04233c6c5a9da70a8fc37ef420a17c365fcd5c5b239e87ab0497fca0f19"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-60FPS/f0599.png",
+     "sha256": "f0e326242ac7d7d62e8bcf3fbbd76d070415b05fa474bd0ea248605928c92733"
+    }
+   ],
+   "note": "MP4 kept under hybrid_v2/work (not committed); included in the audit ZIP",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS"
+  },
+  {
+   "id": "S2-REG",
+   "title": "Registration producer: raster→canonical similarity from reviewed landmarks, lossless crop, residuals, alpha report, overlay+difference, receipt",
+   "spec": "§11.2",
+   "source": [
+    "engine/art_bridge/registration.mjs#registerPart/solveTransform"
+   ],
+   "input": "DIAGNOSTIC provider-like raster: fixture forearm rotated 17°, scaled 1.35, offset (60,30)",
+   "output": {
+    "receipt": "hybrid_v2\\work\\stage2\\reg\\ok\\forearm_reg__REGISTRATION_RECEIPT.json",
+    "max_residual_px": 0,
+    "recovered_scale": 0.7407407407407408,
+    "recovered_rotation_deg": -17.000000000000007,
+    "alpha_report": {
+     "transparent": 28150,
+     "partial": 37,
+     "opaque": 3813
+    },
+    "rest_overlay": {
+     "overlay_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\stage2\\reg\\ok\\forearm_reg__overlay_on_master.png",
+     "difference_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\stage2\\reg\\ok\\forearm_reg__difference.png",
+     "mean_abs_diff_opaque": 60.97010789637061,
+     "max_abs_diff_opaque": 158.33333333333334,
+     "pixels_compared": 2002
+    },
+    "manifest_fields": {
+     "width_px": 66,
+     "height_px": 133,
+     "source_pixel_crop": [
+      0,
+      0,
+      66,
+      133
+     ],
+     "crop_to_canonical_matrix": [
+      0.7083738933059522,
+      -0.21657163312795322,
+      0.21657163312795322,
+      0.7083738933059522,
+      142.0817920543738,
+      230.22972205886222
+     ],
+     "canonical_rect": [
+      142.0817920543738,
+      215.9359942724173,
+      75.55670416421063,
+      108.5074555961366
+     ],
+     "pivot_xy": [
+      180,
+      230
+     ],
+     "pivot_landmark_id": "elbow",
+     "landmarks": {
+      "elbow": [
+       180,
+       230
+      ],
+      "wrist": [
+       180,
+       310
+      ],
+      "mid": [
+       190,
+       270
+      ]
+     },
+     "alpha_mode": "STRAIGHT",
+     "underpaint_asset_ids": [
+      "elbow_under2"
+     ],
+     "hidden_surfaces": [
+      "elbow_inner"
+     ]
+    }
+   },
+   "mechanical_ok": true,
+   "summary": {
+    "residual": 0,
+    "scale": 0.740741,
+    "rotation": -17,
+    "status": "PENDING_REVIEW"
+   },
+   "negatives": [
+    {
+     "injection": "one landmark misplaced by 9px",
+     "expected": "UNREGISTERED_PIVOT",
+     "observed": [
+      "UNREGISTERED_PIVOT"
+     ],
+     "pass": true
+    },
+    {
+     "injection": "collinear anchors for an affine",
+     "expected": "DEGENERATE_IK",
+     "observed": "DEGENERATE_IK",
+     "pass": true
+    },
+    {
+     "injection": "hidden surfaces declared without underpaint",
+     "expected": "MISSING_UNDERPAINT",
+     "observed": [
+      "MISSING_UNDERPAINT"
+     ],
+     "pass": true
+    }
+   ],
+   "witness": [
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-REG/forearm_reg__overlay_on_master.png",
+     "sha256": "73d19dd1ef940c89ae62b6bef691f0de5c037b353f16e595fcddb832f294f1df"
+    },
+    {
+     "file": "hybrid_v2/evidence/stage2/frames/S2-REG/forearm_reg__difference.png",
+     "sha256": "bb1aa03805a2eb5ed6534222ef4521f68527cf0af9833f90cf769533c91857a9"
+    }
+   ],
+   "artistic_dependency": "registration of REAL GPT pixels requires reviewed landmarks on provider output",
+   "mechanical_status": "MECHANICAL_PASS",
+   "status": "MECHANICAL_PASS__ARTISTIC_BLOCKED"
+  }
+ ]
+}

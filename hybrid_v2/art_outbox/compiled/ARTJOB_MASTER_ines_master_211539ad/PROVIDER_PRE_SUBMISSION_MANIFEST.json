@@ -1,0 +1,43 @@
+{
+  "job_id": "ARTJOB_MASTER_ines_master_211539ad",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "4888ebd20c4fc6c4260b6f5e3071832705807513df1654d9513d3c5fdf0226d9",
+  "prompt_characters": 31949,
+  "source_image_inputs": [
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\BRAIN_0386_runner_human.jpg",
+      "sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: full-body gesture read through torso tilt, tapering trouser masses and small hands"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\NUCLEAR_0083_farm_humans.jpg",
+      "sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: mid-distance actors with dark-mark eyes, rolled sleeve cuffs and hand-to-surface contact"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\MEMORIES_0753_clinic_humans.jpg",
+      "sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: grip topology on a held object (fingers in front, thumb behind) and owned cheek/ear colour patches"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F01",
+    "F06",
+    "F64",
+    "F65",
+    "F66"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

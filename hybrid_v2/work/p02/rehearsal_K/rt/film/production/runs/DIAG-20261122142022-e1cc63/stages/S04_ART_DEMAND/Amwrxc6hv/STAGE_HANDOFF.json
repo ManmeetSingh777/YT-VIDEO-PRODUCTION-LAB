@@ -1,0 +1,107 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S04_ART_DEMAND",
+ "stage_attempt_id": "Amwrxc6hv",
+ "input_artifact_refs": [
+  {
+   "name": "S03_TIMING_MOTION/STAGE_HANDOFF",
+   "sha256": "5ea103adaec347847873f8119491ba31a41ac2b49d395966a5d9f159090da92c"
+  }
+ ],
+ "input_revision_hash": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [],
+ "output_revision_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+ "required_checks": [
+  {
+   "task_id": "demand_pilot_body",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_body frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_underpaint",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_underpaint frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_upper_arm",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_upper_arm frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_forearm",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_forearm frames [[0,600]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_hand_open",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_hand_open frames [[0,100]]"
+   }
+  },
+  {
+   "task_id": "demand_pilot_hand_grip",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig grip binds pilot_hand_open frames [[100,600]]"
+   }
+  },
+  {
+   "task_id": "demand_portal_out",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "continuous transition rt_shot->rt_world_shot needs its OUT plate frames [[3480,3600]]"
+   }
+  },
+  {
+   "task_id": "demand_portal_mid",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "continuous transition rt_shot->rt_world_shot needs its MIDDLE plate frames [[3480,3600]]"
+   }
+  },
+  {
+   "task_id": "demand_portal_in",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "continuous transition rt_shot->rt_world_shot needs its IN plate frames [[3480,3600]]"
+   }
+  },
+  {
+   "task_id": "demand_portal_aperture",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "continuous transition rt_shot->rt_world_shot needs its MASK plate frames [[3480,3600]]"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T14:20:29.344Z",
+ "event_chain_head_sha256": "33d220e3aee0613f25da5651dc421077391c6a081e48546da98e300b11c10b5d",
+ "run_type": "DIAGNOSTIC"
+}

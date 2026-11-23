@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:53",
+ "sequence": 53,
+ "prev_event_sha256": "f41825d11c6bd0c85e5b75db0a72fb3d5936e088ed2ed8fdc20e8de4acba444c",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwrtyy5j",
+ "operation_id": null,
+ "task_id": "demand_pilot_underpaint",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:52"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:11.693Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 53,
+ "event_sha256": "ce0f92619eb5dedfc3f2be7eedd2acf1ad50d0e96d03d498fea56e8398a19543"
+}

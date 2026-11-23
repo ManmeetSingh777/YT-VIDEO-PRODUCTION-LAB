@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125220-17f992:133",
+ "sequence": 133,
+ "prev_event_sha256": "7359b92ad85be4454e309dcc65ea69ea3a6808f8c7ac411a0cc8413aa8f08a77",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125220-17f992",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwru726v",
+ "operation_id": null,
+ "task_id": "chunk_0_600",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "b581b56cfcd45e1d5346c65c6e5560d936bc4032f86ab42836c2610ae4bdbef4",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125220-17f992:132"
+ ],
+ "wall_time_utc": "2026-11-22T12:52:31.061Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 133,
+ "event_sha256": "287004a9a619d8de42b76b633951e33e471f842d0f098ce3fb491a85379d0b9f"
+}

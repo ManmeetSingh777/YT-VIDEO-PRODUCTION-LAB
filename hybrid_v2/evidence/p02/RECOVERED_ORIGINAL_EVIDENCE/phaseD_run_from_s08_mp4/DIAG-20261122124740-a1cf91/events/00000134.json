@@ -1,0 +1,66 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:134",
+ "sequence": 134,
+ "prev_event_sha256": "ace09a829455db698aa6740e860f48ddaf780791d40204fe9c1a021cdbe74569",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwru11l1",
+ "operation_id": null,
+ "task_id": "chunk_0_600",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "FAILED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba",
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:133"
+ ],
+ "wall_time_utc": "2026-11-22T12:49:05.008Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_FAILED",
+ "failure": {
+  "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba",
+  "run_id": "DIAG-20261122124740-a1cf91",
+  "stage_id": "S07_NEUTRINO_RENDER",
+  "attempt_id": "Amwru11l1",
+  "task_id": "chunk_0_600",
+  "frame_ranges": [
+   [
+    420,
+    421
+   ]
+  ],
+  "artifact_refs": [],
+  "first_observed_bad_output": "FFV1 segment frames 0..599",
+  "expected_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+  "observed_measurement": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625",
+  "applicability_predicate": "stage S07_NEUTRINO_RENDER, task class chunk_0",
+  "failure_class": "RENDER_OR_MEMORY",
+  "root_producer_or_UNKNOWN": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+  "suspected_mechanism": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625",
+  "causal_evidence_refs": [],
+  "rejected_bypass_paths": [],
+  "invalidated_downstream_nodes": [
+   "assemble",
+   "S08_QA_REPAIR",
+   "S09_FILM_AUDIO_FINAL"
+  ],
+  "repair_owner": "RENDER_PRODUCER",
+  "resume_from_stage": "S07_NEUTRINO_RENDER",
+  "retry_safe_boolean": true,
+  "external_spend_risk": false,
+  "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122124740-a1cf91 --failure FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba"
+ },
+ "verification": {
+  "pass": false,
+  "measurement": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625"
+ },
+ "lock_generation": 134,
+ "event_sha256": "a237540dfdf3e41f5a19e1de4b0fdb2e13b1f4964707f76fc10927bf230d1922"
+}

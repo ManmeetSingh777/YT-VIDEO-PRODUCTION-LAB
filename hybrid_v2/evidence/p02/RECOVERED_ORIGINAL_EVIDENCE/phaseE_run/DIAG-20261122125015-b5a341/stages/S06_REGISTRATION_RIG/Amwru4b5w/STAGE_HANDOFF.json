@@ -1,0 +1,99 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S06_REGISTRATION_RIG",
+ "stage_attempt_id": "Amwru4b5w",
+ "input_artifact_refs": [
+  {
+   "name": "S05_ART_PRODUCTION/STAGE_HANDOFF",
+   "sha256": "c8f3bf614ecd30db0cf5943f37553815df7cb263a6e9414a5b149099bd9c0426"
+  }
+ ],
+ "input_revision_hash": "c503b3bf3c848eb3a8c07307b1cb3d57cabb42fb4064b37d3e1929f717932d25",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [],
+ "output_revision_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+ "required_checks": [
+  {
+   "task_id": "registration_pilot_master",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_rt_world_far",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_pilot_body",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_pilot_upper_arm",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_pilot_forearm",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_pilot_underpaint",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_pilot_hand_open",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "registration_pilot_hand_grip",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   }
+  },
+  {
+   "task_id": "states_edges",
+   "verification": {
+    "method": "no failing/unreviewed state or edge",
+    "pass": true,
+    "measurement": "all verified"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T12:50:24.069Z",
+ "event_chain_head_sha256": "30cc60dac394906da3ef06ca1e60fc1af41c4a18d0ea5db1c2958653ab7f05f4",
+ "run_type": "DIAGNOSTIC"
+}

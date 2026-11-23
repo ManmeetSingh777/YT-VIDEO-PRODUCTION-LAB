@@ -1,0 +1,156 @@
+{
+ "artjob_id": "ARTJOB_MASTER_pilot_master_a4b23a0d",
+ "root_dependency": "pilot_master",
+ "identity_id": "pilot",
+ "state_kind": "MASTER",
+ "asset_kind": "MASTER",
+ "medium": {
+  "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+  "why": "identity is locked from one approved master; derived states are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "pilot",
+  "canonical_parent_asset": "pilot_master",
+  "shot_ids": [
+   "rt_shot"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    600
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "head_top",
+   "neck",
+   "pelvis",
+   "shoulder_r",
+   "upper_arm_mid",
+   "elbow_r",
+   "forearm_mid",
+   "wrist_r",
+   "knuckle_r",
+   "thumb_r"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "pilot_rig",
+    "joint": "pelvis",
+    "rest_xy": [
+     150,
+     300
+    ]
+   },
+   {
+    "rig": "pilot_rig",
+    "joint": "shoulder_r",
+    "rest_xy": [
+     195,
+     135
+    ]
+   },
+   {
+    "rig": "pilot_rig",
+    "joint": "elbow_r",
+    "rest_xy": [
+     215,
+     215
+    ]
+   },
+   {
+    "rig": "pilot_rig",
+    "joint": "wrist_r",
+    "rest_xy": [
+     225,
+     295
+    ]
+   }
+  ],
+  "required_sockets": [
+   {
+    "socket": "pilot_grip",
+    "joint": "wrist_r",
+    "local_xy": [
+     6,
+     30
+    ]
+   }
+  ],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "pilot_body",
+   "pilot_upper_arm",
+   "pilot_forearm",
+   "pilot_underpaint",
+   "pilot_hand_open",
+   "pilot_hand_grip"
+  ],
+  "why_this_drawing_is_needed": "canonical identity. Required by: "
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "31748b8fa5eed1d387b7122d834a92d2c3ff8e7d05f77d2a6eb774aee3fc44c0",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "b868518423f6d8fb986cee55",
+ "dependency_parts_digest": "b868518423f6d8fb986cee55bc619966f64fc7476391d54b372729e99d8c7ad4",
+ "gate": {
+  "pass": true,
+  "family": "ACTING_HUMAN",
+  "failures": [],
+  "required_methods": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F14",
+   "F15",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F30",
+   "F31",
+   "F33",
+   "F36",
+   "F51",
+   "F52",
+   "F53",
+   "F56",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F77",
+   "F79",
+   "F80"
+  ]
+ }
+}

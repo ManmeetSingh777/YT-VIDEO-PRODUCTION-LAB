@@ -1,0 +1,480 @@
+[
+ {
+  "producer": "palette.solvePalette",
+  "call": 2,
+  "reads": 175,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "palette.designPalette",
+  "call": 1,
+  "reads": 196,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "projection.declareProjection",
+  "call": 4,
+  "reads": 18,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 5,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 6,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 7,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 8,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 9,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 10,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 11,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 12,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 13,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 14,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 15,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 16,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 17,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 18,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 19,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "worldgraph.buildWorld",
+  "call": 3,
+  "reads": 712,
+  "regions": 10,
+  "methods": [
+   "F37",
+   "F38",
+   "F10",
+   "F45"
+  ]
+ },
+ {
+  "producer": "gears.gearTrain",
+  "call": 20,
+  "reads": 56,
+  "regions": 41,
+  "methods": [
+   "F09",
+   "F68"
+  ]
+ },
+ {
+  "producer": "surfaces.planPlanes",
+  "call": 21,
+  "reads": 10,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F46",
+   "F04",
+   "F02"
+  ]
+ },
+ {
+  "producer": "effects.constructEffect",
+  "call": 22,
+  "reads": 21,
+  "regions": 5,
+  "methods": [
+   "F32"
+  ]
+ },
+ {
+  "producer": "projection.declareProjection",
+  "call": 24,
+  "reads": 18,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 25,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 26,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "worldgraph.buildWorld",
+  "call": 23,
+  "reads": 204,
+  "regions": 4,
+  "methods": [
+   "F37",
+   "F38",
+   "F10",
+   "F45"
+  ]
+ },
+ {
+  "producer": "projection.declareProjection",
+  "call": 28,
+  "reads": 18,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 29,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 30,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 31,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 32,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 33,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 34,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 35,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 36,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 37,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 38,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 39,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 40,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 41,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "projection.constructBlock",
+  "call": 42,
+  "reads": 32,
+  "regions": 3,
+  "methods": [
+   "F70",
+   "F60",
+   "F38"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 43,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "worldgraph.buildWorld",
+  "call": 27,
+  "reads": 712,
+  "regions": 10,
+  "methods": [
+   "F37",
+   "F38",
+   "F10",
+   "F45"
+  ]
+ },
+ {
+  "producer": "gears.gearTrain",
+  "call": 44,
+  "reads": 56,
+  "regions": 41,
+  "methods": [
+   "F09",
+   "F68"
+  ]
+ },
+ {
+  "producer": "surfaces.planPlanes",
+  "call": 45,
+  "reads": 10,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F46",
+   "F04",
+   "F02"
+  ]
+ },
+ {
+  "producer": "effects.constructEffect",
+  "call": 46,
+  "reads": 21,
+  "regions": 5,
+  "methods": [
+   "F32"
+  ]
+ },
+ {
+  "producer": "projection.declareProjection",
+  "call": 48,
+  "reads": 18,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 49,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 50,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "worldgraph.buildWorld",
+  "call": 47,
+  "reads": 204,
+  "regions": 4,
+  "methods": [
+   "F37",
+   "F38",
+   "F10",
+   "F45"
+  ]
+ }
+]

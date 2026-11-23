@@ -1,0 +1,2366 @@
+{
+ "subject": "turbine",
+ "context": {
+  "kind": "machine",
+  "subject_id": "turbine",
+  "projection": "OBLIQUE",
+  "world_class": "NONE",
+  "hasViewport": true,
+  "hasOptics": true,
+  "hasEmission": true,
+  "hasRepeats": true,
+  "changesState": true,
+  "moves": true,
+  "flowPath": true,
+  "prefix": "hero-th-",
+  "transitions": false,
+  "nestedWorld": false,
+  "relights": false,
+  "perceptionEffect": false,
+  "population": false,
+  "interface": false,
+  "comparison": false,
+  "infoTheatre": false,
+  "luminousVolume": false,
+  "macroLens": false,
+  "labels": false,
+  "historical": false
+ },
+ "routing": {
+  "F01": {
+   "status": "ROUTED",
+   "why": "Recognizable purpose-specific silhouette in its actual view; structural masses split only at real connections; overlap order before detail; subpart contours follow the gesture; 1/10-size test."
+  },
+  "F02": {
+   "status": "ROUTED",
+   "why": "Forms are colored surfaces"
+  },
+  "F03": {
+   "status": "ROUTED",
+   "why": "Conditional color-role solver"
+  },
+  "F04": {
+   "status": "ROUTED",
+   "why": "Four lighting systems"
+  },
+  "F05": {
+   "status": "NOT_APPLICABLE",
+   "why": "rear/occluded head (no invented face); distant population collapses features"
+  },
+  "F06": {
+   "status": "NOT_APPLICABLE",
+   "why": "no contact in the beat → contact graph empty but declared"
+  },
+  "F07": {
+   "status": "NOT_APPLICABLE",
+   "why": "humans (F05/F06)"
+  },
+  "F08": {
+   "status": "ROUTED",
+   "why": "One coherent projection per world; footprint/circulation before facades; architecture families; openings nested on wall planes; same geometry travels with the camera."
+  },
+  "F09": {
+   "status": "ROUTED",
+   "why": "Machines from a mechanical dependency graph"
+  },
+  "F10": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract stage with intentional emptiness"
+  },
+  "F11": {
+   "status": "NOT_APPLICABLE",
+   "why": "interiors (no forced foliage frame)"
+  },
+  "F12": {
+   "status": "NOT_APPLICABLE",
+   "why": "built/scenic worlds"
+  },
+  "F13": {
+   "status": "ROUTED",
+   "why": "Luminous/optical materials need structure under the light"
+  },
+  "F14": {
+   "status": "ROUTED",
+   "why": "State table per changing object"
+  },
+  "F15": {
+   "status": "ROUTED",
+   "why": "Exactly one primary motion owner per region (CAMERA/WORLD/SUBJECT_RIGID/SUBJECT_PART/REDRAWN_STATE/MATERIAL_LIGHT/MASK/EFFECT/UI); simultaneous tracks; purposeful stillness."
+  },
+  "F16": {
+   "status": "NOT_APPLICABLE",
+   "why": "within-shot action"
+  },
+  "F17": {
+   "status": "PROVIDER_REPLACED",
+   "why": "rendered hero frames from the production scene, inspected at native + 160×90"
+  },
+  "F18": {
+   "status": "ROUTED",
+   "why": "Coverage states DECODED/VIEWED/NATIVE_INSPECTED/METHOD_MAPPED/OUTPUT_TESTED are separate; never claim inspection from frame counts."
+  },
+  "F19": {
+   "status": "ROUTED",
+   "why": "Production medium is conditional (vector / pixel illustration / infographic / selective 3D / hybrid) per visual demand."
+  },
+  "F20": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F21": {
+   "status": "ROUTED",
+   "why": "Panels/glass/windows are optical machines"
+  },
+  "F22": {
+   "status": "NOT_APPLICABLE",
+   "why": "single lighting state"
+  },
+  "F23": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F24": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F25": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F26": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F27": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F28": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F29": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F30": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F31": {
+   "status": "ROUTED",
+   "why": "Owner-specific key states"
+  },
+  "F32": {
+   "status": "ROUTED",
+   "why": "Effects are time-bounded with ownership"
+  },
+  "F33": {
+   "status": "ROUTED",
+   "why": "Density by view depth/task"
+  },
+  "F34": {
+   "status": "ROUTED",
+   "why": "Generators by physical family (foliage, rock, architecture, machine, ocean/space, biological macro)."
+  },
+  "F35": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F36": {
+   "status": "PROVIDER_REPLACED",
+   "why": "EPISODE.json → plan.mjs cues + per-subject ICD validated by icd.mjs; build fails closed"
+  },
+  "F37": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract fields need no scenic horizon"
+  },
+  "F38": {
+   "status": "ROUTED",
+   "why": "Projection grammar enforced to small parts"
+  },
+  "F39": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F40": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F41": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F42": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F43": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F44": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F45": {
+   "status": "ROUTED",
+   "why": "Machines/corridors by functional topology"
+  },
+  "F46": {
+   "status": "ROUTED",
+   "why": "Per-material table"
+  },
+  "F47": {
+   "status": "ROUTED",
+   "why": "Detail tiers T0 skeleton / T1 modules / T2 parent-bound features / T3 state marks; marks need parent+function; erase-tier test."
+  },
+  "F48": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F49": {
+   "status": "PROVIDER_REPLACED",
+   "why": "icd.mjs validation fails closed on missing world/topology/regions"
+  },
+  "F50": {
+   "status": "ROUTED",
+   "why": "Adversarial unfamiliar-world transfer tests; no certification by resemblance."
+  },
+  "F51": {
+   "status": "ROUTED",
+   "why": "Palette = role map (substrate, far/mid support, focal, causal-active, local inset, optic) + contiguous parent-owned base fills + chosen contrast relationship."
+  },
+  "F52": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F53": {
+   "status": "ROUTED",
+   "why": "Density caused by explanatory material"
+  },
+  "F54": {
+   "status": "ROUTED",
+   "why": "Repeats from a parent-owned generator in local frame with count/size/exclusion rules; zero repeats can be correct."
+  },
+  "F55": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F56": {
+   "status": "PROVIDER_REPLACED",
+   "why": "ICD geometry is authored before render; first render inspected; repair edits the producing operation"
+  },
+  "F57": {
+   "status": "ROUTED",
+   "why": "Visible causal proof first"
+  },
+  "F58": {
+   "status": "ROUTED",
+   "why": "Closed parent regions (outer, front/back mass, cutout voids, supports) with identity-bearing negative spaces; small-size read; derived small forms collapse marks."
+  },
+  "F59": {
+   "status": "ROUTED",
+   "why": "Part DAG with insertion depth/in_front_of/hidden_when; joints with overlap masks; near fingers in front of prop, prop midplane, far fingers behind."
+  },
+  "F60": {
+   "status": "ROUTED",
+   "why": "Projection from the proof"
+  },
+  "F61": {
+   "status": "ROUTED",
+   "why": "Palette slots assigned after silhouette owners/neighbors; record luminance/hue/edge discrimination per adjacent pair."
+  },
+  "F62": {
+   "status": "ROUTED",
+   "why": "Edge roles per owner (COLOR_ADJACENCY, MATERIAL_SEAM, CAST_SHADOW, INTERNAL_CREASE, OPTICAL_RIM, EMISSIVE_EDGE); cast shadows on named receivers; patches by surface turning."
+  },
+  "F63": {
+   "status": "ROUTED",
+   "why": "Optics inside physics"
+  },
+  "F64": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F65": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F66": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F67": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F68": {
+   "status": "ROUTED",
+   "why": "Machines"
+  },
+  "F69": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F70": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F71": {
+   "status": "ROUTED",
+   "why": "Microbiology as connected graph; choose active_path_display CONTINUOUS_BAND / DISCRETE_PACKETS / SWITCHED_TERMINAL_PATCHES."
+  },
+  "F72": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F73": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F74": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F75": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F76": {
+   "status": "ROUTED",
+   "why": "Repeat generator spec"
+  },
+  "F77": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F78": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F79": {
+   "status": "ROUTED",
+   "why": "Own alpha/underpaint/overscan"
+  },
+  "F80": {
+   "status": "PROVIDER_REPLACED",
+   "why": "the first construction must consume routed decisions (with witness ids) as INPUTS to the geometry functions; the build verifies each routed method's ops executed on its bound regions before the first render"
+  }
+ },
+ "witnesses": [
+  {
+   "methods": [
+    "F38",
+    "F60",
+    "F68",
+    "F70"
+   ],
+   "confirm": "question_native_witnesses/NUCLEAR_0271_mechanism_scale_world.jpg",
+   "confirm_sha256": "e9c28939989e4e021fac8835f015ee37f98d76c797b506ab74461051046fe6bf",
+   "counter": "question_native_witnesses/AI_0285_machine_actor_interior.jpg",
+   "counter_sha256": "ff4e159acde765f0862493446f097580fafba7b91a600efa451afcc628fa40e0",
+   "observed": "oblique vehicles: ONE projection; top/front/side are three values of one hue; dark coloured (not black) chassis anchor; glass with clipped diagonal streak. AI@285 (unlike: frontal interior device): recessed bezel with inset frame, bounded light cone + lit pool on the receiving desk."
+  },
+  {
+   "methods": [
+    "F63",
+    "F13"
+   ],
+   "confirm": "molecular_native_anchors/AI_0514_socketed_glass_machine.jpg",
+   "confirm_sha256": "2c8549b293c20723ccbf14100ca4c0f36dbf1e85fa7d4b30225b03c65c18ca40",
+   "counter": "molecular_native_anchors/AI_0874_axial_corridor.jpg",
+   "counter_sha256": "75d9d76030fda35ada7215494e1b922c7d83a70ef0585960087cdf5b8b4b3152",
+   "observed": "socketed glass volume: cables end in circular ports, crisp core + bounded halo; corridor (unlike): dark structural planes stay dark, light only at real sources."
+  }
+ ],
+ "resolved": {},
+ "decisions": {
+  "machine.truthTable": {
+   "value": {
+    "input": "penstock water",
+    "control": "hand wheel valve",
+    "process": "runner in casing",
+    "output": "generator → cable → lamp",
+    "operator": "engineer at wheel",
+    "power": "falling water"
+   },
+   "by": [
+    "F45",
+    "F68",
+    "F09"
+   ],
+   "why": ""
+  },
+  "machine.partGraph": {
+   "value": "penstock→valve(wheel,gauge)→casing(window,runner)→shaft→generator→cable→lamp; supports: casing on plinth, pipe on saddles",
+   "by": [
+    "F09"
+   ],
+   "why": ""
+  },
+  "machine.assemblies": {
+   "value": [
+    "penstock+valve",
+    "casing+runner window",
+    "generator",
+    "lamp circuit"
+   ],
+   "by": [
+    "F45"
+   ],
+   "why": ""
+  },
+  "machine.surfacePolicy": {
+   "value": {
+    "painted_metal": "HARD_BOUNDARY",
+    "glass": "LOCAL_SOFT_OPTIC",
+    "lamp": "LOCAL_SOFT_OPTIC",
+    "concrete": "HARD_BOUNDARY"
+   },
+   "by": [
+    "F68"
+   ],
+   "why": ""
+  },
+  "machine.sockets": {
+   "value": [
+    "valveOut",
+    "casingIn",
+    "genTop",
+    "lampIn"
+   ],
+   "by": [
+    "F68"
+   ],
+   "why": ""
+  },
+  "projection.basis": {
+   "value": {
+    "name": "hall-oblique",
+    "o": [
+     0,
+     1000
+    ],
+    "u": [
+     1,
+     0
+    ],
+    "v": [
+     0.6,
+     -0.4
+    ],
+    "h": [
+     0,
+     -1
+    ]
+   },
+   "by": [
+    "F38",
+    "F60",
+    "F08"
+   ],
+   "why": ""
+  },
+  "materials": {
+   "value": [
+    "painted steel (teal)",
+    "painted steel (signal orange)",
+    "concrete",
+    "glass",
+    "copper cable",
+    "brass"
+   ],
+   "by": [
+    "F46",
+    "F02"
+   ],
+   "why": ""
+  },
+  "palette.roles": {
+   "value": {
+    "wall": "#2c5560",
+    "wallL": "#3a6b75",
+    "wallS": "#21434c",
+    "floor": "#1d3a42",
+    "floorL": "#28505a",
+    "steel": "#e0763a",
+    "steelT": "#f4a066",
+    "steelS": "#a94e24",
+    "pipe": "#3f9aa0",
+    "pipeT": "#6cc4c4",
+    "pipeS": "#2a6c72",
+    "anchor": "#162d38",
+    "brass": "#e8c15a",
+    "glass": "#9fe3f0",
+    "water": "#5fd1ff",
+    "lampCore": "#fff3c0",
+    "lampHalo": "#ffd36a"
+   },
+   "by": [
+    "F03",
+    "F51",
+    "F61"
+   ],
+   "why": ""
+  },
+  "palette.focalPair": {
+   "value": "signal-orange casing + warm lamp vs cool teal concrete",
+   "by": [
+    "F03"
+   ],
+   "why": ""
+  },
+  "palette.pairs": {
+   "value": [
+    [
+     "casing",
+     "wall",
+     "hue"
+    ],
+    [
+     "pipe",
+     "wall",
+     "luma"
+    ],
+    [
+     "lamp",
+     "wall",
+     "luma"
+    ]
+   ],
+   "by": [
+    "F61"
+   ],
+   "why": ""
+  },
+  "palette.roles.check": {
+   "value": "the teal pipe is close in hue to the wall: separation must come from its lighter top band and dark underside",
+   "by": [
+    "F61"
+   ],
+   "why": ""
+  },
+  "lighting.system": {
+   "value": "OPAQUE_FORM faces by normal: key from a high source upper-RIGHT (tops lightest, right faces lit, left faces shaded); EMISSIVE lamp core + bounded halo + floor pool; OPTICAL window glass",
+   "by": [
+    "F04"
+   ],
+   "why": ""
+  },
+  "edges": {
+   "value": {
+    "metal": "COLOR_ADJACENCY between faces",
+    "window": "OPTICAL_RIM bezel",
+    "floorSeams": "INTERNAL_CREASE"
+   },
+   "by": [
+    "F62"
+   ],
+   "why": ""
+  },
+  "optics": {
+   "value": "inspection window: bezel rim, transmitted runner, clipped streak; lamp: core, cage, bounded halo, light cone, floor pool",
+   "by": [
+    "F13",
+    "F63"
+   ],
+   "why": ""
+  },
+  "effects.class": {
+   "value": "surface_emission (lamp) + flow band in glass sight-tube",
+   "by": [
+    "F32"
+   ],
+   "why": ""
+  },
+  "flow.display": {
+   "value": "CONTINUOUS_BAND in the sight tube; DISCRETE runner blades visible through window",
+   "by": [
+    "F71"
+   ],
+   "why": ""
+  },
+  "repeats.parent": {
+   "value": {
+    "wallSeams": "back wall face",
+    "floorSeams": "floor plane",
+    "fins": "generator side band",
+    "bolts": "flange ring"
+   },
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "why": ""
+  },
+  "states": {
+   "value": {
+    "valve": [
+     "closed",
+     "open"
+    ],
+    "runner": "rotation",
+    "lamp": [
+     "off",
+     "on"
+    ],
+    "gauge": "needle angle"
+   },
+   "by": [
+    "F14"
+   ],
+   "why": ""
+  },
+  "silhouette.outer": {
+   "value": "tall drum + box window + cylinder generator on plinth, pipe entering from left",
+   "by": [
+    "F01",
+    "F58"
+   ],
+   "why": ""
+  },
+  "silhouette.view": {
+   "value": "oblique from front-left, slightly above",
+   "by": [
+    "F01"
+   ],
+   "why": ""
+  },
+  "silhouette.identityFeatures": {
+   "value": [
+    "hand wheel",
+    "round window with blades",
+    "finned generator",
+    "caged lamp"
+   ],
+   "by": [
+    "F01"
+   ],
+   "why": ""
+  },
+  "silhouette.voids": {
+   "value": [
+    "wheel spokes",
+    "lamp cage bars",
+    "gap between plinth and wall"
+   ],
+   "by": [
+    "F58"
+   ],
+   "why": ""
+  },
+  "silhouette.smallRead": {
+   "value": "at 160×90: orange drum + teal pipe + bright lamp",
+   "by": [
+    "F58"
+   ],
+   "why": ""
+  },
+  "parts": {
+   "value": "valve on pipe; wheel on valve stem; window in casing face; runner behind glass; generator on casing top; lamp on wall bracket; cable from genTop to lampIn",
+   "by": [
+    "F59"
+   ],
+   "why": ""
+  },
+  "detail.owner": {
+   "value": "focal_structural (valve, window, lamp)",
+   "by": [
+    "F33"
+   ],
+   "why": ""
+  },
+  "detail.tiers": {
+   "value": {
+    "T0": "wall/floor/drum",
+    "T1": "pipe, casing, generator, lamp",
+    "T2": "bolts, fins, window, gauge, seams",
+    "T3": "glints, flow band"
+   },
+   "by": [
+    "F47",
+    "F53"
+   ],
+   "why": ""
+  },
+  "medium": {
+   "value": "vector",
+   "by": [
+    "F19"
+   ],
+   "why": ""
+  },
+  "motion.owners": {
+   "value": {
+    "runner": "SUBJECT_PART rotation",
+    "wheel": "SUBJECT_PART rotation",
+    "lamp": "MATERIAL_LIGHT_STATE",
+    "flow": "EFFECT band"
+   },
+   "by": [
+    "F15"
+   ],
+   "why": ""
+  },
+  "motion.keys": {
+   "value": [
+    "valve opens",
+    "flow starts",
+    "runner spins up",
+    "lamp on"
+   ],
+   "by": [
+    "F31"
+   ],
+   "why": ""
+  },
+  "layers.underpaint": {
+   "value": "runner group lives inside the window clip; wheel is a separate part over the valve",
+   "by": [
+    "F79"
+   ],
+   "why": ""
+  },
+  "generator.family": {
+   "value": "metal/glass machine",
+   "by": [
+    "F34"
+   ],
+   "why": ""
+  },
+  "portal.innerWorld": {
+   "value": "the runner chamber: hub + 9 blades + water band, complete behind the glass",
+   "by": [
+    "F21"
+   ],
+   "why": ""
+  },
+  "portal.rim": {
+   "value": "bolted bezel over the glass; streak clipped to glass",
+   "by": [
+    "F21"
+   ],
+   "why": ""
+  },
+  "proof.silent": {
+   "value": "turning the wheel lets water through, the runner spins, the lamp lights",
+   "by": [
+    "F57"
+   ],
+   "why": ""
+  },
+  "proof.anchors": {
+   "value": {
+    "source": "wheel rim",
+    "path": "sight tube band -> window blades",
+    "target": "lamp core"
+   },
+   "by": [
+    "F57"
+   ],
+   "why": ""
+  }
+ },
+ "lessons_available": [],
+ "lessons_applied": [],
+ "operations": [
+  {
+   "op": "paletteRoles",
+   "region": "palette",
+   "by": [
+    "F03",
+    "F51",
+    "F61"
+   ],
+   "uses": [
+    "palette.roles",
+    "palette.pairs"
+   ],
+   "ablated": [],
+   "pairs": [
+    {
+     "a": "steel",
+     "b": "#2c5560",
+     "contrast": 2.65,
+     "min": 2,
+     "axis": "hue+luma"
+    },
+    {
+     "a": "pipeT",
+     "b": "#2c5560",
+     "contrast": 4.01,
+     "min": 2,
+     "axis": "luma"
+    },
+    {
+     "a": "lampCore",
+     "b": "#2c5560",
+     "contrast": 7.31,
+     "min": 6,
+     "axis": "luma"
+    }
+   ]
+  },
+  {
+   "op": "maskReveal",
+   "region": "window",
+   "by": [
+    "F21",
+    "F79"
+   ],
+   "uses": [
+    "optics",
+    "layers.underpaint"
+   ],
+   "ablated": [],
+   "clipBy": "glass"
+  },
+  {
+   "op": "projectFacet",
+   "region": "pipe",
+   "by": [
+    "F09",
+    "F45",
+    "F68",
+    "F02",
+    "F08",
+    "F34",
+    "F01",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph",
+    "palette.roles"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "materialPatch",
+   "region": "pipeTop",
+   "by": [
+    "F04",
+    "F02"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "pipe"
+  },
+  {
+   "op": "materialPatch",
+   "region": "pipeUnder",
+   "by": [
+    "F04",
+    "F02",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "pipe"
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "flanges",
+   "by": [
+    "F54",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": [],
+   "owner": "pipe",
+   "count": 3
+  },
+  {
+   "op": "projectFacet",
+   "region": "valveBody",
+   "by": [
+    "F68",
+    "F45",
+    "F38",
+    "F59",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph",
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "materialPatch",
+   "region": "valveShade",
+   "by": [
+    "F04",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "valveBody"
+  },
+  {
+   "op": "materialPatch",
+   "region": "valveLight",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "valveBody"
+  },
+  {
+   "op": "projectFacet",
+   "region": "valveTop",
+   "by": [
+    "F68",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "projectFacet",
+   "region": "bonnet",
+   "by": [
+    "F68",
+    "F59",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "projectFacet",
+   "region": "bonnetTop",
+   "by": [
+    "F68",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "routeConnector",
+   "region": "sightTube",
+   "by": [
+    "F71",
+    "F68",
+    "F63"
+   ],
+   "uses": [
+    "flow.display",
+    "machine.sockets"
+   ],
+   "ablated": [],
+   "from": "valveOut",
+   "to": "casingIn"
+  },
+  {
+   "op": "attachRegion",
+   "region": "gaugeStem",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": [],
+   "parent": "pipe"
+  },
+  {
+   "op": "attachRegion",
+   "region": "gaugeBody",
+   "by": [
+    "F68",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "parent": "gaugeStem"
+  },
+  {
+   "op": "materialPatch",
+   "region": "gaugeFace",
+   "by": [
+    "F63",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "owner": "gaugeBody"
+  },
+  {
+   "op": "materialPatch",
+   "region": "gaugeRed",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": [],
+   "owner": "gaugeBody"
+  },
+  {
+   "op": "materialPatch",
+   "region": "gaugeGlint",
+   "by": [
+    "F63"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "owner": "gaugeBody"
+  },
+  {
+   "op": "authorContour",
+   "region": "needleArm",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "projectFacet",
+   "region": "plinth",
+   "by": [
+    "F59",
+    "F68",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "projectFacet",
+   "region": "plinthTop",
+   "by": [
+    "F59",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "projectFacet",
+   "region": "drumSide",
+   "by": [
+    "F68",
+    "F38",
+    "F58",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis",
+    "silhouette.outer"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "materialPatch",
+   "region": "drumShade",
+   "by": [
+    "F04",
+    "F46",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "drumSide"
+  },
+  {
+   "op": "materialPatch",
+   "region": "drumLight",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "drumSide"
+  },
+  {
+   "op": "projectFacet",
+   "region": "drumTop",
+   "by": [
+    "F68",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "drumBolts",
+   "by": [
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": [],
+   "owner": "drumTop",
+   "count": 16
+  },
+  {
+   "op": "authorContour",
+   "region": "bezel",
+   "by": [
+    "F68",
+    "F21"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "bezelBolts",
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": [],
+   "owner": "bezel",
+   "count": 12
+  },
+  {
+   "op": "authorContour",
+   "region": "glass",
+   "by": [
+    "F21",
+    "F63"
+   ],
+   "uses": [
+    "optics",
+    "layers.underpaint"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "authorContour",
+   "region": "runnerHub",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "blades",
+   "by": [
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": [],
+   "owner": "runnerHub",
+   "count": 9
+  },
+  {
+   "op": "materialPatch",
+   "region": "glassWater",
+   "by": [
+    "F71",
+    "F63"
+   ],
+   "uses": [
+    "flow.display"
+   ],
+   "ablated": [],
+   "owner": "glass"
+  },
+  {
+   "op": "materialPatch",
+   "region": "glassStreak",
+   "by": [
+    "F63",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "owner": "glass"
+  },
+  {
+   "op": "authorContour",
+   "region": "shaft",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "projectFacet",
+   "region": "genSide",
+   "by": [
+    "F68",
+    "F38",
+    "F58",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "fins",
+   "by": [
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": [],
+   "owner": "genSide",
+   "count": 13
+  },
+  {
+   "op": "materialPatch",
+   "region": "genShade",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "genSide"
+  },
+  {
+   "op": "projectFacet",
+   "region": "genTop",
+   "by": [
+    "F68",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": [],
+   "basis": "hall-oblique"
+  },
+  {
+   "op": "routeConnector",
+   "region": "cable",
+   "by": [
+    "F68",
+    "F45"
+   ],
+   "uses": [
+    "machine.sockets"
+   ],
+   "ablated": [],
+   "from": "genTop",
+   "to": "lampIn"
+  },
+  {
+   "op": "authorContour",
+   "region": "lampBracket",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "attachRegion",
+   "region": "lampShade",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": [],
+   "parent": "lampBracket"
+  },
+  {
+   "op": "materialPatch",
+   "region": "lampShadeS",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "lampShade"
+  },
+  {
+   "op": "attachRegion",
+   "region": "lampBulb",
+   "by": [
+    "F04",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "parent": "lampShade"
+  },
+  {
+   "op": "attachRegion",
+   "region": "lampBulbOn",
+   "by": [
+    "F04",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "parent": "lampShade"
+  },
+  {
+   "op": "materialPatch",
+   "region": "filament",
+   "by": [
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": [],
+   "owner": "lampBulbOn"
+  },
+  {
+   "op": "drawnState",
+   "region": "lamp",
+   "by": [
+    "F14",
+    "F32"
+   ],
+   "uses": [
+    "states"
+   ],
+   "ablated": [],
+   "states": [
+    "lampOff",
+    "lampOn"
+   ]
+  },
+  {
+   "op": "authorContour",
+   "region": "lampCage",
+   "by": [
+    "F58"
+   ],
+   "uses": [
+    "silhouette.voids"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "composeOptic",
+   "region": "lampHalo",
+   "by": [
+    "F04",
+    "F13",
+    "F32",
+    "F63"
+   ],
+   "uses": [
+    "optics",
+    "effects.class"
+   ],
+   "ablated": [],
+   "kind": "surface_emission"
+  },
+  {
+   "op": "authorContour",
+   "region": "lampCone",
+   "by": [
+    "F04",
+    "F63",
+    "F32"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "authorContour",
+   "region": "lampPool",
+   "by": [
+    "F04",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "attachRegion",
+   "region": "wheelStem",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": [],
+   "parent": "valveBody"
+  },
+  {
+   "op": "compoundRegion",
+   "region": "wheelRim",
+   "by": [
+    "F68",
+    "F58",
+    "F59"
+   ],
+   "uses": [
+    "silhouette.voids",
+    "silhouette.identityFeatures"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "materialPatch",
+   "region": "wheelRimLight",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": [],
+   "owner": "wheelRim"
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "spokes",
+   "by": [
+    "F54",
+    "F68"
+   ],
+   "uses": [
+    "silhouette.voids"
+   ],
+   "ablated": [],
+   "owner": "wheelRim",
+   "count": 6
+  },
+  {
+   "op": "authorContour",
+   "region": "wheelHub",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": []
+  },
+  {
+   "op": "rigBind",
+   "region": "rig",
+   "by": [
+    "F15",
+    "F31",
+    "F79",
+    "F14"
+   ],
+   "uses": [
+    "motion.owners",
+    "motion.keys",
+    "layers.underpaint"
+   ],
+   "ablated": [],
+   "parts": [
+    "root",
+    "wheel",
+    "window",
+    "runner",
+    "gauge",
+    "needle"
+   ],
+   "channels": [
+    "wheel",
+    "runner",
+    "needle",
+    "lamp"
+   ]
+  }
+ ],
+ "regions": [
+  {
+   "id": "spokes",
+   "element": "hero-th-spokes",
+   "part": "wheel",
+   "purpose": "REPEAT",
+   "by": [
+    "F54",
+    "F68"
+   ],
+   "uses": [
+    "silhouette.voids"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "blades",
+   "element": "hero-th-blades",
+   "part": "runner",
+   "purpose": "REPEAT",
+   "by": [
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "gaugeBody",
+   "element": "hero-th-gaugeBody",
+   "part": "gauge",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "needleArm",
+   "element": "hero-th-needleArm",
+   "part": "needle",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "bezel",
+   "element": "hero-th-bezel",
+   "part": "window",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F21"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "runnerHub",
+   "element": "hero-th-runnerHub",
+   "part": "runner",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "wheelRim",
+   "element": "hero-th-wheelRim",
+   "part": "wheel",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F58",
+    "F59"
+   ],
+   "uses": [
+    "silhouette.voids",
+    "silhouette.identityFeatures"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "gaugeFace",
+   "element": "hero-th-gaugeFace",
+   "part": "gauge",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F63",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "gaugeRed",
+   "element": "hero-th-gaugeRed",
+   "part": "gauge",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "gaugeGlint",
+   "element": "hero-th-gaugeGlint",
+   "part": "gauge",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F63"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "wheelRimLight",
+   "element": "hero-th-wheelRimLight",
+   "part": "wheel",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "bezelBolts",
+   "element": "hero-th-bezelBolts",
+   "part": "window",
+   "purpose": "REPEAT",
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "glass",
+   "element": "hero-th-glass",
+   "part": "window",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F21",
+    "F63"
+   ],
+   "uses": [
+    "optics",
+    "layers.underpaint"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "wheelHub",
+   "element": "hero-th-wheelHub",
+   "part": "wheel",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "glassWater",
+   "element": "hero-th-glassWater",
+   "part": "window",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F71",
+    "F63"
+   ],
+   "uses": [
+    "flow.display"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "glassStreak",
+   "element": "hero-th-glassStreak",
+   "part": "window",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F63",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lampCone",
+   "element": "hero-th-lampCone",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F04",
+    "F63",
+    "F32"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lampPool",
+   "element": "hero-th-lampPool",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F04",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "pipe",
+   "element": "hero-th-pipe",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F09",
+    "F45",
+    "F68",
+    "F02",
+    "F08",
+    "F34",
+    "F01",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph",
+    "palette.roles"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "pipeTop",
+   "element": "hero-th-pipeTop",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04",
+    "F02"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "pipeUnder",
+   "element": "hero-th-pipeUnder",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04",
+    "F02",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "flanges",
+   "element": "hero-th-flanges",
+   "part": "root",
+   "purpose": "REPEAT",
+   "by": [
+    "F54",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "sightTube",
+   "element": "hero-th-sightTube",
+   "part": "root",
+   "purpose": "CONNECTOR",
+   "by": [
+    "F71",
+    "F68",
+    "F63"
+   ],
+   "uses": [
+    "flow.display",
+    "machine.sockets"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "valveBody",
+   "element": "hero-th-valveBody",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F45",
+    "F38",
+    "F59",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph",
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "valveShade",
+   "element": "hero-th-valveShade",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "valveLight",
+   "element": "hero-th-valveLight",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "valveTop",
+   "element": "hero-th-valveTop",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "bonnet",
+   "element": "hero-th-bonnet",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "bonnetTop",
+   "element": "hero-th-bonnetTop",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "gaugeStem",
+   "element": "hero-th-gaugeStem",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "plinthTop",
+   "element": "hero-th-plinthTop",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F59",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "plinth",
+   "element": "hero-th-plinth",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F59",
+    "F68",
+    "F60"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "drumSide",
+   "element": "hero-th-drumSide",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F38",
+    "F58",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis",
+    "silhouette.outer"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "drumShade",
+   "element": "hero-th-drumShade",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04",
+    "F46",
+    "F62"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "drumLight",
+   "element": "hero-th-drumLight",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "drumTop",
+   "element": "hero-th-drumTop",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "drumBolts",
+   "element": "hero-th-drumBolts",
+   "part": "root",
+   "purpose": "REPEAT",
+   "by": [
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "shaft",
+   "element": "hero-th-shaft",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "genSide",
+   "element": "hero-th-genSide",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F38",
+    "F58",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "genShade",
+   "element": "hero-th-genShade",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "fins",
+   "element": "hero-th-fins",
+   "part": "root",
+   "purpose": "REPEAT",
+   "by": [
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [
+    "repeats.parent"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "genTop",
+   "element": "hero-th-genTop",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F38",
+    "F60"
+   ],
+   "uses": [
+    "projection.basis"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "cable",
+   "element": "hero-th-cable",
+   "part": "root",
+   "purpose": "CONNECTOR",
+   "by": [
+    "F68",
+    "F45"
+   ],
+   "uses": [
+    "machine.sockets"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lampBracket",
+   "element": "hero-th-lampBracket",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lampHalo",
+   "element": "hero-th-lampHalo",
+   "part": "root",
+   "purpose": "EFFECT",
+   "by": [
+    "F04",
+    "F13",
+    "F32",
+    "F63"
+   ],
+   "uses": [
+    "optics",
+    "effects.class"
+   ],
+   "ablated": false,
+   "state": "lampOn"
+  },
+  {
+   "id": "lampBulb",
+   "element": "hero-th-lampBulb",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F04",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": "lampOff"
+  },
+  {
+   "id": "lampBulbOn",
+   "element": "hero-th-lampBulbOn",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F04",
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": "lampOn"
+  },
+  {
+   "id": "filament",
+   "element": "hero-th-filament",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F13"
+   ],
+   "uses": [
+    "optics"
+   ],
+   "ablated": false,
+   "state": "lampOn"
+  },
+  {
+   "id": "lampShade",
+   "element": "hero-th-lampShade",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lampShadeS",
+   "element": "hero-th-lampShadeS",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04"
+   ],
+   "uses": [
+    "lighting.system"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lampCage",
+   "element": "hero-th-lampCage",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F58"
+   ],
+   "uses": [
+    "silhouette.voids"
+   ],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "wheelStem",
+   "element": "hero-th-wheelStem",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [
+    "machine.partGraph"
+   ],
+   "ablated": false,
+   "state": null
+  }
+ ],
+ "ablated_methods": [],
+ "errors": [],
+ "status": "CODE_EMITTED"
+}

@@ -1,0 +1,175 @@
+{
+ "receipt_id": "asset__pilot_upper_arm__7e4803944bde__mwrxc19685adbb",
+ "scope": "asset",
+ "record_id": "pilot_upper_arm",
+ "verdict": "APPROVED",
+ "reviewer": "roundtrip-operator",
+ "reviewer_kind": "DIAGNOSTIC",
+ "attestation": null,
+ "notes": "",
+ "scope_note": "DIAGNOSTIC_ONLY: fixture rasters, not target art",
+ "evidence": [
+  "registration/pilot_upper_arm/pilot_upper_arm__REGISTRATION_RECEIPT.json",
+  "registration/pilot_upper_arm/pilot_upper_arm__overlay_on_master.png"
+ ],
+ "bundle_sha256": "7e4803944bdef78c696e84c2d09b9342c99dc50362762d87ba1b36c18356cc8a",
+ "bundle": {
+  "content": {
+   "alpha_mode": "STRAIGHT",
+   "camera_footprint": null,
+   "canonical_rect": [
+    169.14730725636588,
+    123.3620072882553,
+    65.09008051544382,
+    102.44369299029877
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "CHARACTER_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.5501489270786504,
+    0.07731838942225831,
+    -0.07731838942225831,
+    0.5501489270786504,
+    182.52338862641656,
+    123.3620072882553
+   ],
+   "depth_band": "FOCAL",
+   "draw_order_constraints": [
+    {
+     "asset_id": "pilot_body",
+     "relation": "ABOVE"
+    }
+   ],
+   "expression_id": null,
+   "file": "assets/art/pilot_upper_arm.png",
+   "height_px": 173,
+   "hidden_surfaces": [],
+   "id": "pilot_upper_arm",
+   "identity_id": "pilot",
+   "incompatible_states": [],
+   "kind": "PART",
+   "landmarks": {
+    "elbow_r": [
+     215,
+     215
+    ],
+    "shoulder_r": [
+     195,
+     135
+    ],
+    "upper_arm_mid": [
+     205,
+     175
+    ]
+   },
+   "layer_owner": "pilot",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "shoulder_r",
+   "pivot_xy": [
+    195,
+    135
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "partreg_pilot_upper_arm",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    94,
+    173
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 94
+  },
+  "id": "pilot_upper_arm",
+  "identity_landmarks": {
+   "elbow_r": [
+    215,
+    215
+   ],
+   "forearm_mid": [
+    220,
+    255
+   ],
+   "head_top": [
+    150,
+    30
+   ],
+   "knuckle_r": [
+    233,
+    330
+   ],
+   "neck": [
+    150,
+    110
+   ],
+   "pelvis": [
+    150,
+    300
+   ],
+   "shoulder_r": [
+    195,
+    135
+   ],
+   "thumb_r": [
+    242,
+    304
+   ],
+   "upper_arm_mid": [
+    205,
+    175
+   ],
+   "wrist_r": [
+    225,
+    295
+   ]
+  },
+  "identity_master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "placements": [
+   {
+    "joint": "shoulder_r",
+    "joint_rest": [
+     195,
+     135
+    ],
+    "local": [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "parent": "pelvis",
+    "rig": "pilot_rig",
+    "slot": "pilot_upper_arm"
+   }
+  ],
+  "registration_receipt_sha256": "4350c31fe5d7060858bb26b00e8d70c21050519d0e2b8386db4d3dbd3cfd52bc",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:20.442Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

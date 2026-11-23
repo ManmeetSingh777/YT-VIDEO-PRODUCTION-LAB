@@ -1,0 +1,50 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:30",
+ "sequence": 30,
+ "prev_event_sha256": "9f25b1af75abfb34784aac4e54f47bf0b4cd0ff9b5e44e6ccd4facb206d78b1a",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwrtyxaf",
+ "operation_id": null,
+ "task_id": "actions_rt_world_shot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:29"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:10.219Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "actions_rt_world_shot",
+  "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+  "inputs": [
+   "story/SEMANTIC_ACTIONS.json",
+   "direction/SHOT_SCORE_60FPS.json#rt_world_shot"
+  ],
+  "expected_outputs": [
+   "executable sub-operations"
+  ],
+  "deps": [
+   "tiling"
+  ],
+  "invariants": [
+   "every visible verb compiles",
+   "no orphan contact",
+   "possession conserved"
+  ],
+  "verification": "complete === true",
+  "evidence_location": "production/store"
+ },
+ "lock_generation": 30,
+ "event_sha256": "1a1589aefc203bcffbd96e0f0cdb85b5ab74a0bf74103db3c50152b91b978721"
+}

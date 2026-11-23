@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:146",
+ "sequence": 146,
+ "prev_event_sha256": "d9fb2455dff174d178916a81f1b4241e98e343cf4e4734d8183fbe383be1eeb9",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwru11l1",
+ "operation_id": null,
+ "task_id": "assemble",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "BLOCKED",
+ "gate_evidence_refs": [],
+ "blocked_on": [
+  "chunk_0_600"
+ ],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:145"
+ ],
+ "wall_time_utc": "2026-11-22T12:49:06.176Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_BLOCKED",
+ "lock_generation": 146,
+ "event_sha256": "90f1efb0b9c7b441cadc3f8b578268baa459fc8b6d6d42ecad29381a40b7d58a"
+}

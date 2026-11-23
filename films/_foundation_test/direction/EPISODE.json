@@ -1,0 +1,66 @@
+{
+ "format": "MNS-EPISODE/1",
+ "film": { "id": "foundation_test", "title": "Foundation system test (NOT Film 001)", "tail": 1.2, "bg": "#1d1733" },
+ "narration": {
+  "voice": "af_heart", "speed": 1.0, "lead_in": 0.4,
+  "sentences": [
+   { "id": "s1", "text": "This is a foundation test for the studio, not the next film." },
+   { "id": "s2", "text": "A keeper walks to the lamp, planting every step, and takes the lantern by its handle.", "pause_before": 0.3 },
+   { "id": "s3", "text": "When she lifts it, the lantern unfolds into a star, and every shadow in the room turns to follow the new light.", "pause_before": 0.35 },
+   { "id": "s4", "text": "Through the window, a second world was waiting all along.", "pause_before": 0.5 }
+  ]
+ },
+ "identities": [
+  { "id": "keeper", "kind": "character", "role": "test actor: full-body gesture, reach, grip, facial change",
+    "design_intent": "original adult night-keeper, long coat with a stiff collar, short asymmetric bob, narrow shoulders, big boots",
+    "required_states": ["neutral", "walking", "reaching", "gripping", "lifting", "delighted"],
+    "must_remain_identifiable": ["bob silhouette", "collar", "coat hem"],
+    "articulation": ["planted-foot walk", "right hand grips lantern handle", "head + eyes track the light", "hair follow-through"] },
+  { "id": "lantern", "kind": "object", "role": "prop that transforms",
+    "design_intent": "folded paper lantern on a hook; unfolds into a five-point star light source",
+    "required_states": ["hanging", "held", "unfolded_star"], "must_remain_identifiable": ["handle ring", "warm core"] },
+  { "id": "room", "kind": "world", "role": "interior with a window that contains a complete second world",
+    "design_intent": "cool night interior, oblique table and shelf, window to a moonlit hill town",
+    "required_states": ["lamp_light_left", "star_light_overhead"] }
+ ],
+ "scenes": [
+  { "id": "sc01", "from": "0",
+    "understanding_before": "nothing: test start", "understanding_after": "a held object can become the scene's light source",
+    "main_event": "keeper walks to the hanging lantern, grips the handle, lifts it; lantern unfolds into a star; shadows re-aim",
+    "causal_mechanism": "the grip transfers the lantern to the hand socket; lifting raises the light; the star is the new key light so every attached shade plane rotates toward it",
+    "start_composition": "wide interior, keeper enters screen left at 0.18 width, lantern hangs at 0.62 width",
+    "end_composition": "medium, keeper centre holding star overhead, face lit, shadows below the forms",
+    "identities": ["keeper", "lantern", "room"],
+    "owned_components": [ {"id":"keeper", "motion":"walk/reach/lift"}, {"id":"lantern", "motion":"attached to hand socket, unfolds"}, {"id":"light", "motion":"key light direction follows lantern"} ],
+    "articulation": [ {"who":"keeper", "action":"walks with planted feet", "contact":"feet→floor"}, {"who":"keeper", "action":"right hand closes on handle", "contact":"handR→lantern.handle"} ],
+    "events": [
+     { "id": "walk_start", "at": "s1@0.25", "what": "keeper starts walking from the left; the first foot lifts while the other stays planted" },
+     { "id": "arrive", "at": "s2:\"lamp\"+0.25", "what": "keeper settles under the lantern, weight shifts back, head tilts up" },
+     { "id": "grip", "at": "s2:\"handle\"", "what": "right hand reaches the handle and closes; lantern leaves the hook", "sfx": "click" },
+     { "id": "lift", "at": "s3:\"lifts\"-0.1", "what": "arm raises the lantern overhead, torso stretches, eyes follow" },
+     { "id": "unfold", "at": "s3:\"unfolds\"", "what": "lantern outline morphs into a five-point star, core flares", "sfx": "chime" },
+     { "id": "light_turn", "at": "s3:\"shadow\"", "what": "key light swings from the window side to overhead; shade planes rotate" }
+    ],
+    "camera": [ {"at":"0", "what":"wide, slight drift right"}, {"at":"lift", "what":"slow push in and tilt up with the lantern"} ],
+    "attention": [ {"at":"walk_start", "target":"keeper", "screen":[0.2,0.6]}, {"at":"grip", "target":"hand/handle", "screen":[0.6,0.35]}, {"at":"unfold", "target":"star", "screen":[0.55,0.2]} ],
+    "secondary": ["hair bob follows head", "dust motes drift", "window world idles"],
+    "sound": [], "handoff": "camera drifts toward the window; the star's light spills into it",
+    "unacceptable": ["feet slide during the walk", "hand passes through the handle", "lantern snaps to the hand", "shadow planes stay fixed while the light moves", "star is a cross-fade instead of a geometry change"] },
+  { "id": "sc02", "from": "s4-0.6",
+    "understanding_before": "the room is the world", "understanding_after": "the window holds a complete second world",
+    "main_event": "camera pushes into the window; the inner world parallaxes independently of the room and fills the frame",
+    "causal_mechanism": "the window is a portal mask over a complete inner world with its own depth layers",
+    "start_composition": "continuation of sc01 end", "end_composition": "inner hill town fills frame",
+    "identities": ["room", "keeper"],
+    "owned_components": [ {"id":"portal", "motion":"mask grows past the frame"}, {"id":"town", "motion":"own parallax"} ],
+    "events": [
+     { "id": "push", "at": "s4", "what": "camera accelerates toward the window centre; room layers outpace the inner world" },
+     { "id": "through", "at": "s4:\"world\"", "what": "window rim passes the frame edge; inner world now owns the screen", "sfx": "whoosh" }
+    ],
+    "camera": [ {"at":"push", "what":"push into window, 1 → 3.4 zoom"} ],
+    "attention": [ {"at":"push", "target":"window", "screen":[0.75,0.35]} ],
+    "handoff": "end of test", "unacceptable": ["inner world is a flat sticker", "rectangle seam visible at the rim"] }
+ ],
+ "hero_frames": [ { "id": "h1", "scene": "sc01", "at": "sc01.grip+0.3", "purpose": "contact + identity" }, { "id": "h2", "scene": "sc01", "at": "sc01.unfold+0.8", "purpose": "transformed light, re-aimed shading" } ],
+ "motion_proof": { "from": "0", "to": "s4.end+0.6", "must_show": ["planted walk", "grip", "morph", "light re-aim", "portal push"] }
+}

@@ -1,0 +1,90 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_washer_drum_interior_07cee76b",
+ "root_dependency": "washer_drum_interior",
+ "identity_id": "washer",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "washer_master",
+ "motion_context": {
+  "identity_id": "washer",
+  "canonical_parent_asset": "washer_master",
+  "shot_ids": [
+   "S01",
+   "S02",
+   "S07"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    1920
+   ],
+   [
+    6240,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": "idle|door_half|door_open|running",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "hub"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "washer_rig",
+    "joint": "drum",
+    "rest_xy": [
+     300,
+     330
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED|CAMERA_WORLD",
+  "predecessor_state_id": "washer_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "moving machine part on drum. Required by: state washer_rig:idle/- S01_sock_tumble; state washer_rig:idle/- S02_operate_washer; state washer_rig:door_half/- S02_operate_washer; state washer_rig:door_open/- S02_operate_washer; state washer_rig:running/- S02_operate_washer; state washer_rig:idle/- S07_return"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "66e1c93f59888df9ffbbbc70252606cf6277cf9d2c2c8810c9839f81a1687636",
+ "frame_precision": "STATE_INTERVALS",
+ "generation": "1e6bbc9a25fe4c0ddf435a83",
+ "dependency_parts_digest": "1e6bbc9a25fe4c0ddf435a83e64b87776de532c1d015b996ae52a0a220e75c23",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

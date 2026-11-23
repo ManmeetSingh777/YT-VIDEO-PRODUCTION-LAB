@@ -1,0 +1,437 @@
+{
+ "stage": "STAGE_1_CONTRACT",
+ "generated_by": "tests/art_bridge/write_stage1_proof.mjs",
+ "status": "MECHANICAL_PASS",
+ "note": "Contract/compiler proof only. Fixtures are DIAGNOSTIC_FIXTURE rasters (provenance_class DIAGNOSTIC_FIXTURE), rejected by --production; they are not and never represent target art.",
+ "source_modules": [
+  {
+   "file": "engine/art_bridge/errors.mjs",
+   "sha256": "401e5f01c20be3c64341e5cea328faf72c16581b58e69a3bdf3dbedcba47f564"
+  },
+  {
+   "file": "engine/art_bridge/png.mjs",
+   "sha256": "7c5c4b3df1daa7145bbe77a4c7b9ef384b78488c34742f442e26a1840c5cd61c"
+  },
+  {
+   "file": "engine/art_bridge/jsonschema.mjs",
+   "sha256": "26cc7701fd3c1784217fc2cf13bc17ff2b21ef4c8c1fac104e6981c2f1605070"
+  },
+  {
+   "file": "engine/art_bridge/constraints.mjs",
+   "sha256": "1b6477b4f852441c62d34ac72bc8e07cc49afb94c62aa52f28998703fc3715c0"
+  },
+  {
+   "file": "engine/art_bridge/graph.mjs",
+   "sha256": "372b9801dcbbc5037d4aff4681d38ac228a2d4e790c7f19358a3f20315498442"
+  },
+  {
+   "file": "engine/art_bridge/method_trace.mjs",
+   "sha256": "2495a208c9ea30368299a44ca9e8d6d2e0f365c98198dec9ceb16224ad51b966"
+  },
+  {
+   "file": "engine/art_bridge/load_manifest.mjs",
+   "sha256": "223a9e908040b2d797391ecef2510520713db4e4271b82045150afb0ac82c61d"
+  },
+  {
+   "file": "engine/art_bridge/coverage.mjs",
+   "sha256": "a4a77d21cf0d6f90c5f71f5871580e51bcdca1f2ac1fe366e5c409e6ba1949c5"
+  },
+  {
+   "file": "engine/tools/art_bridge_check.mjs",
+   "sha256": "ff0d8af28d0922a575790cdf13782d97c49c91cc68bf5b44e49d0911320c23f3"
+  },
+  {
+   "file": "schemas/motion_art_manifest_v2.schema.json",
+   "sha256": "d1b34e1eff499cc438dfa508358b2dc8b0a84b802d8c905ab9f392f23ac9a3b5"
+  },
+  {
+   "file": "tests/art_bridge/stage1.test.mjs",
+   "sha256": "7eedac9c2a5f39df2bd3d95634f95d118a9823f45af454bf88846c360cb3f58f"
+  },
+  {
+   "file": "tests/art_bridge/make_fixtures.mjs",
+   "sha256": "7596b3371574ca4a29194e4991b9a1ea829f32ce1b122b55cb3115e80e3f59a3"
+  }
+ ],
+ "cli": "node engine/tools/art_bridge_check.mjs check --manifest PATH --root ROOT --json OUT [--production] [--inspect]",
+ "tests": {
+  "command": "node --test tests/art_bridge/*.test.mjs",
+  "pass": 66,
+  "fail": 0,
+  "cases": [
+   {
+    "ok": true,
+    "name": "B3-1 single-scene QA never certifies a film (whole_film_pass false)"
+   },
+   {
+    "ok": true,
+    "name": "B3-2 automated gates pass; without a film review the verdict is FAIL"
+   },
+   {
+    "ok": true,
+    "name": "B3-3 positive path: film receipt after all gates → PRODUCTION_PASS_UNDER_TEST_TRUST (never plain PRODUCTION_PASS under test trust)"
+   },
+   {
+    "ok": true,
+    "name": "B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt"
+   },
+   {
+    "ok": true,
+    "name": "B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame"
+   },
+   {
+    "ok": true,
+    "name": "B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)"
+   },
+   {
+    "ok": true,
+    "name": "B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine"
+   },
+   {
+    "ok": true,
+    "name": "B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)"
+   },
+   {
+    "ok": true,
+    "name": "B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix"
+   },
+   {
+    "ok": true,
+    "name": "B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree"
+   },
+   {
+    "ok": true,
+    "name": "B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)"
+   },
+   {
+    "ok": true,
+    "name": "B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)"
+   },
+   {
+    "ok": true,
+    "name": "B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners"
+   },
+   {
+    "ok": true,
+    "name": "B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses"
+   },
+   {
+    "ok": true,
+    "name": "B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam"
+   },
+   {
+    "ok": true,
+    "name": "H1 planned alpha contract is enforced at intake (no silent rewrite)"
+   },
+   {
+    "ok": true,
+    "name": "H2 registration receipt content is verified and bound into the approval"
+   },
+   {
+    "ok": true,
+    "name": "H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume"
+   },
+   {
+    "ok": true,
+    "name": "H4 review history is immutable; a rejection clears the current pointer; every decision survives"
+   },
+   {
+    "ok": true,
+    "name": "H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator"
+   },
+   {
+    "ok": true,
+    "name": "B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused"
+   },
+   {
+    "ok": true,
+    "name": "P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges"
+   },
+   {
+    "ok": true,
+    "name": "P0-1b Ines master context covers the S02 interval and the master's shots"
+   },
+   {
+    "ok": true,
+    "name": "P0-1c perturbing S02 grip timing changes only dependent job contexts"
+   },
+   {
+    "ok": true,
+    "name": "P0-2a all six canonical-master jobs route to the canonical master medium"
+   },
+   {
+    "ok": true,
+    "name": "P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused"
+   },
+   {
+    "ok": true,
+    "name": "P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved"
+   },
+   {
+    "ok": true,
+    "name": "P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges"
+   },
+   {
+    "ok": true,
+    "name": "P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent"
+   },
+   {
+    "ok": true,
+    "name": "P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review"
+   },
+   {
+    "ok": true,
+    "name": "P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows"
+   },
+   {
+    "ok": true,
+    "name": "valid examples pass"
+   },
+   {
+    "ok": true,
+    "name": "checked-in example files match the generator and pass/fail as named"
+   },
+   {
+    "ok": true,
+    "name": "unreachable contact reports exact missing distance"
+   },
+   {
+    "ok": true,
+    "name": "missing underpaint"
+   },
+   {
+    "ok": true,
+    "name": "illegal view morph"
+   },
+   {
+    "ok": true,
+    "name": "wrong pivot → UNREGISTERED_PIVOT"
+   },
+   {
+    "ok": true,
+    "name": "invalid parent → error naming the asset"
+   },
+   {
+    "ok": true,
+    "name": "rig with cyclic joints fails"
+   },
+   {
+    "ok": true,
+    "name": "unsupported view state → UNSUPPORTED_VIEW"
+   },
+   {
+    "ok": true,
+    "name": "circular layer order → OCCLUSION_CONFLICT"
+   },
+   {
+    "ok": true,
+    "name": "hash mismatch / missing file / path escape"
+   },
+   {
+    "ok": true,
+    "name": "production mode rejects diagnostic fixtures"
+   },
+   {
+    "ok": true,
+    "name": "continuous transition without middle art → MISSING_TRANSITION_STATE"
+   },
+   {
+    "ok": true,
+    "name": "schema rejects unknown top-level keys and wrong stage"
+   },
+   {
+    "ok": true,
+    "name": "coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact"
+   },
+   {
+    "ok": true,
+    "name": "static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG"
+   },
+   {
+    "ok": true,
+    "name": "two-bone IK: exact, non-clamping, bend-branch and degenerate"
+   },
+   {
+    "ok": true,
+    "name": "contact graph solves only active contacts"
+   },
+   {
+    "ok": true,
+    "name": "F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion"
+   },
+   {
+    "ok": true,
+    "name": "declared method use without a real consumer → METHOD_NO_REAL_CONSUMER"
+   },
+   {
+    "ok": true,
+    "name": "stateAtFrame is pure: random-order evaluation equals linear evaluation"
+   },
+   {
+    "ok": true,
+    "name": "grip and plant hold on every locked frame; no failures over the action"
+   },
+   {
+    "ok": true,
+    "name": "bend branch contradicting the FK pose is reported, not flipped silently"
+   },
+   {
+    "ok": true,
+    "name": "transform ownership, routing and morph topology are enforced at compile time"
+   },
+   {
+    "ok": true,
+    "name": "light plane is painted on its owner and under everything above the owner; reads the owner's matrix"
+   },
+   {
+    "ok": true,
+    "name": "every runtime element is written on every frame (seek-safe DOM state)"
+   },
+   {
+    "ok": true,
+    "name": "transition anchor is invariant; stages OUT→MIDDLE→IN"
+   },
+   {
+    "ok": true,
+    "name": "camera footprint flags exact spans when the camera outruns painted plates"
+   },
+   {
+    "ok": true,
+    "name": "gear ratio and flow symbols follow the declared mechanism"
+   },
+   {
+    "ok": true,
+    "name": "registration solver recovers similarity and affine exactly; collinear affine refused"
+   },
+   {
+    "ok": true,
+    "name": "ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere"
+   },
+   {
+    "ok": true,
+    "name": "state coverage: one static master for acting states never passes; front features on a turned head are missing"
+   },
+   {
+    "ok": true,
+    "name": "provider boundary: no configuration → NullProvider with an exact blocker; never fabricates"
+   },
+   {
+    "ok": true,
+    "name": "sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused"
+   },
+   {
+    "ok": true,
+    "name": "word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT"
+   }
+  ]
+ },
+ "examples": {
+  "valid_human_grip": {
+   "file": "schemas/examples/valid_human_grip.json",
+   "sha256": "77d10ed1450ff85712d15137a2485b21d6030f02a13f2781830a6526c314b1fa",
+   "pass": true,
+   "error_codes": [],
+   "errors": [],
+   "frames_covered": 7200
+  },
+  "valid_world_portal": {
+   "file": "schemas/examples/valid_world_portal.json",
+   "sha256": "f0dad32cb34059c786e042b367384e3e7458f6b9d1db017c49235ed9414dd913",
+   "pass": true,
+   "error_codes": [],
+   "errors": [],
+   "frames_covered": 7200
+  },
+  "invalid_unreachable_contact": {
+   "file": "schemas/examples/invalid_unreachable_contact.json",
+   "sha256": "f08d8c74c5ad0cf2d40ddab73e955d4b049aab29102efe1c705335dec4ea8937",
+   "pass": false,
+   "error_codes": [
+    "UNREACHABLE_IK"
+   ],
+   "errors": [
+    {
+     "code": "UNREACHABLE_IK",
+     "file": "..\\..\\..\\schemas\\examples\\invalid_unreachable_contact.json",
+     "record_id": "grip_crank",
+     "shot_id": "shot_all",
+     "frame_range": [
+      60,
+      540
+     ],
+     "dependency": "grip->handle_grip",
+     "suggested_producer": "re-stage pose/root (approved compensation) or new pose art",
+     "human_readable_reason": "target at 416.984 outside reach [10.000, 150.000]",
+     "details": {
+      "requestedDistance": 416.9844121786808,
+      "minimumReach": 10,
+      "maximumReach": 150,
+      "missingDistance": 266.9844121786808
+     }
+    }
+   ],
+   "frames_covered": 7200
+  },
+  "invalid_missing_underpaint": {
+   "file": "schemas/examples/invalid_missing_underpaint.json",
+   "sha256": "73087b36acd4556cf0cbfe1343cfd1aae37ee2b969b5e17b6a048c8c8c3b3b85",
+   "pass": false,
+   "error_codes": [
+    "MISSING_UNDERPAINT"
+   ],
+   "errors": [
+    {
+     "code": "MISSING_UNDERPAINT",
+     "file": "..\\..\\..\\schemas\\examples\\invalid_missing_underpaint.json",
+     "record_id": "forearm",
+     "shot_id": null,
+     "frame_range": null,
+     "dependency": "elbow_inner",
+     "suggested_producer": "GPT edit/outpaint job",
+     "human_readable_reason": "declares hidden surfaces but no underpaint asset"
+    }
+   ],
+   "frames_covered": 7200
+  },
+  "invalid_illegal_view_morph": {
+   "file": "schemas/examples/invalid_illegal_view_morph.json",
+   "sha256": "f5610a1333194193f5117d8a665275262c3c99a093be4da82e48042b4bf9dc56",
+   "pass": false,
+   "error_codes": [
+    "INVALID_MORPH_TOPOLOGY",
+    "INVALID_MORPH_TOPOLOGY"
+   ],
+   "errors": [
+    {
+     "code": "INVALID_MORPH_TOPOLOGY",
+     "file": "..\\..\\..\\schemas\\examples\\invalid_illegal_view_morph.json",
+     "record_id": "actor_rig.rest->profile",
+     "shot_id": null,
+     "frame_range": null,
+     "dependency": null,
+     "suggested_producer": null,
+     "human_readable_reason": "view change front->profile by MATCHED_VECTOR_MORPH: a view switch needs a registered swap or cel sequence"
+    },
+    {
+     "code": "INVALID_MORPH_TOPOLOGY",
+     "file": "..\\..\\..\\schemas\\examples\\invalid_illegal_view_morph.json",
+     "record_id": "actor_rig.rest->profile",
+     "shot_id": null,
+     "frame_range": null,
+     "dependency": "torso,upper_arm,forearm,torso",
+     "suggested_producer": null,
+     "human_readable_reason": "vector morph between non-vector (raster) assets"
+    }
+   ],
+   "frames_covered": 7200
+  }
+ },
+ "method_registry": {
+  "rows": 80,
+  "verdict_counts": {
+   "PENDING_PROVIDER_PIXELS": 48,
+   "CONSUMER_PRESENT_PROOF_PENDING": 32
+  },
+  "file": "hybrid_v2/evidence/COVERAGE_F01_F80.json"
+ }
+}

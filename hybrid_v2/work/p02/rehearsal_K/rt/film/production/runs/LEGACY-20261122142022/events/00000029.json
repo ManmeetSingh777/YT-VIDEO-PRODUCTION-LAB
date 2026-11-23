@@ -1,0 +1,36 @@
+{
+ "schema_version": 1,
+ "event_id": "LEGACY-20261122142022:29",
+ "sequence": 29,
+ "prev_event_sha256": "4094d91cf3000f3e160efc8a9461204252b41945a0078d2c6c82c930cfdd8a87",
+ "film_id": "film",
+ "run_id": "LEGACY-20261122142022",
+ "stage_id": null,
+ "attempt_id": null,
+ "operation_id": null,
+ "task_id": null,
+ "actor_kind": "LEGACY_IMPORT",
+ "producer_source_sha256": null,
+ "input_refs": [],
+ "output_refs": [
+  {
+   "sha256": "12c53977a4df25766cef0531471ac502296abe85b4fc73aea02ba44cad641491",
+   "bytes": 2374,
+   "source": "reviews/edge__pilot_rig__open__grip__35282a86ee9f__mwrxc23i1173c1.json"
+  }
+ ],
+ "status_before": null,
+ "status_after": "LEGACY_UNVERIFIED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "LEGACY-20261122142022:28"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:23.629Z",
+ "elapsed_ms": null,
+ "event_type": "IMPORTED_LEGACY_UNVERIFIED",
+ "provenance": "UNAUTHENTICATED_PRE_LEDGER_RECORD",
+ "lock_generation": 29,
+ "event_sha256": "7daa7caf7b4a8dc6873587d561c2e44e15da753b8e32d81ce34834475337a307"
+}

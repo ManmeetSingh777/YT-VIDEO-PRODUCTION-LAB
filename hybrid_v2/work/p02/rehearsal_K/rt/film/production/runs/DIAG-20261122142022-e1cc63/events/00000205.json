@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:205",
+ "sequence": 205,
+ "prev_event_sha256": "e27ad716df72ae0e3b155ccf4cf3622f452a5a4f28b7f115cba4becfccfeaa01",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S08_QA_REPAIR",
+ "attempt_id": "Amwryc2mm",
+ "operation_id": null,
+ "task_id": "coverage_gate",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "production/runs/DIAG-20261122142022-e1cc63/COVERAGE_GATE.json",
+   "sha256": "ff26ed4e46dac69aeb329cc18e143d02947a7682715dc83881bbdefc99da7abb",
+   "bytes": 1364,
+   "source": "production/runs/DIAG-20261122142022-e1cc63/COVERAGE_GATE.json"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:204"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:31.020Z",
+ "elapsed_ms": 29,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "zero coverage failures",
+  "pass": true,
+  "measurement": "7200/7200 frames hashed; 8 moving intervals change pixels; 9 static holds; action 1/1, art_state 2/2, camera 2/2, effect 1/1, blur 1/1, transition 1/1, shot_boundary 1/1, sound_cue 1/1"
+ },
+ "lock_generation": 205,
+ "event_sha256": "0743d80771a4693a7d423a3c0ce76362f267f352d3351e709902604c079641b0"
+}

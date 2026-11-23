@@ -1,0 +1,39 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:194",
+ "sequence": 194,
+ "prev_event_sha256": "2d04d05c3b135e12d5393591ec96434317e518f7eef1b4eb6db0dbf480a064e7",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwrxcflg",
+ "operation_id": null,
+ "task_id": "assemble",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "render/film.mp4",
+   "sha256": "ed1b87ebec99b112a06f9af7c030bd606403a46e92a6ea3cc98a718c691a7f7d"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:193"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:19.727Z",
+ "elapsed_ms": 1658230,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "final probe",
+  "pass": true,
+  "measurement": "{\"codec\":\"h264\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":7200,\"video_duration\":120,\"audio_duration\":120}"
+ },
+ "lock_generation": 194,
+ "event_sha256": "92fdc26c221dd214264d953782341cbf8c996d3480ecfa9b68f524db4f86bc03"
+}

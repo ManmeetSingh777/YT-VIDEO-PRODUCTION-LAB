@@ -1,0 +1,478 @@
+{
+ "status": "STORY_APPROVAL_PENDING",
+ "fps": 60,
+ "total_frames": 7200,
+ "shots": [
+  {
+   "shot": "S01",
+   "frames": [
+    0,
+    900
+   ],
+   "seconds": [
+    0,
+    15
+   ],
+   "entry": "dark drum window, one sock tumbling",
+   "exit": "row of washers, one door open",
+   "attention_path": [
+    "sock",
+    "porthole",
+    "row of machines"
+   ],
+   "events": [
+    {
+     "action": "S01_sock_tumble",
+     "frames": [
+      0,
+      900
+     ],
+     "mode": "CAMERA_WORLD",
+     "goal": "a single sock tumbles behind the porthole; camera pulls back to reveal the row"
+    }
+   ],
+   "reading_hold": null,
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  },
+  {
+   "shot": "S02",
+   "frames": [
+    900,
+    1920
+   ],
+   "seconds": [
+    15,
+    32
+   ],
+   "entry": "Ines enters frame right carrying a bag",
+   "exit": "camera pushed into the porthole",
+   "attention_path": [
+    "Ines face",
+    "hand",
+    "door handle",
+    "coin slot",
+    "porthole"
+   ],
+   "events": [
+    {
+     "action": "S02_operate_washer",
+     "frames": [
+      900,
+      1920
+     ],
+     "mode": "ARTICULATED",
+     "goal": "Ines plants, reaches, grips the door handle, swings the door open, loads, pinches a coin, inserts it, and the drum starts"
+    },
+    {
+     "contact": "PLANT",
+     "frames": [
+      900,
+      1920
+     ],
+     "source": "ines_sole_l",
+     "target": "floor_l"
+    },
+    {
+     "contact": "GRIP",
+     "frames": [
+      1050,
+      1260
+     ],
+     "source": "ines_grip_r",
+     "target": "washer_handle"
+    },
+    {
+     "contact": "GRIP",
+     "frames": [
+      1320,
+      1392
+     ],
+     "source": "ines_grip_r",
+     "target": "washer_handle"
+    },
+    {
+     "contact": "FOLLOW",
+     "frames": [
+      1470,
+      1560
+     ],
+     "source": "ines_pinch_r",
+     "target": "washer_coin_slot"
+    },
+    {
+     "pose": "neutral",
+     "frame": 900
+    },
+    {
+     "pose": "idle",
+     "frame": 900
+    },
+    {
+     "pose": "hand_open",
+     "frame": 990
+    },
+    {
+     "pose": "neutral",
+     "frame": 1050
+    },
+    {
+     "pose": "door_half",
+     "frame": 1170
+    },
+    {
+     "pose": "hand_open",
+     "frame": 1260
+    },
+    {
+     "pose": "neutral",
+     "frame": 1320
+    },
+    {
+     "pose": "door_open",
+     "frame": 1230
+    },
+    {
+     "pose": "door_half",
+     "frame": 1356
+    },
+    {
+     "pose": "idle",
+     "frame": 1392
+    },
+    {
+     "pose": "hand_pinch",
+     "frame": 1410
+    },
+    {
+     "pose": "curious",
+     "frame": 1590
+    },
+    {
+     "pose": "running",
+     "frame": 1590
+    },
+    {
+     "view": "profile_turn",
+     "frame": 1620
+    },
+    {
+     "view": "profile_satisfied",
+     "frame": 1740
+    },
+    {
+     "action": "S02_room_life",
+     "frames": [
+      900,
+      1920
+     ],
+     "mode": "PROCEDURAL",
+     "goal": "background machines run: drums spin at different phases, a dryer door light blinks"
+    },
+    {
+     "action": "S02_push_in",
+     "frames": [
+      1680,
+      1920
+     ],
+     "mode": "CAMERA_WORLD",
+     "goal": "camera pushes toward the porthole as the drum starts"
+    },
+    {
+     "action": "S02_porthole",
+     "frames": [
+      1800,
+      1920
+     ],
+     "mode": "TRANSITION",
+     "goal": "push through the porthole into the drum"
+    }
+   ],
+   "reading_hold": null,
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  },
+  {
+   "shot": "S03",
+   "frames": [
+    1920,
+    3000
+   ],
+   "seconds": [
+    32,
+    50
+   ],
+   "entry": "inside the drum, laundry tumbling",
+   "exit": "drum becomes a ledger wheel",
+   "attention_path": [
+    "tumbling load",
+    "turn counter glyph"
+   ],
+   "events": [
+    {
+     "action": "S03_drum",
+     "frames": [
+      1920,
+      3000
+     ],
+     "mode": "PROCEDURAL",
+     "goal": "laundry tumbles; each full turn ticks a counter glyph"
+    }
+   ],
+   "reading_hold": null,
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  },
+  {
+   "shot": "S04",
+   "frames": [
+    3000,
+    4080
+   ],
+   "seconds": [
+    50,
+    68
+   ],
+   "entry": "ledger wheel: turns in, costs out",
+   "exit": "remainder shrinks when the wheel slows",
+   "attention_path": [
+    "inflow",
+    "three outflow pipes",
+    "remainder"
+   ],
+   "events": [
+    {
+     "action": "S04_ledger",
+     "frames": [
+      3000,
+      4080
+     ],
+     "mode": "PROCEDURAL",
+     "goal": "coins flow in, water/power/gas flow out through three pipes; the remainder is what is left"
+    }
+   ],
+   "reading_hold": null,
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  },
+  {
+   "shot": "S05",
+   "frames": [
+    4080,
+    5160
+   ],
+   "seconds": [
+    68,
+    86
+   ],
+   "entry": "pull back through the shop window to the night street",
+   "exit": "most machines idle at 3am",
+   "attention_path": [
+    "lit shop",
+    "dark idle machines",
+    "clock"
+   ],
+   "events": [
+    {
+     "action": "S05_street",
+     "frames": [
+      4080,
+      5160
+     ],
+     "mode": "CAMERA_WORLD",
+     "goal": "pull back to the street at night; idle machines dim one by one as the clock sweeps"
+    }
+   ],
+   "reading_hold": null,
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  },
+  {
+   "shot": "S06",
+   "frames": [
+    5160,
+    6240
+   ],
+   "seconds": [
+    86,
+    104
+   ],
+   "entry": "owner's levers: three moving alternatives compared",
+   "exit": "utilisation meter rises (modelled, flagged)",
+   "attention_path": [
+    "lever 1",
+    "lever 2",
+    "lever 3",
+    "utilisation meter"
+   ],
+   "events": [
+    {
+     "action": "S06_levers",
+     "frames": [
+      5160,
+      6240
+     ],
+     "mode": "PROCEDURAL",
+     "goal": "three moving levers compared against one utilisation meter (modelled, flagged)"
+    }
+   ],
+   "reading_hold": null,
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  },
+  {
+   "shot": "S07",
+   "frames": [
+    6240,
+    7200
+   ],
+   "seconds": [
+    104,
+    120
+   ],
+   "entry": "back to the porthole: the sock again",
+   "exit": "hold on the counted spin",
+   "attention_path": [
+    "sock",
+    "counter"
+   ],
+   "events": [
+    {
+     "action": "S07_return",
+     "frames": [
+      6240,
+      7200
+     ],
+     "mode": "CAMERA_WORLD",
+     "goal": "return to the sock; a counter now ticks with every turn"
+    }
+   ],
+   "reading_hold": "closing recognition hold: the opening image now reads as a counted turn",
+   "narration_cue": "PENDING: narration not recorded; critical beats cannot be certified (MISSING_WORD_ALIGNMENT)"
+  }
+ ],
+ "transitions": [
+  {
+   "from_shot": "S01",
+   "to_shot": "S02",
+   "frame_range": [
+    870,
+    930
+   ],
+   "mode": "CUT",
+   "reason": "motivated cut on the door opening: same world, new staging",
+   "continuity_invariant": "open washer door",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "screen direction preserved",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S02",
+   "to_shot": "S03",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "mode": "CONTINUOUS",
+   "reason": "push through the porthole glass: the shared anchor is the porthole centre",
+   "continuity_invariant": "porthole centre",
+   "out_asset_ids": [
+    "porthole_out"
+   ],
+   "middle_asset_ids": [
+    "porthole_glass_middle"
+   ],
+   "in_asset_ids": [
+    "drum_in"
+   ],
+   "shared_landmarks": [
+    "porthole_centre"
+   ],
+   "camera_correspondence": "anchor-locked push",
+   "mask_or_occluder_ids": [
+    "porthole_aperture"
+   ],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S03",
+   "to_shot": "S04",
+   "frame_range": [
+    2880,
+    3000
+   ],
+   "mode": "CONTINUOUS",
+   "reason": "drum rim becomes the ledger wheel rim",
+   "continuity_invariant": "rotating rim",
+   "out_asset_ids": [
+    "drum_rim_out"
+   ],
+   "middle_asset_ids": [
+    "rim_to_ledger_middle"
+   ],
+   "in_asset_ids": [
+    "ledger_master"
+   ],
+   "shared_landmarks": [
+    "porthole_centre"
+   ],
+   "camera_correspondence": "rim scale-matched",
+   "mask_or_occluder_ids": [
+    "rim_aperture"
+   ],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S04",
+   "to_shot": "S05",
+   "frame_range": [
+    4020,
+    4080
+   ],
+   "mode": "CUT",
+   "reason": "cut to scale: from the abstract ledger to the real street at night",
+   "continuity_invariant": "slowing wheel → idle drums",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "none (honest cut)",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S05",
+   "to_shot": "S06",
+   "frame_range": [
+    5100,
+    5160
+   ],
+   "mode": "CUT",
+   "reason": "cut back inside to the owner's levers",
+   "continuity_invariant": "utilisation meter",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "meter stays screen-centre",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S06",
+   "to_shot": "S07",
+   "frame_range": [
+    6180,
+    6240
+   ],
+   "mode": "CUT",
+   "reason": "return to the opening image",
+   "continuity_invariant": "porthole",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "opening framing repeated",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  }
+ ]
+}

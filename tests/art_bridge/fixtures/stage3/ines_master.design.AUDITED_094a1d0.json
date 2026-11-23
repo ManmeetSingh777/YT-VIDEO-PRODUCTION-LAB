@@ -1,0 +1,330 @@
+{
+ "job_id": "ines_master",
+ "original_content": {
+  "script_excerpt": "PROPOSED (unapproved): Ines swings the washer door open, pinches a coin into the slot, and turns to watch the drum start.",
+  "scene_goal": "canonical full-figure identity of Ines, standing three-quarter right, right hand raised toward an unseen door handle, ready for cutout manufacture",
+  "new_subjects": [
+   "Ines — original laundromat customer"
+  ],
+  "noncopy_source_content": true
+ },
+ "canvas": {
+  "aspect": "16:9",
+  "view": "full figure three-quarter right, eye level",
+  "scale": "figure 78% of image height, feet fully visible on a flat floor line",
+  "focal_order": [
+   "face",
+   "right hand",
+   "garment silhouette"
+  ]
+ },
+ "method_bindings": [
+  {
+   "method_id": "F01",
+   "conditions": "original full-figure character with complete bounded silhouette",
+   "source_witnesses": [
+    "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+    "assets/character_native_anchors/BRAIN_0157_couch_human.jpg"
+   ],
+   "invariant_transferred": "filled purpose-specific silhouette with connected anatomy",
+   "variation_required": "entirely new identity, costume and proportions",
+   "observable_verification": "outer silhouette unbroken from hair to shoes"
+  },
+  {
+   "method_id": "F05",
+   "conditions": "character construction",
+   "source_witnesses": [
+    "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+    "assets/character_native_anchors/BRAIN_0386_runner_human.jpg"
+   ],
+   "invariant_transferred": "simple head/torso/limb masses with clear joints",
+   "variation_required": "new body proportions",
+   "observable_verification": "each limb mass separable at shoulder/elbow/wrist/hip/knee/ankle"
+  },
+  {
+   "method_id": "F52",
+   "conditions": "acting face",
+   "source_witnesses": [
+    "assets/character_native_anchors/BRAIN_0157_couch_human.jpg",
+    "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg"
+   ],
+   "invariant_transferred": "discrete eye/brow/mouth regions on a flat face plane",
+   "variation_required": "new face design",
+   "observable_verification": "eyes, brows, mouth readable at 1/10 scale"
+  },
+  {
+   "method_id": "F64",
+   "conditions": "hand construction",
+   "source_witnesses": [
+    "assets/character_native_anchors/AI_0234_rear_operator.jpg",
+    "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg"
+   ],
+   "invariant_transferred": "mitten palm with grouped fingers and a distinct thumb",
+   "variation_required": "new hand pose",
+   "observable_verification": "thumb, palm and finger group separable for near/far layers"
+  }
+ ],
+ "subject_graph": [
+  {
+   "id": "ines",
+   "family": "human",
+   "purpose": "perform the reach-grip-insert action of S02",
+   "whole_silhouette": "tall rounded-rectangle coat block, two straight trouser columns, oval head with a single swept hair mass ending in a low bun",
+   "view_dependent_parts": [
+    "three-quarter face plane",
+    "near and far arm/leg columns"
+   ],
+   "attachment_and_contact": [
+    "right hand open toward door-handle height",
+    "left foot planted on floor line"
+   ],
+   "surface_materials": [
+    "mustard wool coat",
+    "dark teal trousers",
+    "warm brown hair",
+    "light brown skin"
+   ],
+   "face_and_expression": "neutral attentive expression, eyes toward frame right",
+   "state_family": [
+    "neutral",
+    "curious",
+    "satisfied",
+    "profile turn"
+   ]
+  }
+ ],
+ "first_pass_control": {
+  "version": 2,
+  "viewer_proof": {
+   "what_changes": "identity only: one clean canonical pose that later states are edited from",
+   "recognition_test": "viewer recognises the same woman in every later state at 1/10 scale",
+   "focal_order": [
+    "face",
+    "right hand",
+    "coat silhouette"
+   ],
+   "camera_view": "eye-level three-quarter full figure on a quiet flat ground"
+  },
+  "references": [
+   {
+    "path": "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+    "role": "STYLE_ONLY: full-figure gesture with flat parent-owned garment planes",
+    "noncopy": "no clinic, patients or source identities"
+   },
+   {
+    "path": "assets/character_native_anchors/BRAIN_0157_couch_human.jpg",
+    "role": "STYLE_ONLY: discrete face, simple clothing planes, strong acting silhouette",
+    "noncopy": "no couch, birds, costume or source identity"
+   }
+  ],
+  "source_contrast": "Unlike clinic group and couch close-up: one standing full figure with a single garment block and hands kept free of the body silhouette",
+  "subject_specs": [
+   {
+    "subject_id": "ines",
+    "family": "HUMAN_GESTURE_FULL",
+    "shape_topology": "head oval → neck → coat block → two arm columns (right raised) → two trouser columns → shoes",
+    "material_mapping": "coat mustard with one darker side plane; trousers teal; skin one tone plus one cheek patch; hair one mass plus one bun",
+    "focal_scale_and_view": "78% height three-quarter right",
+    "specific_negative_rendering": [
+     "no outlines around every shape",
+     "no gradients or rendered cloth folds",
+     "no fingers drawn as five separate sticks"
+    ]
+   }
+  ],
+  "character_designs": [
+   {
+    "subject_id": "ines",
+    "family": "HUMAN_GESTURE_FULL",
+    "unique_original_identity": "original adult woman with a low bun, mustard wool coat and teal trousers; not modelled on any person or source character",
+    "intended_view": "three-quarter right full figure",
+    "screen_bbox_norm": [
+     0.33,
+     0.1,
+     0.62,
+     0.96
+    ],
+    "minimum_screen_height_px": 820,
+    "silhouette": {
+     "outline_path": "single closed outline: bun → swept hair → coat shoulders → raised right arm → coat hem → trousers → shoes",
+     "named_masses": [
+      "hair",
+      "head",
+      "coat",
+      "right arm",
+      "left arm",
+      "trousers",
+      "shoes"
+     ],
+     "near_far_order": [
+      "far (left) arm and leg behind coat",
+      "near (right) arm in front of coat edge"
+     ]
+    },
+    "head": {
+     "skull_contour": "egg oval, slightly wider at the cranium",
+     "face_plane": "flat three-quarter plane with the far cheek clipped by the skull edge",
+     "hair_outer_path": "one swept mass from the forehead to a low bun",
+     "hair_lobes": [
+      "fringe lobe",
+      "bun"
+     ]
+    },
+    "face": {
+     "visibility": "three-quarter, both eyes visible, far eye narrower",
+     "eye_regions": "two white almond openings with dark round pupils",
+     "brow_regions": "two short dark arcs",
+     "nose_region": "one small darker wedge",
+     "mouth_region": "one short curved line",
+     "expression_geometry": "neutral: brows level, mouth flat-curved"
+    },
+    "body": {
+     "garment_masses": [
+      "knee-length coat block",
+      "trouser columns"
+     ],
+     "hand_construction": "mitten palm, grouped four-finger block, separate thumb; right hand open, palm facing frame right",
+     "support_and_weight": "weight on the left (far) foot, right knee slightly relaxed"
+    },
+    "color_surfaces": [
+     {
+      "owner": "coat",
+      "base_fill": "mustard",
+      "patches": [
+       "one darker side plane",
+       "collar"
+      ]
+     },
+     {
+      "owner": "skin",
+      "base_fill": "light brown",
+      "patches": [
+       "cheek"
+      ]
+     },
+     {
+      "owner": "hair",
+      "base_fill": "warm brown",
+      "patches": [
+       "bun shade"
+      ]
+     }
+    ],
+    "rendering_exclusions": [
+     "no linework texture",
+     "no photographic shading",
+     "no anime eye highlights"
+    ],
+    "state_family": [
+     "neutral",
+     "curious",
+     "satisfied",
+     "profile",
+     "hand_open",
+     "hand_pinch"
+    ],
+    "original_content_noncopy": true
+   }
+  ],
+  "palette_roles": {
+   "substrate": "flat pale grey-green ground, one floor line",
+   "focal_subject": "mustard coat and teal trousers against the cool ground",
+   "causal_active": "the open right hand (skin) is the warmest small region",
+   "supporting_shapes": "none",
+   "material_plane_rules": "one side plane per mass; no cast shadows except one flat floor ellipse",
+   "optical_exceptions": "none"
+  },
+  "density_and_focus": {
+   "t1_major": "whole figure silhouette",
+   "t2_owned_partwork": "face features, thumb, coat collar",
+   "t3_repeats_or_none": "NONE",
+   "primary_read_region": "upper half: face and raised hand",
+   "quiet_support_region": "background entirely flat"
+  },
+  "causal_frame_geometry": {
+   "named_visible_anchors": [
+    {
+     "name": "right_palm",
+     "screen_position_norm": [
+      0.6,
+      0.45
+     ],
+     "drawable_parent": "right hand",
+     "visible_mark": "open palm facing right"
+    },
+    {
+     "name": "left_sole",
+     "screen_position_norm": [
+      0.42,
+      0.95
+     ],
+     "drawable_parent": "left shoe",
+     "visible_mark": "flat sole on floor line"
+    }
+   ],
+   "essential_connections": "hand connected to forearm, sleeve, shoulder; both feet on the floor line",
+   "frame_edge_policy": "entire figure inside frame with margin",
+   "authorized_overlay_symbols": "NONE"
+  },
+  "asset_state_plan": {
+   "canonical_master": "this image",
+   "derivation_path": "cutouts per joint, hand open/grip/pinch, expressions and the profile view are source-attached edits of this approved master",
+   "motion_interfaces": [
+    "shoulder/elbow/wrist pivots",
+    "hip/knee/ankle pivots",
+    "neck pivot",
+    "grip socket at palm centre",
+    "pinch socket at thumb-index"
+   ]
+  },
+  "forbidden_extras": [
+   "no copied source characters, faces, costumes, layouts or stories",
+   "no text, logos or watermarks",
+   "no extra props, people or machines beyond the subject graph"
+  ]
+ },
+ "world": {
+  "projection": "flat ground plane, eye level",
+  "layers": [
+   "flat background",
+   "figure"
+  ],
+  "focal_contrast_vs_environment": "figure only"
+ },
+ "lighting": {
+  "opaque_color_patches": [
+   "one side plane per mass"
+  ],
+  "optical_reflection_masks": [],
+  "emissive_connected_shapes": [],
+  "atmospheric_halation_only": []
+ },
+ "manufacturing": {
+  "route": "REFERENCE_GUIDED_IMAGE",
+  "source_reference_roles": [
+   "STYLE_ONLY: full-figure gesture with flat parent-owned garment planes",
+   "STYLE_ONLY: discrete face, simple clothing planes, strong acting silhouette"
+  ],
+  "canonical_asset_inputs": [
+   "NONE — this request creates the canonical master"
+  ],
+  "masks_and_layer_order": [
+   "background flat",
+   "far limbs",
+   "coat/torso",
+   "head",
+   "near arm"
+  ],
+  "seed_and_provider_config": {
+   "seed": "record if exposed"
+  }
+ },
+ "observable_negative_tests": [
+  "FAIL if fingers are separate sticks",
+  "FAIL if the face is a front-view face on a three-quarter skull",
+  "FAIL if feet are cropped or floating"
+ ],
+ "uncontrolled_high_impact_decisions": [],
+ "knowledge_state": "FIRST_PASS_UNTESTED",
+ "proposal_status": "STORY_APPROVAL_PENDING"
+}

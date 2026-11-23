@@ -1,0 +1,12 @@
+P02-1 not reproduced [{"asset":"drum_in","kind":"WORLD","context":"OBJECT"},{"asset":"ines_master","kind":"CHARACTER","context":"OBJECT"},{"asset":"laundromat_far","kind":"WORLD","c
+P02-2 not reproduced "UNSUPPORTED_ART_FAMILY"
+P02-3 not reproduced "ART_CONTRACT_NOT_EVALUATED"
+P02-4 not reproduced {"prior_marker_survived":true}
+P02-5 not reproduced {"compiled":false,"status":"BLOCKED_CONTRACT"}
+P02-6 not reproduced {"status":"REFUSED","provider_calls":0}
+P02-7 not reproduced {"story_approval":"NOT_APPROVED (NO_RECEIPT)"}
+P02-8 not reproduced {"stages":[29715,25873,27935],"same_as_pointers":0}
+P02-9 not reproduced {"uses_typeof_function":true}
+P02-10 not reproduced {"error_px":null,"solved":false,"failures":["CONTACT_ORIENTATION_UNSATISFIABLE"]}
+P02-11 not reproduced {"fit_rig_masters":["ines_master","washer_master"],"feasibility_frames_from":"contact_events only"}
+P02-12 not reproduced {"source_flag_accepted":true}

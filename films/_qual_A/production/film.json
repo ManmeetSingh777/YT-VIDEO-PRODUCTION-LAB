@@ -1,0 +1,25 @@
+{
+ "id": "qual_A",
+ "title": "Qualification motion proof (NOT Film 001)",
+ "duration": 9.439,
+ "bg": "#9fc48a",
+ "heroes": [
+  {
+   "id": "h1",
+   "scene": "apiary",
+   "at": "apiary.squeeze+0.4",
+   "purpose": "cause",
+   "t": 1.37
+  }
+ ],
+ "proof": {
+  "from": 0,
+  "to": 8.939,
+  "must_show": [
+   "arm raise",
+   "bellows squeeze",
+   "smoke travel",
+   "bees settle"
+  ]
+ }
+}

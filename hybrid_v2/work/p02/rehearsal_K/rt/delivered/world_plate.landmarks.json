@@ -1,0 +1,22 @@
+{
+ "landmarks": {
+  "plate_tl": [
+   0,
+   0
+  ],
+  "plate_tr": [
+   2400,
+   0
+  ],
+  "plate_bl": [
+   0,
+   1350
+  ],
+  "plate_mid": [
+   1200,
+   675
+  ]
+ },
+ "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)"
+}

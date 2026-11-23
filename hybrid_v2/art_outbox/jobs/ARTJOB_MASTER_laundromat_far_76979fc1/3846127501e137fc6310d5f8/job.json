@@ -1,0 +1,112 @@
+{
+ "artjob_id": "ARTJOB_MASTER_laundromat_far_76979fc1",
+ "root_dependency": "laundromat_far",
+ "identity_id": "laundromat",
+ "state_kind": "MASTER",
+ "asset_kind": "WORLD_PLANE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "laundromat",
+  "canonical_parent_asset": "laundromat_far",
+  "shot_ids": [
+   "S01",
+   "S02",
+   "S03",
+   "S06",
+   "S07"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    1920
+   ],
+   [
+    5160,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "door_frame",
+   "row_vanish"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S01",
+    "cam_S02",
+    "cam_S06",
+    "cam_S07"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -240,
+   -135,
+   2400,
+   1350
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD|PROCEDURAL|TRANSITION",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "laundromat_mid_machines",
+   "laundromat_fg_counter"
+  ],
+  "why_this_drawing_is_needed": "canonical interior with camera overscan for the S01 pull-back and S02 push. Required by: shot S01; shot S02; shot S06; shot S07; action S02_push_in; world w_laundromat in S01; world w_laundromat in S02; world w_laundromat in S06; world w_laundromat in S07"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "e13c24b67c74d567ccddc5b251ac7976fc6c13c7b5f59ead0181b4e7aea0d341",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "3846127501e137fc6310d5f8",
+ "dependency_parts_digest": "3846127501e137fc6310d5f8281e62f52d78717c580318c7b481fa4def68299e",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

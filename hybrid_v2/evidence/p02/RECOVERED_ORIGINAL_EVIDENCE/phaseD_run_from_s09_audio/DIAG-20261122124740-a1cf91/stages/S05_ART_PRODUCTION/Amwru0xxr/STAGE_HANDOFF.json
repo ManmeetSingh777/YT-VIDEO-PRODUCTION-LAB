@@ -1,0 +1,140 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S05_ART_PRODUCTION",
+ "stage_attempt_id": "Amwru0xxr",
+ "input_artifact_refs": [
+  {
+   "name": "S04_ART_DEMAND/STAGE_HANDOFF",
+   "sha256": "6aa7ae0c1fd2eca390936992ecceb65c9e165315b8fbe5963e992ccf24eb517e"
+  }
+ ],
+ "input_revision_hash": "2c1cfb2b4ba7bf43b9cf495e6f4fdfd1c24ed7c84018ba00b5ace8f370147bfc",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [
+  {
+   "name": "assets/art/pilot_master.png",
+   "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+   "bytes": 13515,
+   "source": "assets/art/pilot_master.png"
+  },
+  {
+   "name": "assets/art/rt_world_far.png",
+   "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "bytes": 142512,
+   "source": "assets/art/rt_world_far.png"
+  },
+  {
+   "name": "assets/art/pilot_body.png",
+   "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "bytes": 4257,
+   "source": "assets/art/pilot_body.png"
+  },
+  {
+   "name": "assets/art/pilot_upper_arm.png",
+   "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+   "bytes": 1558,
+   "source": "assets/art/pilot_upper_arm.png"
+  },
+  {
+   "name": "assets/art/pilot_forearm.png",
+   "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "bytes": 1586,
+   "source": "assets/art/pilot_forearm.png"
+  },
+  {
+   "name": "assets/art/pilot_underpaint.png",
+   "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "bytes": 644,
+   "source": "assets/art/pilot_underpaint.png"
+  },
+  {
+   "name": "assets/art/pilot_hand_open.png",
+   "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "bytes": 1636,
+   "source": "assets/art/pilot_hand_open.png"
+  },
+  {
+   "name": "assets/art/pilot_hand_grip.png",
+   "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+   "bytes": 891,
+   "source": "assets/art/pilot_hand_grip.png"
+  }
+ ],
+ "output_revision_hash": "3d0f8359c760a730f140ce3149e04f0548ce2dc156b8aa1b5e6e33ca04f1bd36",
+ "required_checks": [
+  {
+   "task_id": "asset_pilot_master",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_rt_world_far",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_pilot_body",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_pilot_upper_arm",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_pilot_forearm",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_pilot_underpaint",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_pilot_hand_open",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  },
+  {
+   "task_id": "asset_pilot_hand_grip",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T12:47:46.036Z",
+ "event_chain_head_sha256": "16e5aa824c4be9d6930d13074bcae879ac5b467e7371f524051fb40d73c1b3cf",
+ "run_type": "DIAGNOSTIC"
+}

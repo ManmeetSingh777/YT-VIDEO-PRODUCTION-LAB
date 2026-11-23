@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:31",
+ "sequence": 31,
+ "prev_event_sha256": "935837359c7d76d82daf46e213dcd585236ce6a8eac87d2c6491cc53979391e1",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwrxc5o6",
+ "operation_id": null,
+ "task_id": "feasibility_pilot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:30"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:26.504Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "feasibility_pilot",
+  "producer": "engine/art_bridge/art_intake.mjs#checkRigFeasibility",
+  "inputs": [],
+  "expected_outputs": [
+   "all action frames solvable"
+  ],
+  "deps": [
+   "tiling"
+  ],
+  "invariants": [
+   "every action frame of the identity solves; legal state/view edges"
+  ],
+  "verification": "status FEASIBLE",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 31,
+ "event_sha256": "166245f3c0c40830daa07a605d87d74ad02d02dc5dd2cbc88efe572275164074"
+}

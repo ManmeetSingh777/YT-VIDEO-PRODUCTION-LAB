@@ -1,0 +1,25 @@
+{
+ "first_violated_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+ "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":0,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":1,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":2,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028446}]",
+ "stage": "S07_NEUTRINO_RENDER",
+ "task": "chunk_0_600",
+ "root_producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+ "failure_class": "RENDER_OR_MEMORY",
+ "repair_owner": "RENDER_PRODUCER",
+ "blast_radius": [
+  "assemble",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "frames": [
+  [
+   0,
+   600
+  ]
+ ],
+ "evidence_event": "DIAG-20261122131103-9255ef:170",
+ "resume_from": "S07_NEUTRINO_RENDER",
+ "retry_safe": true,
+ "external_spend_risk": false,
+ "next_operation": "resolve chunk_0_600"
+}

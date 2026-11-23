@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:70",
+ "sequence": 70,
+ "prev_event_sha256": "6e19d7863afa754b08ff4bbc6c13e07a084d14167dd3f822950bc966d8e4a85a",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwrtyz9m",
+ "operation_id": null,
+ "task_id": "asset_pilot_underpaint",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:69"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:13.090Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "asset_pilot_underpaint",
+  "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+  "inputs": [
+   "plan:pilot_underpaint"
+  ],
+  "expected_outputs": [
+   "assets/art/pilot_underpaint.png"
+  ],
+  "deps": [],
+  "invariants": [
+   "bytes match the manifest hash",
+   "provenance is honest",
+   "approval verifies (HUMAN in production)"
+  ],
+  "verification": "byte hash + verifyApproval",
+  "evidence_location": "production/store",
+  "category": "MISSING_ART_STATE"
+ },
+ "lock_generation": 70,
+ "event_sha256": "ea9253fad392aa254e19fcafbde1f9c6a32d3cfa14a4eb739d7374345d96ccb9"
+}

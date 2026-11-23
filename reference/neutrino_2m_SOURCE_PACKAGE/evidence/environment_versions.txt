@@ -1,0 +1,13 @@
+node v22.20.0
+python Python 3.14.6
+ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+hyperframes 0.9.11 (pinned in package.json)
+gsap 3.15.0 (CDN, index.html)
+kokoro-onnx               0.4.7
+numpy                     2.5.4
+onnxruntime               1.31.1
+soundfile                 0.14.0
+system numpy 2.5.4 Pillow 12.3.0
+kokoro model sha256: 7d5df8ecf7d4b1878015a32686053fd0eebe2bc377234608764cc0ef3636a6c  kokoro-v1.0.onnx (325532387 bytes)
+kokoro voices file: voices-v1.0.bin (voice used: af_heart)
+kokoro venv packages above are from %USERPROFILE%\.cache\hyperframes\kokoro-venv

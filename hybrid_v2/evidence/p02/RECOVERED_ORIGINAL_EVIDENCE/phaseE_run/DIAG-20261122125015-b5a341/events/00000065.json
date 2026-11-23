@@ -1,0 +1,49 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:65",
+ "sequence": 65,
+ "prev_event_sha256": "78b577984b507a44438b3f7e0adbf11cefeb2a72c3b1f4dfaaf51114e679f5ae",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwru49jz",
+ "operation_id": null,
+ "task_id": "asset_pilot_master",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:64"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:19.366Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "asset_pilot_master",
+  "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+  "inputs": [
+   "plan:pilot_master"
+  ],
+  "expected_outputs": [
+   "assets/art/pilot_master.png"
+  ],
+  "deps": [],
+  "invariants": [
+   "bytes match the manifest hash",
+   "provenance is honest",
+   "approval verifies (HUMAN in production)"
+  ],
+  "verification": "byte hash + verifyApproval",
+  "evidence_location": "production/store",
+  "category": "MISSING_ART_STATE",
+  "group": null
+ },
+ "lock_generation": 65,
+ "event_sha256": "8a028674459722286fb45779c7a6bba0ed229b8d854c20bf1d50a7bde5318f7c"
+}

@@ -1,0 +1,57 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:168",
+ "sequence": 168,
+ "prev_event_sha256": "ee494b172fee5f386b55c7ce7f7271c0f64560608c072ca522f2998785d3ae01",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwrxcflg",
+ "operation_id": null,
+ "task_id": "assemble",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:167"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:41.367Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "assemble",
+  "producer": "engine/film/segment_render.mjs#renderFilm (assembly)",
+  "inputs": [],
+  "expected_outputs": [
+   "render/film.mp4",
+   "RENDER_COMPLETION_RECEIPT.json"
+  ],
+  "deps": [
+   "chunk_0_600",
+   "chunk_600_1200",
+   "chunk_1200_1800",
+   "chunk_1800_2400",
+   "chunk_2400_3000",
+   "chunk_3000_3600",
+   "chunk_3600_4200",
+   "chunk_4200_4800",
+   "chunk_4800_5400",
+   "chunk_5400_6000",
+   "chunk_6000_6600",
+   "chunk_6600_7200"
+  ],
+  "invariants": [],
+  "verification": "final probe matches total frames/size/rate",
+  "evidence_location": "production/store",
+  "category": "RENDER_OR_MEMORY",
+  "group": "render"
+ },
+ "lock_generation": 168,
+ "event_sha256": "a7d3c4bc31d266089495f95dbf62edb437dd15dba4200c553bc3423b19b26d3d"
+}

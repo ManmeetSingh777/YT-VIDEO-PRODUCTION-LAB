@@ -1,0 +1,140 @@
+{
+ "receipt_id": "asset__pilot_master__f9a98fa188a8__mwrxc2f230c18b",
+ "scope": "asset",
+ "record_id": "pilot_master",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "DIAGNOSTIC rehearsal only",
+ "evidence": [
+  "registration/pilot_master/MASTER_REGISTRATION_RECEIPT.json"
+ ],
+ "bundle_sha256": "f9a98fa188a87d6758cfefa5d3cb26872cda55fb72bb8579d3bdde90f0f67639",
+ "bundle": {
+  "content": {
+   "alpha_mode": "STRAIGHT",
+   "camera_footprint": null,
+   "canonical_rect": [
+    -20,
+    -15,
+    320,
+    450
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "CHARACTER_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    -20,
+    -15
+   ],
+   "depth_band": "FOCAL",
+   "draw_order_constraints": [],
+   "expression_id": null,
+   "file": "assets/art/pilot_master.png",
+   "height_px": 900,
+   "hidden_surfaces": [],
+   "id": "pilot_master",
+   "identity_id": "pilot",
+   "incompatible_states": [],
+   "kind": "MASTER",
+   "landmarks": {
+    "elbow_r": [
+     215,
+     215
+    ],
+    "forearm_mid": [
+     220,
+     255
+    ],
+    "head_top": [
+     150,
+     30
+    ],
+    "knuckle_r": [
+     233,
+     330
+    ],
+    "neck": [
+     150,
+     110
+    ],
+    "pelvis": [
+     150,
+     300
+    ],
+    "shoulder_r": [
+     195,
+     135
+    ],
+    "thumb_r": [
+     242,
+     304
+    ],
+    "upper_arm_mid": [
+     205,
+     175
+    ],
+    "wrist_r": [
+     225,
+     295
+    ]
+   },
+   "layer_owner": "pilot",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "pelvis",
+   "pivot_xy": [
+    150,
+    300
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "masterreg_pilot_master",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    640,
+    900
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 640
+  },
+  "id": "pilot_master",
+  "identity_landmarks": null,
+  "identity_master_sha256": null,
+  "placements": [],
+  "registration_receipt_sha256": "718656473cf4d6b117f70e279f815f039cdcfca5bd6d8910afe5a81ce7d25182",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:21.950Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

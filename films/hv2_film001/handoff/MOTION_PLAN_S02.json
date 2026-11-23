@@ -1,0 +1,387 @@
+{
+ "id": "plan_S02",
+ "status": "PROPOSED_TIMING",
+ "tracks": {
+  "ines_rig": {
+   "root": {
+    "x": [
+     [
+      900,
+      0
+     ],
+     [
+      1110,
+      0
+     ],
+     [
+      1230,
+      32,
+      "sine.inOut"
+     ],
+     [
+      1320,
+      32
+     ],
+     [
+      1392,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "y": [
+     [
+      900,
+      0
+     ],
+     [
+      1050,
+      6,
+      "sine.inOut"
+     ],
+     [
+      1260,
+      0,
+      "sine.inOut"
+     ],
+     [
+      1500,
+      8,
+      "sine.inOut"
+     ],
+     [
+      1620,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "rot": [
+     [
+      900,
+      0
+     ],
+     [
+      1050,
+      3,
+      "sine.inOut"
+     ],
+     [
+      1320,
+      0,
+      "sine.inOut"
+     ]
+    ]
+   },
+   "joints": {
+    "chest": [
+     [
+      900,
+      0
+     ],
+     [
+      1050,
+      6,
+      "sine.inOut"
+     ],
+     [
+      1230,
+      10,
+      "sine.inOut"
+     ],
+     [
+      1356,
+      4,
+      "sine.inOut"
+     ],
+     [
+      1470,
+      5,
+      "sine.inOut"
+     ],
+     [
+      1620,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "neck": [
+     [
+      900,
+      0
+     ],
+     [
+      1020,
+      -6,
+      "sine.inOut"
+     ],
+     [
+      1590,
+      4,
+      "sine.inOut"
+     ],
+     [
+      1740,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "shoulder_r": [
+     [
+      900,
+      10
+     ]
+    ],
+    "elbow_r": [
+     [
+      900,
+      25
+     ]
+    ],
+    "wrist_r": [
+     [
+      900,
+      0
+     ]
+    ],
+    "shoulder_l": [
+     [
+      900,
+      -8
+     ]
+    ],
+    "elbow_l": [
+     [
+      900,
+      -20
+     ]
+    ],
+    "wrist_l": [
+     [
+      900,
+      0
+     ]
+    ],
+    "hip_r": [
+     [
+      900,
+      0
+     ]
+    ],
+    "knee_r": [
+     [
+      900,
+      0
+     ]
+    ],
+    "ankle_r": [
+     [
+      900,
+      0
+     ]
+    ],
+    "hip_l": [
+     [
+      900,
+      0
+     ]
+    ],
+    "knee_l": [
+     [
+      900,
+      0
+     ]
+    ],
+    "ankle_l": [
+     [
+      900,
+      0
+     ]
+    ]
+   }
+  },
+  "washer_rig": {
+   "joints": {
+    "drum": [
+     [
+      900,
+      0
+     ],
+     [
+      1590,
+      0
+     ],
+     [
+      1920,
+      900,
+      "power2.in"
+     ]
+    ],
+    "coin_flap": [
+     [
+      900,
+      0
+     ],
+     [
+      1488,
+      0
+     ],
+     [
+      1512,
+      -35,
+      "power2.out"
+     ],
+     [
+      1548,
+      0,
+      "sine.out"
+     ]
+    ]
+   },
+   "joint_offsets": {
+    "handle": {
+     "x": [
+      [
+       900,
+       0
+      ],
+      [
+       1110,
+       0
+      ],
+      [
+       1230,
+       108,
+       "sine.inOut"
+      ],
+      [
+       1320,
+       108
+      ],
+      [
+       1392,
+       0,
+       "sine.inOut"
+      ]
+     ],
+     "y": [
+      [
+       900,
+       0
+      ],
+      [
+       1110,
+       0
+      ],
+      [
+       1230,
+       6,
+       "sine.inOut"
+      ],
+      [
+       1320,
+       6
+      ],
+      [
+       1392,
+       0,
+       "sine.inOut"
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "reaches": {
+  "S02_operate_washer:ines_grip_r@1050": {
+   "approach": [
+    990,
+    1050
+   ],
+   "release": [
+    1260,
+    1296
+   ],
+   "orient": "RELATIVE"
+  },
+  "S02_operate_washer:ines_grip_r@1320": {
+   "approach": [
+    1296,
+    1320
+   ],
+   "release": [
+    1392,
+    1410
+   ],
+   "orient": "RELATIVE"
+  },
+  "S02_operate_washer:ines_pinch_r": {
+   "approach": [
+    1410,
+    1470
+   ],
+   "release": [
+    1560,
+    1620
+   ],
+   "orient": "RELATIVE"
+  }
+ },
+ "cameras": {
+  "cam_S02": {
+   "x": [
+    [
+     900,
+     960
+    ],
+    [
+     1680,
+     990,
+     "sine.inOut"
+    ],
+    [
+     1920,
+     1180,
+     "power2.in"
+    ]
+   ],
+   "y": [
+    [
+     900,
+     540
+    ],
+    [
+     1680,
+     530,
+     "sine.inOut"
+    ],
+    [
+     1920,
+     520,
+     "power2.in"
+    ]
+   ],
+   "zoom": [
+    [
+     900,
+     1
+    ],
+    [
+     1680,
+     1.08,
+     "sine.inOut"
+    ],
+    [
+     1920,
+     2.2,
+     "power2.in"
+    ]
+   ]
+  }
+ },
+ "parallax": {
+  "FAR": 0.4,
+  "MID": 0.75,
+  "FOCAL": 1,
+  "NEAR": 1.15,
+  "FOREGROUND": 1.4
+ }
+}

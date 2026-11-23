@@ -1,0 +1,409 @@
+{
+  "schema_version": "1.0",
+  "scope": "25 original source-native counterexample frames, five original films",
+  "full_film_semantic_inspection": false,
+  "source_frame_count": 242095,
+  "selected_native_frame_count": 25,
+  "witnesses": [
+    {
+      "id": "AI@35s",
+      "film": "AI",
+      "time_seconds": 35,
+      "role": "oblique_built_space",
+      "question_evidence": "Projected top, side, facade color ownership",
+      "relative_path": "assets/question_native_witnesses/AI_0035_oblique_built_space.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 216472,
+      "sha256": "692be2318711f5a4dd9c60fa11663df02d2cf949b2f667d115bfb7a03fa96078",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "AI@285s",
+      "film": "AI",
+      "time_seconds": 285,
+      "role": "machine_actor_interior",
+      "question_evidence": "Operator behind a screen and locally lit glass",
+      "relative_path": "assets/question_native_witnesses/AI_0285_machine_actor_interior.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 87977,
+      "sha256": "ff4e159acde765f0862493446f097580fafba7b91a600efa451afcc628fa40e0",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "AI@444s",
+      "film": "AI",
+      "time_seconds": 444,
+      "role": "pale_information_stage",
+      "question_evidence": "Near-white luminous substrate is valid",
+      "relative_path": "assets/question_native_witnesses/AI_0444_pale_information_stage.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 64972,
+      "sha256": "1c2cde0dd494cd0c6712617baf7c8d6fa95e02afe1b55514de86b91ef96f092a",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "AI@650s",
+      "film": "AI",
+      "time_seconds": 650,
+      "role": "repeated_agent_network",
+      "question_evidence": "Repeated faces on owned heads/screens",
+      "relative_path": "assets/question_native_witnesses/AI_0650_repeated_agent_network.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 94069,
+      "sha256": "080adc0bd3bbc8b8e4baabe4aa7a2f8117568568914d22d4c0d3506576ed6d51",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "AI@702s",
+      "film": "AI",
+      "time_seconds": 702,
+      "role": "nodes_and_links",
+      "question_evidence": "Actor stages and connection semantics",
+      "relative_path": "assets/question_native_witnesses/AI_0702_nodes_and_links.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 71464,
+      "sha256": "a9be00438be5f84777730be5c62d6075b60cc04aec7c3f5e59da01210daedd3e",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "BRAIN@51s",
+      "film": "BRAIN",
+      "time_seconds": 51,
+      "role": "eye_subject_macro",
+      "question_evidence": "Scientific eye subject has nested optical anatomy",
+      "relative_path": "assets/question_native_witnesses/BRAIN_0051_eye_subject_macro.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 43964,
+      "sha256": "8fb860ef1eaa391d98ee1430485e3ac72c6b0ea6148809b83f98c1452a588d74",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "BRAIN@150s",
+      "film": "BRAIN",
+      "time_seconds": 150,
+      "role": "field_comparison",
+      "question_evidence": "Broad separate color fields and graphic title",
+      "relative_path": "assets/question_native_witnesses/BRAIN_0150_field_comparison.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 56081,
+      "sha256": "c8ab1c44c42c238ea5ae5a82b62706f69b0b7b41af01b7e06e11db1cc2a94559",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "BRAIN@274s",
+      "film": "BRAIN",
+      "time_seconds": 274,
+      "role": "high_intensity_face",
+      "question_evidence": "Brow, eye, cheek, and mouth changes are geometry",
+      "relative_path": "assets/question_native_witnesses/BRAIN_0274_high_intensity_face.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 87398,
+      "sha256": "61473384a4b4d0feeb72723d63f4de4ec374293e2fcdd6f1ad0b079c9685ca61",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "BRAIN@303s",
+      "film": "BRAIN",
+      "time_seconds": 303,
+      "role": "small_actor_hold",
+      "question_evidence": "Peripherally active portal, held main stage",
+      "relative_path": "assets/question_native_witnesses/BRAIN_0303_small_actor_hold.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 130830,
+      "sha256": "5b79d41424bd423fc2a915380f4423ba8e61fe77b0b6b76e358cf5cf86aaf82e",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "BRAIN@334s",
+      "film": "BRAIN",
+      "time_seconds": 334,
+      "role": "full_actor_sparse_world",
+      "question_evidence": "Minimal detail outside action and support",
+      "relative_path": "assets/question_native_witnesses/BRAIN_0334_full_actor_sparse_world.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 65349,
+      "sha256": "9409f75e1deba9d5ffb2a7c6baaea88d1f6d7e3990cd16c53e1a2c966ece1d94",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "MEMORIES@62s",
+      "film": "MEMORIES",
+      "time_seconds": 62,
+      "role": "biological_network_density",
+      "question_evidence": "Terminals live on branching tissue network",
+      "relative_path": "assets/question_native_witnesses/MEMORIES_0062_biological_network_density.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 380490,
+      "sha256": "53d8a1df4b79b165c527000a7c9d29111e28b9856d822651c3cd3845a76285f8",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "MEMORIES@108s",
+      "film": "MEMORIES",
+      "time_seconds": 108,
+      "role": "organic_density_counter",
+      "question_evidence": "Different biological branching composition",
+      "relative_path": "assets/question_native_witnesses/MEMORIES_0108_organic_density_counter.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 81791,
+      "sha256": "8db8db64ba00d43323201c6496845a587fb47da5ca325f6fa61b02dbe515980c",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "MEMORIES@189s",
+      "film": "MEMORIES",
+      "time_seconds": 189,
+      "role": "luminous_synapse_net",
+      "question_evidence": "Active vs inactive biological subgraphs",
+      "relative_path": "assets/question_native_witnesses/MEMORIES_0189_luminous_synapse_net.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 121131,
+      "sha256": "b1c220437771402fc5ecad3f3742081f893953478551a24f9533c04eccf63983",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "MEMORIES@192s",
+      "film": "MEMORIES",
+      "time_seconds": 192,
+      "role": "brain_gear_abstraction",
+      "question_evidence": "Conceptual cut changes material and analogy",
+      "relative_path": "assets/question_native_witnesses/MEMORIES_0192_brain_gear_abstraction.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 84811,
+      "sha256": "e511762728d992dd640eb2e5078b88907fbb5368e6d0c1c0e838a5f85c2e7ab5",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "MEMORIES@542s",
+      "film": "MEMORIES",
+      "time_seconds": 542,
+      "role": "attached_biology",
+      "question_evidence": "Multi-scale organic identity and contacts",
+      "relative_path": "assets/question_native_witnesses/MEMORIES_0542_attached_biology.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 122786,
+      "sha256": "0a7b5dd1346f8da88b32d367eaa5a0bba79ad4009d2c6d8aff711fa624de4be0",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "NUCLEAR@22s",
+      "film": "NUCLEAR",
+      "time_seconds": 22,
+      "role": "functional_landscape",
+      "question_evidence": "Forest and river topology, subject hierarchy",
+      "relative_path": "assets/question_native_witnesses/NUCLEAR_0022_functional_landscape.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 110558,
+      "sha256": "440f730e92112ef6ef8d5b0ccab7abcb6f715ad0b5a825e54ef3daccd5ff565e",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "NUCLEAR@137s",
+      "film": "NUCLEAR",
+      "time_seconds": 137,
+      "role": "optical_magnifier",
+      "question_evidence": "Blurred optical enclosure vs crisp organism",
+      "relative_path": "assets/question_native_witnesses/NUCLEAR_0137_optical_magnifier.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 60881,
+      "sha256": "d100a799a3ff812dc16ed0e0635523473e424435969ea3596f9f37ea1f1ee798",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "NUCLEAR@145s",
+      "film": "NUCLEAR",
+      "time_seconds": 145,
+      "role": "lab_procedural_people",
+      "question_evidence": "Specialized clothing, props, local light",
+      "relative_path": "assets/question_native_witnesses/NUCLEAR_0145_lab_procedural_people.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 72425,
+      "sha256": "955c27cb5cae54685bc0978e01b68344d07e93fede6e26f7bde66b3e80d9e4b3",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "NUCLEAR@271s",
+      "film": "NUCLEAR",
+      "time_seconds": 271,
+      "role": "mechanism_scale_world",
+      "question_evidence": "Exemplar to system of repeated objects",
+      "relative_path": "assets/question_native_witnesses/NUCLEAR_0271_mechanism_scale_world.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 86471,
+      "sha256": "e9c28939989e4e021fac8835f015ee37f98d76c797b506ab74461051046fe6bf",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "NUCLEAR@420s",
+      "film": "NUCLEAR",
+      "time_seconds": 420,
+      "role": "plane_over_landscape",
+      "question_evidence": "Wide is legitimate for distribution proof",
+      "relative_path": "assets/question_native_witnesses/NUCLEAR_0420_plane_over_landscape.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 91400,
+      "sha256": "47a542a1122fe5ce8c1c97f3963a758e60346e42bb313a009435feef7021289e",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "SOLAR@84s",
+      "film": "SOLAR",
+      "time_seconds": 84,
+      "role": "suited_human",
+      "question_evidence": "Large support plates in historical suit",
+      "relative_path": "assets/question_native_witnesses/SOLAR_0084_suited_human.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 74244,
+      "sha256": "4611a0b3bf7bbc0ab75809b1d6bce045b99304963a3e2d91ca71541ecbf7df59",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "SOLAR@212s",
+      "film": "SOLAR",
+      "time_seconds": 212,
+      "role": "contained_vehicle",
+      "question_evidence": "Characters and capsule have separate topology",
+      "relative_path": "assets/question_native_witnesses/SOLAR_0212_contained_vehicle.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 77572,
+      "sha256": "14410dfe4ccf3cb2b1256d59ac31c5267c6773d4e061ad6d4a8a3b5843e8c5fc",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "SOLAR@371s",
+      "film": "SOLAR",
+      "time_seconds": 371,
+      "role": "diagram_to_character",
+      "question_evidence": "Diagram before meaningful editorial hard cut",
+      "relative_path": "assets/question_native_witnesses/SOLAR_0371_diagram_to_character.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 57520,
+      "sha256": "15be76feae5beffe4da764c6a332f0a5a98137a5fd8a85e96a8bc85de813f78d",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "SOLAR@620s",
+      "film": "SOLAR",
+      "time_seconds": 620,
+      "role": "scale_and_overlay_labels",
+      "question_evidence": "Labeled diagram with foreground mascots",
+      "relative_path": "assets/question_native_witnesses/SOLAR_0620_scale_and_overlay_labels.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 77511,
+      "sha256": "4af4546b9fc34d017feab628d4a6c98a1fa474727fe6d5e0f0900ea7e65162bc",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    },
+    {
+      "id": "SOLAR@674s",
+      "film": "SOLAR",
+      "time_seconds": 674,
+      "role": "planet_and_vehicle",
+      "question_evidence": "Depth staging and local reflective optical accents",
+      "relative_path": "assets/question_native_witnesses/SOLAR_0674_planet_and_vehicle.jpg",
+      "pixels": [
+        1920,
+        1080
+      ],
+      "bytes": 80632,
+      "sha256": "52e76e50434cbdbea66a9a69f76faaed5d68b27c5fae6fbb564fe6869e2dc03a",
+      "artistic_status": "SELECTED_ARTIST_REVIEW",
+      "usage": "SOURCE_STYLE_ONLY_NOT_CONTENT"
+    }
+  ]
+}

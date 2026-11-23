@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:20",
+ "sequence": 20,
+ "prev_event_sha256": "3e06563131a5aacba5cb28987cc4a070160c3c4fb66b54cd46d778b396bb3e87",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwrtywr8",
+ "operation_id": null,
+ "task_id": "attention_rt_shot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:19"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:09.492Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 20,
+ "event_sha256": "2cee54c56c4f0aaa2dc9011a26140a2d4927cdb190651934a174f4c1af5d58b8"
+}

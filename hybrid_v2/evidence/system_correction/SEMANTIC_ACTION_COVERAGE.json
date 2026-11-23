@@ -1,0 +1,505 @@
+{
+ "generated_by": "tests/art_bridge/semantic_action_coverage.test.mjs",
+ "shot": "S02",
+ "status": "PROPOSAL (unapproved); draft typing of the prose for review",
+ "prose": "Ines plants, reaches, grips the door handle, swings the door open, loads, pinches a coin, inserts it, and the drum starts",
+ "coverage": [
+  {
+   "action": "s02_plant",
+   "verb_class": "SUPPORT",
+   "frames": [
+    900,
+    1920
+   ],
+   "sub_operations": [
+    {
+     "sub": "SUPPORT",
+     "need": "PLANT",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        900,
+        1920
+       ],
+       "source": "ines_sole_l",
+       "target": "floor_l"
+      }
+     ]
+    }
+   ],
+   "complete": true
+  },
+  {
+   "action": "s02_grip_handle",
+   "verb_class": "GRIP",
+   "frames": [
+    1050,
+    1260
+   ],
+   "sub_operations": [
+    {
+     "sub": "REACH",
+     "need": "POSE_OR_CONTACT_APPROACH",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1050,
+        1260
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1050,
+        1051
+       ]
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1170,
+        1171
+       ]
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1230,
+        1231
+       ]
+      }
+     ]
+    },
+    {
+     "sub": "CONTACT",
+     "need": "GRIP",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1050,
+        1260
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      }
+     ]
+    },
+    {
+     "sub": "GRIP",
+     "need": "GRIP",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1050,
+        1260
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      }
+     ]
+    },
+    {
+     "sub": "RELEASE",
+     "need": "CONTACT_END",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1050,
+        1260
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      }
+     ]
+    }
+   ],
+   "complete": true
+  },
+  {
+   "action": "s02_open_door",
+   "verb_class": "OPEN_APERTURE",
+   "frames": [
+    1050,
+    1260
+   ],
+   "sub_operations": [
+    {
+     "sub": "GRIP",
+     "need": "GRIP",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1050,
+        1260
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      }
+     ]
+    },
+    {
+     "sub": "MOVE/TRANSFORM",
+     "need": "TARGET_STATE_CHANGE",
+     "status": "MISSING"
+    },
+    {
+     "sub": "RELEASE",
+     "need": "CONTACT_END",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1050,
+        1260
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      }
+     ]
+    }
+   ],
+   "complete": false
+  },
+  {
+   "action": "s02_load",
+   "verb_class": "LOAD_CONTAINER",
+   "frames": [
+    1260,
+    1410
+   ],
+   "sub_operations": [
+    {
+     "sub": "SUPPORT/TRANSFER",
+     "need": "CARRY_OR_SUPPLY",
+     "status": "MISSING"
+    },
+    {
+     "sub": "GRIP",
+     "need": "GRIP_ON_CARRIED_OBJECT",
+     "status": "MISSING"
+    },
+    {
+     "sub": "MOVE/TRANSFORM",
+     "need": "OBJECT_THROUGH_APERTURE",
+     "status": "MISSING"
+    },
+    {
+     "sub": "RELEASE",
+     "need": "CONTACT_END",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        900,
+        1920
+       ],
+       "source": "ines_sole_l",
+       "target": "floor_l"
+      },
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1320,
+        1392
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      }
+     ]
+    },
+    {
+     "sub": "SETTLE",
+     "need": "CONTAINED_STATE",
+     "status": "MISSING"
+    },
+    {
+     "sub": "RETRACT",
+     "need": "POSE_OR_CONTACT_APPROACH",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1320,
+        1392
+       ],
+       "source": "ines_grip_r",
+       "target": "washer_handle"
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1260,
+        1261
+       ]
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1320,
+        1321
+       ]
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1356,
+        1357
+       ]
+      },
+      {
+       "kind": "POSE",
+       "frames": [
+        1392,
+        1393
+       ]
+      }
+     ]
+    }
+   ],
+   "complete": false
+  },
+  {
+   "action": "s02_pinch_insert",
+   "verb_class": "INSERT_TOKEN",
+   "frames": [
+    1410,
+    1590
+   ],
+   "sub_operations": [
+    {
+     "sub": "GRIP",
+     "need": "PINCH_OR_FOLLOW",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1470,
+        1560
+       ],
+       "source": "ines_pinch_r",
+       "target": "washer_coin_slot"
+      }
+     ]
+    },
+    {
+     "sub": "MOVE/TRANSFORM",
+     "need": "OBJECT_THROUGH_APERTURE",
+     "status": "MISSING"
+    },
+    {
+     "sub": "RELEASE",
+     "need": "CONTACT_END",
+     "status": "COVERED",
+     "events": [
+      {
+       "kind": "CONTACT",
+       "frames": [
+        1470,
+        1560
+       ],
+       "source": "ines_pinch_r",
+       "target": "washer_coin_slot"
+      }
+     ]
+    }
+   ],
+   "complete": false
+  },
+  {
+   "action": "s02_start",
+   "verb_class": "MECHANISM_START",
+   "frames": [
+    1560,
+    1920
+   ],
+   "sub_operations": [
+    {
+     "sub": "MOVE/TRANSFORM",
+     "need": "MECHANISM_TRACK",
+     "status": "MISSING"
+    }
+   ],
+   "complete": false
+  }
+ ],
+ "errors": [
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "S02.goal",
+   "reason": "prose verb \"reaches\" (REACH) has no typed semantic action",
+   "required_art_or_operation": [
+    "APPROACH/ATTEND via POSE_OR_GAZE",
+    "REACH via POSE_OR_CONTACT_APPROACH"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "S02.goal",
+   "reason": "prose verb \"pinches\" (PINCH) has no typed semantic action",
+   "required_art_or_operation": [
+    "CONTACT via PINCH_OR_FOLLOW"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "S02.entry",
+   "reason": "prose verb \"carrying\" (CARRY) has no typed semantic action",
+   "required_art_or_operation": [
+    "SUPPORT/TRANSFER via CARRY_OR_SUPPLY"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "s02_open_door",
+   "frame_ranges": [
+    [
+     1050,
+     1260
+    ]
+   ],
+   "reason": "OPEN_APERTURE.MOVE/TRANSFORM has no executable TARGET_STATE_CHANGE event for washer_handle in [1050,1260)",
+   "dependency_ids": [
+    "washer_handle"
+   ],
+   "required_art_or_operation": [
+    "washer_handle state change track"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "s02_load",
+   "frame_ranges": [
+    [
+     1260,
+     1410
+    ]
+   ],
+   "reason": "LOAD_CONTAINER.SUPPORT/TRANSFER has no executable CARRY_OR_SUPPLY event for ines in [1260,1410)",
+   "dependency_ids": [
+    "laundry_bag"
+   ],
+   "required_art_or_operation": [
+    "laundry_bag prop art + carry contact"
+   ]
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "s02_load",
+   "frame_ranges": [
+    [
+     1260,
+     1410
+    ]
+   ],
+   "reason": "LOAD_CONTAINER.GRIP has no executable GRIP_ON_CARRIED_OBJECT event for ines in [1260,1410)",
+   "dependency_ids": [
+    "laundry_bag"
+   ],
+   "required_art_or_operation": [
+    "grip contact + hand art on laundry_bag"
+   ]
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "s02_load",
+   "frame_ranges": [
+    [
+     1260,
+     1410
+    ]
+   ],
+   "reason": "LOAD_CONTAINER.MOVE/TRANSFORM has no executable OBJECT_THROUGH_APERTURE event for ines in [1260,1410)",
+   "dependency_ids": [
+    "laundry_bag"
+   ],
+   "required_art_or_operation": [
+    "laundry_bag trajectory through the aperture with near/far occlusion art (rim occluder)"
+   ]
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "s02_load",
+   "frame_ranges": [
+    [
+     1260,
+     1410
+    ]
+   ],
+   "reason": "LOAD_CONTAINER.SETTLE has no executable CONTAINED_STATE event for ines in [1260,1410)",
+   "dependency_ids": [
+    "laundry_bag"
+   ],
+   "required_art_or_operation": [
+    "laundry_bag contained-state art inside washer_drum"
+   ]
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "s02_pinch_insert",
+   "frame_ranges": [
+    [
+     1410,
+     1590
+    ]
+   ],
+   "reason": "INSERT_TOKEN.MOVE/TRANSFORM has no executable OBJECT_THROUGH_APERTURE event for washer_coin_slot in [1410,1590)",
+   "dependency_ids": [
+    "washer_coin_slot"
+   ],
+   "required_art_or_operation": [
+    "washer_coin_slot trajectory through the aperture with near/far occlusion art (rim occluder)"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "s02_start",
+   "frame_ranges": [
+    [
+     1560,
+     1920
+    ]
+   ],
+   "reason": "MECHANISM_START.MOVE/TRANSFORM has no executable MECHANISM_TRACK event for drum in [1560,1920)",
+   "dependency_ids": [
+    "drum"
+   ],
+   "required_art_or_operation": [
+    "drum mechanism track"
+   ]
+  }
+ ],
+ "orphans": [],
+ "possession_timeline": [
+  {
+   "frame": 1410,
+   "object": "laundry_bag",
+   "holder": "washer_drum",
+   "by": "s02_load"
+  },
+  {
+   "frame": 1590,
+   "object": "washer_coin_slot",
+   "holder": "washer_coin_slot",
+   "by": "s02_pinch_insert"
+  }
+ ],
+ "complete": false
+}

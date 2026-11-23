@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:129",
+ "sequence": 129,
+ "prev_event_sha256": "c3fe4935597937a885ec99130ad8a9d3d743e12ae39c0f9a8ab235f4ce03afe9",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwru4dgp",
+ "operation_id": null,
+ "task_id": "chunk_5400_6000",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:128"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:25.390Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "chunk_5400_6000",
+  "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+  "inputs": [],
+  "expected_outputs": [
+   "FFV1 segment frames 5400..5999"
+  ],
+  "deps": [],
+  "invariants": [
+   "exact frame count, 1920x1080, 60/1",
+   "no defect",
+   "absolute seeking"
+  ],
+  "verification": "ffprobe of the segment + frame hashes + defect scan",
+  "evidence_location": "production/store",
+  "category": "RENDER_OR_MEMORY",
+  "group": "render"
+ },
+ "lock_generation": 129,
+ "event_sha256": "5c7d8fa1ea8c43080b424751862ee9cca95451ec0b4f3a2f6215c4ced6b7c73c"
+}

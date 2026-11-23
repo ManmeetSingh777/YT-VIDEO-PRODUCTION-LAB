@@ -1,0 +1,1912 @@
+{
+ "generated_by": "tests/art_bridge/p01_evidence.mjs",
+ "tested_revision": "e4bd309dac3d2ddeba0e5bf4e4e50adbd264a729",
+ "generated_at": "2026-11-22T03:15:35.820Z",
+ "truth": "DIAGNOSTIC capsule/box rasters; proves geometry, ownership and qualification mechanics only. No style image was fabricated; nothing here is target art or artistic evidence.",
+ "b1_geometry_640x900": {
+  "width_px": 640,
+  "height_px": 900,
+  "expected_canonical_rect": [
+   -20,
+   -15,
+   320,
+   450
+  ],
+  "stored": [
+   -20,
+   -15,
+   320,
+   450
+  ],
+  "crop_to_canonical_matrix": [
+   0.5,
+   0,
+   0,
+   0.5,
+   -20,
+   -15
+  ],
+  "quad": {
+   "crop_corners_px": [
+    [
+     0,
+     0
+    ],
+    [
+     640,
+     0
+    ],
+    [
+     640,
+     900
+    ],
+    [
+     0,
+     900
+    ]
+   ],
+   "canonical_corners": [
+    [
+     -20,
+     -15
+    ],
+    [
+     300,
+     -15
+    ],
+    [
+     300,
+     435
+    ],
+    [
+     -20,
+     435
+    ]
+   ],
+   "derived_bbox": [
+    -20,
+    -15,
+    320,
+    450
+   ],
+   "scale": 0.5,
+   "rotation_deg": 0
+  }
+ },
+ "b1_all_assets": [
+  {
+   "id": "pilot_master",
+   "kind": "MASTER",
+   "pixels": [
+    640,
+    900
+   ],
+   "crop": [
+    0,
+    0,
+    640,
+    900
+   ],
+   "canonical_rect": [
+    -20,
+    -15,
+    320,
+    450
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    -20,
+    -15
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      640,
+      0
+     ],
+     [
+      640,
+      900
+     ],
+     [
+      0,
+      900
+     ]
+    ],
+    "canonical_corners": [
+     [
+      -20,
+      -15
+     ],
+     [
+      300,
+      -15
+     ],
+     [
+      300,
+      435
+     ],
+     [
+      -20,
+      435
+     ]
+    ],
+    "derived_bbox": [
+     -20,
+     -15,
+     320,
+     450
+    ],
+    "scale": 0.5,
+    "rotation_deg": 0
+   }
+  },
+  {
+   "id": "rt_world_far",
+   "kind": "WORLD_PLANE",
+   "pixels": [
+    2400,
+    1350
+   ],
+   "crop": [
+    0,
+    0,
+    2400,
+    1350
+   ],
+   "canonical_rect": [
+    -100,
+    -60,
+    1200,
+    675
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    -100,
+    -60
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      2400,
+      0
+     ],
+     [
+      2400,
+      1350
+     ],
+     [
+      0,
+      1350
+     ]
+    ],
+    "canonical_corners": [
+     [
+      -100,
+      -60
+     ],
+     [
+      1100,
+      -60
+     ],
+     [
+      1100,
+      615
+     ],
+     [
+      -100,
+      615
+     ]
+    ],
+    "derived_bbox": [
+     -100,
+     -60,
+     1200,
+     675
+    ],
+    "scale": 0.5,
+    "rotation_deg": 0
+   }
+  },
+  {
+   "id": "pilot_body",
+   "kind": "PART",
+   "pixels": [
+    180,
+    626
+   ],
+   "crop": [
+    0,
+    0,
+    180,
+    626
+   ],
+   "canonical_rect": [
+    105,
+    31.99999999999997,
+    90,
+    313
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    105,
+    31.99999999999997
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      180,
+      0
+     ],
+     [
+      180,
+      626
+     ],
+     [
+      0,
+      626
+     ]
+    ],
+    "canonical_corners": [
+     [
+      105,
+      32
+     ],
+     [
+      195,
+      32
+     ],
+     [
+      195,
+      345
+     ],
+     [
+      105,
+      345
+     ]
+    ],
+    "derived_bbox": [
+     105,
+     32,
+     90,
+     313
+    ],
+    "scale": 0.5,
+    "rotation_deg": 0
+   }
+  },
+  {
+   "id": "pilot_upper_arm",
+   "kind": "PART",
+   "pixels": [
+    94,
+    173
+   ],
+   "crop": [
+    0,
+    0,
+    94,
+    173
+   ],
+   "canonical_rect": [
+    169.14730725636588,
+    123.3620072882553,
+    65.09008051544382,
+    102.44369299029877
+   ],
+   "crop_to_canonical_matrix": [
+    0.5501489270786504,
+    0.07731838942225831,
+    -0.07731838942225831,
+    0.5501489270786504,
+    182.52338862641656,
+    123.3620072882553
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      94,
+      0
+     ],
+     [
+      94,
+      173
+     ],
+     [
+      0,
+      173
+     ]
+    ],
+    "canonical_corners": [
+     [
+      182.523389,
+      123.362007
+     ],
+     [
+      234.237388,
+      130.629936
+     ],
+     [
+      220.861306,
+      225.8057
+     ],
+     [
+      169.147307,
+      218.537772
+     ]
+    ],
+    "derived_bbox": [
+     169.147307,
+     123.362007,
+     65.090081,
+     102.443693
+    ],
+    "scale": 0.555556,
+    "rotation_deg": 8
+   }
+  },
+  {
+   "id": "pilot_forearm",
+   "kind": "PART",
+   "pixels": [
+    52,
+    183
+   ],
+   "crop": [
+    0,
+    0,
+    52,
+    183
+   ],
+   "canonical_rect": [
+    202.34535529982978,
+    208.11544170010868,
+    35.42192366856543,
+    93.71649347115599
+   ],
+   "crop_to_canonical_matrix": [
+    0.49726094768413664,
+    -0.05226423163382683,
+    0.05226423163382683,
+    0.49726094768413664,
+    202.34535529982978,
+    210.83318174506766
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      52,
+      0
+     ],
+     [
+      52,
+      183
+     ],
+     [
+      0,
+      183
+     ]
+    ],
+    "canonical_corners": [
+     [
+      202.345355,
+      210.833182
+     ],
+     [
+      228.202925,
+      208.115442
+     ],
+     [
+      237.767279,
+      299.114195
+     ],
+     [
+      211.90971,
+      301.831935
+     ]
+    ],
+    "derived_bbox": [
+     202.345355,
+     208.115442,
+     35.421924,
+     93.716493
+    ],
+    "scale": 0.5,
+    "rotation_deg": -6
+   }
+  },
+  {
+   "id": "pilot_underpaint",
+   "kind": "UNDERPAINT",
+   "pixels": [
+    60,
+    60
+   ],
+   "crop": [
+    0,
+    0,
+    60,
+    60
+   ],
+   "canonical_rect": [
+    199.99999999999997,
+    200,
+    30,
+    30
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    199.99999999999997,
+    200
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      60,
+      0
+     ],
+     [
+      60,
+      60
+     ],
+     [
+      0,
+      60
+     ]
+    ],
+    "canonical_corners": [
+     [
+      200,
+      200
+     ],
+     [
+      230,
+      200
+     ],
+     [
+      230,
+      230
+     ],
+     [
+      200,
+      230
+     ]
+    ],
+    "derived_bbox": [
+     200,
+     200,
+     30,
+     30
+    ],
+    "scale": 0.5,
+    "rotation_deg": 0
+   }
+  },
+  {
+   "id": "pilot_hand_open",
+   "kind": "PART",
+   "pixels": [
+    96,
+    144
+   ],
+   "crop": [
+    0,
+    0,
+    96,
+    144
+   ],
+   "canonical_rect": [
+    209.64664322793453,
+    277.61323280239236,
+    47.818752749284045,
+    63.393016595913366
+   ],
+   "crop_to_canonical_matrix": [
+    0.3939231012048834,
+    -0.06945927106677237,
+    0.06945927106677237,
+    0.3939231012048834,
+    209.64664322793453,
+    284.2813228248025
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      96,
+      0
+     ],
+     [
+      96,
+      144
+     ],
+     [
+      0,
+      144
+     ]
+    ],
+    "canonical_corners": [
+     [
+      209.646643,
+      284.281323
+     ],
+     [
+      247.463261,
+      277.613233
+     ],
+     [
+      257.465396,
+      334.338159
+     ],
+     [
+      219.648778,
+      341.006249
+     ]
+    ],
+    "derived_bbox": [
+     209.646643,
+     277.613233,
+     47.818753,
+     63.393017
+    ],
+    "scale": 0.4,
+    "rotation_deg": -10
+   }
+  },
+  {
+   "id": "pilot_hand_grip",
+   "kind": "PART",
+   "pixels": [
+    80,
+    80
+   ],
+   "crop": [
+    0,
+    0,
+    80,
+    80
+   ],
+   "canonical_rect": [
+    208.99999999999997,
+    292.5,
+    40,
+    40
+   ],
+   "crop_to_canonical_matrix": [
+    0.49999999999999994,
+    -4.4114822170536016e-18,
+    4.4114822170536016e-18,
+    0.49999999999999994,
+    208.99999999999997,
+    292.5
+   ],
+   "quad": {
+    "crop_corners_px": [
+     [
+      0,
+      0
+     ],
+     [
+      80,
+      0
+     ],
+     [
+      80,
+      80
+     ],
+     [
+      0,
+      80
+     ]
+    ],
+    "canonical_corners": [
+     [
+      209,
+      292.5
+     ],
+     [
+      249,
+      292.5
+     ],
+     [
+      249,
+      332.5
+     ],
+     [
+      209,
+      332.5
+     ]
+    ],
+    "derived_bbox": [
+     209,
+     292.5,
+     40,
+     40
+    ],
+    "scale": 0.5,
+    "rotation_deg": 0
+   }
+  }
+ ],
+ "b1_asset_pixel_probes": {
+  "image": {
+   "file": "hybrid_v2/evidence/p01/images/b1_asset_pixel_probe.png",
+   "sha256": "a8c95d1fcbbe42e3171dab7fb052887f75311693a33d2dcd8edf2ba7520172e2"
+  },
+  "assets": [
+   {
+    "id": "pilot_master",
+    "scale_px_per_canonical": 0.5,
+    "rotation_deg": 0,
+    "crop": [
+     0,
+     0,
+     640,
+     900
+    ],
+    "canonical_rect": [
+     -20,
+     -15,
+     320,
+     450
+    ],
+    "inside_samples": 12757,
+    "inside_matches": 12757,
+    "worst_channel_err": 0,
+    "outside_samples": 400,
+    "outside_painted": 0,
+    "sample_points": [
+     {
+      "screen": [
+       370,
+       139
+      ],
+      "canonical": [
+       145.25,
+       34.75
+      ],
+      "crop_px": [
+       330.5,
+       99.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       373,
+       139
+      ],
+      "canonical": [
+       146.75,
+       34.75
+      ],
+      "crop_px": [
+       333.5,
+       99.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       376,
+       139
+      ],
+      "canonical": [
+       148.25,
+       34.75
+      ],
+      "crop_px": [
+       336.5,
+       99.5
+      ],
+      "expected": [
+       57,
+       90,
+       139,
+       255
+      ],
+      "got": [
+       57,
+       90,
+       139,
+       255
+      ]
+     },
+     {
+      "screen": [
+       379,
+       139
+      ],
+      "canonical": [
+       149.75,
+       34.75
+      ],
+      "crop_px": [
+       339.5,
+       99.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       382,
+       139
+      ],
+      "canonical": [
+       151.25,
+       34.75
+      ],
+      "crop_px": [
+       342.5,
+       99.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       385,
+       139
+      ],
+      "canonical": [
+       152.75,
+       34.75
+      ],
+      "crop_px": [
+       345.5,
+       99.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pilot_hand_open",
+    "scale_px_per_canonical": 0.4000000000000002,
+    "rotation_deg": -10.000000000000028,
+    "crop": [
+     0,
+     0,
+     96,
+     144
+    ],
+    "canonical_rect": [
+     209.64664322793453,
+     277.61323280239236,
+     47.818752749284045,
+     63.393016595913366
+    ],
+    "inside_samples": 2247,
+    "inside_matches": 2247,
+    "worst_channel_err": 1,
+    "outside_samples": 400,
+    "outside_painted": 0,
+    "sample_points": [
+     {
+      "screen": [
+       808,
+       67
+      ],
+      "canonical": [
+       221.77164322793453,
+       284.48823280239236
+      ],
+      "crop_px": [
+       29.762161161808535,
+       5.773126760794071
+      ],
+      "expected": [
+       235,
+       185,
+       145,
+       255
+      ],
+      "got": [
+       235,
+       185,
+       145,
+       255
+      ]
+     },
+     {
+      "screen": [
+       811,
+       67
+      ],
+      "canonical": [
+       222.52164322793453,
+       284.48823280239236
+      ],
+      "crop_px": [
+       31.608675698706406,
+       6.098717093919504
+      ],
+      "expected": [
+       235,
+       185,
+       145,
+       255
+      ],
+      "got": [
+       235,
+       185,
+       145,
+       255
+      ]
+     },
+     {
+      "screen": [
+       814,
+       67
+      ],
+      "canonical": [
+       223.27164322793453,
+       284.48823280239236
+      ],
+      "crop_px": [
+       33.45519023560439,
+       6.424307427045051
+      ],
+      "expected": [
+       235,
+       185,
+       145,
+       255
+      ],
+      "got": [
+       235,
+       185,
+       145,
+       255
+      ]
+     },
+     {
+      "screen": [
+       817,
+       67
+      ],
+      "canonical": [
+       224.02164322793453,
+       284.48823280239236
+      ],
+      "crop_px": [
+       35.30170477250226,
+       6.749897760170597
+      ],
+      "expected": [
+       235,
+       185,
+       145,
+       255
+      ],
+      "got": [
+       235,
+       185,
+       145,
+       255
+      ]
+     },
+     {
+      "screen": [
+       820,
+       67
+      ],
+      "canonical": [
+       224.77164322793453,
+       284.48823280239236
+      ],
+      "crop_px": [
+       37.14821930940013,
+       7.0754880932960305
+      ],
+      "expected": [
+       219,
+       173,
+       135,
+       255
+      ],
+      "got": [
+       219,
+       173,
+       135,
+       255
+      ]
+     },
+     {
+      "screen": [
+       823,
+       67
+      ],
+      "canonical": [
+       225.52164322793453,
+       284.48823280239236
+      ],
+      "crop_px": [
+       38.994733846298004,
+       7.401078426421577
+      ],
+      "expected": [
+       212,
+       167,
+       131,
+       255
+      ],
+      "got": [
+       212,
+       167,
+       131,
+       255
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pilot_upper_arm",
+    "scale_px_per_canonical": 0.5555555555555557,
+    "rotation_deg": 7.99999999999997,
+    "crop": [
+     0,
+     0,
+     94,
+     173
+    ],
+    "canonical_rect": [
+     169.14730725636588,
+     123.3620072882553,
+     65.09008051544382,
+     102.44369299029877
+    ],
+    "inside_samples": 3163,
+    "inside_matches": 3163,
+    "worst_channel_err": 1,
+    "outside_samples": 400,
+    "outside_painted": 0,
+    "sample_points": [
+     {
+      "screen": [
+       1169,
+       70
+      ],
+      "canonical": [
+       201.52230725636588,
+       130.9870072882553
+      ],
+      "crop_px": [
+       35.775391238421605,
+       8.831980086365633
+      ],
+      "expected": [
+       181,
+       127,
+       91,
+       255
+      ],
+      "got": [
+       181,
+       127,
+       91,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1172,
+       70
+      ],
+      "canonical": [
+       202.27230725636588,
+       130.9870072882553
+      ],
+      "crop_px": [
+       37.112253131222644,
+       8.644096400069571
+      ],
+      "expected": [
+       167,
+       117,
+       84,
+       255
+      ],
+      "got": [
+       167,
+       117,
+       84,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1175,
+       70
+      ],
+      "canonical": [
+       203.02230725636588,
+       130.9870072882553
+      ],
+      "crop_px": [
+       38.4491150240238,
+       8.456212713773482
+      ],
+      "expected": [
+       197,
+       138,
+       98,
+       255
+      ],
+      "got": [
+       197,
+       138,
+       98,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1178,
+       70
+      ],
+      "canonical": [
+       203.77230725636588,
+       130.9870072882553
+      ],
+      "crop_px": [
+       39.78597691682495,
+       8.268329027477392
+      ],
+      "expected": [
+       200,
+       140,
+       100,
+       255
+      ],
+      "got": [
+       200,
+       140,
+       100,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1181,
+       70
+      ],
+      "canonical": [
+       204.52230725636588,
+       130.9870072882553
+      ],
+      "crop_px": [
+       41.1228388096261,
+       8.080445341181303
+      ],
+      "expected": [
+       200,
+       140,
+       100,
+       255
+      ],
+      "got": [
+       200,
+       140,
+       100,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1157,
+       73
+      ],
+      "canonical": [
+       198.52230725636588,
+       131.7370072882553
+      ],
+      "crop_px": [
+       30.61582735351317,
+       10.920376724351115
+      ],
+      "expected": [
+       200,
+       140,
+       100,
+       255
+      ],
+      "got": [
+       200,
+       140,
+       100,
+       255
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pilot_forearm",
+    "scale_px_per_canonical": 0.5,
+    "rotation_deg": -6.0000000000000115,
+    "crop": [
+     0,
+     0,
+     52,
+     183
+    ],
+    "canonical_rect": [
+     202.34535529982978,
+     208.11544170010868,
+     35.42192366856543,
+     93.71649347115599
+    ],
+    "inside_samples": 2910,
+    "inside_matches": 2910,
+    "worst_channel_err": 1,
+    "outside_samples": 400,
+    "outside_painted": 0,
+    "sample_points": [
+     {
+      "screen": [
+       1383,
+       55
+      ],
+      "canonical": [
+       218.22035529982978,
+       211.99044170010868
+      ],
+      "crop_px": [
+       31.334136968539383,
+       5.620619436590346
+      ],
+      "expected": [
+       182,
+       135,
+       97,
+       255
+      ],
+      "got": [
+       182,
+       135,
+       97,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1386,
+       55
+      ],
+      "canonical": [
+       218.97035529982978,
+       211.99044170010868
+      ],
+      "crop_px": [
+       32.8259198115918,
+       5.777412131491815
+      ],
+      "expected": [
+       196,
+       146,
+       105,
+       255
+      ],
+      "got": [
+       196,
+       146,
+       105,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1389,
+       55
+      ],
+      "canonical": [
+       219.72035529982978,
+       211.99044170010868
+      ],
+      "crop_px": [
+       34.31770265464422,
+       5.934204826393284
+      ],
+      "expected": [
+       215,
+       160,
+       115,
+       255
+      ],
+      "got": [
+       215,
+       160,
+       115,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1392,
+       55
+      ],
+      "canonical": [
+       220.47035529982978,
+       211.99044170010868
+      ],
+      "crop_px": [
+       35.809485497696585,
+       6.09099752129481
+      ],
+      "expected": [
+       215,
+       160,
+       115,
+       255
+      ],
+      "got": [
+       215,
+       160,
+       115,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1395,
+       55
+      ],
+      "canonical": [
+       221.22035529982978,
+       211.99044170010868
+      ],
+      "crop_px": [
+       37.301268340749004,
+       6.247790216196279
+      ],
+      "expected": [
+       215,
+       160,
+       115,
+       255
+      ],
+      "got": [
+       215,
+       160,
+       115,
+       255
+      ]
+     },
+     {
+      "screen": [
+       1398,
+       55
+      ],
+      "canonical": [
+       221.97035529982978,
+       211.99044170010868
+      ],
+      "crop_px": [
+       38.793051183801424,
+       6.404582911097748
+      ],
+      "expected": [
+       215,
+       160,
+       115,
+       255
+      ],
+      "got": [
+       215,
+       160,
+       115,
+       255
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pilot_master_subcrop",
+    "scale_px_per_canonical": 0.5,
+    "rotation_deg": 0,
+    "crop": [
+     100,
+     200,
+     300,
+     400
+    ],
+    "canonical_rect": [
+     30,
+     85,
+     150,
+     200
+    ],
+    "inside_samples": 6182,
+    "inside_matches": 6182,
+    "worst_channel_err": 0,
+    "outside_samples": 400,
+    "outside_painted": 0,
+    "sample_points": [
+     {
+      "screen": [
+       928,
+       523
+      ],
+      "canonical": [
+       114.25,
+       86.75
+      ],
+      "crop_px": [
+       168.5,
+       3.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       931,
+       523
+      ],
+      "canonical": [
+       115.75,
+       86.75
+      ],
+      "crop_px": [
+       171.5,
+       3.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       934,
+       523
+      ],
+      "canonical": [
+       117.25,
+       86.75
+      ],
+      "crop_px": [
+       174.5,
+       3.5
+      ],
+      "expected": [
+       57,
+       90,
+       139,
+       255
+      ],
+      "got": [
+       57,
+       90,
+       139,
+       255
+      ]
+     },
+     {
+      "screen": [
+       937,
+       523
+      ],
+      "canonical": [
+       118.75,
+       86.75
+      ],
+      "crop_px": [
+       177.5,
+       3.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       940,
+       523
+      ],
+      "canonical": [
+       120.25,
+       86.75
+      ],
+      "crop_px": [
+       180.5,
+       3.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     },
+     {
+      "screen": [
+       943,
+       523
+      ],
+      "canonical": [
+       121.75,
+       86.75
+      ],
+      "crop_px": [
+       183.5,
+       3.5
+      ],
+      "expected": [
+       70,
+       110,
+       170,
+       255
+      ],
+      "got": [
+       70,
+       110,
+       170,
+       255
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "b1_camera_footprint": {
+  "plate_rect": [
+   -100,
+   -60,
+   1200,
+   675
+  ],
+  "flagged_spans": [
+   [
+    3600,
+    3822
+   ]
+  ],
+  "sentinel_pixels_wide_f3650": 1262400,
+  "sentinel_pixels_pushed_f3950": 0,
+  "plate_colour_probe_max_err": 0,
+  "probes": [
+   {
+    "screen": [
+     200,
+     150
+    ],
+    "canonical": [
+     100.26315789473685,
+     72.49999999999999
+    ],
+    "plate_px": [
+     400.5263157894737,
+     265
+    ],
+    "expected": [
+     59,
+     98,
+     119,
+     255
+    ],
+    "got": [
+     59,
+     98,
+     119,
+     255
+    ]
+   },
+   {
+    "screen": [
+     960,
+     540
+    ],
+    "canonical": [
+     500.2631578947368,
+     277.7631578947368
+    ],
+    "plate_px": [
+     1200.5263157894738,
+     675.5263157894736
+    ],
+    "expected": [
+     95,
+     119,
+     119,
+     255
+    ],
+    "got": [
+     95,
+     119,
+     119,
+     255
+    ]
+   },
+   {
+    "screen": [
+     1700,
+     900
+    ],
+    "canonical": [
+     889.7368421052631,
+     467.2368421052631
+    ],
+    "plate_px": [
+     1979.4736842105262,
+     1054.4736842105262
+    ],
+    "expected": [
+     184,
+     198,
+     170,
+     255
+    ],
+    "got": [
+     184,
+     198,
+     170,
+     255
+    ]
+   },
+   {
+    "screen": [
+     400,
+     800
+    ],
+    "canonical": [
+     205.52631578947367,
+     414.6052631578947
+    ],
+    "plate_px": [
+     611.0526315789473,
+     949.2105263157894
+    ],
+    "expected": [
+     98,
+     190,
+     170,
+     255
+    ],
+    "got": [
+     98,
+     190,
+     170,
+     255
+    ]
+   },
+   {
+    "screen": [
+     1500,
+     250
+    ],
+    "canonical": [
+     784.4736842105262,
+     125.13157894736841
+    ],
+    "plate_px": [
+     1768.9473684210525,
+     370.2631578947368
+    ],
+    "expected": [
+     171,
+     147,
+     170,
+     255
+    ],
+    "got": [
+     171,
+     147,
+     170,
+     255
+    ]
+   }
+  ],
+  "frames": [
+   {
+    "file": "hybrid_v2/evidence/p01/images/b1_footprint_wide_f3650.png",
+    "sha256": "0b23716a7d91d9aa3b52085580a0e9de31cef2835527030f8b72f064cc6a8a0d"
+   },
+   {
+    "file": "hybrid_v2/evidence/p01/images/b1_footprint_pushed_f3950.png",
+    "sha256": "2d374e439bf5ff2f51c2287545e75e99621c1a7caf6efa6e484f690d3c8ae965"
+   }
+  ]
+ },
+ "b1_transition_density": {
+  "frame": 3480,
+  "mean_abs_diff_1x_vs_2x": 0.7750544945987654,
+  "sentinel_2x": 0,
+  "frames": [
+   {
+    "file": "hybrid_v2/evidence/p01/images/b1_transition_1x_f3480.png",
+    "sha256": "368d0fe72d8d8a8ab54377e6c8521d8977a2eec914322ff333f9aa1d8cb367a9"
+   },
+   {
+    "file": "hybrid_v2/evidence/p01/images/b1_transition_2x_density_f3480.png",
+    "sha256": "e50314e1a06a8a8ad49c444da53c21f5f462b9cba60191e761fc6aa6281ab8dd"
+   }
+  ]
+ },
+ "b2_elbow_bend": {
+  "frame": 450,
+  "elbow_angle_deg": 140,
+  "holes_with_owned_underpaint": 0,
+  "holes_with_underpaint_hidden": 255,
+  "underpaint_painted_below_forearm": true,
+  "frames": [
+   {
+    "file": "hybrid_v2/evidence/p01/images/b2_bend_f450_with_underpaint.png",
+    "sha256": "a14a84236a3f604b35b49ca12be25f30ce243ca46ce0f6a186896cfaf56ef69b"
+   },
+   {
+    "file": "hybrid_v2/evidence/p01/images/b2_bend_f450_underpaint_hidden.png",
+    "sha256": "6a98d2d7bebf2cf573ccc3c6cfa847e4b53f65d909a447c0586919a34d2562da"
+   }
+  ]
+ },
+ "b2_ines_real_contract": {
+  "steps": {
+   "master": "REGISTERED_PENDING_REVIEW",
+   "review": "APPROVED",
+   "underpaint": "REGISTERED_PENDING_REVIEW",
+   "forearm": "REGISTERED_PENDING_REVIEW"
+  },
+  "forearm": {
+   "hidden_surfaces": [
+    "elbow_inner_sleeve"
+   ],
+   "underpaint_asset_ids": [
+    "ines_elbow_r_underpaint"
+   ],
+   "canonical_rect": [
+    358.00000000000006,
+    466.99999999999994,
+    59,
+    136.00000000000006
+   ]
+  },
+  "underpaint": {
+   "kind": "UNDERPAINT",
+   "draw_order": [
+    {
+     "relation": "BELOW",
+     "asset_id": "ines_forearm_r"
+    },
+    {
+     "relation": "BELOW",
+     "asset_id": "ines_sleeve_r"
+    },
+    {
+     "relation": "ABOVE",
+     "asset_id": "ines_torso"
+    }
+   ]
+  },
+  "forearm_missing_underpaint_errors": 0,
+  "refusal_without_link": "MISSING_UNDERPAINT MISSING_UNDERPAINT [ines_forearm_r]: refused by plan contract: hidden surface elbow_inner_sleeve has no owning underpaint in surface_underpaint"
+ },
+ "steps": [
+  {
+   "step": "export (masters only)",
+   "result": {
+    "BLOCKED_COMPILE": 1,
+    "BLOCKED_NO_DESIGN_BRIEF": 1,
+    "WAITING_ON_MASTER_APPROVAL": 6
+   }
+  },
+  {
+   "step": "ingest-part BEFORE master approval",
+   "result": "REFUSED: refused: master pilot_master not ingested; derived art is registered only against an approved master"
+  },
+  {
+   "step": "ingest-master",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-master",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-master world plate (2 px per canonical unit)",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-master world",
+   "result": "APPROVED"
+  },
+  {
+   "step": "resume/export (dependents become ready + compiled with master edit reference)",
+   "result": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "step": "ingest-part truncated body (pivot on empty canvas)",
+   "result": "REGISTRATION_FAILED"
+  },
+  {
+   "step": "ingest-part body",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part body",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part upper_arm",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part upper_arm",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part forearm",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part forearm",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part underpaint",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part underpaint",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part hand_open",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part hand_open",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part hand_grip",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part hand_grip",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part off-axis hand (claimed landmarks disagree with pixels)",
+   "result": "REGISTRATION_FAILED"
+  },
+  {
+   "step": "approve-state open",
+   "result": "APPROVED"
+  },
+  {
+   "step": "approve-state grip",
+   "result": "APPROVED"
+  },
+  {
+   "step": "approve-edge open->grip",
+   "result": "APPROVED"
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "id": "planD",
+ "placements": {},
+ "tracks": {},
+ "parallax": {
+  "FAR": 0.35,
+  "MID": 0.7,
+  "FOCAL": 1,
+  "NEAR": 1.2,
+  "FOREGROUND": 1.45
+ },
+ "cameras": {
+  "camD": {
+   "x": [
+    [
+     0,
+     960
+    ],
+    [
+     300,
+     1260,
+     "sine.inOut"
+    ],
+    [
+     600,
+     860,
+     "sine.inOut"
+    ]
+   ],
+   "y": [
+    [
+     0,
+     540
+    ],
+    [
+     300,
+     520,
+     "sine.inOut"
+    ],
+    [
+     600,
+     560,
+     "sine.inOut"
+    ]
+   ],
+   "zoom": [
+    [
+     0,
+     1
+    ],
+    [
+     300,
+     1.25,
+     "sine.inOut"
+    ],
+    [
+     600,
+     1.05,
+     "sine.inOut"
+    ]
+   ]
+  },
+  "camD2": {}
+ }
+}

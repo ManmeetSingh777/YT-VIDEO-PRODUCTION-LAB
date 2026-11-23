@@ -1,0 +1,999 @@
+{
+ "version": "CNSA-1",
+ "generated_from": [
+  "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+  "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+  "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+  "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+  "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md"
+ ],
+ "note": "Original method text is authoritative; this catalog only maps it to code. No method is QUALIFIED.",
+ "methods": [
+  {
+   "id": "F01",
+   "title": "Silhouette and functional anatomy (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 22,
+   "class": "A",
+   "ops": [
+    "defineRig",
+    "surf"
+   ],
+   "test": "silhouette",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F02",
+   "title": "Surface-color construction instead of generic line art (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 40,
+   "class": "A",
+   "ops": [
+    "surf"
+   ],
+   "test": "flat",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F03",
+   "title": "Conditional color-role solver (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 50,
+   "class": "C",
+   "ops": [
+    "roles",
+    "recede"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F04",
+   "title": "Four distinct lighting systems (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 69,
+   "class": "A",
+   "ops": [
+    "surf",
+    "glass",
+    "emissive",
+    "MN.setLight"
+   ],
+   "test": "nofx",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F05",
+   "title": "Human head and facial-state fabrication (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 80,
+   "class": "C",
+   "ops": [
+    "defineRig",
+    "surf",
+    "R.pose"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F06",
+   "title": "Human body, hands, locomotion and meaningful contacts (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 99,
+   "class": "A",
+   "ops": [
+    "R.reach",
+    "R.attach",
+    "R.walk",
+    "handPath",
+    "contactShadow"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F07",
+   "title": "Distinct mascot and animal construction (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 112,
+   "class": "C",
+   "ops": [
+    "defineRig"
+   ],
+   "test": "silhouette",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F08",
+   "title": "Architecture and oblique projection (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 122,
+   "class": "A",
+   "ops": [
+    "oblique"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F09",
+   "title": "Machines and functional apparatus (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 135,
+   "class": "A",
+   "ops": [
+    "oblique",
+    "surf",
+    "glass"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F10",
+   "title": "Complete spaces and foreground/background integration (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 150,
+   "class": "A",
+   "ops": [
+    "stratum",
+    "contactShadow",
+    "portal"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F11",
+   "title": "Landscape, plant and environmental density (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 160,
+   "class": "C",
+   "ops": [
+    "stratum",
+    "repeat",
+    "recede",
+    "MN.sway"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F12",
+   "title": "Designed dense biological network (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 170,
+   "class": "D",
+   "ops": [
+    "repeat"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F13",
+   "title": "Structural luminous, optical and complex materials (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 182,
+   "class": "A",
+   "ops": [
+    "glass",
+    "emissive",
+    "portal"
+   ],
+   "test": "nofx",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F14",
+   "title": "Illustrated transformation and alternate state design (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 195,
+   "class": "A",
+   "ops": [
+    "morphable",
+    "R.pose",
+    "defineRig"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F15",
+   "title": "Motion ownership, simultaneous choreography, camera (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 212,
+   "class": "A",
+   "ops": [
+    "MN.rig",
+    "MN.camera",
+    "R.pose"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F16",
+   "title": "Transitions as complete illustrations plus masks (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 220,
+   "class": "A",
+   "ops": [
+    "maskGroup",
+    "clipGroup",
+    "portal"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F17",
+   "title": "Whole-look and provider-control proof (T, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 234,
+   "class": "B",
+   "ops": [],
+   "test": null,
+   "replacement": "provider whole-look proof → rendered hero frames from the production scene + native/thumbnail inspection",
+   "code_status": "replaced_by_pipeline"
+  },
+  {
+   "id": "F18",
+   "title": "Every-frame observation without confusing it with decoding",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 246,
+   "class": "A",
+   "ops": [],
+   "test": "motion",
+   "replacement": "every-frame claims → inspect.py contact sheets, consecutive-pair diffs, motion report",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F19",
+   "title": "Production medium and timing are conditional, not a universal vector-only preset (O, I)",
+   "source": "reference/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+   "line": 254,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "replacement": "medium routing: code-native SVG default; registered raster plate allowed when code cannot reach the form (raster.mjs)",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F20",
+   "title": "Route each beat to a visual medium; permit nesting",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 5,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F21",
+   "title": "A panel, glass shell or memory window is a layered optical machine",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 21,
+   "class": "A",
+   "ops": [
+    "portal",
+    "glass"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F22",
+   "title": "Rebuild day/night as registered drawings, not a color-grade",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 39,
+   "class": "A",
+   "ops": [
+    "MN.setLight",
+    "surf"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F23",
+   "title": "Define perception effects as registered compositing passes",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 58,
+   "class": "D",
+   "ops": [
+    "emissive"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F24",
+   "title": "Dense biological fields are procedurally authored, not random scatter",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 71,
+   "class": "A",
+   "ops": [
+    "repeat"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F25",
+   "title": "Scientific close-ups must encode physical interaction direction",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 86,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F26",
+   "title": "Maps and spatial diagrams need three distinct masks",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 94,
+   "class": "D",
+   "ops": [
+    "clipGroup",
+    "maskGroup"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F27",
+   "title": "Schematic graphs are authored systems with reveal states",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 102,
+   "class": "D",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F28",
+   "title": "Historical or technical recreations have era-specific mechanical topology",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 110,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F29",
+   "title": "Compare futures/options as complete parallel states",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 118,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F30",
+   "title": "Create a multi-state character library before physical animation",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 126,
+   "class": "A",
+   "ops": [
+    "defineRig",
+    "R.pose",
+    "defineRig",
+    "morphable"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F31",
+   "title": "Motion needs owner-specific key states, not global ease-only language",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 134,
+   "class": "A",
+   "ops": [
+    "R.pose",
+    "R.key",
+    "R.drive"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F32",
+   "title": "Effects are time-bounded images with their own color/geometry ownership",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 146,
+   "class": "A",
+   "ops": [
+    "emissive"
+   ],
+   "test": "nofx",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F33",
+   "title": "Density and abstraction are scoped by view depth and task, not adjective",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 161,
+   "class": "C",
+   "ops": [
+    "recede"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F34",
+   "title": "Physical geography, procedural patterns and materials use different generators",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 175,
+   "class": "C",
+   "ops": [
+    "repeat",
+    "oblique"
+   ],
+   "test": null,
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F35",
+   "title": "Make storyboard transitions carry one conserved visual invariant",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 190,
+   "class": "A",
+   "ops": [
+    "portal",
+    "maskGroup"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F36",
+   "title": "Source-to-new-script skill must compile into enforceable artifacts",
+   "source": "reference/construct-kurzgesagt-art/references/FULL_FILM_ROUTER_AND_METHODS.md",
+   "line": 205,
+   "class": "B",
+   "ops": [],
+   "test": null,
+   "replacement": "source-to-script compilation → EPISODE.json + plan.mjs + per-identity construction contracts + ledger",
+   "code_status": "replaced_by_pipeline"
+  },
+  {
+   "id": "F37",
+   "title": "Construct a world definition, not an adjective or a backdrop",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 25,
+   "class": "A",
+   "ops": [
+    "stratum"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F38",
+   "title": "Pick a projection grammar and enforce it down to small parts",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 45,
+   "class": "A",
+   "ops": [
+    "oblique"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F39",
+   "title": "Build living natural environments from functional, occluding plant systems",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 80,
+   "class": "C",
+   "ops": [
+    "repeat",
+    "MN.sway"
+   ],
+   "test": null,
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F40",
+   "title": "Build dense architectural/ecological worlds with modular part budgets",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 103,
+   "class": "D",
+   "ops": [
+    "oblique",
+    "repeat"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F41",
+   "title": "Create biological micro-worlds from parent anatomy and networks",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 130,
+   "class": "D",
+   "ops": [
+    "repeat"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F42",
+   "title": "Construct an abstract stage from legible spatial coordinates",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 149,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F43",
+   "title": "Construct an information theatre rather than flat UI wallpaper",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 164,
+   "class": "D",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F44",
+   "title": "A luminous volume requires faces, apertures, sockets and optical layers",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 181,
+   "class": "A",
+   "ops": [
+    "glass",
+    "emissive"
+   ],
+   "test": "nofx",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F45",
+   "title": "Construct machines and futuristic corridors by functional topology first",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 197,
+   "class": "D",
+   "ops": [
+    "oblique"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F46",
+   "title": "Use material-owning edges, fills and luminance: no universal glow or outline",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 212,
+   "class": "A",
+   "ops": [
+    "surf",
+    "glass",
+    "emissive"
+   ],
+   "test": "flat",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F47",
+   "title": "Spend detail according to semantic role and visual distance",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 235,
+   "class": "C",
+   "ops": [
+    "recede",
+    "stratum"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F48",
+   "title": "Represent a world within a world as two complete constructions",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 252,
+   "class": "A",
+   "ops": [
+    "portal"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F49",
+   "title": "Compile world construction data into an enforceable ArtJob",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 264,
+   "class": "B",
+   "ops": [],
+   "test": null,
+   "replacement": "ArtJob world graph → cast/*.mjs construction contract (decisions → ops → components) checked by build.mjs",
+   "code_status": "replaced_by_pipeline"
+  },
+  {
+   "id": "F50",
+   "title": "Run adversarial unfamiliar-world transfer tests; do not certify by resemblance to one film frame",
+   "source": "reference/construct-kurzgesagt-art/references/WORLD_SYSTEM_CONSTRUCTION.md",
+   "line": 320,
+   "class": "D",
+   "ops": [],
+   "test": null,
+   "replacement": "adversarial unfamiliar-world tests → must be run on Film 001's unlike worlds; none passed yet",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F51",
+   "title": "Palette is a system of roles and region ownership, not one studio-wide swatch set",
+   "source": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "line": 7,
+   "class": "C",
+   "ops": [
+    "roles"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F52",
+   "title": "Scale and semantic role determine the number of facial/structural marks",
+   "source": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "line": 30,
+   "class": "C",
+   "ops": [
+    "defineRig"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F53",
+   "title": "Density is caused by explanatory material, not by a desire to impress",
+   "source": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "line": 40,
+   "class": "C",
+   "ops": [],
+   "test": "thumbnail",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F54",
+   "title": "Repeated shapes require a parent-owned generator",
+   "source": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "line": 53,
+   "class": "A",
+   "ops": [
+    "repeat"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F55",
+   "title": "The new idea determines the world projection and the camera-sized artwork",
+   "source": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "line": 62,
+   "class": "C",
+   "ops": [
+    "oblique",
+    "MN.camera"
+   ],
+   "test": null,
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F56",
+   "title": "Execute source-grounded prompts as geometry, then inspect first pixels",
+   "source": "reference/construct-kurzgesagt-art/references/CONDITIONAL_PALETTE_SCALE_AND_ABSTRACTION.md",
+   "line": 71,
+   "class": "B",
+   "ops": [],
+   "test": null,
+   "replacement": "prompt-as-geometry → the geometry IS the code; inspect first rendered pixels (hero stage)",
+   "code_status": "replaced_by_pipeline"
+  },
+  {
+   "id": "F57",
+   "title": "Start with a visible causal proof, not a “beautiful scene”",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 7,
+   "class": "C",
+   "ops": [],
+   "test": "thumbnail",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F58",
+   "title": "Construct the silhouette before interior polish",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 15,
+   "class": "A",
+   "ops": [
+    "defineRig",
+    "surf"
+   ],
+   "test": "silhouette",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F59",
+   "title": "Parts must join and occlude in a deliberate topology",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 23,
+   "class": "A",
+   "ops": [
+    "defineRig",
+    "R.attach",
+    "R.reach"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F60",
+   "title": "Choose projection from the proof and make all planes obey it",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 31,
+   "class": "A",
+   "ops": [
+    "oblique"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F61",
+   "title": "Invent conditional palette roles, never imitate a universal swatch palette",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 39,
+   "class": "C",
+   "ops": [
+    "roles"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F62",
+   "title": "Edges and shadows have owners; universal black outlines and bevels do not",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 47,
+   "class": "A",
+   "ops": [
+    "surf"
+   ],
+   "test": "flat",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F63",
+   "title": "Keep reflection, transparency, blur, glow and grain inside physical optics",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 55,
+   "class": "A",
+   "ops": [
+    "glass",
+    "emissive"
+   ],
+   "test": "nofx",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F64",
+   "title": "Human/mascot/animal identity must be routed by illustration family",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 63,
+   "class": "C",
+   "ops": [
+    "defineRig"
+   ],
+   "test": "silhouette",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F65",
+   "title": "Eye and mouth construction depends on the role and crop",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 71,
+   "class": "C",
+   "ops": [
+    "defineRig",
+    "R.pose"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F66",
+   "title": "Body acting needs weight, garment volumes and contact states",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 79,
+   "class": "A",
+   "ops": [
+    "R.walk",
+    "R.reach",
+    "MN.rig"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F67",
+   "title": "Expression and pose animation is a registered state family",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 87,
+   "class": "A",
+   "ops": [
+    "morphable",
+    "R.pose",
+    "defineRig"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F68",
+   "title": "Machines are part-defined functional volumes, not neon rectangles",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 95,
+   "class": "A",
+   "ops": [
+    "oblique",
+    "surf",
+    "glass"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F69",
+   "title": "Landscapes are coverage substrates with selective living detail",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 105,
+   "class": "C",
+   "ops": [
+    "stratum",
+    "repeat"
+   ],
+   "test": "thumbnail",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F70",
+   "title": "Built worlds use coherent projection and semantic architectural repetition",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 113,
+   "class": "A",
+   "ops": [
+    "oblique"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F71",
+   "title": "Dense microscopic biology is a connected graph, not a particle wallpaper",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 121,
+   "class": "D",
+   "ops": [
+    "repeat"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F72",
+   "title": "Macro organisms and lenses are distinct coordinate systems",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 131,
+   "class": "D",
+   "ops": [
+    "glass"
+   ],
+   "test": null,
+   "code_status": "op_partial_unproven"
+  },
+  {
+   "id": "F73",
+   "title": "Cosmic/scale worlds depend on physical and diagrammatic meaning",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 139,
+   "class": "C",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F74",
+   "title": "Abstract information worlds need a visible representational grammar",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 147,
+   "class": "D",
+   "ops": [],
+   "test": null,
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F75",
+   "title": "Typography and diagram glyphs are specific illustration parts",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 155,
+   "class": "C",
+   "ops": [],
+   "test": "native",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F76",
+   "title": "Repeats should come from a locally defined parent generator",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 163,
+   "class": "A",
+   "ops": [
+    "repeat",
+    "oblique"
+   ],
+   "test": "native",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F77",
+   "title": "Information density must be allocated locally and to motion owners",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 171,
+   "class": "C",
+   "ops": [],
+   "test": "thumbnail",
+   "code_status": "decision_only"
+  },
+  {
+   "id": "F78",
+   "title": "Camera and representational transitions must obey a correspondence invariant",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 179,
+   "class": "A",
+   "ops": [
+    "portal",
+    "maskGroup",
+    "MN.camera"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F79",
+   "title": "Own the alpha, underpaint, parallax and offscreen drawing budget",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 187,
+   "class": "A",
+   "ops": [
+    "stratum",
+    "clipGroup",
+    "maskGroup"
+   ],
+   "test": "motion",
+   "code_status": "op_available_not_qualified"
+  },
+  {
+   "id": "F80",
+   "title": "The first provider request must actually contain the methods and unlike native pixels",
+   "source": "reference/construct-kurzgesagt-art/references/MOLECULAR_CONSTRUCTOR_F57_F80.md",
+   "line": 195,
+   "class": "B",
+   "ops": [],
+   "test": null,
+   "replacement": "provider request must contain methods + native witnesses → construction contract must cite methods, and build must execute their ops (ledger)",
+   "code_status": "replaced_by_pipeline"
+  }
+ ]
+}

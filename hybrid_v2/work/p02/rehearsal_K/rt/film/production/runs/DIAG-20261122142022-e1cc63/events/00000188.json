@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:188",
+ "sequence": 188,
+ "prev_event_sha256": "cbb95c2476aa59db5344fbc6846e78e265dd9461df2fbfe3b150d3947030b031",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwrxcflg",
+ "operation_id": null,
+ "task_id": "chunk_5400_6000",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_05400_06000.mkv",
+   "sha256": "8252d4e248d78747876a4f3b7685329d26231a57f3783ddbdfbf0d0bc4523236",
+   "bytes": 46685190
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:187"
+ ],
+ "wall_time_utc": "2026-11-22T14:43:20.874Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "segment probe + hashes + defect scan",
+  "pass": true,
+  "measurement": "600 frames 1920x1080@60/1; rss 201 MiB"
+ },
+ "lock_generation": 188,
+ "event_sha256": "8ce465919a5ecc5b9f7816b39f4bfb81e631c75d9f56384df796cc58ca4c0a89"
+}

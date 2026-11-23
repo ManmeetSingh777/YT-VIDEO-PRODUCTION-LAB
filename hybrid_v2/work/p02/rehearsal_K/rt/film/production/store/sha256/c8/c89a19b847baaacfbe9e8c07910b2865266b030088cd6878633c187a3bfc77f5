@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:132",
+ "sequence": 132,
+ "prev_event_sha256": "57063e8c3d86560919a35296710871ee4c7788dc7641861ce875c17e45832cc8",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S06_REGISTRATION_RIG",
+ "attempt_id": "Amwrxcb5k",
+ "operation_id": null,
+ "task_id": "registration_pilot_body",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:131"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:35.618Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 132,
+ "event_sha256": "99923a9042087c38515ec27a47b10f96d3024c63c11f95062bfcd0be3141c9c6"
+}

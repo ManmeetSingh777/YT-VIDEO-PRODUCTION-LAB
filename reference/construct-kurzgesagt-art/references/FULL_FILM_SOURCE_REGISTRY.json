@@ -1,0 +1,71 @@
+{
+  "registry_version": 1,
+  "date": "2026-11-19",
+  "purpose": "Complete source identity inventory. This is a file/stream integrity record, not an artistic-observation qualification.",
+  "total_video_frames_reported_by_streams": 242095,
+  "total_duration_seconds": 4035.233378,
+  "all_five_full_sources_materialized": true,
+  "all_native_dimensions": [1920, 1080],
+  "nominal_fps": 60,
+  "source_files": [
+    {
+      "id": "NUCLEAR",
+      "title": "How Nuclear Flies Protect You from Flesh-Eating Parasites",
+      "relative_path": "source_originals/How Nuclear Flies Protect You from Flesh-Eating Parasites - Kurzgesagt – In a Nutshell (1080p).mp4",
+      "library_file_id": "libfile_944bf7710b4c819181a4c2ba136e731a",
+      "sha256": "20fa7a2c9131f7ba0464f7c7af4aa2286ded24f9607b55d4f88b2fda99271fb4",
+      "duration_seconds": 679.764172,
+      "frames": 40782,
+      "bytes": 245128279
+    },
+    {
+      "id": "BRAIN",
+      "title": "Why Your Brain Blinds You For 2 Hours Every Day",
+      "relative_path": "source_originals/Why Your Brain Blinds You For 2 Hours Every Day - Kurzgesagt – In a Nutshell (1080p).mp4",
+      "library_file_id": "libfile_10d1f3d0a9d08191aa2d15cb1092c9e2",
+      "sha256": "0cde16c712cced6f8f1174d751cb45d46680371a97b456f1a4308cafb5e3d5da",
+      "duration_seconds": 753.208889,
+      "frames": 45188,
+      "bytes": 238052095
+    },
+    {
+      "id": "SOLAR",
+      "title": "Why Humanity Will Never Leave The Solar System",
+      "relative_path": "source_originals/Why Humanity Will Never Leave The Solar System - Kurzgesagt – In a Nutshell (1080p).mp4",
+      "library_file_id": "libfile_5e8febe65d84819189a4330947c2345d",
+      "sha256": "72160d842966be4a6bd8b41cee611014d5d1c05e60cbd89a4c3f0f336af6c06b",
+      "duration_seconds": 763.541769,
+      "frames": 45809,
+      "bytes": 276632435
+    },
+    {
+      "id": "AI",
+      "title": "A.I. ‐ Humanity's Final Invention",
+      "relative_path": "full_film_materialization/A.I. ‐ Humanity's Final Invention - Kurzgesagt – In a Nutshell (1080p).mp4",
+      "library_file_id": "libfile_287600f5619881919d8df5d6175a68ac",
+      "sha256": "67e752510c3606a00096c38ced96cb7bd1a4c89e33d76a07f37b1bf331349058",
+      "duration_seconds": 1002.869841,
+      "frames": 60169,
+      "bytes": 302743891
+    },
+    {
+      "id": "MEMORIES",
+      "title": "How Are Memories Stored Inside Your Brain",
+      "relative_path": "full_film_materialization/How Are Memories Stored Inside Your Brain - Kurzgesagt – In a Nutshell (1080p).mp4",
+      "library_file_id": "libfile_04bed9bd6acc8191b8199d25408a86c7",
+      "sha256": "a58cf231d066dede6c0cae58631d762d9f447139339f6c2ff1d3bceee1e29504",
+      "duration_seconds": 835.848707,
+      "frames": 50147,
+      "bytes": 298492414
+    }
+  ],
+  "existing_source_studies": {
+    "selected_intervals": 15,
+    "selected_frame_positions": 3492,
+    "selected_duration_seconds": 58.2,
+    "low_resolution_contact_position_audit": "PASS",
+    "full_242095_frame_semantic_review": "NOT_DONE",
+    "native_resolution_full_frame_art_observation": "NOT_DONE",
+    "full_film_sound_and_audiovisual_semantic_review": "NOT_DONE"
+  }
+}

@@ -1,0 +1,170 @@
+{
+ "receipt_id": "asset__pilot_body__6430a6a6f27d__mwrxc13gcb1756",
+ "scope": "asset",
+ "record_id": "pilot_body",
+ "verdict": "APPROVED",
+ "reviewer": "roundtrip-operator",
+ "reviewer_kind": "DIAGNOSTIC",
+ "attestation": null,
+ "notes": "",
+ "scope_note": "DIAGNOSTIC_ONLY: fixture rasters, not target art",
+ "evidence": [
+  "registration/pilot_body/pilot_body__REGISTRATION_RECEIPT.json",
+  "registration/pilot_body/pilot_body__overlay_on_master.png"
+ ],
+ "bundle_sha256": "6430a6a6f27d32a348eba459f8596fc582bc418a334fd191cc713b72289d2179",
+ "bundle": {
+  "content": {
+   "alpha_mode": "STRAIGHT",
+   "camera_footprint": null,
+   "canonical_rect": [
+    105,
+    31.99999999999997,
+    90,
+    313
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "CHARACTER_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    105,
+    31.99999999999997
+   ],
+   "depth_band": "FOCAL",
+   "draw_order_constraints": [],
+   "expression_id": null,
+   "file": "assets/art/pilot_body.png",
+   "height_px": 626,
+   "hidden_surfaces": [],
+   "id": "pilot_body",
+   "identity_id": "pilot",
+   "incompatible_states": [],
+   "kind": "PART",
+   "landmarks": {
+    "head_top": [
+     150,
+     29.99999999999997
+    ],
+    "neck": [
+     150,
+     109.99999999999997
+    ],
+    "pelvis": [
+     150,
+     300
+    ]
+   },
+   "layer_owner": "pilot",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "pelvis",
+   "pivot_xy": [
+    150,
+    300
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "partreg_pilot_body",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    180,
+    626
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 180
+  },
+  "id": "pilot_body",
+  "identity_landmarks": {
+   "elbow_r": [
+    215,
+    215
+   ],
+   "forearm_mid": [
+    220,
+    255
+   ],
+   "head_top": [
+    150,
+    30
+   ],
+   "knuckle_r": [
+    233,
+    330
+   ],
+   "neck": [
+    150,
+    110
+   ],
+   "pelvis": [
+    150,
+    300
+   ],
+   "shoulder_r": [
+    195,
+    135
+   ],
+   "thumb_r": [
+    242,
+    304
+   ],
+   "upper_arm_mid": [
+    205,
+    175
+   ],
+   "wrist_r": [
+    225,
+    295
+   ]
+  },
+  "identity_master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "placements": [
+   {
+    "joint": "pelvis",
+    "joint_rest": [
+     150,
+     300
+    ],
+    "local": [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "parent": null,
+    "rig": "pilot_rig",
+    "slot": "pilot_body"
+   }
+  ],
+  "registration_receipt_sha256": "a45427c465d9d10e49348f8ab23635049015edd134d6641c63ba056bd3c2fc6b",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:20.236Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

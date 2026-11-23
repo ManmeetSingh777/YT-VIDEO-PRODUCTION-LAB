@@ -1,0 +1,20 @@
+b511e93 System-correction evidence at 4da33a2: 131/131 tests, Chrome proofs, AFTER reproduction 0/12, computed ledger (0 FAIL), trace, matrices
+4da33a2 P0 suite reads the content-addressed outbox through CURRENT.json
+611c9dd Wire story/demand/motion producers into production paths; morph+deform on state edges; review-art CLI; Stage 3 proofs on the staged request
+06c5a58 Orientation in solveContactGraph; outbox-layout-aware evidence scripts; U04 matching-rule mutation
+7bf98e6 C6+C8: film revision, segmented render receipts, QA layers, ledger + independent trace
+8ad93eb C4+C5: art demand, generalized FIT_RIG, bounded contact/support solver, deformation, motion systems
+39d27e0 C3: story truth, semantic action coverage, continuity, attention, narration
+a69a38f C2+C7: source-method causal consumers, staged-request style graph, art review packet, repair memory
+c5e111f C1: universal fail-closed art/motion/design contract
+9a2a9ad Evidence regenerated at e4bd309 (75/75 tests, Stage 2 browser proofs, Stage 3 proofs, P0.1 pixel evidence, Stage 3 contract evidence)
+e4bd309 Stage 3 two-way art-to-motion contract + P0.1 report
+094a1d0 P0.1 evidence regenerated at 0d9b324 (66/66 tests, Stage 2 browser proofs, P0/P01 pixel evidence)
+0d9b324 P0.1 re-audit: single crop->canonical geometry contract (B1) across intake/emitter/footprint/transitions/loader; plan-level underpaint ownership (B2); whole-film qualification command (B3); planned alpha contract, content-verified registration evidence, provider idempotency + immutable candidates, append-only review history with human/diagnostic separation; failing-first tests + Chrome pixel probes
+8480f0a Add independent P0 re-audit (input)
+8888c75 Audit builder: include diff since audited 392b0a9
+6c501f4 Independent audit P0 round: evidence regenerated at c0eed40 (clean tree)
+c0eed40 Independent audit P0 round: evidence regenerated at tested revision, P0 repair report, round-trip evidence, docs and audit builder
+aef6557 Independent audit P0-1..P0-6: graph-derived ArtJob motion contracts, typed media routing, master/part intake with hash-scoped review receipts, provider submit path, separated QA gates; fixes a2c transform order, rig-scoped state events, pivot-on-art and 3-landmark registration; failing-first tests + real-PNG round trip
+7a86e6c Add independent Hybrid V2 audit (input)
+392b0a9 Hybrid V2 audit: correct MP4 path

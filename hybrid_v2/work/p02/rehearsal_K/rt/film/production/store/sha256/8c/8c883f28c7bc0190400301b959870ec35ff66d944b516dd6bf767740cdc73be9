@@ -1,0 +1,130 @@
+{
+ "receipt_id": "asset__rt_world_far__d427686716da__mwrxbwdw714df8",
+ "scope": "asset",
+ "record_id": "rt_world_far",
+ "verdict": "APPROVED",
+ "reviewer": "roundtrip-operator",
+ "reviewer_kind": "DIAGNOSTIC",
+ "attestation": null,
+ "notes": "plate corners checked",
+ "scope_note": "DIAGNOSTIC_ONLY: fixture rasters, not target art",
+ "evidence": [
+  "registration/rt_world_far/MASTER_REGISTRATION_RECEIPT.json"
+ ],
+ "bundle_sha256": "d427686716dafcc4d436e1c3a90c338c87cfb465cc689f306dd39f4afab8e51c",
+ "bundle": {
+  "content": {
+   "alpha_mode": "OPAQUE",
+   "camera_footprint": null,
+   "canonical_rect": [
+    -100,
+    -60,
+    1200,
+    675
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "WORLD_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    -100,
+    -60
+   ],
+   "depth_band": "FAR",
+   "draw_order_constraints": [],
+   "expression_id": null,
+   "file": "assets/art/rt_world_far.png",
+   "height_px": 1350,
+   "hidden_surfaces": [],
+   "id": "rt_world_far",
+   "identity_id": "rt_world",
+   "incompatible_states": [],
+   "kind": "WORLD_PLANE",
+   "landmarks": {
+    "plate_bl": [
+     -100,
+     615
+    ],
+    "plate_mid": [
+     500,
+     277.5
+    ],
+    "plate_tl": [
+     -100,
+     -60
+    ],
+    "plate_tr": [
+     1100,
+     -60
+    ]
+   },
+   "layer_owner": "rt_world",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "plate_tl",
+   "pivot_xy": [
+    -100,
+    -60
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "masterreg_rt_world_far",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    2400,
+    1350
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 2400
+  },
+  "id": "rt_world_far",
+  "identity_landmarks": {
+   "plate_bl": [
+    -100,
+    615
+   ],
+   "plate_mid": [
+    500,
+    277.5
+   ],
+   "plate_tl": [
+    -100,
+    -60
+   ],
+   "plate_tr": [
+    1100,
+    -60
+   ]
+  },
+  "identity_master_sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+  "placements": [],
+  "registration_receipt_sha256": "20caa6f9cf985491b6bde7ea96452dde802a7db506711bd6b3cd49345e74def1",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:14.132Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

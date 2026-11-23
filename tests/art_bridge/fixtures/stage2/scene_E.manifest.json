@@ -1,0 +1,541 @@
+{
+ "schema_version": "2.0.0",
+ "project_id": "diag_stage2_E",
+ "production_mode": "COMPLETE_FILM_ART_PACKAGE",
+ "status": "PLANNED",
+ "stage": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "total_frames": 7200,
+  "coord_system": "SVG_Y_DOWN_PX",
+  "color_space": "sRGB"
+ },
+ "authority": {
+  "script": null,
+  "direction": null,
+  "style_skill": "skill/SKILL.md",
+  "visual_bible": null,
+  "source_witness_manifest": "skill/QUESTION_NATIVE_WITNESS_MANIFEST.json"
+ },
+ "identities": [
+  {
+   "id": "diag_mech",
+   "kind": "MACHINE",
+   "canonical_asset_id": "mech_master",
+   "master_sha256": "9be2f147323212442e54f18a9a370b5b9508acc4c98a5a0a48724f88676b691f",
+   "landmarks": {
+    "axle": [
+     100,
+     100
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "diag_mech"
+   ],
+   "source_method_ids": [
+    "F09",
+    "F45"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [],
+   "approved_review_id": "diag_review"
+  }
+ ],
+ "assets": [
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "mech_master",
+   "identity_id": "diag_mech",
+   "kind": "MASTER",
+   "file": "diag2/gear_drive.png",
+   "sha256": "9be2f147323212442e54f18a9a370b5b9508acc4c98a5a0a48724f88676b691f",
+   "width_px": 200,
+   "height_px": 200,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    200,
+    200
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    200,
+    200
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    100,
+    100
+   ],
+   "pivot_landmark_id": null,
+   "landmarks": {},
+   "layer_owner": "diag_mech"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "gear_drive",
+   "identity_id": "diag_mech",
+   "kind": "PART",
+   "file": "diag2/gear_drive.png",
+   "sha256": "9be2f147323212442e54f18a9a370b5b9508acc4c98a5a0a48724f88676b691f",
+   "width_px": 200,
+   "height_px": 200,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    200,
+    200
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    200,
+    200
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    100,
+    100
+   ],
+   "pivot_landmark_id": "axle",
+   "landmarks": {
+    "axle": [
+     100,
+     100
+    ]
+   },
+   "layer_owner": "diag_mech"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "gear_follow",
+   "identity_id": "diag_mech",
+   "kind": "PART",
+   "file": "diag2/gear_follow.png",
+   "sha256": "20562d296d533aaabad689af2da168a714837b94193b7b24a4a4f1b4dd9bb086",
+   "width_px": 120,
+   "height_px": 120,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    120,
+    120
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    120,
+    120
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    60,
+    60
+   ],
+   "pivot_landmark_id": "axle2",
+   "landmarks": {
+    "axle2": [
+     60,
+     60
+    ]
+   },
+   "layer_owner": "diag_mech"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "flow_symbol",
+   "identity_id": "diag_mech",
+   "kind": "SYMBOL",
+   "file": "diag2/flow_symbol.png",
+   "sha256": "64b4daa7a9d17e0765b2f0670b42cd67766f7d3977c63dae827c7f52e74e68ac",
+   "width_px": 28,
+   "height_px": 16,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    28,
+    16
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    28,
+    16
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    14,
+    8
+   ],
+   "pivot_landmark_id": null,
+   "landmarks": {},
+   "layer_owner": "diag_mech"
+  }
+ ],
+ "worlds": [],
+ "rigs": [
+  {
+   "id": "gearA",
+   "identity_id": "diag_mech",
+   "root_part": "r",
+   "joints": [
+    {
+     "id": "r",
+     "parent_id": null,
+     "rest_xy": [
+      100,
+      100
+     ],
+     "rotation_limits_deg": [
+      -1,
+      1
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "spin",
+     "parent_id": "r",
+     "rest_xy": [
+      100,
+      100
+     ],
+     "rotation_limits_deg": [
+      -100000,
+      100000
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "gear_drive",
+     "joint_id": "spin",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "gear_drive",
+     "material_owner_id": "diag_mech"
+    }
+   ],
+   "sockets": [],
+   "pose_states": [
+    {
+     "id": "s",
+     "asset_bindings": {},
+     "landmark_correspondence": [],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": "diag_review"
+    }
+   ],
+   "view_states": [],
+   "constraints": [],
+   "allowed_state_edges": []
+  },
+  {
+   "id": "gearB",
+   "identity_id": "diag_mech",
+   "root_part": "r",
+   "joints": [
+    {
+     "id": "r",
+     "parent_id": null,
+     "rest_xy": [
+      60,
+      60
+     ],
+     "rotation_limits_deg": [
+      -1,
+      1
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "spin",
+     "parent_id": "r",
+     "rest_xy": [
+      60,
+      60
+     ],
+     "rotation_limits_deg": [
+      -100000,
+      100000
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "gear_follow",
+     "joint_id": "spin",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "gear_follow",
+     "material_owner_id": "diag_mech"
+    }
+   ],
+   "sockets": [],
+   "pose_states": [
+    {
+     "id": "s",
+     "asset_bindings": {},
+     "landmark_correspondence": [],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": "diag_review"
+    }
+   ],
+   "view_states": [],
+   "constraints": [],
+   "allowed_state_edges": []
+  }
+ ],
+ "actions": [
+  {
+   "id": "gear_drive_act",
+   "shot_id": "shotE",
+   "frame_range": [
+    0,
+    600
+   ],
+   "semantic_goal": "driver turns follower; output flow rate follows the driver speed",
+   "mode": "PROCEDURAL",
+   "actors": [
+    {
+     "rig_id": "gearA",
+     "root_world_xy": [
+      800,
+      540
+     ]
+    },
+    {
+     "rig_id": "gearB",
+     "root_world_xy": [
+      960,
+      540
+     ]
+    }
+   ],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [],
+   "proof_conditions": [
+    "sampled-frame QA in tests/art_bridge/stage2_proofs.mjs"
+   ]
+  },
+  {
+   "id": "flow_out",
+   "shot_id": "shotE",
+   "frame_range": [
+    0,
+    600
+   ],
+   "semantic_goal": "flow symbols along output path",
+   "mode": "PROCEDURAL",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [],
+   "proof_conditions": [
+    "sampled-frame QA in tests/art_bridge/stage2_proofs.mjs"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "shotE",
+   "start_frame": 0,
+   "end_frame": 7200,
+   "world_id": null,
+   "entry_state": "start",
+   "events": [],
+   "attention_path": [
+    "focus"
+   ],
+   "camera_track_id": null,
+   "required_asset_ids": [],
+   "exit_state": "end",
+   "continuity_to": null,
+   "hold_purpose": "diagnostic hold"
+  }
+ ],
+ "transitions": [],
+ "audio": {
+  "narration_file": null,
+  "word_alignment_file": null,
+  "sfx_events_file": null
+ },
+ "learning": {
+  "repair_memory_file": null,
+  "compiler_receipts": []
+ },
+ "evidence": {
+  "asset_review_index": null,
+  "motion_review_index": null,
+  "method_trace_index": null
+ }
+}

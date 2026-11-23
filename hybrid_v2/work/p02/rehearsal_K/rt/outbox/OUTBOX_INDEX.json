@@ -1,0 +1,300 @@
+{
+ "status": "WAITING_FOR_GPT_ART",
+ "generated_by": "engine/art_bridge/art_intake.mjs#planJobs (no hand-edited jobs)",
+ "generated_at": "2026-11-22T14:20:19.771Z",
+ "film": "hybrid_v2/work/p02/rehearsal_K/rt/film",
+ "storage": "content-addressed: jobs/<id>/<generation>/job.json, compiled/<id>/<generation>/ (never deleted); CURRENT.json points at the current generation",
+ "manifest_check": {
+  "pass": false,
+  "gates": {
+   "manifest_valid": false,
+   "approvals_verified": false,
+   "no_diagnostic_assets": false,
+   "production_ready": false
+  },
+  "error_counts": {
+   "MISSING_ART_ASSET": 16,
+   "UNAPPROVED_ART": 3
+  }
+ },
+ "film_contracts": {
+  "report": "story/FILM_CONTRACT_REPORT.json",
+  "blockers": {
+   "story": 1,
+   "uncompiled_actions": 0,
+   "continuity": 0,
+   "inert_attention": 0,
+   "missing_art_states": 0,
+   "transform_ownership": 0,
+   "tiling": 0,
+   "action_phrases": 1,
+   "beat_media": 1,
+   "contact_morphology": 0,
+   "supported_reach": 0,
+   "portals": 0,
+   "cast_shadows": 0
+  },
+  "revision": "ea1c9051758ac75f732163ffa57d0283561005a06ef5258b095079396ebc6156"
+ },
+ "provider": {
+  "provider": null,
+  "model": null,
+  "credentials_present": {
+   "OPENAI_API_KEY": false,
+   "AZURE_OPENAI_API_KEY": false
+  },
+  "checked_at": "2026-11-22T14:20:14.388Z",
+  "blocker": "IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "live": false,
+  "capabilities": {
+   "generate": false,
+   "edit": false,
+   "transparentRaster": false,
+   "svgGeneration": false,
+   "multipleReferences": false,
+   "available": false,
+   "blocker": "IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  }
+ },
+ "story_approval": "APPROVED",
+ "direction_approval": "APPROVED",
+ "jobs": 8,
+ "by_order": {
+  "1": 2,
+  "2": 4,
+  "3": 2
+ },
+ "by_status": {
+  "APPROVED": 1,
+  "BLOCKED_CONTRACT": 1,
+  "READY_FOR_SOURCE_ATTACHED_EDIT": 6
+ },
+ "gate_blocked": 1,
+ "compiled": 6,
+ "empty_frame_ranges_with_triggers": 0,
+ "unused_in_action_graph": [],
+ "index": [
+  {
+   "artjob_id": "ARTJOB_MASTER_pilot_master_a4b23a0d",
+   "asset": "pilot_master",
+   "state_kind": "MASTER",
+   "asset_kind": "MASTER",
+   "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+   "order": 1,
+   "derived_from": null,
+   "status": "APPROVED",
+   "generation": "b868518423f6d8fb986cee55",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     0,
+     600
+    ]
+   ],
+   "triggers": 0,
+   "motion_context_sha256": "31748b8fa5eed1d387b7122d834a92d2c3ff8e7d05f77d2a6eb774aee3fc44c0",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_MASTER_rt_world_far_93da356a",
+   "asset": "rt_world_far",
+   "state_kind": "MASTER",
+   "asset_kind": "WORLD_PLANE",
+   "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+   "order": 1,
+   "derived_from": null,
+   "status": "BLOCKED_CONTRACT",
+   "generation": "223e6c20cf136cd3680ff6c3",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     3600,
+     7200
+    ]
+   ],
+   "triggers": 0,
+   "motion_context_sha256": "18768edfd8c5500d6099ffe74d013e08c15cf78f78c2c9f2c3a2841bf1843100",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_pilot_body_86681050",
+   "asset": "pilot_body",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "generation": "c746e18785bd104c6ad4aa1d",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     0,
+     600
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "adf2a5bd9495815d3a35b898caca58d4768f4cb1dcbe72cde3551e5a7e36328d",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "witnesses": [
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg ae19d44f57d5 verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg b4374bfce3dd verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg 493f97772748 verified"
+   ],
+   "contact_sheet": "hybrid_v2/work/p02/rehearsal_K/rt/outbox/contact_sheets/ARTJOB_PART_OR_STATE_pilot_body_86681050__c746e18785bd104c6ad4aa1d.png"
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_pilot_forearm_8c449dea",
+   "asset": "pilot_forearm",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "generation": "7fd4bb14341fae7f639eea5b",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     0,
+     600
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "3dc81c05d3129917f21eead3c2b78a1ed96e7d28b7ba8c643bb8f4b3c96356e4",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "witnesses": [
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg ae19d44f57d5 verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg b4374bfce3dd verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg 493f97772748 verified"
+   ],
+   "contact_sheet": "hybrid_v2/work/p02/rehearsal_K/rt/outbox/contact_sheets/ARTJOB_PART_OR_STATE_pilot_forearm_8c449dea__7fd4bb14341fae7f639eea5b.png"
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_pilot_upper_arm_07dce89c",
+   "asset": "pilot_upper_arm",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "generation": "84a7422d467f6352a80e9fe1",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     0,
+     600
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "246b3fb59c382963bc3465dd04923ded53460362aaf9878aec94df14522ba91b",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "witnesses": [
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg ae19d44f57d5 verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg b4374bfce3dd verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg 493f97772748 verified"
+   ],
+   "contact_sheet": "hybrid_v2/work/p02/rehearsal_K/rt/outbox/contact_sheets/ARTJOB_PART_OR_STATE_pilot_upper_arm_07dce89c__84a7422d467f6352a80e9fe1.png"
+  },
+  {
+   "artjob_id": "ARTJOB_UNDERPAINT_pilot_underpaint_8edcc8e8",
+   "asset": "pilot_underpaint",
+   "state_kind": "UNDERPAINT",
+   "asset_kind": "UNDERPAINT",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "generation": "31cabd29acf28f94d2ce9ebc",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     0,
+     600
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "4b8a0dc0afce208c2cc2e37fa9209cf141744e16e4783b4e420f9f68c2e2949e",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "witnesses": [
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg ae19d44f57d5 verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg b4374bfce3dd verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg 493f97772748 verified"
+   ],
+   "contact_sheet": "hybrid_v2/work/p02/rehearsal_K/rt/outbox/contact_sheets/ARTJOB_UNDERPAINT_pilot_underpaint_8edcc8e8__31cabd29acf28f94d2ce9ebc.png"
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_pilot_hand_grip_774b7993",
+   "asset": "pilot_hand_grip",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "generation": "b960354d5e17fa09aeb35c80",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     100,
+     600
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "4e785a2f9d0b116517cd7c160dff6e1cad3486943caf7499184c4e62eb304a5c",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "witnesses": [
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg ae19d44f57d5 verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg b4374bfce3dd verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg 493f97772748 verified"
+   ],
+   "contact_sheet": "hybrid_v2/work/p02/rehearsal_K/rt/outbox/contact_sheets/ARTJOB_PART_OR_STATE_pilot_hand_grip_774b7993__b960354d5e17fa09aeb35c80.png"
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_pilot_hand_open_50ac8112",
+   "asset": "pilot_hand_open",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "generation": "98ceb2950bd802e35995943c",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     0,
+     100
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "95a9f65e818d514186419d4cb8de84fb9b83de3b6228abb7d3575315c37aaf4d",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "witnesses": [
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg ae19d44f57d5 verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg b4374bfce3dd verified",
+    "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg 493f97772748 verified"
+   ],
+   "contact_sheet": "hybrid_v2/work/p02/rehearsal_K/rt/outbox/contact_sheets/ARTJOB_PART_OR_STATE_pilot_hand_open_50ac8112__98ceb2950bd802e35995943c.png"
+  }
+ ]
+}

@@ -1,0 +1,511 @@
+{
+ "generated_at": "2026-11-22T16:18:31.393Z",
+ "jobs": [
+  {
+   "asset": "ines_master",
+   "role": "MASTER",
+   "status": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "asset": "washer_master",
+   "role": "MASTER",
+   "status": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "asset": "laundromat_far",
+   "role": "MASTER",
+   "status": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "asset": "ledger_master",
+   "role": "MASTER",
+   "status": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "asset": "street_far",
+   "role": "MASTER",
+   "status": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "asset": "drum_in",
+   "role": "MASTER",
+   "status": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "asset": "ines_leg_l_far",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_shin_l_far",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_foot_l_far",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_arm_l_far",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_forearm_l_far",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_l_far",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_torso",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_coat_hem",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_head",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_eyes",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_mouth",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_brow",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hair_back",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_leg_r",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_shin_r",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_foot_r",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_sleeve_r",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_elbow_r_underpaint",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_forearm_r",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_far_fingers",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_palm",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_near_fingers",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_near_open",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_far_open",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_near_pinch",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hand_r_far_pinch",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "coin_prop",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_eyes_curious",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_brow_raised",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_mouth_open",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_mouth_smile_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_eyes_soft_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_head_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_eyes_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_face_mouth_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_brow_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_hair_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ines_torso_profile",
+   "role": "DERIVED",
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_drum_interior",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_laundry_load",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_laundry_load_tumbling",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_cabinet",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_door_ring",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_door_glass",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_door_ring_half",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_door_glass_half",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_door_ring_open",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_door_glass_open",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "washer_coin_flap",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "laundromat_mid_machines",
+   "role": "DERIVED",
+   "derived_from": "laundromat_far",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "laundromat_fg_counter",
+   "role": "DERIVED",
+   "derived_from": "laundromat_far",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "porthole_out",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "porthole_glass_middle",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "porthole_aperture",
+   "role": "DERIVED",
+   "derived_from": "washer_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "drum_rim_out",
+   "role": "DERIVED",
+   "derived_from": "drum_in",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "rim_to_ledger_middle",
+   "role": "DERIVED",
+   "derived_from": "drum_in",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "rim_aperture",
+   "role": "DERIVED",
+   "derived_from": "drum_in",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "drum_paddles",
+   "role": "DERIVED",
+   "derived_from": "drum_in",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_turn_counter",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_coin_symbol",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_water_symbol",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_power_symbol",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_gas_symbol",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_lever_symbols",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "ledger_type_values",
+   "role": "DERIVED",
+   "derived_from": "ledger_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "street_mid_shops",
+   "role": "DERIVED",
+   "derived_from": "street_far",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "street_fg_lamp",
+   "role": "DERIVED",
+   "derived_from": "street_far",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  },
+  {
+   "asset": "laundromat_window_interior",
+   "role": "DERIVED",
+   "derived_from": "street_far",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "edit_reference": null
+  }
+ ]
+}

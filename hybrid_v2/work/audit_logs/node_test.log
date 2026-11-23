@@ -1,0 +1,407 @@
+TAP version 13
+# Subtest: B3-1 single-scene QA never certifies a film (whole_film_pass false)
+ok 1 - B3-1 single-scene QA never certifies a film (whole_film_pass false)
+  ---
+  duration_ms: 34927.0369
+  type: 'test'
+  ...
+# Subtest: B3-2 automated gates pass; without a film review the verdict is FAIL
+ok 2 - B3-2 automated gates pass; without a film review the verdict is FAIL
+  ---
+  duration_ms: 7781.9856
+  type: 'test'
+  ...
+# Subtest: B3-3 positive path: film receipt after all gates → PRODUCTION_PASS_UNDER_TEST_TRUST (never plain PRODUCTION_PASS under test trust)
+ok 3 - B3-3 positive path: film receipt after all gates → PRODUCTION_PASS_UNDER_TEST_TRUST (never plain PRODUCTION_PASS under test trust)
+  ---
+  duration_ms: 15995.4198
+  type: 'test'
+  ...
+# Subtest: B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+ok 4 - B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+  ---
+  duration_ms: 15139.4162
+  type: 'test'
+  ...
+# Subtest: B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame
+ok 5 - B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame
+  ---
+  duration_ms: 53931.3216
+  type: 'test'
+  ...
+# Subtest: B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)
+ok 6 - B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)
+  ---
+  duration_ms: 5380.0109
+  type: 'test'
+  ...
+# Subtest: B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine
+ok 7 - B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine
+  ---
+  duration_ms: 11349.5098
+  type: 'test'
+  ...
+# Subtest: B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)
+ok 8 - B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)
+  ---
+  duration_ms: 7.0642
+  type: 'test'
+  ...
+# Subtest: B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix
+ok 9 - B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix
+  ---
+  duration_ms: 339.6141
+  type: 'test'
+  ...
+# Subtest: B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree
+ok 10 - B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree
+  ---
+  duration_ms: 2922.0791
+  type: 'test'
+  ...
+# Subtest: B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)
+ok 11 - B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)
+  ---
+  duration_ms: 1877.8304
+  type: 'test'
+  ...
+# Subtest: B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)
+ok 12 - B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)
+  ---
+  duration_ms: 4647.9472
+  type: 'test'
+  ...
+# Subtest: B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners
+ok 13 - B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners
+  ---
+  duration_ms: 10.6299
+  type: 'test'
+  ...
+# Subtest: B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses
+ok 14 - B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses
+  ---
+  duration_ms: 464.3064
+  type: 'test'
+  ...
+# Subtest: B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam
+ok 15 - B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam
+  ---
+  duration_ms: 3322.2142
+  type: 'test'
+  ...
+# Subtest: H1 planned alpha contract is enforced at intake (no silent rewrite)
+ok 16 - H1 planned alpha contract is enforced at intake (no silent rewrite)
+  ---
+  duration_ms: 273.8429
+  type: 'test'
+  ...
+# Subtest: H2 registration receipt content is verified and bound into the approval
+ok 17 - H2 registration receipt content is verified and bound into the approval
+  ---
+  duration_ms: 215.8319
+  type: 'test'
+  ...
+# Subtest: H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume
+ok 18 - H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume
+  ---
+  duration_ms: 329.65
+  type: 'test'
+  ...
+# Subtest: H4 review history is immutable; a rejection clears the current pointer; every decision survives
+ok 19 - H4 review history is immutable; a rejection clears the current pointer; every decision survives
+  ---
+  duration_ms: 341.0386
+  type: 'test'
+  ...
+# Subtest: H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator
+ok 20 - H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator
+  ---
+  duration_ms: 466.8564
+  type: 'test'
+  ...
+# Subtest: B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused
+ok 21 - B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused
+  ---
+  duration_ms: 1656.1025
+  type: 'test'
+  ...
+# Subtest: P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+ok 22 - P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+  ---
+  duration_ms: 19.4708
+  type: 'test'
+  ...
+# Subtest: P0-1b Ines master context covers the S02 interval and the master's shots
+ok 23 - P0-1b Ines master context covers the S02 interval and the master's shots
+  ---
+  duration_ms: 14.628
+  type: 'test'
+  ...
+# Subtest: P0-1c perturbing S02 grip timing changes only dependent job contexts
+ok 24 - P0-1c perturbing S02 grip timing changes only dependent job contexts
+  ---
+  duration_ms: 320.3134
+  type: 'test'
+  ...
+# Subtest: P0-2a all six canonical-master jobs route to the canonical master medium
+ok 25 - P0-2a all six canonical-master jobs route to the canonical master medium
+  ---
+  duration_ms: 11.4344
+  type: 'test'
+  ...
+# Subtest: P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+ok 26 - P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+  ---
+  duration_ms: 1.4267
+  type: 'test'
+  ...
+# Subtest: P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+ok 27 - P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+  ---
+  duration_ms: 1558.5568
+  type: 'test'
+  ...
+# Subtest: P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+ok 28 - P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+  ---
+  duration_ms: 12936.3279
+  type: 'test'
+  ...
+# Subtest: P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+ok 29 - P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+  ---
+  duration_ms: 14622.1767
+  type: 'test'
+  ...
+# Subtest: P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+ok 30 - P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+  ---
+  duration_ms: 3311.242
+  type: 'test'
+  ...
+# Subtest: P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+ok 31 - P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+  ---
+  duration_ms: 1929.7522
+  type: 'test'
+  ...
+# Subtest: valid examples pass
+ok 32 - valid examples pass
+  ---
+  duration_ms: 203.8207
+  type: 'test'
+  ...
+# Subtest: checked-in example files match the generator and pass/fail as named
+ok 33 - checked-in example files match the generator and pass/fail as named
+  ---
+  duration_ms: 297.4817
+  type: 'test'
+  ...
+# Subtest: unreachable contact reports exact missing distance
+ok 34 - unreachable contact reports exact missing distance
+  ---
+  duration_ms: 36.1883
+  type: 'test'
+  ...
+# Subtest: missing underpaint
+ok 35 - missing underpaint
+  ---
+  duration_ms: 40.7546
+  type: 'test'
+  ...
+# Subtest: illegal view morph
+ok 36 - illegal view morph
+  ---
+  duration_ms: 37.6932
+  type: 'test'
+  ...
+# Subtest: wrong pivot → UNREGISTERED_PIVOT
+ok 37 - wrong pivot → UNREGISTERED_PIVOT
+  ---
+  duration_ms: 37.9491
+  type: 'test'
+  ...
+# Subtest: invalid parent → error naming the asset
+ok 38 - invalid parent → error naming the asset
+  ---
+  duration_ms: 37.2636
+  type: 'test'
+  ...
+# Subtest: rig with cyclic joints fails
+ok 39 - rig with cyclic joints fails
+  ---
+  duration_ms: 37.3807
+  type: 'test'
+  ...
+# Subtest: unsupported view state → UNSUPPORTED_VIEW
+ok 40 - unsupported view state → UNSUPPORTED_VIEW
+  ---
+  duration_ms: 36.9449
+  type: 'test'
+  ...
+# Subtest: circular layer order → OCCLUSION_CONFLICT
+ok 41 - circular layer order → OCCLUSION_CONFLICT
+  ---
+  duration_ms: 38.3729
+  type: 'test'
+  ...
+# Subtest: hash mismatch / missing file / path escape
+ok 42 - hash mismatch / missing file / path escape
+  ---
+  duration_ms: 78.4364
+  type: 'test'
+  ...
+# Subtest: production mode rejects diagnostic fixtures
+ok 43 - production mode rejects diagnostic fixtures
+  ---
+  duration_ms: 39.9721
+  type: 'test'
+  ...
+# Subtest: continuous transition without middle art → MISSING_TRANSITION_STATE
+ok 44 - continuous transition without middle art → MISSING_TRANSITION_STATE
+  ---
+  duration_ms: 100.4063
+  type: 'test'
+  ...
+# Subtest: schema rejects unknown top-level keys and wrong stage
+ok 45 - schema rejects unknown top-level keys and wrong stage
+  ---
+  duration_ms: 10.4664
+  type: 'test'
+  ...
+# Subtest: coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact
+ok 46 - coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact
+  ---
+  duration_ms: 12.3784
+  type: 'test'
+  ...
+# Subtest: static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG
+ok 47 - static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG
+  ---
+  duration_ms: 5.6369
+  type: 'test'
+  ...
+# Subtest: two-bone IK: exact, non-clamping, bend-branch and degenerate
+ok 48 - two-bone IK: exact, non-clamping, bend-branch and degenerate
+  ---
+  duration_ms: 1.095
+  type: 'test'
+  ...
+# Subtest: contact graph solves only active contacts
+ok 49 - contact graph solves only active contacts
+  ---
+  duration_ms: 0.4296
+  type: 'test'
+  ...
+# Subtest: F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion
+ok 50 - F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion
+  ---
+  duration_ms: 60.4026
+  type: 'test'
+  ...
+# Subtest: declared method use without a real consumer → METHOD_NO_REAL_CONSUMER
+ok 51 - declared method use without a real consumer → METHOD_NO_REAL_CONSUMER
+  ---
+  duration_ms: 45.2961
+  type: 'test'
+  ...
+# Subtest: stateAtFrame is pure: random-order evaluation equals linear evaluation
+ok 52 - stateAtFrame is pure: random-order evaluation equals linear evaluation
+  ---
+  duration_ms: 368.6871
+  type: 'test'
+  ...
+# Subtest: grip and plant hold on every locked frame; no failures over the action
+ok 53 - grip and plant hold on every locked frame; no failures over the action
+  ---
+  duration_ms: 496.8278
+  type: 'test'
+  ...
+# Subtest: bend branch contradicting the FK pose is reported, not flipped silently
+ok 54 - bend branch contradicting the FK pose is reported, not flipped silently
+  ---
+  duration_ms: 364.0172
+  type: 'test'
+  ...
+# Subtest: transform ownership, routing and morph topology are enforced at compile time
+ok 55 - transform ownership, routing and morph topology are enforced at compile time
+  ---
+  duration_ms: 353.8891
+  type: 'test'
+  ...
+# Subtest: light plane is painted on its owner and under everything above the owner; reads the owner's matrix
+ok 56 - light plane is painted on its owner and under everything above the owner; reads the owner's matrix
+  ---
+  duration_ms: 361.9616
+  type: 'test'
+  ...
+# Subtest: every runtime element is written on every frame (seek-safe DOM state)
+ok 57 - every runtime element is written on every frame (seek-safe DOM state)
+  ---
+  duration_ms: 650.0463
+  type: 'test'
+  ...
+# Subtest: transition anchor is invariant; stages OUT→MIDDLE→IN
+ok 58 - transition anchor is invariant; stages OUT→MIDDLE→IN
+  ---
+  duration_ms: 669.6863
+  type: 'test'
+  ...
+# Subtest: camera footprint flags exact spans when the camera outruns painted plates
+ok 59 - camera footprint flags exact spans when the camera outruns painted plates
+  ---
+  duration_ms: 1265.4409
+  type: 'test'
+  ...
+# Subtest: gear ratio and flow symbols follow the declared mechanism
+ok 60 - gear ratio and flow symbols follow the declared mechanism
+  ---
+  duration_ms: 16.3486
+  type: 'test'
+  ...
+# Subtest: registration solver recovers similarity and affine exactly; collinear affine refused
+ok 61 - registration solver recovers similarity and affine exactly; collinear affine refused
+  ---
+  duration_ms: 2.1732
+  type: 'test'
+  ...
+# Subtest: ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere
+ok 62 - ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere
+  ---
+  duration_ms: 4.1441
+  type: 'test'
+  ...
+# Subtest: state coverage: one static master for acting states never passes; front features on a turned head are missing
+ok 63 - state coverage: one static master for acting states never passes; front features on a turned head are missing
+  ---
+  duration_ms: 11.1728
+  type: 'test'
+  ...
+# Subtest: provider boundary: no configuration → NullProvider with an exact blocker; never fabricates
+ok 64 - provider boundary: no configuration → NullProvider with an exact blocker; never fabricates
+  ---
+  duration_ms: 2.772
+  type: 'test'
+  ...
+# Subtest: sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused
+ok 65 - sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused
+  ---
+  duration_ms: 357.6012
+  type: 'test'
+  ...
+# Subtest: word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT
+ok 66 - word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT
+  ---
+  duration_ms: 1.8157
+  type: 'test'
+  ...
+1..66
+# tests 66
+# suites 0
+# pass 66
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 133390.3411
+exit=0

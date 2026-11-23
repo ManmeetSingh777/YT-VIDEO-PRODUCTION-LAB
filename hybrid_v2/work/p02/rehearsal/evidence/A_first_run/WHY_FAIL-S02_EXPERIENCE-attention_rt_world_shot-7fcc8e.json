@@ -1,0 +1,25 @@
+{
+ "first_violated_invariant": "every attention target has a consuming track",
+ "observed": "primary_focus \"cam_world\" has no consuming track in [3600,7200)",
+ "stage": "S02_EXPERIENCE",
+ "task": "attention_rt_world_shot",
+ "root_producer": "engine/story/experience.mjs#compileAttention",
+ "failure_class": "DIRECTION_OR_ATTENTION",
+ "repair_owner": "EXPERIENCE_DIRECTOR",
+ "blast_radius": [
+  "direction_approval",
+  "S03_TIMING_MOTION",
+  "S04_ART_DEMAND",
+  "S05_ART_PRODUCTION",
+  "S06_REGISTRATION_RIG",
+  "S07_NEUTRINO_RENDER",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "frames": [],
+ "evidence_event": "DIAG-20261122115303-c3d250:23",
+ "resume_from": "S02_EXPERIENCE",
+ "retry_safe": false,
+ "external_spend_risk": false,
+ "next_operation": "resolve attention_rt_world_shot"
+}

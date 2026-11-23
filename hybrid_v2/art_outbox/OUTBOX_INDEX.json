@@ -1,0 +1,1957 @@
+{
+ "status": "WAITING_FOR_GPT_ART",
+ "generated_by": "engine/art_bridge/art_intake.mjs#planJobs (no hand-edited jobs)",
+ "generated_at": "2026-11-22T08:25:15.753Z",
+ "film": "films/hv2_film001",
+ "storage": "content-addressed: jobs/<id>/<generation>/job.json, compiled/<id>/<generation>/ (never deleted); CURRENT.json points at the current generation",
+ "manifest_check": {
+  "pass": false,
+  "gates": {
+   "manifest_valid": false,
+   "approvals_verified": false,
+   "no_diagnostic_assets": true,
+   "production_ready": false
+  },
+  "error_counts": {
+   "MISSING_ART_ASSET": 553,
+   "MISSING_CANONICAL_MASTER": 6,
+   "MISSING_TRANSITION_STATE": 6,
+   "UNAPPROVED_ART": 18
+  }
+ },
+ "film_contracts": {
+  "report": "story/FILM_CONTRACT_REPORT.json",
+  "blockers": {
+   "story": 1,
+   "uncompiled_actions": 15,
+   "continuity": 0,
+   "inert_attention": 22,
+   "missing_art_states": 3,
+   "transform_ownership": 0,
+   "tiling": 0,
+   "action_phrases": 1,
+   "beat_media": 1,
+   "contact_morphology": 0,
+   "supported_reach": 0,
+   "portals": 2,
+   "cast_shadows": 0
+  },
+  "revision": "65f069d8a27b1ba89abbcfa30295fd2bb57f4b0c82851ef5af787993a3d7dc4d"
+ },
+ "provider": {
+  "provider": null,
+  "model": null,
+  "credentials_present": {
+   "OPENAI_API_KEY": false,
+   "AZURE_OPENAI_API_KEY": false
+  },
+  "checked_at": "2026-11-22T08:25:12.480Z",
+  "blocker": "IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "live": false,
+  "capabilities": {
+   "generate": false,
+   "edit": false,
+   "transparentRaster": false,
+   "svgGeneration": false,
+   "multipleReferences": false,
+   "available": false,
+   "blocker": "IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  }
+ },
+ "story_approval": "NOT_APPROVED (NO_RECEIPT)",
+ "direction_approval": "NOT_APPROVED (NO_RECEIPT)",
+ "jobs": 74,
+ "by_order": {
+  "1": 6,
+  "2": 38,
+  "3": 24,
+  "4": 6
+ },
+ "by_status": {
+  "BLOCKED_CONTRACT": 37,
+  "WAITING_FOR_APPROVALS_THEN_GPT_ART": 1,
+  "WAITING_ON_MASTER_APPROVAL": 36
+ },
+ "gate_blocked": 37,
+ "compiled": 1,
+ "empty_frame_ranges_with_triggers": 0,
+ "unused_in_action_graph": [],
+ "index": [
+  {
+   "artjob_id": "ARTJOB_MASTER_drum_in_4c40db2c",
+   "asset": "drum_in",
+   "state_kind": "MASTER",
+   "asset_kind": "TRANSITION_PLATE",
+   "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+   "order": 1,
+   "derived_from": null,
+   "status": "BLOCKED_CONTRACT",
+   "generation": "50189c485671b1d1977861a8",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1800,
+     3000
+    ]
+   ],
+   "triggers": 6,
+   "motion_context_sha256": "77db8d152514f1d93f215e3f1e7c2a22ee5018a42b2ec2e38b4a4077fedd67f7",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_MASTER_ines_master_211539ad",
+   "asset": "ines_master",
+   "state_kind": "MASTER",
+   "asset_kind": "MASTER",
+   "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+   "order": 1,
+   "derived_from": null,
+   "status": "WAITING_FOR_APPROVALS_THEN_GPT_ART",
+   "generation": "340a002dbd26a3ecd6b1bdc6",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "1753e34a981941c9dc5c84bf47638fbb76d20f71273728dac666bc089beb9c30",
+   "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+   "prompt_sha256": "8eb11e7983b60d2f23561d6b30a295b24569fa964c8e55874e1a81d8ac4916f4",
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_MASTER_laundromat_far_76979fc1",
+   "asset": "laundromat_far",
+   "state_kind": "MASTER",
+   "asset_kind": "WORLD_PLANE",
+   "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+   "order": 1,
+   "derived_from": null,
+   "status": "BLOCKED_CONTRACT",
+   "generation": "3846127501e137fc6310d5f8",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     5160,
+     7200
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "e13c24b67c74d567ccddc5b251ac7976fc6c13c7b5f59ead0181b4e7aea0d341",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_MASTER_ledger_master_105f0939",
+   "asset": "ledger_master",
+   "state_kind": "MASTER",
+   "asset_kind": "MASTER",
+   "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+   "order": 1,
+   "derived_from": null,
+   "status": "BLOCKED_CONTRACT",
+   "generation": "a89499eafadc09bcf6459d10",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1920,
+     4080
+    ],
+    [
+     5160,
+     7200
+    ]
+   ],
+   "triggers": 5,
+   "motion_context_sha256": "49d5b6cb156788f5f23a16f73787758b4b4e04a4303800a0fc985e3e199da621",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_MASTER_street_far_ac5264a9",
+   "asset": "street_far",
+   "state_kind": "MASTER",
+   "asset_kind": "WORLD_PLANE",
+   "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+   "order": 1,
+   "derived_from": null,
+   "status": "BLOCKED_CONTRACT",
+   "generation": "c0b69822c7e3851d53147338",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "ee34d68cdfd179ebc48f3d87981311f6c4d4a3e94753f7f1f18421ba0a23b37f",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_MASTER_washer_master_38ddfd06",
+   "asset": "washer_master",
+   "state_kind": "MASTER",
+   "asset_kind": "MASTER",
+   "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+   "order": 1,
+   "derived_from": null,
+   "status": "BLOCKED_CONTRACT",
+   "generation": "ba9b6180200a5eceac928c46",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "1f643d2ecd8cacaf752ae2e96a6a566cc46668ba4c2cf6b545ad358a53f4455e",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_arm_l_far_6c406170",
+   "asset": "ines_arm_l_far",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "6f45f1ffed95d531fddf17e5",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "722dd6e7f78590adfee65287d17eb3d3efa0ca1aa35b6fd25bd245754407fd5c",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_brow_90370167",
+   "asset": "ines_brow",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8c679c2c24c3f0aa90f9f28f",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1590
+    ]
+   ],
+   "triggers": 13,
+   "motion_context_sha256": "7787e894c55a04df8a728dc586d1f19f4a0ab906b481a30c79698e0427a011cc",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_coat_hem_0d4df647",
+   "asset": "ines_coat_hem",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "c647d188055656996a861215",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "552a64a74aa2a3aacd937cd2b8d54aea0f2285be6f59ce24d2d90d93ad13cb7c",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_eyes_42eedf3d",
+   "asset": "ines_face_eyes",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8c679c2c24c3f0aa90f9f28f",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1590
+    ]
+   ],
+   "triggers": 13,
+   "motion_context_sha256": "7787e894c55a04df8a728dc586d1f19f4a0ab906b481a30c79698e0427a011cc",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_mouth_eba1297a",
+   "asset": "ines_face_mouth",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8c679c2c24c3f0aa90f9f28f",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1590
+    ]
+   ],
+   "triggers": 13,
+   "motion_context_sha256": "7787e894c55a04df8a728dc586d1f19f4a0ab906b481a30c79698e0427a011cc",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_foot_l_far_0b889bea",
+   "asset": "ines_foot_l_far",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "482007865689e5eec3fb4e3b",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "7f6a0142b6522a4c508ccbc7a93e7c4d724362bd4af1d54fb9225daa8e9b1a60",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_foot_r_51d5fe63",
+   "asset": "ines_foot_r",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "fe655d8f767e3b2cd9b7dfb0",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "d48f0c4df73c40708ca973b87975fcacd8a8b329a1e5704595b234889143e171",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_forearm_l_far_cc9e4a93",
+   "asset": "ines_forearm_l_far",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "92a27671dd06d9f910cee7e2",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "0a285689a27a467560c216db5121ed372d60bc65d23d749f90de50e0a64082f9",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_forearm_r_c2b7425a",
+   "asset": "ines_forearm_r",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "14a036d8e14877a838c0f085",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "54ad014968157eb57714fe1fafe3bfcc307c20681411bb027d102c46541e27cf",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hair_back_336e79d6",
+   "asset": "ines_hair_back",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8f4ffacb6093eb9acafe5a83",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1620
+    ]
+   ],
+   "triggers": 14,
+   "motion_context_sha256": "49a60186b0f889dc7f2bcdf57161f16ecf728a6c4f0090ce7a3847f0f1d9c559",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_l_far_a2f91796",
+   "asset": "ines_hand_l_far",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "49a6603d50062d4417845b6b",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "fdf9753fbf22705037f21ed78c101a1782d0eb1b56f51e6a91e014c9ef6a7883",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_far_fingers_080552d5",
+   "asset": "ines_hand_r_far_fingers",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "69a7ce12f2d75d31f4be5924",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     990
+    ],
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1410
+    ],
+    [
+     1590,
+     1920
+    ]
+   ],
+   "triggers": 13,
+   "motion_context_sha256": "330f8dbf00d755d8803b6856dcf74b8259c1775f74429518ecc3acfec98c2e78",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_near_fingers_f9dda600",
+   "asset": "ines_hand_r_near_fingers",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "6843e23d72af5667e52626e8",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     990
+    ],
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1410
+    ],
+    [
+     1590,
+     1920
+    ]
+   ],
+   "triggers": 13,
+   "motion_context_sha256": "6422fe9005a9b2e172b595b35e0b9e845aadeb771dc8301f36cd1cb8a1706639",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_palm_f913c5d6",
+   "asset": "ines_hand_r_palm",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "4db5db19a53b6ba95d5ec695",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 18,
+   "motion_context_sha256": "0637dbb63cfab6423880433159dbad57a5aeafca7517be04ab26b17df26ee0e6",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_head_54537212",
+   "asset": "ines_head",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8f4ffacb6093eb9acafe5a83",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1620
+    ]
+   ],
+   "triggers": 14,
+   "motion_context_sha256": "49a60186b0f889dc7f2bcdf57161f16ecf728a6c4f0090ce7a3847f0f1d9c559",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_leg_l_far_fca949a0",
+   "asset": "ines_leg_l_far",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "45062aa1485897803678492b",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "c756730e6290c70e1905769a5338961320ed4c9606d04684bd498696dee102dd",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_leg_r_0c77ff6c",
+   "asset": "ines_leg_r",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "bac7629de018dcb015ce4248",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "ec97c8f8b477e919b9df7dcfa04ea76808609dc8fedea5d415a4ea8344fd6cfd",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_shin_l_far_9049fa68",
+   "asset": "ines_shin_l_far",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "3719a294dbe6114eca508715",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "6b085505acdd1d85a8d9572157241a25812f533db148d01e8ea0301570ea0e04",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_shin_r_53098108",
+   "asset": "ines_shin_r",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "6a362d15d65132cd8c4b9b4b",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "fbda51cd20900df3aca9d23568c5af4e3220471b07c689eb469e0f8628133b4b",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_sleeve_r_034ca407",
+   "asset": "ines_sleeve_r",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "c70bf384cf177705be2d1e14",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 16,
+   "motion_context_sha256": "7fc472b8942d85b33a79f0cac43ad6b1167c100e2bec2b0f5d81e7f6cc59c621",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_torso_1a45acc0",
+   "asset": "ines_torso",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "97e0835d1110860a8729ff63",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1620
+    ]
+   ],
+   "triggers": 14,
+   "motion_context_sha256": "01cdaa9d84b9e0d946ae35e084812cc896678ebd6d140ee44180f67baca89632",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_laundromat_fg_counter_7a5dd400",
+   "asset": "laundromat_fg_counter",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "OCCLUDER",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "laundromat_far",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "1375d6751aab809825393bb8",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     5160,
+     7200
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "63970877ac31bc4ac98a7898de93ef5926168a41d21b221862d1c93793b89f29",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_laundromat_mid_machines_01530d91",
+   "asset": "laundromat_mid_machines",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "WORLD_PLANE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 2,
+   "derived_from": "laundromat_far",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "94e7c883db21b43038c164ce",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     5160,
+     7200
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "4ecf3ce8cdf7e9cea5499aa38187c2a89ad26c46af1c078a60fd2ccd795e0e04",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_laundromat_window_interior_6c487be4",
+   "asset": "laundromat_window_interior",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "WORLD_PLANE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 2,
+   "derived_from": "street_far",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "9db2ec540134004e38a3be62",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "c60d721f00daacd513d51b0bd25f946e48306c78b8f1e523479b29aa907cb155",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_street_fg_lamp_895a61a5",
+   "asset": "street_fg_lamp",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "OCCLUDER",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "street_far",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "a2e01ad536cf76aacd979fc2",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "5c99152dcde0a0d654a2e5337a706446f3e80c2987afe8d8db978bfb5f514b49",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_street_mid_shops_d489ecf7",
+   "asset": "street_mid_shops",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "WORLD_PLANE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 2,
+   "derived_from": "street_far",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "9db2ec540134004e38a3be62",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "c60d721f00daacd513d51b0bd25f946e48306c78b8f1e523479b29aa907cb155",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_cabinet_5ffba447",
+   "asset": "washer_cabinet",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "24935497aaae1cfe9ebdf698",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 18,
+   "motion_context_sha256": "a66b57adb39a2fa1700e0760efc89ea690ef1a0f89979ba4e98f379c7ae355cd",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_coin_flap_be988a70",
+   "asset": "washer_coin_flap",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "9443f9b27cf967c43c27e3dd",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 20,
+   "motion_context_sha256": "a0d13dba6ade0d68684da71bdc4091800c21db5d0521b14c9a28994d9fd2f743",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_glass_ec07d877",
+   "asset": "washer_door_glass",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "87f4ed820a5463759d5edb01",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1170
+    ],
+    [
+     1392,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 15,
+   "motion_context_sha256": "02e8853f36e4443c462cc475bff6a9046e6d300600ac1149ce033229299e486d",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_glass_half_45ebad5f",
+   "asset": "washer_door_glass_half",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "be47f5eadfed43296588a335",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1170,
+     1230
+    ],
+    [
+     1356,
+     1392
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "80aa5f9b1821ccca2a1d3e5753922b95ebb848b0d428fdb5b33038d8753d16bf",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_glass_open_75da9602",
+   "asset": "washer_door_glass_open",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "d4f9446274f4f23a3781dc82",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1230,
+     1356
+    ]
+   ],
+   "triggers": 4,
+   "motion_context_sha256": "045e8491a9abb1c3d4e4f4fa9fa1b55c353cbf129f3db38b15b3fe6bda3a0d08",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_ring_dba9e80d",
+   "asset": "washer_door_ring",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "b4e151589745aa27a3e41105",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1170
+    ],
+    [
+     1392,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 15,
+   "motion_context_sha256": "120879df2768bc3532958b8980ff0a0cdecdc40a8d4ec69fa85cf82b8125e611",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_ring_half_6fee6a08",
+   "asset": "washer_door_ring_half",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "be47f5eadfed43296588a335",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1170,
+     1230
+    ],
+    [
+     1356,
+     1392
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "80aa5f9b1821ccca2a1d3e5753922b95ebb848b0d428fdb5b33038d8753d16bf",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_ring_open_724eb66c",
+   "asset": "washer_door_ring_open",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "d4f9446274f4f23a3781dc82",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1230,
+     1356
+    ]
+   ],
+   "triggers": 4,
+   "motion_context_sha256": "045e8491a9abb1c3d4e4f4fa9fa1b55c353cbf129f3db38b15b3fe6bda3a0d08",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_drum_interior_07cee76b",
+   "asset": "washer_drum_interior",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "1e6bbc9a25fe4c0ddf435a83",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 18,
+   "motion_context_sha256": "66e1c93f59888df9ffbbbc70252606cf6277cf9d2c2c8810c9839f81a1687636",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_laundry_load_59d67832",
+   "asset": "washer_laundry_load",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "e143e1f21abc07ffa89916e7",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     0,
+     1590
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 15,
+   "motion_context_sha256": "4e9777df27e9ddea98bbfd646be77ef71453a921b9f51f3d4434808e976b26dd",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_washer_laundry_load_tumbling_6b8e4e3b",
+   "asset": "washer_laundry_load_tumbling",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "98d232e5b56119fcce6f8ad4",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1590,
+     1920
+    ]
+   ],
+   "triggers": 7,
+   "motion_context_sha256": "abf5dc5021480cba8d079839749c86a4f7b7776d0ddd4cd460b97e88f7d7dc46",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_UNDERPAINT_ines_elbow_r_underpaint_7bc0388f",
+   "asset": "ines_elbow_r_underpaint",
+   "state_kind": "UNDERPAINT",
+   "asset_kind": "UNDERPAINT",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 2,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "c799d3c200c381ad4f1caf66",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 18,
+   "motion_context_sha256": "37133cf45911dd1af6f3450e47d6a5c1b414656070120b99f2f41dff0e76b7ca",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_coin_prop_f47c99c9",
+   "asset": "coin_prop",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "0e2068a986cf32682523e795",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "d06c0a6d732101797c4a2fb827633431b3c2896abed426f8297ca15db050e9fd",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_drum_paddles_32453ff4",
+   "asset": "drum_paddles",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "drum_in",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "eeb5f5dae79a2d94562911ad",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1920,
+     3000
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "faf181f83ec9526d0a0ad8d3d1079fca92d216c3f86524ddf4d9002c2adf0171",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_brow_profile_9619c7dc",
+   "asset": "ines_brow_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "0b0bf27f2c59d5676417d054",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "triggers": 4,
+   "motion_context_sha256": "6a548adfafe6d8493e6d62b47e30968bf9969061e4178f41359be6beb9852a75",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_brow_raised_dc2469a3",
+   "asset": "ines_brow_raised",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "cbae4761afc65db0bfc574b3",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1590,
+     1620
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "c026fb70d62a7987d4249f918155af0a84aff21dee55354584ff8ce0c644fc39",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_eyes_curious_5ea80f82",
+   "asset": "ines_face_eyes_curious",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "cbae4761afc65db0bfc574b3",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1590,
+     1620
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "c026fb70d62a7987d4249f918155af0a84aff21dee55354584ff8ce0c644fc39",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_eyes_profile_fc7b2bc3",
+   "asset": "ines_face_eyes_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8cdf6b3c9ea1a0f036ecdcc4",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1620,
+     1740
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "06c75dec59501205114cc6dffa18adf04577e1f5bcfbdcab8fa09788e76104b8",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_eyes_soft_profile_930ab277",
+   "asset": "ines_face_eyes_soft_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "5b327001616578e4585fcfb9",
+   "gate_pass": false,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1740,
+     1920
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "7969b34a1e33f000af52d9d7ed62a127385d237dc09a332826898559c2123959",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_mouth_open_4b7b3c7e",
+   "asset": "ines_face_mouth_open",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "cbae4761afc65db0bfc574b3",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1590,
+     1620
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "c026fb70d62a7987d4249f918155af0a84aff21dee55354584ff8ce0c644fc39",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_mouth_profile_ef46a1ec",
+   "asset": "ines_face_mouth_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "8cdf6b3c9ea1a0f036ecdcc4",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1620,
+     1740
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "06c75dec59501205114cc6dffa18adf04577e1f5bcfbdcab8fa09788e76104b8",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_mouth_smile_profile_b179b156",
+   "asset": "ines_face_mouth_smile_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "5b327001616578e4585fcfb9",
+   "gate_pass": false,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1740,
+     1920
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "7969b34a1e33f000af52d9d7ed62a127385d237dc09a332826898559c2123959",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hair_profile_b251db12",
+   "asset": "ines_hair_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "0b0bf27f2c59d5676417d054",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "triggers": 4,
+   "motion_context_sha256": "6a548adfafe6d8493e6d62b47e30968bf9969061e4178f41359be6beb9852a75",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_far_open_dc5e8cd5",
+   "asset": "ines_hand_r_far_open",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "282434e8af6ea710a6252ecc",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     990,
+     1050
+    ],
+    [
+     1260,
+     1320
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "d132a579af4732737bf87ad1bad68a8612c78c904767ca5279e88a93bae023fc",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_far_pinch_b2fa8fed",
+   "asset": "ines_hand_r_far_pinch",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "16f2fadcaa40cb214cab5c9f",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1410,
+     1590
+    ]
+   ],
+   "triggers": 6,
+   "motion_context_sha256": "fb7c7f0ac32445024c1faa66b0e17a721259b9482584bdbffd0d491972c50883",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_near_open_aa2b0a74",
+   "asset": "ines_hand_r_near_open",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "282434e8af6ea710a6252ecc",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     990,
+     1050
+    ],
+    [
+     1260,
+     1320
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "d132a579af4732737bf87ad1bad68a8612c78c904767ca5279e88a93bae023fc",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_hand_r_near_pinch_7a878511",
+   "asset": "ines_hand_r_near_pinch",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "16f2fadcaa40cb214cab5c9f",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1410,
+     1590
+    ]
+   ],
+   "triggers": 6,
+   "motion_context_sha256": "fb7c7f0ac32445024c1faa66b0e17a721259b9482584bdbffd0d491972c50883",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_head_profile_4d996da5",
+   "asset": "ines_head_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "0b0bf27f2c59d5676417d054",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "triggers": 4,
+   "motion_context_sha256": "6a548adfafe6d8493e6d62b47e30968bf9969061e4178f41359be6beb9852a75",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ines_torso_profile_b7967157",
+   "asset": "ines_torso_profile",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "PART",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 3,
+   "derived_from": "ines_master",
+   "status": "WAITING_ON_MASTER_APPROVAL",
+   "generation": "7d4b725fa23f7c9b2af33b9e",
+   "gate_pass": true,
+   "family": "ACTING_HUMAN",
+   "frame_ranges": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "triggers": 4,
+   "motion_context_sha256": "54717490f5a076978c92612f90de65a560471254185541d45f8fcc6718a7da41",
+   "compiled": null,
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_coin_symbol_efde1b59",
+   "asset": "ledger_coin_symbol",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "SYMBOL",
+   "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "a879f769930259dd0e5b380e",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     3000,
+     4080
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "6a3ea979e215a7870d7fcf656166a4ad2feb526b67740c6ee59f40638292fb02",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_gas_symbol_e2349a1a",
+   "asset": "ledger_gas_symbol",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "SYMBOL",
+   "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "a879f769930259dd0e5b380e",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     3000,
+     4080
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "6a3ea979e215a7870d7fcf656166a4ad2feb526b67740c6ee59f40638292fb02",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_lever_symbols_7322da84",
+   "asset": "ledger_lever_symbols",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "SYMBOL",
+   "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "3d00770f19fc8cb558cc3722",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     5160,
+     6240
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "8f990cd4208e41b95e85e024e5f2ba88dbd34279d4cbadf3c40088d8579ec29c",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_power_symbol_396a6acd",
+   "asset": "ledger_power_symbol",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "SYMBOL",
+   "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "a879f769930259dd0e5b380e",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     3000,
+     4080
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "6a3ea979e215a7870d7fcf656166a4ad2feb526b67740c6ee59f40638292fb02",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_turn_counter_12a52315",
+   "asset": "ledger_turn_counter",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "SYMBOL",
+   "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "b1cbdebebdf3088f6ce64569",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1920,
+     3000
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "06386570c8ac52ce6955903557a683dde91fdf6e7d108f671aa832a48a56a0d2",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_type_values_1866a5f5",
+   "asset": "ledger_type_values",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "TYPE",
+   "medium": "APPROVED_FONT_AND_VECTOR_TYPE",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "9a2286e61b8b38a3d174a093",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     3000,
+     4080
+    ],
+    [
+     5160,
+     6240
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "481a763e153c5a5526596a59bce1362691658f9cc6ad8372805a0ec4a5003d9e",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_PART_OR_STATE_ledger_water_symbol_39f551d6",
+   "asset": "ledger_water_symbol",
+   "state_kind": "PART_OR_STATE",
+   "asset_kind": "SYMBOL",
+   "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+   "order": 3,
+   "derived_from": "ledger_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "a879f769930259dd0e5b380e",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     3000,
+     4080
+    ]
+   ],
+   "triggers": 2,
+   "motion_context_sha256": "6a3ea979e215a7870d7fcf656166a4ad2feb526b67740c6ee59f40638292fb02",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_TRANSITION_PLATE_drum_rim_out_5bc7cafe",
+   "asset": "drum_rim_out",
+   "state_kind": "TRANSITION_PLATE",
+   "asset_kind": "TRANSITION_PLATE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 4,
+   "derived_from": "drum_in",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "28c7884bfadeebe0cce1d88c",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "827cbd57b74331c215d7204825735da65a0b825d2e9976989d2c50aa1ff36015",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_TRANSITION_PLATE_porthole_aperture_987ddfbc",
+   "asset": "porthole_aperture",
+   "state_kind": "TRANSITION_PLATE",
+   "asset_kind": "MASK",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 4,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "7fe275f92ea15f6f51c90905",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "f3151443d6bfbc57f3fa0bf15c2a42addd9a246b5a92f53bf6f2bddda218de1b",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_TRANSITION_PLATE_porthole_glass_middle_613e64fa",
+   "asset": "porthole_glass_middle",
+   "state_kind": "TRANSITION_PLATE",
+   "asset_kind": "TRANSITION_PLATE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 4,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "e1197608f990ee87a0e36d4b",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "triggers": 5,
+   "motion_context_sha256": "a895039105813d5b2cb423bd25d0672d25287e2fb601f4824004e4755725a68d",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_TRANSITION_PLATE_porthole_out_0e3a99ce",
+   "asset": "porthole_out",
+   "state_kind": "TRANSITION_PLATE",
+   "asset_kind": "TRANSITION_PLATE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 4,
+   "derived_from": "washer_master",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "e1197608f990ee87a0e36d4b",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "triggers": 5,
+   "motion_context_sha256": "a895039105813d5b2cb423bd25d0672d25287e2fb601f4824004e4755725a68d",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_TRANSITION_PLATE_rim_aperture_51f0f1dd",
+   "asset": "rim_aperture",
+   "state_kind": "TRANSITION_PLATE",
+   "asset_kind": "MASK",
+   "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+   "order": 4,
+   "derived_from": "drum_in",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "615f651085ccae2dbe7adef9",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "71ceec4704f986455cee4c1b85d9e2240f7306fa1a532a676546e73fd546acb2",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  },
+  {
+   "artjob_id": "ARTJOB_TRANSITION_PLATE_rim_to_ledger_middle_6f5ff48a",
+   "asset": "rim_to_ledger_middle",
+   "state_kind": "TRANSITION_PLATE",
+   "asset_kind": "TRANSITION_PLATE",
+   "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+   "order": 4,
+   "derived_from": "drum_in",
+   "status": "BLOCKED_CONTRACT",
+   "generation": "28c7884bfadeebe0cce1d88c",
+   "gate_pass": false,
+   "family": null,
+   "frame_ranges": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "triggers": 3,
+   "motion_context_sha256": "827cbd57b74331c215d7204825735da65a0b825d2e9976989d2c50aa1ff36015",
+   "compiled": "BLOCKED_CONTRACT",
+   "prompt_sha256": null,
+   "witnesses": []
+  }
+ ]
+}

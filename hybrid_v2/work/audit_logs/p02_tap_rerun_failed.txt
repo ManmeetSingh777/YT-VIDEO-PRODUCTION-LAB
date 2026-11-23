@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: P02-R23 S08 final MP4 replaced after the render
+ok 1 - P02-R23 S08 final MP4 replaced after the render
+  ---
+  duration_ms: 981629.5746
+  type: 'test'
+  ...
+# Subtest: P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied
+ok 2 - P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied
+  ---
+  duration_ms: 990761.1977
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1972693.3109
+TAP version 13
+# Subtest: P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+ok 1 - P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+  ---
+  duration_ms: 7119.8495
+  type: 'test'
+  ...
+# Subtest: P02-R07 particles and shutter blur change REAL browser pixels only under their predicates (character + world families); a view turn without landmarks is refused
+not ok 2 - P02-R07 particles and shutter blur change REAL browser pixels only under their predicates (character + world families); a view turn without landmarks is refused
+  ---
+  duration_ms: 8400.4537
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\p02\\p02_render.test.mjs:56:1'
+  failureType: 'testCodeFailure'
+  error: 'shutter blur on the MOVING elbow (300→420 key) changes pixels'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '2c1309b7a39223718b4fcf597f09530e04fc19ef0dcbc3ca45c0e186540a7dea'
+  actual: '2c1309b7a39223718b4fcf597f09530e04fc19ef0dcbc3ca45c0e186540a7dea'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/p02/p02_render.test.mjs:63:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15866.8625
+TAP version 13
+# Subtest: P02-R13 every committed stage hands off a typed, re-verifiable packet; a forged or missing packet blocks the next stage
+not ok 1 - P02-R13 every committed stage hands off a typed, re-verifiable packet; a forged or missing packet blocks the next stage
+  ---
+  duration_ms: 612206.2807
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\p02\\p02_trace.test.mjs:20:1'
+  failureType: 'hookFailed'
+  error: |-
+    [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"COMMITTED"},{"stage":"S03_TIMING_MOTION","status":"COMMITTED"},{"stage":"S04_ART_DEMAND","status":"COMMITTED"},{"stage":"S05_ART_PRODUCTION","status":"COMMITTED"},{"stage":"S06_REGISTRATION_RIG","status":"COMMITTED"},{"stage":"S07_NEUTRINO_RENDER","status":"BLOCKED"}]
+    + actual - expected
+    
+    + 'BLOCKED'
+    - 'COMMITTED'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'COMMITTED'
+  actual: 'BLOCKED'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/p02/p02_trace.test.mjs:18:10)
+    async TestHook.run (node:internal/test_runner/test:1054:7)
+  ...
+# Subtest: P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families
+not ok 2 - P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families
+  ---
+  duration_ms: 0.7702
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\p02\\p02_trace.test.mjs:28:1'
+  failureType: 'hookFailed'
+  error: |-
+    [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"COMMITTED"},{"stage":"S03_TIMING_MOTION","status":"COMMITTED"},{"stage":"S04_ART_DEMAND","status":"COMMITTED"},{"stage":"S05_ART_PRODUCTION","status":"COMMITTED"},{"stage":"S06_REGISTRATION_RIG","status":"COMMITTED"},{"stage":"S07_NEUTRINO_RENDER","status":"BLOCKED"}]
+    + actual - expected
+    
+    + 'BLOCKED'
+    - 'COMMITTED'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'COMMITTED'
+  actual: 'BLOCKED'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/p02/p02_trace.test.mjs:18:10)
+    async TestHook.run (node:internal/test_runner/test:1054:7)
+  ...
+# Subtest: P02-R08 every input category changes the revision (code, audio, art, skill/style, story, direction, contracts, approvals, canvas); logs/QA/render do not
+not ok 3 - P02-R08 every input category changes the revision (code, audio, art, skill/style, story, direction, contracts, approvals, canvas); logs/QA/render do not
+  ---
+  duration_ms: 0.0606
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\p02\\p02_trace.test.mjs:43:1'
+  failureType: 'hookFailed'
+  error: |-
+    [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"COMMITTED"},{"stage":"S03_TIMING_MOTION","status":"COMMITTED"},{"stage":"S04_ART_DEMAND","status":"COMMITTED"},{"stage":"S05_ART_PRODUCTION","status":"COMMITTED"},{"stage":"S06_REGISTRATION_RIG","status":"COMMITTED"},{"stage":"S07_NEUTRINO_RENDER","status":"BLOCKED"}]
+    + actual - expected
+    
+    + 'BLOCKED'
+    - 'COMMITTED'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'COMMITTED'
+  actual: 'BLOCKED'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/p02/p02_trace.test.mjs:18:10)
+    async TestHook.run (node:internal/test_runner/test:1054:7)
+  ...
+# Error: Test hook "before" at tests\\p02\\p02_trace.test.mjs:13:1 generated asynchronous activity after the test ended. This activity created the error "Error: write EOF" and would have caused the test to fail, but instead triggered an uncaughtException event.
+1..3
+# tests 3
+# suites 0
+# pass 0
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 612756.9928

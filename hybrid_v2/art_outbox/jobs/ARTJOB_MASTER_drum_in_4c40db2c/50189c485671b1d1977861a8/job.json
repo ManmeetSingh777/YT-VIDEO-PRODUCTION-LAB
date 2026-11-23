@@ -1,0 +1,104 @@
+{
+ "artjob_id": "ARTJOB_MASTER_drum_in_4c40db2c",
+ "root_dependency": "drum_in",
+ "identity_id": "drum_world",
+ "state_kind": "MASTER",
+ "asset_kind": "TRANSITION_PLATE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "drum_world",
+  "canonical_parent_asset": "drum_in",
+  "shot_ids": [
+   "S02",
+   "S03",
+   "S04"
+  ],
+  "frame_ranges": [
+   [
+    1800,
+    3000
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "porthole_centre"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S03"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -240,
+   -135,
+   2400,
+   1350
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "PROCEDURAL|TRANSITION",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "drum_rim_out",
+   "rim_to_ledger_middle",
+   "rim_aperture",
+   "drum_paddles"
+  ],
+  "why_this_drawing_is_needed": "IN plate of the porthole push and S03 world. Required by: shot S03; action S02_porthole; world w_drum in S03; transition S02->S03"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "77db8d152514f1d93f215e3f1e7c2a22ee5018a42b2ec2e38b4a4077fedd67f7",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "50189c485671b1d1977861a8",
+ "dependency_parts_digest": "50189c485671b1d1977861a8ae00b59eb5adc4ff3d3c3bae6526a7a2e9e8da24",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

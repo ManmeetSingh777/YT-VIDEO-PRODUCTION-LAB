@@ -1,0 +1,1882 @@
+{
+ "generated": "2026-11-21T16:11:12.944Z",
+ "summary": {
+  "methods": 80,
+  "implemented": 9,
+  "incomplete": 71,
+  "mechanicalProved": 77,
+  "mechanicalMissing": 1,
+  "artisticEncoded": 9,
+  "gapsTotal": 107,
+  "stage1Complete": false
+ },
+ "rows": [
+  {
+   "id": "F01",
+   "title": "F01 — Silhouette and functional anatomy (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "contour.constructSilhouette",
+    "topology.assemble"
+   ],
+   "proofs": [
+    "F01/F58 constructSilhouette",
+    "F59 assemble"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F01_generic_round",
+    "F01_distinguishes"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 2,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "step 4 'subpart contours follow the gesture' is enforced only for limbs (body.mjs); not for facade/scale/leaf subparts",
+    "1/10-size comparison against the FIRST intended whole form is not automated (F58 read tests voids/gaps only)"
+   ],
+   "flow": "identity landmarks + joint types + span character/amount → buildRing control points → closed contour; root mass checked against generic-round rule",
+   "status": "INCOMPLETE",
+   "sourceSha": "040079e40a2f"
+  },
+  {
+   "id": "F02",
+   "title": "F02 — Surface-color construction instead of generic line art (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "surface.constructSurface",
+    "surface.flatColorTest"
+   ],
+   "proofs": [
+    "F02/F04/F46 constructSurface"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "F46 MATERIALS cause table"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "line-art exception inside an illustrated medium (paper montage) has no producer",
+    "glass cause routed to optic but not cross-validated"
+   ],
+   "flow": "form.cause ∈ {view_plane, volume_turn, recess, marking} + parent mask → clipped plane geometry",
+   "status": "INCOMPLETE",
+   "sourceSha": "0eb8ef8a0b72"
+  },
+  {
+   "id": "F03",
+   "title": "F03 — Conditional color-role solver (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "palette.solvePalette"
+   ],
+   "proofs": [
+    "F03/F51/F61 solvePalette"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F03_hue_family"
+   ],
+   "derivations": [
+    "SITUATIONS",
+    "palette.SITUATIONS + pair solver: situation × role slots × discrimination channel → solved values"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "thumbnail whole-frame contrast check not computed on a rendered frame",
+    "situation table covers 4 of the source's reference situations"
+   ],
+   "flow": "situation → substrate/support lightness; role hue/chroma + pair constraints → iterative OKLCH solve → hex; material planes within hue family",
+   "status": "INCOMPLETE",
+   "sourceSha": "2bef93969c3c"
+  },
+  {
+   "id": "F04",
+   "title": "F04 — Four distinct lighting systems (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "surface.constructSurface (opaque_form)",
+    "optic.composeOptic",
+    "effects.constructEffect"
+   ],
+   "proofs": [
+    "F02/F04/F46 constructSurface",
+    "F21/F48/F63 composeOptic",
+    "F32 constructEffect"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "light system → producer route",
+    "surface: lighting system → producer route; opaque_form = hard planes from light direction"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "atmospheric light (whiteout/flare preserving anatomy) only as global_exposure; no depth-haze producer"
+   ],
+   "flow": "light.dir toward source → volume_turn plane = parent − parent shifted toward light",
+   "status": "INCOMPLETE",
+   "sourceSha": "cc98d61da825"
+  },
+  {
+   "id": "F05",
+   "title": "F05 — Human head and facial-state fabrication (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "face.constructHead"
+   ],
+   "proofs": [
+    "F05/F52/F65 constructHead"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F05_skull_structure",
+    "F05_face_proportion",
+    "F30_view_redraw"
+   ],
+   "derivations": [
+    "F65 selectEyeMode",
+    "F52 BUDGET"
+   ],
+   "artisticRefusalProofs": 3,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "accessory contact (glasses/ear-piece/hood) has no producer",
+    "pose coupling: neck-to-torso entry point not constructed",
+    "view-dependent skull/jaw contours must be authored per view; no source-derived reprojection (source itself flags turnaround grammar as RESEARCH_REQUIRED)",
+    "nose/cheek forms are view-independent wedges/authored patches; jaw/cheek PLANE construction (material planes on the face) not driven by head turn"
+   ],
+   "flow": "skull contour (crown/jaw landmarks) + hair lobes + face frame (invisible projection scaffold) + expression AUs → eye/brow/lid/nose/mouth contours clipped to skull",
+   "status": "INCOMPLETE",
+   "sourceSha": "f4598310520b"
+  },
+  {
+   "id": "F06",
+   "title": "F06 — Human body, hands, locomotion and meaningful contacts (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "body.constructBody",
+    "hand.constructHand"
+   ],
+   "proofs": [
+    "F06/F66 constructBody",
+    "F06/F59 constructHand"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F06_limb_variety",
+    "F06_static_pelvis"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "clipboard/irregular-prop grips and computer-input variants beyond key_press",
+    "contact-aware ground marks (step 6)",
+    "foot construction (only leg end + contact point)"
+   ],
+   "flow": "pose (pelvis/torso/limb angles or IK target) → validated skeleton → limb outline (inner crease/outer arc) → bend-caused folds + cuffs; grip type + prop axis/radius → palm/finger/thumb geometry layered about the prop",
+   "status": "INCOMPLETE",
+   "sourceSha": "9b4f5deb91eb"
+  },
+  {
+   "id": "F07",
+   "title": "F07 — Distinct mascot and animal construction (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "family.constructCreature"
+   ],
+   "proofs": [
+    "F07 constructCreature"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "REQUIRED part classes per creature family",
+    "family.REQUIRED: creature family → required part classes, near/far differentiation, part budget"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "mascot face-state design rules",
+    "macro compound-eye facet / wing venation producers",
+    "anatomy correctness requires subject research (cannot be encoded generically)"
+   ],
+   "flow": "species part graph (classes) → F59 seating + far-limb role → registered pattern via F02 markings",
+   "status": "INCOMPLETE",
+   "sourceSha": "66adef47965d"
+  },
+  {
+   "id": "F08",
+   "title": "F08 — Architecture and oblique projection (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "projection.constructSite",
+    "projection.constructBlock (pitched/arch)"
+   ],
+   "proofs": [
+    "F60/F70/F38/F08 constructBlock+openings"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "parcel/walkway/green-gap layout generator",
+    "doors tied to paths"
+   ],
+   "flow": "site footprint + roads first → blocks extruded on one basis → roof families",
+   "status": "INCOMPLETE",
+   "sourceSha": "15d92ffbda14"
+  },
+  {
+   "id": "F09",
+   "title": "F09 — Machines and functional apparatus (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "machine.constructMachine"
+   ],
+   "proofs": [
+    "F09/F28/F45/F68 constructMachine"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "ring_chamber (nested receding walls, radial segments) producer",
+    "propulsion chain (nozzle, flame tongues, exhaust masses) producer",
+    "screen inset with masked content"
+   ],
+   "flow": "truth table + assembly graph + conduits → flow validation → housings/cylinders + sockets + facet controls",
+   "status": "INCOMPLETE",
+   "sourceSha": "6a5f76b324ad"
+  },
+  {
+   "id": "F10",
+   "title": "F10 — Complete spaces and foreground/background integration (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "projection.constructFixture"
+   ],
+   "proofs": [
+    "F10 constructFixture"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "room shell/zones producer",
+    "framed complete inner scene via optic is available but not tied into room construction",
+    "art-density by function in rooms"
+   ],
+   "flow": "fixture volume → named contact surfaces consumed by actor placement",
+   "status": "INCOMPLETE",
+   "sourceSha": "ba67c3b572ba"
+  },
+  {
+   "id": "F11",
+   "title": "F11 — Landscape, plant and environmental density (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "plants.constructTree",
+    "plants.placeVegetation"
+   ],
+   "proofs": [
+    "F39/F11/F69 constructTree",
+    "F39/F69 placeVegetation"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "sky/far-hill strata producer",
+    "fence/road mid-world props"
+   ],
+   "flow": "species → trunk/branches/lobes; zones → placements",
+   "status": "INCOMPLETE",
+   "sourceSha": "ab04e6aac895"
+  },
+  {
+   "id": "F12",
+   "title": "F12 — Designed dense biological network (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "network.growNetwork",
+    "network.drawNetwork"
+   ],
+   "proofs": [
+    "F12/F24/F41/F71 grow+draw network"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "screen-space label separation (F75 exists but not bound)",
+    "local halo on activated geometry"
+   ],
+   "flow": "parent region + growth params → graph → cluster terminals → BFS activation",
+   "status": "INCOMPLETE",
+   "sourceSha": "6c8ab99a4624"
+  },
+  {
+   "id": "F13",
+   "title": "F13 — Structural luminous, optical and complex materials (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "optic.constructRibbon",
+    "optic.composeOptic"
+   ],
+   "proofs": [
+    "F13 constructRibbon"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "galaxy (core + broken arms + attached dots) producer",
+    "portal nested irregular contours"
+   ],
+   "flow": "signed width along centreline → front/underside panels",
+   "status": "INCOMPLETE",
+   "sourceSha": "d2a37814df55"
+  },
+  {
+   "id": "F14",
+   "title": "F14 — Illustrated transformation and alternate state design (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "states.buildStateFamily"
+   ],
+   "proofs": [
+    "F14/F30/F67 buildStateFamily"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "CHANGE table",
+    "states.CHANGE: change class → owns new drawing / register / track (enforced in buildStateFamily)"
+   ],
+   "artisticRefusalProofs": 1,
+   "artistic": "ENCODED",
+   "gaps": [],
+   "flow": "change class → must-redraw / register / track; enforced against producer output",
+   "status": "IMPLEMENTED",
+   "sourceSha": "436fdf2661c6"
+  },
+  {
+   "id": "F15",
+   "title": "F15 — Motion ownership, simultaneous choreography, camera (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "motion.assignOwnership"
+   ],
+   "proofs": [
+    "F15/F31 ownership+schedule+contacts"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "occlusion tracking across tracks",
+    "binding to engine/runtime/nu.js tracks (Stage 4 integration point, not yet wired)"
+   ],
+   "flow": "region → one primary owner → allowed channels",
+   "status": "INCOMPLETE",
+   "sourceSha": "d174d657aae7"
+  },
+  {
+   "id": "F16",
+   "title": "F16 — Transitions as complete illustrations plus masks (O, I)",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "transition.planTransition",
+    "effects.constructEffect"
+   ],
+   "proofs": [
+    "F16/F35/F78 planTransition"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "wedge-ray/whiteout/clipped-panel transition asset producers beyond effects.volumetric_source/global_exposure"
+   ],
+   "flow": "op + complete plates + invariant → OUT/MID/IN states",
+   "status": "INCOMPLETE",
+   "sourceSha": "1aeb57f73aac"
+  },
+  {
+   "id": "F17",
+   "title": "F17 — Whole-look and provider-control proof (T, I)",
+   "purpose": "EVIDENCE",
+   "code": [
+    "provider.wholeLookRecord"
+   ],
+   "proofs": [],
+   "mechanical": "UNPROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "no proof run (requires real renders — Stage 2+)"
+   ],
+   "flow": "real pixel files hashed; whole-level then part-level errors each tied to a producing operation",
+   "status": "INCOMPLETE",
+   "sourceSha": "f4c706ad89da"
+  },
+  {
+   "id": "F18",
+   "title": "F18 — Every-frame observation without confusing it with decoding",
+   "purpose": "EVIDENCE",
+   "code": [
+    "provider.coverageLedger"
+   ],
+   "proofs": [
+    "F18 coverageLedger"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "per-interval coverage states kept distinct",
+   "status": "IMPLEMENTED",
+   "sourceSha": "e3980fc925c8"
+  },
+  {
+   "id": "F19",
+   "title": "F19 — Production medium and timing are conditional, not a universal vector-only preset (O, I)",
+   "purpose": "DIRECTION",
+   "code": [
+    "direction.selectRenderer"
+   ],
+   "proofs": [
+    "F19 selectRenderer"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "F19 table",
+    "direction.selectRenderer: demand → route"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "audio-time route (beat timecodes) — owned by GPT direction + existing plan.mjs; not re-implemented here"
+   ],
+   "flow": "visual demand → renderer route + retained properties",
+   "status": "INCOMPLETE",
+   "sourceSha": "60bd2cd811fa"
+  },
+  {
+   "id": "F20",
+   "title": "F20 — Route *each beat* to a visual medium; permit nesting",
+   "purpose": "DIRECTION",
+   "code": [
+    "direction.routeMedium"
+   ],
+   "proofs": [
+    "F20 routeMedium"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "direction.routeMedium: beat tokens → medium tree"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "label-deletion check of the hierarchy"
+   ],
+   "flow": "beat tokens → medium tree",
+   "status": "INCOMPLETE",
+   "sourceSha": "8f503d32bd57"
+  },
+  {
+   "id": "F21",
+   "title": "F21 — A panel, glass shell or memory window is a layered optical *machine*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "optic.composeOptic",
+    "transition.planTransition(mask_reveal)"
+   ],
+   "proofs": [
+    "F21/F48/F63 composeOptic"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "non-elliptical designed apertures",
+    "translucent second alpha mask",
+    "refraction/compression inside M_in"
+   ],
+   "flow": "aperture + complete inner drawing → back rim / clipped inner / tint / near rim / specular stack",
+   "status": "INCOMPLETE",
+   "sourceSha": "2e805ac1808d"
+  },
+  {
+   "id": "F22",
+   "title": "F22 — Rebuild day/night as registered drawings, not a color-grade",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "states.relightWorld"
+   ],
+   "proofs": [
+    "F22 relightWorld"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "staggered sunrise schedule",
+    "lamp cone producer (trapezoid under lamp head)"
+   ],
+   "flow": "stable-id recolour + produced emitters → registered state",
+   "status": "INCOMPLETE",
+   "sourceSha": "3bd2dcd334fb"
+  },
+  {
+   "id": "F23",
+   "title": "F23 — Define *perception effects* as registered compositing passes",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "effects.perceptionPass"
+   ],
+   "proofs": [
+    "F23 perceptionPass"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "symbol-attachment pass",
+    "optical focus pass (depth blur)",
+    "screen-space grain"
+   ],
+   "flow": "master → paint transform with accent exceptions, geometry registered",
+   "status": "INCOMPLETE",
+   "sourceSha": "9a6f6c776a1d"
+  },
+  {
+   "id": "F24",
+   "title": "F24 — Dense biological fields are procedurally authored, *not random scatter*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "network.growNetwork",
+    "repeat.generateRepeats(zone)"
+   ],
+   "proofs": [
+    "F12/F24/F41/F71 grow+draw network"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "unit role size/contrast table (background vs foreground exemplar)",
+    "honest count encoding check"
+   ],
+   "flow": "population units as connected graph; role by cluster",
+   "status": "INCOMPLETE",
+   "sourceSha": "a2f213db25fe"
+  },
+  {
+   "id": "F25",
+   "title": "F25 — Scientific close-ups must encode physical interaction *direction*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "network.constructExchange"
+   ],
+   "proofs": [
+    "F25 constructExchange"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "carrier trajectories over time (animated E→R paths)"
+   ],
+   "flow": "E/R surfaces → mechanisms on R, carriers in G, Q when active",
+   "status": "INCOMPLETE",
+   "sourceSha": "02be024208b2"
+  },
+  {
+   "id": "F26",
+   "title": "F26 — Maps and spatial diagrams need *three distinct masks*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "schematic.constructMap"
+   ],
+   "proofs": [
+    "F26 constructMap"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "river (continuous banked path) producer",
+    "forest cluster contours by terrain"
+   ],
+   "flow": "coast contour + named origin + flows → 3 masks",
+   "status": "INCOMPLETE",
+   "sourceSha": "c34a9b556a51"
+  },
+  {
+   "id": "F27",
+   "title": "F27 — Schematic graphs are authored *systems with reveal states*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "schematic.layoutGraph",
+    "schematic.drawGraph"
+   ],
+   "proofs": [
+    "F27/F74 drawGraph"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "axes rendering with units"
+   ],
+   "flow": "typed graph + layout relation → positions → edges under nodes",
+   "status": "INCOMPLETE",
+   "sourceSha": "dfec216603f7"
+  },
+  {
+   "id": "F28",
+   "title": "F28 — Historical or technical recreations have *era-specific mechanical topology*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "machine.constructMachine (truth.period/principle)"
+   ],
+   "proofs": [
+    "F09/F28/F45/F68 constructMachine"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "period-specific silhouette knowledge is subject research, not encoded"
+   ],
+   "flow": "design truth table required before construction",
+   "status": "INCOMPLETE",
+   "sourceSha": "f0c8b48ed322"
+  },
+  {
+   "id": "F29",
+   "title": "F29 — Compare futures/options as complete *parallel states*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "states.compareStates"
+   ],
+   "proofs": [],
+   "mechanical": "UNPROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "no proof run yet",
+    "ghost-state tinting for time paths"
+   ],
+   "flow": "two complete drawings + ledger → leaks/unrealised",
+   "status": "INCOMPLETE",
+   "sourceSha": "7f5049ecb38d"
+  },
+  {
+   "id": "F30",
+   "title": "F30 — Create a multi-state character library before physical animation",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "states.buildStateFamily"
+   ],
+   "proofs": [
+    "F14/F30/F67 buildStateFamily"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F30_view_redraw"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "view keys require authored per-view designs (no automatic reprojection)"
+   ],
+   "flow": "producer redraws each key; anchors registered",
+   "status": "INCOMPLETE",
+   "sourceSha": "02dfecf7e354"
+  },
+  {
+   "id": "F31",
+   "title": "F31 — Motion needs *owner-specific* key states, not global ease-only language",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "motion.scheduleEvents",
+    "motion.solveContacts",
+    "motion.proofSamples",
+    "motion.evalTrack"
+   ],
+   "proofs": [
+    "F15/F31 ownership+schedule+contacts"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "smear/trail derived from pose path",
+    "binding to nu.js runtime"
+   ],
+   "flow": "event DAG → schedule; contact members evaluated from constraint (zero drift)",
+   "status": "INCOMPLETE",
+   "sourceSha": "f3db45493b9b"
+  },
+  {
+   "id": "F32",
+   "title": "F32 — Effects are time-bounded images with their own color/geometry ownership",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "effects.constructEffect"
+   ],
+   "proofs": [
+    "F32 constructEffect"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "particle classes with origin/trajectory/dissipation",
+    "colour bounce onto receivers"
+   ],
+   "flow": "class → owned geometry + time window",
+   "status": "INCOMPLETE",
+   "sourceSha": "dca9b945e622"
+  },
+  {
+   "id": "F33",
+   "title": "F33 — Density and abstraction are scoped by *view depth and task*, not adjective",
+   "purpose": "DIRECTION",
+   "code": [
+    "density.allocate"
+   ],
+   "proofs": [
+    "F33/F47/F53/F77 allocate"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "owner/tier/distance tables"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "budgets not yet consumed automatically by tree/opening generators (manual pass-through)"
+   ],
+   "flow": "detail_owner + tier + distance → generator budgets",
+   "status": "INCOMPLETE",
+   "sourceSha": "9717cdd96d19"
+  },
+  {
+   "id": "F34",
+   "title": "F34 — Physical geography, procedural patterns and materials use different generators",
+   "purpose": "DIRECTION",
+   "code": [
+    "direction.routeGenerator"
+   ],
+   "proofs": [
+    "F34 routeGenerator"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "direction.routeGenerator"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "construction family → producer",
+   "status": "IMPLEMENTED",
+   "sourceSha": "13ca3c6d3092"
+  },
+  {
+   "id": "F35",
+   "title": "F35 — Make storyboard *transitions* carry one conserved visual invariant",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "transition.planTransition"
+   ],
+   "proofs": [
+    "F16/F35/F78 planTransition"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "causal_graph_expand op specifics"
+   ],
+   "flow": "conserved invariant anchors → similarity transform → camera states",
+   "status": "INCOMPLETE",
+   "sourceSha": "39d530f5bd6a"
+  },
+  {
+   "id": "F36",
+   "title": "F36 — Source-to-new-script skill must compile into enforceable artifacts",
+   "purpose": "PROVIDER",
+   "code": [
+    "provider.shotContract"
+   ],
+   "proofs": [
+    "F36 shotContract"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "router that computes the applicable set from beats (uses caller-supplied list)"
+   ],
+   "flow": "contract with only applicable methods; placeholders refused",
+   "status": "INCOMPLETE",
+   "sourceSha": "76b411f7840a"
+  },
+  {
+   "id": "F37",
+   "title": "F37 — Construct a *world definition*, not an adjective or a backdrop",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "world.defineWorld"
+   ],
+   "proofs": [
+    "F37 defineWorld"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "spec → producer dispatch (world builder)"
+   ],
+   "flow": "WORLD_SYSTEM_SPEC validation; every major object has an edge",
+   "status": "INCOMPLETE",
+   "sourceSha": "a4b2b6499734"
+  },
+  {
+   "id": "F38",
+   "title": "F38 — Pick a *projection grammar* and enforce it down to small parts",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "projection.declareProjection",
+    "projection.axisAgreement"
+   ],
+   "proofs": [
+    "F60/F70/F38/F08 constructBlock+openings"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "layered-illustration (A) depth collections",
+    "axial vanishing-point interior (C) producer"
+   ],
+   "flow": "one basis for all facets; axis agreement test",
+   "status": "INCOMPLETE",
+   "sourceSha": "94e099052d54"
+  },
+  {
+   "id": "F39",
+   "title": "F39 — Build *living natural environments* from functional, occluding plant systems",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "plants.constructTree",
+    "plants.placeVegetation"
+   ],
+   "proofs": [
+    "F39/F11/F69 constructTree",
+    "F39/F69 placeVegetation"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F39_row_variety"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "ground/water mask + shore path",
+    "foreground occluder masks",
+    "aquatic exception producers"
+   ],
+   "flow": "species params → tree graph; ecological zones + apertures → placements",
+   "status": "INCOMPLETE",
+   "sourceSha": "98fe99c90ea6"
+  },
+  {
+   "id": "F40",
+   "title": "F40 — Build *dense architectural/ecological worlds* with modular part budgets",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "projection.orderBlocks",
+    "projection.constructSite"
+   ],
+   "proofs": [
+    "F60/F70/F38/F08 constructBlock+openings"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "eco-tech neighbourhood/link producer",
+    "depth-dependent subdetail wired to density budgets"
+   ],
+   "flow": "size classes + painter order + street graph",
+   "status": "INCOMPLETE",
+   "sourceSha": "29c6b7faa97f"
+  },
+  {
+   "id": "F41",
+   "title": "F41 — Create biological *micro-worlds* from parent anatomy and networks",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "network.growNetwork"
+   ],
+   "proofs": [
+    "F12/F24/F41/F71 grow+draw network"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "scale hierarchy (tissue/cell/mechanism/molecule) selector"
+   ],
+   "flow": "parent region → constrained growth → cluster colouring",
+   "status": "INCOMPLETE",
+   "sourceSha": "f71df799794b"
+  },
+  {
+   "id": "F42",
+   "title": "F42 — Construct an *abstract stage* from legible spatial coordinates",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "world.constructStage"
+   ],
+   "proofs": [
+    "F42 constructStage"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "platform cells attached to plane"
+   ],
+   "flow": "vp/horizon/spacing → converging grid; contact → focus patch",
+   "status": "INCOMPLETE",
+   "sourceSha": "f2caa844f99d"
+  },
+  {
+   "id": "F43",
+   "title": "F43 — Construct an *information theatre* rather than flat UI wallpaper",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "world.constructPaneRing"
+   ],
+   "proofs": [
+    "F43 constructPaneRing"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "EXPLODED_INTERFACE, BUILT_DATA_CORRIDOR, DASHBOARD_OVER_WORLD producers"
+   ],
+   "flow": "ring map → pane width/contrast/layer by depth; bars clipped",
+   "status": "INCOMPLETE",
+   "sourceSha": "d3d5a537721a"
+  },
+  {
+   "id": "F44",
+   "title": "F44 — A luminous *volume* requires faces, apertures, sockets and optical layers",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "optic.constructVolume",
+    "machine socket rings"
+   ],
+   "proofs": [
+    "F44 constructVolume"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "interior object between far/near faces",
+    "tube entry with crossing mask"
+   ],
+   "flow": "projected faces + edge core + bounded halo",
+   "status": "INCOMPLETE",
+   "sourceSha": "297db78609c1"
+  },
+  {
+   "id": "F45",
+   "title": "F45 — Construct machines and futuristic corridors by *functional topology first*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "machine.constructMachine"
+   ],
+   "proofs": [
+    "F09/F28/F45/F68 constructMachine"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "gate/corridor depth construction (step 5)",
+    "server rack repeats with floor reflection"
+   ],
+   "flow": "input→output flow validated; 2–5 assemblies",
+   "status": "INCOMPLETE",
+   "sourceSha": "b2b79528852b"
+  },
+  {
+   "id": "F46",
+   "title": "F46 — Use *material-owning* edges, fills and luminance: no universal glow or outline",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "surface.MATERIALS",
+    "surface.constructSurface"
+   ],
+   "proofs": [
+    "F02/F04/F46 constructSurface"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "MATERIALS table",
+    "surface.MATERIALS: material → allowed plane causes / edge roles / turn depth character"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "receiving-mask (light received by neighbours)"
+   ],
+   "flow": "material → allowed causes/edges/turn depth",
+   "status": "INCOMPLETE",
+   "sourceSha": "3fc3bb4e2f9f"
+  },
+  {
+   "id": "F47",
+   "title": "F47 — Spend *detail* according to semantic role and visual distance",
+   "purpose": "DIRECTION",
+   "code": [
+    "density.allocate"
+   ],
+   "proofs": [
+    "F33/F47/F53/F77 allocate"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "density.allocate: tier × region × distance × state → generator budgets"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "tier-erase pass test on rendered frames"
+   ],
+   "flow": "candidate marks → tier budgets; parentless rejected",
+   "status": "INCOMPLETE",
+   "sourceSha": "add1f0320f48"
+  },
+  {
+   "id": "F48",
+   "title": "F48 — Represent a *world within a world* as two complete constructions",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "optic.composeOptic"
+   ],
+   "proofs": [
+    "F21/F48/F63 composeOptic"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "curved-bulb deformation of the interior after depth"
+   ],
+   "flow": "complete interior drawing clipped to aperture",
+   "status": "INCOMPLETE",
+   "sourceSha": "62402e750e9a"
+  },
+  {
+   "id": "F49",
+   "title": "F49 — Compile *world construction data* into an enforceable ArtJob",
+   "purpose": "PROVIDER",
+   "code": [
+    "provider.compileWorldJob"
+   ],
+   "proofs": [
+    "F49 compileWorldJob"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "strict ArtJob compile",
+   "status": "IMPLEMENTED",
+   "sourceSha": "2667317e7d82"
+  },
+  {
+   "id": "F50",
+   "title": "F50 — Run adversarial *unfamiliar-world* transfer tests; do not certify by resemblance to one film frame",
+   "purpose": "EVIDENCE",
+   "code": [
+    "provider.transferMatrix"
+   ],
+   "proofs": [
+    "F50 transferMatrix"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "acceptance matrix; never QUALIFIED without outputs",
+   "status": "IMPLEMENTED",
+   "sourceSha": "21371ab1093c"
+  },
+  {
+   "id": "F51",
+   "title": "F51 — Palette is a system of roles and region ownership, not one studio-wide swatch set",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "palette.solvePalette"
+   ],
+   "proofs": [
+    "F03/F51/F61 solvePalette"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "per-shot role identity across multiple shots"
+   ],
+   "flow": "colour role map + parent-owned fills",
+   "status": "INCOMPLETE",
+   "sourceSha": "098142121524"
+  },
+  {
+   "id": "F52",
+   "title": "F52 — Scale and semantic role determine the number of facial/structural marks",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "face.BUDGET",
+    "face.selectEyeMode"
+   ],
+   "proofs": [
+    "F05/F52/F65 constructHead"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "BUDGET",
+    "face.BUDGET: eye mode → facial mark budget (fail-closed in constructHead)"
+   ],
+   "artisticRefusalProofs": 3,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "hand/hair role classification (only eye structures classified)"
+   ],
+   "flow": "screen role + final px → mark budget enforced",
+   "status": "INCOMPLETE",
+   "sourceSha": "eaf6a4916e6b"
+  },
+  {
+   "id": "F53",
+   "title": "F53 — Density is caused by explanatory material, not by a desire to impress",
+   "purpose": "DIRECTION",
+   "code": [
+    "density.allocate (attention)"
+   ],
+   "proofs": [
+    "F33/F47/F53/F77 allocate"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "viewer_first_point/causal_path/second_read required before budgets",
+   "status": "IMPLEMENTED",
+   "sourceSha": "8af713eea28c"
+  },
+  {
+   "id": "F54",
+   "title": "F54 — Repeated shapes require a parent-owned generator",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "repeat.generateRepeats"
+   ],
+   "proofs": [
+    "F54/F76 generateRepeats"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [],
+   "flow": "parent frame → anchored units",
+   "status": "INCOMPLETE",
+   "sourceSha": "43e1aba0facc"
+  },
+  {
+   "id": "F55",
+   "title": "F55 — The new idea determines the world projection and the camera-sized artwork",
+   "purpose": "DIRECTION",
+   "code": [
+    "direction.chooseProjection"
+   ],
+   "proofs": [
+    "F55 chooseProjection"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "direction.chooseProjection"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "canonical coordinate identity across a camera transform (see F78)"
+   ],
+   "flow": "inference relation → crop/view family",
+   "status": "INCOMPLETE",
+   "sourceSha": "f7f144792e20"
+  },
+  {
+   "id": "F56",
+   "title": "F56 — Execute source-grounded prompts as geometry, then inspect first pixels",
+   "purpose": "PROVIDER",
+   "code": [
+    "provider.firstPassControl"
+   ],
+   "proofs": [
+    "F56/F80 firstPassControl (code-native)"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "witness-verified design contract bound to producers before first render",
+   "status": "IMPLEMENTED",
+   "sourceSha": "3c95f7b3358e"
+  },
+  {
+   "id": "F57",
+   "title": "F57 — Start with a visible causal proof, not a “beautiful scene”",
+   "purpose": "DIRECTION",
+   "code": [
+    "direction.causalProof"
+   ],
+   "proofs": [
+    "F57 causalProof"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "anchors on produced contours inside reserved bbox",
+   "status": "IMPLEMENTED",
+   "sourceSha": "aba406d3afd6"
+  },
+  {
+   "id": "F58",
+   "title": "F58 — Construct the silhouette before interior polish",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "contour.constructSilhouette",
+    "contour.silhouetteRead"
+   ],
+   "proofs": [
+    "F01/F58 constructSilhouette"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F01_generic_round"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "distant-repetition derivation from master silhouette (collapse interior marks)"
+   ],
+   "flow": "voids/gaps as inputs; small-size read",
+   "status": "INCOMPLETE",
+   "sourceSha": "f033e67fdb48"
+  },
+  {
+   "id": "F59",
+   "title": "F59 — Parts must join and occlude in a deliberate topology",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "topology.assemble"
+   ],
+   "proofs": [
+    "F59 assemble"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 2,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "hidden-part clean underpaint (F79 handles at layer level)"
+   ],
+   "flow": "anchor + inward normal + insertion depth + angle → seated part; layer solve",
+   "status": "INCOMPLETE",
+   "sourceSha": "5115c4cf9aa2"
+  },
+  {
+   "id": "F60",
+   "title": "F60 — Choose projection from the proof and make all planes obey it",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "projection.declareProjection"
+   ],
+   "proofs": [
+    "F60/F70/F38/F08 constructBlock+openings"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "MACRO_CUTAWAY / OPTICAL_CONTAINED specific producers"
+   ],
+   "flow": "u/v/h basis → every facet",
+   "status": "INCOMPLETE",
+   "sourceSha": "5f9400cad4c3"
+  },
+  {
+   "id": "F61",
+   "title": "F61 — Invent conditional palette **roles**, never imitate a universal swatch palette",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "palette.solvePalette",
+    "palette.grayscaleRead"
+   ],
+   "proofs": [
+    "F03/F51/F61 solvePalette"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "160×90 rendered-thumbnail test"
+   ],
+   "flow": "slots + discrimination channel pairs → solved",
+   "status": "INCOMPLETE",
+   "sourceSha": "cdc226df0778"
+  },
+  {
+   "id": "F62",
+   "title": "F62 — Edges and shadows have owners; universal black outlines and bevels do not",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "surface.constructEdge"
+   ],
+   "proofs": [
+    "F62 constructEdge"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F62_universal_outline"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "OPTICAL_RIM/EMISSIVE_EDGE via optic/effects only"
+   ],
+   "flow": "edge role → seam/crease stroke or projected cast shadow on a named receiver",
+   "status": "INCOMPLETE",
+   "sourceSha": "b0abedf733f3"
+  },
+  {
+   "id": "F63",
+   "title": "F63 — Keep reflection, transparency, blur, glow and grain inside physical optics",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "optic.composeOptic (specular/tint)",
+    "effects"
+   ],
+   "proofs": [
+    "F21/F48/F63 composeOptic"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "depth-separated optical blur",
+    "grain attached to a justified material"
+   ],
+   "flow": "effect names source/mask/reason",
+   "status": "INCOMPLETE",
+   "sourceSha": "cc6bf8d92eb9"
+  },
+  {
+   "id": "F64",
+   "title": "F64 — Human/mascot/animal identity must be routed by *illustration family*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "family.routeFamily"
+   ],
+   "proofs": [
+    "F64 routeFamily"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "routeFamily budgets",
+    "family.routeFamily: subject kind × visibility × size × task → family + construction budget"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "budgets are returned but not yet enforced inside body/hand producers (face enforces via eye role)"
+   ],
+   "flow": "role/visibility/size/task → family → budgets",
+   "status": "INCOMPLETE",
+   "sourceSha": "de6e0e04f9fd"
+  },
+  {
+   "id": "F65",
+   "title": "F65 — Eye and mouth construction depends on the **role** and crop",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "face.selectEyeMode",
+    "face.constructHead"
+   ],
+   "proofs": [
+    "F05/F52/F65 constructHead"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "selectEyeMode",
+    "face.selectEyeMode: role × final head px × gaze × view → eye construction mode (+ F52 budget)"
+   ],
+   "artisticRefusalProofs": 3,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "expression sheets (canonical state family for faces) not yet built over constructHead"
+   ],
+   "flow": "role + final px + gaze + view → eye mode → eye geometry",
+   "status": "INCOMPLETE",
+   "sourceSha": "ece502d84513"
+  },
+  {
+   "id": "F66",
+   "title": "F66 — Body acting needs weight, garment volumes and contact states",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "body.constructBody"
+   ],
+   "proofs": [
+    "F06/F66 constructBody"
+   ],
+   "mechanical": "PROVED",
+   "rules": [
+    "F06_limb_variety",
+    "F06_static_pelvis"
+   ],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "PARTIAL",
+   "gaps": [
+    "hard-shell gear regions overlapping costume",
+    "seated support"
+   ],
+   "flow": "pose graph → garment outline/folds/cuffs; COM vs support",
+   "status": "INCOMPLETE",
+   "sourceSha": "22e526291594"
+  },
+  {
+   "id": "F67",
+   "title": "F67 — Expression and pose animation is a *registered state family*",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "states.buildStateFamily"
+   ],
+   "proofs": [
+    "F14/F30/F67 buildStateFamily"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "alpha gap check per state",
+    "60fps compositor score"
+   ],
+   "flow": "homologous → INTERPOLATE else DRAWN_STATE_OR_CUT",
+   "status": "INCOMPLETE",
+   "sourceSha": "5f8c5dfcbd12"
+  },
+  {
+   "id": "F68",
+   "title": "F68 — Machines are part-defined functional volumes, not neon rectangles",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "machine.constructMachine"
+   ],
+   "proofs": [
+    "F09/F28/F45/F68 constructMachine"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "state transitions of housing/controls"
+   ],
+   "flow": "controls in facets; sockets; policy per assembly",
+   "status": "INCOMPLETE",
+   "sourceSha": "a3464d0f0e4e"
+  },
+  {
+   "id": "F69",
+   "title": "F69 — Landscapes are *coverage substrates* with selective living detail",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "plants.placeVegetation"
+   ],
+   "proofs": [
+    "F39/F69 placeVegetation"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 1,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "substrate polygons (land/water/sky) producer"
+   ],
+   "flow": "zones/apertures → coverage",
+   "status": "INCOMPLETE",
+   "sourceSha": "290fa48b9f85"
+  },
+  {
+   "id": "F70",
+   "title": "F70 — Built worlds use coherent projection and semantic architectural repetition",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "projection.constructBlock",
+    "projection.constructOpenings"
+   ],
+   "proofs": [
+    "F60/F70/F38/F08 constructBlock+openings"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [],
+   "flow": "footprint → faces → wall-local openings; shade from face normal",
+   "status": "INCOMPLETE",
+   "sourceSha": "87ac0fafcc60"
+  },
+  {
+   "id": "F71",
+   "title": "F71 — Dense microscopic biology is a connected graph, not a particle wallpaper",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "network.drawNetwork"
+   ],
+   "proofs": [
+    "F12/F24/F41/F71 grow+draw network"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "flood-fill connectedness test for CONTINUOUS_BAND on rendered pixels"
+   ],
+   "flow": "active_path_display category → active geometry",
+   "status": "INCOMPLETE",
+   "sourceSha": "aaaf62ff26a5"
+  },
+  {
+   "id": "F72",
+   "title": "F72 — Macro organisms and lenses are distinct coordinate systems",
+   "purpose": "CONSTRUCTION",
+   "code": [],
+   "proofs": [],
+   "mechanical": "MISSING",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "NO PRODUCER: specimen/lens/occluder/background-field coordinate systems"
+   ],
+   "flow": "",
+   "status": "INCOMPLETE",
+   "sourceSha": "cff64a941c2f"
+  },
+  {
+   "id": "F73",
+   "title": "F73 — Cosmic/scale worlds depend on physical and diagrammatic meaning",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "schematic.scaleEncode"
+   ],
+   "proofs": [
+    "F73 scaleEncode"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "celestial body/terminator producer"
+   ],
+   "flow": "declared encoding → sizes; diagrammatic flag",
+   "status": "INCOMPLETE",
+   "sourceSha": "bb990bf67ec6"
+  },
+  {
+   "id": "F74",
+   "title": "F74 — Abstract information worlds need a visible representational grammar",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "schematic.drawGraph"
+   ],
+   "proofs": [
+    "F27/F74 drawGraph"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "focus baton between worlds"
+   ],
+   "flow": "semantic legend: category → shape",
+   "status": "INCOMPLETE",
+   "sourceSha": "d2de2d0c2608"
+  },
+  {
+   "id": "F75",
+   "title": "F75 — Typography and diagram glyphs are specific illustration parts",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "schematic.constructLabel"
+   ],
+   "proofs": [
+    "F75 constructLabel"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "glyph rendering (text assets are GPT-supplied per source)"
+   ],
+   "flow": "role + anchor → pill sized from text",
+   "status": "INCOMPLETE",
+   "sourceSha": "935b9a7a6791"
+  },
+  {
+   "id": "F76",
+   "title": "F76 — Repeats should come from a locally defined parent generator",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "repeat.generateRepeats"
+   ],
+   "proofs": [
+    "F54/F76 generateRepeats"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "active_subset"
+   ],
+   "flow": "repeat_parent/frame/seed/falloff/exclusions → units",
+   "status": "INCOMPLETE",
+   "sourceSha": "05d9f233051f"
+  },
+  {
+   "id": "F77",
+   "title": "F77 — Information density must be allocated *locally* and to motion owners",
+   "purpose": "DIRECTION",
+   "code": [
+    "density.allocate"
+   ],
+   "proofs": [
+    "F33/F47/F53/F77 allocate"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [
+    "density.REGION_T3/REGION_CONTRAST: region kind → T3 and contrast budget"
+   ],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_PARTIAL",
+   "gaps": [
+    "moving-part underpaint requirement link to F79"
+   ],
+   "flow": "region kind → T3/contrast budgets",
+   "status": "INCOMPLETE",
+   "sourceSha": "109a1af6a349"
+  },
+  {
+   "id": "F78",
+   "title": "F78 — Camera and representational transitions must obey a correspondence invariant",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "transition.planTransition"
+   ],
+   "proofs": [
+    "F16/F35/F78 planTransition"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [
+    "overscan computation",
+    "seam test on rendered middle frame"
+   ],
+   "flow": "≥3 landmarks → similarity → OUT/MID/IN; semantic cut claims no continuity",
+   "status": "INCOMPLETE",
+   "sourceSha": "72de5b2b0c4f"
+  },
+  {
+   "id": "F79",
+   "title": "F79 — Own the alpha, underpaint, parallax and offscreen drawing budget",
+   "purpose": "CONSTRUCTION",
+   "code": [
+    "layers.ownLayers"
+   ],
+   "proofs": [
+    "F79 ownLayers"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "NOT_ENCODED",
+   "gaps": [],
+   "flow": "motion footprints vs underpaint; camera vs master; swap coverage",
+   "status": "INCOMPLETE",
+   "sourceSha": "d3093737f0f8"
+  },
+  {
+   "id": "F80",
+   "title": "F80 — The first provider request must actually contain the methods and unlike native pixels",
+   "purpose": "PROVIDER",
+   "code": [
+    "provider.firstPassControl"
+   ],
+   "proofs": [
+    "F56/F80 firstPassControl (code-native)"
+   ],
+   "mechanical": "PROVED",
+   "rules": [],
+   "derivations": [],
+   "artisticRefusalProofs": 0,
+   "artistic": "PURPOSE_ENCODED",
+   "gaps": [],
+   "flow": "verified unlike witnesses + decision→producer bindings",
+   "status": "IMPLEMENTED",
+   "sourceSha": "9e6d66d258fb"
+  }
+ ]
+}

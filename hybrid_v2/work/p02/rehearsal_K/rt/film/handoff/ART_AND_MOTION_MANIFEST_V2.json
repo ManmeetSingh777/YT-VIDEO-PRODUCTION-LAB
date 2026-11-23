@@ -1,0 +1,1843 @@
+{
+ "schema_version": "2.0.0",
+ "project_id": "rt_pilot",
+ "production_mode": "COMPLETE_FILM_ART_PACKAGE",
+ "status": "PLANNED",
+ "stage": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "total_frames": 7200,
+  "coord_system": "SVG_Y_DOWN_PX",
+  "color_space": "sRGB"
+ },
+ "authority": {
+  "script": null,
+  "direction": null,
+  "style_skill": "skill/SKILL.md",
+  "visual_bible": null,
+  "source_witness_manifest": "skill/QUESTION_NATIVE_WITNESS_MANIFEST.json"
+ },
+ "identities": [
+  {
+   "id": "pilot",
+   "kind": "CHARACTER",
+   "canonical_asset_id": "pilot_master",
+   "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+   "landmarks": {
+    "head_top": [
+     150,
+     30
+    ],
+    "neck": [
+     150,
+     110
+    ],
+    "pelvis": [
+     150,
+     300
+    ],
+    "shoulder_r": [
+     195,
+     135
+    ],
+    "upper_arm_mid": [
+     205,
+     175
+    ],
+    "elbow_r": [
+     215,
+     215
+    ],
+    "forearm_mid": [
+     220,
+     255
+    ],
+    "wrist_r": [
+     225,
+     295
+    ],
+    "knuckle_r": [
+     233,
+     330
+    ],
+    "thumb_r": [
+     242,
+     304
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "pilot"
+   ],
+   "source_method_ids": [
+    "F01",
+    "F05",
+    "F64"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "rt_shot"
+   ],
+   "approved_review_id": "identity__pilot__28c36a4149c9__mwrxc2f44bb675"
+  },
+  {
+   "id": "rt_world",
+   "kind": "WORLD",
+   "canonical_asset_id": "rt_world_far",
+   "master_sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "landmarks": {
+    "plate_tl": [
+     -100,
+     -60
+    ],
+    "plate_tr": [
+     1100,
+     -60
+    ],
+    "plate_bl": [
+     -100,
+     615
+    ],
+    "plate_mid": [
+     500,
+     277.5
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "rt_world"
+   ],
+   "source_method_ids": [
+    "F08"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "rt_world_shot"
+   ],
+   "approved_review_id": "identity__rt_world__be1de1670020__mwrxc2gc5e9d28"
+  },
+  {
+   "id": "portal_out_w",
+   "kind": "WORLD",
+   "canonical_asset_id": "portal_out",
+   "master_sha256": "e8c34d4a02a2f1e9add0387dd63192c0dc3055fc3f30dcbd3a2b0fd66dcf2967",
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "p_bl": [
+     0,
+     270
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "portal_out_w"
+   ],
+   "source_method_ids": [
+    "F08"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "rt_shot"
+   ],
+   "approved_review_id": "identity__portal_out_w__510e5962a243__mwrxc2hge54048"
+  },
+  {
+   "id": "portal_mid_w",
+   "kind": "WORLD",
+   "canonical_asset_id": "portal_mid",
+   "master_sha256": "3856daad9943790dafa645ae86eb5ebcbcae10c4fb5c4631de98fa5f1902ab7c",
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "p_bl": [
+     0,
+     270
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "portal_mid_w"
+   ],
+   "source_method_ids": [
+    "F08"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "rt_shot"
+   ],
+   "approved_review_id": "identity__portal_mid_w__49cbbf8e3d7f__mwrxc2im588b07"
+  },
+  {
+   "id": "portal_in_w",
+   "kind": "WORLD",
+   "canonical_asset_id": "portal_in",
+   "master_sha256": "86731b61c043c38ec92c682dadb4c89693a3def1ffc5589f0bf0f141805e4855",
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "p_bl": [
+     0,
+     270
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "portal_in_w"
+   ],
+   "source_method_ids": [
+    "F08"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "rt_shot"
+   ],
+   "approved_review_id": "identity__portal_in_w__4b40849aeb39__mwrxc2jn54565e"
+  },
+  {
+   "id": "portal_aperture_w",
+   "kind": "WORLD",
+   "canonical_asset_id": "portal_aperture",
+   "master_sha256": "ea174cf2200304d6e81f3c2a0e11bf8d99950ca8e7359bc09104b1b53786b3a1",
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "m_tl": [
+     175,
+     70
+    ],
+    "m_tr": [
+     305,
+     70
+    ],
+    "m_bl": [
+     175,
+     200
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "portal_aperture_w"
+   ],
+   "source_method_ids": [
+    "F08"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "rt_shot"
+   ],
+   "approved_review_id": "identity__portal_aperture_w__b2a3a267767a__mwrxc2kqa413e0"
+  }
+ ],
+ "assets": [
+  {
+   "id": "pilot_master",
+   "identity_id": "pilot",
+   "kind": "MASTER",
+   "file": "assets/art/pilot_master.png",
+   "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+   "width_px": 640,
+   "height_px": 900,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_master__f9a98fa188a8__mwrxc2f230c18b",
+   "provider_receipt_id": "masterreg_pilot_master",
+   "canonical_rect": [
+    -20,
+    -15,
+    320,
+    450
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    640,
+    900
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    -20,
+    -15
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    150,
+    300
+   ],
+   "pivot_landmark_id": "pelvis",
+   "sockets": {},
+   "landmarks": {
+    "head_top": [
+     150,
+     30
+    ],
+    "neck": [
+     150,
+     110
+    ],
+    "pelvis": [
+     150,
+     300
+    ],
+    "shoulder_r": [
+     195,
+     135
+    ],
+    "upper_arm_mid": [
+     205,
+     175
+    ],
+    "elbow_r": [
+     215,
+     215
+    ],
+    "forearm_mid": [
+     220,
+     255
+    ],
+    "wrist_r": [
+     225,
+     295
+    ],
+    "knuckle_r": [
+     233,
+     330
+    ],
+    "thumb_r": [
+     242,
+     304
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "rt_world_far",
+   "identity_id": "rt_world",
+   "kind": "WORLD_PLANE",
+   "file": "assets/art/rt_world_far.png",
+   "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "width_px": 2400,
+   "height_px": 1350,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__rt_world_far__d427686716da__mwrxc2g8d4642a",
+   "provider_receipt_id": "masterreg_rt_world_far",
+   "canonical_rect": [
+    -100,
+    -60,
+    1200,
+    675
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    2400,
+    1350
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    -100,
+    -60
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    -100,
+    -60
+   ],
+   "pivot_landmark_id": "plate_tl",
+   "sockets": {},
+   "landmarks": {
+    "plate_tl": [
+     -100,
+     -60
+    ],
+    "plate_tr": [
+     1100,
+     -60
+    ],
+    "plate_bl": [
+     -100,
+     615
+    ],
+    "plate_mid": [
+     500,
+     277.5
+    ]
+   },
+   "layer_owner": "rt_world",
+   "draw_order_constraints": [],
+   "depth_band": "FAR",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_world_shot",
+     "frame_range": [
+      3600,
+      7200
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "pilot_body",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "file": "assets/art/pilot_body.png",
+   "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "width_px": 180,
+   "height_px": 626,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_body__6430a6a6f27d__mwrxc2lvd065ea",
+   "provider_receipt_id": "partreg_pilot_body",
+   "canonical_rect": [
+    105,
+    31.99999999999997,
+    90,
+    313
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    180,
+    626
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    105,
+    31.99999999999997
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    150,
+    300
+   ],
+   "pivot_landmark_id": "pelvis",
+   "sockets": {},
+   "landmarks": {
+    "head_top": [
+     150,
+     29.99999999999997
+    ],
+    "neck": [
+     150,
+     109.99999999999997
+    ],
+    "pelvis": [
+     150,
+     300
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "pilot_upper_arm",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "file": "assets/art/pilot_upper_arm.png",
+   "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+   "width_px": 94,
+   "height_px": 173,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_upper_arm__7e4803944bde__mwrxc2n2549980",
+   "provider_receipt_id": "partreg_pilot_upper_arm",
+   "canonical_rect": [
+    169.14730725636588,
+    123.3620072882553,
+    65.09008051544382,
+    102.44369299029877
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    94,
+    173
+   ],
+   "crop_to_canonical_matrix": [
+    0.5501489270786504,
+    0.07731838942225831,
+    -0.07731838942225831,
+    0.5501489270786504,
+    182.52338862641656,
+    123.3620072882553
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    195,
+    135
+   ],
+   "pivot_landmark_id": "shoulder_r",
+   "sockets": {},
+   "landmarks": {
+    "shoulder_r": [
+     195,
+     135
+    ],
+    "upper_arm_mid": [
+     205,
+     175
+    ],
+    "elbow_r": [
+     215,
+     215
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_body"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "pilot_forearm",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "file": "assets/art/pilot_forearm.png",
+   "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "width_px": 52,
+   "height_px": 183,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_forearm__ab80de382b31__mwrxc2o663f1e1",
+   "provider_receipt_id": "partreg_pilot_forearm",
+   "canonical_rect": [
+    202.34535529982978,
+    208.11544170010868,
+    35.42192366856543,
+    93.71649347115599
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    52,
+    183
+   ],
+   "crop_to_canonical_matrix": [
+    0.49726094768413664,
+    -0.05226423163382683,
+    0.05226423163382683,
+    0.49726094768413664,
+    202.34535529982978,
+    210.83318174506766
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    215,
+    215.00000000000003
+   ],
+   "pivot_landmark_id": "elbow_r",
+   "sockets": {},
+   "landmarks": {
+    "elbow_r": [
+     215,
+     215.00000000000003
+    ],
+    "forearm_mid": [
+     220,
+     255
+    ],
+    "wrist_r": [
+     225,
+     295
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_upper_arm"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [
+    "elbow_inner"
+   ],
+   "underpaint_asset_ids": [
+    "pilot_underpaint"
+   ],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "pilot_underpaint",
+   "identity_id": "pilot",
+   "kind": "UNDERPAINT",
+   "file": "assets/art/pilot_underpaint.png",
+   "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "width_px": 60,
+   "height_px": 60,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_underpaint__ac4943546993__mwrxc2pc86dc62",
+   "provider_receipt_id": "partreg_pilot_underpaint",
+   "canonical_rect": [
+    199.99999999999997,
+    200,
+    30,
+    30
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    60,
+    60
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    199.99999999999997,
+    200
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    214.99999999999997,
+    215
+   ],
+   "pivot_landmark_id": "elbow_r",
+   "sockets": {},
+   "landmarks": {
+    "elbow_r": [
+     214.99999999999997,
+     215
+    ],
+    "upper_arm_mid": [
+     204.99999999999997,
+     175
+    ],
+    "forearm_mid": [
+     219.99999999999997,
+     255
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [
+    {
+     "relation": "BELOW",
+     "asset_id": "pilot_upper_arm"
+    },
+    {
+     "relation": "BELOW",
+     "asset_id": "pilot_forearm"
+    },
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_body"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "pilot_hand_open",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "file": "assets/art/pilot_hand_open.png",
+   "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "width_px": 96,
+   "height_px": 144,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_hand_open__968b93b2e538__mwrxc2qjb2e711",
+   "provider_receipt_id": "partreg_pilot_hand_open",
+   "canonical_rect": [
+    209.64664322793453,
+    277.61323280239236,
+    47.818752749284045,
+    63.393016595913366
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    96,
+    144
+   ],
+   "crop_to_canonical_matrix": [
+    0.3939231012048834,
+    -0.06945927106677237,
+    0.06945927106677237,
+    0.3939231012048834,
+    209.64664322793453,
+    284.2813228248025
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    225,
+    294.99999999999994
+   ],
+   "pivot_landmark_id": "wrist_r",
+   "sockets": {},
+   "landmarks": {
+    "wrist_r": [
+     225,
+     294.99999999999994
+    ],
+    "knuckle_r": [
+     233,
+     330
+    ],
+    "thumb_r": [
+     241.99999999999997,
+     303.99999999999994
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_forearm"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": "open",
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      100
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "pilot_hand_grip",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "file": "assets/art/pilot_hand_grip.png",
+   "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+   "width_px": 80,
+   "height_px": 80,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__pilot_hand_grip__22ac756fdf91__mwrxc2ro5c85ef",
+   "provider_receipt_id": "partreg_pilot_hand_grip",
+   "canonical_rect": [
+    208.99999999999997,
+    292.5,
+    40,
+    40
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    80,
+    80
+   ],
+   "crop_to_canonical_matrix": [
+    0.49999999999999994,
+    -4.4114822170536016e-18,
+    4.4114822170536016e-18,
+    0.49999999999999994,
+    208.99999999999997,
+    292.5
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    224.99999999999997,
+    295
+   ],
+   "pivot_landmark_id": "wrist_r",
+   "sockets": {},
+   "landmarks": {
+    "wrist_r": [
+     224.99999999999997,
+     295
+    ],
+    "knuckle_r": [
+     232.99999999999997,
+     330
+    ],
+    "thumb_r": [
+     241.99999999999997,
+     304
+    ]
+   },
+   "layer_owner": "pilot",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_forearm"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": "grip",
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      100,
+      600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "portal_out",
+   "identity_id": "portal_out_w",
+   "kind": "TRANSITION_PLATE",
+   "file": "assets/art/portal_out.png",
+   "sha256": "e8c34d4a02a2f1e9add0387dd63192c0dc3055fc3f30dcbd3a2b0fd66dcf2967",
+   "width_px": 960,
+   "height_px": 540,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__portal_out__2ab183dbe07a__mwrxc2he9da7c9",
+   "provider_receipt_id": "masterreg_portal_out",
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    960,
+    540
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    0,
+    0
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": "portal_centre",
+   "sockets": {},
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "p_bl": [
+     0,
+     270
+    ]
+   },
+   "layer_owner": "portal_out_w",
+   "draw_order_constraints": [],
+   "depth_band": "FAR",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      3480,
+      3600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "portal_mid",
+   "identity_id": "portal_mid_w",
+   "kind": "TRANSITION_PLATE",
+   "file": "assets/art/portal_mid.png",
+   "sha256": "3856daad9943790dafa645ae86eb5ebcbcae10c4fb5c4631de98fa5f1902ab7c",
+   "width_px": 960,
+   "height_px": 540,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__portal_mid__9e68207de14c__mwrxc2ikc31837",
+   "provider_receipt_id": "masterreg_portal_mid",
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    960,
+    540
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    0,
+    0
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": "portal_centre",
+   "sockets": {},
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "p_bl": [
+     0,
+     270
+    ]
+   },
+   "layer_owner": "portal_mid_w",
+   "draw_order_constraints": [],
+   "depth_band": "FAR",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      3480,
+      3600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "portal_in",
+   "identity_id": "portal_in_w",
+   "kind": "TRANSITION_PLATE",
+   "file": "assets/art/portal_in.png",
+   "sha256": "86731b61c043c38ec92c682dadb4c89693a3def1ffc5589f0bf0f141805e4855",
+   "width_px": 960,
+   "height_px": 540,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__portal_in__99ebb3a732e6__mwrxc2jlca9a2c",
+   "provider_receipt_id": "masterreg_portal_in",
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    960,
+    540
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    0,
+    0
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": "portal_centre",
+   "sockets": {},
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "p_bl": [
+     0,
+     270
+    ]
+   },
+   "layer_owner": "portal_in_w",
+   "draw_order_constraints": [],
+   "depth_band": "FAR",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      3480,
+      3600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  },
+  {
+   "id": "portal_aperture",
+   "identity_id": "portal_aperture_w",
+   "kind": "MASK",
+   "file": "assets/art/portal_aperture.png",
+   "sha256": "ea174cf2200304d6e81f3c2a0e11bf8d99950ca8e7359bc09104b1b53786b3a1",
+   "width_px": 260,
+   "height_px": 260,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "asset__portal_aperture__7532a919d328__mwrxc2kp2c89c9",
+   "provider_receipt_id": "masterreg_portal_aperture",
+   "canonical_rect": [
+    175,
+    70,
+    130,
+    130
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    260,
+    260
+   ],
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    175,
+    70
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": "portal_centre",
+   "sockets": {},
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ],
+    "m_tl": [
+     175,
+     70
+    ],
+    "m_tr": [
+     305,
+     70
+    ],
+    "m_bl": [
+     175,
+     200
+    ]
+   },
+   "layer_owner": "portal_aperture_w",
+   "draw_order_constraints": [],
+   "depth_band": "FAR",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      3480,
+      3600
+     ]
+    }
+   ],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null
+  }
+ ],
+ "worlds": [
+  {
+   "id": "rt_world_w",
+   "identity_id": "rt_world",
+   "depth_owners": [
+    {
+     "id": "far",
+     "depth_band": "FAR",
+     "asset_ids": [
+      "rt_world_far"
+     ]
+    }
+   ],
+   "camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "overscan_rect": [
+    -100,
+    -60,
+    1200,
+    675
+   ]
+  }
+ ],
+ "rigs": [
+  {
+   "id": "pilot_rig",
+   "identity_id": "pilot",
+   "root_part": "pelvis",
+   "joints": [
+    {
+     "id": "pelvis",
+     "parent_id": null,
+     "rest_xy": [
+      150,
+      300
+     ],
+     "rotation_limits_deg": [
+      -20,
+      20
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "shoulder_r",
+     "parent_id": "pelvis",
+     "rest_xy": [
+      195,
+      135
+     ],
+     "rotation_limits_deg": [
+      -170,
+      170
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "elbow_r",
+     "parent_id": "shoulder_r",
+     "rest_xy": [
+      215,
+      215
+     ],
+     "rotation_limits_deg": [
+      -150,
+      150
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "wrist_r",
+     "parent_id": "elbow_r",
+     "rest_xy": [
+      225,
+      295
+     ],
+     "rotation_limits_deg": [
+      -70,
+      70
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "pilot_body",
+     "joint_id": "pelvis",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "pilot_body",
+     "material_owner_id": "pilot"
+    },
+    {
+     "asset_id": "pilot_underpaint",
+     "joint_id": "elbow_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "pilot_underpaint",
+     "material_owner_id": "pilot"
+    },
+    {
+     "asset_id": "pilot_upper_arm",
+     "joint_id": "shoulder_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "pilot_upper_arm",
+     "material_owner_id": "pilot"
+    },
+    {
+     "asset_id": "pilot_forearm",
+     "joint_id": "elbow_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "pilot_forearm",
+     "material_owner_id": "pilot"
+    },
+    {
+     "asset_id": "pilot_hand_open",
+     "joint_id": "wrist_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "pilot_hand_open",
+     "material_owner_id": "pilot"
+    }
+   ],
+   "sockets": [
+    {
+     "id": "pilot_grip",
+     "joint_id": "wrist_r",
+     "local_xy": [
+      6,
+      30
+     ],
+     "semantic_role": "palm grip centre"
+    }
+   ],
+   "pose_states": [
+    {
+     "id": "open",
+     "asset_bindings": {},
+     "landmark_correspondence": [
+      "wrist_r",
+      "knuckle_r"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": "state__pilot_rig__open__12a5a6cb6339__mwrxc2t15a668a"
+    },
+    {
+     "id": "grip",
+     "asset_bindings": {
+      "pilot_hand_open": "pilot_hand_grip"
+     },
+     "landmark_correspondence": [
+      "wrist_r",
+      "knuckle_r"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": "state__pilot_rig__grip__b7e8ae99f76c__mwrxc2ucada0b1"
+    }
+   ],
+   "view_states": [],
+   "constraints": [],
+   "allowed_state_edges": [
+    {
+     "from": "open",
+     "to": "grip",
+     "mode": "REGISTERED_SWAP",
+     "max_transition_frames": 0,
+     "landmark_ids": [
+      "wrist_r"
+     ],
+     "mask_or_occluder_id": null,
+     "approved_assembly_review_id": "edge__pilot_rig__open__grip__35282a86ee9f__mwrxc2vb4d1e78"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "id": "pilot_close_hand",
+   "shot_id": "rt_shot",
+   "frame_range": [
+    0,
+    600
+   ],
+   "semantic_goal": "arm swings; hand closes on frame 100",
+   "mode": "ARTICULATED",
+   "actors": [
+    {
+     "rig_id": "pilot_rig",
+     "root_world_xy": [
+      520,
+      430
+     ],
+     "root_scale": 0.5
+    }
+   ],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [
+    {
+     "frame": 0,
+     "state_id": "open"
+    },
+    {
+     "frame": 100,
+     "state_id": "grip"
+    }
+   ],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [],
+   "proof_conditions": [
+    "state switch at exactly frame 100 keeps wrist registered"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "rt_shot",
+   "start_frame": 0,
+   "end_frame": 3600,
+   "world_id": "rt_world_w",
+   "entry_state": "open",
+   "events": [
+    "close"
+   ],
+   "attention_path": [
+    "hand"
+   ],
+   "camera_track_id": "cam_char",
+   "required_asset_ids": [],
+   "exit_state": "grip",
+   "continuity_to": "rt_world_shot",
+   "hold_purpose": "round-trip fixture"
+  },
+  {
+   "id": "rt_world_shot",
+   "start_frame": 3600,
+   "end_frame": 7200,
+   "world_id": "rt_world_w",
+   "entry_state": "wide",
+   "events": [
+    "push_in"
+   ],
+   "attention_path": [
+    "plate"
+   ],
+   "camera_track_id": "cam_world",
+   "required_asset_ids": [
+    "rt_world_far"
+   ],
+   "exit_state": "close",
+   "continuity_to": null,
+   "hold_purpose": "camera-footprint fixture"
+  }
+ ],
+ "transitions": [
+  {
+   "from_shot": "rt_shot",
+   "to_shot": "rt_world_shot",
+   "frame_range": [
+    3480,
+    3600
+   ],
+   "mode": "CONTINUOUS",
+   "reason": "DIAGNOSTIC push through the aperture",
+   "continuity_invariant": "aperture centre",
+   "out_asset_ids": [
+    "portal_out"
+   ],
+   "middle_asset_ids": [
+    "portal_mid"
+   ],
+   "in_asset_ids": [
+    "portal_in"
+   ],
+   "shared_landmarks": [
+    "portal_centre"
+   ],
+   "camera_correspondence": "anchor-locked push",
+   "mask_or_occluder_ids": [
+    "portal_aperture"
+   ],
+   "assembly_review_id": null
+  }
+ ],
+ "audio": {
+  "narration_file": "audio/narration_TEST_TONE.wav",
+  "word_alignment_file": null,
+  "sfx_events_file": null,
+  "narration_timeline_file": "audio/narration_timeline_TEST.json",
+  "script_file": "audio/script_TEST.txt"
+ },
+ "learning": {
+  "repair_memory_file": null,
+  "compiler_receipts": []
+ },
+ "evidence": {
+  "asset_review_index": null,
+  "motion_review_index": null,
+  "method_trace_index": null
+ }
+}

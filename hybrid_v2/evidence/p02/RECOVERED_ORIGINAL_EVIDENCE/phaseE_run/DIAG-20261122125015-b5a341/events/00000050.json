@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:50",
+ "sequence": 50,
+ "prev_event_sha256": "f7527baa28eade4990c9c8e8fffba63854ce471de9c3c1dcb92d8db277014cc5",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwru48ig",
+ "operation_id": null,
+ "task_id": "demand_pilot_hand_grip",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:49"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:18.221Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "demand_pilot_hand_grip",
+  "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+  "inputs": [],
+  "expected_outputs": [
+   "planned art for pilot_hand_grip"
+  ],
+  "deps": [],
+  "invariants": [
+   "every visible state has an explicit dependency"
+  ],
+  "verification": "supplied_by_plan",
+  "evidence_location": "frames 100,600",
+  "category": "MISSING_ART_STATE",
+  "group": null
+ },
+ "lock_generation": 50,
+ "event_sha256": "9ad020a02b355981c854bc6f16167a5b79a6eeb22e8a0a07a7c5d7b31f13c5f3"
+}

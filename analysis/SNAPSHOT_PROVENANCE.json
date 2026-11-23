@@ -1,0 +1,24 @@
+{
+ "generated_utc": "2026-11-23T12:16:33.793Z",
+ "live_studio": {
+  "path": "E:\\MOTION_NATIVE_STUDIO_V1",
+  "branch": "hv2-system-correction",
+  "head": "b511e9333df61459082cb82ab90c73c400787b5f",
+  "remotes": "(none)",
+  "tracked_modified": 37,
+  "untracked": 1691,
+  "note": "The published files are the studio WORKING TREE: git HEAD plus the uncommitted changes recorded in STUDIO_UNCOMMITTED_vs_HEAD.patch and STUDIO_GIT_STATUS.txt. HEAD alone is NOT the published source version."
+ },
+ "original_neutrino": {
+  "zip": "G:\\claude subscription experiment\\neutrino_2m_SOURCE_PACKAGE.zip (not published)",
+  "verification": "analysis/ORIGINAL_SOURCE_VERIFICATION.json (191/191 files byte-identical to reference/neutrino_2m_SOURCE_PACKAGE, hashed from the ZIP members)"
+ },
+ "publication": {
+  "files_published_excluding_analysis": 3312,
+  "bytes": 83973160,
+  "excluded": 1182,
+  "studio_vs_published_mismatches": 0,
+  "selection_script": "analysis/tools/build_publication.py",
+  "index_script": "analysis/tools/build_index.mjs"
+ }
+}

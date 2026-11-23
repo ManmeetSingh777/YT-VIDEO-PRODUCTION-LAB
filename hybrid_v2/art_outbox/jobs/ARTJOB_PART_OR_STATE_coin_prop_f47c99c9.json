@@ -1,0 +1,119 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_coin_prop_f47c99c9",
+ "root_dependency": "coin_prop",
+ "identity_id": "ines",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "ines_master",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "coin_prop",
+   "frame_range": [
+    900,
+    1920
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S02_operate_washer",
+   "frame_range": [
+    900,
+    1920
+   ],
+   "shot_id": "S02"
+  }
+ ],
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    900,
+    1920
+   ]
+  ],
+  "view_id": "threeq_r",
+  "pose_id": "hand_pinch",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "wrist_r"
+  ],
+  "required_joint_pivots": [
+   {
+    "joint": "wrist_r",
+    "rest_xy": [
+     395,
+     590
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "ines_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "contact pose family: approach-open, closed grip, coin pinch, release (palm/near/far subsets). Required by: action S02_operate_washer"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "d06c0a6d732101797c4a2fb827633431b3c2896abed426f8297ca15db050e9fd",
+ "registration_contract": {
+  "asset_kind": "PART",
+  "pivot_landmark_id": "wrist_r",
+  "planned_pivot_xy": [
+   395,
+   590
+  ],
+  "joint_id": "wrist_r",
+  "alpha_mode": "STRAIGHT",
+  "view_id": "threeq_r",
+  "depth_band": "FOCAL",
+  "landmark_frame": "registered against approved master ines_master"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "coin_prop",
+  "role": "DERIVED",
+  "derived_from": "ines_master",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: ines_master"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_coin_prop_f47c99c9.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_coin_prop_f47c99c9.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

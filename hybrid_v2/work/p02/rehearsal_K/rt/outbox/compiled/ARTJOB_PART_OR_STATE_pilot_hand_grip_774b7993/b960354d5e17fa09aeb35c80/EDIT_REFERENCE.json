@@ -1,0 +1,8 @@
+{
+ "mandatory_edit_reference": {
+  "file": "assets/art/pilot_master.png",
+  "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+ },
+ "note": "submit/edit must attach these exact master bytes"
+}

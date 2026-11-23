@@ -1,0 +1,2 @@
+FAIL gates={"mechanical_fixture_pass":true,"art_registration_pass":false,"artistic_review_pass":false,"audio_alignment_pass":false,"whole_film_pass":false,"production_pass":false} scene=shotA frames=[0,1,89,90,91,285,300,479,480,599,600,7199] failures=0 missing_art=0 → hybrid_v2\work\qa_fixture_sceneA_production\QA_RESULT.json
+exit=1

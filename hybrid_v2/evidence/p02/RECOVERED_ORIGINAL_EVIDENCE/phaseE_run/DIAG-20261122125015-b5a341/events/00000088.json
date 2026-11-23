@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:88",
+ "sequence": 88,
+ "prev_event_sha256": "85cd63c572dc538e54cfe94f0a05c6ab3b6b60ab83d0496a9f3fe9e0d60ef78b",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwru49jz",
+ "operation_id": null,
+ "task_id": "asset_pilot_hand_grip",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "assets/art/pilot_hand_grip.png",
+   "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+   "bytes": 891,
+   "source": "assets/art/pilot_hand_grip.png"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:87"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:20.779Z",
+ "elapsed_ms": 5,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "byte hash + verifyApproval",
+  "pass": true,
+  "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+ },
+ "lock_generation": 88,
+ "event_sha256": "f7449aef4a926bf29c2d630c9c6e424a876fccc76f2fb2fbca66a698cc871753"
+}

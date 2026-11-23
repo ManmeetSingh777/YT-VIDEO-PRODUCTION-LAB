@@ -1,0 +1,60 @@
+[build] rehearsal film via the real intake API → hybrid_v2\work\p02\rehearsal\rt\film
+[preflight] [["S00_IDEA","READY"],["S01_STORY","READY"],["S02_EXPERIENCE","READY"],["S03_TIMING_MOTION","READY"],["S04_ART_DEMAND","READY"],["S05_ART_PRODUCTION","READY"],["S06_REGISTRATION_RIG","READY"],["S07_NEUTRINO_RENDER","READY"],["S08_QA_REPAIR","READY"],["S09_FILM_AUDIO_FINAL","BLOCKED_HUMAN"]]
+[start] DIAG-20261122131103-9255ef → [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"COMMITTED"},{"stage":"S03_TIMING_MOTION","status":"COMMITTED"},{"stage":"S04_ART_DEMAND","status":"COMMITTED"},{"stage":"S05_ART_PRODUCTION","status":"COMMITTED"},{"stage":"S06_REGISTRATION_RIG","status":"COMMITTED"},{"stage":"S07_NEUTRINO_RENDER","status":"BLOCKED"}]
+[status]
+run DIAG-20261122131103-9255ef events 195 verified 51/59 (86.4%) failed 8 blocked 0
+  S00_IDEA               COMMITTED    1/1 failed 0 blocked 0
+  S01_STORY              COMMITTED    2/2 failed 0 blocked 0
+  S02_EXPERIENCE         COMMITTED    3/3 failed 0 blocked 0
+  S03_TIMING_MOTION      COMMITTED    5/5 failed 0 blocked 0
+  S04_ART_DEMAND         COMMITTED    10/10 failed 0 blocked 0
+  S05_ART_PRODUCTION     COMMITTED    12/12 failed 0 blocked 0
+  S06_REGISTRATION_RIG   COMMITTED    13/13 failed 0 blocked 0
+  S07_NEUTRINO_RENDER    BLOCKED      5/13 failed 8 blocked 0
+  S08_QA_REPAIR          NOT_STARTED  0/0 failed 0 blocked 0
+  S09_FILM_AUDIO_FINAL   NOT_STARTED  0/0 failed 0 blocked 0
+  next: resolve chunk_0_600
+[why FAIL-S07_NEUTRINO_RENDER-chunk_0_600-0752f6] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":0,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028448},{"frame":1,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028448},{"frame":2,"kind":"UNCOVERED
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner RENDER_PRODUCER class RENDER_OR_MEMORY
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe true
+[why FAIL-S07_NEUTRINO_RENDER-chunk_600_1200-9ee2db] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":600,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028602},{"frame":601,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028602},{"frame":601,"kind":"FRO
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner MOTION_COMPILER class MOTION_OR_CAMERA
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe false
+[why FAIL-S07_NEUTRINO_RENDER-chunk_1200_1800-133a7e] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":1200,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028602},{"frame":1200,"kind":"FROZEN_FRAME","reason":"expected scene state changed but the rendered p
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner MOTION_COMPILER class MOTION_OR_CAMERA
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe false
+[why FAIL-S07_NEUTRINO_RENDER-chunk_1800_2400-76fd03] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":1800,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028602},{"frame":1800,"kind":"FROZEN_FRAME","reason":"expected scene state changed but the rendered p
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner MOTION_COMPILER class MOTION_OR_CAMERA
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe false
+[why FAIL-S07_NEUTRINO_RENDER-chunk_2400_3000-ef52da] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":2400,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028602},{"frame":2400,"kind":"FROZEN_FRAME","reason":"expected scene state changed but the rendered p
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner MOTION_COMPILER class MOTION_OR_CAMERA
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe false
+[why FAIL-S07_NEUTRINO_RENDER-chunk_3000_3600-69576c] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":3000,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":2028602},{"frame":3000,"kind":"FROZEN_FRAME","reason":"expected scene state changed but the rendered p
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner MOTION_COMPILER class MOTION_OR_CAMERA
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe false
+[why FAIL-S07_NEUTRINO_RENDER-chunk_3600_4200-0988a2] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: probe {"codec":"ffv1","width":1920,"height":1080,"r_frame_rate":"60/1","frames":600,"video_duration":10,"audio_duration":null} defects [{"frame":3600,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":1262400},{"frame":3601,"kind":"UNCOVERED_EDGE","count":6000,"sentinel":1262400},{"frame":3602,"kind":"
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner RENDER_PRODUCER class RENDER_OR_MEMORY
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe true
+[trace 0] {"frame":0,"segment":{"frames":[0,100],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"open","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a
+[trace 100] {"frame":100,"segment":{"frames":[100,420],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 450] {"frame":450,"segment":{"frames":[420,480],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 3599] {"frame":3599,"segment":{"frames":[3000,3600],"shot":"rt_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[],"camera_track":null,"world":null,"effects":[],"motion_blur":false,"static_hold":true,"chunk":[3000,3600]},"assets":[],"output":{"renderer":"art_bridge_chrome_frames","renderer_provenance":"ART_BRIDGE_CAPTURE","chunk":[3000,3600],"frame_rgb_sha256":"afd0350e3a4733c4110bdbdf8
+[trace 3600] {"frame":3600,"segment":{"frames":[3600,3700],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 3900] {"frame":3900,"segment":{"frames":[3900,4200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 7199] {"frame":7199,"segment":{"frames":[6600,7200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[6600,7200]},"as
+[verify] chain ok=true events=195 head=0f6ced5a59ded662bc7be7cb240f8a446630c11e3da20da154d8c1ddaa667822 handoffs=S00_IDEA:true,S01_STORY:true,S02_EXPERIENCE:true,S03_TIMING_MOTION:true,S04_ART_DEMAND:true,S05_ART_PRODUCTION:true,S06_REGISTRATION_RIG:true
+[done] G_final_full_run in 1691 s; run DIAG-20261122131103-9255ef

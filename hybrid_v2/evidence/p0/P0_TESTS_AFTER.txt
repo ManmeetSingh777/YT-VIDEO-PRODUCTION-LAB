@@ -1,0 +1,71 @@
+TAP version 13
+# Subtest: P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+ok 1 - P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+  ---
+  duration_ms: 59.2633
+  type: 'test'
+  ...
+# Subtest: P0-1b Ines master context covers the S02 interval and the master's shots
+ok 2 - P0-1b Ines master context covers the S02 interval and the master's shots
+  ---
+  duration_ms: 45.2121
+  type: 'test'
+  ...
+# Subtest: P0-1c perturbing S02 grip timing changes only dependent job contexts
+ok 3 - P0-1c perturbing S02 grip timing changes only dependent job contexts
+  ---
+  duration_ms: 181.4692
+  type: 'test'
+  ...
+# Subtest: P0-2a all six canonical-master jobs route to the canonical master medium
+ok 4 - P0-2a all six canonical-master jobs route to the canonical master medium
+  ---
+  duration_ms: 47.637
+  type: 'test'
+  ...
+# Subtest: P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+ok 5 - P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+  ---
+  duration_ms: 1.1381
+  type: 'test'
+  ...
+# Subtest: P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+ok 6 - P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+  ---
+  duration_ms: 726.2319
+  type: 'test'
+  ...
+# Subtest: P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+ok 7 - P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+  ---
+  duration_ms: 7079.0368
+  type: 'test'
+  ...
+# Subtest: P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+ok 8 - P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+  ---
+  duration_ms: 6780.6827
+  type: 'test'
+  ...
+# Subtest: P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+ok 9 - P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+  ---
+  duration_ms: 2343.743
+  type: 'test'
+  ...
+# Subtest: P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+ok 10 - P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+  ---
+  duration_ms: 1362.6676
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18726.3878
+exit=0

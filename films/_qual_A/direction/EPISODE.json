@@ -1,0 +1,185 @@
+{
+ "format": "MNS-EPISODE/1",
+ "film": {
+  "id": "qual_A",
+  "title": "Qualification motion proof (NOT Film 001)",
+  "tail": 1.0,
+  "bg": "#9fc48a"
+ },
+ "narration": {
+  "voice": "af_heart",
+  "speed": 1.0,
+  "lead_in": 0.6,
+  "sentences": [
+   {
+    "id": "s1",
+    "text": "One squeeze of the bellows sends cool smoke drifting toward the hive."
+   },
+   {
+    "id": "s2",
+    "text": "The bees settle back inside, and the keeper can begin her work.",
+    "pause_before": 0.5
+   }
+  ]
+ },
+ "identities": [
+  {
+   "id": "beekeeper",
+   "kind": "character",
+   "design_intent": "young beekeeper, baggy pale suit, wide-brim veil hat, leather gloves",
+   "required_states": [
+    "holding",
+    "raising",
+    "squeezing",
+    "relieved"
+   ]
+  },
+  {
+   "id": "smoker",
+   "kind": "object",
+   "design_intent": "tin fire-can with spout and leather bellows",
+   "required_states": [
+    "open",
+    "squeezed"
+   ]
+  },
+  {
+   "id": "apiary",
+   "kind": "world",
+   "design_intent": "meadow with a wooden hive on a stand, tree line, flowers",
+   "required_states": [
+    "busy",
+    "calm"
+   ]
+  }
+ ],
+ "scenes": [
+  {
+   "id": "apiary",
+   "from": "0",
+   "understanding_before": "a busy hive",
+   "understanding_after": "smoke from the squeezed bellows calms the bees",
+   "main_event": "keeper raises the smoker and squeezes the bellows; puffs travel to the hive; the bees slow and return inside",
+   "causal_mechanism": "bellows squeeze pushes air through the can → smoke leaves the spout → reaches the entrance → bee flight speed and count drop",
+   "start_composition": "wide: keeper left, hive right, bees circling the entrance",
+   "end_composition": "same, bees inside, keeper smiling",
+   "identities": [
+    "beekeeper",
+    "smoker",
+    "apiary"
+   ],
+   "owned_components": [
+    {
+     "id": "arm",
+     "motion": "raise"
+    },
+    {
+     "id": "bellows",
+     "motion": "squeeze"
+    },
+    {
+     "id": "smoke",
+     "motion": "emit+drift"
+    },
+    {
+     "id": "bees",
+     "motion": "flight → settle"
+    }
+   ],
+   "articulation": [
+    {
+     "who": "beekeeper",
+     "action": "raise arm, squeeze",
+     "contact": "glove→bellows board"
+    }
+   ],
+   "events": [
+    {
+     "id": "raise",
+     "at": "s1:\"squeeze\"-0.7",
+     "what": "the arm lifts the smoker toward the hive; head turns to it"
+    },
+    {
+     "id": "squeeze",
+     "at": "s1:\"squeeze\"",
+     "what": "the bellows close: upper board drops onto the leather",
+     "sfx": "puff"
+    },
+    {
+     "id": "smoke_arrives",
+     "at": "s1:\"hive\"",
+     "what": "the first smoke cloud reaches the hive entrance"
+    },
+    {
+     "id": "settle",
+     "at": "s2:\"settle\"",
+     "what": "bees slow and fly back into the entrance one by one"
+    },
+    {
+     "id": "relief",
+     "at": "s2:\"work\"-0.3",
+     "what": "keeper relaxes: shoulders drop, smile"
+    }
+   ],
+   "camera": [
+    {
+     "at": "0",
+     "what": "wide"
+    },
+    {
+     "at": "settle",
+     "what": "slow push toward the hive"
+    }
+   ],
+   "attention": [
+    {
+     "at": "raise",
+     "target": "smoker"
+    },
+    {
+     "at": "smoke_arrives",
+     "target": "hive entrance"
+    }
+   ],
+   "handoff": "end of test",
+   "unacceptable": [
+    "smoke appears without a squeeze",
+    "bees vanish instead of entering",
+    "glove slides off the bellows"
+   ],
+   "sound": [
+    {
+     "at": "0",
+     "sfx": "buzz",
+     "until": "settle+1.0"
+    },
+    {
+     "at": "squeeze+0.55",
+     "sfx": "puff"
+    },
+    {
+     "at": "squeeze+1.1",
+     "sfx": "puff"
+    }
+   ]
+  }
+ ],
+ "hero_frames": [
+  {
+   "id": "h1",
+   "scene": "apiary",
+   "at": "apiary.squeeze+0.4",
+   "purpose": "cause"
+  }
+ ],
+ "motion_proof": {
+  "from": "0",
+  "to": "s2.end+0.5",
+  "must_show": [
+   "arm raise",
+   "bellows squeeze",
+   "smoke travel",
+   "bees settle"
+  ]
+ }
+}

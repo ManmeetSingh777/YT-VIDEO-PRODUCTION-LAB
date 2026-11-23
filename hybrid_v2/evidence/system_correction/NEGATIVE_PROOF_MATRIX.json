@@ -1,0 +1,181 @@
+{
+ "rows": [
+  {
+   "test": "U03",
+   "injected": "missing story/direction/design receipt, stale hash, bad agreement, placeholder, missing witness, unknown family, unsafe caps, null context → refused with 0 provider calls",
+   "status": "PASS"
+  },
+  {
+   "test": "U06",
+   "injected": "rejected design vs doc.status / human:true / test-trust / edited pointer",
+   "status": "PASS"
+  },
+  {
+   "test": "U05",
+   "injected": "re-export never destroys",
+   "status": "PASS"
+  },
+  {
+   "test": "S3C-1",
+   "injected": "misbound methods",
+   "status": "PASS"
+  },
+  {
+   "test": "S3C-9",
+   "injected": "unsuitable family",
+   "status": "PASS"
+  },
+  {
+   "test": "A01",
+   "injected": "tube/oval construction refused",
+   "status": "PASS"
+  },
+  {
+   "test": "A02",
+   "injected": "box+circle machine refused",
+   "status": "PASS"
+  },
+  {
+   "test": "L04",
+   "injected": "contradictory rule blocks",
+   "status": "PASS"
+  },
+  {
+   "test": "T01",
+   "injected": "counterfactual mechanism",
+   "status": "PASS"
+  },
+  {
+   "test": "T02",
+   "injected": "missing verb",
+   "status": "PASS"
+  },
+  {
+   "test": "T03",
+   "injected": "hand conflict/orphan/teleport",
+   "status": "PASS"
+  },
+  {
+   "test": "T04",
+   "injected": "unsupported obstacle",
+   "status": "PASS"
+  },
+  {
+   "test": "T05",
+   "injected": "door continuity",
+   "status": "PASS"
+  },
+  {
+   "test": "T06",
+   "injected": "stale narration",
+   "status": "PASS"
+  },
+  {
+   "test": "T07",
+   "injected": "inert direction / fake 3D",
+   "status": "PASS"
+  },
+  {
+   "test": "T09",
+   "injected": "diagnostic animatic",
+   "status": "PASS"
+  },
+  {
+   "test": "M02",
+   "injected": "IK branches/limits",
+   "status": "PASS"
+  },
+  {
+   "test": "M03",
+   "injected": "reversed palm",
+   "status": "PASS"
+  },
+  {
+   "test": "M05",
+   "injected": "unreachable with support",
+   "status": "PASS"
+  },
+  {
+   "test": "M06",
+   "injected": "rotated front PNG",
+   "status": "PASS"
+  },
+  {
+   "test": "M07",
+   "injected": "bad morph/deform",
+   "status": "PASS"
+  },
+  {
+   "test": "M09",
+   "injected": "missing shadow relation",
+   "status": "PASS"
+  },
+  {
+   "test": "M10",
+   "injected": "illegal view edge",
+   "status": "PASS"
+  },
+  {
+   "test": "M11",
+   "injected": "zoom-cut portal",
+   "status": "PASS"
+  },
+  {
+   "test": "M15",
+   "injected": "missing state",
+   "status": "PASS"
+  },
+  {
+   "test": "R08",
+   "injected": "missing underpaint",
+   "status": "PASS"
+  },
+  {
+   "test": "P01",
+   "injected": "frame gaps",
+   "status": "PASS"
+  },
+  {
+   "test": "P02",
+   "injected": "nondeterministic re-render",
+   "status": "PASS"
+  },
+  {
+   "test": "P03",
+   "injected": "stale revision",
+   "status": "PASS"
+  },
+  {
+   "test": "P05",
+   "injected": "no audio / fps / black / sentinel",
+   "status": "PASS"
+  },
+  {
+   "test": "P06",
+   "injected": "CLI-claimed render",
+   "status": "PASS"
+  },
+  {
+   "test": "B3-5",
+   "injected": "film negatives",
+   "status": "PASS"
+  },
+  {
+   "test": "B3-6",
+   "injected": "production mode refusal",
+   "status": "PASS"
+  }
+ ],
+ "u03_refusal_codes": {
+  "missing story receipt": "STORY_APPROVAL_REQUIRED",
+  "missing direction receipt": "DIRECTION_APPROVAL_REQUIRED",
+  "missing design receipt": "DESIGN_APPROVAL_REQUIRED",
+  "stale source hash": "ART_CONTRACT_REFUSED",
+  "invalid agreement (view)": "ART_CONTRACT_REFUSED",
+  "placeholder molecular": "ART_CONTRACT_REFUSED",
+  "missing witness image": "ART_CONTRACT_REFUSED",
+  "unknown family": "ART_CONTRACT_REFUSED",
+  "approved design changed after approval": "DESIGN_APPROVAL_REQUIRED",
+  "unsafe capability": "WAITING_FOR_GPT_ART"
+ }
+}

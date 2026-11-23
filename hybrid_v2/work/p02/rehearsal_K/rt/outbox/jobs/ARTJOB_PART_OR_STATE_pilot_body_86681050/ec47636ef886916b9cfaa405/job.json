@@ -1,0 +1,107 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_pilot_body_86681050",
+ "root_dependency": "pilot_body",
+ "identity_id": "pilot",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "pilot_master",
+ "motion_context": {
+  "identity_id": "pilot",
+  "canonical_parent_asset": "pilot_master",
+  "shot_ids": [
+   "rt_shot"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    600
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": "open|grip",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "pelvis"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "pilot_rig",
+    "joint": "pelvis",
+    "rest_xy": [
+     150,
+     300
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "pilot_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "torso+head cutout. Required by: state pilot_rig:open/- pilot_close_hand; state pilot_rig:grip/- pilot_close_hand"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "adf2a5bd9495815d3a35b898caca58d4768f4cb1dcbe72cde3551e5a7e36328d",
+ "frame_precision": "STATE_INTERVALS",
+ "generation": "ec47636ef886916b9cfaa405",
+ "dependency_parts_digest": "ec47636ef886916b9cfaa4055951e28ce0dc11dedc1ea808e1d8730d1c5e65ab",
+ "gate": {
+  "pass": true,
+  "family": "ACTING_HUMAN",
+  "failures": [],
+  "required_methods": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F14",
+   "F15",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F30",
+   "F31",
+   "F33",
+   "F36",
+   "F51",
+   "F52",
+   "F53",
+   "F56",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F77",
+   "F79",
+   "F80"
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122115303-c3d250:24",
+ "sequence": 24,
+ "prev_event_sha256": "91fe12df88ab5d17527f49d765a46eab61ec47adb4bde13600ea0950e181adb5",
+ "film_id": "film",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwrs2nwo",
+ "operation_id": null,
+ "task_id": "direction_approval",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "5c0b4be70ca2ed7865ebe455597fb86451b4650ba14d8fb0487fc909d356ca22",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "BLOCKED",
+ "gate_evidence_refs": [],
+ "blocked_on": [
+  "attention_rt_world_shot"
+ ],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122115303-c3d250:23"
+ ],
+ "wall_time_utc": "2026-11-22T11:53:05.510Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_BLOCKED",
+ "lock_generation": 24,
+ "event_sha256": "bda300eed3f91ee117a3577ec28fbb57e0ad3bd0fd2caf81fb4067339b77903f"
+}

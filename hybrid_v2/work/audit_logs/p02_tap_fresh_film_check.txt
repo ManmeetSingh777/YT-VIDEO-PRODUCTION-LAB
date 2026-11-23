@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: P02-R22 motion decisions reach the browser-applied render state: joint key, effect seed (character family) and camera key (world family)
+ok 1 - P02-R22 motion decisions reach the browser-applied render state: joint key, effect seed (character family) and camera key (world family)
+  ---
+  duration_ms: 19943.2722
+  type: 'test'
+  ...
+# Subtest: P02-R22 attention and art-demand decisions reach S02/S04 consumers
+ok 2 - P02-R22 attention and art-demand decisions reach S02/S04 consumers
+  ---
+  duration_ms: 612.7602
+  type: 'test'
+  ...
+# Subtest: P02-R22 an art-design decision and a matching repair rule change the exact compiled request; a non-matching rule is INERT for that job
+ok 3 - P02-R22 an art-design decision and a matching repair rule change the exact compiled request; a non-matching rule is INERT for that job
+  ---
+  duration_ms: 7370.796
+  type: 'test'
+  ...
+# Subtest: P02-R22 negative: a field no consumer reads is refused as INERT_CONTROL
+ok 4 - P02-R22 negative: a field no consumer reads is refused as INERT_CONTROL
+  ---
+  duration_ms: 1320.2018
+  type: 'test'
+  ...
+# Subtest: P02-R01 the production registry renders native 1920x1080 RGB24 frames from real layers; PNG bytes and 16x9 outputs are refused
+ok 5 - P02-R01 the production registry renders native 1920x1080 RGB24 frames from real layers; PNG bytes and 16x9 outputs are refused
+  ---
+  duration_ms: 19910.7797
+  type: 'test'
+  ...
+# Subtest: P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+ok 6 - P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+  ---
+  duration_ms: 7738.8319
+  type: 'test'
+  ...
+# Subtest: P02-R03 600 consecutive image-backed frames stream into one verified lossless segment; memory does not grow with chunk size
+ok 7 - P02-R03 600 consecutive image-backed frames stream into one verified lossless segment; memory does not grow with chunk size
+  ---
+  duration_ms: 669690.848
+  type: 'test'
+  ...
+# Subtest: P02-R04 a crash at chunk start/mid/end or an encoder failure publishes nothing; the retry resumes exact coverage with reused verified chunks
+ok 8 - P02-R04 a crash at chunk start/mid/end or an encoder failure publishes nothing; the retry resumes exact coverage with reused verified chunks
+  ---
+  duration_ms: 123600.8073
+  type: 'test'
+  ...
+# Subtest: P02-R05 chunk joins 599/600 and 1199/1200 re-render identically on a fresh session (diagnostic film evidence for 7200 frames is the rehearsal)
+ok 9 - P02-R05 chunk joins 599/600 and 1199/1200 re-render identically on a fresh session (diagnostic film evidence for 7200 frames is the rehearsal)
+  ---
+  duration_ms: 4588.5239
+  type: 'test'
+  ...
+# Subtest: P02-R07 particles and shutter blur change REAL browser pixels only under their predicates (character + world families); a view turn without landmarks is refused
+ok 10 - P02-R07 particles and shutter blur change REAL browser pixels only under their predicates (character + world families); a view turn without landmarks is refused
+  ---
+  duration_ms: 23637.9302
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 849410.581

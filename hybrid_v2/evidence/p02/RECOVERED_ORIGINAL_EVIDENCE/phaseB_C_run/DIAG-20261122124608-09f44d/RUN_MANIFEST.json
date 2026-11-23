@@ -1,0 +1,8 @@
+{
+ "schema_version": 1,
+ "run_id": "DIAG-20261122124608-09f44d",
+ "film_id": "film",
+ "run_type": "DIAGNOSTIC",
+ "created_utc": "2026-11-22T12:46:08.166Z",
+ "renderer": "art_bridge_chrome_frames"
+}

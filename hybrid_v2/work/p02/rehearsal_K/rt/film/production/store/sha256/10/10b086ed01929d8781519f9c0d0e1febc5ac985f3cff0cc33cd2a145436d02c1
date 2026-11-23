@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:208",
+ "sequence": 208,
+ "prev_event_sha256": "af7bb0c001df509c07bf12213b2d958bfa910382569e48ed2c893e751dfb13cc",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S09_FILM_AUDIO_FINAL",
+ "attempt_id": "Amwryca8g",
+ "operation_id": null,
+ "task_id": "final_media",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:207"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:32.370Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "final_media",
+  "producer": "engine/film/segment_render.mjs#probeMp4",
+  "inputs": [],
+  "expected_outputs": [
+   "7200 frames, 1920x1080, 60/1, audio stream"
+  ],
+  "deps": [],
+  "invariants": [],
+  "verification": "ffprobe of the published MP4",
+  "evidence_location": "production/store",
+  "category": "AUDIO_ALIGNMENT",
+  "group": null
+ },
+ "lock_generation": 208,
+ "event_sha256": "a1a16d5fdfcdf6a781eaf91b817656779b503206b09e147f996472863697bf56"
+}

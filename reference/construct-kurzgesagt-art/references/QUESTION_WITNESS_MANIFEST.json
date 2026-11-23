@@ -1,0 +1,597 @@
+[
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 12,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0012.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 203,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0203.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 219,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0219.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 250,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0250.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 334,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0334.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 356,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0356.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 372,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0372.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 423,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0423.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 436,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0436.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 444,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0444.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 514,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0514.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 580,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0580.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 650,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0650.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 663,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0663.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 686,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0686.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 740,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0740.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 810,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0810.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "abstract_agent_media",
+    "time_s": 821,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/abstract_agent_media/AI_0821.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 35,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0035.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 44,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0044.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 61,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0061.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 66,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0066.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 72,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0072.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 105,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0105.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 138,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0138.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 144,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0144.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 162,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0162.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 197,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0197.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 275,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0275.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 315,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0315.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 430,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0430.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 496,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0496.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 555,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0555.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 710,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0710.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 777,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0777.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 846,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0846.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 856,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0856.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "whole_world_variation",
+    "time_s": 874,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/whole_world_variation/AI_0874.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 305,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0305.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 416,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0416.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 468,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0468.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 561,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0561.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 726,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0726.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 744,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0744.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 852,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0852.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 861,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0861.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "AI",
+    "question_group": "mechanism_and_actions",
+    "time_s": 883,
+    "full_native_witness_path": "full_film_study/visual_questions/native/AI/mechanism_and_actions/AI_0883.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 18,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0018.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 62,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0062.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 75,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0075.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 91,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0091.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 140,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0140.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 160,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0160.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 222,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0222.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 465,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0465.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 542,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0542.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "MEMORIES",
+    "question_group": "dense_biology_and_inner_worlds",
+    "time_s": 657,
+    "full_native_witness_path": "full_film_study/visual_questions/native/MEMORIES/dense_biology_and_inner_worlds/MEMORIES_0657.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 51,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0051.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 88,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0088.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 200,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0200.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 230,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0230.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 296,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0296.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 387,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0387.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "NUCLEAR",
+    "question_group": "physical_and_data_worlds",
+    "time_s": 440,
+    "full_native_witness_path": "full_film_study/visual_questions/native/NUCLEAR/physical_and_data_worlds/NUCLEAR_0440.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "BRAIN",
+    "question_group": "perception_and_character_worlds",
+    "time_s": 2,
+    "full_native_witness_path": "full_film_study/visual_questions/native/BRAIN/perception_and_character_worlds/BRAIN_0002.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "BRAIN",
+    "question_group": "perception_and_character_worlds",
+    "time_s": 20,
+    "full_native_witness_path": "full_film_study/visual_questions/native/BRAIN/perception_and_character_worlds/BRAIN_0020.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "BRAIN",
+    "question_group": "perception_and_character_worlds",
+    "time_s": 60,
+    "full_native_witness_path": "full_film_study/visual_questions/native/BRAIN/perception_and_character_worlds/BRAIN_0060.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "BRAIN",
+    "question_group": "perception_and_character_worlds",
+    "time_s": 210,
+    "full_native_witness_path": "full_film_study/visual_questions/native/BRAIN/perception_and_character_worlds/BRAIN_0210.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "BRAIN",
+    "question_group": "perception_and_character_worlds",
+    "time_s": 316,
+    "full_native_witness_path": "full_film_study/visual_questions/native/BRAIN/perception_and_character_worlds/BRAIN_0316.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "BRAIN",
+    "question_group": "perception_and_character_worlds",
+    "time_s": 480,
+    "full_native_witness_path": "full_film_study/visual_questions/native/BRAIN/perception_and_character_worlds/BRAIN_0480.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 20,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0020.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 104,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0104.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 210,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0210.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 407,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0407.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 450,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0450.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 560,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0560.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "SOLAR",
+    "question_group": "cosmos_abstraction_and_scale",
+    "time_s": 690,
+    "full_native_witness_path": "full_film_study/visual_questions/native/SOLAR/cosmos_abstraction_and_scale/SOLAR_0690.00s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 13.9,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0013.90s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 14.5,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0014.50s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 15.2,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0015.20s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 15.9,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0015.90s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 16.9,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0016.90s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 17.5,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0017.50s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 18.3,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0018.30s.jpg",
+    "role": "STYLE_ONLY"
+  },
+  {
+    "film": "VOLCANO",
+    "question_group": "material_bridge_worlds",
+    "time_s": 19.3,
+    "full_native_witness_path": "full_film_study/visual_questions/native/VOLCANO/material_bridge_worlds/VOLCANO_0019.30s.jpg",
+    "role": "STYLE_ONLY"
+  }
+]

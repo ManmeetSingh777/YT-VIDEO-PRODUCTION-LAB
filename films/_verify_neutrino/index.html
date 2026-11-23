@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="assets/nu.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #111C3D; }
+      #grain { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 40; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="120" data-width="1920" data-height="1080">
+      <div id="kitchen" class="clip" data-composition-id="kitchen" data-composition-src="compositions/kitchen.html" data-start="0" data-duration="15.3" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:1"></div>
+      <div id="ascent" class="clip" data-composition-id="ascent" data-composition-src="compositions/ascent.html" data-start="15.3" data-duration="5.763" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:2"></div>
+      <div id="sun" class="clip" data-composition-id="sun" data-composition-src="compositions/sun.html" data-start="21.063" data-duration="10.551" data-track-index="3" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:3"></div>
+      <div id="flight" class="clip" data-composition-id="flight" data-composition-src="compositions/flight.html" data-start="31.614" data-duration="11.932" data-track-index="4" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:4"></div>
+      <div id="body" class="clip" data-composition-id="body" data-composition-src="compositions/body.html" data-start="43.546" data-duration="3.707" data-track-index="5" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:5"></div>
+      <div id="planet" class="clip" data-composition-id="planet" data-composition-src="compositions/planet.html" data-start="47.253" data-duration="8.206" data-track-index="6" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:6"></div>
+      <div id="doors" class="clip" data-composition-id="doors" data-composition-src="compositions/doors.html" data-start="55.459" data-duration="14.567" data-track-index="7" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:7"></div>
+      <div id="ice" class="clip" data-composition-id="ice" data-composition-src="compositions/ice.html" data-start="70.026" data-duration="17.175" data-track-index="8" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:8"></div>
+      <div id="flash" class="clip" data-composition-id="flash" data-composition-src="compositions/flash.html" data-start="87.201" data-duration="14.623" data-track-index="9" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:9"></div>
+      <div id="source" class="clip" data-composition-id="source" data-composition-src="compositions/source.html" data-start="101.824" data-duration="6.056" data-track-index="10" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:10"></div>
+      <div id="end" class="clip" data-composition-id="end" data-composition-src="compositions/end.html" data-start="107.88" data-duration="12.12" data-track-index="11" data-track-kind="graphics" data-width="1920" data-height="1080" style="z-index:11"></div>
+      <img id="grain" class="clip" src="assets/grain.png" alt="" data-start="0" data-duration="120" data-track-index="30" />
+      <audio id="narration" class="clip" src="assets/audio/narration.wav" data-start="0" data-duration="120" data-track-index="50" data-volume="1"></audio>
+      <audio id="music" class="clip" src="assets/audio/music.wav" data-start="0" data-duration="120" data-track-index="51" data-volume="0.42"></audio>
+      <audio id="sfx" class="clip" src="assets/audio/sfx.wav" data-start="0" data-duration="120" data-track-index="52" data-volume="0.8"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

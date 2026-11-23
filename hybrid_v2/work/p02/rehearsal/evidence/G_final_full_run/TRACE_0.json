@@ -1,0 +1,705 @@
+{
+ "frame": 0,
+ "segment": {
+  "frames": [
+   0,
+   100
+  ],
+  "shot": "rt_shot",
+  "camera_moving": false,
+  "actions": [
+   "pilot_close_hand"
+  ],
+  "rig_states": {
+   "pilot_rig": {
+    "pose": "open",
+    "view": null,
+    "contacts": []
+   }
+  },
+  "assets": [
+   {
+    "id": "pilot_body",
+    "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+    "delivered": true
+   },
+   {
+    "id": "pilot_underpaint",
+    "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+    "delivered": true
+   },
+   {
+    "id": "pilot_upper_arm",
+    "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+    "delivered": true
+   },
+   {
+    "id": "pilot_forearm",
+    "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+    "delivered": true
+   },
+   {
+    "id": "pilot_hand_open",
+    "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+    "delivered": true
+   }
+  ],
+  "camera_track": null,
+  "world": null,
+  "effects": [],
+  "motion_blur": false,
+  "static_hold": false,
+  "chunk": [
+   0,
+   600
+  ]
+ },
+ "assets": [
+  {
+   "asset": "pilot_body",
+   "role": null,
+   "delivered": true,
+   "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "bytes_match": true,
+   "provenance": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "approval": {
+    "status": "VERIFIED",
+    "receipt": "asset__pilot_body__1b6dc507c059__mwruuxpsa4e278",
+    "reviewer_kind": "TEST_TRUSTED"
+   },
+   "registration": {
+    "ok": true,
+    "receipt": [
+     "LANDMARK_SIDECAR.json",
+     "pilot_body__REGISTRATION_RECEIPT.json"
+    ]
+   },
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "artjob": null,
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "decisions": [
+     {
+      "method": "F01",
+      "f_source_sha256": "27377152de0e2f6b854cbf694b199c9501033baee85be0462bda2856d761f231"
+     },
+     {
+      "method": "F02",
+      "f_source_sha256": "3c3615f3adbc261471feced58eaa448e7587a18ac76e6f547f3d69222d600bf4"
+     },
+     {
+      "method": "F03",
+      "f_source_sha256": "1ec40f193d6c3c7635b81adb53d3010c9299c2fc2cc6244cfbc1dbdcf994da19"
+     },
+     {
+      "method": "F04",
+      "f_source_sha256": "5f3f4dbedd3ca73a090778c3808dde3a31a16b5e235fc2a467040a002ded0781"
+     },
+     {
+      "method": "F05",
+      "f_source_sha256": "cc57cd972bcbe756a3292da7d2f2714b8df5687c47f6cbb005d050aba4552c3f"
+     },
+     {
+      "method": "F06",
+      "f_source_sha256": "1ce1cce0f13ee7a1d7864fb008d6a086e638858abed57e1383b6a297492040ba"
+     },
+     {
+      "method": "F14",
+      "f_source_sha256": "85fb64516f2bdd56a3540279331b8c9b091f1ef49900ecf264827e2a5a4818fd"
+     },
+     {
+      "method": "F30",
+      "f_source_sha256": "87aa04eff3af5a0ff0b522b439ba8a293922e0ba0a219131be33427c0a4a7ca0"
+     },
+     {
+      "method": "F33",
+      "f_source_sha256": "ddc641d4ec715501229ce6146d37b9924db0a1d24cd774feab936f9f5462fec3"
+     },
+     {
+      "method": "F51",
+      "f_source_sha256": "3d6ded2233bad0eeaaa5d5870148ff1105f6b83cd94718258a83110c01c7dac1"
+     },
+     {
+      "method": "F52",
+      "f_source_sha256": "fa0a5cacf3f744c767d4a0b740d418f8d53c23ec331bf0881709edcd4442bd8e"
+     },
+     {
+      "method": "F53",
+      "f_source_sha256": "6b8ad9509d46472ccdd2e47fd4ede1d052fc1b40adcf499fbf8d58e840331bdb"
+     },
+     {
+      "method": "F58",
+      "f_source_sha256": "25aeb60513217aa50f75c7fb7ce5ae6a89b610f0cc7b0d8c5dbf1384017ea36f"
+     },
+     {
+      "method": "F59",
+      "f_source_sha256": "5214d723c1c9efaf12497703fcd2ffd7c648665d4d3f2e43c776ed26f93441b1"
+     },
+     {
+      "method": "F61",
+      "f_source_sha256": "3105e77aa36d9337f098e902c4ed4dbaa6b8b3597b7f2ddba1cded8e0abff702"
+     },
+     {
+      "method": "F62",
+      "f_source_sha256": "2626834e32a933c21fede937dae575b91839d38f80d290220f9c26c22cd03110"
+     },
+     {
+      "method": "F64",
+      "f_source_sha256": "555327f9994134d261e21cec76f9ef221c26dc4f966c24438c67fdb65e918e7f"
+     },
+     {
+      "method": "F65",
+      "f_source_sha256": "db9b1d26a245f12ddd3b13d84dde8ca695756458a74b849727cadaa0f84a4a8d"
+     },
+     {
+      "method": "F66",
+      "f_source_sha256": "c79ee596aee49a15ddab65c7f2d8a5d975dadd472a593ee0f2a33a5db777e6dd"
+     },
+     {
+      "method": "F67",
+      "f_source_sha256": "62dc0f1787787ee8dc851033760264138afc09bb7c16237e9829701fe7c6251f"
+     }
+    ]
+   }
+  },
+  {
+   "asset": "pilot_underpaint",
+   "role": null,
+   "delivered": true,
+   "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "bytes_match": true,
+   "provenance": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "approval": {
+    "status": "VERIFIED",
+    "receipt": "asset__pilot_underpaint__5f427a33b3ba__mwruuxt4573d96",
+    "reviewer_kind": "TEST_TRUSTED"
+   },
+   "registration": {
+    "ok": true,
+    "receipt": [
+     "LANDMARK_SIDECAR.json",
+     "pilot_underpaint__REGISTRATION_RECEIPT.json"
+    ]
+   },
+   "plan_entry": {
+    "kind": "UNDERPAINT",
+    "derived_from": "pilot_master"
+   },
+   "artjob": null,
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "decisions": [
+     {
+      "method": "F01",
+      "f_source_sha256": "27377152de0e2f6b854cbf694b199c9501033baee85be0462bda2856d761f231"
+     },
+     {
+      "method": "F02",
+      "f_source_sha256": "3c3615f3adbc261471feced58eaa448e7587a18ac76e6f547f3d69222d600bf4"
+     },
+     {
+      "method": "F03",
+      "f_source_sha256": "1ec40f193d6c3c7635b81adb53d3010c9299c2fc2cc6244cfbc1dbdcf994da19"
+     },
+     {
+      "method": "F04",
+      "f_source_sha256": "5f3f4dbedd3ca73a090778c3808dde3a31a16b5e235fc2a467040a002ded0781"
+     },
+     {
+      "method": "F05",
+      "f_source_sha256": "cc57cd972bcbe756a3292da7d2f2714b8df5687c47f6cbb005d050aba4552c3f"
+     },
+     {
+      "method": "F06",
+      "f_source_sha256": "1ce1cce0f13ee7a1d7864fb008d6a086e638858abed57e1383b6a297492040ba"
+     },
+     {
+      "method": "F14",
+      "f_source_sha256": "85fb64516f2bdd56a3540279331b8c9b091f1ef49900ecf264827e2a5a4818fd"
+     },
+     {
+      "method": "F30",
+      "f_source_sha256": "87aa04eff3af5a0ff0b522b439ba8a293922e0ba0a219131be33427c0a4a7ca0"
+     },
+     {
+      "method": "F33",
+      "f_source_sha256": "ddc641d4ec715501229ce6146d37b9924db0a1d24cd774feab936f9f5462fec3"
+     },
+     {
+      "method": "F51",
+      "f_source_sha256": "3d6ded2233bad0eeaaa5d5870148ff1105f6b83cd94718258a83110c01c7dac1"
+     },
+     {
+      "method": "F52",
+      "f_source_sha256": "fa0a5cacf3f744c767d4a0b740d418f8d53c23ec331bf0881709edcd4442bd8e"
+     },
+     {
+      "method": "F53",
+      "f_source_sha256": "6b8ad9509d46472ccdd2e47fd4ede1d052fc1b40adcf499fbf8d58e840331bdb"
+     },
+     {
+      "method": "F58",
+      "f_source_sha256": "25aeb60513217aa50f75c7fb7ce5ae6a89b610f0cc7b0d8c5dbf1384017ea36f"
+     },
+     {
+      "method": "F59",
+      "f_source_sha256": "5214d723c1c9efaf12497703fcd2ffd7c648665d4d3f2e43c776ed26f93441b1"
+     },
+     {
+      "method": "F61",
+      "f_source_sha256": "3105e77aa36d9337f098e902c4ed4dbaa6b8b3597b7f2ddba1cded8e0abff702"
+     },
+     {
+      "method": "F62",
+      "f_source_sha256": "2626834e32a933c21fede937dae575b91839d38f80d290220f9c26c22cd03110"
+     },
+     {
+      "method": "F64",
+      "f_source_sha256": "555327f9994134d261e21cec76f9ef221c26dc4f966c24438c67fdb65e918e7f"
+     },
+     {
+      "method": "F65",
+      "f_source_sha256": "db9b1d26a245f12ddd3b13d84dde8ca695756458a74b849727cadaa0f84a4a8d"
+     },
+     {
+      "method": "F66",
+      "f_source_sha256": "c79ee596aee49a15ddab65c7f2d8a5d975dadd472a593ee0f2a33a5db777e6dd"
+     },
+     {
+      "method": "F67",
+      "f_source_sha256": "62dc0f1787787ee8dc851033760264138afc09bb7c16237e9829701fe7c6251f"
+     }
+    ]
+   }
+  },
+  {
+   "asset": "pilot_upper_arm",
+   "role": null,
+   "delivered": true,
+   "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+   "bytes_match": true,
+   "provenance": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "approval": {
+    "status": "VERIFIED",
+    "receipt": "asset__pilot_upper_arm__8014c075d065__mwruuxqv8f76e3",
+    "reviewer_kind": "TEST_TRUSTED"
+   },
+   "registration": {
+    "ok": true,
+    "receipt": [
+     "LANDMARK_SIDECAR.json",
+     "pilot_upper_arm__REGISTRATION_RECEIPT.json"
+    ]
+   },
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "artjob": null,
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "decisions": [
+     {
+      "method": "F01",
+      "f_source_sha256": "27377152de0e2f6b854cbf694b199c9501033baee85be0462bda2856d761f231"
+     },
+     {
+      "method": "F02",
+      "f_source_sha256": "3c3615f3adbc261471feced58eaa448e7587a18ac76e6f547f3d69222d600bf4"
+     },
+     {
+      "method": "F03",
+      "f_source_sha256": "1ec40f193d6c3c7635b81adb53d3010c9299c2fc2cc6244cfbc1dbdcf994da19"
+     },
+     {
+      "method": "F04",
+      "f_source_sha256": "5f3f4dbedd3ca73a090778c3808dde3a31a16b5e235fc2a467040a002ded0781"
+     },
+     {
+      "method": "F05",
+      "f_source_sha256": "cc57cd972bcbe756a3292da7d2f2714b8df5687c47f6cbb005d050aba4552c3f"
+     },
+     {
+      "method": "F06",
+      "f_source_sha256": "1ce1cce0f13ee7a1d7864fb008d6a086e638858abed57e1383b6a297492040ba"
+     },
+     {
+      "method": "F14",
+      "f_source_sha256": "85fb64516f2bdd56a3540279331b8c9b091f1ef49900ecf264827e2a5a4818fd"
+     },
+     {
+      "method": "F30",
+      "f_source_sha256": "87aa04eff3af5a0ff0b522b439ba8a293922e0ba0a219131be33427c0a4a7ca0"
+     },
+     {
+      "method": "F33",
+      "f_source_sha256": "ddc641d4ec715501229ce6146d37b9924db0a1d24cd774feab936f9f5462fec3"
+     },
+     {
+      "method": "F51",
+      "f_source_sha256": "3d6ded2233bad0eeaaa5d5870148ff1105f6b83cd94718258a83110c01c7dac1"
+     },
+     {
+      "method": "F52",
+      "f_source_sha256": "fa0a5cacf3f744c767d4a0b740d418f8d53c23ec331bf0881709edcd4442bd8e"
+     },
+     {
+      "method": "F53",
+      "f_source_sha256": "6b8ad9509d46472ccdd2e47fd4ede1d052fc1b40adcf499fbf8d58e840331bdb"
+     },
+     {
+      "method": "F58",
+      "f_source_sha256": "25aeb60513217aa50f75c7fb7ce5ae6a89b610f0cc7b0d8c5dbf1384017ea36f"
+     },
+     {
+      "method": "F59",
+      "f_source_sha256": "5214d723c1c9efaf12497703fcd2ffd7c648665d4d3f2e43c776ed26f93441b1"
+     },
+     {
+      "method": "F61",
+      "f_source_sha256": "3105e77aa36d9337f098e902c4ed4dbaa6b8b3597b7f2ddba1cded8e0abff702"
+     },
+     {
+      "method": "F62",
+      "f_source_sha256": "2626834e32a933c21fede937dae575b91839d38f80d290220f9c26c22cd03110"
+     },
+     {
+      "method": "F64",
+      "f_source_sha256": "555327f9994134d261e21cec76f9ef221c26dc4f966c24438c67fdb65e918e7f"
+     },
+     {
+      "method": "F65",
+      "f_source_sha256": "db9b1d26a245f12ddd3b13d84dde8ca695756458a74b849727cadaa0f84a4a8d"
+     },
+     {
+      "method": "F66",
+      "f_source_sha256": "c79ee596aee49a15ddab65c7f2d8a5d975dadd472a593ee0f2a33a5db777e6dd"
+     },
+     {
+      "method": "F67",
+      "f_source_sha256": "62dc0f1787787ee8dc851033760264138afc09bb7c16237e9829701fe7c6251f"
+     }
+    ]
+   }
+  },
+  {
+   "asset": "pilot_forearm",
+   "role": null,
+   "delivered": true,
+   "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "bytes_match": true,
+   "provenance": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "approval": {
+    "status": "VERIFIED",
+    "receipt": "asset__pilot_forearm__fc19e92012e9__mwruuxrz28bed7",
+    "reviewer_kind": "TEST_TRUSTED"
+   },
+   "registration": {
+    "ok": true,
+    "receipt": [
+     "LANDMARK_SIDECAR.json",
+     "pilot_forearm__REGISTRATION_RECEIPT.json"
+    ]
+   },
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "artjob": null,
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "decisions": [
+     {
+      "method": "F01",
+      "f_source_sha256": "27377152de0e2f6b854cbf694b199c9501033baee85be0462bda2856d761f231"
+     },
+     {
+      "method": "F02",
+      "f_source_sha256": "3c3615f3adbc261471feced58eaa448e7587a18ac76e6f547f3d69222d600bf4"
+     },
+     {
+      "method": "F03",
+      "f_source_sha256": "1ec40f193d6c3c7635b81adb53d3010c9299c2fc2cc6244cfbc1dbdcf994da19"
+     },
+     {
+      "method": "F04",
+      "f_source_sha256": "5f3f4dbedd3ca73a090778c3808dde3a31a16b5e235fc2a467040a002ded0781"
+     },
+     {
+      "method": "F05",
+      "f_source_sha256": "cc57cd972bcbe756a3292da7d2f2714b8df5687c47f6cbb005d050aba4552c3f"
+     },
+     {
+      "method": "F06",
+      "f_source_sha256": "1ce1cce0f13ee7a1d7864fb008d6a086e638858abed57e1383b6a297492040ba"
+     },
+     {
+      "method": "F14",
+      "f_source_sha256": "85fb64516f2bdd56a3540279331b8c9b091f1ef49900ecf264827e2a5a4818fd"
+     },
+     {
+      "method": "F30",
+      "f_source_sha256": "87aa04eff3af5a0ff0b522b439ba8a293922e0ba0a219131be33427c0a4a7ca0"
+     },
+     {
+      "method": "F33",
+      "f_source_sha256": "ddc641d4ec715501229ce6146d37b9924db0a1d24cd774feab936f9f5462fec3"
+     },
+     {
+      "method": "F51",
+      "f_source_sha256": "3d6ded2233bad0eeaaa5d5870148ff1105f6b83cd94718258a83110c01c7dac1"
+     },
+     {
+      "method": "F52",
+      "f_source_sha256": "fa0a5cacf3f744c767d4a0b740d418f8d53c23ec331bf0881709edcd4442bd8e"
+     },
+     {
+      "method": "F53",
+      "f_source_sha256": "6b8ad9509d46472ccdd2e47fd4ede1d052fc1b40adcf499fbf8d58e840331bdb"
+     },
+     {
+      "method": "F58",
+      "f_source_sha256": "25aeb60513217aa50f75c7fb7ce5ae6a89b610f0cc7b0d8c5dbf1384017ea36f"
+     },
+     {
+      "method": "F59",
+      "f_source_sha256": "5214d723c1c9efaf12497703fcd2ffd7c648665d4d3f2e43c776ed26f93441b1"
+     },
+     {
+      "method": "F61",
+      "f_source_sha256": "3105e77aa36d9337f098e902c4ed4dbaa6b8b3597b7f2ddba1cded8e0abff702"
+     },
+     {
+      "method": "F62",
+      "f_source_sha256": "2626834e32a933c21fede937dae575b91839d38f80d290220f9c26c22cd03110"
+     },
+     {
+      "method": "F64",
+      "f_source_sha256": "555327f9994134d261e21cec76f9ef221c26dc4f966c24438c67fdb65e918e7f"
+     },
+     {
+      "method": "F65",
+      "f_source_sha256": "db9b1d26a245f12ddd3b13d84dde8ca695756458a74b849727cadaa0f84a4a8d"
+     },
+     {
+      "method": "F66",
+      "f_source_sha256": "c79ee596aee49a15ddab65c7f2d8a5d975dadd472a593ee0f2a33a5db777e6dd"
+     },
+     {
+      "method": "F67",
+      "f_source_sha256": "62dc0f1787787ee8dc851033760264138afc09bb7c16237e9829701fe7c6251f"
+     }
+    ]
+   }
+  },
+  {
+   "asset": "pilot_hand_open",
+   "role": null,
+   "delivered": true,
+   "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "bytes_match": true,
+   "provenance": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "approval": {
+    "status": "VERIFIED",
+    "receipt": "asset__pilot_hand_open__80b24c5e3d80__mwruuxu991eb80",
+    "reviewer_kind": "TEST_TRUSTED"
+   },
+   "registration": {
+    "ok": true,
+    "receipt": [
+     "LANDMARK_SIDECAR.json",
+     "pilot_hand_open__REGISTRATION_RECEIPT.json"
+    ]
+   },
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "artjob": null,
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "decisions": [
+     {
+      "method": "F01",
+      "f_source_sha256": "27377152de0e2f6b854cbf694b199c9501033baee85be0462bda2856d761f231"
+     },
+     {
+      "method": "F02",
+      "f_source_sha256": "3c3615f3adbc261471feced58eaa448e7587a18ac76e6f547f3d69222d600bf4"
+     },
+     {
+      "method": "F03",
+      "f_source_sha256": "1ec40f193d6c3c7635b81adb53d3010c9299c2fc2cc6244cfbc1dbdcf994da19"
+     },
+     {
+      "method": "F04",
+      "f_source_sha256": "5f3f4dbedd3ca73a090778c3808dde3a31a16b5e235fc2a467040a002ded0781"
+     },
+     {
+      "method": "F05",
+      "f_source_sha256": "cc57cd972bcbe756a3292da7d2f2714b8df5687c47f6cbb005d050aba4552c3f"
+     },
+     {
+      "method": "F06",
+      "f_source_sha256": "1ce1cce0f13ee7a1d7864fb008d6a086e638858abed57e1383b6a297492040ba"
+     },
+     {
+      "method": "F14",
+      "f_source_sha256": "85fb64516f2bdd56a3540279331b8c9b091f1ef49900ecf264827e2a5a4818fd"
+     },
+     {
+      "method": "F30",
+      "f_source_sha256": "87aa04eff3af5a0ff0b522b439ba8a293922e0ba0a219131be33427c0a4a7ca0"
+     },
+     {
+      "method": "F33",
+      "f_source_sha256": "ddc641d4ec715501229ce6146d37b9924db0a1d24cd774feab936f9f5462fec3"
+     },
+     {
+      "method": "F51",
+      "f_source_sha256": "3d6ded2233bad0eeaaa5d5870148ff1105f6b83cd94718258a83110c01c7dac1"
+     },
+     {
+      "method": "F52",
+      "f_source_sha256": "fa0a5cacf3f744c767d4a0b740d418f8d53c23ec331bf0881709edcd4442bd8e"
+     },
+     {
+      "method": "F53",
+      "f_source_sha256": "6b8ad9509d46472ccdd2e47fd4ede1d052fc1b40adcf499fbf8d58e840331bdb"
+     },
+     {
+      "method": "F58",
+      "f_source_sha256": "25aeb60513217aa50f75c7fb7ce5ae6a89b610f0cc7b0d8c5dbf1384017ea36f"
+     },
+     {
+      "method": "F59",
+      "f_source_sha256": "5214d723c1c9efaf12497703fcd2ffd7c648665d4d3f2e43c776ed26f93441b1"
+     },
+     {
+      "method": "F61",
+      "f_source_sha256": "3105e77aa36d9337f098e902c4ed4dbaa6b8b3597b7f2ddba1cded8e0abff702"
+     },
+     {
+      "method": "F62",
+      "f_source_sha256": "2626834e32a933c21fede937dae575b91839d38f80d290220f9c26c22cd03110"
+     },
+     {
+      "method": "F64",
+      "f_source_sha256": "555327f9994134d261e21cec76f9ef221c26dc4f966c24438c67fdb65e918e7f"
+     },
+     {
+      "method": "F65",
+      "f_source_sha256": "db9b1d26a245f12ddd3b13d84dde8ca695756458a74b849727cadaa0f84a4a8d"
+     },
+     {
+      "method": "F66",
+      "f_source_sha256": "c79ee596aee49a15ddab65c7f2d8a5d975dadd472a593ee0f2a33a5db777e6dd"
+     },
+     {
+      "method": "F67",
+      "f_source_sha256": "62dc0f1787787ee8dc851033760264138afc09bb7c16237e9829701fe7c6251f"
+     }
+    ]
+   }
+  }
+ ],
+ "output": {
+  "renderer": "art_bridge_chrome_frames",
+  "renderer_provenance": "ART_BRIDGE_CAPTURE",
+  "chunk": [
+   0,
+   600
+  ],
+  "frame_rgb_sha256": "2d1a003f47991f6f20a57baac029dccf5000747117ff3ed296d36cf8820689ed",
+  "expected_state_sha256": "c6910edebf9ecd5c180f5a68a0f84c846fd8a780304d46e6e57d67531dd56f4e",
+  "segment": "render/chunks/a95bb4f3907f2536/chunk_00000_00600.mkv",
+  "segment_sha256": "e5432cab0ea4c6f3e9cbf059226f2d7f9b8960cc1e2520b9f38fe5ad9fbd1c3e",
+  "mp4_sha256": "1a0e59d28ee1058b16fe873923d934ae550da5c97b7bb227d49f6f85f22c1818"
+ },
+ "shot": {
+  "id": "rt_shot",
+  "score": {
+   "attention_path": [
+    "pilot_rig"
+   ],
+   "events": [
+    {
+     "pose": "open",
+     "frame": 0
+    },
+    {
+     "pose": "grip",
+     "frame": 100
+    }
+   ]
+  },
+  "semantic_actions": [
+   {
+    "id": "pilot_reach",
+    "verb": "REACH",
+    "actor": "pilot"
+   }
+  ]
+ },
+ "story": "APPROVED",
+ "direction": "APPROVED",
+ "narration": {
+  "words_near": [
+   {
+    "w": "diagnostic",
+    "start_s": 1,
+    "end_s": 1.5
+   }
+  ],
+  "audio_sha256": "a9214cd3bb395ee20283ebe8b4079cdd84b5e689d4aaab94439812a89185e119",
+  "script_sha256": "578e4de457465e0055ae7544e3f18e47e7d4106039aaee8af713ea032440e6e9"
+ },
+ "stage_handoffs": {
+  "S00_IDEA": {
+   "status": "COMMITTED",
+   "handoff": "52c5ebf2b4d0f28ea9f1fa1c6445e8d3039851f2813e405c5a6b024b0a7baf36"
+  },
+  "S01_STORY": {
+   "status": "COMMITTED",
+   "handoff": "6c7b3213ee0f82b1e9466417d5206c7b9a0603bec3c9db4ab68bf069f3301af3"
+  },
+  "S02_EXPERIENCE": {
+   "status": "COMMITTED",
+   "handoff": "1972f0efd2f29fc535359c6cf67ea0b3a1324abe1681955fbf214caab6f3c71b"
+  },
+  "S03_TIMING_MOTION": {
+   "status": "COMMITTED",
+   "handoff": "0fc39f1eaa9e6d62a598e88e0430f1b185d74c1f9b67b7b636990119a7346fd3"
+  },
+  "S04_ART_DEMAND": {
+   "status": "COMMITTED",
+   "handoff": "dec52d552d89a2470688f03fd37aea1428e694f05ffcb23f13d5bf86f43ca040"
+  },
+  "S05_ART_PRODUCTION": {
+   "status": "COMMITTED",
+   "handoff": "a56180d93380b0cceff430c00fc0cbb71e334eee8a41a78f67d2cc618716d8a9"
+  },
+  "S06_REGISTRATION_RIG": {
+   "status": "COMMITTED",
+   "handoff": "d54621b30003ec649da4b730d4a903bc44881a2b3c58ca1662d4c0d56bdc7077"
+  },
+  "S07_NEUTRINO_RENDER": {
+   "status": "BLOCKED",
+   "handoff": null
+  }
+ },
+ "blockers": []
+}

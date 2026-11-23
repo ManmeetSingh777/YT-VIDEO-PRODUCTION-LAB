@@ -1,0 +1,55 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:127",
+ "sequence": 127,
+ "prev_event_sha256": "35feae190d0991ccb294ccda596eb93cda0628f1f77f22156f7943eb6140151f",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S06_REGISTRATION_RIG",
+ "attempt_id": "Amwrxcb5k",
+ "operation_id": null,
+ "task_id": "states_edges",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:126"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:34.995Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "states_edges",
+  "producer": "engine/art_bridge/approvals.mjs#verifyAllApprovals",
+  "inputs": [],
+  "expected_outputs": [
+   "approved states and edges"
+  ],
+  "deps": [
+   "registration_pilot_master",
+   "registration_rt_world_far",
+   "registration_pilot_body",
+   "registration_pilot_upper_arm",
+   "registration_pilot_forearm",
+   "registration_pilot_underpaint",
+   "registration_pilot_hand_open",
+   "registration_pilot_hand_grip",
+   "registration_portal_out",
+   "registration_portal_mid",
+   "registration_portal_in",
+   "registration_portal_aperture"
+  ],
+  "invariants": [],
+  "verification": "no failing/unreviewed state or edge",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 127,
+ "event_sha256": "4a33e0cadd816f4f605ac8077f0c180aa0047d6e5e7e4b7b9e1ac6ab30c114b3"
+}

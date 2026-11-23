@@ -1,0 +1,49 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125220-17f992:68",
+ "sequence": 68,
+ "prev_event_sha256": "d3884ec740c4ca35c7eac9dfa9ef421cee930368c5ba47407d19b94a2144d19f",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125220-17f992",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwru6y8j",
+ "operation_id": null,
+ "task_id": "asset_pilot_upper_arm",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "b581b56cfcd45e1d5346c65c6e5560d936bc4032f86ab42836c2610ae4bdbef4",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125220-17f992:67"
+ ],
+ "wall_time_utc": "2026-11-22T12:52:24.876Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "asset_pilot_upper_arm",
+  "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+  "inputs": [
+   "plan:pilot_upper_arm"
+  ],
+  "expected_outputs": [
+   "assets/art/pilot_upper_arm.png"
+  ],
+  "deps": [],
+  "invariants": [
+   "bytes match the manifest hash",
+   "provenance is honest",
+   "approval verifies (HUMAN in production)"
+  ],
+  "verification": "byte hash + verifyApproval",
+  "evidence_location": "production/store",
+  "category": "MISSING_ART_STATE",
+  "group": null
+ },
+ "lock_generation": 68,
+ "event_sha256": "0e94d077154e6e9f18b31e2e7d82fafe8aa32d44155928345a215645c007b56f"
+}

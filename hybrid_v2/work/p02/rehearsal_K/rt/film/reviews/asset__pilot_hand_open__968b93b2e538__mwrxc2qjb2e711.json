@@ -1,0 +1,178 @@
+{
+ "receipt_id": "asset__pilot_hand_open__968b93b2e538__mwrxc2qjb2e711",
+ "scope": "asset",
+ "record_id": "pilot_hand_open",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "DIAGNOSTIC rehearsal only",
+ "evidence": [
+  "registration/pilot_hand_open/pilot_hand_open__REGISTRATION_RECEIPT.json",
+  "registration/pilot_hand_open/pilot_hand_open__overlay_on_master.png"
+ ],
+ "bundle_sha256": "968b93b2e538363357810494f890082fb9cda65d3c94afb13e4bc9d2638aefa8",
+ "bundle": {
+  "content": {
+   "alpha_mode": "STRAIGHT",
+   "camera_footprint": null,
+   "canonical_rect": [
+    209.64664322793453,
+    277.61323280239236,
+    47.818752749284045,
+    63.393016595913366
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "CHARACTER_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.3939231012048834,
+    -0.06945927106677237,
+    0.06945927106677237,
+    0.3939231012048834,
+    209.64664322793453,
+    284.2813228248025
+   ],
+   "depth_band": "FOCAL",
+   "draw_order_constraints": [
+    {
+     "asset_id": "pilot_forearm",
+     "relation": "ABOVE"
+    }
+   ],
+   "expression_id": null,
+   "file": "assets/art/pilot_hand_open.png",
+   "height_px": 144,
+   "hidden_surfaces": [],
+   "id": "pilot_hand_open",
+   "identity_id": "pilot",
+   "incompatible_states": [],
+   "kind": "PART",
+   "landmarks": {
+    "knuckle_r": [
+     233,
+     330
+    ],
+    "thumb_r": [
+     241.99999999999997,
+     303.99999999999994
+    ],
+    "wrist_r": [
+     225,
+     294.99999999999994
+    ]
+   },
+   "layer_owner": "pilot",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    225,
+    294.99999999999994
+   ],
+   "pose_id": "open",
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "partreg_pilot_hand_open",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    96,
+    144
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 96
+  },
+  "id": "pilot_hand_open",
+  "identity_landmarks": {
+   "elbow_r": [
+    215,
+    215
+   ],
+   "forearm_mid": [
+    220,
+    255
+   ],
+   "head_top": [
+    150,
+    30
+   ],
+   "knuckle_r": [
+    233,
+    330
+   ],
+   "neck": [
+    150,
+    110
+   ],
+   "pelvis": [
+    150,
+    300
+   ],
+   "shoulder_r": [
+    195,
+    135
+   ],
+   "thumb_r": [
+    242,
+    304
+   ],
+   "upper_arm_mid": [
+    205,
+    175
+   ],
+   "wrist_r": [
+    225,
+    295
+   ]
+  },
+  "identity_master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "placements": [
+   {
+    "joint": "wrist_r",
+    "joint_rest": [
+     225,
+     295
+    ],
+    "local": [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "parent": "elbow_r",
+    "rig": "pilot_rig",
+    "slot": "pilot_hand_open"
+   }
+  ],
+  "registration_receipt_sha256": "621b25b065e4b681f5094a6db9c232a62e597c9decdb586b223ee0bba546d427",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:22.363Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

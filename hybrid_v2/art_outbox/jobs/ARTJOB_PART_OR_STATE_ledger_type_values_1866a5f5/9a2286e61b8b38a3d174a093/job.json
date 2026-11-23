@@ -1,0 +1,80 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ledger_type_values_1866a5f5",
+ "root_dependency": "ledger_type_values",
+ "identity_id": "ledger_glyphs",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "TYPE",
+ "medium": {
+  "medium": "APPROVED_FONT_AND_VECTOR_TYPE",
+  "why": "changing digits/labels must stay live text under a verified font"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "ledger_master",
+ "motion_context": {
+  "identity_id": "ledger_glyphs",
+  "canonical_parent_asset": "ledger_master",
+  "shot_ids": [
+   "S04",
+   "S06"
+  ],
+  "frame_ranges": [
+   [
+    3000,
+    4080
+   ],
+   [
+    5160,
+    6240
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "PROCEDURAL",
+  "predecessor_state_id": "ledger_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "approved font + vector type; digits stay live text. Required by: shot S04; shot S06; action S04_ledger; action S06_levers"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "481a763e153c5a5526596a59bce1362691658f9cc6ad8372805a0ec4a5003d9e",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "9a2286e61b8b38a3d174a093",
+ "dependency_parts_digest": "9a2286e61b8b38a3d174a093de3bfa74c17383db2f748353d270194e565fa7f8",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "artjob_id": "ARTJOB_TRANSITION_PLATE_drum_rim_out_5bc7cafe",
+ "root_dependency": "drum_rim_out",
+ "identity_id": "drum_world",
+ "state_kind": "TRANSITION_PLATE",
+ "asset_kind": "TRANSITION_PLATE",
+ "medium": {
+  "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+  "why": "camera footprint and transition states need painted overscan"
+ },
+ "manufacturing_order": 4,
+ "derived_from": "drum_in",
+ "motion_context": {
+  "identity_id": "drum_world",
+  "canonical_parent_asset": "drum_in",
+  "shot_ids": [
+   "S03",
+   "S04"
+  ],
+  "frame_ranges": [
+   [
+    2880,
+    3000
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "TRANSITION",
+  "predecessor_state_id": "drum_in",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "OUT/MIDDLE/IN transition state with registered porthole_centre. Required by: transition S03->S04"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "827cbd57b74331c215d7204825735da65a0b825d2e9976989d2c50aa1ff36015",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "28c7884bfadeebe0cce1d88c",
+ "dependency_parts_digest": "28c7884bfadeebe0cce1d88ca969c7aaa4a33be18e9765e46ff3d3462e30614c",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

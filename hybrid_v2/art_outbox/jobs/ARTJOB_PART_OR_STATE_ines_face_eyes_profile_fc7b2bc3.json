@@ -1,0 +1,117 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ines_face_eyes_profile_fc7b2bc3",
+ "root_dependency": "ines_face_eyes_profile",
+ "identity_id": "ines",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "ines_master",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_face_eyes_profile",
+   "frame_range": [
+    1620,
+    1740
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_rig.profile_turn",
+   "frame_range": null,
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    1620,
+    1740
+   ]
+  ],
+  "view_id": "profile_r",
+  "pose_id": "curious",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "neck"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "ines_rig",
+    "joint": "neck",
+    "rest_xy": [
+     300,
+     330
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "ines_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull). Required by: state ines_rig:curious/profile_turn S02_operate_washer"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "06c75dec59501205114cc6dffa18adf04577e1f5bcfbdcab8fa09788e76104b8",
+ "registration_contract": {
+  "asset_kind": "PART",
+  "pivot_landmark_id": "neck",
+  "planned_pivot_xy": [
+   300,
+   330
+  ],
+  "joint_id": "neck",
+  "alpha_mode": "STRAIGHT",
+  "view_id": "profile_r",
+  "depth_band": "FOCAL",
+  "landmark_frame": "registered against approved master ines_master"
+ },
+ "frame_precision": "STATE_INTERVALS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "ines_face_eyes_profile",
+  "role": "DERIVED",
+  "derived_from": "ines_master",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: ines_master"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_ines_face_eyes_profile_fc7b2bc3.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_ines_face_eyes_profile_fc7b2bc3.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

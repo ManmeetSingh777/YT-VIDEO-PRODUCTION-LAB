@@ -1,0 +1,30 @@
+[build] rehearsal film via the real intake API → hybrid_v2\work\p02\rehearsal_K\rt\film
+[preflight] [["S00_IDEA","READY"],["S01_STORY","READY"],["S02_EXPERIENCE","READY"],["S03_TIMING_MOTION","READY"],["S04_ART_DEMAND","READY"],["S05_ART_PRODUCTION","READY"],["S06_REGISTRATION_RIG","READY"],["S07_NEUTRINO_RENDER","READY"],["S08_QA_REPAIR","READY"],["S09_FILM_AUDIO_FINAL","BLOCKED_HUMAN"]]
+[start] DIAG-20261122142022-e1cc63 → [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"COMMITTED"},{"stage":"S03_TIMING_MOTION","status":"COMMITTED"},{"stage":"S04_ART_DEMAND","status":"COMMITTED"},{"stage":"S05_ART_PRODUCTION","status":"COMMITTED"},{"stage":"S06_REGISTRATION_RIG","status":"COMMITTED"},{"stage":"S07_NEUTRINO_RENDER","status":"COMMITTED"},{"stage":"S08_QA_REPAIR","status":"COMMITTED"},{"stage":"S09_FILM_AUDIO_FINAL","status":"BLOCKED"}]
+[status]
+run DIAG-20261122142022-e1cc63 events 214 verified 63/64 (98.4%) failed 1 blocked 0
+  S00_IDEA               COMMITTED    1/1 failed 0 blocked 0
+  S01_STORY              COMMITTED    2/2 failed 0 blocked 0
+  S02_EXPERIENCE         COMMITTED    3/3 failed 0 blocked 0
+  S03_TIMING_MOTION      COMMITTED    5/5 failed 0 blocked 0
+  S04_ART_DEMAND         COMMITTED    10/10 failed 0 blocked 0
+  S05_ART_PRODUCTION     COMMITTED    12/12 failed 0 blocked 0
+  S06_REGISTRATION_RIG   COMMITTED    13/13 failed 0 blocked 0
+  S07_NEUTRINO_RENDER    COMMITTED    13/13 failed 0 blocked 0
+  S08_QA_REPAIR          COMMITTED    3/3 failed 0 blocked 0
+  S09_FILM_AUDIO_FINAL   BLOCKED      1/2 failed 1 blocked 0
+  next: resolve film_review
+[why FAIL-S09_FILM_AUDIO_FINAL-film_review-86e807] first violated invariant: verified HUMAN film receipt over the current bundle
+    observed: DIAGNOSTIC run: a film review can never be satisfied
+    root producer: engine/tools/art_bridge_film_qa.mjs#reviewFilm (independent human) owner INDEPENDENT_HUMAN_REVIEWER class EXTERNAL_HUMAN_REQUIRED
+    blast radius: []
+    resume from S09_FILM_AUDIO_FINAL retry_safe false
+[trace 0] {"frame":0,"segment":{"frames":[0,100],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"open","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a
+[trace 100] {"frame":100,"segment":{"frames":[100,420],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 450] {"frame":450,"segment":{"frames":[420,480],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 3599] {"frame":3599,"segment":{"frames":[3000,3600],"shot":"rt_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_char","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3000,3600]},"assets":[
+[trace 3600] {"frame":3600,"segment":{"frames":[3600,3700],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 3900] {"frame":3900,"segment":{"frames":[3900,4200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 7199] {"frame":7199,"segment":{"frames":[6600,7200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[6600,7200]},"as
+[verify] chain ok=true events=214 head=dd2c866f2859adb1935ef69d4699e460527b44ee8376d6fd0effb0d729949206 handoffs=S00_IDEA:true,S01_STORY:true,S02_EXPERIENCE:true,S03_TIMING_MOTION:true,S04_ART_DEMAND:true,S05_ART_PRODUCTION:true,S06_REGISTRATION_RIG:true,S07_NEUTRINO_RENDER:true,S08_QA_REPAIR:true
+[done] K_full_run_final_controller in 1705 s; run DIAG-20261122142022-e1cc63

@@ -1,0 +1,123 @@
+{
+ "id": "planC",
+ "placements": {
+  "head": {
+   "x": 960,
+   "y": 860,
+   "scale": 2
+  }
+ },
+ "tracks": {
+  "head": {
+   "root": {
+    "rot": [
+     [
+      0,
+      0
+     ],
+     [
+      380,
+      -6,
+      "sine.inOut"
+     ],
+     [
+      600,
+      0,
+      "sine.inOut"
+     ]
+    ]
+   },
+   "joints": {},
+   "joint_offsets": {
+    "eye_l": {
+     "x": [
+      [
+       0,
+       0
+      ],
+      [
+       100,
+       12,
+       "sine.inOut"
+      ],
+      [
+       300,
+       -12,
+       "sine.inOut"
+      ],
+      [
+       600,
+       0,
+       "sine.inOut"
+      ]
+     ],
+     "y": [
+      [
+       0,
+       0
+      ],
+      [
+       300,
+       4,
+       "sine.inOut"
+      ],
+      [
+       600,
+       0
+      ]
+     ]
+    },
+    "eye_r": {
+     "x": [
+      [
+       0,
+       0
+      ],
+      [
+       100,
+       12,
+       "sine.inOut"
+      ],
+      [
+       300,
+       -12,
+       "sine.inOut"
+      ],
+      [
+       600,
+       0,
+       "sine.inOut"
+      ]
+     ],
+     "y": [
+      [
+       0,
+       0
+      ],
+      [
+       300,
+       4,
+       "sine.inOut"
+      ],
+      [
+       600,
+       0
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "gaze": {
+  "head": {
+   "eye_l": {
+    "pupil_asset": "pupil_l",
+    "surface_asset": "eye_white_l"
+   },
+   "eye_r": {
+    "pupil_asset": "pupil_r",
+    "surface_asset": "eye_white_r"
+   }
+  }
+ }
+}

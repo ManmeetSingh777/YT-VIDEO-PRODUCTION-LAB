@@ -1,0 +1,34 @@
+{
+  "job_id": "ARTJOB_MASTER_ledger_master_105f0939",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "6366fe7fb4dcaddd07d4a0920a74b25a105e301bdc422aac0137520d207c2fe8",
+  "prompt_characters": 14235,
+  "source_image_inputs": [
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\conditional_native_anchors\\AI_21328_sparse_relation_diagram.jpg",
+      "sha256": "915748f996585479db8a64f3e41210a4f97e483f5abb69f7a860570666961cb4",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: sparse relation diagram with few owned glyphs"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\abstract_world_witnesses\\AI_mechanism_and_actions_contact.jpg",
+      "sha256": "c760c22663d8c3d7f7f7e75630056b57bf24ea6cde7b0e0dcf51bd08814d259a",
+      "width": 1920,
+      "height": 894,
+      "role": "STYLE_ONLY: functional parts with visible connections and flat material planes"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F26",
+    "F27",
+    "F74"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

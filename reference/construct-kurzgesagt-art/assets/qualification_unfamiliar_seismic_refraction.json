@@ -1,0 +1,88 @@
+{
+  "job_id": "QUALIFY-ORIGINAL-SEISMIC-CUTAWAY-001",
+  "knowledge_state": "NEW UNFAMILIAR SCRIPT. Source references are STYLE_ONLY. Both depiction and science content are original to this brief.",
+  "original_content": {
+    "script_excerpt": "A pulse begins deep below the ground. Each rock layer carries it differently. At the boundary the pulse changes direction, and a sensor on the surface receives it later.",
+    "scene_goal": "In one clear original cross-section image, make a viewer recognize a connected underground fracture, two distinct solid rock layers, one bent luminous wave path crossing their boundary, and a surface sensor tied to that path. The image is a canonical state for a future animated refraction, not an entire movie.",
+    "new_subjects": ["distinct rock strata", "single wave ray and its active front", "a surface sensor on a soil anchor"],
+    "noncopy_source_content": true
+  },
+  "canvas": {
+    "size": "1920x1080, landscape 16:9",
+    "view": "Large straight-on illustrated subsurface cutaway occupying 80% of frame, narrow upper ground band with one sensor; each underground region reaches the frame edges. No tiny isometric miniature.",
+    "focal_path": "fracture bottom-left → bright refraction kink in upper centre → receiving sensor upper-right",
+    "overscan": "Seam-free strata extend to all 4 canvas edges for a 10% side camera move",
+    "forbid": "No photorealistic cutaway, 3D cave, mountain panorama, extra buildings, decorative mineral crystals, or glowing confetti"
+  },
+  "medium_tree": ["MACRO", "SCHEMATIC"],
+  "subject_graph": [
+    {
+      "id": "strata",
+      "family": "scientific section",
+      "purpose": "Different material velocities can be inferred from two continuous, contrasting parent-owned layers",
+      "whole_silhouette": "Two contiguous edge-to-edge irregular polygon layers; a gently sloping single boundary rises from left to right; narrow cap of ground at top",
+      "view_dependent_parts": [{"part":"hard_lower","parent":"strata","shape":"large deep indigo rock mass beneath one slanted shared boundary"},{"part":"soft_upper","parent":"strata","shape":"broad blue-turquoise rock mass above boundary with a single pale mineral inset following that surface"}],
+      "attachment_and_contact": [{"child":"soft_upper","parent":"hard_lower","occlusion":"shared continuous diagonal boundary with neither gaps nor floating islands"}],
+      "surface_materials": [{"part":"hard_lower","base_color_role":"indigo opaque","attached_color_patches":["one dark violet deep side-plane following the layer contour"]},{"part":"soft_upper","base_color_role":"cyan-blue opaque","attached_color_patches":["one lighter blue bounded material seam parallel to the boundary"]}],
+      "state_family": ["inert two-layer master", "same layer geometry with wave active"]
+    },
+    {
+      "id": "ray",
+      "family": "abstract scientific causal graph",
+      "purpose": "Make material-dependent change of wave direction the single explanatory action",
+      "whole_silhouette": "One broad connected bent cyan-to-yellow arc, rising from fracture point lower-left through the boundary kink toward the sensor in upper-right",
+      "view_dependent_parts": [{"part":"incoming_ray","parent":"ray","shape":"continuous 15-25px pale orange stroke inside lower stratum"},{"part":"refracted_ray","parent":"ray","shape":"connected 15-25px pale yellow segment inside upper stratum at a clearly different angle"},{"part":"active_front","parent":"ray","shape":"one bounded small luminous band carried on and centered over the ray, not separate sparks"}],
+      "attachment_and_contact": [{"child":"incoming_ray","parent":"strata","occlusion":"inside lower strata, connects at exact boundary coordinate to refracted ray"},{"child":"refracted_ray","parent":"strata","occlusion":"inside upper strata, connects at same exact kink coordinate and terminates at receiver"}],
+      "surface_materials": [{"part":"ray","base_color_role":"bounded yellow causal geometry","attached_color_patches":["thin orange adjacent edge on incoming segment; no outer movie halo"]}],
+      "state_family": ["wave front near origin", "wave front passing boundary", "front approaching receiver"]
+    },
+    {
+      "id": "receiver",
+      "family": "machine",
+      "purpose": "One surface device registers the wave after crossing materials",
+      "whole_silhouette": "Wide, purposeful small sensor housing on two metal legs embedded into top ground strip, with a single large dial face and one central pivot needle",
+      "view_dependent_parts": [{"part":"sensor_body","parent":"receiver","shape":"single navy-filled housing with lighter attached top face and legs to ground"},{"part":"dial","parent":"receiver","shape":"pale circular inset on front housing"},{"part":"needle","parent":"dial","shape":"one dark pointer attached to centre pin"}],
+      "attachment_and_contact": [{"child":"receiver_legs","parent":"strata","occlusion":"legs terminate into ground cap"},{"child":"needle","parent":"dial","occlusion":"needle centred on genuine pivot"}],
+      "surface_materials": [{"part":"sensor_body","base_color_role":"deep ink teal","attached_color_patches":["small pale top face, one dark side plane"]},{"part":"dial","base_color_role":"pale lemon inset","attached_color_patches":["one dark pointer only"]}],
+      "state_family": ["needle resting", "needle deflected at wave arrival"]
+    }
+  ],
+  "world": {
+    "projection": "Flat continuous diagram plane with 2D stratum geometry and a shallow front/side distinction only on the machine",
+    "layers": ["deep rock parent", "upper rock parent", "ground cap", "wave path above layers", "sensor legs and housing"],
+    "material_family_map": {"rock":"bounded filled polygon layer separation, no boulder texture","wave":"continuous bounded explanatory stroke, not a magical beam","sensor":"parent-owned inset dial, legs and pivot"},
+    "focal_contrast_vs_environment": "One pale yellow causal path above less bright blue strata, with near-quiet upper-left support",
+    "environmental_density_condition": "A few seam stripes in rock only where they show distinct layer orientation; no detached debris marks",
+    "ground_and_support": ["layers share their edge continuously", "receiver legs visibly embed in ground", "wave attaches to source and receiver"]
+  },
+  "lighting": {"rule":"All color changes are flat parent regions. One bounded wave-active region allowed; no ambient bloom, photoreal volumetric rays or gradient modeling."},
+  "manufacturing": {"mode":"Single original raster canonical frame; later states must use identical strata boundary and receiver position", "source_use":"Two source JPGs are STYLE_ONLY for conditional abstract density and parent-owned repeat logic; no scene copying", "handoff":"Separate clean layer and wave-ray state afterward"},
+  "observable_negative_tests": ["No detached bright particles", "No third/unexplained material layer", "No night-sky or isometric cave room", "No arbitrary UI controls or alien devices", "No photoreal rock textures", "Visible exact continuous wave bend at boundary", "Legs, dial, needle belong to machine"],
+  "uncontrolled_high_impact_decisions": [],
+  "first_pass_control": {
+    "version": 2,
+    "viewer_proof": {"what_changes":"An arriving energy pulse visibly bends at the single material boundary, then reaches a surface needle sensor","recognition_test":"One glance identifies the origin, the single bend and receiver; no labels are necessary","focal_order":["bright bend at layer boundary","continuous incoming/outgoing path","surface dial"],"camera_view":"A full-width 2D macro sectional plane with legible bend and physical receiver; not an external environment"},
+    "references": [
+      {"path":"assets/conditional_native_anchors/AI_21328_sparse_relation_diagram.jpg","role":"STYLE_ONLY: sparse flat abstract array with selectively luminous causal members; do not copy circles or array","noncopy":"No original disks, layout or blue array diagram"},
+      {"path":"assets/conditional_native_anchors/MEMORIES_03825_dense_neural_field.jpg","role":"STYLE_ONLY: conditional local highlights follow an attached network; density here is a negative contrast, not a requested background","noncopy":"No neural branches, brain network or original repeat pattern"}
+    ],
+    "source_contrast":"AI's broad cyan minimal array and MEMORIES' dense connection field disagree about necessary density. They agree that causal illumination belongs to a structurally represented path, not arbitrary glints. Use a one-path material-boundary cross-section with original geology content.",
+    "subject_specs": [
+      {"subject_id":"strata","family":"SCENIC_NATURAL","shape_topology":"Exactly two continuous rock masses sharing one slanted boundary; narrow ground cap; each extends off image edges","material_mapping":"One dark indigo base fill and one cyan-blue base fill, each with at most one bounded parallel material patch","focal_scale_and_view":"Layer boundary spans entire middle frame; has 2D front-on diagram projection","specific_negative_rendering":["No naturalistic rocky cave surface","No detached gems or debris","No oblique world miniature"]},
+      {"subject_id":"ray","family":"ABSTRACT","shape_topology":"One uninterrupted bright path bends at actual shared layer boundary, with same exact meeting coordinate on both legs","material_mapping":"Opaque light-yellow active path with thin darker side region on lower segment and one localized wave front","focal_scale_and_view":"20px-class centered path must remain visible on blue rock when downscaled to 160x90","specific_negative_rendering":["No flying energy sprites","No disconnected ornamental curves"]},
+      {"subject_id":"receiver","family":"MACHINE","shape_topology":"One box housing, two grounded legs, one recessed round dial, one real pointer anchored at center","material_mapping":"Ink teal parent housing and one lighter top island, white-yellow inset and dark navy pointer","focal_scale_and_view":"Upper-right sensor dial large enough to read after desktop downscale","specific_negative_rendering":["No floating labels","No extra controls","No fake PBR metal"]}
+    ],
+    "character_designs": [],
+    "palette_roles": {"substrate":"Two big contiguous blue-family rock masses with original role separation and one thin upper ground line","focal_subject":"One yellow-gold connected two-segment ray plus sensor dial","causal_active":"Localized wave front at exact material boundary and bright path, no secondary bright objects","supporting_shapes":"Strata dark indigo and lighter turquoise, bounded parallel material seam","material_plane_rules":"Every color patch contained in its parent stratum or housing; no detached marks or blended shadow volumes","optical_exceptions":"Only thin bounded active-front halo on the causal ray; do not glow the entire rock"},
+    "density_and_focus": {"t1_major":"Two rock masses, one connected refracted path, one surface sensor","t2_owned_partwork":"One material inset per rock; grounded sensor legs, dial and central pointer","t3_repeats_or_none":"NONE: no confetti, boulders, cartoon cave furniture or arbitrary scientific glyphs","primary_read_region":"Clear wave angle discontinuity near centre, seen against shared two-rock boundary","quiet_support_region":"Broad entire left-upper layer with no labels, leaves room for directional motion"},
+    "causal_frame_geometry": {"named_visible_anchors":[{"name":"visible wave origin/fault","screen_position_norm":[0.12,0.79],"drawable_parent":"strata","visible_mark":"short angular dark fracture crack enclosed fully in lower indigo rock, with yellow ray physically emerging from the crack's last tip"},{"name":"one refraction bend","screen_position_norm":[0.44,0.54],"drawable_parent":"ray + strata shared boundary","visible_mark":"bright lower orange and upper yellow legs meet at exactly the slanted material boundary, visibly different directions"},{"name":"surface receiver","screen_position_norm":[0.81,0.14],"drawable_parent":"receiver","visible_mark":"upper right dial on two legs rooted in surface; ray terminates at receiver lower anchor"}],"essential_connections":"The entire visible cause→bend→receiver path must be connected inside the canvas. Do not replace fracture origin with a cropped ray coming from off-screen.","frame_edge_policy":"None of the 3 named causal anchors may be outside the safe 5% picture margin; all solid strata extend past edge but source crack and sensor are fully drawn inside.","authorized_overlay_symbols":"NONE. Only the ray itself and necessary physical parts; no unsupported arrows, labels, equations, stars, glyphs or detached circles."},
+    "asset_state_plan":{"canonical_master":"Both rock layers and receiver share fixed original 1920x1080 coordinate frame; ray rendered on separate registered clear layer","derivation_path":"Keep stratum geometry fixed while one active wave-front plate advances; source-path and receiver needle variants are controlled edits to same approved master","motion_interfaces":["incoming and outgoing paths join at one exact boundary kink","receiver dial is attached to housing","machine legs intersect surface cap"]},
+    "forbidden_extras":["No copying either original source scene", "No neural network, circles, computer screens or original film iconography", "No expensive photographic geological painting", "No floating particles, extra labels, characters or sunset backgrounds"]
+  },
+  "method_bindings": [
+    {"method_id":"F01","conditions":"all explanatory rock, ray and receiver masses must be complete rather than disconnected symbols","source_witnesses":["AI_21328_sparse_relation_diagram","MEMORIES_03825_dense_neural_field"],"invariant_transferred":"bounded silhouette and meaningful attachment of every mark to a parent","variation_required":"new original geological cross-section, no source circles or neural nodes","observable_verification":"rock boundary, wave bend, receiver contacts are all real continuous shapes"},
+    {"method_id":"F51","conditions":"two rock materials and causal ray require scene-specific contrasting roles","source_witnesses":["AI_21328_sparse_relation_diagram","MEMORIES_03825_dense_neural_field"],"invariant_transferred":"color assignment is by illustrated substrate/active path rather than universal style color","variation_required":"original geological indigo/teal and warm active path","observable_verification":"no generic dark-purple neon-scene conversion"},
+    {"method_id":"F53","conditions":"only one physical/causal path needs explanatory emphasis and surrounding rock must remain quiet","source_witnesses":["AI_21328_sparse_relation_diagram","MEMORIES_03825_dense_neural_field"],"invariant_transferred":"causal density tier distinguishes explanatory object from attached background information","variation_required":"not a copied array or neural tree, only new geology stratum partwork","observable_verification":"one path remains readable without visual noise"},
+    {"method_id":"F54","conditions":"all minor strata seam marks must follow their parent material, not free float","source_witnesses":["MEMORIES_03825_dense_neural_field","AI_21328_sparse_relation_diagram"],"invariant_transferred":"repeat or fine subpart marks require parent coordinates and masks","variation_required":"new rock layer material seams following a single geological boundary","observable_verification":"every minor region contained in the appropriate rock face"}
+  ]
+}

@@ -1,0 +1,1070 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_pilot_forearm_8c449dea",
+ "gate": {
+  "job": "ARTJOB_MASTER_pilot_master_a4b23a0d",
+  "design": "pilot_master",
+  "family": "ACTING_HUMAN",
+  "pass": true,
+  "status": "PASS",
+  "failures": [],
+  "required_methods": [
+   {
+    "method": "F01",
+    "reason": "subject has a drawn physical silhouette (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F02",
+    "reason": "every illustrated surface is built from owned colour regions (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "SURFACE"
+   },
+   {
+    "method": "F03",
+    "reason": "every new image needs conditional colour roles (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "SURFACE"
+   },
+   {
+    "method": "F04",
+    "reason": "lit surfaces need a lighting system choice (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "SURFACE"
+   },
+   {
+    "method": "F05",
+    "reason": "a human face is visible (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F06",
+    "reason": "a human body acts, locomotes or contacts (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F14",
+    "reason": "the subject has alternate states (family ACTING_HUMAN)",
+    "role": "MOTION",
+    "phase": "STATE"
+   },
+   {
+    "method": "F15",
+    "reason": "the subject is owned by motion tracks (family ACTING_HUMAN)",
+    "role": "MOTION",
+    "phase": "ENGINE"
+   },
+   {
+    "method": "F17",
+    "reason": "every artwork needs whole-look / provider-control proof (family ACTING_HUMAN)",
+    "role": "EVIDENCE",
+    "phase": "REVIEW"
+   },
+   {
+    "method": "F18",
+    "reason": "every frame is observed, not decoded (family ACTING_HUMAN)",
+    "role": "EVIDENCE",
+    "phase": "REVIEW"
+   },
+   {
+    "method": "F19",
+    "reason": "medium and timing are routed per subject (family ACTING_HUMAN)",
+    "role": "DIRECTION",
+    "phase": "ENGINE"
+   },
+   {
+    "method": "F20",
+    "reason": "each beat is routed to a medium (family ACTING_HUMAN)",
+    "role": "DIRECTION",
+    "phase": "ENGINE"
+   },
+   {
+    "method": "F30",
+    "reason": "a character/organism needs a multi-state library (family ACTING_HUMAN)",
+    "role": "MOTION",
+    "phase": "STATE"
+   },
+   {
+    "method": "F31",
+    "reason": "motion keys are owner-specific (family ACTING_HUMAN)",
+    "role": "MOTION",
+    "phase": "ENGINE"
+   },
+   {
+    "method": "F33",
+    "reason": "density/abstraction is scoped by view depth and task (family ACTING_HUMAN)",
+    "role": "DIRECTION",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F36",
+    "reason": "source-to-new-script decisions compile into enforceable artifacts (family ACTING_HUMAN)",
+    "role": "DIRECTION",
+    "phase": "REVIEW"
+   },
+   {
+    "method": "F51",
+    "reason": "palette is a system of roles and region ownership (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "SURFACE"
+   },
+   {
+    "method": "F52",
+    "reason": "scale and role determine facial/structural mark count (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F53",
+    "reason": "density is caused by explanatory material (family ACTING_HUMAN)",
+    "role": "DIRECTION",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F56",
+    "reason": "prompts execute as geometry; first pixels are inspected (family ACTING_HUMAN)",
+    "role": "REPAIR",
+    "phase": "REVIEW"
+   },
+   {
+    "method": "F58",
+    "reason": "silhouette is constructed before interior polish (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F59",
+    "reason": "parts join and occlude in a deliberate topology (family ACTING_HUMAN)",
+    "role": "STRUCTURE",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F61",
+    "reason": "conditional palette roles (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "SURFACE"
+   },
+   {
+    "method": "F62",
+    "reason": "edges and shadows have owners (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "SURFACE"
+   },
+   {
+    "method": "F64",
+    "reason": "human/mascot/animal identity routed by illustration family (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F65",
+    "reason": "eye/mouth construction depends on role and crop (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F66",
+    "reason": "body acting needs weight, garment volumes and contact states (family ACTING_HUMAN)",
+    "role": "IMAGE_AUTHORSHIP",
+    "phase": "STRUCTURE"
+   },
+   {
+    "method": "F67",
+    "reason": "pose/expression/mechanism states form a registered family (family ACTING_HUMAN)",
+    "role": "MOTION",
+    "phase": "STATE"
+   },
+   {
+    "method": "F77",
+    "reason": "information density is allocated locally and to motion owners (family ACTING_HUMAN)",
+    "role": "MOTION",
+    "phase": "ENGINE"
+   },
+   {
+    "method": "F79",
+    "reason": "alpha, underpaint, parallax and offscreen budget are owned (family ACTING_HUMAN)",
+    "role": "STRUCTURE",
+    "phase": "ENGINE"
+   },
+   {
+    "method": "F80",
+    "reason": "the first provider request contains the methods and unlike native pixels (family ACTING_HUMAN)",
+    "role": "REPAIR",
+    "phase": "REVIEW"
+   }
+  ],
+  "required_figure_height_px": 404,
+  "design_sha256": "983d2d0d68f833ffc21543390daed6703ac46ade1712fce1e15158c3d2a9c0bb",
+  "checked_at": "2026-11-22T14:20:14.959Z",
+  "design_approval": {
+   "status": "DESIGN_APPROVED",
+   "receipt": "design__pilot_master__1a622b31c424__mwrxbv697aa376",
+   "reviewer_kind": "TEST_TRUSTED"
+  },
+  "state_contract": {
+   "asset_id": "pilot_forearm",
+   "kind": "PART",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "joint_id": "elbow_r",
+   "alpha_mode": "STRAIGHT",
+   "hidden_surfaces": [
+    "elbow_inner"
+   ],
+   "surface_underpaint": {
+    "elbow_inner": "pilot_underpaint"
+   },
+   "derived_from": "pilot_master"
+  }
+ },
+ "applicability_table": [
+  {
+   "method": "F01",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "subject has a drawn physical silhouette (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F02",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": true,
+   "reason": "every illustrated surface is built from owned colour regions (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F03",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": true,
+   "reason": "every new image needs conditional colour roles (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F04",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": true,
+   "reason": "lit surfaces need a lighting system choice (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F05",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "a human face is visible (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F06",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "a human body acts, locomotes or contacts (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F07",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"an animal/mascot/organism is constructed\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F08",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"architecture / built structure is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F09",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a machine or functional apparatus is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F10",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a complete space with foreground/background integration\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F11",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"landscape/plant/environmental density is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F12",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a dense biological network is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F13",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": false,
+   "reason": "not applicable: condition \"luminous, optical or complex materials are present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F14",
+   "role": "MOTION",
+   "phase": "STATE",
+   "required": true,
+   "reason": "the subject has alternate states (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F15",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "required": true,
+   "reason": "the subject is owned by motion tracks (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F16",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "required": false,
+   "reason": "not applicable: condition \"a transition involves the subject's shots\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F17",
+   "role": "EVIDENCE",
+   "phase": "REVIEW",
+   "required": true,
+   "reason": "every artwork needs whole-look / provider-control proof (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F18",
+   "role": "EVIDENCE",
+   "phase": "REVIEW",
+   "required": true,
+   "reason": "every frame is observed, not decoded (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F19",
+   "role": "DIRECTION",
+   "phase": "ENGINE",
+   "required": true,
+   "reason": "medium and timing are routed per subject (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F20",
+   "role": "DIRECTION",
+   "phase": "ENGINE",
+   "required": true,
+   "reason": "each beat is routed to a medium (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F21",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a panel/glass shell/memory window acts as an optical machine\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F22",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STATE",
+   "required": false,
+   "reason": "not applicable: condition \"day/night states are redrawn\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F23",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": false,
+   "reason": "not applicable: condition \"perception effects are registered compositing passes\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F24",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a dense biological field is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F25",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a scientific close-up shows physical interaction direction\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F26",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a map or spatial diagram is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F27",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a schematic graph with reveal states is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F28",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a historical/technical recreation is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F29",
+   "role": "MOTION",
+   "phase": "STATE",
+   "required": false,
+   "reason": "not applicable: condition \"futures/options are compared as parallel states\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F30",
+   "role": "MOTION",
+   "phase": "STATE",
+   "required": true,
+   "reason": "a character/organism needs a multi-state library (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F31",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "required": true,
+   "reason": "motion keys are owner-specific (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F32",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": false,
+   "reason": "not applicable: condition \"time-bounded effects are present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F33",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "density/abstraction is scoped by view depth and task (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F34",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"geography/patterns/materials need different generators\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F35",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "required": false,
+   "reason": "not applicable: condition \"storyboard transitions carry one conserved invariant\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F36",
+   "role": "DIRECTION",
+   "phase": "REVIEW",
+   "required": true,
+   "reason": "source-to-new-script decisions compile into enforceable artifacts (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F37",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a world definition is required\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F38",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"depth, scale levels, repeats or floating planes need a projection grammar\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F39",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a living natural environment is built\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F40",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a dense architectural/ecological world with modular parts\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F41",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a biological micro-world is built\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F42",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"an abstract stage with legible coordinates\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F43",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"an information theatre is built\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F44",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a luminous volume is present\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F45",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"machines/corridors by functional topology\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F46",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": false,
+   "reason": "not applicable: condition \"a scene/environment needs material-owned edges, fills and luminance\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F47",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a detailed environment spends detail by semantic role and distance\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F48",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a world within a world is shown\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F49",
+   "role": "EVIDENCE",
+   "phase": "ENGINE",
+   "required": false,
+   "reason": "not applicable: condition \"world construction data compiles into an enforceable ArtJob\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F50",
+   "role": "EVIDENCE",
+   "phase": "REVIEW",
+   "required": false,
+   "reason": "not applicable: condition \"unfamiliar-world transfer tests\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F51",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": true,
+   "reason": "palette is a system of roles and region ownership (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F52",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "scale and role determine facial/structural mark count (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F53",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "density is caused by explanatory material (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F54",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"repeated shapes need a parent-owned generator\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F55",
+   "role": "DIRECTION",
+   "phase": "ENGINE",
+   "required": false,
+   "reason": "not applicable: condition \"projection and camera-sized artwork follow the idea\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F56",
+   "role": "REPAIR",
+   "phase": "REVIEW",
+   "required": true,
+   "reason": "prompts execute as geometry; first pixels are inspected (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F57",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"a visible causal proof is required\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F58",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "silhouette is constructed before interior polish (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F59",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "parts join and occlude in a deliberate topology (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F60",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"projection is chosen from the proof and all planes obey it\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F61",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": true,
+   "reason": "conditional palette roles (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F62",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": true,
+   "reason": "edges and shadows have owners (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F63",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "required": false,
+   "reason": "not applicable: condition \"reflection/transparency/blur/glow stays inside physical optics\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F64",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "human/mascot/animal identity routed by illustration family (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F65",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "eye/mouth construction depends on role and crop (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F66",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": true,
+   "reason": "body acting needs weight, garment volumes and contact states (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F67",
+   "role": "MOTION",
+   "phase": "STATE",
+   "required": true,
+   "reason": "pose/expression/mechanism states form a registered family (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F68",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"machines are part-defined functional volumes\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F69",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"landscapes are coverage substrates\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F70",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"built worlds use coherent projection and semantic repetition\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F71",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"dense microscopic biology is a connected graph\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F72",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"macro organisms and lenses are distinct coordinate systems\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F73",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"cosmic/scale worlds depend on physical meaning\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F74",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"abstract information worlds need a representational grammar\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F75",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"typography and glyphs are illustration parts\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F76",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "required": false,
+   "reason": "not applicable: condition \"repeats come from a locally defined parent generator\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F77",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "required": true,
+   "reason": "information density is allocated locally and to motion owners (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F78",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "required": false,
+   "reason": "not applicable: condition \"camera/representational transitions obey a correspondence invariant\" does not hold for family ACTING_HUMAN"
+  },
+  {
+   "method": "F79",
+   "role": "STRUCTURE",
+   "phase": "ENGINE",
+   "required": true,
+   "reason": "alpha, underpaint, parallax and offscreen budget are owned (family ACTING_HUMAN)"
+  },
+  {
+   "method": "F80",
+   "role": "REPAIR",
+   "phase": "REVIEW",
+   "required": true,
+   "reason": "the first provider request contains the methods and unlike native pixels (family ACTING_HUMAN)"
+  }
+ ],
+ "method_delivery": [
+  {
+   "method_id": "F01",
+   "phase": "STRUCTURE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 1,
+   "operative_sha256": "1a712dabe39e31ab38246f5f078bf9e9d909f9cc43be0999ee558e64b94077f1",
+   "source_clause_sha256": "040079e40a2ff574b39dce790f6bcd28085438dcfdfafa04c9dbbe6fa56eadb3"
+  },
+  {
+   "method_id": "F02",
+   "phase": "SURFACE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "b7ac22061b592d41876a686e3f6b1c95f681307321c1b922e72aa03262f4bc05"
+  },
+  {
+   "method_id": "F03",
+   "phase": "SURFACE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "0878db3d7695101e0b2477db5713383c065711ba97701f831a319ee4e670ce83"
+  },
+  {
+   "method_id": "F04",
+   "phase": "SURFACE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "d2de5dd35b62dbe10e16962c52326d3e9dd4e2094d148c6b8978b1cf02755151"
+  },
+  {
+   "method_id": "F05",
+   "phase": "STRUCTURE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 1,
+   "operative_sha256": "f0c8ec6daecc20041913eb592eb5df852b83c9be646b6fc483b6633118be0080",
+   "source_clause_sha256": "f4598310520b14b45bd2d9b0843c91bcb1c6208e7ec0a626d682fb02a599fd57"
+  },
+  {
+   "method_id": "F06",
+   "phase": "STRUCTURE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 1,
+   "operative_sha256": "0ced08890c42a86a3d19cb7b5095eb66c6521b5f40399f14d06a76e796dbf697",
+   "source_clause_sha256": "9b4f5deb91eb36f7fb32fe92fa7687afbd98cc17a120767a91b87d3933a89283"
+  },
+  {
+   "method_id": "F14",
+   "phase": "STATE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 3,
+   "operative_sha256": "1c94a6d9413e9c5fbf1c88ecfef3b0306cee2e68ac4fa21ebf18b3322c1676db",
+   "source_clause_sha256": "436fdf2661c63bb74d7a7ed19856d5ad93e42b61859e0596c7904c41a5d261b5"
+  },
+  {
+   "method_id": "F15",
+   "phase": "ENGINE",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "operative_sha256": "59788e1bc9128655dcf12a1f9a641380db475131dfbd5cf93ccda35d786ac6bf"
+  },
+  {
+   "method_id": "F17",
+   "phase": "REVIEW",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/tools/art_bridge_qa.mjs#runQA",
+   "operative_sha256": "95bd3e94f045ddd8c05ab2aed60935444671ab5a1aec98f095b528a399c97790"
+  },
+  {
+   "method_id": "F18",
+   "phase": "REVIEW",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/tools/art_bridge_qa.mjs#runQA",
+   "operative_sha256": "ce7ade0be4e7cf479253ebcd933aa4c24a2ce6965e87d2da359c7f8755f1a1fc"
+  },
+  {
+   "method_id": "F19",
+   "phase": "ENGINE",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/art_requests.mjs#routeMedium",
+   "operative_sha256": "f6e6e631a604cab35bb0c4585b3c326c0b8e65094026b9607f2b6cfa7c77fa60"
+  },
+  {
+   "method_id": "F20",
+   "phase": "ENGINE",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#routeBeatMedia",
+   "operative_sha256": "4b10022f9694d95a7b261d6807c517144ee9162b85319c0b2916e139cf6e32ba"
+  },
+  {
+   "method_id": "F30",
+   "phase": "STATE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 3,
+   "operative_sha256": "54de390cba43d0c2b30a2ddf158ee43764524827d6a3e7b09a3b4d769fcf0090",
+   "source_clause_sha256": "02dfecf7e354057bbe52d746ae75de360040c8b5ac30046fd1446b0130fa5fe0"
+  },
+  {
+   "method_id": "F31",
+   "phase": "ENGINE",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "operative_sha256": "d63450aed86550514a34c9ee5acf55a1d4c63c4dbdddd10c062015e13fcf1ac5"
+  },
+  {
+   "method_id": "F33",
+   "phase": "STRUCTURE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "412b4d9ae301220bfd489be7d169bf87ffd7437cae30ef460fbb98f958851766"
+  },
+  {
+   "method_id": "F36",
+   "phase": "REVIEW",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/art_contract.mjs#preGenerationGate",
+   "operative_sha256": "117eb342110c7d129a174876f581d1a9fb9c1c1ff525684bd732243c469325ea"
+  },
+  {
+   "method_id": "F51",
+   "phase": "SURFACE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "05332ba66e09a01c5cee1bc7646eab5ca5918e46d7128c72c772c3bf110f964c"
+  },
+  {
+   "method_id": "F52",
+   "phase": "STRUCTURE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "60dafcb332c3cb6fd8961daa59d3503df2724b2bcd783ae54ad766584f611dcd"
+  },
+  {
+   "method_id": "F53",
+   "phase": "STRUCTURE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "cdc607991786a835d2caeb616a4e94bc1bd5b657a29aca53fcd2ca397d7f82a7"
+  },
+  {
+   "method_id": "F56",
+   "phase": "REVIEW",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/repair_memory.mjs#selectRules",
+   "operative_sha256": "611eb168e72f42a10bd72fa3ba45a25e6d0b8ee1e935d76a8982ed3b69c143f4"
+  },
+  {
+   "method_id": "F58",
+   "phase": "STRUCTURE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "561ff30920ead79996964bdec12c2dc4b922500925c116f8b42bf806401bd826"
+  },
+  {
+   "method_id": "F59",
+   "phase": "STRUCTURE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 1,
+   "operative_sha256": "fc942d1b772bd50eae7201881e7f6cadc0f8803ec028937e207dfd49d8bc6701",
+   "source_clause_sha256": "5115c4cf9aa252cd8eff17745a0b348bbddba9695d4d79aafb43517a1e8a78e4"
+  },
+  {
+   "method_id": "F61",
+   "phase": "SURFACE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "7538ee3efebff29d033aed810a0639f1b54413ed0a1e71c2fc1cff34474ff9ab"
+  },
+  {
+   "method_id": "F62",
+   "phase": "SURFACE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 2,
+   "operative_sha256": "6655b1f047461fe4321153f571895868e7b9bae17f64f729280b30954115f724",
+   "source_clause_sha256": "b0abedf733f39e29aed179f297bb3a4079bad25fa71e8660ab0848226e89a274"
+  },
+  {
+   "method_id": "F64",
+   "phase": "STRUCTURE",
+   "delivered": "IN_MASTER_STAGES",
+   "stage": null,
+   "operative_sha256": "7630a41387f2d9739a27c39b7ed62aefaa284096f29e3271d869c98fa9745dac"
+  },
+  {
+   "method_id": "F65",
+   "phase": "STRUCTURE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 1,
+   "operative_sha256": "b61caf59d2c2faed1ba4d8de4122f16cb0603693eefb7b55db8693fdb5fb6c78",
+   "source_clause_sha256": "ece502d8451377dfda459af3019c7a2ea6623e60f2283e2d5f2aba1192fa8bae"
+  },
+  {
+   "method_id": "F66",
+   "phase": "STRUCTURE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 1,
+   "operative_sha256": "d494e65f4c05dc81def9f969dd56d75b08a6677eb939ae109212535ba7dcdc79",
+   "source_clause_sha256": "22e52629159421f8797a71730e5613f9094dbf662efcb340ee717ae8f3dd112d"
+  },
+  {
+   "method_id": "F67",
+   "phase": "STATE",
+   "delivered": "FULL_OPERATIVE_TEXT_AND_DECISION",
+   "stage": 3,
+   "operative_sha256": "e736f95e1510466090a07882ab67c5b26a3838390fa32beba2e6ad9eccc2d647",
+   "source_clause_sha256": "5f8c5dfcbd121b56c2bf57ae2c9b01817efb6c1816c94903ee8d4522d5c6af73"
+  },
+  {
+   "method_id": "F77",
+   "phase": "ENGINE",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#allocateDetail",
+   "operative_sha256": "a6785fdb7b454048106dc6f5ee2c98f2153149f37813c3889e7eab9e5b6dd261"
+  },
+  {
+   "method_id": "F79",
+   "phase": "ENGINE",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/art_intake.mjs#validatePlanContract",
+   "operative_sha256": "b1f931967f867273a1e9a2249e619f9a9a93b082311464a4516049dfdb02ce73"
+  },
+  {
+   "method_id": "F80",
+   "phase": "REVIEW",
+   "delivered": "BRIEF_AND_ENGINE_CONSUMER",
+   "consumer": "engine/art_bridge/art_requests.mjs#compileArtJob",
+   "operative_sha256": "68f4aa97b6e4953778a602458046ed65d64f1a631f486ee7e8f33cb379bb6ed1"
+  }
+ ],
+ "stages": [
+  {
+   "index": 1,
+   "phase": "STRUCTURE",
+   "mode": "EDIT_APPROVED_MASTER",
+   "methods": [
+    "F01",
+    "F05",
+    "F06",
+    "F59",
+    "F65",
+    "F66"
+   ],
+   "predecessor_sha256": "f9e53d2189d24a32e754e02b33dc75f9b52b41c5e00dc8db0db2ff7238e68481",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "characters": 27519
+  },
+  {
+   "index": 2,
+   "phase": "SURFACE",
+   "mode": "EDIT_APPROVED_MASTER",
+   "methods": [
+    "F62"
+   ],
+   "predecessor_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "prompt_sha256": "b85df3146b32a573cb24ee225f0542717f6c35af707ef3c798c536438bce610a",
+   "characters": 13251
+  },
+  {
+   "index": 3,
+   "phase": "STATE",
+   "mode": "EDIT_APPROVED_MASTER",
+   "methods": [
+    "F14",
+    "F30",
+    "F67"
+   ],
+   "predecessor_sha256": "b85df3146b32a573cb24ee225f0542717f6c35af707ef3c798c536438bce610a",
+   "prompt_sha256": "438787cb32aa3eacc09d7d3d6bc2aa58bb04bd60f6d77416b1bb6f0db68ec2bf",
+   "characters": 17521
+  }
+ ],
+ "contract_brief_sha256": "f9e53d2189d24a32e754e02b33dc75f9b52b41c5e00dc8db0db2ff7238e68481",
+ "transparent_background": {
+  "value": true,
+  "source": "motion_context.alpha_requirement=STRAIGHT"
+ },
+ "dependency_digest": "b2c2cde26edc646b9fc853a4e91e7394dbc350fdd43b937eb04232e16263daf4",
+ "provider_ready": false,
+ "provider_ready_requires": [
+  "verified HUMAN story receipt",
+  "verified HUMAN direction receipt",
+  "verified HUMAN design receipt",
+  "unchanged request hash"
+ ],
+ "request_sha256": "5a5a3d70d03d8747f54e11fa1466d091904e61d344d87cf24b0629ce398e3e1f"
+}

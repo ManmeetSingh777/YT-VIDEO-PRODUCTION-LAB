@@ -1,0 +1,23 @@
+{
+ "artjob_id": "ARTJOB_MASTER_laundromat_far_76979fc1",
+ "gate": {
+  "pass": false,
+  "status": "NOT_EVALUATED",
+  "failures": [],
+  "design_approval": {
+   "status": "NOT_EVALUATED"
+  }
+ },
+ "overrides": [
+  {
+   "field": "transparent_background",
+   "skill_value": false,
+   "contract_value": false,
+   "source": "motion_context.alpha_requirement=OPAQUE"
+  }
+ ],
+ "method_delivery": null,
+ "motion_requirements_delivered_as_requirements": null,
+ "machine_motion_context_file": null,
+ "request_sha256": "1c8bbe37e8c236d84b2dc5a5be91c85d8318e98d32b1ee2a72941453c0acc694"
+}

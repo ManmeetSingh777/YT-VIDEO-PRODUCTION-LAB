@@ -1,0 +1,23 @@
+{
+ "artjob_id": "ARTJOB_MASTER_street_far_ac5264a9",
+ "gate": {
+  "pass": false,
+  "status": "NOT_EVALUATED",
+  "failures": [],
+  "design_approval": {
+   "status": "NOT_EVALUATED"
+  }
+ },
+ "overrides": [
+  {
+   "field": "transparent_background",
+   "skill_value": false,
+   "contract_value": false,
+   "source": "motion_context.alpha_requirement=OPAQUE"
+  }
+ ],
+ "method_delivery": null,
+ "motion_requirements_delivered_as_requirements": null,
+ "machine_motion_context_file": null,
+ "request_sha256": "b22fd380f2324f5cfcf6ce6d44fe5f919b853f2bada7fff475fb3a3cbe7dfe3b"
+}

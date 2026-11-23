@@ -1,0 +1,117 @@
+{
+ "run_id": "DIAG-20261122115303-c3d250",
+ "chain_head": "c9902c3e6c2be4df69e3da99842fb9d3aabeb547120bb6d335b5e7e052d1c4d9",
+ "events": 25,
+ "tasks": {
+  "total": 6,
+  "completed": 4,
+  "failed": 1,
+  "blocked": 1,
+  "stale": 0,
+  "remaining": 2,
+  "percent_verified": 66.7
+ },
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 2,
+   "verified": 2,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "BLOCKED",
+   "tasks": 3,
+   "verified": 1,
+   "failed": 1,
+   "blocked": 1,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "next_operation": "resolve attention_rt_world_shot",
+ "failures": [
+  {
+   "failure_id": "FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e",
+   "stage": "S02_EXPERIENCE",
+   "task": "attention_rt_world_shot",
+   "class": "DIRECTION_OR_ATTENTION",
+   "invariant": "every attention target has a consuming track",
+   "observed": "primary_focus \"cam_world\" has no consuming track in [3600,7200)"
+  }
+ ]
+}

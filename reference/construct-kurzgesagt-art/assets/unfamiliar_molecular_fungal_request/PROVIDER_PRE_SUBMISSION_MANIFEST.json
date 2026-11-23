@@ -1,0 +1,39 @@
+{
+  "job_id": "MOLECULAR-TRANSFER-FUNGAL-001",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "635c5125e33065df343ef6db59b410ed7b8d07754ff4cf6b2f6983a17e66e147",
+  "prompt_characters": 20358,
+  "source_image_inputs": [
+    {
+      "path": "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/assets/question_native_witnesses/MEMORIES_0062_biological_network_density.jpg",
+      "sha256": "53d8a1df4b79b165c527000a7c9d29111e28b9856d822651c3cd3845a76285f8",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: dark source tissue uses connected branching terminals and bounded colored material regions"
+    },
+    {
+      "path": "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/assets/question_native_witnesses/AI_0702_nodes_and_links.jpg",
+      "sha256": "a9be00438be5f84777730be5c62d6075b60cc04aec7c3f5e59da01210daedd3e",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: unlike information-relational world uses discrete node stages, attachments and readable active edges"
+    },
+    {
+      "path": "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/assets/question_native_witnesses/AI_0444_pale_information_stage.jpg",
+      "sha256": "1c2cde0dd494cd0c6712617baf7c8d6fa95e02afe1b55514de86b91ef96f092a",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY counterexample: abstract world can have luminous pale negative space rather than mandatory dark purple"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F57",
+    "F71",
+    "F74"
+  ],
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

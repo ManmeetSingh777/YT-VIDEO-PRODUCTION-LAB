@@ -1,0 +1,232 @@
+{
+ "narration": {
+  "s1": [
+   0.6,
+   4.547
+  ],
+  "s2": [
+   5.047,
+   8.439
+  ]
+ },
+ "words": {
+  "s1": [
+   {
+    "w": "One",
+    "start": 0.65,
+    "end": 0.97,
+    "method": "estimated"
+   },
+   {
+    "w": "squeeze",
+    "start": 0.97,
+    "end": 1.4,
+    "method": "estimated"
+   },
+   {
+    "w": "of",
+    "start": 1.4,
+    "end": 1.65,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 1.65,
+    "end": 1.9,
+    "method": "estimated"
+   },
+   {
+    "w": "bellows",
+    "start": 1.9,
+    "end": 2.18,
+    "method": "estimated"
+   },
+   {
+    "w": "sends",
+    "start": 2.18,
+    "end": 2.43,
+    "method": "estimated"
+   },
+   {
+    "w": "cool",
+    "start": 2.43,
+    "end": 2.58,
+    "method": "estimated"
+   },
+   {
+    "w": "smoke",
+    "start": 2.58,
+    "end": 2.95,
+    "method": "estimated"
+   },
+   {
+    "w": "drifting",
+    "start": 2.95,
+    "end": 3.31,
+    "method": "estimated"
+   },
+   {
+    "w": "toward",
+    "start": 3.31,
+    "end": 3.74,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 3.74,
+    "end": 3.94,
+    "method": "estimated"
+   },
+   {
+    "w": "hive",
+    "start": 3.94,
+    "end": 4.52,
+    "method": "estimated"
+   }
+  ],
+  "s2": [
+   {
+    "w": "The",
+    "start": 5.097,
+    "end": 5.197,
+    "method": "estimated"
+   },
+   {
+    "w": "bees",
+    "start": 5.197,
+    "end": 5.427,
+    "method": "estimated"
+   },
+   {
+    "w": "settle",
+    "start": 5.427,
+    "end": 5.747,
+    "method": "estimated"
+   },
+   {
+    "w": "back",
+    "start": 5.747,
+    "end": 5.887,
+    "method": "estimated"
+   },
+   {
+    "w": "inside",
+    "start": 5.887,
+    "end": 6.647,
+    "method": "estimated"
+   },
+   {
+    "w": "and",
+    "start": 6.647,
+    "end": 6.877,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 6.877,
+    "end": 6.957,
+    "method": "estimated"
+   },
+   {
+    "w": "keeper",
+    "start": 6.957,
+    "end": 7.357,
+    "method": "estimated"
+   },
+   {
+    "w": "can",
+    "start": 7.357,
+    "end": 7.497,
+    "method": "estimated"
+   },
+   {
+    "w": "begin",
+    "start": 7.497,
+    "end": 7.747,
+    "method": "estimated"
+   },
+   {
+    "w": "her",
+    "start": 7.747,
+    "end": 7.947,
+    "method": "estimated"
+   },
+   {
+    "w": "work",
+    "start": 7.947,
+    "end": 8.277,
+    "method": "estimated"
+   }
+  ]
+ },
+ "scenes": {
+  "apiary": {
+   "start": 0,
+   "dur": 9.439,
+   "events": {
+    "raise": 0.27,
+    "squeeze": 0.97,
+    "smoke_arrives": 3.94,
+    "settle": 5.427,
+    "relief": 7.647
+   },
+   "sound": [
+    {
+     "at": "0",
+     "sfx": "buzz",
+     "until": "settle+1.0",
+     "t": 0,
+     "t1": 6.427
+    },
+    {
+     "at": "squeeze+0.55",
+     "sfx": "puff",
+     "t": 1.52
+    },
+    {
+     "at": "squeeze+1.1",
+     "sfx": "puff",
+     "t": 2.07
+    },
+    {
+     "t": 0.97,
+     "sfx": "puff",
+     "from_event": "squeeze"
+    }
+   ],
+   "contract": {
+    "main_event": "keeper raises the smoker and squeezes the bellows; puffs travel to the hive; the bees slow and return inside",
+    "unacceptable": [
+     "smoke appears without a squeeze",
+     "bees vanish instead of entering",
+     "glove slides off the bellows"
+    ],
+    "owned_components": [
+     {
+      "id": "arm",
+      "motion": "raise"
+     },
+     {
+      "id": "bellows",
+      "motion": "squeeze"
+     },
+     {
+      "id": "smoke",
+      "motion": "emit+drift"
+     },
+     {
+      "id": "bees",
+      "motion": "flight → settle"
+     }
+    ],
+    "articulation": [
+     {
+      "who": "beekeeper",
+      "action": "raise arm, squeeze",
+      "contact": "glove→bellows board"
+     }
+    ]
+   }
+  }
+ }
+}

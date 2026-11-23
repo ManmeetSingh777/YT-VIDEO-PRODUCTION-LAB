@@ -1,0 +1,95 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_drum_paddles_32453ff4",
+ "root_dependency": "drum_paddles",
+ "identity_id": "drum_world",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "drum_in",
+ "motion_context": {
+  "identity_id": "drum_world",
+  "canonical_parent_asset": "drum_in",
+  "shot_ids": [
+   "S03"
+  ],
+  "frame_ranges": [
+   [
+    1920,
+    3000
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S03"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ],
+   "depth_band": "FOCAL"
+  },
+  "oversized_paint_rect": [
+   -240,
+   -135,
+   2400,
+   1350
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "PROCEDURAL",
+  "predecessor_state_id": "drum_in",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "approved symbol animated procedurally (code computes quantities, never the symbol). Required by: shot S03; action S03_drum; world w_drum in S03"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "faf181f83ec9526d0a0ad8d3d1079fca92d216c3f86524ddf4d9002c2adf0171",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "eeb5f5dae79a2d94562911ad",
+ "dependency_parts_digest": "eeb5f5dae79a2d94562911adce3f33259074b93facc8af48c30b3e8c9f4abfab",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

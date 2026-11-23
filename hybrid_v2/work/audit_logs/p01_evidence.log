@@ -1,0 +1,1 @@
+640x900 rect [ -20, -15, 320, 450 ] | pixels pilot_master:12757/12757/out0 pilot_hand_open:2247/2247/out0 pilot_upper_arm:3163/3163/out0 pilot_forearm:2910/2910/out0 pilot_master_subcrop:6182/6182/out0 | footprint [[3600,3822]] 1262400 0 | transition 0.775 | bend 0 255

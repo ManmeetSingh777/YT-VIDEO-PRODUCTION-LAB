@@ -1,0 +1,303 @@
+REVISION 8480f0ab227a253e276ad4c69b885e68e7870a11 (fixture/test files new, engine unchanged)
+TAP version 13
+# Subtest: B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine
+not ok 1 - B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine
+  ---
+  duration_ms: 10262.8735
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:18:1'
+  failureType: 'testCodeFailure'
+  error: 'canonical_rect -20,-15,640,900'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:21:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)
+not ok 2 - B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)
+  ---
+  duration_ms: 2.3113
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: 'pilot_body: stored 105.000,32.000,180.000,626.000 expected 105.000,32.000,90.000,313.000'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:29:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix
+not ok 3 - B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix
+  ---
+  duration_ms: 341.068
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: '["MISSING_UNDERPAINT"]'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:36:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree
+not ok 4 - B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree
+  ---
+  duration_ms: 0.605
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: 'plate rect -100,-60,2400,1350'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:39:43)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)
+not ok 5 - B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)
+  ---
+  duration_ms: 16.435
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:45:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\asset_geometry.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_probes.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    ModuleJob._link (node:internal/modules/esm/module_job:183:49)
+  ...
+# Subtest: B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)
+not ok 6 - B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)
+  ---
+  duration_ms: 1.3605
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:49:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\asset_geometry.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_probes.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    ModuleJob._link (node:internal/modules/esm/module_job:183:49)
+  ...
+# Subtest: B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners
+not ok 7 - B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners
+  ---
+  duration_ms: 8.6755
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:55:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + undefined
+    - {
+    -   elbow_inner_sleeve: 'ines_elbow_r_underpaint'
+    - }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    elbow_inner_sleeve: 'ines_elbow_r_underpaint'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:58:79)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses
+not ok 8 - B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses
+  ---
+  duration_ms: 1.1619
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:64:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + []
+    - [
+    -   'pilot_underpaint'
+    - ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'pilot_underpaint'
+  actual:
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:65:98)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam
+not ok 9 - B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam
+  ---
+  duration_ms: 0.9883
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:72:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\asset_geometry.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_probes.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    ModuleJob._link (node:internal/modules/esm/module_job:183:49)
+  ...
+# Subtest: H1 planned alpha contract is enforced at intake (no silent rewrite)
+not ok 10 - H1 planned alpha contract is enforced at intake (no silent rewrite)
+  ---
+  duration_ms: 117.5357
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:78:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /ALPHA_INVALID/. Input:
+    
+    'REGISTERED_PENDING_REVIEW'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'REGISTERED_PENDING_REVIEW'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:81:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: H2 registration receipt content is verified and bound into the approval
+not ok 11 - H2 registration receipt content is verified and bound into the approval
+  ---
+  duration_ms: 65.2741
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:86:1'
+  failureType: 'testCodeFailure'
+  error: 'verifyRegistrationReceipt is not a function'
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:89:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume
+not ok 12 - H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume
+  ---
+  duration_ms: 183.0546
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:93:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW'
+    - 'CANDIDATES_RECEIVED_PENDING_SELECTION'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'CANDIDATES_RECEIVED_PENDING_SELECTION'
+  actual: 'PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:98:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: H4 review history is immutable; a rejection clears the current pointer; every decision survives
+not ok 13 - H4 review history is immutable; a rejection clears the current pointer; every decision survives
+  ---
+  duration_ms: 164.4341
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:105:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected "actual" to be strictly unequal to:
+    
+    'asset__pilot_hand_grip__4df2b7856ad907f6'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'asset__pilot_hand_grip__4df2b7856ad907f6'
+  actual: 'asset__pilot_hand_grip__4df2b7856ad907f6'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:110:10)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator
+not ok 14 - H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator
+  ---
+  duration_ms: 1.375
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p01_reaudit.test.mjs:113:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + undefined
+    - 'DIAGNOSTIC'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'DIAGNOSTIC'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p01_reaudit.test.mjs:114:109)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 0
+# fail 14
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11370.2595

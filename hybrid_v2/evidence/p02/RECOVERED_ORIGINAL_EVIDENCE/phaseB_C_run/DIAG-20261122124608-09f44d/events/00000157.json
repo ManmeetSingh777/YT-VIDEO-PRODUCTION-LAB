@@ -1,0 +1,42 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:157",
+ "sequence": 157,
+ "prev_event_sha256": "21a9d27a1019f3a1ef2f31c40fa36762455dc327fad967ba4002cb6eff738bdf",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwrtz3cf",
+ "operation_id": null,
+ "task_id": "assemble",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "BLOCKED",
+ "gate_evidence_refs": [],
+ "blocked_on": [
+  "chunk_0_600",
+  "chunk_600_1200",
+  "chunk_1200_1800",
+  "chunk_1800_2400",
+  "chunk_2400_3000",
+  "chunk_3000_3600",
+  "chunk_3600_4200",
+  "chunk_4200_4800",
+  "chunk_4800_5400",
+  "chunk_5400_6000",
+  "chunk_6000_6600",
+  "chunk_6600_7200"
+ ],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:156"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:22.074Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_BLOCKED",
+ "lock_generation": 157,
+ "event_sha256": "7cb06c9bc57c0189052206532b164a4344deadddf86d6a0ac0f2f2b28d178632"
+}

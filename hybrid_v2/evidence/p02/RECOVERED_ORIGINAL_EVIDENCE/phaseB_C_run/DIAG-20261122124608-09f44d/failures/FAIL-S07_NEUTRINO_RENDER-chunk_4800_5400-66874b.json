@@ -1,0 +1,28 @@
+{
+ "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_4800_5400-66874b",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwrtz3cf",
+ "task_id": "chunk_4800_5400",
+ "frame_ranges": [],
+ "artifact_refs": [],
+ "first_observed_bad_output": "FFV1 segment frames 4800..5399",
+ "expected_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+ "observed_measurement": "EXCEPTION: t.run is not a function",
+ "applicability_predicate": "stage S07_NEUTRINO_RENDER, task class chunk_4800",
+ "failure_class": "RENDER_OR_MEMORY",
+ "root_producer_or_UNKNOWN": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+ "suspected_mechanism": "EXCEPTION: t.run is not a function",
+ "causal_evidence_refs": [],
+ "rejected_bypass_paths": [],
+ "invalidated_downstream_nodes": [
+  "assemble",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "repair_owner": "RENDER_PRODUCER",
+ "resume_from_stage": "S07_NEUTRINO_RENDER",
+ "retry_safe_boolean": true,
+ "external_spend_risk": false,
+ "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122124608-09f44d --failure FAIL-S07_NEUTRINO_RENDER-chunk_4800_5400-66874b"
+}

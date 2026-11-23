@@ -1,0 +1,295 @@
+// Temporal compiler + per-frame evaluator (spec §5.3, §5.4, §5.7, §11.1). One immutable compiled plan; stateAtFrame(compiled, f) is a pure
+// function of the integer frame: it never scans or mutates prior frames. History-dependent secondary motion is BAKED at compile time with a
+// fixed step from a canonical initial state, then read by index. Every action is routed exactly once by its declared motion class.
+//
+// Motion plan (direction-owned timing; the manifest owns art/rigs):
+// { id, placements: {rigId: {x,y,rot?,scale?}},
+//   tracks: {rigId: {root: {x?,y?,rot?,scale?: KEYS}, joints: {jointId: KEYS}}},          KEYS = [[frame, value, ease?], ...]
+//   cameras: {trackId: {x?,y?,zoom?,rot?: KEYS}}, parallax: {FAR?,MID?,FOCAL?,NEAR?,FOREGROUND?: factor},
+//   cels: {actionId: {distance: KEYS, step_distance_px, start_xy:[x,y], cycle:[{asset_id, anchor, lands?}], band?}},
+//   secondary: [{id, rig, joint, driver:{rig, joint}, stiffness, damping, gain, substeps}],
+//   procedural: {actionId: {type:"GEAR_TRAIN", driver:{rig,joint}, followers:[{rig,joint,teeth_driver,teeth_follower,phase_deg?}]}
+//                        | {type:"FLOW_PATH", symbol_asset, path:[[x,y],...], count: KEYS, speed_px_per_frame, spacing_px, band?}},
+//   lighting: {assetId: {mode, owner_part, opacity?: KEYS, view_id?}}, gaze: {rigId: {jointId: {x: KEYS, y: KEYS, surface_asset}}} }
+import { err } from "./errors.mjs";
+import { I, mul, chain, T, S as Sc, R, apply, applyVec, angleOf, scaleOf, dist, deg, wrap180, finite } from "./math2d.mjs";
+import { solveTwoBonePosition } from "./constraints.mjs";
+import { validateStateEdge } from "./state_router.mjs";
+
+const EASES = {
+  linear: (p) => p, none: (p) => p,
+  "sine.in": (p) => 1 - Math.cos((p * Math.PI) / 2), "sine.out": (p) => Math.sin((p * Math.PI) / 2), "sine.inOut": (p) => -(Math.cos(Math.PI * p) - 1) / 2,
+  "power2.in": (p) => p * p, "power2.out": (p) => 1 - (1 - p) * (1 - p), "power2.inOut": (p) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2),
+  "power3.out": (p) => 1 - Math.pow(1 - p, 3), "power3.inOut": (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2),
+  "back.out": (p) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); },
+};
+export function checkKeys(keys, where) {
+  if (!Array.isArray(keys) || !keys.length) throw err("INVALID_FRAME_RANGE", { record_id: where, reason: "track has no keys" });
+  for (let i = 0; i < keys.length; i++) {
+    const [f, v, e] = keys[i];
+    if (!Number.isInteger(f) || !Number.isFinite(v)) throw err("INVALID_FRAME_RANGE", { record_id: where, reason: `key ${i} must be [integerFrame, finiteValue, ease?]` });
+    if (i && f <= keys[i - 1][0]) throw err("INVALID_FRAME_RANGE", { record_id: where, reason: `keys must be strictly increasing in frame (key ${i})` });
+    if (e !== undefined && e !== "hold" && !EASES[e]) throw err("UNSUPPORTED_MOTION_CLASS", { record_id: where, reason: `unknown ease ${e}` });
+  }
+}
+/** pure key evaluation at integer frame f (value at a key frame is that key's value) */
+export function ev(keys, f) {
+  if (f <= keys[0][0]) return keys[0][1];
+  for (let n = 1; n < keys.length; n++) {
+    const [f1, v1, e] = keys[n];
+    if (f < f1) { const [f0, v0] = keys[n - 1]; if (e === "hold") return v0; return v0 + (v1 - v0) * EASES[e || "sine.inOut"]((f - f0) / (f1 - f0)); }
+  }
+  return keys[keys.length - 1][1];
+}
+
+const ROUTED = ["RIGID", "ARTICULATED", "REGISTERED_CELS", "REGISTERED_MORPH", "EXPLICIT_DEFORM", "PROCEDURAL", "CAMERA_WORLD", "TRANSITION"];
+
+/** compileMotionTracks(actions, shots, {doc, plan}) → frozen compiled plan or throws an aggregated BridgeError list (.errors) */
+export function compileMotionTracks(actions, shots, ctx) {
+  const { doc, plan = {} } = ctx, errors = [], total = doc.stage.total_frames;
+  const assets = new Map(doc.assets.map((a) => [a.id, a])), rigs = new Map();
+  for (const r of doc.rigs) {
+    const joints = new Map(r.joints.map((j) => [j.id, j])), order = [], seen = new Set();
+    const visit = (j) => { if (seen.has(j.id)) return; if (j.parent_id) visit(joints.get(j.parent_id)); seen.add(j.id); order.push(j.id); };
+    r.joints.forEach(visit);
+    const socketById = new Map(r.sockets.map((s) => [s.id, s]));
+    rigs.set(r.id, { rec: r, joints, order, socketById, root: r.joints.find((j) => j.parent_id === null) });
+  }
+  const socketOwner = new Map(); for (const [rid, R_] of rigs) for (const s of R_.rec.sockets) { if (socketOwner.has(s.id)) errors.push(err("DUPLICATE_ELEMENT_ID", { record_id: s.id, reason: `socket id used by rigs ${socketOwner.get(s.id)} and ${rid}` })); socketOwner.set(s.id, rid); }
+  // track validation + single transform owner per joint
+  const owner = new Map(), own = (key, by) => { if (owner.has(key) && owner.get(key) !== by) errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: key, reason: `${key} is written by both ${owner.get(key)} and ${by}` })); else owner.set(key, by); };
+  const safe = (fn) => { try { fn(); } catch (e) { if (e.code) errors.push(e); else throw e; } };
+  for (const [rid, tr] of Object.entries(plan.tracks || {})) {
+    const R_ = rigs.get(rid); if (!R_) { errors.push(err("UNKNOWN_REFERENCE", { record_id: rid, reason: "motion track for unknown rig" })); continue; }
+    for (const [p, keys] of Object.entries(tr.root || {})) { if (!["x", "y", "rot", "scale"].includes(p)) errors.push(err("UNKNOWN_REFERENCE", { record_id: `${rid}.root.${p}` , reason: "root track property must be x|y|rot|scale" })); safe(() => checkKeys(keys, `${rid}.root.${p}`)); }
+    for (const [j, keys] of Object.entries(tr.joints || {})) { if (!R_.joints.has(j)) { errors.push(err("UNKNOWN_REFERENCE", { record_id: `${rid}.${j}`, reason: "track for unknown joint" })); continue; } own(`${rid}.${j}`, "track"); safe(() => checkKeys(keys, `${rid}.${j}`)); }
+  }
+  for (const s of plan.secondary || []) { if (!rigs.get(s.rig)?.joints.has(s.joint)) errors.push(err("UNKNOWN_REFERENCE", { record_id: s.id, reason: "secondary joint unknown" })); else own(`${s.rig}.${s.joint}`, `secondary:${s.id}`); }
+  for (const [aid, p] of Object.entries(plan.procedural || {})) if (p.type === "GEAR_TRAIN") for (const fo of p.followers) own(`${fo.rig}.${fo.joint}`, `procedural:${aid}`);
+  for (const [cid, c] of Object.entries(plan.cameras || {})) for (const [p, keys] of Object.entries(c)) safe(() => checkKeys(keys, `camera ${cid}.${p}`));
+
+  // route every action exactly once
+  const routes = new Map();
+  for (const a of actions) {
+    if (!ROUTED.includes(a.mode)) { errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: `mode ${a.mode} has no handler` })); continue; }
+    if (routes.has(a.id)) { errors.push(err("DUPLICATE_ELEMENT_ID", { record_id: a.id, reason: "action routed twice" })); continue; }
+    if (a.mode === "RIGID") for (const act of a.actors) { const jt = plan.tracks?.[act.rig_id]?.joints || {}; if (Object.keys(jt).length) errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: `RIGID action animates joints ${Object.keys(jt)} of ${act.rig_id}; articulation requires ARTICULATED` })); }
+    if (a.mode === "REGISTERED_CELS" && !plan.cels?.[a.id]) errors.push(err("MISSING_ART_ASSET", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, suggested_producer: "GPT registered cel manufacture", reason: "REGISTERED_CELS action has no approved cel cycle" }));
+    if (a.mode === "REGISTERED_MORPH") { const vec = a.required_assets.every((id) => ["VECTOR_PATH", "SYMBOL"].includes(assets.get(id)?.kind)); if (!vec) errors.push(err("INVALID_MORPH_TOPOLOGY", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: "REGISTERED_MORPH requires homologous source-authored vector paths; raster images cannot be numerically morphed — supply registered cels or new art" })); }
+    if (a.mode === "EXPLICIT_DEFORM" && !plan.deform_maps?.[a.id]) errors.push(err("MISSING_ART_ASSET", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, suggested_producer: "GPT deformation-state sequence", reason: "EXPLICIT_DEFORM has no approved deformation map; no universal warp is fabricated" }));
+    if (a.mode === "PROCEDURAL" && !plan.procedural?.[a.id]) errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, reason: "PROCEDURAL action has no declared mechanism" }));
+    if (a.mode === "TRANSITION" && !doc.transitions.some((t) => t.frame_range[0] < a.frame_range[1] && a.frame_range[0] < t.frame_range[1])) errors.push(err("MISSING_TRANSITION_STATE", { record_id: a.id, frame_range: a.frame_range, reason: "TRANSITION action has no transition contract" }));
+    routes.set(a.id, a.mode);
+  }
+  // every view switch must travel an approved registered edge (state_router is the consumer, not a duplicate check)
+  for (const a of actions) for (const ve of a.view_events) { const owner = a.actors.map((x) => rigs.get(x.rig_id)).find((R_) => R_ && [...R_.rec.pose_states, ...R_.rec.view_states].some((s) => s.id === ve.to_state)); if (!owner) continue;
+    safe(() => validateStateEdge(ve.from_state, ve.to_state, owner.rec, assets, doc.identities.find((i) => i.id === owner.rec.identity_id), { requireApproval: ctx.requireApproval ?? true })); }
+  // contacts → constraint jobs
+  const contacts = [];
+  for (const a of actions) for (const c of a.contact_events) {
+    const srcRig = socketOwner.get(c.source_socket), R_ = rigs.get(srcRig);
+    if (!R_) { errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.source_socket, reason: "contact source socket not on any rig" })); continue; }
+    const sock = R_.socketById.get(c.source_socket), ikc = R_.rec.constraints.find((k) => k.type === "TWO_BONE_IK" && k.chain[2] === sock.joint_id);
+    if (!ikc) { errors.push(err("UNREACHABLE_IK", { record_id: a.id, reason: `no TWO_BONE_IK chain ends at ${sock.joint_id}` })); continue; }
+    const tgtRig = socketOwner.get(c.target_socket) || null;
+    if (!tgtRig && !c.target_world_xy) { errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
+    contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig });
+  }
+  const contactDriven = new Set(contacts.map((k) => k.rig));
+  for (const k of contacts) if (k.tgtRig && contactDriven.has(k.tgtRig)) errors.push(err("UNSUPPORTED_STATE_EDGE", { record_id: k.action.id, reason: `contact target rig ${k.tgtRig} is itself contact-driven (chained contacts are not supported)` }));
+
+  // shots
+  const shotAt = new Int32Array(total).fill(-1); shots.forEach((s, i) => { for (let f = Math.max(0, s.start_frame); f < Math.min(total, s.end_frame); f++) if (shotAt[f] < 0) shotAt[f] = i; });
+  if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
+
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {} };
+  C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
+  const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
+  C.placement = placement;
+  // root + joint values from tracks (+ gear followers + baked secondary)
+  const rawJoint = (rid, j, f) => { const k = plan.tracks?.[rid]?.joints?.[j]; return k ? ev(k, f) : 0; };
+  const gearOf = new Map(); for (const p of Object.values(plan.procedural || {})) if (p.type === "GEAR_TRAIN") for (const fo of p.followers) gearOf.set(`${fo.rig}.${fo.joint}`, { driver: p.driver, ratio: -fo.teeth_driver / fo.teeth_follower, phase: fo.phase_deg || 0 });
+  C.jointValue = (rid, j, f) => {
+    const g = gearOf.get(`${rid}.${j}`); if (g) return rawJoint(g.driver.rig, g.driver.joint, f) * g.ratio + g.phase;
+    const b = C.secondaryBaked[`${rid}.${j}`]; if (b) return b[f];
+    return rawJoint(rid, j, f);
+  };
+  C.evalPrimary = (f, shot) => {
+    const out = {};
+    for (const [rid, R_] of rigs) {
+      const pl = placement(rid, shot); if (!pl) continue;
+      const tr = plan.tracks?.[rid]?.root || {}, g = (p, d) => (tr[p] ? ev(tr[p], f) : d);
+      const root = { x: pl.x + g("x", 0), y: pl.y + g("y", 0), rot: (pl.rot || 0) + g("rot", 0), scale: (pl.scale || 1) * g("scale", 1) };
+      const theta = {}, offset = {}; for (const j of R_.order) { theta[j] = C.jointValue(rid, j, f); const o = plan.tracks?.[rid]?.joint_offsets?.[j]; if (o) offset[j] = [o.x ? ev(o.x, f) : 0, o.y ? ev(o.y, f) : 0]; }
+      out[rid] = { root, theta, offset };
+    }
+    return out;
+  };
+  /** FK in canonical character coords: M_root = T(x,y)·R(rot)·S(scale)·T(-rest_root); M_j = M_parent · T(r_j)·R(θ_j)·T(-r_j) */
+  const fk = (rid, st) => {
+    const R_ = rigs.get(rid), r0 = R_.root.rest_xy, M = {};
+    for (const j of R_.order) {
+      const J = R_.joints.get(j), r = J.rest_xy;
+      const parent = J.parent_id ? M[J.parent_id] : chain(T(st.root.x, st.root.y), R(st.root.rot), Sc(st.root.scale), T(-r0[0], -r0[1]));
+      const o = st.offset?.[j] || [0, 0];
+      M[j] = chain(parent, T(r[0] + o[0], r[1] + o[1]), R(st.theta[j]), T(-r[0], -r[1]));
+    }
+    return M;
+  };
+  C.fk = fk;
+  const socketWorld = (rid, M, sid) => { const R_ = rigs.get(rid), s = R_.socketById.get(sid), r = R_.joints.get(s.joint_id).rest_xy; return apply(M[s.joint_id], [r[0] + s.local_xy[0], r[1] + s.local_xy[1]]); };
+  C.socketWorld = socketWorld;
+  // plan.reaches["actionId:socket"] = {approach:[a0,a1=start_frame], release:[r0=end_frame,r1]}: IK target = mix(FK socket, contact target, w)
+  const rampOf = (k) => plan.reaches?.[`${k.action.id}:${k.c.source_socket}@${k.c.start_frame}`] || plan.reaches?.[`${k.action.id}:${k.c.source_socket}`] || null;
+  const smooth = (p) => p * p * (3 - 2 * p);
+  C.contactsAt = (f) => {
+    const out = [];
+    for (const k of contacts) {
+      if (C.shotAt(f)?.id !== k.action.shot_id) continue;
+      if (k.c.start_frame <= f && f < k.c.end_frame) { out.push({ ...k, w: 1, locked: true }); continue; }
+      const r = rampOf(k); if (!r) continue;
+      if (r.approach && r.approach[0] <= f && f < k.c.start_frame) out.push({ ...k, w: smooth((f - r.approach[0]) / (k.c.start_frame - r.approach[0])), locked: false });
+      else if (r.release && k.c.end_frame <= f && f < r.release[1]) out.push({ ...k, w: 1 - smooth((f - k.c.end_frame) / (r.release[1] - k.c.end_frame)), locked: false });
+    }
+    return out;
+  };
+  /** pose intent → contact graph → constrained solution. Failures are structured, never clamped. */
+  C.solveConstraints = (f, primary, active) => {
+    const st = JSON.parse(JSON.stringify(primary)), failures = [], solved = [], M = {}, ikSolved = new Set();
+    for (const rid of Object.keys(st)) if (!contactDriven.has(rid)) M[rid] = fk(rid, st[rid]);
+    for (const k of active) {
+      const s = st[k.rig]; if (!s) { failures.push(err("UNKNOWN_REFERENCE", { record_id: k.action.id, frame_range: [f, f + 1], reason: `rig ${k.rig} not placed in shot` })); continue; }
+      let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_world_xy;
+      if (!target) { failures.push(err("CONTACT_DRIFT", { record_id: k.action.id, frame_range: [f, f + 1], reason: `target rig ${k.tgtRig} not placed` })); continue; }
+      const R_ = rigs.get(k.rig), [js, je, jw] = k.chain, rs = R_.joints.get(js).rest_xy, re = R_.joints.get(je).rest_xy, rw = R_.joints.get(jw).rest_xy;
+      const M0 = fk(k.rig, s), sc = scaleOf(M0[js]), phiW = angleOf(M0[jw]), parentM = R_.joints.get(js).parent_id ? M0[R_.joints.get(js).parent_id] : chain(T(s.root.x, s.root.y), R(s.root.rot), Sc(s.root.scale), T(-R_.root.rest_xy[0], -R_.root.rest_xy[1]));
+      if (k.w < 1) { const fkS = socketWorld(k.rig, M0, k.c.source_socket); target = [fkS[0] + (target[0] - fkS[0]) * k.w, fkS[1] + (target[1] - fkS[1]) * k.w]; }
+      // hand orientation: "WORLD" (default) keeps the unconstrained FK world angle; "RELATIVE" keeps the wrist's own track angle relative to the
+      // solved forearm (fixed-point iteration on the small socket offset; converges because |local| << bone lengths)
+      const orient = rampOf(k)?.orient || "WORLD", A = apply(M0[js], rs), thW = s.theta[jw];
+      const pa = angleOf(parentM), aSE = deg(Math.atan2(re[1] - rs[1], re[0] - rs[0])), aEW = deg(Math.atan2(rw[1] - re[1], rw[0] - re[0]));
+      try {
+        let phi = phiW, sol, Wt, ts, te, tw;
+        for (let it = 0; it < (orient === "RELATIVE" ? 12 : 1); it++) {
+          const local = applyVec(chain(R(phi), Sc(sc)), k.socket.local_xy); Wt = [target[0] - local[0], target[1] - local[1]];
+          sol = solveTwoBonePosition(A, Wt, dist(rs, re) * sc, dist(re, rw) * sc, k.bend);
+          ts = wrap180(deg(Math.atan2(sol.elbow[1] - A[1], sol.elbow[0] - A[0])) - aSE - pa); te = wrap180(deg(Math.atan2(Wt[1] - sol.elbow[1], Wt[0] - sol.elbow[0])) - aEW - pa - ts);
+          if (orient === "RELATIVE") { tw = thW; phi = pa + ts + te + tw; } else tw = wrap180(phiW - pa - ts - te);
+        }
+        if (!k.locked) { // blending from/to FK: the approved bend branch must be the FK pose's branch, otherwise the elbow would flip on the ramp boundary
+          const Efk = apply(M0[je], re), Wfk = apply(M0[jw], rw), side = Math.sign((Wfk[0] - A[0]) * (Efk[1] - A[1]) - (Wfk[1] - A[1]) * (Efk[0] - A[0])); // the FK pose's own branch
+          if (side && side !== k.bend) failures.push(err("UNAPPROVED_BEND_BRANCH", { record_id: `${k.rig}.${je}`, frame_range: [f, f + 1], dependency: k.action.id, reason: `declared bend_sign ${k.bend} contradicts the approved FK pose (elbow on side ${side}); the limb would flip branch at the reach boundary` }));
+        }
+        s.theta[js] = ts; s.theta[je] = te; s.theta[jw] = tw;
+        for (const [j, v] of [[js, ts], [je, te], [jw, tw]]) { ikSolved.add(`${k.rig}.${j}`); const lim = R_.joints.get(j).rotation_limits_deg; if (v < lim[0] - 1e-6 || v > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${k.rig}.${j}`, shot_id: k.action.shot_id, frame_range: [f, f + 1], dependency: k.action.id, suggested_producer: "re-stage within approved range or GPT pose cel for this extreme", reason: `${j} needs ${v.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: v, limits: lim } })); }
+        solved.push({ action: k.action.id, socket: k.c.source_socket, target, contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: k.locked, w: k.w, ik_joints: [js, je, jw] });
+      } catch (e) { if (!e.code) throw e; e.frame_range = [f, f + 1]; e.record_id = k.action.id; e.shot_id = k.action.shot_id; failures.push(e); }
+    }
+    for (const rid of contactDriven) if (st[rid]) M[rid] = fk(rid, st[rid]);
+    for (const [rid, s] of Object.entries(st)) for (const [j, v] of Object.entries(s.theta)) { if (ikSolved.has(`${rid}.${j}`)) continue; const lim = rigs.get(rid).joints.get(j).rotation_limits_deg, w = wrap180(v); if (w < lim[0] - 1e-6 || w > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${rid}.${j}`, shot_id: C.shotAt(f)?.id, frame_range: [f, f + 1], suggested_producer: "GPT pose/bend cel for this extreme, or re-stage within the approved range", reason: `${j} at ${w.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: w, limits: lim } })); }
+    for (const [rid, gz] of Object.entries(plan.gaze || {})) for (const [j, g] of Object.entries(gz)) { const o = st[rid]?.offset?.[j]; if (!o) continue; const pupil = assets.get(g.pupil_asset), surf = assets.get(g.surface_asset), [px, py, pw, ph] = pupil.canonical_rect, [sx, sy, sw, sh] = surf.canonical_rect; if (px + o[0] < sx || py + o[1] < sy || px + o[0] + pw > sx + sw || py + o[1] + ph > sy + sh) failures.push(err("UNSUPPORTED_STATE_EDGE", { record_id: `${rid}.${j}`, frame_range: [f, f + 1], reason: `gaze offset [${o.map((v) => v.toFixed(2))}] leaves owned eye surface ${surf.id}` })); }
+    for (const s of solved) { if (!s.locked) continue; const k = contacts.find((x) => x.action.id === s.action && x.c.source_socket === s.socket); s.achieved = socketWorld(k.rig, M[k.rig], s.socket); s.error_px = dist(s.achieved, s.target);
+      // directive I2/N4: contact = position AND orientation. When the contact declares a target basis angle and the socket a palm/sole basis,
+      // the post-FK world angle must match (wrapped) — a reversed palm fails even with zero XY error
+      if (Number.isFinite(k.c.target_angle_deg) && Number.isFinite(k.socket.basis_angle_deg)) { const tgtAng = k.c.target_angle_deg + (k.tgtRig && M[k.tgtRig] ? angleOf(M[k.tgtRig][rigs.get(k.tgtRig).socketById.get(k.c.target_socket)?.joint_id] || [1, 0, 0, 1, 0, 0]) : 0); s.angle_residual_deg = Math.abs(wrap180(angleOf(M[k.rig][k.socket.joint_id]) + k.socket.basis_angle_deg - tgtAng)); if (s.angle_residual_deg > (k.c.allowed_angle_deg ?? 12)) failures.push(err("CONTACT_ORIENTATION_UNSATISFIABLE", { record_id: s.action, frame_range: [f, f + 1], dependency: s.socket, reason: `palm/sole basis off by ${s.angle_residual_deg.toFixed(2)}° (allowed ${k.c.allowed_angle_deg ?? 12}°)`, details: { angle_residual_deg: s.angle_residual_deg } })); } if (s.error_px > s.allowed_error_px) failures.push(err("CONTACT_DRIFT", { record_id: s.action, frame_range: [f, f + 1], reason: `contact error ${s.error_px.toFixed(3)}px > ${s.allowed_error_px}` })); }
+    return { state: st, matrices: M, solved, failures };
+  };
+  // approved art states: pure function of the event list (last event ≤ f inside an active action of the shot), never of a previous frame
+  C.resolveApprovedArtStates = (f, constrained) => {
+    const shot = C.shotAt(f), out = {};
+    for (const rid of Object.keys(constrained.state)) {
+      const R_ = rigs.get(rid), all = [...R_.rec.pose_states, ...R_.rec.view_states];
+      let pose = R_.rec.pose_states[0]?.id ?? null, view = null, expr = null;
+      for (const a of actions) if (a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid) && a.frame_range[0] <= f) {
+        for (const e of a.pose_events) if (e.frame <= f && all.some((s) => s.id === e.state_id)) pose = e.state_id;
+        for (const e of a.view_events) if (e.frame <= f) view = e.to_state;
+      }
+      const ps = all.find((s) => s.id === pose), vs = view ? all.find((s) => s.id === view) : null;
+      out[rid] = { pose, view, expression: expr, bindings: { ...(ps?.asset_bindings || {}), ...(vs?.asset_bindings || {}) }, hidden: new Set() };
+    }
+    return out;
+  };
+  /** one transform cache → every paint pass of a joint reads the same matrix (no duplicated animation of near/far passes) */
+  C.resolvePaintPasses = (artStates, matrices) => {
+    const passes = [];
+    for (const [rid, M] of Object.entries(matrices)) {
+      const R_ = rigs.get(rid), st = artStates[rid];
+      for (const p of R_.rec.render_parts) {
+        const assetId = st?.bindings?.[p.asset_id] ?? p.asset_id, a = assets.get(assetId);
+        if (!a) throw err("MISSING_ART_ASSET", { record_id: assetId, reason: `state binds ${p.asset_id} → ${assetId} which is not in the manifest` });
+        passes.push({ pass_id: `${rid}--${p.asset_id}--${assetId}`, slot: p.asset_id, asset_id: assetId, rig: rid, joint: p.joint_id, matrix: mul(M[p.joint_id], p.local_to_joint_matrix), visible: !st?.hidden?.has(p.asset_id) });
+      }
+    }
+    return passes;
+  };
+  // baked secondary: fixed-step damped spring on joint angle, driven by the driver joint's angular acceleration (canonical initial state 0,0)
+  for (const s of plan.secondary || []) {
+    const n = s.substeps || 4, dt = 1 / (60 * n), arr = new Float64Array(total); let x = 0, v = 0, prevW = 0;
+    const drv = (f) => rawJoint(s.driver.rig, s.driver.joint, Math.min(total - 1, Math.max(0, f)));
+    for (let f = 0; f < total; f++) {
+      const w = (drv(f + 1) - drv(f - 1)) / 2 * 60, acc = (w - prevW) * 60; prevW = w;
+      for (let i = 0; i < n; i++) { const a = -s.stiffness * x - s.damping * v - s.gain * acc; v += a * dt; x += v * dt; }
+      arr[f] = x;
+    }
+    C.secondaryBaked[`${s.rig}.${s.joint}`] = arr;
+  }
+  C.evalBakedSecondary = (f) => Object.fromEntries(Object.entries(C.secondaryBaked).map(([k, a]) => [k, a[f]]));
+  C.cameraAt = (f) => { const shot = C.shotAt(f), c = plan.cameras?.[shot?.camera_track_id] || {}, g = (p, d) => (c[p] ? ev(c[p], f) : d); return { id: shot?.camera_track_id || null, x: g("x", doc.stage.width / 2), y: g("y", doc.stage.height / 2), zoom: g("zoom", 1), rot: g("rot", 0) }; };
+  C.eventsAt = (f) => {
+    const ev_ = [];
+    for (const a of actions) { for (const e of a.pose_events) if (e.frame === f) ev_.push({ type: "POSE", action: a.id, state: e.state_id }); for (const e of a.view_events) if (e.frame === f) ev_.push({ type: "VIEW", action: a.id, from: e.from_state, state: e.to_state }); for (const c of a.contact_events) { if (c.start_frame === f) ev_.push({ type: "CONTACT_START", action: a.id, socket: c.source_socket }); if (c.end_frame === f) ev_.push({ type: "CONTACT_END", action: a.id, socket: c.source_socket }); } }
+    return ev_;
+  };
+  // registered cels (gait etc.): entry index from the distance track; placement anchors the planted landmark → no foot slide at cel swaps
+  C.celsAt = (f) => {
+    const out = [];
+    for (const [aid, cel] of Object.entries(plan.cels || {})) {
+      const a = actions.find((x) => x.id === aid); if (!a || f < a.frame_range[0] || f >= a.frame_range[1] || C.shotAt(f)?.id !== a.shot_id) continue;
+      const step = cel.step_distance_px, d = ev(cel.distance, f), idx = Math.max(0, Math.floor(d / step)), n = cel.cycle.length;
+      let plant = cel.start_xy.slice(), placeM = null;
+      for (let i = 0; i <= idx; i++) {
+        const e = cel.cycle[i % n], ca = assets.get(e.asset_id), anc = ca.landmarks[e.anchor];
+        placeM = T(plant[0] - anc[0], plant[1] - anc[1]);
+        if (i < idx && e.lands) plant = apply(placeM, ca.landmarks[e.lands]);
+      }
+      const e = cel.cycle[idx % n];
+      out.push({ action: aid, entry_index: idx, asset_id: e.asset_id, anchor: e.anchor, plant: apply(placeM, assets.get(e.asset_id).landmarks[e.anchor]), matrix: placeM, band: cel.band || "FOCAL" });
+    }
+    return out;
+  };
+  C.proceduralAt = (f) => {
+    const out = [];
+    for (const [aid, p] of Object.entries(plan.procedural || {})) {
+      if (p.type !== "FLOW_PATH") continue; const a = actions.find((x) => x.id === aid); if (!a || f < a.frame_range[0] || f >= a.frame_range[1]) continue;
+      const segs = []; let L = 0; for (let i = 1; i < p.path.length; i++) { const l = dist(p.path[i - 1], p.path[i]); segs.push([L, l, p.path[i - 1], p.path[i]]); L += l; }
+      const count = Math.max(0, Math.round(ev(p.count, f))), head = (f - a.frame_range[0]) * p.speed_px_per_frame, sym = assets.get(p.symbol_asset), [px, py] = sym.pivot_xy;
+      for (let i = 0; i < count; i++) {
+        const s = (((head - i * p.spacing_px) % L) + L) % L, seg = segs.find((g) => s >= g[0] && s < g[0] + g[1]) || segs.at(-1), u = (s - seg[0]) / seg[1];
+        const pos = [seg[2][0] + (seg[3][0] - seg[2][0]) * u, seg[2][1] + (seg[3][1] - seg[2][1]) * u], ang = deg(Math.atan2(seg[3][1] - seg[2][1], seg[3][0] - seg[2][0]));
+        out.push({ pass_id: `${aid}--sym${i}`, asset_id: p.symbol_asset, matrix: chain(T(pos[0], pos[1]), R(ang), T(-px, -py)), band: p.band || "FOCAL", s });
+      }
+    }
+    return out;
+  };
+  return Object.freeze(C);
+}
+
+/** stateAtFrame(compiled, t): the spec §11.1 causal order, pure in t. t is an integer frame, or a SUB-FRAME sample time inside a frame
+ *  (shutter blur, P02 repair; opt-in {subframe: true}): continuous motion (primary curves, constraints, camera) is evaluated at t; DISCRETE state — shot ownership,
+ *  contact graph, approved art states, cels, procedural phases, baked secondary, events — belongs to the integer frame floor(t). */
+export function stateAtFrame(compiled, f, { subframe = false } = {}) {
+  if (!(subframe ? Number.isFinite(f) : Number.isInteger(f)) || f < 0 || f >= compiled.totalFrames) throw new RangeError(`INVALID_FRAME ${f}`); // sub-frame times only when the caller is an explicit shutter sampler
+  const fi = Math.floor(f), shot = compiled.shotAt(fi);
+  if (!shot) throw err("SHOT_COVERAGE_GAP", { frame_range: [fi, fi + 1], reason: `no shot at frame ${fi}` });
+  const primary = compiled.evalPrimary(f, shot);
+  const contactGraph = compiled.contactsAt(fi);
+  const constrained = compiled.solveConstraints(f, primary, contactGraph);
+  const artStates = compiled.resolveApprovedArtStates(fi, constrained);
+  const matrices = constrained.matrices;
+  const passes = compiled.resolvePaintPasses(artStates, matrices);
+  const cels = compiled.celsAt(fi), procedural = compiled.proceduralAt(fi);
+  const secondary = compiled.evalBakedSecondary(fi);
+  const failures = [...constrained.failures];
+  for (const p of passes) if (!finite(p.matrix)) failures.push(err("RENDER_CAPTURE_FAILURE", { record_id: p.pass_id, frame_range: [f, f + 1], reason: "non-finite matrix" }));
+  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(fi) });
+}

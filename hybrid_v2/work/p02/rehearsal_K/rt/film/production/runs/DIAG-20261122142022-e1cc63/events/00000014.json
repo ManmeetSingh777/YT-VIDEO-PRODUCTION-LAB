@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:14",
+ "sequence": 14,
+ "prev_event_sha256": "4a83d402ad67800abc298d262c8b8bfb64314ab34bed58823f333a10812fee71",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S01_STORY",
+ "attempt_id": "Amwrxc4nf",
+ "operation_id": null,
+ "task_id": "story_approval",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:13"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:25.154Z",
+ "elapsed_ms": 3,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "verifyApproval over the current bundle",
+  "pass": true,
+  "measurement": "APPROVED TEST_TRUSTED"
+ },
+ "lock_generation": 14,
+ "event_sha256": "2bb5c9185451cd9fce7b1e000f5a73124d8160387ae8338e018ab35dd3cba30f"
+}

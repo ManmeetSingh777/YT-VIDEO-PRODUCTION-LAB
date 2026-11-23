@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:197",
+ "sequence": 197,
+ "prev_event_sha256": "dd0a5e0daef898d8a92ab3602f1a795f63b91f75f2ca5dad9d0f2cf20681ccb1",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S08_QA_REPAIR",
+ "attempt_id": "Amwryc2mm",
+ "operation_id": null,
+ "task_id": "render_receipt",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:196"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:23.166Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "render_receipt",
+  "producer": "engine/film/segment_render.mjs#verifyRenderReceipt",
+  "inputs": [],
+  "expected_outputs": [
+   "fresh-session re-render of boundary/final/seeded frames"
+  ],
+  "deps": [],
+  "invariants": [
+   "receipt from the render path on THIS revision",
+   "no frame defects",
+   "re-render identical"
+  ],
+  "verification": "verifyRenderReceipt ok",
+  "evidence_location": "production/store",
+  "category": "RENDER_OR_MEMORY",
+  "group": null
+ },
+ "lock_generation": 197,
+ "event_sha256": "28dc1b6a82f60b24c80d4f528053f1dec3a110a5b87c638ac69ddfc792330e11"
+}

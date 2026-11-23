@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:33",
+ "sequence": 33,
+ "prev_event_sha256": "7d36b0bde40cecf25a5097b20911d4445ab7f4b38c9a1170b0a4f8799186625f",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwrxc5o6",
+ "operation_id": null,
+ "task_id": "tiling",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:32"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:26.576Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 33,
+ "event_sha256": "01f2ef0a73e244760e3a2f120cbc56a4338036336f6861ac9361e58c7608dfc3"
+}

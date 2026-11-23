@@ -1,0 +1,91 @@
+{
+ "stage": "WHOLE_FILM_QUALIFICATION",
+ "film": "hv2_film001",
+ "gates": {
+  "coverage": true,
+  "manifest_production": false,
+  "registration_evidence": false,
+  "shots_qa": false,
+  "transitions": false,
+  "audio": false,
+  "render": false,
+  "human_film_review": false
+ },
+ "details": {
+  "coverage": {
+   "fps": 60,
+   "total_frames": 7200,
+   "frames_covered": 7200,
+   "gaps": []
+  },
+  "manifest_production": {
+   "errors": [
+    "MISSING_ART_ASSET coin_prop: asset required on 1020 frames in 1 span(s) is absent",
+    "MISSING_ART_ASSET drum_in: asset required on 1200 frames in 1 span(s) is absent",
+    "MISSING_ART_ASSET drum_paddles: asset required on 2160 frames in 1081 span(s) is absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [900,990) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [990,1050) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1050,1170) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1170,1230) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1230,1260) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1260,1320) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1320,1356) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1356,1392) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1392,1410) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1410,1470) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1470,1560) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1560,1590) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1590,1620) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1620,1740) bound asset absent",
+    "MISSING_ART_ASSET ines_arm_l_far: state cell S02_operate_washer/ines_rig [1740,1920) bound asset absent",
+    "MISSING_ART_ASSET ines_brow: state cell S02_operate_washer/ines_rig [900,990) bound asset absent",
+    "MISSING_ART_ASSET ines_brow: state cell S02_operate_washer/ines_rig [990,1050) bound asset absent"
+   ],
+   "provenance_waived_under_test_trust": false
+  },
+  "registration_evidence": [],
+  "shots_qa": [
+   "S01: no per-shot QA result",
+   "S02: no per-shot QA result",
+   "S03: no per-shot QA result",
+   "S04: no per-shot QA result",
+   "S05: no per-shot QA result",
+   "S06: no per-shot QA result",
+   "S07: no per-shot QA result"
+  ],
+  "transitions": [
+   {
+    "id": "S02->S03",
+    "ok": false,
+    "why": "MISSING_TRANSITION_STATE [S02->S03]: OUT/MIDDLE/IN art incomplete"
+   },
+   {
+    "id": "S03->S04",
+    "ok": false,
+    "why": "MISSING_TRANSITION_STATE [S03->S04]: OUT/MIDDLE/IN art incomplete"
+   }
+  ],
+  "audio": {
+   "narration": null,
+   "alignment": null,
+   "words": 0,
+   "unmeasured": 0
+  },
+  "render": {
+   "reasons": [
+    "no render receipt"
+   ],
+   "probe": null
+  },
+  "human_film_review": {
+   "status": "UNREVIEWED",
+   "reason": "no review"
+  }
+ },
+ "automated_gates_pass": false,
+ "production_pass": false,
+ "verdict": "FAIL",
+ "test_trust": false,
+ "checked_at": "2026-11-21T23:35:42.887Z",
+ "exit_code": 1
+}

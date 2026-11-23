@@ -1,0 +1,4 @@
+2f6a6139b3dd8d60e2df94b2e4254f14f294f54e 2026-11-04 19:47:08 +0545 Final render inspected; hero frames and review report
+1ef8b88e914534bdb38525c2e5194c39bcd306c2 2026-11-04 19:37:13 +0545 Sync flash to narration, fix dead holds, palm glint, solar surface
+a5b3780687570b82ced66eb0e80a72499908bd84 2026-11-04 19:25:36 +0545 Full 120s composition: art source, narration, score, all scenes
+76b18525603a8d3c7ec13a9190648134d067e74b 2026-11-04 18:33:50 +0545 Checkpoint: blank project with DIRECTION_V4

@@ -1,0 +1,62 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:138",
+ "sequence": 138,
+ "prev_event_sha256": "bbff42fab65f7d10f68cb7c167b2d02870f36babe6fddc14fc281b14ee2af562",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwrtz3cf",
+ "operation_id": null,
+ "task_id": "chunk_1200_1800",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "FAILED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_1200_1800-452cdb",
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:137"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:19.983Z",
+ "elapsed_ms": 1,
+ "event_type": "TASK_FAILED",
+ "verification": {
+  "method": "ffprobe of the segment + frame hashes + defect scan",
+  "pass": false,
+  "measurement": "EXCEPTION: t.run is not a function"
+ },
+ "failure": {
+  "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_1200_1800-452cdb",
+  "run_id": "DIAG-20261122124608-09f44d",
+  "stage_id": "S07_NEUTRINO_RENDER",
+  "attempt_id": "Amwrtz3cf",
+  "task_id": "chunk_1200_1800",
+  "frame_ranges": [],
+  "artifact_refs": [],
+  "first_observed_bad_output": "FFV1 segment frames 1200..1799",
+  "expected_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+  "observed_measurement": "EXCEPTION: t.run is not a function",
+  "applicability_predicate": "stage S07_NEUTRINO_RENDER, task class chunk_1200",
+  "failure_class": "RENDER_OR_MEMORY",
+  "root_producer_or_UNKNOWN": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+  "suspected_mechanism": "EXCEPTION: t.run is not a function",
+  "causal_evidence_refs": [],
+  "rejected_bypass_paths": [],
+  "invalidated_downstream_nodes": [
+   "assemble",
+   "S08_QA_REPAIR",
+   "S09_FILM_AUDIO_FINAL"
+  ],
+  "repair_owner": "RENDER_PRODUCER",
+  "resume_from_stage": "S07_NEUTRINO_RENDER",
+  "retry_safe_boolean": true,
+  "external_spend_risk": false,
+  "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122124608-09f44d --failure FAIL-S07_NEUTRINO_RENDER-chunk_1200_1800-452cdb"
+ },
+ "lock_generation": 138,
+ "event_sha256": "5686ef2cfc104499baea7a696b39d71fd7795f0340bfaabd1a41fd6bed5815f3"
+}

@@ -1,0 +1,121 @@
+TAP version 13
+# Subtest: R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin
+ok 1 - R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin
+  ---
+  duration_ms: 4.6884
+  type: 'test'
+  ...
+# Subtest: R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay
+ok 2 - R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay
+  ---
+  duration_ms: 2.2953
+  type: 'test'
+  ...
+# Subtest: R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted
+ok 3 - R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted
+  ---
+  duration_ms: 3.0838
+  type: 'test'
+  ...
+# Subtest: H1 demands are derived from the real action graph (every bound state, contact closure, camera coverage) with frames — no fixed image count
+ok 4 - H1 demands are derived from the real action graph (every bound state, contact closure, camera coverage) with frames — no fixed image count
+  ---
+  duration_ms: 10.6907
+  type: 'test'
+  ...
+# Subtest: P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused
+ok 5 - P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused
+  ---
+  duration_ms: 5.2296
+  type: 'test'
+  ...
+# Subtest: P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a nondeterministic renderer fails re-render verification
+ok 6 - P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a nondeterministic renderer fails re-render verification
+  ---
+  duration_ms: 6704.8526
+  type: 'test'
+  ...
+# Subtest: P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render
+ok 7 - P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render
+  ---
+  duration_ms: 1367.5818
+  type: 'test'
+  ...
+# Subtest: P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks
+ok 8 - P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks
+  ---
+  duration_ms: 0.7102
+  type: 'test'
+  ...
+# Subtest: P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification
+ok 9 - P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification
+  ---
+  duration_ms: 2317.9346
+  type: 'test'
+  ...
+# Subtest: P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art
+ok 10 - P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art
+  ---
+  duration_ms: 0.5294
+  type: 'test'
+  ...
+# Subtest: M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse
+ok 11 - M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse
+  ---
+  duration_ms: 17.6814
+  type: 'test'
+  ...
+# Subtest: M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error
+ok 12 - M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error
+  ---
+  duration_ms: 50.2241
+  type: 'test'
+  ...
+# Subtest: M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched
+ok 13 - M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched
+  ---
+  duration_ms: 19.224
+  type: 'test'
+  ...
+# Subtest: M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)
+ok 14 - M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)
+  ---
+  duration_ms: 1815.4428
+  type: 'test'
+  ...
+# Subtest: M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused
+ok 15 - M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused
+  ---
+  duration_ms: 3.5139
+  type: 'test'
+  ...
+# Subtest: M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic
+ok 16 - M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic
+  ---
+  duration_ms: 5.6688
+  type: 'test'
+  ...
+# Subtest: B3-1 single-scene QA never certifies a film (whole_film_pass false)
+ok 17 - B3-1 single-scene QA never certifies a film (whole_film_pass false)
+  ---
+  duration_ms: 1130455.9002
+  type: 'test'
+  ...
+# Subtest: B3-2 automated gates pass; without a film review the verdict is FAIL
+ok 18 - B3-2 automated gates pass; without a film review the verdict is FAIL
+  ---
+  duration_ms: 10531.79
+  type: 'test'
+  ...
+# Subtest: B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)
+ok 19 - B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)
+  ---
+  duration_ms: 20569.8275
+  type: 'test'
+  ...
+# Subtest: B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+ok 20 - B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+  ---
+  duration_ms: 6827.6786
+  type: 'test'
+  ...

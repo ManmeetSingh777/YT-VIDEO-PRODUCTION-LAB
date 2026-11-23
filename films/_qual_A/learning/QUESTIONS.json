@@ -1,0 +1,91 @@
+{
+ "questions": [
+  {
+   "id": "Q04",
+   "family": "D8",
+   "class": "ART_PIXEL",
+   "C": 2,
+   "G": 1,
+   "R": 3,
+   "U": 1,
+   "observed": "hero_v2 face: pale grey moustache (#d5d0dc) on warm skin (#d98a5c) has low luminance separation; the 30px mouth sits entirely under it; the reaction (effort→pleased) cannot read at 210px head",
+   "question": "When an older acting face carries a moustache at medium scale, how is the upper-lip/mouth region constructed so the expression stays readable: moustache value contrast against the face, separate visible mouth shape below it, and how much gap?",
+   "evidence": [
+    {
+     "png": "qa/hero_v2/face.png",
+     "sha256": "0cd0f8005363b85892f81e088063a4a8606b8934f4a52339891b162a7f3c23d8"
+    }
+   ],
+   "status": "OUTPUT_DEMONSTRATED",
+   "witnesses": [
+    {
+     "confirm": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\NUCLEAR_0083_farm_humans.jpg",
+     "confirm_sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+     "counter": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\MEMORIES_0753_clinic_humans.jpg",
+     "counter_sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+     "observed": "farm (moustache): moustache = darkest face mark (hair value), compact bar; mouth a separate small dark shape BELOW it with a skin gap; nose small darker wedge above. clinic (no facial hair, unlike): mouth sits directly under the nose region. Grey-haired identity can keep light hair while the facial-hair mass separates by value.",
+     "at": "2026-11-21T14:35:45.410Z"
+    }
+   ],
+   "producer": {
+    "if": "facial hair covers the mouth region of an ACTING_CUE face",
+    "then": "facial-hair fill is value-separated from the face plane (contrast >= 2.2) and the mouth is a separate dark shape below it with a visible skin gap, sized for its expression states",
+    "falsifier": "a source acting face where light facial hair on similar-value skin reads clearly with no gap",
+    "counterexample": "no facial hair: mouth placed directly under the nose (clinic)",
+    "op": "engine/authoring/construct.mjs#separateFrom: value-separation op; films/_qual_A/subjects/engineer.mjs#facialHair: moustache fill + mouth geometry",
+    "at": "2026-11-21T14:36:04.766Z"
+   },
+   "before": [
+    {
+     "png": "learning/evidence/Q04/before/still_0.png",
+     "sha256": "0cd0f8005363b85892f81e088063a4a8606b8934f4a52339891b162a7f3c23d8",
+     "source": "qa/hero_v2/face.png"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q04/after/still_0.png",
+     "sha256": "d185e25f52c8b2bc34f657c1cc2c2be3b8cf68ded4a218dc0d2caf1e762989ca",
+     "source": "qa/hero_v4/face.png"
+    }
+   ],
+   "history": [
+    {
+     "at": "2026-11-21T14:35:20.754Z",
+     "to": "QUESTION_OPEN"
+    },
+    {
+     "at": "2026-11-21T14:35:45.411Z",
+     "to": "CONTRADICTION_SEARCHED"
+    },
+    {
+     "at": "2026-11-21T14:36:04.767Z",
+     "to": "PRODUCER_SPECIFIED"
+    },
+    {
+     "at": "2026-11-21T14:37:34.863Z",
+     "to": "OUTPUT_DEMONSTRATED"
+    }
+   ],
+   "priority": 22,
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q04/before/still_0.png",
+     "after": "learning/evidence/Q04/after/still_0.png",
+     "sheet": "learning/evidence/Q04/compare_0.png",
+     "metrics": {
+      "mean_abs": 5.578,
+      "changed_px_gt24": 8.908,
+      "psnr": 21.04
+     }
+    }
+   ],
+   "verdict": "improved",
+   "note": "moustache now #6b6578-range value vs skin (contrast >= 2.2 by separateFrom); mouth is a separate dark shape below with a skin gap; reads at full size",
+   "lesson": {
+    "file": "E:\\MOTION_NATIVE_STUDIO_V1\\learning\\REPAIR_MEMORY.json",
+    "rule_id": "_qual_A:Q04"
+   }
+  }
+ ]
+}

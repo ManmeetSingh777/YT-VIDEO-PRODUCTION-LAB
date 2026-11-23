@@ -1,0 +1,5 @@
+ORIGINAL LEDGER RECOVERED (partial snapshot). Run DIAG-20261122125220-17f992: chain OK, 134 events. The snapshot was taken while the run was in flight, by an injection-test copy.
+It records S00–S06 COMMITTED and the original failure FAIL-S07_NEUTRINO_RENDER-chunk_0_600-e37d47: UNCOVERED_EDGE on frames 0..599, about 2.03M of 2.07M pixels sentinel.
+Cause: the rehearsal character shot rt_shot has no world/background plate (a fixture-content defect). The engine refused it correctly.
+Location: hybrid_v2/evidence/p02/RECOVERED_ORIGINAL_EVIDENCE/phaseF_run. The run itself was stopped by the operator. Its later events and its segments are NOT recovered.
+The console capture TRANSCRIPT.txt is history only.

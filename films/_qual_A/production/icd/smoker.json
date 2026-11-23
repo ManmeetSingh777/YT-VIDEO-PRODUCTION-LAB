@@ -1,0 +1,1011 @@
+{
+ "subject": "smoker",
+ "context": {
+  "kind": "machine",
+  "subject_id": "smoker",
+  "projection": "FLAT",
+  "world_class": "NONE",
+  "hasOptics": false,
+  "hasEmission": false,
+  "hasRepeats": true,
+  "changesState": true,
+  "moves": true,
+  "flowPath": false,
+  "hasViewport": false,
+  "prefix": "rv-sm-",
+  "transitions": false,
+  "nestedWorld": false,
+  "relights": false,
+  "perceptionEffect": false,
+  "population": false,
+  "interface": false,
+  "comparison": false,
+  "infoTheatre": false,
+  "luminousVolume": false,
+  "macroLens": false,
+  "labels": false,
+  "historical": false
+ },
+ "routing": {
+  "F01": {
+   "status": "ROUTED",
+   "why": "Recognizable purpose-specific silhouette in its actual view; structural masses split only at real connections; overlap order before detail; subpart contours follow the gesture; 1/10-size test."
+  },
+  "F02": {
+   "status": "ROUTED",
+   "why": "Forms are colored surfaces"
+  },
+  "F03": {
+   "status": "ROUTED",
+   "why": "Conditional color-role solver"
+  },
+  "F04": {
+   "status": "ROUTED",
+   "why": "Four lighting systems"
+  },
+  "F05": {
+   "status": "NOT_APPLICABLE",
+   "why": "rear/occluded head (no invented face); distant population collapses features"
+  },
+  "F06": {
+   "status": "NOT_APPLICABLE",
+   "why": "no contact in the beat → contact graph empty but declared"
+  },
+  "F07": {
+   "status": "NOT_APPLICABLE",
+   "why": "humans (F05/F06)"
+  },
+  "F08": {
+   "status": "NOT_APPLICABLE",
+   "why": "flat diagram fields (BRAIN@150)"
+  },
+  "F09": {
+   "status": "ROUTED",
+   "why": "Machines from a mechanical dependency graph"
+  },
+  "F10": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract stage with intentional emptiness"
+  },
+  "F11": {
+   "status": "NOT_APPLICABLE",
+   "why": "interiors (no forced foliage frame)"
+  },
+  "F12": {
+   "status": "NOT_APPLICABLE",
+   "why": "built/scenic worlds"
+  },
+  "F13": {
+   "status": "NOT_APPLICABLE",
+   "why": "objects with no glass/emission"
+  },
+  "F14": {
+   "status": "ROUTED",
+   "why": "State table per changing object"
+  },
+  "F15": {
+   "status": "ROUTED",
+   "why": "Exactly one primary motion owner per region (CAMERA/WORLD/SUBJECT_RIGID/SUBJECT_PART/REDRAWN_STATE/MATERIAL_LIGHT/MASK/EFFECT/UI); simultaneous tracks; purposeful stillness."
+  },
+  "F16": {
+   "status": "NOT_APPLICABLE",
+   "why": "within-shot action"
+  },
+  "F17": {
+   "status": "PROVIDER_REPLACED",
+   "why": "rendered hero frames from the production scene, inspected at native + 160×90"
+  },
+  "F18": {
+   "status": "ROUTED",
+   "why": "Coverage states DECODED/VIEWED/NATIVE_INSPECTED/METHOD_MAPPED/OUTPUT_TESTED are separate; never claim inspection from frame counts."
+  },
+  "F19": {
+   "status": "ROUTED",
+   "why": "Production medium is conditional (vector / pixel illustration / infographic / selective 3D / hybrid) per visual demand."
+  },
+  "F20": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F21": {
+   "status": "NOT_APPLICABLE",
+   "why": "no viewport"
+  },
+  "F22": {
+   "status": "NOT_APPLICABLE",
+   "why": "single lighting state"
+  },
+  "F23": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F24": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F25": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F26": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F27": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F28": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F29": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F30": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F31": {
+   "status": "ROUTED",
+   "why": "Owner-specific key states"
+  },
+  "F32": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F33": {
+   "status": "ROUTED",
+   "why": "Density by view depth/task"
+  },
+  "F34": {
+   "status": "ROUTED",
+   "why": "Generators by physical family (foliage, rock, architecture, machine, ocean/space, biological macro)."
+  },
+  "F35": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F36": {
+   "status": "PROVIDER_REPLACED",
+   "why": "EPISODE.json → plan.mjs cues + per-subject ICD validated by icd.mjs; build fails closed"
+  },
+  "F37": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract fields need no scenic horizon"
+  },
+  "F38": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F39": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F40": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F41": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F42": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F43": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F44": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F45": {
+   "status": "ROUTED",
+   "why": "Machines/corridors by functional topology"
+  },
+  "F46": {
+   "status": "ROUTED",
+   "why": "Per-material table"
+  },
+  "F47": {
+   "status": "ROUTED",
+   "why": "Detail tiers T0 skeleton / T1 modules / T2 parent-bound features / T3 state marks; marks need parent+function; erase-tier test."
+  },
+  "F48": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F49": {
+   "status": "PROVIDER_REPLACED",
+   "why": "icd.mjs validation fails closed on missing world/topology/regions"
+  },
+  "F50": {
+   "status": "ROUTED",
+   "why": "Adversarial unfamiliar-world transfer tests; no certification by resemblance."
+  },
+  "F51": {
+   "status": "ROUTED",
+   "why": "Palette = role map (substrate, far/mid support, focal, causal-active, local inset, optic) + contiguous parent-owned base fills + chosen contrast relationship."
+  },
+  "F52": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F53": {
+   "status": "ROUTED",
+   "why": "Density caused by explanatory material"
+  },
+  "F54": {
+   "status": "ROUTED",
+   "why": "Repeats from a parent-owned generator in local frame with count/size/exclusion rules; zero repeats can be correct."
+  },
+  "F55": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F56": {
+   "status": "PROVIDER_REPLACED",
+   "why": "ICD geometry is authored before render; first render inspected; repair edits the producing operation"
+  },
+  "F57": {
+   "status": "ROUTED",
+   "why": "Visible causal proof first"
+  },
+  "F58": {
+   "status": "ROUTED",
+   "why": "Closed parent regions (outer, front/back mass, cutout voids, supports) with identity-bearing negative spaces; small-size read; derived small forms collapse marks."
+  },
+  "F59": {
+   "status": "ROUTED",
+   "why": "Part DAG with insertion depth/in_front_of/hidden_when; joints with overlap masks; near fingers in front of prop, prop midplane, far fingers behind."
+  },
+  "F60": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F61": {
+   "status": "ROUTED",
+   "why": "Palette slots assigned after silhouette owners/neighbors; record luminance/hue/edge discrimination per adjacent pair."
+  },
+  "F62": {
+   "status": "ROUTED",
+   "why": "Edge roles per owner (COLOR_ADJACENCY, MATERIAL_SEAM, CAST_SHADOW, INTERNAL_CREASE, OPTICAL_RIM, EMISSIVE_EDGE); cast shadows on named receivers; patches by surface turning."
+  },
+  "F63": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F64": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F65": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F66": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F67": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F68": {
+   "status": "ROUTED",
+   "why": "Machines"
+  },
+  "F69": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F70": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F71": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F72": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F73": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F74": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F75": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F76": {
+   "status": "ROUTED",
+   "why": "Repeat generator spec"
+  },
+  "F77": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F78": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F79": {
+   "status": "ROUTED",
+   "why": "Own alpha/underpaint/overscan"
+  },
+  "F80": {
+   "status": "PROVIDER_REPLACED",
+   "why": "the first construction must consume routed decisions (with witness ids) as INPUTS to the geometry functions; the build verifies each routed method's ops executed on its bound regions before the first render"
+  }
+ },
+ "witnesses": [
+  {
+   "methods": [
+    "F68",
+    "F09",
+    "F45"
+   ],
+   "confirm": "question_native_witnesses/AI_0285_machine_actor_interior.jpg",
+   "confirm_sha256": "ff4e159acde765f0862493446f097580fafba7b91a600efa451afcc628fa40e0",
+   "counter": "question_native_witnesses/NUCLEAR_0137_optical_magnifier.jpg",
+   "counter_sha256": "d100a799a3ff812dc16ed0e0635523473e424435969ea3596f9f37ea1f1ee798",
+   "observed": "device housing as a few hard faces with inset parts and a dark functional opening; magnifier (unlike): an instrument read by its working part, not by decoration."
+  },
+  {
+   "methods": [
+    "F02",
+    "F04"
+   ],
+   "confirm": "character_native_anchors/BRAIN_0157_couch_human.jpg",
+   "confirm_sha256": "c0578fb5d8bd5f8d97215b95a833a0ad20b650f8cd3d500c3855783df1236deb",
+   "counter": "question_native_witnesses/NUCLEAR_0271_mechanism_scale_world.jpg",
+   "counter_sha256": "e9c28939989e4e021fac8835f015ee37f98d76c797b506ab74461051046fe6bf",
+   "observed": "hard flat planes: light face / base / shade face of one hue."
+  }
+ ],
+ "resolved": {},
+ "decisions": {
+  "machine.truthTable": {
+   "value": {
+    "input": "squeeze bellows",
+    "process": "air through fire-can",
+    "output": "smoke from spout",
+    "operator": "hand on the lower board"
+   },
+   "by": [
+    "F45",
+    "F68",
+    "F09"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "machine.partGraph": {
+   "value": "board→leather→upper board→can→lid→spout",
+   "by": [
+    "F09"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "machine.assemblies": {
+   "value": [
+    "bellows",
+    "fire-can",
+    "spout"
+   ],
+   "by": [
+    "F45"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "machine.surfacePolicy": {
+   "value": {
+    "tin": "HARD_BOUNDARY",
+    "leather": "HARD_BOUNDARY",
+    "wood": "HARD_BOUNDARY"
+   },
+   "by": [
+    "F68"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "machine.sockets": {
+   "value": [
+    "grip (board)",
+    "nozzle (spout tip)"
+   ],
+   "by": [
+    "F68"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "repeats.parent": {
+   "value": {
+    "rivets": "can top band"
+   },
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "proof.silent": {
+   "value": "a squeeze of the bellows makes a puff leave the spout",
+   "by": [
+    "F57"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "proof.anchors": {
+   "value": {
+    "source": "bellows leather",
+    "target": "spout tip"
+   },
+   "by": [
+    "F57"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.outer": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F01",
+    "F58"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.view": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F01"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.identityFeatures": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F01"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.voids": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F58"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.smallRead": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F58"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "parts": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F59"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "materials": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F02",
+    "F46"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "lighting.system": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F04"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "edges": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F62"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.roles": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F03",
+    "F51",
+    "F61"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.focalPair": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F03"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.pairs": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F61"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "detail.owner": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F33"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "detail.tiers": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F47",
+    "F53"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "medium": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F19"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "states": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F14"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "motion.owners": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F15"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "motion.keys": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F31"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "layers.underpaint": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F79"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "generator.family": {
+   "value": "authored in this module (tin can + spout + bellows, flat hard planes)",
+   "by": [
+    "F34"
+   ],
+   "why": "",
+   "derivedFrom": []
+  }
+ },
+ "lessons_available": [],
+ "lessons_applied": [],
+ "operations": [
+  {
+   "op": "paletteRoles",
+   "region": "palette",
+   "by": [
+    "F03",
+    "F51",
+    "F61"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "pairs": [
+    {
+     "a": "#b9c3c9",
+     "b": "#7fae6a",
+     "contrast": 1.43,
+     "min": 1.3
+    },
+    {
+     "a": "#a1452f",
+     "b": "#b9c3c9",
+     "contrast": 3.44,
+     "min": 1.6
+    }
+   ]
+  },
+  {
+   "op": "authorContour",
+   "region": "can",
+   "by": [
+    "F68",
+    "F01",
+    "F58",
+    "F09",
+    "F45",
+    "F34"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": []
+  },
+  {
+   "op": "materialPatch",
+   "region": "canS",
+   "by": [
+    "F04",
+    "F62",
+    "F02",
+    "F46"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "owner": "can"
+  },
+  {
+   "op": "recess",
+   "region": "vent",
+   "by": [
+    "F68",
+    "F09",
+    "F45"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "owner": "can"
+  },
+  {
+   "op": "materialPatch",
+   "region": "ventWall",
+   "by": [
+    "F68",
+    "F09",
+    "F45"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "owner": "vent"
+  },
+  {
+   "op": "repeatedOwnedModule",
+   "region": "rivets",
+   "by": [
+    "F34",
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "owner": "can",
+   "count": 5
+  },
+  {
+   "op": "materialPatch",
+   "region": "canL",
+   "by": [
+    "F04",
+    "F02"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "owner": "can"
+  },
+  {
+   "op": "attachRegion",
+   "region": "lid",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "parent": "can"
+  },
+  {
+   "op": "attachRegion",
+   "region": "spout",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "parent": "lid"
+  },
+  {
+   "op": "authorContour",
+   "region": "upperBoard",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": []
+  },
+  {
+   "op": "authorContour",
+   "region": "leather",
+   "by": [
+    "F68",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": []
+  },
+  {
+   "op": "attachRegion",
+   "region": "board",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "parent": "leather"
+  },
+  {
+   "op": "drawnState",
+   "region": "bellows",
+   "by": [
+    "F14"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "states": [
+    "open",
+    "squeezed"
+   ]
+  },
+  {
+   "op": "rigBind",
+   "region": "rig",
+   "by": [
+    "F15",
+    "F31",
+    "F79"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "parts": [
+    "root",
+    "upper"
+   ],
+   "channels": [
+    "upper.y (bellows squeeze)"
+   ]
+  }
+ ],
+ "regions": [
+  {
+   "id": "upperBoard",
+   "element": "rv-sm-upperBoard",
+   "part": "upper",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "leather",
+   "element": "rv-sm-leather",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F58"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "board",
+   "element": "rv-sm-board",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "can",
+   "element": "rv-sm-can",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F01",
+    "F58",
+    "F09",
+    "F45",
+    "F34"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "canS",
+   "element": "rv-sm-canS",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04",
+    "F62",
+    "F02",
+    "F46"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "vent",
+   "element": "rv-sm-vent",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F68",
+    "F09",
+    "F45"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "canL",
+   "element": "rv-sm-canL",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F04",
+    "F02"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "ventWall",
+   "element": "rv-sm-ventWall",
+   "part": "root",
+   "purpose": "MATERIAL_PATCH",
+   "by": [
+    "F68",
+    "F09",
+    "F45"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "rivets",
+   "element": "rv-sm-rivets",
+   "part": "root",
+   "purpose": "REPEAT",
+   "by": [
+    "F34",
+    "F54",
+    "F76",
+    "F68"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "spout",
+   "element": "rv-sm-spout",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  },
+  {
+   "id": "lid",
+   "element": "rv-sm-lid",
+   "part": "root",
+   "purpose": "SILHOUETTE",
+   "by": [
+    "F68",
+    "F59"
+   ],
+   "uses": [],
+   "ablated": false,
+   "state": null
+  }
+ ],
+ "ablated_methods": [],
+ "errors": [],
+ "status": "CODE_EMITTED"
+}

@@ -1,0 +1,139 @@
+{
+ "part_id": "pilot_body",
+ "status": "REGISTRATION_FAILED",
+ "transform_mode": "SIMILARITY",
+ "raster_to_canonical": [
+  1,
+  0,
+  0,
+  1,
+  210,
+  59.99999999999994
+ ],
+ "scale": 1,
+ "source": {
+  "master": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\assets\\art\\pilot_master.png",
+  "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "raw_part": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\delivered\\body_truncated.png",
+  "raw_sha256": "86109d82fa0bb3b0d27d4aa8ce824abca5dbee8631ee4bcd2165575b4b97e259",
+  "region_mask": null
+ },
+ "approved_part_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_body\\attempt_86109d82fa0b\\pilot_body.png",
+ "approved_part_sha256": "a2e28c03891bcf650505405a59d9e699f014fec0047f9528146b4a08566fe8fb",
+ "source_pixel_crop_in_raw": [
+  40,
+  34,
+  180,
+  386
+ ],
+ "manifest_fields": {
+  "width_px": 180,
+  "height_px": 386,
+  "source_pixel_crop": [
+   0,
+   0,
+   180,
+   386
+  ],
+  "crop_to_canonical_matrix": [
+   1,
+   0,
+   0,
+   1,
+   250,
+   93.99999999999994
+  ],
+  "canonical_rect": [
+   250,
+   93.99999999999994,
+   180,
+   386
+  ],
+  "pivot_xy": [
+   340,
+   630
+  ],
+  "pivot_landmark_id": "pelvis",
+  "landmarks": {
+   "head_top": [
+    340,
+    90
+   ],
+   "neck": [
+    340,
+    250
+   ],
+   "pelvis": [
+    340,
+    630
+   ]
+  },
+  "alpha_mode": "STRAIGHT",
+  "underpaint_asset_ids": [],
+  "hidden_surfaces": []
+ },
+ "landmark_sidecar": {
+  "sha256": "97f359bae41ddc8b751b4803f506d2fd73be6c8006ad0045079e812573f00b1d",
+  "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+  "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)",
+  "landmarks": {
+   "head_top": [
+    130,
+    30
+   ],
+   "neck": [
+    130,
+    190
+   ],
+   "pelvis": [
+    130,
+    570
+   ]
+  }
+ },
+ "landmark_residuals": [
+  {
+   "landmark": "head_top",
+   "residual_px": 5.684341886080802e-14
+  },
+  {
+   "landmark": "neck",
+   "residual_px": 5.684341886080802e-14
+  },
+  {
+   "landmark": "pelvis",
+   "residual_px": 0
+  }
+ ],
+ "max_residual_px": 5.684341886080802e-14,
+ "alpha_report": {
+  "transparent": 45578,
+  "partial": 396,
+  "opaque": 63226
+ },
+ "rest_overlay": {
+  "overlay_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_body\\attempt_86109d82fa0b\\pilot_body__overlay_on_master.png",
+  "difference_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_body\\attempt_86109d82fa0b\\pilot_body__difference.png",
+  "mean_abs_diff_opaque": 7.857389892341898,
+  "max_abs_diff_opaque": 77.33333333333333,
+  "pixels_compared": 63226
+ },
+ "failures": [
+  {
+   "code": "UNREGISTERED_PIVOT",
+   "record_id": "pilot_body",
+   "human_readable_reason": "pivot landmark pelvis at [130.0, 570.0] lies on out-of-image pixels: the delivered part is truncated or misplaced",
+   "details": {
+    "alpha": 0,
+    "inside": false
+   }
+  }
+ ],
+ "missing_art": [],
+ "reviewer_verdict": null,
+ "review_required": "visual check of overlay on transparent, contrasting and master backgrounds at full resolution (contour drift, seams, fringes)",
+ "master_asset_id": "pilot_master",
+ "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+ "tolerance_px": 2,
+ "planned_alpha_mode": "STRAIGHT"
+}

@@ -1,0 +1,597 @@
+{
+  "status": "COMPLETE_NATIVE_PIXEL_MEASUREMENT_NOT_EXHAUSTIVE_SEMANTIC_INTERPRETATION",
+  "five_films": {
+    "NUCLEAR": {
+      "frames": 40782,
+      "native_dimensions": [
+        1920,
+        1080
+      ],
+      "metrics": {
+        "lavfi.signalstats.YAVG": {
+          "mean": 116.986,
+          "p10": 51.725,
+          "median": 119.417,
+          "p90": 182.592,
+          "max": 233.753
+        },
+        "lavfi.signalstats.YLOW": {
+          "mean": 68.05,
+          "p10": 25.0,
+          "median": 55.0,
+          "p90": 136.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.YHIGH": {
+          "mean": 168.339,
+          "p10": 86.0,
+          "median": 186.0,
+          "p90": 226.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.UAVG": {
+          "mean": 132.048,
+          "p10": 106.659,
+          "median": 131.605,
+          "p90": 156.36,
+          "max": 190.332
+        },
+        "lavfi.signalstats.VAVG": {
+          "mean": 123.831,
+          "p10": 95.334,
+          "median": 125.722,
+          "p90": 152.531,
+          "max": 195.2
+        },
+        "lavfi.signalstats.SATAVG": {
+          "mean": 41.16,
+          "p10": 21.224,
+          "median": 39.942,
+          "p90": 61.707,
+          "max": 96.225
+        },
+        "lavfi.signalstats.HUEAVG": {
+          "mean": 203.861,
+          "p10": 116.776,
+          "median": 204.727,
+          "p90": 284.447,
+          "max": 326.314
+        },
+        "lavfi.signalstats.YDIF": {
+          "mean": 2.09,
+          "p10": 0.068,
+          "median": 0.721,
+          "p90": 5.424,
+          "max": 202.518
+        },
+        "lavfi.signalstats.UDIF": {
+          "mean": 1.008,
+          "p10": 0.028,
+          "median": 0.333,
+          "p90": 2.672,
+          "max": 73.313
+        },
+        "lavfi.signalstats.VDIF": {
+          "mean": 1.062,
+          "p10": 0.03,
+          "median": 0.385,
+          "p90": 2.672,
+          "max": 67.982
+        },
+        "lavfi.scd.score": {
+          "mean": 0.164,
+          "p10": 0.001,
+          "median": 0.013,
+          "p90": 0.197,
+          "max": 79.051
+        },
+        "lavfi.scd.mafd": {
+          "mean": 0.817,
+          "p10": 0.027,
+          "median": 0.282,
+          "p90": 2.119,
+          "max": 79.109
+        }
+      },
+      "temporal_pixel_change": {
+        "native_luma_near_unchanged_le_0_01_fraction": 0.02302,
+        "native_luma_low_change_le_0_25_fraction": 0.2391,
+        "native_luma_strong_change_ge_3_fraction": 0.19133,
+        "per_frame_pixel_change_is_not_a_per_object_animation_census": true
+      },
+      "top_separated_change_frame_indices": [
+        32590,
+        18221,
+        5649,
+        14504,
+        33156,
+        25600,
+        19359,
+        2482,
+        33368,
+        32447,
+        6511,
+        26949,
+        13487,
+        14018,
+        12174,
+        1530
+      ],
+      "understanding_claim": "Native pixel measurements, not human semantic comprehension"
+    },
+    "BRAIN": {
+      "frames": 45188,
+      "native_dimensions": [
+        1920,
+        1080
+      ],
+      "metrics": {
+        "lavfi.signalstats.YAVG": {
+          "mean": 98.587,
+          "p10": 34.768,
+          "median": 76.736,
+          "p90": 187.102,
+          "max": 234.009
+        },
+        "lavfi.signalstats.YLOW": {
+          "mean": 58.124,
+          "p10": 20.0,
+          "median": 33.0,
+          "p90": 150.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.YHIGH": {
+          "mean": 149.713,
+          "p10": 45.0,
+          "median": 165.0,
+          "p90": 224.0,
+          "max": 239.0
+        },
+        "lavfi.signalstats.UAVG": {
+          "mean": 139.741,
+          "p10": 106.167,
+          "median": 145.727,
+          "p90": 163.66,
+          "max": 186.656
+        },
+        "lavfi.signalstats.VAVG": {
+          "mean": 128.477,
+          "p10": 112.014,
+          "median": 130.319,
+          "p90": 145.609,
+          "max": 187.4
+        },
+        "lavfi.signalstats.SATAVG": {
+          "mean": 40.522,
+          "p10": 18.031,
+          "median": 41.605,
+          "p90": 64.387,
+          "max": 92.151
+        },
+        "lavfi.signalstats.HUEAVG": {
+          "mean": 229.377,
+          "p10": 158.791,
+          "median": 245.241,
+          "p90": 282.585,
+          "max": 333.525
+        },
+        "lavfi.signalstats.YDIF": {
+          "mean": 1.574,
+          "p10": 0.073,
+          "median": 0.591,
+          "p90": 3.401,
+          "max": 179.408
+        },
+        "lavfi.signalstats.UDIF": {
+          "mean": 0.763,
+          "p10": 0.026,
+          "median": 0.25,
+          "p90": 1.568,
+          "max": 87.51
+        },
+        "lavfi.signalstats.VDIF": {
+          "mean": 0.754,
+          "p10": 0.026,
+          "median": 0.264,
+          "p90": 1.635,
+          "max": 76.683
+        },
+        "lavfi.scd.score": {
+          "mean": 0.141,
+          "p10": 0.001,
+          "median": 0.009,
+          "p90": 0.107,
+          "max": 69.787
+        },
+        "lavfi.scd.mafd": {
+          "mean": 0.615,
+          "p10": 0.028,
+          "median": 0.231,
+          "p90": 1.328,
+          "max": 70.081
+        }
+      },
+      "temporal_pixel_change": {
+        "native_luma_near_unchanged_le_0_01_fraction": 0.01604,
+        "native_luma_low_change_le_0_25_fraction": 0.28176,
+        "native_luma_strong_change_ge_3_fraction": 0.1193,
+        "per_frame_pixel_change_is_not_a_per_object_animation_census": true
+      },
+      "top_separated_change_frame_indices": [
+        18132,
+        30982,
+        29350,
+        19513,
+        21565,
+        22354,
+        15738,
+        12900,
+        25425,
+        20174,
+        30013,
+        38260,
+        21678,
+        15628,
+        28748,
+        12009
+      ],
+      "understanding_claim": "Native pixel measurements, not human semantic comprehension"
+    },
+    "SOLAR": {
+      "frames": 45809,
+      "native_dimensions": [
+        1920,
+        1080
+      ],
+      "metrics": {
+        "lavfi.signalstats.YAVG": {
+          "mean": 71.059,
+          "p10": 34.149,
+          "median": 56.664,
+          "p90": 126.972,
+          "max": 234.002
+        },
+        "lavfi.signalstats.YLOW": {
+          "mean": 34.752,
+          "p10": 21.0,
+          "median": 24.0,
+          "p90": 52.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.YHIGH": {
+          "mean": 126.29,
+          "p10": 49.0,
+          "median": 118.0,
+          "p90": 211.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.UAVG": {
+          "mean": 146.315,
+          "p10": 119.112,
+          "median": 150.715,
+          "p90": 164.282,
+          "max": 192.54
+        },
+        "lavfi.signalstats.VAVG": {
+          "mean": 128.235,
+          "p10": 119.515,
+          "median": 127.235,
+          "p90": 138.661,
+          "max": 174.951
+        },
+        "lavfi.signalstats.SATAVG": {
+          "mean": 32.391,
+          "p10": 18.074,
+          "median": 30.708,
+          "p90": 46.741,
+          "max": 102.642
+        },
+        "lavfi.signalstats.HUEAVG": {
+          "mean": 252.355,
+          "p10": 165.68,
+          "median": 264.228,
+          "p90": 287.509,
+          "max": 307.93
+        },
+        "lavfi.signalstats.YDIF": {
+          "mean": 1.625,
+          "p10": 0.102,
+          "median": 0.616,
+          "p90": 3.853,
+          "max": 136.882
+        },
+        "lavfi.signalstats.UDIF": {
+          "mean": 0.67,
+          "p10": 0.039,
+          "median": 0.285,
+          "p90": 1.446,
+          "max": 65.662
+        },
+        "lavfi.signalstats.VDIF": {
+          "mean": 0.626,
+          "p10": 0.038,
+          "median": 0.257,
+          "p90": 1.465,
+          "max": 54.04
+        },
+        "lavfi.scd.score": {
+          "mean": 0.096,
+          "p10": 0.002,
+          "median": 0.014,
+          "p90": 0.127,
+          "max": 53.439
+        },
+        "lavfi.scd.mafd": {
+          "mean": 0.635,
+          "p10": 0.04,
+          "median": 0.241,
+          "p90": 1.505,
+          "max": 53.469
+        }
+      },
+      "temporal_pixel_change": {
+        "native_luma_near_unchanged_le_0_01_fraction": 0.01268,
+        "native_luma_low_change_le_0_25_fraction": 0.25866,
+        "native_luma_strong_change_ge_3_fraction": 0.13631,
+        "per_frame_pixel_change_is_not_a_per_object_animation_census": true
+      },
+      "top_separated_change_frame_indices": [
+        36121,
+        44211,
+        30829,
+        43526,
+        17794,
+        16364,
+        18381,
+        31948,
+        15617,
+        27356,
+        17920,
+        16524,
+        7373,
+        27856,
+        38585,
+        9572
+      ],
+      "understanding_claim": "Native pixel measurements, not human semantic comprehension"
+    },
+    "AI": {
+      "frames": 60169,
+      "native_dimensions": [
+        1920,
+        1080
+      ],
+      "metrics": {
+        "lavfi.signalstats.YAVG": {
+          "mean": 92.892,
+          "p10": 42.117,
+          "median": 80.426,
+          "p90": 160.034,
+          "max": 234.0
+        },
+        "lavfi.signalstats.YLOW": {
+          "mean": 49.878,
+          "p10": 22.0,
+          "median": 33.0,
+          "p90": 93.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.YHIGH": {
+          "mean": 146.113,
+          "p10": 57.0,
+          "median": 154.0,
+          "p90": 225.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.UAVG": {
+          "mean": 146.784,
+          "p10": 118.275,
+          "median": 151.164,
+          "p90": 166.245,
+          "max": 196.726
+        },
+        "lavfi.signalstats.VAVG": {
+          "mean": 116.648,
+          "p10": 95.19,
+          "median": 117.156,
+          "p90": 135.329,
+          "max": 186.308
+        },
+        "lavfi.signalstats.SATAVG": {
+          "mean": 41.758,
+          "p10": 26.722,
+          "median": 41.401,
+          "p90": 58.245,
+          "max": 98.851
+        },
+        "lavfi.signalstats.HUEAVG": {
+          "mean": 248.923,
+          "p10": 172.228,
+          "median": 263.709,
+          "p90": 301.991,
+          "max": 341.332
+        },
+        "lavfi.signalstats.YDIF": {
+          "mean": 1.538,
+          "p10": 0.068,
+          "median": 0.601,
+          "p90": 3.716,
+          "max": 153.429
+        },
+        "lavfi.signalstats.UDIF": {
+          "mean": 0.702,
+          "p10": 0.027,
+          "median": 0.276,
+          "p90": 1.759,
+          "max": 62.015
+        },
+        "lavfi.signalstats.VDIF": {
+          "mean": 0.751,
+          "p10": 0.029,
+          "median": 0.292,
+          "p90": 1.848,
+          "max": 82.275
+        },
+        "lavfi.scd.score": {
+          "mean": 0.097,
+          "p10": 0.002,
+          "median": 0.014,
+          "p90": 0.102,
+          "max": 59.933
+        },
+        "lavfi.scd.mafd": {
+          "mean": 0.601,
+          "p10": 0.027,
+          "median": 0.235,
+          "p90": 1.451,
+          "max": 59.933
+        }
+      },
+      "temporal_pixel_change": {
+        "native_luma_near_unchanged_le_0_01_fraction": 0.03075,
+        "native_luma_low_change_le_0_25_fraction": 0.28646,
+        "native_luma_strong_change_ge_3_fraction": 0.13326,
+        "per_frame_pixel_change_is_not_a_per_object_animation_census": true
+      },
+      "top_separated_change_frame_indices": [
+        56901,
+        27768,
+        54252,
+        42908,
+        27262,
+        11493,
+        55551,
+        876,
+        34051,
+        57731,
+        19600,
+        58325,
+        6303,
+        43444,
+        37395,
+        55966
+      ],
+      "understanding_claim": "Native pixel measurements, not human semantic comprehension"
+    },
+    "MEMORIES": {
+      "frames": 50147,
+      "native_dimensions": [
+        1920,
+        1080
+      ],
+      "metrics": {
+        "lavfi.signalstats.YAVG": {
+          "mean": 77.125,
+          "p10": 36.39,
+          "median": 66.573,
+          "p90": 131.467,
+          "max": 230.128
+        },
+        "lavfi.signalstats.YLOW": {
+          "mean": 34.43,
+          "p10": 16.0,
+          "median": 24.0,
+          "p90": 61.0,
+          "max": 234.0
+        },
+        "lavfi.signalstats.YHIGH": {
+          "mean": 142.218,
+          "p10": 62.0,
+          "median": 147.0,
+          "p90": 208.0,
+          "max": 235.0
+        },
+        "lavfi.signalstats.UAVG": {
+          "mean": 141.691,
+          "p10": 126.508,
+          "median": 141.786,
+          "p90": 157.205,
+          "max": 184.096
+        },
+        "lavfi.signalstats.VAVG": {
+          "mean": 131.316,
+          "p10": 116.226,
+          "median": 131.442,
+          "p90": 145.636,
+          "max": 183.007
+        },
+        "lavfi.signalstats.SATAVG": {
+          "mean": 33.467,
+          "p10": 17.185,
+          "median": 32.422,
+          "p90": 53.221,
+          "max": 87.911
+        },
+        "lavfi.signalstats.HUEAVG": {
+          "mean": 233.138,
+          "p10": 185.215,
+          "median": 234.847,
+          "p90": 272.193,
+          "max": 309.75
+        },
+        "lavfi.signalstats.YDIF": {
+          "mean": 1.404,
+          "p10": 0.098,
+          "median": 0.528,
+          "p90": 3.202,
+          "max": 160.384
+        },
+        "lavfi.signalstats.UDIF": {
+          "mean": 0.734,
+          "p10": 0.048,
+          "median": 0.306,
+          "p90": 1.715,
+          "max": 77.797
+        },
+        "lavfi.signalstats.VDIF": {
+          "mean": 0.646,
+          "p10": 0.033,
+          "median": 0.261,
+          "p90": 1.509,
+          "max": 67.621
+        },
+        "lavfi.scd.score": {
+          "mean": 0.093,
+          "p10": 0.002,
+          "median": 0.015,
+          "p90": 0.082,
+          "max": 62.608
+        },
+        "lavfi.scd.mafd": {
+          "mean": 0.548,
+          "p10": 0.038,
+          "median": 0.206,
+          "p90": 1.251,
+          "max": 62.65
+        }
+      },
+      "temporal_pixel_change": {
+        "native_luma_near_unchanged_le_0_01_fraction": 0.03205,
+        "native_luma_low_change_le_0_25_fraction": 0.2732,
+        "native_luma_strong_change_ge_3_fraction": 0.10665,
+        "per_frame_pixel_change_is_not_a_per_object_animation_census": true
+      },
+      "top_separated_change_frame_indices": [
+        17764,
+        10101,
+        35142,
+        19848,
+        16527,
+        15994,
+        25978,
+        24558,
+        45091,
+        20390,
+        20812,
+        40961,
+        7963,
+        29671,
+        40589,
+        39270
+      ],
+      "understanding_claim": "Native pixel measurements, not human semantic comprehension"
+    }
+  },
+  "frame_total": 242095,
+  "scope": "Every source video frame measured on native 1920x1080 pixels by ffmpeg signalstats and scdet; targeted native images required for transfer observations; no claim of visual-semantic comprehension of each of the 242,095 scenes."
+}

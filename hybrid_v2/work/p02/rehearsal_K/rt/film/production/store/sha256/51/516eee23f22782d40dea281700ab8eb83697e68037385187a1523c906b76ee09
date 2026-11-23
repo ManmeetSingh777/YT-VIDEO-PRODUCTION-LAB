@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:199",
+ "sequence": 199,
+ "prev_event_sha256": "a0a422320cb233d02346cbb9550627e413590113ba367fd7a300d036461b4e79",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S08_QA_REPAIR",
+ "attempt_id": "Amwryc2mm",
+ "operation_id": null,
+ "task_id": "coverage_gate",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:198"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:23.427Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "coverage_gate",
+  "producer": "engine/film/coverage_gate.mjs#coverageGate",
+  "inputs": [],
+  "expected_outputs": [
+   "COVERAGE_GATE.json: every frame hashed and owned; every action/state/camera/effect/blur/transition/cue rendered; no frozen moving interval"
+  ],
+  "deps": [
+   "frame_trace_index"
+  ],
+  "invariants": [
+   "7200-frame mechanical coverage",
+   "moving intervals change pixels; static holds may repeat"
+  ],
+  "verification": "zero coverage failures",
+  "evidence_location": "production/store",
+  "category": "MOTION_OR_CAMERA",
+  "group": null
+ },
+ "lock_generation": 199,
+ "event_sha256": "a9cc4521d0fdcdd2b2a6bf1aac760c76a7c9e036f47afe1e53a3b341a7e132ed"
+}

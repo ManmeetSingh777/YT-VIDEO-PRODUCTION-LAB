@@ -1,0 +1,33 @@
+{
+  "job_id": "ARTJOB_MASTER_washer_master_38ddfd06",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "bff2638e56747b8b9993fa046ce71fdeef28ff27e38f5b670c361135544f3fc9",
+  "prompt_characters": 14196,
+  "source_image_inputs": [
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\abstract_world_witnesses\\AI_mechanism_and_actions_contact.jpg",
+      "sha256": "c760c22663d8c3d7f7f7e75630056b57bf24ea6cde7b0e0dcf51bd08814d259a",
+      "width": 1920,
+      "height": 894,
+      "role": "STYLE_ONLY: functional parts with visible connections and flat material planes"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\AI_0234_rear_operator.jpg",
+      "sha256": "0dafe80daf4805b5b4c60ab3470d63c5af8ae739c91bcb20eed85de38bf585de",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: operator facing a machine, hand-to-device relationship"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F09",
+    "F68"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

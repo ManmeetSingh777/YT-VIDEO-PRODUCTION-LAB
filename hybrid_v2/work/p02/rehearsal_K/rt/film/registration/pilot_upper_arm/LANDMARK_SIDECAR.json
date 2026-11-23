@@ -1,0 +1,18 @@
+{
+ "landmarks": {
+  "shoulder_r": [
+   71.15479369120311,
+   53.61898297023478
+  ],
+  "upper_arm_mid": [
+   99.00008219767602,
+   122.4131681023467
+  ],
+  "elbow_r": [
+   126.84537070414899,
+   191.20735323445857
+  ]
+ },
+ "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)"
+}

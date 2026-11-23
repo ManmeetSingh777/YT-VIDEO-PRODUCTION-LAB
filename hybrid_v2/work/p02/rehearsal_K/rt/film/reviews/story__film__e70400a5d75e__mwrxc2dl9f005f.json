@@ -1,0 +1,29 @@
+{
+ "receipt_id": "story__film__e70400a5d75e__mwrxc2dl9f005f",
+ "scope": "story",
+ "record_id": "film",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "",
+ "evidence": [
+  "direction/EXPERIENCE_DIRECTOR_PROPOSAL.md",
+  "story/STORY_CONTRACT.json"
+ ],
+ "bundle_sha256": "e70400a5d75ee550d237ec1ca7f2b67344c103cf81cab7dabdff1a0f11b81ef1",
+ "bundle": {
+  "scope": "story",
+  "id": "film",
+  "files": {
+   "direction/EXPERIENCE_DIRECTOR_PROPOSAL.md": null,
+   "story/STORY_CONTRACT.json": "8661653be6cc65f784a7cdc47447ba5ea3125f86099dc81f00b26fd779bf3469"
+  }
+ },
+ "reviewed_at": "2026-11-22T14:20:21.898Z",
+ "tested_revision": null
+}

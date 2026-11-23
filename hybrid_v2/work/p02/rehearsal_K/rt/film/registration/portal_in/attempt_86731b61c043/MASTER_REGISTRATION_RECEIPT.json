@@ -1,0 +1,107 @@
+{
+ "asset": "portal_in",
+ "identity": "portal_in_w",
+ "status": "REGISTERED_PENDING_REVIEW",
+ "raster_to_canonical": [
+  0.5,
+  0,
+  0,
+  0.5,
+  0,
+  0
+ ],
+ "scale": 0.5,
+ "rotation_deg": 0,
+ "residuals": [
+  {
+   "landmark": "portal_centre",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "p_tl",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "p_tr",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "p_bl",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  }
+ ],
+ "max_residual_px": 0,
+ "tolerance_px": 1,
+ "registration_mode": "SIMILARITY",
+ "frame_anchors": [
+  "portal_centre",
+  "p_tl",
+  "p_tr",
+  "p_bl"
+ ],
+ "provisional_deviation": null,
+ "accepted_geometry": {
+  "width_px": 960,
+  "height_px": 540,
+  "source_pixel_crop": [
+   0,
+   0,
+   960,
+   540
+  ],
+  "crop_to_canonical_matrix": [
+   0.5,
+   0,
+   0,
+   0.5,
+   0,
+   0
+  ],
+  "canonical_rect": [
+   0,
+   0,
+   480,
+   270
+  ]
+ },
+ "landmark_sidecar": {
+  "sha256": "63be4d220290f5701243d3443c2ee65bcc8e4a457f10866483cd1e1f15d3036e",
+  "reviewed_by": "p02-portal-fixture (DIAGNOSTIC)",
+  "method": "exact construction coordinates of this DIAGNOSTIC raster",
+  "landmarks": {
+   "portal_centre": [
+    480,
+    270
+   ],
+   "p_tl": [
+    0,
+    0
+   ],
+   "p_tr": [
+    960,
+    0
+   ],
+   "p_bl": [
+    0,
+    540
+   ]
+  }
+ },
+ "source": {
+  "file": "portal_in.png",
+  "sha256": "86731b61c043c38ec92c682dadb4c89693a3def1ffc5589f0bf0f141805e4855",
+  "width": 960,
+  "height": 540,
+  "alpha": {
+   "transparent": 0,
+   "partial": 0,
+   "opaque": 518400
+  }
+ },
+ "planned_alpha_mode": "OPAQUE",
+ "provenance": "DIAGNOSTIC_FIXTURE"
+}

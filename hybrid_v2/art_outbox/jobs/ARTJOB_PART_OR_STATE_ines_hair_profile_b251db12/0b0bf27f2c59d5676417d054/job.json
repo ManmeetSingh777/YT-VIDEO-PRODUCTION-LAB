@@ -1,0 +1,111 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ines_hair_profile_b251db12",
+ "root_dependency": "ines_hair_profile",
+ "identity_id": "ines",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "ines_master",
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    1620,
+    1920
+   ]
+  ],
+  "view_id": "profile_r",
+  "pose_id": "curious",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "neck"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "ines_rig",
+    "joint": "neck",
+    "rest_xy": [
+     300,
+     330
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "ines_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "registered profile view family for the turn toward the porthole (never front eyes on a turned skull). Required by: state ines_rig:curious/profile_turn S02_operate_washer; state ines_rig:curious/profile_satisfied S02_operate_washer"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "6a548adfafe6d8493e6d62b47e30968bf9969061e4178f41359be6beb9852a75",
+ "frame_precision": "STATE_INTERVALS",
+ "generation": "0b0bf27f2c59d5676417d054",
+ "dependency_parts_digest": "0b0bf27f2c59d5676417d054afc9157a7fc4259896e52963b7262af293714c68",
+ "gate": {
+  "pass": true,
+  "family": "ACTING_HUMAN",
+  "failures": [],
+  "required_methods": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F14",
+   "F15",
+   "F16",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F30",
+   "F31",
+   "F33",
+   "F35",
+   "F36",
+   "F51",
+   "F52",
+   "F53",
+   "F56",
+   "F57",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F77",
+   "F78",
+   "F79",
+   "F80"
+  ]
+ }
+}

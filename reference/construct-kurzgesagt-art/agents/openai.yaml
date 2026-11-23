@@ -1,0 +1,20 @@
+interface:
+  display_name: Kurzgesagt Art + Film Production (5 Films)
+  short_description: F01-F80 original art and complete-film production controller
+  default_prompt: Use $construct-kurzgesagt-art. For a whole film, execute the complete-film
+    art orchestration from original Director V1 experience and metaphor design through
+    canonical characters, worlds, masks, poses and transitions. Generate actual source-grounded
+    artwork, automatically diagnose repaired pixels and inject successful conditional
+    lessons into every later matching first-generation request using project repair
+    memory, then supply a registered Claude-ready asset package only when all required
+    shots have real visual states. For a requested first-pass test, preserve the original
+    uncorrected outputs separately.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

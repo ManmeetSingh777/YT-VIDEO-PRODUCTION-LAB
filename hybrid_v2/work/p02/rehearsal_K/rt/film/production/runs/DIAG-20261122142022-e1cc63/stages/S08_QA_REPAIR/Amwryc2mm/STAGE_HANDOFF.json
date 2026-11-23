@@ -1,0 +1,64 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S08_QA_REPAIR",
+ "stage_attempt_id": "Amwryc2mm",
+ "input_artifact_refs": [
+  {
+   "name": "S07_NEUTRINO_RENDER/STAGE_HANDOFF",
+   "sha256": "ee10e55335cc76a601515123e354a9cb3a0b10abf510eb362cbf45cd03cbc264"
+  }
+ ],
+ "input_revision_hash": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [
+  {
+   "name": "production/runs/DIAG-20261122142022-e1cc63/FRAME_TRACE_INDEX.json",
+   "sha256": "5012112b004edc5f04d38da4827b16b738eea3a84ce23dbfc22b4ff0fa2e2b34",
+   "bytes": 12157,
+   "source": "production/runs/DIAG-20261122142022-e1cc63/FRAME_TRACE_INDEX.json"
+  },
+  {
+   "name": "production/runs/DIAG-20261122142022-e1cc63/COVERAGE_GATE.json",
+   "sha256": "ff26ed4e46dac69aeb329cc18e143d02947a7682715dc83881bbdefc99da7abb",
+   "bytes": 1364,
+   "source": "production/runs/DIAG-20261122142022-e1cc63/COVERAGE_GATE.json"
+  }
+ ],
+ "output_revision_hash": "4509d5903fe4be8295730efb58b62435ecfd7f9d10bac82c432129d0e4cb6833",
+ "required_checks": [
+  {
+   "task_id": "render_receipt",
+   "verification": {
+    "method": "verifyRenderReceipt ok",
+    "pass": true,
+    "measurement": "resampled 0,388,599,600,1199,1200,1494,1799,1800,2399,2400,2999,3000,3599,3600,4199,4200,4799,4800,5399,5400,5999,6000,6295,6599,6600,7199"
+   }
+  },
+  {
+   "task_id": "frame_trace_index",
+   "verification": {
+    "method": "coverage 0..total-1 and no unowned frame",
+    "pass": true,
+    "measurement": "7200/7200 frames owned in 17 segments"
+   }
+  },
+  {
+   "task_id": "coverage_gate",
+   "verification": {
+    "method": "zero coverage failures",
+    "pass": true,
+    "measurement": "7200/7200 frames hashed; 8 moving intervals change pixels; 9 static holds; action 1/1, art_state 2/2, camera 2/2, effect 1/1, blur 1/1, transition 1/1, shot_boundary 1/1, sound_cue 1/1"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T14:48:31.547Z",
+ "event_chain_head_sha256": "0743d80771a4693a7d423a3c0ce76362f267f352d3351e709902604c079641b0",
+ "run_type": "DIAGNOSTIC"
+}

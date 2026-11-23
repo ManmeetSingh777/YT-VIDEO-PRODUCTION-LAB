@@ -1,0 +1,3256 @@
+{
+ "subject": "warden_v2",
+ "context": {
+  "kind": "character",
+  "family": "HUMAN_ACTING_CLOSE",
+  "subject_id": "warden",
+  "view": "form",
+  "projection": "FORM_VIEW",
+  "world_class": "NONE",
+  "headPx": 210,
+  "faceVisible": true,
+  "hasContact": true,
+  "moves": true,
+  "changesState": true,
+  "hasOptics": true,
+  "facialHair": true,
+  "support_value": "dark",
+  "world_value": "dark",
+  "prefix": "sheet-w2-",
+  "transitions": false,
+  "nestedWorld": false,
+  "relights": false,
+  "perceptionEffect": false,
+  "population": false,
+  "interface": false,
+  "comparison": false,
+  "infoTheatre": false,
+  "luminousVolume": false,
+  "macroLens": false,
+  "labels": false,
+  "hasRepeats": true,
+  "flowPath": false,
+  "hasEmission": false
+ },
+ "routing": {
+  "F01": {
+   "status": "ROUTED",
+   "why": "Recognizable purpose-specific silhouette in its actual view; structural masses split only at real connections; overlap order before detail; subpart contours follow the gesture; 1/10-size test."
+  },
+  "F02": {
+   "status": "ROUTED",
+   "why": "Forms are colored surfaces"
+  },
+  "F03": {
+   "status": "ROUTED",
+   "why": "Conditional color-role solver"
+  },
+  "F04": {
+   "status": "ROUTED",
+   "why": "Four lighting systems"
+  },
+  "F05": {
+   "status": "ROUTED",
+   "why": "Head built in order"
+  },
+  "F06": {
+   "status": "ROUTED",
+   "why": "Whole gesture+support first; pose-specific garment silhouette; task-specific hand art (reach/pinch/hook/grip); contact graph actor.hand→prop.handle with near/far occlusion; alternate drawings for significant change."
+  },
+  "F07": {
+   "status": "NOT_APPLICABLE",
+   "why": "humans (F05/F06)"
+  },
+  "F08": {
+   "status": "NOT_APPLICABLE",
+   "why": "flat diagram fields (BRAIN@150)"
+  },
+  "F09": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract schematics"
+  },
+  "F10": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract stage with intentional emptiness"
+  },
+  "F11": {
+   "status": "NOT_APPLICABLE",
+   "why": "interiors (no forced foliage frame)"
+  },
+  "F12": {
+   "status": "NOT_APPLICABLE",
+   "why": "built/scenic worlds"
+  },
+  "F13": {
+   "status": "ROUTED",
+   "why": "Luminous/optical materials need structure under the light"
+  },
+  "F14": {
+   "status": "ROUTED",
+   "why": "State table per changing object"
+  },
+  "F15": {
+   "status": "ROUTED",
+   "why": "Exactly one primary motion owner per region (CAMERA/WORLD/SUBJECT_RIGID/SUBJECT_PART/REDRAWN_STATE/MATERIAL_LIGHT/MASK/EFFECT/UI); simultaneous tracks; purposeful stillness."
+  },
+  "F16": {
+   "status": "NOT_APPLICABLE",
+   "why": "within-shot action"
+  },
+  "F17": {
+   "status": "PROVIDER_REPLACED",
+   "why": "rendered hero frames from the production scene, inspected at native + 160×90"
+  },
+  "F18": {
+   "status": "ROUTED",
+   "why": "Coverage states DECODED/VIEWED/NATIVE_INSPECTED/METHOD_MAPPED/OUTPUT_TESTED are separate; never claim inspection from frame counts."
+  },
+  "F19": {
+   "status": "ROUTED",
+   "why": "Production medium is conditional (vector / pixel illustration / infographic / selective 3D / hybrid) per visual demand."
+  },
+  "F20": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F21": {
+   "status": "NOT_APPLICABLE",
+   "why": "no viewport"
+  },
+  "F22": {
+   "status": "NOT_APPLICABLE",
+   "why": "single lighting state"
+  },
+  "F23": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F24": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F25": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F26": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F27": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F28": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F29": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F30": {
+   "status": "ROUTED",
+   "why": "Multi-state character library before animation"
+  },
+  "F31": {
+   "status": "ROUTED",
+   "why": "Owner-specific key states"
+  },
+  "F32": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F33": {
+   "status": "ROUTED",
+   "why": "Density by view depth/task"
+  },
+  "F34": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F35": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F36": {
+   "status": "PROVIDER_REPLACED",
+   "why": "EPISODE.json → plan.mjs cues + per-subject ICD validated by icd.mjs; build fails closed"
+  },
+  "F37": {
+   "status": "NOT_APPLICABLE",
+   "why": "abstract fields need no scenic horizon"
+  },
+  "F38": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F39": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F40": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F41": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F42": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F43": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F44": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F45": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F46": {
+   "status": "ROUTED",
+   "why": "Per-material table"
+  },
+  "F47": {
+   "status": "ROUTED",
+   "why": "Detail tiers T0 skeleton / T1 modules / T2 parent-bound features / T3 state marks; marks need parent+function; erase-tier test."
+  },
+  "F48": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F49": {
+   "status": "PROVIDER_REPLACED",
+   "why": "icd.mjs validation fails closed on missing world/topology/regions"
+  },
+  "F50": {
+   "status": "ROUTED",
+   "why": "Adversarial unfamiliar-world transfer tests; no certification by resemblance."
+  },
+  "F51": {
+   "status": "ROUTED",
+   "why": "Palette = role map (substrate, far/mid support, focal, causal-active, local inset, optic) + contiguous parent-owned base fills + chosen contrast relationship."
+  },
+  "F52": {
+   "status": "ROUTED",
+   "why": "Mark count from screen role and size"
+  },
+  "F53": {
+   "status": "ROUTED",
+   "why": "Density caused by explanatory material"
+  },
+  "F54": {
+   "status": "ROUTED",
+   "why": "Repeats from a parent-owned generator in local frame with count/size/exclusion rules; zero repeats can be correct."
+  },
+  "F55": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F56": {
+   "status": "PROVIDER_REPLACED",
+   "why": "ICD geometry is authored before render; first render inspected; repair edits the producing operation"
+  },
+  "F57": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F58": {
+   "status": "ROUTED",
+   "why": "Closed parent regions (outer, front/back mass, cutout voids, supports) with identity-bearing negative spaces; small-size read; derived small forms collapse marks."
+  },
+  "F59": {
+   "status": "ROUTED",
+   "why": "Part DAG with insertion depth/in_front_of/hidden_when; joints with overlap masks; near fingers in front of prop, prop midplane, far fingers behind."
+  },
+  "F60": {
+   "status": "ROUTED",
+   "why": "Projection from the proof"
+  },
+  "F61": {
+   "status": "ROUTED",
+   "why": "Palette slots assigned after silhouette owners/neighbors; record luminance/hue/edge discrimination per adjacent pair."
+  },
+  "F62": {
+   "status": "ROUTED",
+   "why": "Edge roles per owner (COLOR_ADJACENCY, MATERIAL_SEAM, CAST_SHADOW, INTERNAL_CREASE, OPTICAL_RIM, EMISSIVE_EDGE); cast shadows on named receivers; patches by surface turning."
+  },
+  "F63": {
+   "status": "ROUTED",
+   "why": "Optics inside physics"
+  },
+  "F64": {
+   "status": "ROUTED",
+   "why": "Identity routed by family (ACTING_FACE, GESTURE_FULL_BODY, REAR, DISTANT, ORGANISM, MASCOT, GEAR) with canonical identity record."
+  },
+  "F65": {
+   "status": "ROUTED",
+   "why": "face_eye_mode chosen AFTER projected head size and emotional function"
+  },
+  "F66": {
+   "status": "ROUTED",
+   "why": "Pelvis, shoulder axis, support foot, hand targets; arm segment seams hidden under sleeve/hand shapes; garments as large contours with collar/cuffs/hem; distinct views need drawings."
+  },
+  "F67": {
+   "status": "ROUTED",
+   "why": "Registered state family"
+  },
+  "F68": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F69": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F70": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F71": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F72": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F73": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F74": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F75": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F76": {
+   "status": "ROUTED",
+   "why": "Repeat generator spec"
+  },
+  "F77": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F78": {
+   "status": "NOT_APPLICABLE",
+   "why": "condition false for this subject"
+  },
+  "F79": {
+   "status": "ROUTED",
+   "why": "Own alpha/underpaint/overscan"
+  },
+  "F80": {
+   "status": "PROVIDER_REPLACED",
+   "why": "the first construction must consume routed decisions (with witness ids) as INPUTS to the geometry functions; the build verifies each routed method's ops executed on its bound regions before the first render"
+  }
+ },
+ "witnesses": [
+  {
+   "methods": [
+    "F05",
+    "F52",
+    "F64",
+    "F65"
+   ],
+   "confirm": "character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+   "confirm_sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+   "counter": "question_native_witnesses/AI_0285_machine_actor_interior.jpg",
+   "counter_sha256": "ff4e159acde765f0862493446f097580fafba7b91a600efa451afcc628fa40e0",
+   "observed": "clinic 3/4 heads: one skull volume, face plane turning with the head, near eye larger / far eye foreshortened, ear on the far contour, glasses as rims over the eye regions. AI@285 (unlike) small rear actor: no sclera."
+  },
+  {
+   "methods": [
+    "F05",
+    "F65"
+   ],
+   "confirm": "character_native_anchors/NUCLEAR_0083_farm_humans.jpg",
+   "confirm_sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+   "counter": "conditional_native_anchors/MEMORIES_10101_close_human.jpg",
+   "counter_sha256": "fc0962d7b2eb2ef64683560c18975e384649c3dcfd5559583392e622b8d986ab",
+   "observed": "moustache = darkest face mass with mouth below; close human: lid-cut sclera, large dark pupil, hair as 2–3 contiguous lobes, two-tone mitten hands."
+  },
+  {
+   "methods": [
+    "F06",
+    "F59",
+    "F66",
+    "F30"
+   ],
+   "confirm": "character_native_anchors/BRAIN_0386_runner_human.jpg",
+   "confirm_sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+   "counter": "question_native_witnesses/NUCLEAR_0145_lab_procedural_people.jpg",
+   "counter_sha256": "955c27cb5cae54685bc0978e01b68344d07e93fede6e26f7bde66b3e80d9e4b3",
+   "observed": "limbs as large tapered masses continuous with their garments; sleeves overlap the next segment; hands sized large; lab coats raised above a dark support."
+  }
+ ],
+ "resolved": {},
+ "decisions": {
+  "view": {
+   "value": {
+    "yaw": 78,
+    "pitch": -3
+   },
+   "by": [
+    "F30",
+    "F60",
+    "F64"
+   ],
+   "why": "three-quarter toward the wheel so the face and both hands read",
+   "derivedFrom": []
+  },
+  "projection.basis": {
+   "value": "one orthographic view rotation for every mass and surface feature",
+   "by": [
+    "F60"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "identity.family": {
+   "value": "HUMAN_ACTING_CLOSE",
+   "by": [
+    "F64"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "identity.canonical": {
+   "value": {
+    "traits": [
+     "bald dome + curled grey fringe low round the back",
+     "brush moustache",
+     "round copper spectacles",
+     "rounded back hump + belly",
+     "mustard knit vest, rolled teal sleeves"
+    ]
+   },
+   "by": [
+    "F64",
+    "F30"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "form.head": {
+   "value": {
+    "cranium": [
+     88,
+     94,
+     86
+    ],
+    "jaw": [
+     72,
+     56,
+     66
+    ],
+    "jawAt": [
+     0,
+     -40,
+     16
+    ],
+    "nose": [
+     20,
+     18,
+     21
+    ],
+    "noseAt": [
+     0,
+     -70,
+     84
+    ],
+    "ear": [
+     12,
+     24,
+     15
+    ],
+    "earAt": [
+     86,
+     -68,
+     -8
+    ]
+   },
+   "by": [
+    "F05",
+    "F58",
+    "F64"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "form.body": {
+   "value": {
+    "torso": [
+     104,
+     142,
+     80
+    ],
+    "torsoAt": [
+     0,
+     -158,
+     2
+    ],
+    "torsoTaper": [
+     0.2,
+     0.34
+    ],
+    "hump": [
+     80,
+     58,
+     56
+    ],
+    "humpAt": [
+     0,
+     -246,
+     -34
+    ],
+    "shoulderX": 86,
+    "shoulderY": -262,
+    "pelvis": [
+     104,
+     58,
+     78
+    ],
+    "vestE": [
+     0.62,
+     0.78
+    ]
+   },
+   "by": [
+    "F58",
+    "F66",
+    "F64"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "form.arm": {
+   "value": {
+    "upper": 118,
+    "fore": 108,
+    "sleeve": [
+     33,
+     64,
+     33
+    ],
+    "cuff": [
+     30,
+     15,
+     30
+    ],
+    "forearm": [
+     23,
+     56,
+     23
+    ],
+    "palm": [
+     30,
+     28,
+     16
+    ],
+    "finger": [
+     8,
+     19,
+     8
+    ],
+    "shoulder": [
+     36,
+     32,
+     36
+    ]
+   },
+   "by": [
+    "F66",
+    "F06"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "form.hair": {
+   "value": {
+    "lobe": [
+     30,
+     27,
+     26
+    ],
+    "ring": [
+     [
+      -6,
+      96
+     ],
+     [
+      -22,
+      118
+     ],
+     [
+      4,
+      136
+     ],
+     [
+      -14,
+      158
+     ],
+     [
+      -6,
+      180
+     ],
+     [
+      -14,
+      202
+     ],
+     [
+      4,
+      224
+     ],
+     [
+      -22,
+      242
+     ],
+     [
+      -6,
+      264
+     ]
+    ]
+   },
+   "by": [
+    "F05",
+    "F52"
+   ],
+   "why": "fringe lobes on the cranium surface from ear to ear round the back; crown bald",
+   "derivedFrom": []
+  },
+  "form.headContour": {
+   "value": [
+    [
+     0,
+     [
+      [
+       0,
+       -176,
+       1
+      ],
+      [
+       52,
+       -168,
+       1
+      ],
+      [
+       84,
+       -132,
+       1
+      ],
+      [
+       92,
+       -88,
+       1
+      ],
+      [
+       96,
+       -48,
+       1
+      ],
+      [
+       80,
+       -8,
+       1
+      ],
+      [
+       42,
+       14,
+       1
+      ],
+      [
+       0,
+       22,
+       1
+      ],
+      [
+       -42,
+       14,
+       1
+      ],
+      [
+       -80,
+       -8,
+       1
+      ],
+      [
+       -96,
+       -48,
+       1
+      ],
+      [
+       -92,
+       -88,
+       1
+      ],
+      [
+       -84,
+       -132,
+       1
+      ],
+      [
+       -52,
+       -168,
+       1
+      ]
+     ]
+    ],
+    [
+     40,
+     [
+      [
+       8,
+       -176,
+       1
+      ],
+      [
+       66,
+       -160,
+       1
+      ],
+      [
+       94,
+       -114,
+       1
+      ],
+      [
+       94,
+       -92,
+       0.7
+      ],
+      [
+       102,
+       -54,
+       1
+      ],
+      [
+       90,
+       -10,
+       1
+      ],
+      [
+       54,
+       14,
+       1
+      ],
+      [
+       12,
+       22,
+       1
+      ],
+      [
+       -34,
+       14,
+       1
+      ],
+      [
+       -66,
+       -6,
+       1
+      ],
+      [
+       -88,
+       -40,
+       1
+      ],
+      [
+       -100,
+       -88,
+       1
+      ],
+      [
+       -88,
+       -136,
+       1
+      ],
+      [
+       -50,
+       -168,
+       1
+      ]
+     ]
+    ],
+    [
+     85,
+     [
+      [
+       -6,
+       -176,
+       1
+      ],
+      [
+       54,
+       -162,
+       1
+      ],
+      [
+       88,
+       -118,
+       1
+      ],
+      [
+       84,
+       -96,
+       0.5
+      ],
+      [
+       92,
+       -60,
+       1
+      ],
+      [
+       84,
+       -16,
+       1
+      ],
+      [
+       62,
+       12,
+       1
+      ],
+      [
+       28,
+       22,
+       1
+      ],
+      [
+       -16,
+       14,
+       1
+      ],
+      [
+       -52,
+       -4,
+       1
+      ],
+      [
+       -86,
+       -34,
+       1
+      ],
+      [
+       -104,
+       -84,
+       1
+      ],
+      [
+       -92,
+       -134,
+       1
+      ],
+      [
+       -52,
+       -168,
+       1
+      ]
+     ]
+    ]
+   ],
+   "by": [
+    "F01",
+    "F05",
+    "F58",
+    "F64",
+    "F30"
+   ],
+   "why": "broad jowly lower face, dome flatter behind, brow ridge + socket dip in profile, tucked chin — designed per view, landmarks homologous (index 2 brow, 4 cheek, 6 chin, 10 nape)",
+   "derivedFrom": []
+  },
+  "face.headPx": {
+   "value": 210,
+   "by": [
+    "F65",
+    "F52"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "face.eyeMode": {
+   "value": "WHITE_SCLERA_ACTOR",
+   "by": [
+    "F65",
+    "F52"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "face.roleBySize": {
+   "value": "ACTING_CUE",
+   "by": [
+    "F52"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "face.frame": {
+   "value": {
+    "eyes": [
+     2,
+     29
+    ],
+    "brows": [
+     18,
+     29
+    ],
+    "mouth": [
+     -14,
+     0
+    ],
+    "glassesLift": 10
+   },
+   "by": [
+    "F65",
+    "F05"
+   ],
+   "why": "(lat, lon) anchors on the cranium/jaw surfaces",
+   "derivedFrom": []
+  },
+  "face.facialHair": {
+   "value": {
+    "kind": "brush moustache",
+    "masses": 2
+   },
+   "by": [
+    "F05"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.skin": {
+   "value": "#d98a5c",
+   "by": [
+    "F03"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.facialHair": {
+   "value": "#645f70",
+   "by": [
+    "F03",
+    "F61",
+    "F65"
+   ],
+   "why": "starts from the grey hair identity; the Q04 lesson rule separates it by value",
+   "derivedFrom": [
+    "palette.skin"
+   ]
+  },
+  "palette.support": {
+   "value": "#2c5560",
+   "by": [
+    "F03",
+    "F61"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.garment.trousers": {
+   "value": "#6e78b3",
+   "by": [
+    "F03",
+    "F61"
+   ],
+   "why": " | raised by lesson _foundation_test:Q01",
+   "derivedFrom": []
+  },
+  "palette.garmentLift": {
+   "value": "#7a84c4",
+   "by": [
+    "F61"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.roles": {
+   "value": {
+    "skinS": "#b5683f",
+    "skinL": "#eaa77a",
+    "hair": "#d5d0dc",
+    "hairS": "#aaa3b6",
+    "knit": "#e3a63a",
+    "knitS": "#b77a1f",
+    "knitL": "#f3c75e",
+    "shirt": "#3f80b6",
+    "shirtS": "#2c5d8c",
+    "shirtL": "#6aa5d6",
+    "rim": "#7a3326",
+    "eye": "#fff6ea",
+    "pupil": "#2a1830",
+    "mouth": "#6a2430",
+    "cheek": "#e0705a"
+   },
+   "by": [
+    "F03",
+    "F51",
+    "F61"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.focalPair": {
+   "value": "mustard vest + warm head vs cool teal room",
+   "by": [
+    "F03"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "palette.pairs": {
+   "value": [
+    [
+     "knit",
+     "support"
+    ],
+    [
+     "skin",
+     "hair"
+    ],
+    [
+     "shirt",
+     "knit"
+    ]
+   ],
+   "by": [
+    "F61"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "lighting.system": {
+   "value": "OPAQUE_FORM: each material group = flat shade fill + lit copy offset toward the scene light (k per material) + optional light plane; no gradients",
+   "by": [
+    "F04"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "materials": {
+   "value": [
+    "skin",
+    "hair",
+    "knit",
+    "cotton",
+    "denim-ish trousers",
+    "glass rims"
+   ],
+   "by": [
+    "F02",
+    "F46"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "edges": {
+   "value": {
+    "all": "COLOR_ADJACENCY between material groups",
+    "glasses": "OPTICAL_RIM stroke",
+    "ribs": "INTERNAL_CREASE"
+   },
+   "by": [
+    "F62"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "optics": {
+   "value": "spectacle rims lifted off the face surface; hidden when that eye turns away",
+   "by": [
+    "F13",
+    "F63"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.view": {
+   "value": "computed from view",
+   "by": [
+    "F01"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.outer": {
+   "value": "dome → nose bulb → moustache → belly curve; hump of the back; arms reaching forward",
+   "by": [
+    "F01",
+    "F58"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.identityFeatures": {
+   "value": [
+    "bald dome vs fringe ring",
+    "moustache",
+    "rims",
+    "belly/hump"
+   ],
+   "by": [
+    "F01"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.voids": {
+   "value": [
+    "between forearms and belly",
+    "under the chin"
+   ],
+   "by": [
+    "F58"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "silhouette.smallRead": {
+   "value": "dome + belly + reaching arms at 160×90",
+   "by": [
+    "F58"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "head.skull": {
+   "value": "cranium + jaw volumes, jaw tucked toward the collar",
+   "by": [
+    "F05"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "head.hairMass": {
+   "value": "9 lobes on the cranium surface ring",
+   "by": [
+    "F05"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "head.facePlane": {
+   "value": "face is the cranium/jaw front; features live on those surfaces",
+   "by": [
+    "F05"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "head.eyeSystem": {
+   "value": "sclera lens + clipped pupil + lid on the cranium surface at ±27° lon",
+   "by": [
+    "F05",
+    "F65"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "head.expressionStates": {
+   "value": [
+    "neutral",
+    "effort",
+    "pleased"
+   ],
+   "by": [
+    "F05",
+    "F67"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "body.gesture": {
+   "value": "weight forward into the wheel",
+   "by": [
+    "F06",
+    "F66"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "body.support": {
+   "value": "standing; pelvis is the root",
+   "by": [
+    "F06",
+    "F66"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "body.garments": {
+   "value": [
+    "vest = belly+chest+hump union with ribs and buttons",
+    "shirt = shoulder caps + sleeves + collar",
+    "rolled cuffs overlap the forearm"
+   ],
+   "by": [
+    "F66"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "contacts": {
+   "value": [
+    {
+     "hand": "R",
+     "prop": "wheel rim",
+     "front": "finger band",
+     "back": "palm"
+    },
+    {
+     "hand": "L",
+     "prop": "wheel rim",
+     "front": "finger band",
+     "back": "palm"
+    }
+   ],
+   "by": [
+    "F06",
+    "F59"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "parts": {
+   "value": "root→torso→(neck→head), torso→shoulders→elbows→wrists→hands; pelvis→legs",
+   "by": [
+    "F59"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "states": {
+   "value": {
+    "hands": [
+     "open",
+     "grip"
+    ],
+    "face": [
+     "neutral",
+     "effort",
+     "pleased"
+    ]
+   },
+   "by": [
+    "F14",
+    "F30",
+    "F67"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "landmarks": {
+   "value": [
+    "eye anchors",
+    "mouth anchor",
+    "shoulder joints",
+    "wrists"
+   ],
+   "by": [
+    "F67"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "identity.views": {
+   "value": "any yaw from the same construction (verified by multi-view sheet)",
+   "by": [
+    "F30"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "motion.owners": {
+   "value": {
+    "body": "form joints",
+    "arms": "3D IK",
+    "face": "surface feature states"
+   },
+   "by": [
+    "F15"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "motion.keys": {
+   "value": [
+    "reach",
+    "grip",
+    "turn",
+    "react"
+   ],
+   "by": [
+    "F31"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "layers.underpaint": {
+   "value": "every visible region is a whole volume; nothing is a cut-out with a hole",
+   "by": [
+    "F79"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "repeats.parent": {
+   "value": {
+    "ribs": "vest surface meridians",
+    "buttons": "belly front"
+   },
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "detail.owner": {
+   "value": "focal_expression + focal_structural hands",
+   "by": [
+    "F33"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "detail.tiers": {
+   "value": {
+    "T0": "volumes",
+    "T1": "garment groups",
+    "T2": "face features, ribs, buttons, rims"
+   },
+   "by": [
+    "F47",
+    "F53"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "medium": {
+   "value": "vector flat fills computed from form",
+   "by": [
+    "F19"
+   ],
+   "why": "",
+   "derivedFrom": []
+  },
+  "face.mouthPlacement": {
+   "value": "separate dark mouth below the facial hair with a skin gap (lesson _qual_A:Q04)",
+   "by": [
+    "F65",
+    "F05"
+   ],
+   "why": "",
+   "derivedFrom": []
+  }
+ },
+ "lessons_available": [
+  "_foundation_test:Q01",
+  "_qual_A:Q04"
+ ],
+ "lessons_applied": [
+  {
+   "rule_id": "_foundation_test:Q01",
+   "rule": "garment_support_separation",
+   "changed": [
+    {
+     "decision": "palette.garment.trousers",
+     "from": "#272b4a",
+     "to": "#6e78b3",
+     "contrast_before": 1.68,
+     "contrast_after": 1.94
+    }
+   ],
+   "before_hash": "fb0beadec5"
+  },
+  {
+   "rule_id": "_qual_A:Q04",
+   "rule": "facial_hair_value_separation",
+   "changed": [
+    {
+     "decision": "palette.facialHair",
+     "from": "#cfcad8",
+     "to": "#645f70",
+     "contrast_after": 2.27
+    }
+   ],
+   "before_hash": "75a45d91ec"
+  }
+ ],
+ "operations": [
+  {
+   "op": "paletteRoles",
+   "region": "palette.facialHair",
+   "by": [
+    "F03",
+    "F61",
+    "F65"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "separate": {
+    "from": "#cfcad8",
+    "to": "#645f70",
+    "against": "#d98a5c",
+    "min": 2.2,
+    "achieved": 2.27
+   }
+  },
+  {
+   "op": "paletteRoles",
+   "region": "palette",
+   "by": [
+    "F03",
+    "F51",
+    "F61"
+   ],
+   "uses": [
+    "palette.support",
+    "palette.skin",
+    "palette.facialHair",
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.support",
+    "palette.skin",
+    "palette.facialHair",
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "pairs": [
+    {
+     "a": "knit",
+     "b": "#2c5560",
+     "contrast": 3.8,
+     "min": 2.2
+    },
+    {
+     "a": "#d98a5c",
+     "b": "hair",
+     "contrast": 1.79,
+     "min": 1.25
+    },
+    {
+     "a": "shirt",
+     "b": "knit",
+     "contrast": 1.97,
+     "min": 1.4
+    },
+    {
+     "a": "#645f70",
+     "b": "#d98a5c",
+     "contrast": 2.27,
+     "min": 2.2
+    }
+   ]
+  },
+  {
+   "op": "formView",
+   "region": "view",
+   "by": [
+    "F60",
+    "F30"
+   ],
+   "uses": [
+    "form.head",
+    "form.body",
+    "form.arm",
+    "form.hair",
+    "face.frame",
+    "face.eyeMode",
+    "view"
+   ],
+   "traced": [
+    "form.head",
+    "form.body",
+    "form.arm",
+    "form.hair",
+    "face.frame",
+    "face.eyeMode",
+    "view"
+   ],
+   "declared": [],
+   "ablated": []
+  },
+  {
+   "op": "materialGroup",
+   "region": "trousers",
+   "by": [
+    "F02",
+    "F03",
+    "F46"
+   ],
+   "uses": [
+    "palette.garment.trousers"
+   ],
+   "traced": [
+    "palette.garment.trousers"
+   ],
+   "declared": [
+    "palette.garment.trousers"
+   ],
+   "ablated": [],
+   "fill": "#6e78b3"
+  },
+  {
+   "op": "formMass",
+   "region": "pelvis",
+   "by": [
+    "F58",
+    "F66"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "root",
+   "group": "trousers"
+  },
+  {
+   "op": "formMass",
+   "region": "thigh-1",
+   "by": [
+    "F58",
+    "F66"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "legs",
+   "group": "trousers"
+  },
+  {
+   "op": "formMass",
+   "region": "thigh1",
+   "by": [
+    "F58",
+    "F66"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "legs",
+   "group": "trousers"
+  },
+  {
+   "op": "materialGroup",
+   "region": "vest",
+   "by": [
+    "F02",
+    "F04",
+    "F46",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#e3a63a"
+  },
+  {
+   "op": "formMass",
+   "region": "belly",
+   "by": [
+    "F58",
+    "F01",
+    "F64",
+    "F66"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "torso",
+   "group": "vest"
+  },
+  {
+   "op": "formMass",
+   "region": "hump",
+   "by": [
+    "F58",
+    "F64"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "torso",
+   "group": "vest"
+  },
+  {
+   "op": "materialGroup",
+   "region": "shirt",
+   "by": [
+    "F02",
+    "F46"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#3f80b6"
+  },
+  {
+   "op": "formMass",
+   "region": "collar",
+   "by": [
+    "F66",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "torso",
+   "group": "shirt"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "vneck",
+   "by": [
+    "F66",
+    "F59"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib0",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib1",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib2",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib3",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib4",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib5",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib6",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib7",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rib8",
+   "by": [
+    "F54",
+    "F76",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "button0",
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "button1",
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "button2",
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "button3",
+   "by": [
+    "F54",
+    "F76"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "mass": "belly"
+  },
+  {
+   "op": "materialGroup",
+   "region": "neck",
+   "by": [
+    "F02"
+   ],
+   "uses": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d98a5c"
+  },
+  {
+   "op": "formMass",
+   "region": "neckM",
+   "by": [
+    "F59",
+    "F05"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "neck",
+   "group": "neck"
+  },
+  {
+   "op": "materialGroup",
+   "region": "head",
+   "by": [
+    "F02",
+    "F04",
+    "F46",
+    "F62"
+   ],
+   "uses": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d98a5c"
+  },
+  {
+   "op": "formMass",
+   "region": "cranium",
+   "by": [
+    "F05",
+    "F60"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "head"
+  },
+  {
+   "op": "formMass",
+   "region": "jaw",
+   "by": [
+    "F05",
+    "F60"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "head"
+  },
+  {
+   "op": "authorContour",
+   "region": "headC",
+   "by": [
+    "F01",
+    "F05",
+    "F58",
+    "F64",
+    "F30"
+   ],
+   "uses": [
+    "form.headContour"
+   ],
+   "traced": [
+    "form.headContour"
+   ],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "head",
+   "views": [
+    0,
+    40,
+    85
+   ]
+  },
+  {
+   "op": "materialGroup",
+   "region": "nose",
+   "by": [
+    "F02",
+    "F04"
+   ],
+   "uses": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d98a5c"
+  },
+  {
+   "op": "formMass",
+   "region": "noseM",
+   "by": [
+    "F05",
+    "F58",
+    "F64"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "nose"
+  },
+  {
+   "op": "materialGroup",
+   "region": "earR",
+   "by": [
+    "F02"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#b5683f"
+  },
+  {
+   "op": "formMass",
+   "region": "earMR",
+   "by": [
+    "F05",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "earR"
+  },
+  {
+   "op": "materialGroup",
+   "region": "earL",
+   "by": [
+    "F02"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#b5683f"
+  },
+  {
+   "op": "formMass",
+   "region": "earML",
+   "by": [
+    "F05",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "earL"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair0",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#c8c2d0"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM0",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair0"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair1",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d5d0dc"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM1",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair1"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair2",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#c8c2d0"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM2",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair2"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair3",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d5d0dc"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM3",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair3"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair4",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#c8c2d0"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM4",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair4"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair5",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d5d0dc"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM5",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair5"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair6",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#c8c2d0"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM6",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair6"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair7",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d5d0dc"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM7",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair7"
+  },
+  {
+   "op": "materialGroup",
+   "region": "hair8",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#c8c2d0"
+  },
+  {
+   "op": "formMass",
+   "region": "hairM8",
+   "by": [
+    "F05",
+    "F52",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "hair8"
+  },
+  {
+   "op": "materialGroup",
+   "region": "moustache",
+   "by": [
+    "F02",
+    "F03",
+    "F65"
+   ],
+   "uses": [
+    "palette.facialHair"
+   ],
+   "traced": [
+    "palette.facialHair"
+   ],
+   "declared": [
+    "palette.facialHair"
+   ],
+   "ablated": [],
+   "fill": "#645f70"
+  },
+  {
+   "op": "formMass",
+   "region": "mst-1",
+   "by": [
+    "F05",
+    "F58",
+    "F64"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "moustache"
+  },
+  {
+   "op": "formMass",
+   "region": "mst1",
+   "by": [
+    "F05",
+    "F58",
+    "F64"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "head",
+   "group": "moustache"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "eyeR",
+   "by": [
+    "F05",
+    "F65",
+    "F52"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "pupR",
+   "by": [
+    "F65"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeatureStates",
+   "region": "lidR",
+   "by": [
+    "F65",
+    "F67"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeatureStates",
+   "region": "browR",
+   "by": [
+    "F05",
+    "F65",
+    "F67"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rimR",
+   "by": [
+    "F13",
+    "F63",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "eyeL",
+   "by": [
+    "F05",
+    "F65",
+    "F52"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "pupL",
+   "by": [
+    "F65"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeatureStates",
+   "region": "lidL",
+   "by": [
+    "F65",
+    "F67"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeatureStates",
+   "region": "browL",
+   "by": [
+    "F05",
+    "F65",
+    "F67"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "rimL",
+   "by": [
+    "F13",
+    "F63",
+    "F62"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "bridge",
+   "by": [
+    "F13",
+    "F59"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "templeR",
+   "by": [
+    "F13",
+    "F59"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "templeL",
+   "by": [
+    "F13",
+    "F59"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "cranium"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "cheekR",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "jaw"
+  },
+  {
+   "op": "surfaceFeature",
+   "region": "cheekL",
+   "by": [
+    "F02",
+    "F05"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "jaw"
+  },
+  {
+   "op": "surfaceFeatureStates",
+   "region": "mouth",
+   "by": [
+    "F05",
+    "F65",
+    "F67"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "mass": "jaw"
+  },
+  {
+   "op": "materialGroup",
+   "region": "sleeveR",
+   "by": [
+    "F02",
+    "F46",
+    "F66"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#3f80b6"
+  },
+  {
+   "op": "formMass",
+   "region": "shoulderR",
+   "by": [
+    "F66",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "shR",
+   "group": "sleeveR"
+  },
+  {
+   "op": "formMass",
+   "region": "upperR",
+   "by": [
+    "F66",
+    "F58",
+    "F06"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "shR",
+   "group": "sleeveR"
+  },
+  {
+   "op": "materialGroup",
+   "region": "cuffR",
+   "by": [
+    "F02",
+    "F66"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#6aa5d6"
+  },
+  {
+   "op": "formMass",
+   "region": "cuffMR",
+   "by": [
+    "F66",
+    "F59",
+    "F79"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "elR",
+   "group": "cuffR"
+  },
+  {
+   "op": "materialGroup",
+   "region": "foreR",
+   "by": [
+    "F02",
+    "F46"
+   ],
+   "uses": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d98a5c"
+  },
+  {
+   "op": "formMass",
+   "region": "foreMR",
+   "by": [
+    "F66",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "elR",
+   "group": "foreR"
+  },
+  {
+   "op": "materialGroup",
+   "region": "palmR",
+   "by": [
+    "F02",
+    "F06"
+   ],
+   "uses": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.skin",
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#d98a5c"
+  },
+  {
+   "op": "formMass",
+   "region": "palmMR",
+   "by": [
+    "F06",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "palmR"
+  },
+  {
+   "op": "materialGroup",
+   "region": "fingersR",
+   "by": [
+    "F06",
+    "F59"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#eaa77a"
+  },
+  {
+   "op": "formMass",
+   "region": "fistR",
+   "by": [
+    "F06",
+    "F59",
+    "F30",
+    "F14"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "fingersR"
+  },
+  {
+   "op": "formMass",
+   "region": "thumbR",
+   "by": [
+    "F06",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "fingersR"
+  },
+  {
+   "op": "formMass",
+   "region": "fingR0",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "palmR"
+  },
+  {
+   "op": "formMass",
+   "region": "fingR1",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "palmR"
+  },
+  {
+   "op": "formMass",
+   "region": "fingR2",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "palmR"
+  },
+  {
+   "op": "formMass",
+   "region": "fingR3",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrR",
+   "group": "palmR"
+  },
+  {
+   "op": "rigBind",
+   "region": "armR",
+   "by": [
+    "F06",
+    "F15",
+    "F31",
+    "F66",
+    "F79"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "limb": [
+    "shR",
+    "elR",
+    "wrR"
+   ]
+  },
+  {
+   "op": "materialGroup",
+   "region": "sleeveL",
+   "by": [
+    "F02",
+    "F46",
+    "F66"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#2c5d8c"
+  },
+  {
+   "op": "formMass",
+   "region": "shoulderL",
+   "by": [
+    "F66",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "shL",
+   "group": "sleeveL"
+  },
+  {
+   "op": "formMass",
+   "region": "upperL",
+   "by": [
+    "F66",
+    "F58",
+    "F06"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "shL",
+   "group": "sleeveL"
+  },
+  {
+   "op": "materialGroup",
+   "region": "cuffL",
+   "by": [
+    "F02",
+    "F66"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#3f80b6"
+  },
+  {
+   "op": "formMass",
+   "region": "cuffML",
+   "by": [
+    "F66",
+    "F59",
+    "F79"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "elL",
+   "group": "cuffL"
+  },
+  {
+   "op": "materialGroup",
+   "region": "foreL",
+   "by": [
+    "F02",
+    "F46"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#b5683f"
+  },
+  {
+   "op": "formMass",
+   "region": "foreML",
+   "by": [
+    "F66",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "elL",
+   "group": "foreL"
+  },
+  {
+   "op": "materialGroup",
+   "region": "palmL",
+   "by": [
+    "F02",
+    "F06"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#b5683f"
+  },
+  {
+   "op": "formMass",
+   "region": "palmML",
+   "by": [
+    "F06",
+    "F58"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "palmL"
+  },
+  {
+   "op": "materialGroup",
+   "region": "fingersL",
+   "by": [
+    "F06",
+    "F59"
+   ],
+   "uses": [
+    "palette.roles"
+   ],
+   "traced": [
+    "palette.roles"
+   ],
+   "declared": [],
+   "ablated": [],
+   "fill": "#b5683f"
+  },
+  {
+   "op": "formMass",
+   "region": "fistL",
+   "by": [
+    "F06",
+    "F59",
+    "F30",
+    "F14"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "fingersL"
+  },
+  {
+   "op": "formMass",
+   "region": "thumbL",
+   "by": [
+    "F06",
+    "F59"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "fingersL"
+  },
+  {
+   "op": "formMass",
+   "region": "fingL0",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "palmL"
+  },
+  {
+   "op": "formMass",
+   "region": "fingL1",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "palmL"
+  },
+  {
+   "op": "formMass",
+   "region": "fingL2",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "palmL"
+  },
+  {
+   "op": "formMass",
+   "region": "fingL3",
+   "by": [
+    "F06",
+    "F30"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "joint": "wrL",
+   "group": "palmL"
+  },
+  {
+   "op": "rigBind",
+   "region": "armL",
+   "by": [
+    "F06",
+    "F15",
+    "F31",
+    "F66",
+    "F79"
+   ],
+   "uses": [],
+   "traced": [],
+   "declared": [],
+   "ablated": [],
+   "limb": [
+    "shL",
+    "elL",
+    "wrL"
+   ]
+  },
+  {
+   "op": "rigBind",
+   "region": "rig",
+   "by": [
+    "F15",
+    "F30",
+    "F31",
+    "F66",
+    "F79",
+    "F14"
+   ],
+   "uses": [
+    "motion.owners",
+    "motion.keys",
+    "states"
+   ],
+   "traced": [],
+   "declared": [
+    "motion.owners",
+    "motion.keys",
+    "states"
+   ],
+   "ablated": [],
+   "parts": [
+    "root",
+    "torso",
+    "neck",
+    "head",
+    "legs",
+    "shR",
+    "elR",
+    "wrR",
+    "shL",
+    "elL",
+    "wrL"
+   ],
+   "channels": [
+    "view.yaw",
+    "head.yaw",
+    "torso.roll",
+    "handR/L",
+    "features"
+   ]
+  }
+ ],
+ "regions": [],
+ "ablated_methods": [],
+ "errors": [],
+ "status": "CODE_EMITTED"
+}

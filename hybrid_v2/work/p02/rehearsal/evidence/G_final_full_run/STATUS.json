@@ -1,0 +1,165 @@
+{
+ "run_id": "DIAG-20261122131103-9255ef",
+ "chain_head": "0f6ced5a59ded662bc7be7cb240f8a446630c11e3da20da154d8c1ddaa667822",
+ "events": 195,
+ "tasks": {
+  "total": 59,
+  "completed": 51,
+  "failed": 8,
+  "blocked": 0,
+  "stale": 0,
+  "remaining": 8,
+  "percent_verified": 86.4
+ },
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 2,
+   "verified": 2,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 5,
+   "verified": 5,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 10,
+   "verified": 10,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 12,
+   "verified": 12,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 13,
+   "verified": 13,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "BLOCKED",
+   "tasks": 13,
+   "verified": 5,
+   "failed": 8,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "next_operation": "resolve chunk_0_600",
+ "failures": [
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-0752f6",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_0_600",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":0,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":1,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":2,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028446}]"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_600_1200-9ee2db",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_600_1200",
+   "class": "MOTION_OR_CAMERA",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":600,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":601,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":601,\"kind\":\"FROZEN_FRAME\",\"reason\":\"expected scene state changed but the rendered pixels are identical to the previous frame\"}]"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_1200_1800-133a7e",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_1200_1800",
+   "class": "MOTION_OR_CAMERA",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":1200,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":1200,\"kind\":\"FROZEN_FRAME\",\"reason\":\"expected scene state changed but the rendered pixels are identical to the previous frame\"},{\"frame\":1201,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602}]"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_1800_2400-76fd03",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_1800_2400",
+   "class": "MOTION_OR_CAMERA",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":1800,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":1800,\"kind\":\"FROZEN_FRAME\",\"reason\":\"expected scene state changed but the rendered pixels are identical to the previous frame\"},{\"frame\":1801,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602}]"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_2400_3000-ef52da",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_2400_3000",
+   "class": "MOTION_OR_CAMERA",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":2400,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":2400,\"kind\":\"FROZEN_FRAME\",\"reason\":\"expected scene state changed but the rendered pixels are identical to the previous frame\"},{\"frame\":2401,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602}]"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_3000_3600-69576c",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_3000_3600",
+   "class": "MOTION_OR_CAMERA",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":3000,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":3000,\"kind\":\"FROZEN_FRAME\",\"reason\":\"expected scene state changed but the rendered pixels are identical to the previous frame\"},{\"frame\":3001,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602}]"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_3600_4200-0988a2",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_3600_4200",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":3600,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":1262400},{\"frame\":3601,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":1262400},{\"frame\":3602,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":1262400}]"
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "artjob_id": "ARTJOB_MASTER_ledger_master_105f0939",
+ "gate": {
+  "pass": false,
+  "status": "NOT_EVALUATED",
+  "failures": [],
+  "design_approval": {
+   "status": "NOT_EVALUATED"
+  }
+ },
+ "overrides": [
+  {
+   "field": "transparent_background",
+   "skill_value": false,
+   "contract_value": false,
+   "source": "motion_context.alpha_requirement=OPAQUE"
+  }
+ ],
+ "method_delivery": null,
+ "motion_requirements_delivered_as_requirements": null,
+ "machine_motion_context_file": null,
+ "request_sha256": "f7989950a1c6922ca80be2d56f3c108552fa7d5ea0e12e501e7cd88e547404bf"
+}

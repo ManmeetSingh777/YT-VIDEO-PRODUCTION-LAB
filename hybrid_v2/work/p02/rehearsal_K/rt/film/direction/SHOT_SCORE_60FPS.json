@@ -1,0 +1,39 @@
+{
+ "provenance": "DIAGNOSTIC_FIXTURE",
+ "fps": 60,
+ "shots": [
+  {
+   "shot": "rt_shot",
+   "frames": [
+    0,
+    3600
+   ],
+   "attention_path": [
+    "pilot_rig"
+   ],
+   "events": [
+    {
+     "pose": "open",
+     "frame": 0
+    },
+    {
+     "pose": "grip",
+     "frame": 100
+    }
+   ],
+   "note": "character family: arm swing, elbow bend over underpaint, open→grip registered swap; particles; shutter blur on the fast bend"
+  },
+  {
+   "shot": "rt_world_shot",
+   "frames": [
+    3600,
+    7200
+   ],
+   "attention_path": [
+    "cam_world"
+   ],
+   "events": [],
+   "note": "world/camera family: wide → push-in on the painted plate"
+  }
+ ]
+}

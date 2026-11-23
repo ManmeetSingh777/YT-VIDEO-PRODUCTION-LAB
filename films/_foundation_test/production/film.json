@@ -1,0 +1,33 @@
+{
+ "id": "foundation_test",
+ "title": "Foundation system test (NOT Film 001)",
+ "duration": 20.137,
+ "bg": "#1d1733",
+ "heroes": [
+  {
+   "id": "h1",
+   "scene": "sc01",
+   "at": "sc01.grip+0.3",
+   "purpose": "contact + identity",
+   "t": 8.275
+  },
+  {
+   "id": "h2",
+   "scene": "sc01",
+   "at": "sc01.unfold+0.8",
+   "purpose": "transformed light, re-aimed shading",
+   "t": 11.574
+  }
+ ],
+ "proof": {
+  "from": 0,
+  "to": 19.537,
+  "must_show": [
+   "planted walk",
+   "grip",
+   "morph",
+   "light re-aim",
+   "portal push"
+  ]
+ }
+}

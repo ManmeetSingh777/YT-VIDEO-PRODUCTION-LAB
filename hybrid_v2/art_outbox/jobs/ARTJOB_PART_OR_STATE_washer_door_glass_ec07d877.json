@@ -1,0 +1,244 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_washer_door_glass_ec07d877",
+ "root_dependency": "washer_door_glass",
+ "identity_id": "washer",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "washer_master",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S01_sock_tumble",
+   "frame_range": [
+    0,
+    900
+   ],
+   "shot_id": "S01"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    0,
+    900
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    0,
+    900
+   ],
+   "shot_id": "S01"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    900,
+    990
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    990,
+    1050
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1050,
+    1170
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1392,
+    1410
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1410,
+    1470
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1470,
+    1560
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1560,
+    1590
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1590,
+    1620
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1620,
+    1740
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    1740,
+    1920
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_door_glass",
+   "frame_range": [
+    6240,
+    7200
+   ],
+   "shot_id": "S07"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "washer_rig.washer_door_glass",
+   "frame_range": null,
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "washer",
+  "canonical_parent_asset": "washer_master",
+  "shot_ids": [
+   "S01",
+   "S02",
+   "S07"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    1170
+   ],
+   [
+    1392,
+    1920
+   ],
+   [
+    6240,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": "idle|running",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "hinge"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "washer_rig",
+    "joint": "door",
+    "rest_xy": [
+     432,
+     330
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED|CAMERA_WORLD",
+  "predecessor_state_id": "washer_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "moving machine part on door. Required by: action S01_sock_tumble; state washer_rig:idle/- S01_sock_tumble; state washer_rig:idle/- S02_operate_washer; state washer_rig:running/- S02_operate_washer; state washer_rig:idle/- S07_return"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "02e8853f36e4443c462cc475bff6a9046e6d300600ac1149ce033229299e486d",
+ "registration_contract": {
+  "asset_kind": "PART",
+  "pivot_landmark_id": "hinge",
+  "planned_pivot_xy": [
+   432,
+   330
+  ],
+  "joint_id": "door",
+  "alpha_mode": "STRAIGHT",
+  "view_id": "front",
+  "depth_band": "FOCAL",
+  "landmark_frame": "registered against approved master washer_master"
+ },
+ "frame_precision": "STATE_INTERVALS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "washer_door_glass",
+  "role": "DERIVED",
+  "derived_from": "washer_master",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: washer_master"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_washer_door_glass_ec07d877.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_washer_door_glass_ec07d877.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

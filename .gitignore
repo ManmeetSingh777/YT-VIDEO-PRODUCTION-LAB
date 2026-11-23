@@ -1,0 +1,14 @@
+node_modules/
+.hyperframes/
+reference/
+inputs/*.zip
+audit_outbox/*.zip
+films/**/qa/*.mp4
+films/**/renders/
+films/**/production/vo/*.wav
+films/**/assets/audio/
+films/_verify_neutrino/assets/audio/
+*.mp4
+.proofws/
+tests/art_bridge/fixtures/_tmp/
+hybrid_v2/work/

@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122115303-c3d250:8",
+ "sequence": 8,
+ "prev_event_sha256": "ffad25c60f05f356486f3fe4fa6235147df44168c3757b55e3869d2b106e6a57",
+ "film_id": "film",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": "S01_STORY",
+ "attempt_id": "Amwrs2nkk",
+ "operation_id": null,
+ "task_id": null,
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "5c0b4be70ca2ed7865ebe455597fb86451b4650ba14d8fb0487fc909d356ca22",
+ "input_refs": [
+  {
+   "name": "film_revision",
+   "sha256": "e6f87f78657f70fb7b8ef07f852d700da942718df7500b71a2e263b61c31a90d"
+  }
+ ],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "RUNNING",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122115303-c3d250:7"
+ ],
+ "wall_time_utc": "2026-11-22T11:53:04.844Z",
+ "elapsed_ms": null,
+ "event_type": "STAGE_STARTED",
+ "lock_generation": 8,
+ "event_sha256": "5a50ff86f958cd58d9f632c6e6080c58f02596da8bdf2dbe91d28ca5ffa1e70d"
+}

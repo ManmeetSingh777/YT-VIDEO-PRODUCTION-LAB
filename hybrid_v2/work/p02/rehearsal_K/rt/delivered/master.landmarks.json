@@ -1,0 +1,46 @@
+{
+ "landmarks": {
+  "head_top": [
+   340,
+   90
+  ],
+  "neck": [
+   340,
+   250
+  ],
+  "pelvis": [
+   340,
+   630
+  ],
+  "shoulder_r": [
+   430,
+   300
+  ],
+  "upper_arm_mid": [
+   450,
+   380
+  ],
+  "elbow_r": [
+   470,
+   460
+  ],
+  "forearm_mid": [
+   480,
+   540
+  ],
+  "wrist_r": [
+   490,
+   620
+  ],
+  "knuckle_r": [
+   506,
+   690
+  ],
+  "thumb_r": [
+   524,
+   638
+  ]
+ },
+ "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)"
+}

@@ -1,0 +1,22 @@
+{
+ "landmarks": {
+  "portal_centre": [
+   130,
+   130
+  ],
+  "m_tl": [
+   0,
+   0
+  ],
+  "m_tr": [
+   260,
+   0
+  ],
+  "m_bl": [
+   0,
+   260
+  ]
+ },
+ "reviewed_by": "p02-portal-fixture (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster"
+}

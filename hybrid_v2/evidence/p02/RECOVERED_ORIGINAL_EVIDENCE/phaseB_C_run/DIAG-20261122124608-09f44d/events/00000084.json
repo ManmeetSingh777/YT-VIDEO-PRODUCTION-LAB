@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:84",
+ "sequence": 84,
+ "prev_event_sha256": "678368a9b35d0baa05f794c6a092309812502a09b4a9d3272af4bfab9473a741",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwrtyz9m",
+ "operation_id": null,
+ "task_id": "asset_pilot_underpaint",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "assets/art/pilot_underpaint.png",
+   "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "bytes": 644,
+   "source": "assets/art/pilot_underpaint.png"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:83"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:14.069Z",
+ "elapsed_ms": 9,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "byte hash + verifyApproval",
+  "pass": true,
+  "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+ },
+ "lock_generation": 84,
+ "event_sha256": "4ff542ae724635909683410655bb7b4f8ad036af06968bbdc4ddb0e21e978f06"
+}

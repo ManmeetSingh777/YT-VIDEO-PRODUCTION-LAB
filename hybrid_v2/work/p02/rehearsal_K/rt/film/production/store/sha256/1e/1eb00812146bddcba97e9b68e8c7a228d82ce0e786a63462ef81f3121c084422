@@ -1,0 +1,133 @@
+{
+ "receipt_id": "asset__portal_aperture__7532a919d328__mwrxc2kp2c89c9",
+ "scope": "asset",
+ "record_id": "portal_aperture",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "DIAGNOSTIC rehearsal only",
+ "evidence": [
+  "registration/portal_aperture/MASTER_REGISTRATION_RECEIPT.json"
+ ],
+ "bundle_sha256": "7532a919d3289cfce33a12637615bf228da54d3c142cc5b3636a97ed55c45b10",
+ "bundle": {
+  "content": {
+   "alpha_mode": "STRAIGHT",
+   "camera_footprint": null,
+   "canonical_rect": [
+    175,
+    70,
+    130,
+    130
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "WORLD_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    175,
+    70
+   ],
+   "depth_band": "FAR",
+   "draw_order_constraints": [],
+   "expression_id": null,
+   "file": "assets/art/portal_aperture.png",
+   "height_px": 260,
+   "hidden_surfaces": [],
+   "id": "portal_aperture",
+   "identity_id": "portal_aperture_w",
+   "incompatible_states": [],
+   "kind": "MASK",
+   "landmarks": {
+    "m_bl": [
+     175,
+     200
+    ],
+    "m_tl": [
+     175,
+     70
+    ],
+    "m_tr": [
+     305,
+     70
+    ],
+    "portal_centre": [
+     240,
+     135
+    ]
+   },
+   "layer_owner": "portal_aperture_w",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "portal_centre",
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "masterreg_portal_aperture",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "ea174cf2200304d6e81f3c2a0e11bf8d99950ca8e7359bc09104b1b53786b3a1",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    260,
+    260
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 260
+  },
+  "id": "portal_aperture",
+  "identity_landmarks": {
+   "m_bl": [
+    175,
+    200
+   ],
+   "m_tl": [
+    175,
+    70
+   ],
+   "m_tr": [
+    305,
+    70
+   ],
+   "portal_centre": [
+    240,
+    135
+   ]
+  },
+  "identity_master_sha256": "ea174cf2200304d6e81f3c2a0e11bf8d99950ca8e7359bc09104b1b53786b3a1",
+  "placements": [],
+  "registration_receipt_sha256": "b6a1902b8cf320f62ce5f3b22c5e8f3b7a7966c99b47ffa8183092ae876eab5d",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:22.153Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

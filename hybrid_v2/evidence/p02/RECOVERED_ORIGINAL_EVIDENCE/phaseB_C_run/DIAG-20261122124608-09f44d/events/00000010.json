@@ -1,0 +1,48 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:10",
+ "sequence": 10,
+ "prev_event_sha256": "2d04717b143e442eb33ad9e8843fce659f8417e5404eb29ba4ebf4866eae3f29",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S01_STORY",
+ "attempt_id": "Amwrtywem",
+ "operation_id": null,
+ "task_id": "story_approval",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:9"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:08.957Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "story_approval",
+  "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(story)",
+  "inputs": [
+   "approvals/STORY.POINTER.json"
+  ],
+  "expected_outputs": [
+   "verified story receipt"
+  ],
+  "deps": [
+   "story_contract"
+  ],
+  "invariants": [
+   "independent human approval of the exact story bundle"
+  ],
+  "verification": "verifyApproval over the current bundle",
+  "evidence_location": "production/store",
+  "category": "MISSING_AUTHORITY"
+ },
+ "lock_generation": 10,
+ "event_sha256": "19c87947f92db3f846b33496853fc15cfa3d863a4c6a30a84af19e2dfe727cda"
+}

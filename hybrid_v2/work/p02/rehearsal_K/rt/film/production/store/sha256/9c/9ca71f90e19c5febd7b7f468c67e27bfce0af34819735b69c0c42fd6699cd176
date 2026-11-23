@@ -1,0 +1,196 @@
+{
+ "approval_refs": [],
+ "blockers": [],
+ "event_chain_head_sha256": "af1cdc44ca502a9499fbd47a0ac3ce6f1d140dcf1e0ec04bf99ddaf0deb577b1",
+ "film_id": "film",
+ "input_artifact_refs": [
+  {
+   "name": "S04_ART_DEMAND/STAGE_HANDOFF",
+   "sha256": "addb23fe18840de6ead941be7a3db5e63f07098c4af64e222cae427fb2899c76"
+  }
+ ],
+ "input_revision_hash": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "output_artifact_refs": [
+  {
+   "bytes": 13515,
+   "name": "assets/art/pilot_master.png",
+   "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+   "source": "assets/art/pilot_master.png"
+  },
+  {
+   "bytes": 142512,
+   "name": "assets/art/rt_world_far.png",
+   "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "source": "assets/art/rt_world_far.png"
+  },
+  {
+   "bytes": 4257,
+   "name": "assets/art/pilot_body.png",
+   "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "source": "assets/art/pilot_body.png"
+  },
+  {
+   "bytes": 1558,
+   "name": "assets/art/pilot_upper_arm.png",
+   "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+   "source": "assets/art/pilot_upper_arm.png"
+  },
+  {
+   "bytes": 1586,
+   "name": "assets/art/pilot_forearm.png",
+   "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "source": "assets/art/pilot_forearm.png"
+  },
+  {
+   "bytes": 644,
+   "name": "assets/art/pilot_underpaint.png",
+   "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "source": "assets/art/pilot_underpaint.png"
+  },
+  {
+   "bytes": 1636,
+   "name": "assets/art/pilot_hand_open.png",
+   "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "source": "assets/art/pilot_hand_open.png"
+  },
+  {
+   "bytes": 891,
+   "name": "assets/art/pilot_hand_grip.png",
+   "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+   "source": "assets/art/pilot_hand_grip.png"
+  },
+  {
+   "bytes": 12709,
+   "name": "assets/art/portal_out.png",
+   "sha256": "e8c34d4a02a2f1e9add0387dd63192c0dc3055fc3f30dcbd3a2b0fd66dcf2967",
+   "source": "assets/art/portal_out.png"
+  },
+  {
+   "bytes": 12710,
+   "name": "assets/art/portal_mid.png",
+   "sha256": "3856daad9943790dafa645ae86eb5ebcbcae10c4fb5c4631de98fa5f1902ab7c",
+   "source": "assets/art/portal_mid.png"
+  },
+  {
+   "bytes": 12704,
+   "name": "assets/art/portal_in.png",
+   "sha256": "86731b61c043c38ec92c682dadb4c89693a3def1ffc5589f0bf0f141805e4855",
+   "source": "assets/art/portal_in.png"
+  },
+  {
+   "bytes": 1192,
+   "name": "assets/art/portal_aperture.png",
+   "sha256": "ea174cf2200304d6e81f3c2a0e11bf8d99950ca8e7359bc09104b1b53786b3a1",
+   "source": "assets/art/portal_aperture.png"
+  }
+ ],
+ "output_revision_hash": "2ee4fff3c55ef30d0bcb5c66d73fe4cc47981fcfbcfcc43065abf902bfdcd699",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "required_checks": [
+  {
+   "task_id": "asset_pilot_master",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_rt_world_far",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_pilot_body",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_pilot_upper_arm",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_pilot_forearm",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_pilot_underpaint",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_pilot_hand_open",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_pilot_hand_grip",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_portal_out",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_portal_mid",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_portal_in",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "asset_portal_aperture",
+   "verification": {
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED",
+    "method": "byte hash + verifyApproval",
+    "pass": true
+   }
+  }
+ ],
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "run_type": "DIAGNOSTIC",
+ "schema_version": 1,
+ "stage_attempt_id": "Amwrxc86i",
+ "stage_id": "S05_ART_PRODUCTION",
+ "status": "COMMITTED",
+ "time_completed_utc": "2026-11-22T14:20:33.168Z",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558"
+}

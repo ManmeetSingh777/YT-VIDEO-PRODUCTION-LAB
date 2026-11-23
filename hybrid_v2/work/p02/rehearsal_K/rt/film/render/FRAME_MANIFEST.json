@@ -1,0 +1,262 @@
+{
+ "revision": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "key_sha256": "6fd37bfb063f09e0a3ae986a97486f61d851a82729843be914c760fb9948ecbb",
+ "renderer": "art_bridge_chrome_frames",
+ "renderer_provenance": "ART_BRIDGE_CAPTURE",
+ "renderer_module": "engine/film/chrome_frames.mjs",
+ "renderer_source_sha256": "9082b8f1e7876be73e447e29c6e701e5922a5cb8cd2ace4be7e822c328a9e803",
+ "renderer_args": {
+  "planFile": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\handoff\\MOTION_PLAN.json",
+  "runType": "DIAGNOSTIC"
+ },
+ "session_info": {
+  "renderer": "art_bridge_chrome_frames",
+  "browser": "Chrome/158.0.8127.36",
+  "chrome_path": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "nu_js_sha256": "773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be",
+  "run_type": "DIAGNOSTIC",
+  "shots": [
+   "rt_shot",
+   "rt_world_shot"
+  ],
+  "browser_pid": 30408
+ },
+ "seed": 1,
+ "total": 7200,
+ "fps": 60,
+ "width": 1920,
+ "height": 1080,
+ "chunk_size": 600,
+ "chunks": [
+  {
+   "frames": [
+    0,
+    600
+   ],
+   "chunk_sha256": "1db33643a578b1647fe0652581db6f7a24059264970efec8db3b10552178f37b",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_00000_00600.mkv",
+   "mkv_sha256": "c978cac1b49af7c90ead33b496db656b3316bb74b2037fe6dc03b6d58f64aa6c",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    600,
+    1200
+   ],
+   "chunk_sha256": "53a98992cc9d577eaf94888ba439c6fd6da0fa07b057b34d50fbb7629710be45",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_00600_01200.mkv",
+   "mkv_sha256": "58f304335a7b1ca236144c4aa4cba96aeed7afe291c77b6efce0843e7e1ec8ed",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    1200,
+    1800
+   ],
+   "chunk_sha256": "a114cde61949484f42d52980e8978f121bda139d9b2923edc1f588a4aa2b730e",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_01200_01800.mkv",
+   "mkv_sha256": "b753d3536db5112646099bbcf1db5259da31eb39c093e6c3bc1e6ab3ae95e1e2",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    1800,
+    2400
+   ],
+   "chunk_sha256": "d9a946b514d49568ba3a007dd1271dc0f2f490425354b14faf8a289191c09c85",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_01800_02400.mkv",
+   "mkv_sha256": "6a00740c46c056e676bfd35c70103cdc14018798857e64879db8a538ddf01bfc",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    2400,
+    3000
+   ],
+   "chunk_sha256": "99ec207c3bef9cf1e9cea3185aed48dde7624f2b3cf511853dede479d35a756d",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_02400_03000.mkv",
+   "mkv_sha256": "065f88029f7144fdfc8c6dbc5611ef05b03a2a9b4af041e26cece07679245dab",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    3000,
+    3600
+   ],
+   "chunk_sha256": "920b8329edf5bf03bec0a328296091b89a8b71293ad99fb064190166472db42c",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_03000_03600.mkv",
+   "mkv_sha256": "4006051e7590acf9d17144b502f4ad964e17bf77d21cab554318a3deaf9fd32c",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    3600,
+    4200
+   ],
+   "chunk_sha256": "fe81a88273025a76ceac6a46c8ca2a914e3fc70ea7aad296b1b02cee11f42712",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_03600_04200.mkv",
+   "mkv_sha256": "a962894b3d508054b969dde8e5ebe74ee55eaa92f91e20753780d98d9dffa3b0",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    4200,
+    4800
+   ],
+   "chunk_sha256": "77a22879aa6c56c663e77228d52efaac876b2111bd3624502bb5cabe2b0786d9",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_04200_04800.mkv",
+   "mkv_sha256": "d8ef14ae737ce86873d915bbdca9b7c2f0a3d315023dfcd44bee60bcdfe1ffd3",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    4800,
+    5400
+   ],
+   "chunk_sha256": "77a22879aa6c56c663e77228d52efaac876b2111bd3624502bb5cabe2b0786d9",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_04800_05400.mkv",
+   "mkv_sha256": "c2e083c7f114f40fa98e5042e499720211d2ce3da78be102b138e7ec927aa377",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    5400,
+    6000
+   ],
+   "chunk_sha256": "77a22879aa6c56c663e77228d52efaac876b2111bd3624502bb5cabe2b0786d9",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_05400_06000.mkv",
+   "mkv_sha256": "8252d4e248d78747876a4f3b7685329d26231a57f3783ddbdfbf0d0bc4523236",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    6000,
+    6600
+   ],
+   "chunk_sha256": "77a22879aa6c56c663e77228d52efaac876b2111bd3624502bb5cabe2b0786d9",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_06000_06600.mkv",
+   "mkv_sha256": "10f7824de359a2a08ed8bc9fd56bdddc80358cfd093e4a65d826aa1b1f2ecd9f",
+   "defects": [],
+   "reused": false
+  },
+  {
+   "frames": [
+    6600,
+    7200
+   ],
+   "chunk_sha256": "77a22879aa6c56c663e77228d52efaac876b2111bd3624502bb5cabe2b0786d9",
+   "mkv": "render/chunks/6fd37bfb063f09e0/chunk_06600_07200.mkv",
+   "mkv_sha256": "05bd08d588cdfd1dbcb00052b25dbc6406b730ca4bc1086311120724567dc44f",
+   "defects": [],
+   "reused": false
+  }
+ ],
+ "memory": [
+  {
+   "chunk": [
+    0,
+    600
+   ],
+   "node_rss": 155389952,
+   "heap": 18780824
+  },
+  {
+   "chunk": [
+    600,
+    1200
+   ],
+   "node_rss": 243261440,
+   "heap": 19083552
+  },
+  {
+   "chunk": [
+    1200,
+    1800
+   ],
+   "node_rss": 128045056,
+   "heap": 19466472
+  },
+  {
+   "chunk": [
+    1800,
+    2400
+   ],
+   "node_rss": 246407168,
+   "heap": 19620680
+  },
+  {
+   "chunk": [
+    2400,
+    3000
+   ],
+   "node_rss": 214904832,
+   "heap": 19891744
+  },
+  {
+   "chunk": [
+    3000,
+    3600
+   ],
+   "node_rss": 218845184,
+   "heap": 19971776
+  },
+  {
+   "chunk": [
+    3600,
+    4200
+   ],
+   "node_rss": 181272576,
+   "heap": 20256488
+  },
+  {
+   "chunk": [
+    4200,
+    4800
+   ],
+   "node_rss": 161882112,
+   "heap": 20298864
+  },
+  {
+   "chunk": [
+    4800,
+    5400
+   ],
+   "node_rss": 193232896,
+   "heap": 20578800
+  },
+  {
+   "chunk": [
+    5400,
+    6000
+   ],
+   "node_rss": 190095360,
+   "heap": 20685216
+  },
+  {
+   "chunk": [
+    6000,
+    6600
+   ],
+   "node_rss": 188190720,
+   "heap": 20858800
+  },
+  {
+   "chunk": [
+    6600,
+    7200
+   ],
+   "node_rss": 159576064,
+   "heap": 20971568
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+{
+ "receipt_id": "asset__pilot_forearm__ab80de382b31__mwrxc2o663f1e1",
+ "scope": "asset",
+ "record_id": "pilot_forearm",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "DIAGNOSTIC rehearsal only",
+ "evidence": [
+  "registration/pilot_forearm/pilot_forearm__REGISTRATION_RECEIPT.json",
+  "registration/pilot_forearm/pilot_forearm__overlay_on_master.png"
+ ],
+ "bundle_sha256": "ab80de382b31964f79674c8d56a21d5870ef15eb2aeb3b16c6cfef265543cb38",
+ "bundle": {
+  "content": {
+   "alpha_mode": "STRAIGHT",
+   "camera_footprint": null,
+   "canonical_rect": [
+    202.34535529982978,
+    208.11544170010868,
+    35.42192366856543,
+    93.71649347115599
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "CHARACTER_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.49726094768413664,
+    -0.05226423163382683,
+    0.05226423163382683,
+    0.49726094768413664,
+    202.34535529982978,
+    210.83318174506766
+   ],
+   "depth_band": "FOCAL",
+   "draw_order_constraints": [
+    {
+     "asset_id": "pilot_upper_arm",
+     "relation": "ABOVE"
+    }
+   ],
+   "expression_id": null,
+   "file": "assets/art/pilot_forearm.png",
+   "height_px": 183,
+   "hidden_surfaces": [
+    "elbow_inner"
+   ],
+   "id": "pilot_forearm",
+   "identity_id": "pilot",
+   "incompatible_states": [],
+   "kind": "PART",
+   "landmarks": {
+    "elbow_r": [
+     215,
+     215.00000000000003
+    ],
+    "forearm_mid": [
+     220,
+     255
+    ],
+    "wrist_r": [
+     225,
+     295
+    ]
+   },
+   "layer_owner": "pilot",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "elbow_r",
+   "pivot_xy": [
+    215,
+    215.00000000000003
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "partreg_pilot_forearm",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    52,
+    183
+   ],
+   "underpaint_asset_ids": [
+    "pilot_underpaint"
+   ],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 52
+  },
+  "id": "pilot_forearm",
+  "identity_landmarks": {
+   "elbow_r": [
+    215,
+    215
+   ],
+   "forearm_mid": [
+    220,
+    255
+   ],
+   "head_top": [
+    150,
+    30
+   ],
+   "knuckle_r": [
+    233,
+    330
+   ],
+   "neck": [
+    150,
+    110
+   ],
+   "pelvis": [
+    150,
+    300
+   ],
+   "shoulder_r": [
+    195,
+    135
+   ],
+   "thumb_r": [
+    242,
+    304
+   ],
+   "upper_arm_mid": [
+    205,
+    175
+   ],
+   "wrist_r": [
+    225,
+    295
+   ]
+  },
+  "identity_master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "placements": [
+   {
+    "joint": "elbow_r",
+    "joint_rest": [
+     215,
+     215
+    ],
+    "local": [
+     1,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "parent": "shoulder_r",
+    "rig": "pilot_rig",
+    "slot": "pilot_forearm"
+   }
+  ],
+  "registration_receipt_sha256": "db633844497eb9a823fde2dab4049831d97987561d8619ff2add64cc44c6a80f",
+  "scope": "asset"
+ },
+ "reviewed_at": "2026-11-22T14:20:22.278Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

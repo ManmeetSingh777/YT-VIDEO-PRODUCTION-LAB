@@ -1,0 +1,33 @@
+{
+ "receipt_id": "direction__film__04cfe0efa2e2__mwrxbv4w54139a",
+ "scope": "direction",
+ "record_id": "film",
+ "verdict": "APPROVED",
+ "reviewer": "roundtrip-operator",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "round-trip DIAGNOSTIC fixture"
+ },
+ "notes": "",
+ "scope_note": "",
+ "evidence": [
+  "direction/SHOT_SCORE_60FPS.json",
+  "story/ACTION_COVERAGE.json",
+  "story/EXPERIENCE_CONTRACT.json",
+  "handoff/ART_AND_MOTION_MANIFEST_V2.json#actions,shots,transitions"
+ ],
+ "bundle_sha256": "04cfe0efa2e23ab6f15be54d0861f60326683ead40de84cb43c7ad1b7d6d7a0e",
+ "bundle": {
+  "scope": "direction",
+  "id": "film",
+  "files": {
+   "direction/SHOT_SCORE_60FPS.json": null,
+   "story/ACTION_COVERAGE.json": null,
+   "story/EXPERIENCE_CONTRACT.json": null,
+   "handoff/ART_AND_MOTION_MANIFEST_V2.json#actions,shots,transitions": "ac383446bcc79b5b53cf93e4323c06f695623d2c59a73d64335878b78dece662"
+  }
+ },
+ "reviewed_at": "2026-11-22T14:20:12.512Z",
+ "tested_revision": null
+}

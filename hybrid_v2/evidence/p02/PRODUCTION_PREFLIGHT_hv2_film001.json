@@ -1,0 +1,239 @@
+{
+ "film": "hv2_film001",
+ "run_type": "PRODUCTION",
+ "ready_for_production": false,
+ "rows": [
+  {
+   "stage": "S00_IDEA",
+   "status": "BLOCKED_HUMAN",
+   "tasks": 1,
+   "failing": [
+    {
+     "task": "film_intent",
+     "pass": false,
+     "category": "MISSING_AUTHORITY",
+     "measurement": "FILM_INTENT.json absent"
+    }
+   ]
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "BLOCKED_HUMAN",
+   "tasks": 2,
+   "failing": [
+    {
+     "task": "story_contract",
+     "pass": false,
+     "category": "STORY_FACT_OR_MECHANISM",
+     "measurement": "no typed story contract"
+    },
+    {
+     "task": "story_approval",
+     "pass": false,
+     "category": "EXTERNAL_HUMAN_REQUIRED",
+     "measurement": "NO_RECEIPT"
+    }
+   ]
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "BLOCKED_HUMAN",
+   "tasks": 8,
+   "failing": [
+    {
+     "task": "attention_S01",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"sock\" has no consuming track in [0,900); primary_focus \"porthole\" has no consuming track in [0,900); primary_focus \"row of machines\" has no consuming track in [0,900)"
+    },
+    {
+     "task": "attention_S02",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"Ines face\" has no consuming track in [900,1920); primary_focus \"hand\" has no consuming track in [900,1920); primary_focus \"door handle\" has no consuming track in [900,1920); primary_focus \"coin slot\" has no consuming track in [900,1920); primary_focus \"porthole\" has no consuming track in [900,1920)"
+    },
+    {
+     "task": "attention_S03",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"tumbling load\" has no consuming track in [1920,3000); primary_focus \"turn counter glyph\" has no consuming track in [1920,3000)"
+    },
+    {
+     "task": "attention_S04",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"inflow\" has no consuming track in [3000,4080); primary_focus \"three outflow pipes\" has no consuming track in [3000,4080); primary_focus \"remainder\" has no consuming track in [3000,4080)"
+    },
+    {
+     "task": "attention_S05",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"lit shop\" has no consuming track in [4080,5160); primary_focus \"dark idle machines\" has no consuming track in [4080,5160); primary_focus \"clock\" has no consuming track in [4080,5160)"
+    },
+    {
+     "task": "attention_S06",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"lever 1\" has no consuming track in [5160,6240); primary_focus \"lever 2\" has no consuming track in [5160,6240); primary_focus \"lever 3\" has no consuming track in [5160,6240); primary_focus \"utilisation meter\" has no consuming track in [5160,6240)"
+    },
+    {
+     "task": "attention_S07",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "primary_focus \"sock\" has no consuming track in [6240,7200); primary_focus \"counter\" has no consuming track in [6240,7200)"
+    },
+    {
+     "task": "direction_approval",
+     "pass": false,
+     "category": "EXTERNAL_HUMAN_REQUIRED",
+     "measurement": "NO_RECEIPT"
+    }
+   ]
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "BLOCKED_HUMAN",
+   "tasks": 10,
+   "failing": [
+    {
+     "task": "actions_S02",
+     "pass": false,
+     "category": "DIRECTION_OR_ATTENTION",
+     "measurement": "UNCOMPILED_SEMANTIC_ACTION: prose verb \"swings the door open\" (OPEN_APERTURE) has no typed semantic action; UNCOMPILED_SEMANTIC_ACTION: prose verb \"reaches\" (REACH) has no typed semantic action; UNCOMPILED_SEMANTIC_ACTION: prose verb \"pinches\" (PINCH) has no typed semantic action; UNCOMPILED_SEMANTIC_ACTION: prose verb \"inserts\" (INSERT_TOKEN) has no typed semantic action; UNCOMPILED_SEMANTIC_ACTION: prose verb \"plants\" (SUPPORT) has no typed semantic action; UNCOMPILED_SEMANTIC_ACTION: prose verb \"starts\" (MECHANISM_START) has no typed semantic action"
+    },
+    {
+     "task": "feasibility_washer",
+     "pass": false,
+     "measurement": "MOTION_COMPILE_FAILED undefined [undefined]"
+    },
+    {
+     "task": "feasibility_ines",
+     "pass": false,
+     "measurement": "MOTION_COMPILE_FAILED undefined [undefined]"
+    }
+   ]
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "BLOCKED_ART",
+   "tasks": 59,
+   "failing": [
+    {
+     "task": "demand_ines_grip_r::GRIP_hand_state",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "GRIP contact ines_grip_r→washer_handle needs a closure drawing frames [[1050,1260],[1320,1392]]"
+    },
+    {
+     "task": "demand_ines_pinch_r::FOLLOW_hand_state",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing frames [[1470,1560]]"
+    },
+    {
+     "task": "demand_w_laundromat",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at ≥2.145 px/unit frames [[900,1920]]"
+    }
+   ]
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "BLOCKED_ART",
+   "tasks": 74,
+   "failing": [
+    {
+     "task": "asset_ines_master",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_washer_master",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_laundromat_far",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_ledger_master",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_street_far",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_drum_in",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_ines_leg_l_far",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    },
+    {
+     "task": "asset_ines_shin_l_far",
+     "pass": false,
+     "category": "MISSING_ART_STATE",
+     "measurement": "not delivered (WAITING_FOR_GPT_ART)"
+    }
+   ]
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "BLOCKED_HUMAN",
+   "tasks": 1,
+   "failing": [
+    {
+     "task": "states_edges",
+     "pass": false,
+     "category": "EXTERNAL_HUMAN_REQUIRED",
+     "measurement": "state washer_rig::idle UNREVIEWED; state washer_rig::door_half UNREVIEWED; state washer_rig::door_open UNREVIEWED; state washer_rig::running UNREVIEWED; state ines_rig::neutral UNREVIEWED; state ines_rig::curious UNREVIEWED; state ines_rig::hand_open UNREVIEWED; state ines_rig::hand_pinch UNREVIEWED; state ines_rig::profile_turn UNREVIEWED; state ines_rig::profile_satisfied UNREVIEWED; edge ines_rig::neutral::profile_turn UNREVIEWED; edge ines_rig::profile_turn::profile_satisfied UNREVIEWED"
+    }
+   ]
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "BLOCKED_UPSTREAM",
+   "tasks": 13
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "BLOCKED_UPSTREAM",
+   "tasks": 3
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "BLOCKED_HUMAN",
+   "tasks": 2,
+   "failing": [
+    {
+     "task": "final_media",
+     "pass": false,
+     "category": "AUDIO_ALIGNMENT",
+     "measurement": "no render receipt"
+    },
+    {
+     "task": "film_review",
+     "pass": false,
+     "category": "EXTERNAL_HUMAN_REQUIRED",
+     "measurement": "UNREVIEWED"
+    }
+   ]
+  }
+ ]
+}

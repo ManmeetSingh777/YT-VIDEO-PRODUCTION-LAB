@@ -1,0 +1,117 @@
+{
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "chain_head": "dd2c866f2859adb1935ef69d4699e460527b44ee8376d6fd0effb0d729949206",
+ "events": 214,
+ "tasks": {
+  "total": 64,
+  "completed": 63,
+  "failed": 1,
+  "blocked": 0,
+  "stale": 0,
+  "remaining": 1,
+  "percent_verified": 98.4
+ },
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 2,
+   "verified": 2,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 5,
+   "verified": 5,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 10,
+   "verified": 10,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 12,
+   "verified": 12,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 13,
+   "verified": 13,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "COMMITTED",
+   "tasks": 13,
+   "verified": 13,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "BLOCKED",
+   "tasks": 2,
+   "verified": 1,
+   "failed": 1,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "next_operation": "resolve film_review",
+ "failures": [
+  {
+   "failure_id": "FAIL-S09_FILM_AUDIO_FINAL-film_review-86e807",
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "film_review",
+   "class": "EXTERNAL_HUMAN_REQUIRED",
+   "invariant": "verified HUMAN film receipt over the current bundle",
+   "observed": "DIAGNOSTIC run: a film review can never be satisfied"
+  }
+ ]
+}

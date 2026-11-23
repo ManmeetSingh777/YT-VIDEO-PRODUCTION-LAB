@@ -1,0 +1,1349 @@
+[
+ {
+  "producer": "palette.solvePalette",
+  "call": 1,
+  "reads": 326,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 3,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 4,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 5,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 6,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "worldgraph.buildWorld",
+  "call": 2,
+  "reads": 519,
+  "regions": 20,
+  "methods": [
+   "F37",
+   "F38",
+   "F10",
+   "F45"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 8,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 9,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 10,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 11,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 12,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 7,
+  "reads": 221,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 14,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 15,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 16,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 17,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 18,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 19,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 20,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 21,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 22,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 23,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 24,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "figure.poseFigure",
+  "call": 13,
+  "reads": 1534,
+  "regions": 15,
+  "methods": [
+   "F06",
+   "F66",
+   "F01",
+   "F58",
+   "F02"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 26,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 27,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 28,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 29,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 30,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 25,
+  "reads": 221,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 32,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 33,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 34,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 35,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 36,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 37,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 38,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 39,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 40,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 41,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 42,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "figure.poseFigure",
+  "call": 31,
+  "reads": 1534,
+  "regions": 16,
+  "methods": [
+   "F06",
+   "F66",
+   "F01",
+   "F58",
+   "F02"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 44,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 45,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 46,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 47,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 48,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 43,
+  "reads": 221,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 50,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 51,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 52,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 53,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 54,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 55,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 56,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 57,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 58,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 59,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 60,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "figure.poseFigure",
+  "call": 49,
+  "reads": 1534,
+  "regions": 15,
+  "methods": [
+   "F06",
+   "F66",
+   "F01",
+   "F58",
+   "F02"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 62,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 63,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 64,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 65,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 66,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 61,
+  "reads": 218,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 68,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 69,
+  "reads": 142,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 70,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 71,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 72,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 73,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 74,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 75,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 76,
+  "reads": 115,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 77,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "faceview.constructFaceView",
+  "call": 67,
+  "reads": 905,
+  "regions": 13,
+  "methods": [
+   "F05",
+   "F30",
+   "F02",
+   "F04",
+   "F65"
+  ]
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 78,
+  "reads": 26,
+  "regions": 1,
+  "methods": [
+   "F02",
+   "F46",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 79,
+  "reads": 25,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 80,
+  "reads": 33,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 81,
+  "reads": 18,
+  "regions": 2,
+  "methods": [
+   "F02",
+   "F46",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 82,
+  "reads": 18,
+  "regions": 2,
+  "methods": [
+   "F02",
+   "F46",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 83,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 84,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 85,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 86,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 88,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 89,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 90,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 91,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "worldgraph.buildWorld",
+  "call": 87,
+  "reads": 519,
+  "regions": 20,
+  "methods": [
+   "F37",
+   "F38",
+   "F10",
+   "F45"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 93,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 94,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 95,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 96,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 97,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 92,
+  "reads": 221,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 99,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 100,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 101,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 102,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 103,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 104,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 105,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 106,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 107,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 108,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 109,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "figure.poseFigure",
+  "call": 98,
+  "reads": 1534,
+  "regions": 17,
+  "methods": [
+   "F06",
+   "F66",
+   "F01",
+   "F58",
+   "F02"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 111,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 112,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 113,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 114,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 115,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 110,
+  "reads": 221,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 117,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 118,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 119,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 120,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 121,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 122,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 123,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 124,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 125,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 126,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 127,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "figure.poseFigure",
+  "call": 116,
+  "reads": 1534,
+  "regions": 18,
+  "methods": [
+   "F06",
+   "F66",
+   "F01",
+   "F58",
+   "F02"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 129,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 130,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 131,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 132,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 133,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 128,
+  "reads": 221,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 135,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 136,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 137,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 138,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 139,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 140,
+  "reads": 141,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 141,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 142,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 143,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 144,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 145,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "figure.poseFigure",
+  "call": 134,
+  "reads": 1534,
+  "regions": 17,
+  "methods": [
+   "F06",
+   "F66",
+   "F01",
+   "F58",
+   "F02"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 147,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 148,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 149,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 150,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 151,
+  "reads": 76,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "grip.constructGrip",
+  "call": 146,
+  "reads": 218,
+  "regions": 10,
+  "methods": [
+   "F06",
+   "F66",
+   "F59"
+  ]
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 153,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 154,
+  "reads": 142,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 155,
+  "reads": 102,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 156,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 157,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 158,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 159,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 160,
+  "reads": 63,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 161,
+  "reads": 115,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "contour.constructSilhouette",
+  "call": 162,
+  "reads": 89,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "faceview.constructFaceView",
+  "call": 152,
+  "reads": 905,
+  "regions": 13,
+  "methods": [
+   "F05",
+   "F30",
+   "F02",
+   "F04",
+   "F65"
+  ]
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 163,
+  "reads": 26,
+  "regions": 1,
+  "methods": [
+   "F02",
+   "F46",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 164,
+  "reads": 25,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 165,
+  "reads": 33,
+  "regions": 0,
+  "methods": []
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 166,
+  "reads": 18,
+  "regions": 2,
+  "methods": [
+   "F02",
+   "F46",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surfaces.patchByCause",
+  "call": 167,
+  "reads": 18,
+  "regions": 2,
+  "methods": [
+   "F02",
+   "F46",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 168,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 169,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 170,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "surface.constructEdge",
+  "call": 171,
+  "reads": 13,
+  "regions": 1,
+  "methods": [
+   "F62",
+   "F04"
+  ]
+ },
+ {
+  "producer": "effects.constructEffect",
+  "call": 172,
+  "reads": 14,
+  "regions": 13,
+  "methods": [
+   "F32",
+   "F04",
+   "F46",
+   "F63"
+  ]
+ }
+]

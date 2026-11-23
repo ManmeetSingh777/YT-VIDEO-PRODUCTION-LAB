@@ -1,0 +1,23 @@
+{
+ "artjob_id": "ARTJOB_MASTER_washer_master_38ddfd06",
+ "gate": {
+  "pass": false,
+  "status": "NOT_EVALUATED",
+  "failures": [],
+  "design_approval": {
+   "status": "NOT_EVALUATED"
+  }
+ },
+ "overrides": [
+  {
+   "field": "transparent_background",
+   "skill_value": false,
+   "contract_value": true,
+   "source": "motion_context.alpha_requirement=STRAIGHT"
+  }
+ ],
+ "method_delivery": null,
+ "motion_requirements_delivered_as_requirements": null,
+ "machine_motion_context_file": null,
+ "request_sha256": "7fc5835b340e199fd800a3a40c34aeba4e84350c1498a34c5f186aec526ac8b0"
+}

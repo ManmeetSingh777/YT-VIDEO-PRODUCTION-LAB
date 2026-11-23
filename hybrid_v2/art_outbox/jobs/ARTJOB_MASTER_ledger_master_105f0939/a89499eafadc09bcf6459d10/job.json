@@ -1,0 +1,113 @@
+{
+ "artjob_id": "ARTJOB_MASTER_ledger_master_105f0939",
+ "root_dependency": "ledger_master",
+ "identity_id": "ledger_glyphs",
+ "state_kind": "MASTER",
+ "asset_kind": "MASTER",
+ "medium": {
+  "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+  "why": "identity is locked from one approved master; derived states are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "ledger_glyphs",
+  "canonical_parent_asset": "ledger_master",
+  "shot_ids": [
+   "S03",
+   "S04",
+   "S06",
+   "S07"
+  ],
+  "frame_ranges": [
+   [
+    1920,
+    4080
+   ],
+   [
+    5160,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "inflow",
+   "outflow"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S04"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "depth_band": "FOCAL"
+  },
+  "oversized_paint_rect": [
+   0,
+   0,
+   1920,
+   1080
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD|PROCEDURAL|TRANSITION",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "ledger_turn_counter",
+   "ledger_coin_symbol",
+   "ledger_water_symbol",
+   "ledger_power_symbol",
+   "ledger_gas_symbol",
+   "ledger_lever_symbols",
+   "ledger_type_values"
+  ],
+  "why_this_drawing_is_needed": "canonical diagram language: wheel, pipes, glyph family. Required by: shot S04; world w_ledger in S04; transition S03->S04"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "49d5b6cb156788f5f23a16f73787758b4b4e04a4303800a0fc985e3e199da621",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "a89499eafadc09bcf6459d10",
+ "dependency_parts_digest": "a89499eafadc09bcf6459d10c553997f541bcd52f8ecb05d9d714a022a0395dc",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

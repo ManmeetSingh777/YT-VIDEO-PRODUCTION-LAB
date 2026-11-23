@@ -1,0 +1,662 @@
+[
+  {
+    "film": "NUCLEAR",
+    "method": "macro_wing_partwork",
+    "source_time_s": 49.4,
+    "native_frame_file": "witnesses/NUCLEAR/macro_wing_partwork_0049.40.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "macro_wing_partwork",
+    "source_time_s": 50.2,
+    "native_frame_file": "witnesses/NUCLEAR/macro_wing_partwork_0050.20.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "macro_wing_partwork",
+    "source_time_s": 51.0,
+    "native_frame_file": "witnesses/NUCLEAR/macro_wing_partwork_0051.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "infection_boundaries",
+    "source_time_s": 88.8,
+    "native_frame_file": "witnesses/NUCLEAR/infection_boundaries_0088.80.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "infection_boundaries",
+    "source_time_s": 89.6,
+    "native_frame_file": "witnesses/NUCLEAR/infection_boundaries_0089.60.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "infection_boundaries",
+    "source_time_s": 90.4,
+    "native_frame_file": "witnesses/NUCLEAR/infection_boundaries_0090.40.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "cartographic_flow",
+    "source_time_s": 296.0,
+    "native_frame_file": "witnesses/NUCLEAR/cartographic_flow_0296.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "cartographic_flow",
+    "source_time_s": 297.0,
+    "native_frame_file": "witnesses/NUCLEAR/cartographic_flow_0297.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "cartographic_flow",
+    "source_time_s": 298.0,
+    "native_frame_file": "witnesses/NUCLEAR/cartographic_flow_0298.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "environment_light_state",
+    "source_time_s": 384.0,
+    "native_frame_file": "witnesses/NUCLEAR/environment_light_state_0384.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "environment_light_state",
+    "source_time_s": 387.0,
+    "native_frame_file": "witnesses/NUCLEAR/environment_light_state_0387.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "NUCLEAR",
+    "method": "environment_light_state",
+    "source_time_s": 390.0,
+    "native_frame_file": "witnesses/NUCLEAR/environment_light_state_0390.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "perception_render_variants",
+    "source_time_s": 1.6,
+    "native_frame_file": "witnesses/BRAIN/perception_render_variants_0001.60.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "perception_render_variants",
+    "source_time_s": 3.0,
+    "native_frame_file": "witnesses/BRAIN/perception_render_variants_0003.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "perception_render_variants",
+    "source_time_s": 4.4,
+    "native_frame_file": "witnesses/BRAIN/perception_render_variants_0004.40.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "pose_choreography",
+    "source_time_s": 306.4,
+    "native_frame_file": "witnesses/BRAIN/pose_choreography_0306.40.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "pose_choreography",
+    "source_time_s": 307.0,
+    "native_frame_file": "witnesses/BRAIN/pose_choreography_0307.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "pose_choreography",
+    "source_time_s": 307.6,
+    "native_frame_file": "witnesses/BRAIN/pose_choreography_0307.60.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "optical_eyes",
+    "source_time_s": 115.2,
+    "native_frame_file": "witnesses/BRAIN/optical_eyes_0115.20.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "optical_eyes",
+    "source_time_s": 116.2,
+    "native_frame_file": "witnesses/BRAIN/optical_eyes_0116.20.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "optical_eyes",
+    "source_time_s": 117.2,
+    "native_frame_file": "witnesses/BRAIN/optical_eyes_0117.20.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "city_detail_hierarchy",
+    "source_time_s": 437.0,
+    "native_frame_file": "witnesses/BRAIN/city_detail_hierarchy_0437.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "city_detail_hierarchy",
+    "source_time_s": 438.0,
+    "native_frame_file": "witnesses/BRAIN/city_detail_hierarchy_0438.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "BRAIN",
+    "method": "city_detail_hierarchy",
+    "source_time_s": 439.0,
+    "native_frame_file": "witnesses/BRAIN/city_detail_hierarchy_0439.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "scale_and_orbit",
+    "source_time_s": 104.4,
+    "native_frame_file": "witnesses/SOLAR/scale_and_orbit_0104.40.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "scale_and_orbit",
+    "source_time_s": 105.0,
+    "native_frame_file": "witnesses/SOLAR/scale_and_orbit_0105.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "scale_and_orbit",
+    "source_time_s": 105.6,
+    "native_frame_file": "witnesses/SOLAR/scale_and_orbit_0105.60.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "warp_radial_geometry",
+    "source_time_s": 211.0,
+    "native_frame_file": "witnesses/SOLAR/warp_radial_geometry_0211.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "warp_radial_geometry",
+    "source_time_s": 211.5,
+    "native_frame_file": "witnesses/SOLAR/warp_radial_geometry_0211.50.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "warp_radial_geometry",
+    "source_time_s": 212.0,
+    "native_frame_file": "witnesses/SOLAR/warp_radial_geometry_0212.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "machine_whiteout",
+    "source_time_s": 401.0,
+    "native_frame_file": "witnesses/SOLAR/machine_whiteout_0401.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "machine_whiteout",
+    "source_time_s": 403.0,
+    "native_frame_file": "witnesses/SOLAR/machine_whiteout_0403.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "machine_whiteout",
+    "source_time_s": 407.0,
+    "native_frame_file": "witnesses/SOLAR/machine_whiteout_0407.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "post_sponsor_return",
+    "source_time_s": 316.0,
+    "native_frame_file": "witnesses/SOLAR/post_sponsor_return_0316.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "post_sponsor_return",
+    "source_time_s": 318.0,
+    "native_frame_file": "witnesses/SOLAR/post_sponsor_return_0318.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "SOLAR",
+    "method": "post_sponsor_return",
+    "source_time_s": 320.0,
+    "native_frame_file": "witnesses/SOLAR/post_sponsor_return_0320.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "animal_surface_anatomy",
+    "source_time_s": 53.2,
+    "native_frame_file": "witnesses/AI/animal_surface_anatomy_0053.20.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "animal_surface_anatomy",
+    "source_time_s": 54.0,
+    "native_frame_file": "witnesses/AI/animal_surface_anatomy_0054.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "animal_surface_anatomy",
+    "source_time_s": 54.8,
+    "native_frame_file": "witnesses/AI/animal_surface_anatomy_0054.80.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "historical_montage",
+    "source_time_s": 144.0,
+    "native_frame_file": "witnesses/AI/historical_montage_0144.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "historical_montage",
+    "source_time_s": 145.0,
+    "native_frame_file": "witnesses/AI/historical_montage_0145.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "historical_montage",
+    "source_time_s": 146.0,
+    "native_frame_file": "witnesses/AI/historical_montage_0146.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "scientific_network_diagram",
+    "source_time_s": 356.0,
+    "native_frame_file": "witnesses/AI/scientific_network_diagram_0356.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "scientific_network_diagram",
+    "source_time_s": 357.0,
+    "native_frame_file": "witnesses/AI/scientific_network_diagram_0357.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "scientific_network_diagram",
+    "source_time_s": 358.0,
+    "native_frame_file": "witnesses/AI/scientific_network_diagram_0358.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "pane_local_material",
+    "source_time_s": 250.0,
+    "native_frame_file": "witnesses/AI/pane_local_material_0250.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "pane_local_material",
+    "source_time_s": 251.0,
+    "native_frame_file": "witnesses/AI/pane_local_material_0251.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "pane_local_material",
+    "source_time_s": 252.0,
+    "native_frame_file": "witnesses/AI/pane_local_material_0252.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "depth_response_and_contact",
+    "source_time_s": 842.0,
+    "native_frame_file": "witnesses/AI/depth_response_and_contact_0842.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "depth_response_and_contact",
+    "source_time_s": 843.0,
+    "native_frame_file": "witnesses/AI/depth_response_and_contact_0843.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "AI",
+    "method": "depth_response_and_contact",
+    "source_time_s": 844.0,
+    "native_frame_file": "witnesses/AI/depth_response_and_contact_0844.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "synaptic_detailed_patches",
+    "source_time_s": 74.0,
+    "native_frame_file": "witnesses/MEMORIES/synaptic_detailed_patches_0074.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "synaptic_detailed_patches",
+    "source_time_s": 75.0,
+    "native_frame_file": "witnesses/MEMORIES/synaptic_detailed_patches_0075.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "synaptic_detailed_patches",
+    "source_time_s": 76.0,
+    "native_frame_file": "witnesses/MEMORIES/synaptic_detailed_patches_0076.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "population_field",
+    "source_time_s": 62.0,
+    "native_frame_file": "witnesses/MEMORIES/population_field_0062.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "population_field",
+    "source_time_s": 63.0,
+    "native_frame_file": "witnesses/MEMORIES/population_field_0063.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "population_field",
+    "source_time_s": 64.0,
+    "native_frame_file": "witnesses/MEMORIES/population_field_0064.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "anatomy_region_assembly",
+    "source_time_s": 159.0,
+    "native_frame_file": "witnesses/MEMORIES/anatomy_region_assembly_0159.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "anatomy_region_assembly",
+    "source_time_s": 160.0,
+    "native_frame_file": "witnesses/MEMORIES/anatomy_region_assembly_0160.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "anatomy_region_assembly",
+    "source_time_s": 161.0,
+    "native_frame_file": "witnesses/MEMORIES/anatomy_region_assembly_0161.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "memory_container_projection",
+    "source_time_s": 464.0,
+    "native_frame_file": "witnesses/MEMORIES/memory_container_projection_0464.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "memory_container_projection",
+    "source_time_s": 465.0,
+    "native_frame_file": "witnesses/MEMORIES/memory_container_projection_0465.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "memory_container_projection",
+    "source_time_s": 466.0,
+    "native_frame_file": "witnesses/MEMORIES/memory_container_projection_0466.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "neural_time_activation",
+    "source_time_s": 541.0,
+    "native_frame_file": "witnesses/MEMORIES/neural_time_activation_0541.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "neural_time_activation",
+    "source_time_s": 542.0,
+    "native_frame_file": "witnesses/MEMORIES/neural_time_activation_0542.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "film": "MEMORIES",
+    "method": "neural_time_activation",
+    "source_time_s": 543.0,
+    "native_frame_file": "witnesses/MEMORIES/neural_time_activation_0543.00.png",
+    "dimensions": [
+      1920,
+      1080
+    ]
+  }
+]

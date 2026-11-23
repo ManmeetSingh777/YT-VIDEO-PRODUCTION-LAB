@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:209",
+ "sequence": 209,
+ "prev_event_sha256": "a1a16d5fdfcdf6a781eaf91b817656779b503206b09e147f996472863697bf56",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S09_FILM_AUDIO_FINAL",
+ "attempt_id": "Amwryca8g",
+ "operation_id": null,
+ "task_id": "film_review",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:208"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:32.505Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "film_review",
+  "producer": "engine/tools/art_bridge_film_qa.mjs#reviewFilm (independent human)",
+  "inputs": [],
+  "expected_outputs": [
+   "independent human film approval"
+  ],
+  "deps": [
+   "final_media"
+  ],
+  "invariants": [],
+  "verification": "verified HUMAN film receipt over the current bundle",
+  "evidence_location": "production/store",
+  "category": "EXTERNAL_HUMAN_REQUIRED",
+  "group": null
+ },
+ "lock_generation": 209,
+ "event_sha256": "d3c9c9e3b85742d3f2ad241129577bdf420e0904cc01ac2b00b2e957b8ef2161"
+}

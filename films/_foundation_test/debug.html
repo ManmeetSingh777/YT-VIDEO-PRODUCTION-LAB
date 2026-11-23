@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- Debug harness: mounts ONE built composition outside HyperFrames so its runtime state can be inspected.
+     Serve the FILM directory and open /debug.html?scene=sc01&t=12.6  (copied into the film by studio debug). -->
+<html><head><meta charset="utf-8">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="assets/nu.js"></script><script src="assets/mn.js"></script>
+<style>body{margin:0;background:#111}#stage{position:relative;width:1920px;height:1080px;transform-origin:0 0}</style></head>
+<body><div id="stage"></div><script>
+(async () => {
+  const q = new URLSearchParams(location.search), id = q.get("scene") || "sc01";
+  const html = await (await fetch(`compositions/${id}.html`)).text();
+  const tpl = document.createElement("template"); tpl.innerHTML = html.replace(/^\s*<template>|<\/template>\s*$/g, "");
+  const frag = tpl.content; const scripts = [...frag.querySelectorAll("script")]; scripts.forEach((s) => s.remove());
+  document.getElementById("stage").appendChild(frag);
+  for (const s of scripts) (0, eval)(s.textContent);
+  window.seek = (t) => { window.__timelines[id].seek(t, false); return t; };
+  seek(+(q.get("t") || 0)); document.title = "ready";
+})();
+</script></body></html>

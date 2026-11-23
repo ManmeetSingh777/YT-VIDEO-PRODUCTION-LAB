@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:37",
+ "sequence": 37,
+ "prev_event_sha256": "f105ea80408cdb047029dab3f8887a5a3e0d8d8ab16f0465e8f0ca13475f596e",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwrxc5o6",
+ "operation_id": null,
+ "task_id": "actions_rt_world_shot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:36"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:26.733Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 37,
+ "event_sha256": "d943be8a6d44ad8c2058e5ad6c2160ab6fe96a4915d7b37b64d4c6d2d1013e7a"
+}

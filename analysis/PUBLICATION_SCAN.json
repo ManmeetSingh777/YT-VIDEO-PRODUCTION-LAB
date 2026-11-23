@@ -1,0 +1,70 @@
+{
+ "studio": "E:\\MOTION_NATIVE_STUDIO_V1",
+ "candidates": 4493,
+ "publish": 3311,
+ "publish_bytes": 83969882,
+ "excluded": 1182,
+ "excluded_bytes": 1450332917,
+ "secret_hits": [],
+ "pii_categories": {
+  "local_user_path": {
+   "files": 3,
+   "occurrences": 443,
+   "examples": [
+    "hybrid_v2/evidence/p01/P01_REPRODUCTION_BEFORE_ADDED_TESTS.txt",
+    "reference/neutrino_2m_SOURCE_PACKAGE/evidence/video-state.json",
+    "reference/neutrino_2m_SOURCE_PACKAGE/forensics/01_ORIGINAL_SESSION_AND_INPUTS.md"
+   ]
+  }
+ },
+ "largest_published": [
+  [
+   2328950,
+   "reference/neutrino_2m_SOURCE_PACKAGE/source/assets/grain.png"
+  ],
+  [
+   2328950,
+   "films/_verify_neutrino/assets/grain.png"
+  ],
+  [
+   1990762,
+   "reference/construct-kurzgesagt-art/assets/native_frame_feature_evidence/AI_features.npz"
+  ],
+  [
+   1895659,
+   "films/hv2_film001/qa/manifest_v2_report.json"
+  ],
+  [
+   1895659,
+   "films/hv2_film001/qa/hybrid_v2/manifest_check.json"
+  ],
+  [
+   1673701,
+   "reference/construct-kurzgesagt-art/assets/native_frame_feature_evidence/MEMORIES_features.npz"
+  ],
+  [
+   1665080,
+   "films/_qual_A/assets/audio/sfx.wav"
+  ],
+  [
+   1523380,
+   "reference/construct-kurzgesagt-art/assets/native_frame_feature_evidence/SOLAR_features.npz"
+  ],
+  [
+   1513582,
+   "hybrid_v2/work/p02/injection/INJECTION_OFFLOAD_MANIFEST.json"
+  ],
+  [
+   1489102,
+   "reference/construct-kurzgesagt-art/assets/native_frame_feature_evidence/BRAIN_features.npz"
+  ],
+  [
+   1357417,
+   "reference/construct-kurzgesagt-art/assets/native_frame_feature_evidence/NUCLEAR_features.npz"
+  ],
+  [
+   966602,
+   "films/_foundation_test/assets/audio/narration.wav"
+  ]
+ ]
+}

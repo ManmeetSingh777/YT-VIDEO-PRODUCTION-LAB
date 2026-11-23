@@ -1,0 +1,336 @@
+{
+ "status": "DIAGNOSTIC_ROUND_TRIP",
+ "assets": [
+  {
+   "asset_id": "pilot_master",
+   "identity_id": "pilot",
+   "kind": "MASTER",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "canonical identity",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "rt_world_far",
+   "identity_id": "rt_world",
+   "kind": "WORLD_PLANE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_world_shot"
+   ],
+   "why": "canonical world plate (delivered at 2 px per canonical unit)",
+   "depth_band": "FAR",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "pilot_body",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "pilot_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "pelvis",
+   "pivot_landmark_id": "pelvis",
+   "pivot_xy": [
+    150,
+    300
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "torso+head cutout",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "pilot_upper_arm",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "pilot_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "shoulder_r",
+   "pivot_landmark_id": "shoulder_r",
+   "pivot_xy": [
+    195,
+    135
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_body"
+    }
+   ],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "upper arm cutout",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "pilot_forearm",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "manufacturing_order": 2,
+   "derived_from": "pilot_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "elbow_r",
+   "pivot_landmark_id": "elbow_r",
+   "pivot_xy": [
+    215,
+    215
+   ],
+   "hidden_surfaces": [
+    "elbow_inner"
+   ],
+   "surface_underpaint": {
+    "elbow_inner": "pilot_underpaint"
+   },
+   "draw_order": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_upper_arm"
+    }
+   ],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "forearm cutout; bending reveals the inner elbow, owned by pilot_underpaint",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "pilot_underpaint",
+   "identity_id": "pilot",
+   "kind": "UNDERPAINT",
+   "manufacturing_order": 2,
+   "derived_from": "pilot_master",
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "elbow_r",
+   "pivot_landmark_id": "elbow_r",
+   "pivot_xy": [
+    215,
+    215
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "BELOW",
+     "asset_id": "pilot_upper_arm"
+    },
+    {
+     "relation": "BELOW",
+     "asset_id": "pilot_forearm"
+    },
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_body"
+    }
+   ],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "elbow underpaint",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "pilot_hand_open",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "pilot_master",
+   "view_id": "front",
+   "pose_id": "open",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    225,
+    295
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_forearm"
+    }
+   ],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "open hand state",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "pilot_hand_grip",
+   "identity_id": "pilot",
+   "kind": "PART",
+   "manufacturing_order": 3,
+   "derived_from": "pilot_master",
+   "view_id": "front",
+   "pose_id": "grip",
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": "wrist_r",
+   "pivot_landmark_id": "wrist_r",
+   "pivot_xy": [
+    225,
+    295
+   ],
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "pilot_forearm"
+    }
+   ],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "closed grip state",
+   "depth_band": "FOCAL",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "portal_out",
+   "identity_id": "portal_out_w",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "DIAGNOSTIC portal out",
+   "depth_band": "FAR",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "portal_mid",
+   "identity_id": "portal_mid_w",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "DIAGNOSTIC portal mid",
+   "depth_band": "FAR",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "portal_in",
+   "identity_id": "portal_in_w",
+   "kind": "TRANSITION_PLATE",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "OPAQUE",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "DIAGNOSTIC portal in",
+   "depth_band": "FAR",
+   "overscan_rect": null
+  },
+  {
+   "asset_id": "portal_aperture",
+   "identity_id": "portal_aperture_w",
+   "kind": "MASK",
+   "manufacturing_order": 1,
+   "derived_from": null,
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "alpha_mode": "STRAIGHT",
+   "joint_id": null,
+   "pivot_landmark_id": null,
+   "pivot_xy": null,
+   "hidden_surfaces": [],
+   "surface_underpaint": {},
+   "draw_order": [],
+   "shots": [
+    "rt_shot"
+   ],
+   "why": "DIAGNOSTIC portal mask",
+   "depth_band": "FAR",
+   "overscan_rect": null
+  }
+ ]
+}

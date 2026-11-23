@@ -1,0 +1,658 @@
+{
+ "job": "ARTJOB_MASTER_ines_master_211539ad",
+ "family": "ACTING_HUMAN",
+ "nodes": [
+  {
+   "id": "F01:outer silhouette",
+   "kind": "STRUCTURE",
+   "method_id": "F01",
+   "source_hash": "040079e40a2ff574b39dce790f6bcd28085438dcfdfafa04c9dbbe6fa56eadb3",
+   "consumer": "provider stage 1",
+   "instruction": "Fill the whole figure in one flat colour: the head turn, the free near hand and the planted far foot must read; structural masses join only at neck/shoulder/hip/cuff",
+   "positive_contrast": "the runner reads through a stride; the farmer through a kneel into contact — Ines reads through a standing reach",
+   "forbidden_generic_replacement": "At one-tenth size the flat-filled figure does not read as a person reaching",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]"
+   ],
+   "method_output_digest": "2327053b535150dc10f91631b99299df8b2ada9cd09434b88e96c715c8af13d2"
+  },
+  {
+   "id": "F01:named masses with parents",
+   "kind": "STRUCTURE",
+   "method_id": "F01",
+   "source_hash": "040079e40a2ff574b39dce790f6bcd28085438dcfdfafa04c9dbbe6fa56eadb3",
+   "consumer": "provider stage 1",
+   "instruction": "Fill the whole figure in one flat colour: the head turn, the free near hand and the planted far foot must read; structural masses join only at neck/shoulder/hip/cuff",
+   "positive_contrast": "the runner reads through a stride; the farmer through a kneel into contact — Ines reads through a standing reach",
+   "forbidden_generic_replacement": "At one-tenth size the flat-filled figure does not read as a person reaching",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]"
+   ],
+   "method_output_digest": "2327053b535150dc10f91631b99299df8b2ada9cd09434b88e96c715c8af13d2"
+  },
+  {
+   "id": "F02:surface region map",
+   "kind": "SURFACE",
+   "method_id": "F02",
+   "source_hash": "0eb8ef8a0b72dd7c32d83dea489c59c6a991c1eee548f9eff0a352d7c99374d0",
+   "consumer": "provider stage 3",
+   "instruction": "Paint regions edge-to-edge with no outline; where two regions meet the colour change IS the edge",
+   "positive_contrast": "runner's trousers are one dark mass; the clinic figure separates collar and sweater by colour only",
+   "forbidden_generic_replacement": "Any black or dark outline separates two regions of the same owner",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[800,520,560,300]",
+    "MEMORIES_0753_clinic_humans.jpg[1240,340,560,740]"
+   ],
+   "method_output_digest": "4fa15ade2ba2c530663dda0087a27c5b155f01a7cd7b39bbee391cbc62d12c42"
+  },
+  {
+   "id": "F03:role table per region",
+   "kind": "SURFACE",
+   "method_id": "F03",
+   "source_hash": "2bef93969c3c76aad05c8223cf9041d9dda2d8982fa08b86dc5f6c832ae62a8b",
+   "consumer": "provider stage 3",
+   "instruction": "Assign each region one role and keep the near hand the warmest small region",
+   "positive_contrast": "the runner sits on a warm field; the clinic actors pop from a cool monochrome room — Ines is a cutout, so contrast is internal",
+   "forbidden_generic_replacement": "The jacket is warmer or more saturated than the near hand",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]",
+    "MEMORIES_0753_clinic_humans.jpg[0,0,1920,700]"
+   ],
+   "method_output_digest": "5feb754411f027557978b5b8fda004659a87f203030e691476372d4d6a7a019e"
+  },
+  {
+   "id": "F04:far-side planes",
+   "kind": "SURFACE",
+   "method_id": "F04",
+   "source_hash": "cc98d61da82504fd7a7f4906b48e4bd8a12b3bebdb2ed92fea17c4dce7bd4f4f",
+   "consumer": "provider stage 3",
+   "instruction": "Paint one darker plane on the far side of jacket and trousers; nothing else changes value",
+   "positive_contrast": "bench and jeans both use one darker side plane; neither uses gradients",
+   "forbidden_generic_replacement": "A gradient, highlight or soft shading patch appears",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1360,340,540,360]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,560,240,280]"
+   ],
+   "method_output_digest": "81bcb6d3fe4b6fd2584442117a1e1e73653b14ae85c77e86e3c8fdb2f949f74c"
+  },
+  {
+   "id": "F05:head regions",
+   "kind": "STRUCTURE",
+   "method_id": "F05",
+   "source_hash": "f4598310520b14b45bd2d9b0843c91bcb1c6208e7ec0a626d682fb02a599fd57",
+   "consumer": "provider stage 1",
+   "instruction": "Draw skull, face plane, hair mass and ear patch as separate owned regions; neutral/curious/satisfied redraw brow, lid and mouth contours",
+   "positive_contrast": "runner: open alarmed mouth; clinic: closed-lid content arcs — different contours, same construction",
+   "forbidden_generic_replacement": "Expressions are produced by swapping a pasted eye/mouth sticker on an unchanged face",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]",
+    "MEMORIES_0753_clinic_humans.jpg[1420,400,240,260]"
+   ],
+   "method_output_digest": "f47b037587c16ed764a5eb2a7934e5b1e145a70c887c4f63c24b4aef91f3b3c5"
+  },
+  {
+   "id": "F05:three facial states",
+   "kind": "STRUCTURE",
+   "method_id": "F05",
+   "source_hash": "f4598310520b14b45bd2d9b0843c91bcb1c6208e7ec0a626d682fb02a599fd57",
+   "consumer": "provider stage 1",
+   "instruction": "Draw skull, face plane, hair mass and ear patch as separate owned regions; neutral/curious/satisfied redraw brow, lid and mouth contours",
+   "positive_contrast": "runner: open alarmed mouth; clinic: closed-lid content arcs — different contours, same construction",
+   "forbidden_generic_replacement": "Expressions are produced by swapping a pasted eye/mouth sticker on an unchanged face",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]",
+    "MEMORIES_0753_clinic_humans.jpg[1420,400,240,260]"
+   ],
+   "method_output_digest": "f47b037587c16ed764a5eb2a7934e5b1e145a70c887c4f63c24b4aef91f3b3c5"
+  },
+  {
+   "id": "F06:open hand",
+   "kind": "STRUCTURE",
+   "method_id": "F06",
+   "source_hash": "9b4f5deb91eb36f7fb32fe92fa7687afbd98cc17a120767a91b87d3933a89283",
+   "consumer": "provider stage 1",
+   "instruction": "Draw the canonical open hand clear of the jacket; grip and pinch are separate source-attached hand drawings with explicit near/far finger order",
+   "positive_contrast": "clinic grip wraps an edge; farm palm presses flat; runner hand is free — Ines needs all three behaviours",
+   "forbidden_generic_replacement": "Fingers pass through the handle or the thumb is on the wrong side",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1400,720,160,120]",
+    "NUCLEAR_0083_farm_humans.jpg[1380,510,80,60]",
+    "BRAIN_0386_runner_human.jpg[1360,350,120,110]"
+   ],
+   "method_output_digest": "cafe90a5d685816770cf788771bdee988835c4e82627b57f237d31c039b90a74"
+  },
+  {
+   "id": "F06:grip hand",
+   "kind": "STRUCTURE",
+   "method_id": "F06",
+   "source_hash": "9b4f5deb91eb36f7fb32fe92fa7687afbd98cc17a120767a91b87d3933a89283",
+   "consumer": "provider stage 1",
+   "instruction": "Draw the canonical open hand clear of the jacket; grip and pinch are separate source-attached hand drawings with explicit near/far finger order",
+   "positive_contrast": "clinic grip wraps an edge; farm palm presses flat; runner hand is free — Ines needs all three behaviours",
+   "forbidden_generic_replacement": "Fingers pass through the handle or the thumb is on the wrong side",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1400,720,160,120]",
+    "NUCLEAR_0083_farm_humans.jpg[1380,510,80,60]",
+    "BRAIN_0386_runner_human.jpg[1360,350,120,110]"
+   ],
+   "method_output_digest": "cafe90a5d685816770cf788771bdee988835c4e82627b57f237d31c039b90a74"
+  },
+  {
+   "id": "F06:pinch hand",
+   "kind": "STRUCTURE",
+   "method_id": "F06",
+   "source_hash": "9b4f5deb91eb36f7fb32fe92fa7687afbd98cc17a120767a91b87d3933a89283",
+   "consumer": "provider stage 1",
+   "instruction": "Draw the canonical open hand clear of the jacket; grip and pinch are separate source-attached hand drawings with explicit near/far finger order",
+   "positive_contrast": "clinic grip wraps an edge; farm palm presses flat; runner hand is free — Ines needs all three behaviours",
+   "forbidden_generic_replacement": "Fingers pass through the handle or the thumb is on the wrong side",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1400,720,160,120]",
+    "NUCLEAR_0083_farm_humans.jpg[1380,510,80,60]",
+    "BRAIN_0386_runner_human.jpg[1360,350,120,110]"
+   ],
+   "method_output_digest": "cafe90a5d685816770cf788771bdee988835c4e82627b57f237d31c039b90a74"
+  },
+  {
+   "id": "F06:contact graph",
+   "kind": "STRUCTURE",
+   "method_id": "F06",
+   "source_hash": "9b4f5deb91eb36f7fb32fe92fa7687afbd98cc17a120767a91b87d3933a89283",
+   "consumer": "provider stage 1",
+   "instruction": "Draw the canonical open hand clear of the jacket; grip and pinch are separate source-attached hand drawings with explicit near/far finger order",
+   "positive_contrast": "clinic grip wraps an edge; farm palm presses flat; runner hand is free — Ines needs all three behaviours",
+   "forbidden_generic_replacement": "Fingers pass through the handle or the thumb is on the wrong side",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1400,720,160,120]",
+    "NUCLEAR_0083_farm_humans.jpg[1380,510,80,60]",
+    "BRAIN_0386_runner_human.jpg[1360,350,120,110]"
+   ],
+   "method_output_digest": "cafe90a5d685816770cf788771bdee988835c4e82627b57f237d31c039b90a74"
+  },
+  {
+   "id": "F14:six state drawings",
+   "kind": "STATE",
+   "method_id": "F14",
+   "source_hash": "436fdf2661c63bb74d7a7ed19856d5ad93e42b61859e0596c7904c41a5d261b5",
+   "consumer": "state-edit stages",
+   "instruction": "Each alternate state is a separate source-attached drawing registered to the master",
+   "positive_contrast": "the two clinic faces show two views drawn separately, not rotated",
+   "forbidden_generic_replacement": "A state is produced by scaling/rotating the master instead of a drawing",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1420,400,240,260]",
+    "MEMORIES_0753_clinic_humans.jpg[460,440,320,320]"
+   ],
+   "method_output_digest": "e4e1f7edb64d830dc4758500065e4cc2bf42c3eed95dab99f1fc3dac710b95e1"
+  },
+  {
+   "id": "F30:state library sheet",
+   "kind": "STATE",
+   "method_id": "F30",
+   "source_hash": "02dfecf7e354057bbe52d746ae75de360040c8b5ac30046fd1446b0130fa5fe0",
+   "consumer": "state-edit stages",
+   "instruction": "Produce the library as registered edits of the approved master before any motion is keyed",
+   "positive_contrast": "a calm and an alarmed face from two films prove states are designed, not implied",
+   "forbidden_generic_replacement": "A state needed by the action graph is missing from the library",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1420,400,240,260]",
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]"
+   ],
+   "method_output_digest": "0a55651bf5ee3a2f7e010758772723d41baa31014de60a3109475edacfa27239"
+  },
+  {
+   "id": "F33:detail-owner map",
+   "kind": "STRUCTURE",
+   "method_id": "F33",
+   "source_hash": "9717cdd96d19d2b2af05a3c46b6feb8e16874dded6130ac88677854bfa31005b",
+   "consumer": "provider stage 1",
+   "instruction": "Spend interior marks only on face and near hand; jacket and trousers keep one side plane and the cuff band",
+   "positive_contrast": "farmer at mid distance has few marks; the close runner has more on the face only",
+   "forbidden_generic_replacement": "The trousers or jacket carry more marks than the hand",
+   "target_native_region": [
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]",
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]"
+   ],
+   "method_output_digest": "e1aac345cc9f80c473e2d2828b0c29236f507fe5c00f06f1608f6815cbe1d0a3"
+  },
+  {
+   "id": "F51:palette table",
+   "kind": "SURFACE",
+   "method_id": "F51",
+   "source_hash": "0981421215240d47447d7fb1778a4b75aa623c77f63d65193c1e212d88532724",
+   "consumer": "provider stage 3",
+   "instruction": "Paint only these roles; any new colour must name its owner",
+   "positive_contrast": "warm park field vs cool clinic room: roles, not a fixed swatch set",
+   "forbidden_generic_replacement": "A colour appears that no region owns",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1360,340,540,360]",
+    "MEMORIES_0753_clinic_humans.jpg[0,0,1920,700]"
+   ],
+   "method_output_digest": "115d0b78e7630d9b7d8b14883b9b7a3e8005bec8fa48bd9fd0681f5a3e9f9c20"
+  },
+  {
+   "id": "F52:mark budget",
+   "kind": "STRUCTURE",
+   "method_id": "F52",
+   "source_hash": "eaf6a4916e6bfa5524accceea916a3e781adb475d2bd03a84f66792b49042e11",
+   "consumer": "provider stage 1",
+   "instruction": "Place only these marks on the face; hand marks = thumb separation only",
+   "positive_contrast": "close runner face carries white sclera; the mid-distance farm face drops it",
+   "forbidden_generic_replacement": "Lashes, nostrils or knuckle lines appear",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]",
+    "NUCLEAR_0083_farm_humans.jpg[1540,260,140,140]"
+   ],
+   "method_output_digest": "aea93d3ce0976b3fcd8b84415989ac85428c2d47f7decdcbf67ab4b4dd18e08b"
+  },
+  {
+   "id": "F53:quiet support masses",
+   "kind": "STRUCTURE",
+   "method_id": "F53",
+   "source_hash": "8af713eea28ce1b02a273745b1212868c8ad754d9fd61d2fe7bdbcfc75440784",
+   "consumer": "provider stage 1",
+   "instruction": "Keep the torso and legs quiet so the hand and the glance carry the explanation",
+   "positive_contrast": "the clinic sweater and farm shirt are plain; the action points carry the detail",
+   "forbidden_generic_replacement": "Pattern or texture appears on the jacket",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1240,340,560,740]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]"
+   ],
+   "method_output_digest": "0ad5998c50e27a303d105d504a0535dd647749b1e116559caccaf368d0714de9"
+  },
+  {
+   "id": "F57:unoccluded hand and face",
+   "kind": "STRUCTURE",
+   "method_id": "F57",
+   "source_hash": "aba406d3afd6245919452ba52d32bb0e75e161187bbc251b43fc711a9a294ad0",
+   "consumer": "provider stage 2",
+   "instruction": "Keep hand and face unoccluded in the canonical view so the later contact and gaze states read",
+   "positive_contrast": "both witnesses show the contact point unoccluded",
+   "forbidden_generic_replacement": "In the canonical pose the hand or face is hidden by another mass",
+   "target_native_region": [
+    "NUCLEAR_0083_farm_humans.jpg[1380,510,80,60]",
+    "MEMORIES_0753_clinic_humans.jpg[1400,720,160,120]"
+   ],
+   "method_output_digest": "9019f39b14108e3a8f966aea202a5c203c5cd42bfb2c69b7a364a6470bfb422f"
+  },
+  {
+   "id": "F58:silhouette test image",
+   "kind": "STRUCTURE",
+   "method_id": "F58",
+   "source_hash": "f033e67fdb480405796f8a090cdc554a6ab7bd7b6cd50e37809327dcb24ffac4",
+   "consumer": "provider stage 2",
+   "instruction": "Deliver the flat-filled silhouette test with the master",
+   "positive_contrast": "both figures read as flat silhouettes",
+   "forbidden_generic_replacement": "The silhouette test fails while interior detail exists",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]",
+    "MEMORIES_0753_clinic_humans.jpg[1240,340,560,740]"
+   ],
+   "method_output_digest": "fb2dbc0ae5aa986a3f2d61713b35bc2f16657967b65abfac29bce83f2b43a1c4"
+  },
+  {
+   "id": "F59:overlap map",
+   "kind": "STRUCTURE",
+   "method_id": "F59",
+   "source_hash": "5115c4cf9aa252cd8eff17745a0b348bbddba9695d4d79aafb43517a1e8a78e4",
+   "consumer": "provider stage 2",
+   "instruction": "Paint the joins as overlaps so cut parts carry hidden surface under each overlap",
+   "positive_contrast": "runner sleeve over torso and farmer cuff over wrist are overlaps",
+   "forbidden_generic_replacement": "A join is a hard seam with no overlap",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]"
+   ],
+   "method_output_digest": "988d6289f3797a815111222cf9b29c1ab250a0fff997fc29511579c7b45348f8"
+  },
+  {
+   "id": "F59:hidden surfaces for underpaint",
+   "kind": "STRUCTURE",
+   "method_id": "F59",
+   "source_hash": "5115c4cf9aa252cd8eff17745a0b348bbddba9695d4d79aafb43517a1e8a78e4",
+   "consumer": "provider stage 2",
+   "instruction": "Paint the joins as overlaps so cut parts carry hidden surface under each overlap",
+   "positive_contrast": "runner sleeve over torso and farmer cuff over wrist are overlaps",
+   "forbidden_generic_replacement": "A join is a hard seam with no overlap",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]"
+   ],
+   "method_output_digest": "988d6289f3797a815111222cf9b29c1ab250a0fff997fc29511579c7b45348f8"
+  },
+  {
+   "id": "F61:role swatches",
+   "kind": "SURFACE",
+   "method_id": "F61",
+   "source_hash": "cdc226df0778c990adc366e4c221a7bda83b2cc05a47bfb20aa350b399cc7edf",
+   "consumer": "provider stage 3",
+   "instruction": "Role colours are invented for Ines; no witness swatch is sampled",
+   "positive_contrast": "both use navy/blue trousers — Ines deliberately uses teal to stay original",
+   "forbidden_generic_replacement": "A witness colour is reused as Ines's identity colour",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[800,520,560,300]",
+    "NUCLEAR_0083_farm_humans.jpg[1040,560,240,280]"
+   ],
+   "method_output_digest": "8861726ae52446944e5e56a3afae382a3aca1fc38512c62bfee9f8f785b439a6"
+  },
+  {
+   "id": "F62:edge/shadow owners",
+   "kind": "SURFACE",
+   "method_id": "F62",
+   "source_hash": "b0abedf733f39e29aed179f297bb3a4079bad25fa71e8660ab0848226e89a274",
+   "consumer": "provider stage 3",
+   "instruction": "Paint no cast shadow inside the cutout; far-side planes only",
+   "positive_contrast": "the runner's ground shadow is a world shape; the bench owns its own darker plane",
+   "forbidden_generic_replacement": "A crescent shadow is painted on every part",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[900,860,420,90]",
+    "BRAIN_0386_runner_human.jpg[1360,340,540,360]"
+   ],
+   "method_output_digest": "53a0dadf167cd40d539114b82d2bdd8c3876dadc85442a0965e9b5b105e8cb87"
+  },
+  {
+   "id": "F64:canonical identity parts",
+   "kind": "STRUCTURE",
+   "method_id": "F64",
+   "source_hash": "de6e0e04f9fd03abcb4d88e001e16959bc9e1927159bca76509f69aa85eb1473",
+   "consumer": "provider stage 2",
+   "instruction": "Construct the canonical identity parts listed in canonical_identity for the full figure",
+   "positive_contrast": "full-body runner vs close turned face — Ines is full-body",
+   "forbidden_generic_replacement": "A close acting-face construction is used for a full-figure actor",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]",
+    "MEMORIES_0753_clinic_humans.jpg[460,440,320,320]"
+   ],
+   "method_output_digest": "c5e3d99608aa406d8e9c54a63196090489dbceddf402530b884f0572019f8aa6"
+  },
+  {
+   "id": "F65:eye construction",
+   "kind": "STRUCTURE",
+   "method_id": "F65",
+   "source_hash": "ece502d8451377dfda459af3019c7a2ea6623e60f2283e2d5f2aba1192fa8bae",
+   "consumer": "provider stage 2",
+   "instruction": "Draw white almond openings with dark pupils; the far eye narrowed by the nose wedge",
+   "positive_contrast": "runner (close) uses sclera; farmer (mid) uses dark marks",
+   "forbidden_generic_replacement": "Dark-mark eyes are used at the large head size where the glance must read",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]",
+    "NUCLEAR_0083_farm_humans.jpg[1540,260,140,140]"
+   ],
+   "method_output_digest": "f9242803ce609d1cfab49d7cf744d92bde3b4ce5e94bc5f4be64e34fc024029d"
+  },
+  {
+   "id": "F65:mouth states",
+   "kind": "STRUCTURE",
+   "method_id": "F65",
+   "source_hash": "ece502d8451377dfda459af3019c7a2ea6623e60f2283e2d5f2aba1192fa8bae",
+   "consumer": "provider stage 2",
+   "instruction": "Draw white almond openings with dark pupils; the far eye narrowed by the nose wedge",
+   "positive_contrast": "runner (close) uses sclera; farmer (mid) uses dark marks",
+   "forbidden_generic_replacement": "Dark-mark eyes are used at the large head size where the glance must read",
+   "target_native_region": [
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]",
+    "NUCLEAR_0083_farm_humans.jpg[1540,260,140,140]"
+   ],
+   "method_output_digest": "f9242803ce609d1cfab49d7cf744d92bde3b4ce5e94bc5f4be64e34fc024029d"
+  },
+  {
+   "id": "F66:support pose",
+   "kind": "STRUCTURE",
+   "method_id": "F66",
+   "source_hash": "22e52629159421f8797a71730e5613f9094dbf662efcb340ee717ae8f3dd112d",
+   "consumer": "provider stage 2",
+   "instruction": "Draw the canonical pose with the support visible; grip and pinch poses keep the far foot planted",
+   "positive_contrast": "kneeling contact vs running stride: different supports, both explicit",
+   "forbidden_generic_replacement": "The planted foot moves or the torso stays upright during the reach",
+   "target_native_region": [
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]",
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]"
+   ],
+   "method_output_digest": "b6f60cc300ceaaa82a27a1ce9ad8f0d0465f9db6e09bdd47116ecc49dea65fa6"
+  },
+  {
+   "id": "F66:garment volumes",
+   "kind": "STRUCTURE",
+   "method_id": "F66",
+   "source_hash": "22e52629159421f8797a71730e5613f9094dbf662efcb340ee717ae8f3dd112d",
+   "consumer": "provider stage 2",
+   "instruction": "Draw the canonical pose with the support visible; grip and pinch poses keep the far foot planted",
+   "positive_contrast": "kneeling contact vs running stride: different supports, both explicit",
+   "forbidden_generic_replacement": "The planted foot moves or the torso stays upright during the reach",
+   "target_native_region": [
+    "NUCLEAR_0083_farm_humans.jpg[1040,260,360,620]",
+    "BRAIN_0386_runner_human.jpg[740,140,740,700]"
+   ],
+   "method_output_digest": "b6f60cc300ceaaa82a27a1ce9ad8f0d0465f9db6e09bdd47116ecc49dea65fa6"
+  },
+  {
+   "id": "F67:registered state family",
+   "kind": "STATE",
+   "method_id": "F67",
+   "source_hash": "5f8c5dfcbd121b56c2bf57ae2c9b01817efb6c1816c94903ee8d4522d5c6af73",
+   "consumer": "state-edit stages",
+   "instruction": "Every state edit keeps the three anchors on the master's measured positions",
+   "positive_contrast": "both heads keep skull/chin positions while features change",
+   "forbidden_generic_replacement": "A state swap moves the head top, chin or pelvis",
+   "target_native_region": [
+    "MEMORIES_0753_clinic_humans.jpg[1420,400,240,260]",
+    "BRAIN_0386_runner_human.jpg[1200,140,200,250]"
+   ],
+   "method_output_digest": "95a66bde729cd547cfa580a170881c88bdec2c21027b2b0874c714ff7cfa4f44"
+  }
+ ],
+ "topics": [
+  {
+   "id": "topic:silhouette_and_gesture",
+   "kind": "TOPIC",
+   "operation": "flat-fill silhouette test of the standing reach before any interior mark",
+   "visible_result": "free near hand and planted far foot read at one-tenth size",
+   "grounded_by": [
+    "F01",
+    "F58",
+    "F66"
+   ]
+  },
+  {
+   "id": "topic:head_and_face_grammar",
+   "kind": "TOPIC",
+   "operation": "owned skull/face-plane/hair/ear regions; white-sclera eyes; states redraw contours",
+   "visible_result": "three facial states with the same skull",
+   "grounded_by": [
+    "F05",
+    "F52",
+    "F65"
+   ]
+  },
+  {
+   "id": "topic:hands_and_contact_shapes",
+   "kind": "TOPIC",
+   "operation": "separate open, grip and pinch hand drawings with explicit finger/thumb order",
+   "visible_result": "fingers in front of the handle, thumb behind; pinch tips meet",
+   "grounded_by": [
+    "F06",
+    "F59"
+   ]
+  },
+  {
+   "id": "topic:garment_masses",
+   "kind": "TOPIC",
+   "operation": "mustard jacket and teal trousers as two volumes with one far-side plane each",
+   "visible_result": "quiet support masses that never out-detail the hand",
+   "grounded_by": [
+    "F02",
+    "F33",
+    "F62"
+   ]
+  },
+  {
+   "id": "topic:state_ancestry",
+   "kind": "TOPIC",
+   "operation": "six registered state edits of the approved master",
+   "visible_result": "anchors coincide across states",
+   "grounded_by": [
+    "F14",
+    "F30",
+    "F67"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "topic:silhouette_and_gesture",
+   "to": "F01:outer silhouette"
+  },
+  {
+   "from": "topic:silhouette_and_gesture",
+   "to": "F01:named masses with parents"
+  },
+  {
+   "from": "topic:silhouette_and_gesture",
+   "to": "F58:silhouette test image"
+  },
+  {
+   "from": "topic:silhouette_and_gesture",
+   "to": "F66:support pose"
+  },
+  {
+   "from": "topic:silhouette_and_gesture",
+   "to": "F66:garment volumes"
+  },
+  {
+   "from": "topic:head_and_face_grammar",
+   "to": "F05:head regions"
+  },
+  {
+   "from": "topic:head_and_face_grammar",
+   "to": "F05:three facial states"
+  },
+  {
+   "from": "topic:head_and_face_grammar",
+   "to": "F52:mark budget"
+  },
+  {
+   "from": "topic:head_and_face_grammar",
+   "to": "F65:eye construction"
+  },
+  {
+   "from": "topic:head_and_face_grammar",
+   "to": "F65:mouth states"
+  },
+  {
+   "from": "topic:hands_and_contact_shapes",
+   "to": "F06:open hand"
+  },
+  {
+   "from": "topic:hands_and_contact_shapes",
+   "to": "F06:grip hand"
+  },
+  {
+   "from": "topic:hands_and_contact_shapes",
+   "to": "F06:pinch hand"
+  },
+  {
+   "from": "topic:hands_and_contact_shapes",
+   "to": "F06:contact graph"
+  },
+  {
+   "from": "topic:hands_and_contact_shapes",
+   "to": "F59:overlap map"
+  },
+  {
+   "from": "topic:hands_and_contact_shapes",
+   "to": "F59:hidden surfaces for underpaint"
+  },
+  {
+   "from": "topic:garment_masses",
+   "to": "F02:surface region map"
+  },
+  {
+   "from": "topic:garment_masses",
+   "to": "F33:detail-owner map"
+  },
+  {
+   "from": "topic:garment_masses",
+   "to": "F62:edge/shadow owners"
+  },
+  {
+   "from": "topic:state_ancestry",
+   "to": "F14:six state drawings"
+  },
+  {
+   "from": "topic:state_ancestry",
+   "to": "F30:state library sheet"
+  },
+  {
+   "from": "topic:state_ancestry",
+   "to": "F67:registered state family"
+  }
+ ],
+ "detail_budget": [
+  {
+   "id": "face",
+   "role": "focal_expression",
+   "projected_px": [
+    141,
+    132
+   ],
+   "screen_share": 0.009,
+   "mark_budget": 5,
+   "detail_owner": "focal",
+   "motion_owner": "face states",
+   "rule": "marks = round(role_weight 0.9 × √area / 24)"
+  },
+  {
+   "id": "near_hand",
+   "role": "focal_structural",
+   "projected_px": [
+    71,
+    71
+   ],
+   "screen_share": 0.0024,
+   "mark_budget": 3,
+   "detail_owner": "focal",
+   "motion_owner": "hand states",
+   "rule": "marks = round(role_weight 1 × √area / 24)"
+  },
+  {
+   "id": "hair",
+   "role": "quiet_support",
+   "projected_px": [
+    176,
+    115
+   ],
+   "screen_share": 0.0098,
+   "mark_budget": 1,
+   "detail_owner": "quiet",
+   "motion_owner": null,
+   "rule": "marks = round(role_weight 0.1 × √area / 24)"
+  },
+  {
+   "id": "jacket",
+   "role": "midground_repetition",
+   "projected_px": [
+    370,
+    335
+   ],
+   "screen_share": 0.0598,
+   "mark_budget": 5,
+   "detail_owner": "support",
+   "motion_owner": null,
+   "rule": "marks = round(role_weight 0.35 × √area / 24)"
+  },
+  {
+   "id": "trousers",
+   "role": "quiet_support",
+   "projected_px": [
+    318,
+    397
+   ],
+   "screen_share": 0.0609,
+   "mark_budget": 1,
+   "detail_owner": "quiet",
+   "motion_owner": null,
+   "rule": "marks = round(role_weight 0.1 × √area / 24)"
+  }
+ ]
+}

@@ -1,0 +1,1370 @@
+{
+ "generated_by": "tests/art_bridge/source_method_causality.test.mjs#A05",
+ "levels": {
+  "EXPORT_EXISTS": "smoke only, never qualifies",
+  "DECISION_CHANGED_EXECUTION": "perturbing the decision changes the delivered request/stage",
+  "ENGINE_CONSUMER_PERTURBED": "perturbing the input changes the consumer output",
+  "REAL_ARTISTIC_FIDELITY": "provider pixels + human review: none exist (ZERO)"
+ },
+ "rows": [
+  {
+   "method_id": "F01",
+   "title": "F01 — Silhouette and functional anatomy (O, I)",
+   "source_clause_sha256": "040079e40a2ff574b39dce790f6bcd28085438dcfdfafa04c9dbbe6fa56eadb3",
+   "operative_sha256": "1a712dabe39e31ab38246f5f078bf9e9d909f9cc43be0999ee558e64b94077f1",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "subject has a drawn physical silhouette",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "9535840c88ef28544d86f2f4ca820b7c64dae388306ff6024a3223f5d982147a",
+    "stage_prompt_sha_B": "24b7f321cf3073c3d3e04b416090d63f160ff0393f9becf0a2888bd767bbe263"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F02",
+   "title": "F02 — Surface-color construction instead of generic line art (O, I)",
+   "source_clause_sha256": "0eb8ef8a0b72dd7c32d83dea489c59c6a991c1eee548f9eff0a352d7c99374d0",
+   "operative_sha256": "b7ac22061b592d41876a686e3f6b1c95f681307321c1b922e72aa03262f4bc05",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "every illustrated surface is built from owned colour regions",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "9f82454493255017a47915d9da28bfd45787c77bc2145027e5048be66230b73d",
+    "stage_prompt_sha_B": "8a6a427a5c4c9e968fc6b06577faa3a77e60277136d532d9afe41892b589198e"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F03",
+   "title": "F03 — Conditional color-role solver (O, I)",
+   "source_clause_sha256": "2bef93969c3c76aad05c8223cf9041d9dda2d8982fa08b86dc5f6c832ae62a8b",
+   "operative_sha256": "0878db3d7695101e0b2477db5713383c065711ba97701f831a319ee4e670ce83",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "every new image needs conditional colour roles",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "f04163329ac56265975bff6e8b6e5625e4881307dc483974bbbdbbe12d6baae7",
+    "stage_prompt_sha_B": "3088e99779091b7659630a62ba6113a8a1b7a265a3679e5c384ee55f3e179666"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F04",
+   "title": "F04 — Four distinct lighting systems (O, I)",
+   "source_clause_sha256": "cc98d61da82504fd7a7f4906b48e4bd8a12b3bebdb2ed92fea17c4dce7bd4f4f",
+   "operative_sha256": "d2de5dd35b62dbe10e16962c52326d3e9dd4e2094d148c6b8978b1cf02755151",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "lit surfaces need a lighting system choice",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "4c59cb6364c15053d243c24a9c1f700cc9b78fd2c9e64fd8eea8c6f8bd0a9f11",
+    "stage_prompt_sha_B": "cbc0911678331071432eaf6479562276d6edf6f9739c51f04e55893b1625562e"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F05",
+   "title": "F05 — Human head and facial-state fabrication (O, I)",
+   "source_clause_sha256": "f4598310520b14b45bd2d9b0843c91bcb1c6208e7ec0a626d682fb02a599fd57",
+   "operative_sha256": "f0c8ec6daecc20041913eb592eb5df852b83c9be646b6fc483b6633118be0080",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a human face is visible",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "1df4704c9957d3710f678eb402a089ac8ea128f18caf409222afec529c320bca",
+    "stage_prompt_sha_B": "0c0cb76d70dd5b995c439cd71506d77e6f3617319b7115e9a9a1709d5a54da5f"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F06",
+   "title": "F06 — Human body, hands, locomotion and meaningful contacts (O, I)",
+   "source_clause_sha256": "9b4f5deb91eb36f7fb32fe92fa7687afbd98cc17a120767a91b87d3933a89283",
+   "operative_sha256": "0ced08890c42a86a3d19cb7b5095eb66c6521b5f40399f14d06a76e796dbf697",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a human body acts, locomotes or contacts",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "85f8d9563e2b6c6250462b5d2d2becee8c87170a42f102ce32ea94dbec3fd6fc",
+    "stage_prompt_sha_B": "b3b0306965972a8c6d73904030a8f05889cb78e8ce1c8b73d09d86db85c832bc"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F07",
+   "title": "F07 — Distinct mascot and animal construction (O, I)",
+   "source_clause_sha256": "66adef47965d0ab714e0fe93b05b0e90c09fdcab549e2fbbb0da5099f80edf4a",
+   "operative_sha256": "a9d9cb12fcfd49a7b568c5858f9b09aee8ae563fd8c6a9c1b2b4526cd47e7d06",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "an animal/mascot/organism is constructed",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e8ab1977740732a09b6b119f4157a80848f75ed113754eaf4a9004b72abf8570",
+    "stage_prompt_sha_B": "02521422f18c15d5da149ab6f7819192790c582d6f6cd792078c20b2e7811afd"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F08",
+   "title": "F08 — Architecture and oblique projection (O, I)",
+   "source_clause_sha256": "15d92ffbda14f6cf6ac9b119a6eab95d0331763616ef4f82f54d712b4923555e",
+   "operative_sha256": "46a6417bac7a848073a3dd424cde86fd2b7109fb74f39d2a398770eaab5a3a82",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "architecture / built structure is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e301b6f1b802b6bd16db43591ff5a95bfe523e72c8351e947625bb8ffe5244ae",
+    "stage_prompt_sha_B": "2cfd8de72d3314e5a54b67aab48229e7d339d3d1ef1fd2c604ea02bbc119a54b"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F09",
+   "title": "F09 — Machines and functional apparatus (O, I)",
+   "source_clause_sha256": "6a5f76b324ad184f449055569e04f438d1f0b692f41de97e1ed8b02e72267400",
+   "operative_sha256": "a77e62302e5711082d7f7db569b250d20cc8eea0fa96a7ad3822409357237507",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a machine or functional apparatus is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "c0a1b9a4eb746e371d9cf1bf464e74f235674f1b295dca816584bdf5f3805ee9",
+    "stage_prompt_sha_B": "094eb5d643bc9ed727a96104ab541bc5c690d84fedcb47bcbabb95107f833fff"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F10",
+   "title": "F10 — Complete spaces and foreground/background integration (O, I)",
+   "source_clause_sha256": "ba67c3b572bad9bd748a7157097995041961808fe3dadccc5193c7389b01dcf0",
+   "operative_sha256": "fa8ba9597a598f3afa5431d5b7a764fb43ddfa2a364a49d9688bd08593dd93a2",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a complete space with foreground/background integration",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "1e6e1f2c6fb8d9ee645f182a1395f10daa67751ae6cab33ee933936f50a997ed",
+    "stage_prompt_sha_B": "4fdc42275451b201655079043342f236ee42a72191d8ebef804109fe0e69f62e"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F11",
+   "title": "F11 — Landscape, plant and environmental density (O, I)",
+   "source_clause_sha256": "ab04e6aac89594c99d44e7a22da5742404b7b597fff9988bce9959e552896917",
+   "operative_sha256": "64740096bbd831d04183cf9a862cb6bed113d65503650dd84d5305eb59d66f05",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "landscape/plant/environmental density is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e5869f4ec2509db6d7792df64f8161145f6fea0c6fb57374e7abc3d001cd783a",
+    "stage_prompt_sha_B": "dc538c8c8bddd4204d986465f85295b64a43a0057a7785e35953b4a18b419932"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F12",
+   "title": "F12 — Designed dense biological network (O, I)",
+   "source_clause_sha256": "6c8ab99a4624df6d1a1661c7fc2049051b8c52e9ff41905d4e03eb6c2cc2701e",
+   "operative_sha256": "960262d1e6bcfc2ca7cb5b31a439202d6875990e64849edafce1fd81068b4d43",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a dense biological network is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "292769976e6af04ac45133e4839cde2303594270e6dd906669d9c51d1282df1e",
+    "stage_prompt_sha_B": "0055cfe7f786c06f7441b940052508dc00e19bb9ae3525f282d1f5908a85bfa7"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F13",
+   "title": "F13 — Structural luminous, optical and complex materials (O, I)",
+   "source_clause_sha256": "d2a37814df5503caf2709547760b0c9bf72427ca80b402e2dfe192ce1b9d4faf",
+   "operative_sha256": "de40a69b9d9ed4c7aace9a88c7e63381c4bb4451735fe5b5ad828b1b0bb64cb2",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "luminous, optical or complex materials are present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "f0d7823a072119190a0e52604c43c253d05f6976dc9689a1a9e0782d0c3d3309",
+    "stage_prompt_sha_B": "0bb038703afe84fb024a2ad9513f58018c45e88ffc003556eb46ecbd70fcbd5c"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F14",
+   "title": "F14 — Illustrated transformation and alternate state design (O, I)",
+   "source_clause_sha256": "436fdf2661c63bb74d7a7ed19856d5ad93e42b61859e0596c7904c41a5d261b5",
+   "operative_sha256": "1c94a6d9413e9c5fbf1c88ecfef3b0306cee2e68ac4fa21ebf18b3322c1676db",
+   "role": "MOTION",
+   "phase": "STATE",
+   "applicability_rule": "the subject has alternate states",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "f28c166d3c5fbdcf6c175915cbe84045dc95105eeec22359b9dff29c87d23ccc",
+    "stage_prompt_sha_B": "e07be746a1c5c4b71c63507e482f19814b5f0345d3369a9983955253f1f69ede"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F15",
+   "title": "F15 — Motion ownership, simultaneous choreography, camera (O, I)",
+   "source_clause_sha256": "d174d657aae77adc00d8b67a6a58f0d23360972f6762866ed332875b626b4680",
+   "operative_sha256": "59788e1bc9128655dcf12a1f9a641380db475131dfbd5cf93ccda35d786ac6bf",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "applicability_rule": "the subject is owned by motion tracks",
+   "consumer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/stage2.test.mjs + motion_phrase.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F16",
+   "title": "F16 — Transitions as complete illustrations plus masks (O, I)",
+   "source_clause_sha256": "1aeb57f73aacf71ee413dfde7128f823f85780abea090bbb8db63d92045d2a9c",
+   "operative_sha256": "c442317ed0064111361895d572cacf656c4b43698a8e62c7ac9e74ddf4ba1f13",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "applicability_rule": "a transition involves the subject's shots",
+   "consumer": "engine/art_bridge/transitions.mjs#compileTransition",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/transition_render.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F17",
+   "title": "F17 — Whole-look and provider-control proof (T, I)",
+   "source_clause_sha256": "f4c706ad89dae003c35c8128b83ce2467f36f0cde310b7cc0df3eb791c040df4",
+   "operative_sha256": "95bd3e94f045ddd8c05ab2aed60935444671ab5a1aec98f095b528a399c97790",
+   "role": "EVIDENCE",
+   "phase": "REVIEW",
+   "applicability_rule": "every artwork needs whole-look / provider-control proof",
+   "consumer": "engine/tools/art_bridge_qa.mjs#runQA",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/film_revision_and_qa.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F18",
+   "title": "F18 — Every-frame observation without confusing it with decoding",
+   "source_clause_sha256": "e3980fc925c84f03bf20ba5efdf2766a65638558847eb3fc8c261bdbf5700bc8",
+   "operative_sha256": "ce7ade0be4e7cf479253ebcd933aa4c24a2ce6965e87d2da359c7f8755f1a1fc",
+   "role": "EVIDENCE",
+   "phase": "REVIEW",
+   "applicability_rule": "every frame is observed, not decoded",
+   "consumer": "engine/tools/art_bridge_qa.mjs#runQA",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/film_revision_and_qa.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F19",
+   "title": "F19 — Production medium and timing are conditional, not a universal vector-only preset (O, I)",
+   "source_clause_sha256": "60bd2cd811fa1b68af3f579c1ea46c041e068c558f330b78509fb5d2930e0d36",
+   "operative_sha256": "f6e6e631a604cab35bb0c4585b3c326c0b8e65094026b9607f2b6cfa7c77fa60",
+   "role": "DIRECTION",
+   "phase": "ENGINE",
+   "applicability_rule": "medium and timing are routed per subject",
+   "consumer": "engine/art_bridge/art_requests.mjs#routeMedium",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F20",
+   "title": "F20 — Route *each beat* to a visual medium; permit nesting",
+   "source_clause_sha256": "8f503d32bd577a5939538543b83be5e47a70be650eaad59358d8ef96ce14e97d",
+   "operative_sha256": "4b10022f9694d95a7b261d6807c517144ee9162b85319c0b2916e139cf6e32ba",
+   "role": "DIRECTION",
+   "phase": "ENGINE",
+   "applicability_rule": "each beat is routed to a medium",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#routeBeatMedia",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F21",
+   "title": "F21 — A panel, glass shell or memory window is a layered optical *machine*",
+   "source_clause_sha256": "2e805ac1808d8b500a27a24dcced5849875d633b10ab628df4de2739ab834fdf",
+   "operative_sha256": "ef32f0e6079e7123a55735a3d2dfbafc01939fc387c99d5a7574a4500710663d",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a panel/glass shell/memory window acts as an optical machine",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e5ceb42f6f9d616f09df4bff4683d33c5162adf5afd8bb00e2fc916a21361839",
+    "stage_prompt_sha_B": "be51e6b94a62d7e1142a10be30b8e71955ac9c4d71af4a22a9427c057b0a12f4"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F22",
+   "title": "F22 — Rebuild day/night as registered drawings, not a color-grade",
+   "source_clause_sha256": "3bd2dcd334fbfa6a3dd7867ff247595c6cdd37c15381f098bc31ea0380fd4aab",
+   "operative_sha256": "c658c5210f921d7b6a2ba0982a91818da84dc551903e7708f91daab06c8c6c80",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STATE",
+   "applicability_rule": "day/night states are redrawn",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "b7f5a6e6fff9a4723aab25669cabe1b65e1dcc83bcd0ab1efaf88807f4ec8c7d",
+    "stage_prompt_sha_B": "3fdd94458e48596a3259e8f424d63d8e10a050dbcdd2f45a0dbe5c317326d043"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F23",
+   "title": "F23 — Define *perception effects* as registered compositing passes",
+   "source_clause_sha256": "9a6f6c776a1d9348e365fa1ba1f1c3971802df2469b72069b3b4f0abd3c62962",
+   "operative_sha256": "61db5e91a4cc1bb34e5c9afe82c4ccf0c7306aef923215efc6f89ca8fb95e0fc",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "perception effects are registered compositing passes",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "685a56aa70dbf976e1e63762ba3513336ccfab38756f19965196ab501c91ed55",
+    "stage_prompt_sha_B": "aa8eba690f4ae44c92950f1054a43640fab4eb067c40a2e2ff61e6b062c49b51"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F24",
+   "title": "F24 — Dense biological fields are procedurally authored, *not random scatter*",
+   "source_clause_sha256": "a2f213db25feeb8caba9681d27fb790dc8777327ee907a75d73042f2cade1b5d",
+   "operative_sha256": "776123c6e59289d7f02c33e2d4ece8d356954c7e8bfb871bb6df8e79eee3e2d7",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a dense biological field is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "ec1bc5f863de28a9d30e27c331ae3dbe2f307cf0b15a8fe6562178d8ffec05a0",
+    "stage_prompt_sha_B": "ad6d40f2aff579c6f21dd1d552e4c856164685d66ab3ab261876c6f1039df956"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F25",
+   "title": "F25 — Scientific close-ups must encode physical interaction *direction*",
+   "source_clause_sha256": "02be024208b2788c872cb2c5505038fe40614c9283f4e1dcd95d6e009768cbfb",
+   "operative_sha256": "bb567558a2ec95734f2d7758a0f3b4818d002cc72883b5eb4c391eb3f9df6ef1",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a scientific close-up shows physical interaction direction",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "60c1c4a1a164ae52c0dde482ff3a2b4064e9ae5760cf7f9d9fcb12e2d7af0aea",
+    "stage_prompt_sha_B": "f0b7cb4c7608b37bc81045ffd57d400c7a130fbfa0a4896a5561c3d12505ad76"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F26",
+   "title": "F26 — Maps and spatial diagrams need *three distinct masks*",
+   "source_clause_sha256": "c34a9b556a519d81e25eaab6c2a5264012da20626173253d4722308e857a0941",
+   "operative_sha256": "c19713a6aea91dce7a8536b26989fcc1e00271d58144d8b0e103069d6622a6a4",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a map or spatial diagram is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "a089e86e70b0b7d595e98efe8b86a0026dfa3acc072f7b19242e4b3688d8dbc1",
+    "stage_prompt_sha_B": "a112dba52d2532040d15fdc380c63e2ab91497ecce13a1cb4b3a92b2a7bf1ac7"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F27",
+   "title": "F27 — Schematic graphs are authored *systems with reveal states*",
+   "source_clause_sha256": "dfec216603f728763b31b72d922ac4270f2e674bf7a30351d0d1f386c521ad7c",
+   "operative_sha256": "44ea53f315475aaa7919f92fd491c60347212f75faff5f023471fa53593ac6f2",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a schematic graph with reveal states is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "d873f50b479e7b86949592322dc18fc37546d8fbd23fedd0484fb667f8124f72",
+    "stage_prompt_sha_B": "88bbfafd2649f160b02f0ccfc1e471168557ebc983e5248f8b83a869859f2f77"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F28",
+   "title": "F28 — Historical or technical recreations have *era-specific mechanical topology*",
+   "source_clause_sha256": "f0c8b48ed3222f3d2f8a41618714b5d937b28e69e5641fb7540232a38d8fc6cb",
+   "operative_sha256": "1ddd356d15bd856a113ee7d7daf50d7fad6641f672cc2cb4483bb080e11d76c8",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a historical/technical recreation is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "42b3c5a16a3df3fc21324f4d281fcfb4c17717d01b2665b475cadaebd5c6d285",
+    "stage_prompt_sha_B": "5ad757e29bedcd1faca88605c79d4612004c5f6f34863e96bbd506c90744806a"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F29",
+   "title": "F29 — Compare futures/options as complete *parallel states*",
+   "source_clause_sha256": "7f5049ecb38d5fdcf289cb7f8c66c47240167689e6e3effeb9d3ddeb99941199",
+   "operative_sha256": "b542e99bae505cb522f7d0db3a7ab3cde01bb516cbbe1d1bf0ff08c5765849c9",
+   "role": "MOTION",
+   "phase": "STATE",
+   "applicability_rule": "futures/options are compared as parallel states",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "0f56eb87016765ea1e1e5f5b7efadd5806c6197f0ed01d48a458be421db349be",
+    "stage_prompt_sha_B": "a8c66ba87fa1a4a3eb17b88ba0afdf6b9b943f28fa464e089baf925b18734aa8"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F30",
+   "title": "F30 — Create a multi-state character library before physical animation",
+   "source_clause_sha256": "02dfecf7e354057bbe52d746ae75de360040c8b5ac30046fd1446b0130fa5fe0",
+   "operative_sha256": "54de390cba43d0c2b30a2ddf158ee43764524827d6a3e7b09a3b4d769fcf0090",
+   "role": "MOTION",
+   "phase": "STATE",
+   "applicability_rule": "a character/organism needs a multi-state library",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "1b7a1ea1758f4a7338d4a86c69f252fb5f2f6ebf8229c787fe1a8f99995c4690",
+    "stage_prompt_sha_B": "949e20f4ae2ad467e0e8a4c9f01f1237310b64f663de77c2f5c2a6c3cfe0f105"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F31",
+   "title": "F31 — Motion needs *owner-specific* key states, not global ease-only language",
+   "source_clause_sha256": "f3db45493b9b9ea5decd90613939c63fbb5c49cb181ef8b443513f376e9a19f8",
+   "operative_sha256": "d63450aed86550514a34c9ee5acf55a1d4c63c4dbdddd10c062015e13fcf1ac5",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "applicability_rule": "motion keys are owner-specific",
+   "consumer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/motion_phrase.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F32",
+   "title": "F32 — Effects are time-bounded images with their own color/geometry ownership",
+   "source_clause_sha256": "dca9b945e622c73b852200761e517b7c5527e6d9f954f4664b5b0d0404a6d889",
+   "operative_sha256": "34960d6031ce5f4acd242f9fec39d26041eae83c4dfa18420ae748dd51b15c00",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "time-bounded effects are present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "eb51598f5563caa40795a84d5f4f1b00a61a819478231127a6d4d1ce056fcc17",
+    "stage_prompt_sha_B": "a13ffa19807f5d30542cc546ec60aece3244ddf035a3b85ba7d0a85ab8bd1944"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F33",
+   "title": "F33 — Density and abstraction are scoped by *view depth and task*, not adjective",
+   "source_clause_sha256": "9717cdd96d19d2b2af05a3c46b6feb8e16874dded6130ac88677854bfa31005b",
+   "operative_sha256": "412b4d9ae301220bfd489be7d169bf87ffd7437cae30ef460fbb98f958851766",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "applicability_rule": "density/abstraction is scoped by view depth and task",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "7008e2d9f78b3307de696b795be85ce22b812e3d8af25c2956d16d1c70ce55ce",
+    "stage_prompt_sha_B": "5eeec5739d274b4510bfc6c3b5b35d4de05798b6997c844a9df32bc38ed37ac5"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F34",
+   "title": "F34 — Physical geography, procedural patterns and materials use different generators",
+   "source_clause_sha256": "13ca3c6d309282e4661cffb57b261c612bcc4b28462d04b4ed47dc43d62c48a4",
+   "operative_sha256": "a5a06fddaeaa4611512133fcd64f58e6d848b2174436505d451d42b7d2bbab0e",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "applicability_rule": "geography/patterns/materials need different generators",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "d81041e4b5ffa70730832528febb3564ad0e436ea17460a9c5f3777333fd5554",
+    "stage_prompt_sha_B": "f69013de4cc6378535695846ef53f7243c07ecd3dc8513892954c4ea1cb4dc5f"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F35",
+   "title": "F35 — Make storyboard *transitions* carry one conserved visual invariant",
+   "source_clause_sha256": "39d530f5bd6acc6d55ad49009f8645c4cc8f86582496cba84c84cda3d685d2ea",
+   "operative_sha256": "8aed13f9c5401c3d7a58bcfcaf8a2246b3012b540067767ca248467466300f8b",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "applicability_rule": "storyboard transitions carry one conserved invariant",
+   "consumer": "engine/art_bridge/transitions.mjs#compileTransition",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/transition_render.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F36",
+   "title": "F36 — Source-to-new-script skill must compile into enforceable artifacts",
+   "source_clause_sha256": "76b411f7840ad6ff932f9d30c7e8b31ec4fb2a0e0c308400f12080f1b3219f3d",
+   "operative_sha256": "117eb342110c7d129a174876f581d1a9fb9c1c1ff525684bd732243c469325ea",
+   "role": "DIRECTION",
+   "phase": "REVIEW",
+   "applicability_rule": "source-to-new-script decisions compile into enforceable artifacts",
+   "consumer": "engine/art_bridge/art_contract.mjs#preGenerationGate",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true,
+    "note": "preGenerationGate refuses/accepts by decision content (U01/U03, S3C-1..9)"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F37",
+   "title": "F37 — Construct a *world definition*, not an adjective or a backdrop",
+   "source_clause_sha256": "a4b2b64997342347c97b315b21d7f19bd859079677f6755f9f30b1568ec4f596",
+   "operative_sha256": "4866cc92308f2585527bc4fc2aebec1a21e35794c244b4204ab9331acf480fb0",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a world definition is required",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "d7a3ab5a6da31c4d03aee5f32570f4a4fde44d56a02f02c80430a9dd00cc1beb",
+    "stage_prompt_sha_B": "ad6dde5a857d827e21246db323e81d99e01a23441c873115d0bed3cb73fa7598"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F38",
+   "title": "F38 — Pick a *projection grammar* and enforce it down to small parts",
+   "source_clause_sha256": "94e099052d54c12a399ea49bc9f149c66b80d38a5301db202bdce9747f3ff8f3",
+   "operative_sha256": "34c1da8a44bbe053b770128528a7d804a9e7f6a939a5f4de7d898fa3245b25d4",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "depth, scale levels, repeats or floating planes need a projection grammar",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "aca793c72240235680cffd20c52bb9eca71a2a7bbb80c4ea69e1ae99155f100b",
+    "stage_prompt_sha_B": "6c0b577809689bda18d950cd8adf6ee369a87aed13998da0e892f321a2bd7346"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F39",
+   "title": "F39 — Build *living natural environments* from functional, occluding plant systems",
+   "source_clause_sha256": "98fe99c90ea607f41a99ab37100b73959c972b3ba01aa0af945618a3a51df155",
+   "operative_sha256": "431b14af151bfa1a36d6668bb9377edce582e5526407adf5d55f9d6fa318cbc8",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a living natural environment is built",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "abc70c2faa9505c2cf20c04eb27cab8ad6cb7430aa4b5bf95f38b49f339055e7",
+    "stage_prompt_sha_B": "dddb0869b939767757a25c6a9a9247ff845422cbbf4bf7c248edaaeef7cf1648"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F40",
+   "title": "F40 — Build *dense architectural/ecological worlds* with modular part budgets",
+   "source_clause_sha256": "29c6b7faa97fb7c3c26e5746bcbb417c46d837e38fe89272302e7ebedc2ec613",
+   "operative_sha256": "a1876b4b18f6c440baaf0407321aeddd41ab0ccb32346c32f4f83ccc5910427c",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a dense architectural/ecological world with modular parts",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "08440f0cdeec01ba454d0c87c79a02ae9861411bc97b0335cb9d12185838b672",
+    "stage_prompt_sha_B": "8b86b4d41f670a566eb910ff30a6b510148dbe3293fa369b67726b11781b8683"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F41",
+   "title": "F41 — Create biological *micro-worlds* from parent anatomy and networks",
+   "source_clause_sha256": "f71df799794bac06105ab1aa3c9920423e247c7dc0eeb71a074e5ecb6f6a55e8",
+   "operative_sha256": "e07076d72f00380517c040feabbcdac620171e4fee845e7b2203b0a461ad892b",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a biological micro-world is built",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "6bfdb3a833c502d2c547e8e36d71e603c54d4695e856cd566b7cdad83e3f4e21",
+    "stage_prompt_sha_B": "2edf2cd966b65680bf69b47a18a56d13f879701f026d9287a47584a2c9e99157"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F42",
+   "title": "F42 — Construct an *abstract stage* from legible spatial coordinates",
+   "source_clause_sha256": "f2caa844f99df789ae7d6ca2506e1be8cdb9799fc273940a581123e4fed05572",
+   "operative_sha256": "a6b2ae66850b53f89b5c8d1b6de811cb90926206db58dae6209a4a35580b4962",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "an abstract stage with legible coordinates",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "857f891eaa84c3c37c734abdfbfc80bfd2dce4e3ab88d13f02e0f260e0c01d75",
+    "stage_prompt_sha_B": "f0e90769175bb1637517bae2856e24ca21f2d54224c51dfb6a3c15a551830639"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F43",
+   "title": "F43 — Construct an *information theatre* rather than flat UI wallpaper",
+   "source_clause_sha256": "d3d5a537721a7e10606fda2c3aaca807236d294e8bf8f43a5557370aaaea4ef5",
+   "operative_sha256": "64feed5f77944a292754aa8aea48a57ec74cb7a18d2b95474f4d702864854648",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "an information theatre is built",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "6305d991dacf5e66675932f222dcda7213287edf7ec1053f3f23a7423da3d8e0",
+    "stage_prompt_sha_B": "fcc5e1a676fccff7e592275f89979d2eef76c23f1dd6ad172f365d43f39af857"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F44",
+   "title": "F44 — A luminous *volume* requires faces, apertures, sockets and optical layers",
+   "source_clause_sha256": "297db78609c132472e19d37793051d8d7ebb85b65b8ccce543715b0d143f1436",
+   "operative_sha256": "24a446a404c278e1e3a5460688241cd53c77e25bb8b3b4fc0ee28478b01f6734",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a luminous volume is present",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "86e93031a6d9f97ff428ef59b2b0d4c35729fca1407a12e6eae180dc78be800a",
+    "stage_prompt_sha_B": "82541431a3dbf5fdf4bc0e5c58b7fd66279007d635c82419732b1e90e14dd36c"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F45",
+   "title": "F45 — Construct machines and futuristic corridors by *functional topology first*",
+   "source_clause_sha256": "b2b79528852b202f0497f0a4e195a6bdcae002886a7d1d2dc8e346c27287be11",
+   "operative_sha256": "7ae704ab6d10c03a2dbee862f92e1d0de322326e2fe4406deb5ab02f0c3a577f",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "machines/corridors by functional topology",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "c50b588a161f9655d2a3db8c0ba561e5c230a580e29f89d9f2fcd89c0bc8f3ea",
+    "stage_prompt_sha_B": "4c5dc04c38f5890ec901f2f0eaf18085958fb81b0bc192fcecccc86cfebf0267"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F46",
+   "title": "F46 — Use *material-owning* edges, fills and luminance: no universal glow or outline",
+   "source_clause_sha256": "3fc3bb4e2f9fa4fe5eb65de15900bb182cc8ca986f19c0f7684bcb3cd71f7b0f",
+   "operative_sha256": "c7a6633efe8616aa1a4f4890b6058c8f3865055418da9da60301bbc72d389aa1",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "a scene/environment needs material-owned edges, fills and luminance",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "8e7f4cee721fd774ff358db0774f170f7dee6bade5d092192020acad62b5b689",
+    "stage_prompt_sha_B": "f62995f1978e1f621f8ecd2282d61b4776a10ec93ed8f15041a8088c737a0dfa"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F47",
+   "title": "F47 — Spend *detail* according to semantic role and visual distance",
+   "source_clause_sha256": "add1f0320f48f27e40a1a29a7539bb1a177f9d64806e9737db1feb2df78336a4",
+   "operative_sha256": "ae646694b91c40e3a1255cfd6a169c1a79e3e1e399d271664a6f39abc527c547",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a detailed environment spends detail by semantic role and distance",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "236908e5b8c45bdeeddf91211f76e1b46d24289eb98042f7197c92f84f617a1d",
+    "stage_prompt_sha_B": "26fa52dfb958f8c202e68c875adf2098099d0ac43b5220b462b74c74882e2cb3"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F48",
+   "title": "F48 — Represent a *world within a world* as two complete constructions",
+   "source_clause_sha256": "62402e750e9ac748333a2a7d5a7967c0183765bd98a3aff07bf3a44e08b870e1",
+   "operative_sha256": "1a129d2b77b4dc5bb603e8e9a938f65f683fddcfd76bfbfcc74693676686bfae",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a world within a world is shown",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "f855ffe1b053811fae50954b1a951ba98ed91b980a4cb5033afd0e16566a02af",
+    "stage_prompt_sha_B": "e5919f19b9793a39be6f40f44cd8426a6980a06e4af73d9be6db77e57fb66fb1"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F49",
+   "title": "F49 — Compile *world construction data* into an enforceable ArtJob",
+   "source_clause_sha256": "2667317e7d828e36a6ea0d56df62b2b1725353bb889c8bbf1c02bf9a8cab2493",
+   "operative_sha256": "1025ab927e7a09c9ff8279391bd75c4ae3bbe3f2332c97e166d268d18eeadc50",
+   "role": "EVIDENCE",
+   "phase": "ENGINE",
+   "applicability_rule": "world construction data compiles into an enforceable ArtJob",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#compileWorldSystem",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F50",
+   "title": "F50 — Run adversarial *unfamiliar-world* transfer tests; do not certify by resemblance to one film frame",
+   "source_clause_sha256": "21371ab1093ce479535c211752bac14780ef59468e1130331343b8742b81dc2a",
+   "operative_sha256": "757416e3760738655adde667d569b94485ae9c490e991112a70dd96d6f4ce383",
+   "role": "EVIDENCE",
+   "phase": "REVIEW",
+   "applicability_rule": "unfamiliar-world transfer tests",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#unfamiliarTransferPlan",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F51",
+   "title": "F51 — Palette is a system of roles and region ownership, not one studio-wide swatch set",
+   "source_clause_sha256": "0981421215240d47447d7fb1778a4b75aa623c77f63d65193c1e212d88532724",
+   "operative_sha256": "05332ba66e09a01c5cee1bc7646eab5ca5918e46d7128c72c772c3bf110f964c",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "palette is a system of roles and region ownership",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "c2bf225561eec0459c4473af7db8cdc7d18ca85bf862a9ce28f00c2bfaeb1600",
+    "stage_prompt_sha_B": "1b6c7a6d66b68b953b681693af0f5ab3758359880b92f6e93b03e2b0652a6831"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F52",
+   "title": "F52 — Scale and semantic role determine the number of facial/structural marks",
+   "source_clause_sha256": "eaf6a4916e6bfa5524accceea916a3e781adb475d2bd03a84f66792b49042e11",
+   "operative_sha256": "60dafcb332c3cb6fd8961daa59d3503df2724b2bcd783ae54ad766584f611dcd",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "scale and role determine facial/structural mark count",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "ba8fdcf76c5bb5d3960a35491c431362fd5c73914ee373a11e1ec97d912b2e96",
+    "stage_prompt_sha_B": "d32c8f60a63a56d089a0b66c6f8bee09ca71450520a020df66bd10fca2aa758b"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F53",
+   "title": "F53 — Density is caused by explanatory material, not by a desire to impress",
+   "source_clause_sha256": "8af713eea28ce1b02a273745b1212868c8ad754d9fd61d2fe7bdbcfc75440784",
+   "operative_sha256": "cdc607991786a835d2caeb616a4e94bc1bd5b657a29aca53fcd2ca397d7f82a7",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "applicability_rule": "density is caused by explanatory material",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "35021b34ff88e82aa7a53c56fb8d9a9043a315a3bd24445f76135410562ec55d",
+    "stage_prompt_sha_B": "4fde05b591a7c42a8b4691698923911c5a825d3ea42c575b724f7b7cc06903f6"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F54",
+   "title": "F54 — Repeated shapes require a parent-owned generator",
+   "source_clause_sha256": "43e1aba0facc3a14e8e59ce016acb1c49d9a8540b85c9a3e3f168dff361c2a14",
+   "operative_sha256": "ee9207676e6400718a8e2cf9f956c3307803f5d4fd396bc511bea44115921571",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "applicability_rule": "repeated shapes need a parent-owned generator",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "ffd1b6c9be300f60ac82da62c5182cf7f68429511a3a7d9e23aad48ddab4860b",
+    "stage_prompt_sha_B": "2735934430027f03304f580095ab5459ec667cd4ba750008e6120ca6df170718"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F55",
+   "title": "F55 — The new idea determines the world projection and the camera-sized artwork",
+   "source_clause_sha256": "f7f144792e20d7e95987351cb249e49d7634c7a6c2468341a33c78aab247e0e5",
+   "operative_sha256": "656eab6bc748629e8915f22f5c6dce89aa92bd981af10884b31acc46648ded87",
+   "role": "DIRECTION",
+   "phase": "ENGINE",
+   "applicability_rule": "projection and camera-sized artwork follow the idea",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#cameraSizedArtworkDemand",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true,
+    "a": [
+     -536.8,
+     -283.2,
+     2073.6,
+     1166.4
+    ],
+    "b": [
+     -1573.6,
+     -866.4,
+     4147.2,
+     2332.8
+    ]
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F56",
+   "title": "F56 — Execute source-grounded prompts as geometry, then inspect first pixels",
+   "source_clause_sha256": "3c95f7b3358e186fa47884b2549a70973ad76567e1e08b3d4a94fd349028b9e0",
+   "operative_sha256": "611eb168e72f42a10bd72fa3ba45a25e6d0b8ee1e935d76a8982ed3b69c143f4",
+   "role": "REPAIR",
+   "phase": "REVIEW",
+   "applicability_rule": "prompts execute as geometry; first pixels are inspected",
+   "consumer": "engine/art_bridge/repair_memory.mjs#selectRules",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/repair_transfer.test.mjs (L01–L06)"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F57",
+   "title": "F57 — Start with a visible causal proof, not a “beautiful scene”",
+   "source_clause_sha256": "aba406d3afd6245919452ba52d32bb0e75e161187bbc251b43fc711a9a294ad0",
+   "operative_sha256": "e3934727bb801d39198d27edf6c9bae2ba52048be37b6ccf155b503ee0374533",
+   "role": "DIRECTION",
+   "phase": "STRUCTURE",
+   "applicability_rule": "a visible causal proof is required",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "54446534d160258e8a8536c12c6ec21e23f2d3ad85fc3a07dd0c86dc4bb5f4ba",
+    "stage_prompt_sha_B": "357e2cb6a45dc1e4a7a837f94fd88987847f6b048a03bc5c19862b9b0760f252"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F58",
+   "title": "F58 — Construct the silhouette before interior polish",
+   "source_clause_sha256": "f033e67fdb480405796f8a090cdc554a6ab7bd7b6cd50e37809327dcb24ffac4",
+   "operative_sha256": "561ff30920ead79996964bdec12c2dc4b922500925c116f8b42bf806401bd826",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "silhouette is constructed before interior polish",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "1e307f909f204583b63eea72b26ee231d15ca545f500415b998993ffba706d4e",
+    "stage_prompt_sha_B": "87ba28e89b1b8c177890e0d8cf0f40edd47d14eb81c4d76dbe0a3ff6241f6770"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F59",
+   "title": "F59 — Parts must join and occlude in a deliberate topology",
+   "source_clause_sha256": "5115c4cf9aa252cd8eff17745a0b348bbddba9695d4d79aafb43517a1e8a78e4",
+   "operative_sha256": "fc942d1b772bd50eae7201881e7f6cadc0f8803ec028937e207dfd49d8bc6701",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "applicability_rule": "parts join and occlude in a deliberate topology",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "c11c632aa4318c4afde0a68c0ab329c15908642b7129aa0097ef4c912db922e8",
+    "stage_prompt_sha_B": "4c82b1918eba18cf94715da4104c89bb6dda6eb7641f40250128cc7920d16a11"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F60",
+   "title": "F60 — Choose projection from the proof and make all planes obey it",
+   "source_clause_sha256": "5f9400cad4c3b7deb3179fcee18809dc16ddd69117bc695dbb9000304b3cd241",
+   "operative_sha256": "19df9c5299d12625f52081d55b89d9d1e642597fe438aefd440f16ad2a2d1946",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "applicability_rule": "projection is chosen from the proof and all planes obey it",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "d5e7309d2f340a94d31f45b746ac86d76d50b6e7b32592016e5a50a7c4d057f7",
+    "stage_prompt_sha_B": "38ccb0d7b6d8556bf19155ce2bc50d3affd7e602a9dcd8bae710a5435117bcbd"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F61",
+   "title": "F61 — Invent conditional palette **roles**, never imitate a universal swatch palette",
+   "source_clause_sha256": "cdc226df0778c990adc366e4c221a7bda83b2cc05a47bfb20aa350b399cc7edf",
+   "operative_sha256": "7538ee3efebff29d033aed810a0639f1b54413ed0a1e71c2fc1cff34474ff9ab",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "conditional palette roles",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e9b3f02a05560296c10b01c62a797f1d99d1dc9c73308302da38b0537cfbf1b4",
+    "stage_prompt_sha_B": "c698936d918fabb4341a6b23833a516477cae9d14f7a37789662af1b4e46aa82"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F62",
+   "title": "F62 — Edges and shadows have owners; universal black outlines and bevels do not",
+   "source_clause_sha256": "b0abedf733f39e29aed179f297bb3a4079bad25fa71e8660ab0848226e89a274",
+   "operative_sha256": "6655b1f047461fe4321153f571895868e7b9bae17f64f729280b30954115f724",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "edges and shadows have owners",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "9c62ebad5faa195046d0e17e52ce57e9e79350fde8ef36662f0933941461f865",
+    "stage_prompt_sha_B": "8f448cb3d3069e69952cf4008d400779c570bc57c131687084dd79a5fd77b396"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F63",
+   "title": "F63 — Keep reflection, transparency, blur, glow and grain inside physical optics",
+   "source_clause_sha256": "cc6bf8d92eb974b6085c6c951643f7eb39bee64cfa68b0c9968d95f424a9e342",
+   "operative_sha256": "09d7f2ed9ee437d0b284059bebe14934c3ac399a2ec70f76a98eb3c2106fda99",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "SURFACE",
+   "applicability_rule": "reflection/transparency/blur/glow stays inside physical optics",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "4afb83ac651c4fe5b5c205e52e29bd0d60a3ea1cbda1a8767214d7feedfe9b9c",
+    "stage_prompt_sha_B": "7813093b85047b4e433127313bd74eed91ca1ec1d0ab9099748c62eca10a54f5"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F64",
+   "title": "F64 — Human/mascot/animal identity must be routed by *illustration family*",
+   "source_clause_sha256": "de6e0e04f9fd03abcb4d88e001e16959bc9e1927159bca76509f69aa85eb1473",
+   "operative_sha256": "7630a41387f2d9739a27c39b7ed62aefaa284096f29e3271d869c98fa9745dac",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "human/mascot/animal identity routed by illustration family",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "9d9a5eeb7be53ecc085b5b547479ed77cbb7588c4f042785202956be8c5289d4",
+    "stage_prompt_sha_B": "f99a5f333ef0760572b48a5c578e699ac04e17650e86aacc7d818f7d43c0247a"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F65",
+   "title": "F65 — Eye and mouth construction depends on the **role** and crop",
+   "source_clause_sha256": "ece502d8451377dfda459af3019c7a2ea6623e60f2283e2d5f2aba1192fa8bae",
+   "operative_sha256": "b61caf59d2c2faed1ba4d8de4122f16cb0603693eefb7b55db8693fdb5fb6c78",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "eye/mouth construction depends on role and crop",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "f86ef1c6d81c9a7bf6ab97faecca5d8e0757f556e04e6c2dd757508df9da733c",
+    "stage_prompt_sha_B": "5e0fde69bb02c917a45d04e5c23c52f3f6672c411ab6e86caf32ad15123df418"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F66",
+   "title": "F66 — Body acting needs weight, garment volumes and contact states",
+   "source_clause_sha256": "22e52629159421f8797a71730e5613f9094dbf662efcb340ee717ae8f3dd112d",
+   "operative_sha256": "d494e65f4c05dc81def9f969dd56d75b08a6677eb939ae109212535ba7dcdc79",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "body acting needs weight, garment volumes and contact states",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "a98a8342dd1967c64c34b6e55aa3d0bbaed23006acd645e363abf186d83decd5",
+    "stage_prompt_sha_B": "de9676a77915c181eb4e243bab3eb7200341d774b81f0f717833ff312eab626f"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F67",
+   "title": "F67 — Expression and pose animation is a *registered state family*",
+   "source_clause_sha256": "5f8c5dfcbd121b56c2bf57ae2c9b01817efb6c1816c94903ee8d4522d5c6af73",
+   "operative_sha256": "e736f95e1510466090a07882ab67c5b26a3838390fa32beba2e6ad9eccc2d647",
+   "role": "MOTION",
+   "phase": "STATE",
+   "applicability_rule": "pose/expression/mechanism states form a registered family",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "42de000d71ed7eb9f249ecaa461a9dc87ec8d348152c93571e288bbe68022fd0",
+    "stage_prompt_sha_B": "4ccf7a82b6078916b7082254077890db043ead18a55559eab85f23401b97bd66"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F68",
+   "title": "F68 — Machines are part-defined functional volumes, not neon rectangles",
+   "source_clause_sha256": "a3464d0f0e4eada0b2cb076268a742699fcb859e320045dbb1f62dd1703df046",
+   "operative_sha256": "475f98493d6fa3b86d1a5ea6a9b2795ecdd258577a7f4447e923224b5637c2ac",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "machines are part-defined functional volumes",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "cb811b4d5281ae7f2387fd37d36e6064b4b7c1a36df841d147b3fad53097bab3",
+    "stage_prompt_sha_B": "12bcd5011f126f4be87bc58485f38838eef98791030c4d4248cdaf81f449df97"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F69",
+   "title": "F69 — Landscapes are *coverage substrates* with selective living detail",
+   "source_clause_sha256": "290fa48b9f853ba29f041bb56fb4b71f84ae77da987836bed96750662da64ada",
+   "operative_sha256": "c296ed85c84b35a0c99576805ad14d1d94dea50243f14ac808119bc72a64530d",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "landscapes are coverage substrates",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "33b8c32fd2c475b383df13d33c18906c3f4de5fc93f7e30811d4541ba2bd7e01",
+    "stage_prompt_sha_B": "8da80f552a6b6b327c507e49801001f8079dfa087b5c2087726798ecbcd448fb"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F70",
+   "title": "F70 — Built worlds use coherent projection and semantic architectural repetition",
+   "source_clause_sha256": "87ac0fafcc60e8ec7c045611908991e0f61b2f9d16d7b803144ba527f35dc690",
+   "operative_sha256": "611acd46a0e6ed8d01f54f2e806fe03e32971bc4ee669d75a98f9668950c1473",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "built worlds use coherent projection and semantic repetition",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e0417dd2b251ab27c778e25ccb902cc09003c1e00971e0019aa78c620a8a2813",
+    "stage_prompt_sha_B": "5e25c7d4f4cf86b3e4cc8d315ac319e81db3e280b9654be8f495b0e46b18d02b"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F71",
+   "title": "F71 — Dense microscopic biology is a connected graph, not a particle wallpaper",
+   "source_clause_sha256": "aaaf62ff26a50c8b8a7bd9dde074213ce30201f436adf434e3ecc4e739dc3425",
+   "operative_sha256": "a38af5f974439d5e89bdc54ffefe9b1177027387005020ca179bf889a6668ba8",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "dense microscopic biology is a connected graph",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "96c791da1350c07dd83ed87be707fc2dd915ac864a7309df39042d01af8acefc",
+    "stage_prompt_sha_B": "3555274d7281c6367d60da9c548cfe87cf624ca4ad1b0394f3368e2c08669ddd"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F72",
+   "title": "F72 — Macro organisms and lenses are distinct coordinate systems",
+   "source_clause_sha256": "cff64a941c2f879767e072286d6446bdd665d5ab913ac2afc6da04fd6f577691",
+   "operative_sha256": "3b17fd04c3ca33a38b97aefd81152e1964e17be9a23787f83d8fea0349fa7ef4",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "macro organisms and lenses are distinct coordinate systems",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "7a958a2af75745a19181f2741d7269e1728c5501cca6e068fdba8694b8788ada",
+    "stage_prompt_sha_B": "5734fa885ae87c106c494dc151dbd541fe1820c5a1ba16a5e923c53b993bcd1e"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F73",
+   "title": "F73 — Cosmic/scale worlds depend on physical and diagrammatic meaning",
+   "source_clause_sha256": "bb990bf67ec6880180d94c3b1c42ee91cc38a02af8a6b89b25da868299744f61",
+   "operative_sha256": "50998ab11c5195b98a4c269c9fc1bca309c94fcb0240dec6a887b7340253f1af",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "cosmic/scale worlds depend on physical meaning",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "9e3737fca5fbb5f5f693b1199d8f394d6dc3fcd9f5d7094ed6c7e6fff5213828",
+    "stage_prompt_sha_B": "26cdd93e85ebed30ee1fe2ff7472deb76c838195517bd65c00dbd33431fd430a"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F74",
+   "title": "F74 — Abstract information worlds need a visible representational grammar",
+   "source_clause_sha256": "d2de2d0c2608561f708c7fb649b07fb8f7a2347dc07f94648af69cec5240b967",
+   "operative_sha256": "10267fb2e30304d4cfa99564916203cfd60c2c6614ec7b8b41fabb035f7e895f",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "abstract information worlds need a representational grammar",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "0b5afcb871caa4b57b6a84db0c756aa1a3f39bfca5f587e5a23719d24471bdc2",
+    "stage_prompt_sha_B": "1086b5f40e278f11aa245208563bd9ab2417fd5c3f0e3c6aaca9c493e1085f1d"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F75",
+   "title": "F75 — Typography and diagram glyphs are specific illustration parts",
+   "source_clause_sha256": "935b9a7a679125879649d1a2e1a648473fc8fab893791ae527a7298546efbbf1",
+   "operative_sha256": "c414cf1161c4b6510942da0734a2a166a74960ccfe0884c2a98de527abaf1a6b",
+   "role": "IMAGE_AUTHORSHIP",
+   "phase": "STRUCTURE",
+   "applicability_rule": "typography and glyphs are illustration parts",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "e32286bef7b1caf4d8e2751051bb371735c59b043624eb17df6cb7c4971dac6c",
+    "stage_prompt_sha_B": "1c09f01f6be1b259665012ace727597e67ec24a2aa0dee4e72a707a39390d063"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F76",
+   "title": "F76 — Repeats should come from a locally defined parent generator",
+   "source_clause_sha256": "05d9f233051f2fbe6e24118e6f5cd4b985429a47c8b579bb71481d299c47a3a0",
+   "operative_sha256": "ecff32e744995afa993f6a6ffaeb24e043300885e997caa1b251021592c35ab6",
+   "role": "STRUCTURE",
+   "phase": "STRUCTURE",
+   "applicability_rule": "repeats come from a locally defined parent generator",
+   "consumer": "engine/art_bridge/request_stages.mjs#planStages → provider stage prompt",
+   "causal": "DECISION_CHANGED_EXECUTION",
+   "evidence": {
+    "stage_prompt_sha_A": "aac604140e2c45ea0a5e8a0c3643c01aafa4475fcf6232ac4ffabf6d5074b0b7",
+    "stage_prompt_sha_B": "d4e21b59cf991f00d1a8bdfe9255111054195c6e1c91db314b475d3263f620a1"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F77",
+   "title": "F77 — Information density must be allocated *locally* and to motion owners",
+   "source_clause_sha256": "109a1af6a3497ed9075010a7b2003b2a13e8a8ded0c912fb4f4bd06ad0e0185e",
+   "operative_sha256": "a6785fdb7b454048106dc6f5ee2c98f2153149f37813c3889e7eab9e5b6dd261",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "applicability_rule": "information density is allocated locally and to motion owners",
+   "consumer": "engine/art_bridge/source_method_causality.mjs#allocateDetail",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true,
+    "high": 17,
+    "low": 3
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F78",
+   "title": "F78 — Camera and representational transitions must obey a correspondence invariant",
+   "source_clause_sha256": "72de5b2b0c4fa8f07c5ca064c1055ace96cb11aac025573de8e775888e53a516",
+   "operative_sha256": "1660056b04278cdaedd8234764df4784a73411c29cb7605cb0358fb3c7cdfdb0",
+   "role": "MOTION",
+   "phase": "ENGINE",
+   "applicability_rule": "camera/representational transitions obey a correspondence invariant",
+   "consumer": "engine/art_bridge/transitions.mjs#compileTransition",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/transition_render.test.mjs"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F79",
+   "title": "F79 — Own the alpha, underpaint, parallax and offscreen drawing budget",
+   "source_clause_sha256": "d3093737f0f82be90acafe948f6b1ae97acbca1764e18388fb6cb856d557ff78",
+   "operative_sha256": "b1f931967f867273a1e9a2249e619f9a9a93b082311464a4516049dfdb02ce73",
+   "role": "STRUCTURE",
+   "phase": "ENGINE",
+   "applicability_rule": "alpha, underpaint, parallax and offscreen budget are owned",
+   "consumer": "engine/art_bridge/art_intake.mjs#validatePlanContract",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "covered_by": "tests/art_bridge/p01_reaudit.test.mjs B2-a..d"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  },
+  {
+   "method_id": "F80",
+   "title": "F80 — The first provider request must actually contain the methods and unlike native pixels",
+   "source_clause_sha256": "9e6d66d258fbbd76406fbe571b5d28fc615d69e0d02c84e7d0e6473756dfb80c",
+   "operative_sha256": "68f4aa97b6e4953778a602458046ed65d64f1a631f486ee7e8f33cb379bb6ed1",
+   "role": "REPAIR",
+   "phase": "REVIEW",
+   "applicability_rule": "the first provider request contains the methods and unlike native pixels",
+   "consumer": "engine/art_bridge/art_requests.mjs#compileArtJob",
+   "causal": "ENGINE_CONSUMER_PERTURBED",
+   "evidence": {
+    "changed": true,
+    "note": "compileArtJob refuses <2 verified witnesses (S3-NEG-WITNESS, U03 missing witness image)"
+   },
+   "real_pixel_fidelity": "EXTERNAL_PROVIDER_BLOCKED",
+   "status": "IMPLEMENTED_UNQUALIFIED"
+  }
+ ]
+}

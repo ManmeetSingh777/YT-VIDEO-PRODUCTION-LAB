@@ -1,0 +1,1257 @@
+{
+ "demands": [
+  {
+   "asset": "washer_drum_interior",
+   "why": [
+    "washer_rig idle binds washer_drum_interior",
+    "washer_rig door_half binds washer_drum_interior",
+    "washer_rig door_open binds washer_drum_interior",
+    "washer_rig running binds washer_drum_interior"
+   ],
+   "frames": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "S01_sock_tumble@S01",
+    "S02_operate_washer@S02",
+    "S07_return@S07"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_laundry_load",
+   "why": [
+    "washer_rig idle binds washer_laundry_load",
+    "washer_rig door_half binds washer_laundry_load",
+    "washer_rig door_open binds washer_laundry_load"
+   ],
+   "frames": [
+    [
+     0,
+     1590
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "S01_sock_tumble@S01",
+    "S02_operate_washer@S02",
+    "S07_return@S07"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_cabinet",
+   "why": [
+    "washer_rig idle binds washer_cabinet",
+    "washer_rig door_half binds washer_cabinet",
+    "washer_rig door_open binds washer_cabinet",
+    "washer_rig running binds washer_cabinet"
+   ],
+   "frames": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "S01_sock_tumble@S01",
+    "S02_operate_washer@S02",
+    "S07_return@S07"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_door_ring",
+   "why": [
+    "washer_rig idle binds washer_door_ring",
+    "washer_rig running binds washer_door_ring"
+   ],
+   "frames": [
+    [
+     0,
+     1170
+    ],
+    [
+     1392,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "S01_sock_tumble@S01",
+    "S02_operate_washer@S02",
+    "S07_return@S07"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_door_glass",
+   "why": [
+    "washer_rig idle binds washer_door_glass",
+    "washer_rig running binds washer_door_glass"
+   ],
+   "frames": [
+    [
+     0,
+     1170
+    ],
+    [
+     1392,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "S01_sock_tumble@S01",
+    "S02_operate_washer@S02",
+    "S07_return@S07"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_coin_flap",
+   "why": [
+    "washer_rig idle binds washer_coin_flap",
+    "washer_rig door_half binds washer_coin_flap",
+    "washer_rig door_open binds washer_coin_flap",
+    "washer_rig running binds washer_coin_flap"
+   ],
+   "frames": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "S01_sock_tumble@S01",
+    "S02_operate_washer@S02",
+    "S07_return@S07"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_leg_l_far",
+   "why": [
+    "ines_rig neutral binds ines_leg_l_far",
+    "ines_rig hand_open binds ines_leg_l_far",
+    "ines_rig hand_pinch binds ines_leg_l_far",
+    "ines_rig curious binds ines_leg_l_far",
+    "ines_rig curious/profile_turn binds ines_leg_l_far",
+    "ines_rig curious/profile_satisfied binds ines_leg_l_far"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_shin_l_far",
+   "why": [
+    "ines_rig neutral binds ines_shin_l_far",
+    "ines_rig hand_open binds ines_shin_l_far",
+    "ines_rig hand_pinch binds ines_shin_l_far",
+    "ines_rig curious binds ines_shin_l_far",
+    "ines_rig curious/profile_turn binds ines_shin_l_far",
+    "ines_rig curious/profile_satisfied binds ines_shin_l_far"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_foot_l_far",
+   "why": [
+    "ines_rig neutral binds ines_foot_l_far",
+    "ines_rig hand_open binds ines_foot_l_far",
+    "ines_rig hand_pinch binds ines_foot_l_far",
+    "ines_rig curious binds ines_foot_l_far",
+    "ines_rig curious/profile_turn binds ines_foot_l_far",
+    "ines_rig curious/profile_satisfied binds ines_foot_l_far"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_arm_l_far",
+   "why": [
+    "ines_rig neutral binds ines_arm_l_far",
+    "ines_rig hand_open binds ines_arm_l_far",
+    "ines_rig hand_pinch binds ines_arm_l_far",
+    "ines_rig curious binds ines_arm_l_far",
+    "ines_rig curious/profile_turn binds ines_arm_l_far",
+    "ines_rig curious/profile_satisfied binds ines_arm_l_far"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_forearm_l_far",
+   "why": [
+    "ines_rig neutral binds ines_forearm_l_far",
+    "ines_rig hand_open binds ines_forearm_l_far",
+    "ines_rig hand_pinch binds ines_forearm_l_far",
+    "ines_rig curious binds ines_forearm_l_far",
+    "ines_rig curious/profile_turn binds ines_forearm_l_far",
+    "ines_rig curious/profile_satisfied binds ines_forearm_l_far"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_l_far",
+   "why": [
+    "ines_rig neutral binds ines_hand_l_far",
+    "ines_rig hand_open binds ines_hand_l_far",
+    "ines_rig hand_pinch binds ines_hand_l_far",
+    "ines_rig curious binds ines_hand_l_far",
+    "ines_rig curious/profile_turn binds ines_hand_l_far",
+    "ines_rig curious/profile_satisfied binds ines_hand_l_far"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_torso",
+   "why": [
+    "ines_rig neutral binds ines_torso",
+    "ines_rig hand_open binds ines_torso",
+    "ines_rig hand_pinch binds ines_torso",
+    "ines_rig curious binds ines_torso"
+   ],
+   "frames": [
+    [
+     900,
+     1620
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_coat_hem",
+   "why": [
+    "ines_rig neutral binds ines_coat_hem",
+    "ines_rig hand_open binds ines_coat_hem",
+    "ines_rig hand_pinch binds ines_coat_hem",
+    "ines_rig curious binds ines_coat_hem",
+    "ines_rig curious/profile_turn binds ines_coat_hem",
+    "ines_rig curious/profile_satisfied binds ines_coat_hem"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_head",
+   "why": [
+    "ines_rig neutral binds ines_head",
+    "ines_rig hand_open binds ines_head",
+    "ines_rig hand_pinch binds ines_head",
+    "ines_rig curious binds ines_head"
+   ],
+   "frames": [
+    [
+     900,
+     1620
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_eyes",
+   "why": [
+    "ines_rig neutral binds ines_face_eyes",
+    "ines_rig hand_open binds ines_face_eyes",
+    "ines_rig hand_pinch binds ines_face_eyes"
+   ],
+   "frames": [
+    [
+     900,
+     1590
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_mouth",
+   "why": [
+    "ines_rig neutral binds ines_face_mouth",
+    "ines_rig hand_open binds ines_face_mouth",
+    "ines_rig hand_pinch binds ines_face_mouth"
+   ],
+   "frames": [
+    [
+     900,
+     1590
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_brow",
+   "why": [
+    "ines_rig neutral binds ines_brow",
+    "ines_rig hand_open binds ines_brow",
+    "ines_rig hand_pinch binds ines_brow"
+   ],
+   "frames": [
+    [
+     900,
+     1590
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hair_back",
+   "why": [
+    "ines_rig neutral binds ines_hair_back",
+    "ines_rig hand_open binds ines_hair_back",
+    "ines_rig hand_pinch binds ines_hair_back",
+    "ines_rig curious binds ines_hair_back"
+   ],
+   "frames": [
+    [
+     900,
+     1620
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_leg_r",
+   "why": [
+    "ines_rig neutral binds ines_leg_r",
+    "ines_rig hand_open binds ines_leg_r",
+    "ines_rig hand_pinch binds ines_leg_r",
+    "ines_rig curious binds ines_leg_r",
+    "ines_rig curious/profile_turn binds ines_leg_r",
+    "ines_rig curious/profile_satisfied binds ines_leg_r"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_shin_r",
+   "why": [
+    "ines_rig neutral binds ines_shin_r",
+    "ines_rig hand_open binds ines_shin_r",
+    "ines_rig hand_pinch binds ines_shin_r",
+    "ines_rig curious binds ines_shin_r",
+    "ines_rig curious/profile_turn binds ines_shin_r",
+    "ines_rig curious/profile_satisfied binds ines_shin_r"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_foot_r",
+   "why": [
+    "ines_rig neutral binds ines_foot_r",
+    "ines_rig hand_open binds ines_foot_r",
+    "ines_rig hand_pinch binds ines_foot_r",
+    "ines_rig curious binds ines_foot_r",
+    "ines_rig curious/profile_turn binds ines_foot_r",
+    "ines_rig curious/profile_satisfied binds ines_foot_r"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_sleeve_r",
+   "why": [
+    "ines_rig neutral binds ines_sleeve_r",
+    "ines_rig hand_open binds ines_sleeve_r",
+    "ines_rig hand_pinch binds ines_sleeve_r",
+    "ines_rig curious binds ines_sleeve_r",
+    "ines_rig curious/profile_turn binds ines_sleeve_r",
+    "ines_rig curious/profile_satisfied binds ines_sleeve_r"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_elbow_r_underpaint",
+   "why": [
+    "ines_rig neutral binds ines_elbow_r_underpaint",
+    "ines_rig hand_open binds ines_elbow_r_underpaint",
+    "ines_rig hand_pinch binds ines_elbow_r_underpaint",
+    "ines_rig curious binds ines_elbow_r_underpaint",
+    "ines_rig curious/profile_turn binds ines_elbow_r_underpaint",
+    "ines_rig curious/profile_satisfied binds ines_elbow_r_underpaint"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_forearm_r",
+   "why": [
+    "ines_rig neutral binds ines_forearm_r",
+    "ines_rig hand_open binds ines_forearm_r",
+    "ines_rig hand_pinch binds ines_forearm_r",
+    "ines_rig curious binds ines_forearm_r",
+    "ines_rig curious/profile_turn binds ines_forearm_r",
+    "ines_rig curious/profile_satisfied binds ines_forearm_r"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_r_far_fingers",
+   "why": [
+    "ines_rig neutral binds ines_hand_r_far_fingers",
+    "ines_rig curious binds ines_hand_r_far_fingers",
+    "ines_rig curious/profile_turn binds ines_hand_r_far_fingers",
+    "ines_rig curious/profile_satisfied binds ines_hand_r_far_fingers"
+   ],
+   "frames": [
+    [
+     900,
+     990
+    ],
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1410
+    ],
+    [
+     1590,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_r_palm",
+   "why": [
+    "ines_rig neutral binds ines_hand_r_palm",
+    "ines_rig hand_open binds ines_hand_r_palm",
+    "ines_rig hand_pinch binds ines_hand_r_palm",
+    "ines_rig curious binds ines_hand_r_palm",
+    "ines_rig curious/profile_turn binds ines_hand_r_palm",
+    "ines_rig curious/profile_satisfied binds ines_hand_r_palm"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_r_near_fingers",
+   "why": [
+    "ines_rig neutral binds ines_hand_r_near_fingers",
+    "ines_rig curious binds ines_hand_r_near_fingers",
+    "ines_rig curious/profile_turn binds ines_hand_r_near_fingers",
+    "ines_rig curious/profile_satisfied binds ines_hand_r_near_fingers"
+   ],
+   "frames": [
+    [
+     900,
+     990
+    ],
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1410
+    ],
+    [
+     1590,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_r_far_open",
+   "why": [
+    "ines_rig hand_open binds ines_hand_r_far_fingers"
+   ],
+   "frames": [
+    [
+     990,
+     1050
+    ],
+    [
+     1260,
+     1320
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_r_near_open",
+   "why": [
+    "ines_rig hand_open binds ines_hand_r_near_fingers"
+   ],
+   "frames": [
+    [
+     990,
+     1050
+    ],
+    [
+     1260,
+     1320
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_grip_r::GRIP_hand_state",
+   "why": [
+    "GRIP contact ines_grip_r→washer_handle needs a closure drawing"
+   ],
+   "frames": [
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1392
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "S02_operate_washer"
+   ],
+   "supplied_by_plan": false
+  },
+  {
+   "asset": "ines_hand_r_far_pinch",
+   "why": [
+    "ines_rig hand_pinch binds ines_hand_r_far_fingers",
+    "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing"
+   ],
+   "frames": [
+    [
+     1410,
+     1590
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02",
+    "S02_operate_washer"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hand_r_near_pinch",
+   "why": [
+    "ines_rig hand_pinch binds ines_hand_r_near_fingers"
+   ],
+   "frames": [
+    [
+     1410,
+     1590
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_eyes_curious",
+   "why": [
+    "ines_rig curious binds ines_face_eyes"
+   ],
+   "frames": [
+    [
+     1590,
+     1620
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_mouth_open",
+   "why": [
+    "ines_rig curious binds ines_face_mouth"
+   ],
+   "frames": [
+    [
+     1590,
+     1620
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_brow_raised",
+   "why": [
+    "ines_rig curious binds ines_brow"
+   ],
+   "frames": [
+    [
+     1590,
+     1620
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_torso_profile",
+   "why": [
+    "ines_rig curious/profile_turn binds ines_torso",
+    "ines_rig curious/profile_satisfied binds ines_torso"
+   ],
+   "frames": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_head_profile",
+   "why": [
+    "ines_rig curious/profile_turn binds ines_head",
+    "ines_rig curious/profile_satisfied binds ines_head"
+   ],
+   "frames": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_eyes_profile",
+   "why": [
+    "ines_rig curious/profile_turn binds ines_face_eyes"
+   ],
+   "frames": [
+    [
+     1620,
+     1740
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_mouth_profile",
+   "why": [
+    "ines_rig curious/profile_turn binds ines_face_mouth"
+   ],
+   "frames": [
+    [
+     1620,
+     1740
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_brow_profile",
+   "why": [
+    "ines_rig curious/profile_turn binds ines_brow",
+    "ines_rig curious/profile_satisfied binds ines_brow"
+   ],
+   "frames": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_hair_profile",
+   "why": [
+    "ines_rig curious/profile_turn binds ines_hair_back",
+    "ines_rig curious/profile_satisfied binds ines_hair_back"
+   ],
+   "frames": [
+    [
+     1620,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_eyes_soft_profile",
+   "why": [
+    "ines_rig curious/profile_satisfied binds ines_face_eyes"
+   ],
+   "frames": [
+    [
+     1740,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_face_mouth_smile_profile",
+   "why": [
+    "ines_rig curious/profile_satisfied binds ines_face_mouth"
+   ],
+   "frames": [
+    [
+     1740,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_door_ring_half",
+   "why": [
+    "washer_rig door_half binds washer_door_ring",
+    "GRIP contact ines_grip_r→washer_handle needs a closure drawing"
+   ],
+   "frames": [
+    [
+     1170,
+     1230
+    ],
+    [
+     1356,
+     1392
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02",
+    "S02_operate_washer"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_door_glass_half",
+   "why": [
+    "washer_rig door_half binds washer_door_glass"
+   ],
+   "frames": [
+    [
+     1170,
+     1230
+    ],
+    [
+     1356,
+     1392
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_door_ring_open",
+   "why": [
+    "washer_rig door_open binds washer_door_ring",
+    "GRIP contact ines_grip_r→washer_handle needs a closure drawing"
+   ],
+   "frames": [
+    [
+     1230,
+     1356
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02",
+    "S02_operate_washer"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "washer_door_glass_open",
+   "why": [
+    "washer_rig door_open binds washer_door_glass"
+   ],
+   "frames": [
+    [
+     1230,
+     1356
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_pinch_r::FOLLOW_hand_state",
+   "why": [
+    "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing"
+   ],
+   "frames": [
+    [
+     1470,
+     1560
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "S02_operate_washer"
+   ],
+   "supplied_by_plan": false
+  },
+  {
+   "asset": "washer_laundry_load_tumbling",
+   "why": [
+    "washer_rig running binds washer_laundry_load"
+   ],
+   "frames": [
+    [
+     1590,
+     1920
+    ]
+   ],
+   "representation": "ARTICULATED",
+   "consumers": [
+    "S02_operate_washer@S02"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "porthole_out",
+   "why": [
+    "continuous transition S02->S03 needs its OUT plate"
+   ],
+   "frames": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "porthole_glass_middle",
+   "why": [
+    "continuous transition S02->S03 needs its MIDDLE plate"
+   ],
+   "frames": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "drum_in",
+   "why": [
+    "continuous transition S02->S03 needs its IN plate"
+   ],
+   "frames": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "porthole_aperture",
+   "why": [
+    "continuous transition S02->S03 needs its MASK plate"
+   ],
+   "frames": [
+    [
+     1800,
+     1920
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "drum_rim_out",
+   "why": [
+    "continuous transition S03->S04 needs its OUT plate"
+   ],
+   "frames": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "rim_to_ledger_middle",
+   "why": [
+    "continuous transition S03->S04 needs its MIDDLE plate"
+   ],
+   "frames": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "ledger_master",
+   "why": [
+    "continuous transition S03->S04 needs its IN plate"
+   ],
+   "frames": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "rim_aperture",
+   "why": [
+    "continuous transition S03->S04 needs its MASK plate"
+   ],
+   "frames": [
+    [
+     2880,
+     3000
+    ]
+   ],
+   "representation": "TRANSITION",
+   "consumers": [
+    "transitions.mjs#compileTransition"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "w_laundromat",
+   "why": [
+    "camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at ≥2.145 px/unit"
+   ],
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": false
+  }
+ ],
+ "missing": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_grip_r::GRIP_hand_state",
+   "frame_ranges": [
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1392
+    ]
+   ],
+   "reason": "GRIP contact ines_grip_r→washer_handle needs a closure drawing",
+   "required_art_or_operation": [
+    "source-attached REGISTERED_CELS drawing for ines_grip_r::GRIP_hand_state"
+   ]
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_pinch_r::FOLLOW_hand_state",
+   "frame_ranges": [
+    [
+     1470,
+     1560
+    ]
+   ],
+   "reason": "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing",
+   "required_art_or_operation": [
+    "source-attached REGISTERED_CELS drawing for ines_pinch_r::FOLLOW_hand_state"
+   ]
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "w_laundromat",
+   "frame_ranges": [
+    [
+     900,
+     1920
+    ]
+   ],
+   "reason": "camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at ≥2.145 px/unit",
+   "required_art_or_operation": [
+    "source-attached CAMERA_WORLD drawing for w_laundromat"
+   ]
+  }
+ ]
+}

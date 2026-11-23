@@ -1,0 +1,18 @@
+{
+ "landmarks": {
+  "elbow_r": [
+   45,
+   45
+  ],
+  "upper_arm_mid": [
+   25,
+   -35
+  ],
+  "forearm_mid": [
+   55,
+   125
+  ]
+ },
+ "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)"
+}

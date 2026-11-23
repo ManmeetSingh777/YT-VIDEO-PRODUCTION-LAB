@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:42",
+ "sequence": 42,
+ "prev_event_sha256": "81b8345e5edbfac3ce710618b4a889d0daa2defe08b967964c2943cb2d7aafdf",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwru47r4",
+ "operation_id": null,
+ "task_id": "narration_timeline",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "audio/narration_timeline_TEST.json",
+   "sha256": "d703984c98dc6783f86b062804cae0628650c4263f69bbd0f4e5cfba83f6f924",
+   "bytes": 705,
+   "source": "audio/narration_timeline_TEST.json"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:41"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:17.501Z",
+ "elapsed_ms": 16,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "zero errors",
+  "pass": true,
+  "measurement": "1 anchors"
+ },
+ "lock_generation": 42,
+ "event_sha256": "30082effa5365f6bc96d0e7d9074813dbd7681d8c4deb770c532e0397f286117"
+}

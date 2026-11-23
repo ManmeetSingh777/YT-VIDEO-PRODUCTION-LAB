@@ -1,0 +1,33 @@
+{
+  "film_id": "AI",
+  "source": "full_film_materialization/A.I. \u2010 Humanity's Final Invention - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+  "source_sha256": "67e752510c3606a00096c38ced96cb7bd1a4c89e33d76a07f37b1bf331349058",
+  "decoded_frames": 60169,
+  "frame_dimensions": [
+    1920,
+    1080
+  ],
+  "source_native_pixel_domain": true,
+  "downscale": null,
+  "signalstats_pixel_features": [
+    "YMIN",
+    "YLOW",
+    "YAVG",
+    "YHIGH",
+    "YMAX",
+    "UMIN",
+    "UAVG",
+    "VMIN",
+    "VAVG",
+    "SATAVG",
+    "YDIF",
+    "UDIF",
+    "VDIF",
+    "HUEAVG"
+  ],
+  "native_temporal_feature": "lavfi.scd.score and lavfi.scd.mafd per frame",
+  "metadata_sha256": "ec988df746e4a878843c702deb0dc0f5273e3fe7c8fb8b87f511be2db09c6d40",
+  "seconds": 1035.3,
+  "evidence_scope": "Every full-raster frame technically analyzed and temporal signals stored. Not semantic full-frame visual comprehension, reconstruction, or a complete source transfer qualification.",
+  "status": "VERIFIED_NATIVE_PIXEL_PASS"
+}

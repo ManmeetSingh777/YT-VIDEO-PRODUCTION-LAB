@@ -1,0 +1,138 @@
+{
+ "MEMORIES@10101": {
+  "file": "reference/construct-kurzgesagt-art/assets/conditional_native_anchors/MEMORIES_10101_close_human.jpg",
+  "sha256": "fc0962d7b2eb2ef64683560c18975e384649c3dcfd5559583392e622b8d986ab",
+  "chroma_p25": 0.098,
+  "chroma_p50": 0.098,
+  "chroma_p75": 0.158,
+  "chroma_p90": 0.203,
+  "L_p10": 0.486,
+  "L_p50": 0.895,
+  "L_p90": 0.898,
+  "substrate": {
+   "L": 0.895,
+   "chroma": 0.098,
+   "area": 0.379
+  },
+  "colorsOver2pct": 11
+ },
+ "NUCLEAR@145": {
+  "file": "reference/construct-kurzgesagt-art/assets/question_native_witnesses/NUCLEAR_0145_lab_procedural_people.jpg",
+  "sha256": "955c27cb5cae54685bc0978e01b68344d07e93fede6e26f7bde66b3e80d9e4b3",
+  "chroma_p25": 0.054,
+  "chroma_p50": 0.097,
+  "chroma_p75": 0.101,
+  "chroma_p90": 0.135,
+  "L_p10": 0.223,
+  "L_p50": 0.419,
+  "L_p90": 0.988,
+  "substrate": {
+   "L": 0.736,
+   "chroma": 0.135,
+   "area": 0.095
+  },
+  "colorsOver2pct": 17
+ },
+ "BRAIN@386": {
+  "file": "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+  "sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+  "chroma_p25": 0.101,
+  "chroma_p50": 0.101,
+  "chroma_p75": 0.17,
+  "chroma_p90": 0.17,
+  "L_p10": 0.788,
+  "L_p50": 0.963,
+  "L_p90": 0.97,
+  "substrate": {
+   "L": 0.963,
+   "chroma": 0.101,
+   "area": 0.282
+  },
+  "colorsOver2pct": 12
+ },
+ "BRAIN@334": {
+  "file": "reference/construct-kurzgesagt-art/assets/question_native_witnesses/BRAIN_0334_full_actor_sparse_world.jpg",
+  "sha256": "9409f75e1deba9d5ffb2a7c6baaea88d1f6d7e3990cd16c53e1a2c966ece1d94",
+  "chroma_p25": 0.101,
+  "chroma_p50": 0.101,
+  "chroma_p75": 0.17,
+  "chroma_p90": 0.17,
+  "L_p10": 0.79,
+  "L_p50": 0.943,
+  "L_p90": 0.97,
+  "substrate": {
+   "L": 0.963,
+   "chroma": 0.101,
+   "area": 0.272
+  },
+  "colorsOver2pct": 10
+ },
+ "AI@285": {
+  "file": "reference/construct-kurzgesagt-art/assets/question_native_witnesses/AI_0285_machine_actor_interior.jpg",
+  "sha256": "ff4e159acde765f0862493446f097580fafba7b91a600efa451afcc628fa40e0",
+  "chroma_p25": 0.096,
+  "chroma_p50": 0.11,
+  "chroma_p75": 0.122,
+  "chroma_p90": 0.134,
+  "L_p10": 0.262,
+  "L_p50": 0.509,
+  "L_p90": 0.89,
+  "substrate": {
+   "L": 0.285,
+   "chroma": 0.124,
+   "area": 0.076
+  },
+  "colorsOver2pct": 21
+ },
+ "AI@35": {
+  "file": "reference/construct-kurzgesagt-art/assets/question_native_witnesses/AI_0035_oblique_built_space.jpg",
+  "sha256": "692be2318711f5a4dd9c60fa11663df02d2cf949b2f667d115bfb7a03fa96078",
+  "chroma_p25": 0.104,
+  "chroma_p50": 0.138,
+  "chroma_p75": 0.175,
+  "chroma_p90": 0.188,
+  "L_p10": 0.417,
+  "L_p50": 0.617,
+  "L_p90": 0.855,
+  "substrate": {
+   "L": 0.47,
+   "chroma": 0.188,
+   "area": 0.075
+  },
+  "colorsOver2pct": 24
+ },
+ "NUCLEAR@271": {
+  "file": "reference/construct-kurzgesagt-art/assets/question_native_witnesses/NUCLEAR_0271_mechanism_scale_world.jpg",
+  "sha256": "e9c28939989e4e021fac8835f015ee37f98d76c797b506ab74461051046fe6bf",
+  "chroma_p25": 0.066,
+  "chroma_p50": 0.066,
+  "chroma_p75": 0.084,
+  "chroma_p90": 0.129,
+  "L_p10": 0.79,
+  "L_p50": 0.876,
+  "L_p90": 0.976,
+  "substrate": {
+   "L": 0.876,
+   "chroma": 0.066,
+   "area": 0.273
+  },
+  "colorsOver2pct": 16
+ },
+ "AI@555": {
+  "file": "reference/construct-kurzgesagt-art/assets/molecular_native_anchors/AI_0555_server_perspective.jpg",
+  "sha256": "7e0d7c3f9e2e6ab9a360e36e31b42d8668a59547c4a786f4d7144cd05ee615a3",
+  "chroma_p25": 0.114,
+  "chroma_p50": 0.13,
+  "chroma_p75": 0.149,
+  "chroma_p90": 0.181,
+  "L_p10": 0.191,
+  "L_p50": 0.373,
+  "L_p90": 0.768,
+  "substrate": {
+   "L": 0.304,
+   "chroma": 0.133,
+   "area": 0.086
+  },
+  "colorsOver2pct": 20
+ }
+}

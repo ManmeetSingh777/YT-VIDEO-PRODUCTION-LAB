@@ -1,0 +1,25 @@
+{
+ "first_violated_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+ "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":600,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":601,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028602},{\"frame\":601,\"kind\":\"FROZEN_FRAME\",\"reason\":\"expected scene state changed but the rendered pixels are identical to the previous frame\"}]",
+ "stage": "S07_NEUTRINO_RENDER",
+ "task": "chunk_600_1200",
+ "root_producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+ "failure_class": "MOTION_OR_CAMERA",
+ "repair_owner": "MOTION_COMPILER",
+ "blast_radius": [
+  "assemble",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "frames": [
+  [
+   600,
+   1200
+  ]
+ ],
+ "evidence_event": "DIAG-20261122131103-9255ef:172",
+ "resume_from": "S07_NEUTRINO_RENDER",
+ "retry_safe": false,
+ "external_spend_risk": false,
+ "next_operation": "resolve chunk_0_600"
+}

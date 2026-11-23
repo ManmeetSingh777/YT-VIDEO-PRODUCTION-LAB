@@ -1,0 +1,344 @@
+{
+ "ARTJOB_MASTER_pilot_master_a4b23a0d": {
+  "digest": "b868518423f6d8fb986cee55",
+  "status": "APPROVED",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": null,
+  "readiness": "APPROVED",
+  "mutable": {
+   "triggered_by": [],
+   "registration_contract": {
+    "asset_kind": "MASTER",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "pilot_body",
+    "pilot_upper_arm",
+    "pilot_forearm",
+    "pilot_underpaint",
+    "pilot_hand_open",
+    "pilot_hand_grip"
+   ]
+  }
+ },
+ "ARTJOB_MASTER_rt_world_far_93da356a": {
+  "digest": "223e6c20cf136cd3680ff6c3",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "APPROVED",
+  "mutable": {
+   "triggered_by": [],
+   "registration_contract": {
+    "asset_kind": "WORLD_PLANE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FAR",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_pilot_body_86681050": {
+  "digest": "c746e18785bd104c6ad4aa1d",
+  "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_body",
+     "frame_range": [
+      0,
+      100
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_body",
+     "frame_range": [
+      100,
+      600
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_rig.pilot_body",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "pelvis",
+    "planned_pivot_xy": [
+     150,
+     300
+    ],
+    "joint_id": "pelvis",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master pilot_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_pilot_forearm_8c449dea": {
+  "digest": "7fd4bb14341fae7f639eea5b",
+  "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_forearm",
+     "frame_range": [
+      0,
+      100
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_forearm",
+     "frame_range": [
+      100,
+      600
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_rig.pilot_forearm",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "elbow_r",
+    "planned_pivot_xy": [
+     215,
+     215
+    ],
+    "joint_id": "elbow_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master pilot_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_pilot_upper_arm_07dce89c": {
+  "digest": "84a7422d467f6352a80e9fe1",
+  "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_rig.pilot_upper_arm",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_upper_arm",
+     "frame_range": [
+      0,
+      100
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_upper_arm",
+     "frame_range": [
+      100,
+      600
+     ],
+     "shot_id": "rt_shot"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "shoulder_r",
+    "planned_pivot_xy": [
+     195,
+     135
+    ],
+    "joint_id": "shoulder_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master pilot_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_UNDERPAINT_pilot_underpaint_8edcc8e8": {
+  "digest": "31cabd29acf28f94d2ce9ebc",
+  "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_rig.pilot_underpaint",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_underpaint",
+     "frame_range": [
+      0,
+      100
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_underpaint",
+     "frame_range": [
+      100,
+      600
+     ],
+     "shot_id": "rt_shot"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "UNDERPAINT",
+    "pivot_landmark_id": "elbow_r",
+    "planned_pivot_xy": [
+     215,
+     215
+    ],
+    "joint_id": "elbow_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master pilot_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_pilot_hand_grip_774b7993": {
+  "digest": "b960354d5e17fa09aeb35c80",
+  "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_hand_grip",
+     "frame_range": [
+      100,
+      600
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_rig.grip",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     225,
+     295
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master pilot_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_pilot_hand_open_50ac8112": {
+  "digest": "98ceb2950bd802e35995943c",
+  "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "blocked_on": [
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "READY_FOR_SOURCE_ATTACHED_EDIT",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_hand_open",
+     "frame_range": [
+      0,
+      100
+     ],
+     "shot_id": "rt_shot"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "pilot_rig.pilot_hand_open",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     225,
+     295
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master pilot_master"
+   },
+   "dependents": []
+  }
+ }
+}

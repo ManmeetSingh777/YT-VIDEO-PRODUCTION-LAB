@@ -1,0 +1,165 @@
+{
+ "film": "film",
+ "revision": "ea1c9051758ac75f732163ffa57d0283561005a06ef5258b095079396ebc6156",
+ "sections": {
+  "story": {
+   "status": "NOT_APPROVABLE",
+   "failures": [
+    {
+     "code": "FACT_CHECK_REQUIRED",
+     "reason": "story contract is a diagnostic stand-in"
+    }
+   ]
+  },
+  "actions": [],
+  "continuity": [],
+  "attention": [],
+  "art_demand": {
+   "demands": [
+    {
+     "asset": "pilot_body",
+     "why": [
+      "pilot_rig open binds pilot_body",
+      "pilot_rig grip binds pilot_body"
+     ],
+     "frames": [
+      [
+       0,
+       600
+      ]
+     ],
+     "representation": "ARTICULATED",
+     "consumers": [
+      "pilot_close_hand@rt_shot"
+     ],
+     "supplied_by_plan": true
+    },
+    {
+     "asset": "pilot_underpaint",
+     "why": [
+      "pilot_rig open binds pilot_underpaint",
+      "pilot_rig grip binds pilot_underpaint"
+     ],
+     "frames": [
+      [
+       0,
+       600
+      ]
+     ],
+     "representation": "ARTICULATED",
+     "consumers": [
+      "pilot_close_hand@rt_shot"
+     ],
+     "supplied_by_plan": true
+    },
+    {
+     "asset": "pilot_upper_arm",
+     "why": [
+      "pilot_rig open binds pilot_upper_arm",
+      "pilot_rig grip binds pilot_upper_arm"
+     ],
+     "frames": [
+      [
+       0,
+       600
+      ]
+     ],
+     "representation": "ARTICULATED",
+     "consumers": [
+      "pilot_close_hand@rt_shot"
+     ],
+     "supplied_by_plan": true
+    },
+    {
+     "asset": "pilot_forearm",
+     "why": [
+      "pilot_rig open binds pilot_forearm",
+      "pilot_rig grip binds pilot_forearm"
+     ],
+     "frames": [
+      [
+       0,
+       600
+      ]
+     ],
+     "representation": "ARTICULATED",
+     "consumers": [
+      "pilot_close_hand@rt_shot"
+     ],
+     "supplied_by_plan": true
+    },
+    {
+     "asset": "pilot_hand_open",
+     "why": [
+      "pilot_rig open binds pilot_hand_open"
+     ],
+     "frames": [
+      [
+       0,
+       100
+      ]
+     ],
+     "representation": "ARTICULATED",
+     "consumers": [
+      "pilot_close_hand@rt_shot"
+     ],
+     "supplied_by_plan": true
+    },
+    {
+     "asset": "pilot_hand_grip",
+     "why": [
+      "pilot_rig grip binds pilot_hand_open"
+     ],
+     "frames": [
+      [
+       100,
+       600
+      ]
+     ],
+     "representation": "ARTICULATED",
+     "consumers": [
+      "pilot_close_hand@rt_shot"
+     ],
+     "supplied_by_plan": true
+    }
+   ],
+   "missing": []
+  },
+  "transform_ownership": [
+   {
+    "rig": "pilot_rig",
+    "ok": true,
+    "failures": []
+   }
+  ],
+  "tiling": {
+   "ok": true,
+   "failures": []
+  },
+  "action_phrases": {
+   "missing": "story/ACTION_PHRASES.json (ActionPhrase per movement: owners, phases) not authored"
+  },
+  "beat_media": {
+   "missing": "story/BEAT_MEDIA.json (typed beats with content kinds) not authored"
+  },
+  "cast_shadows": [],
+  "contact_morphology": [],
+  "supported_reach": [],
+  "portals": []
+ },
+ "blockers": {
+  "story": 1,
+  "uncompiled_actions": 0,
+  "continuity": 0,
+  "inert_attention": 0,
+  "missing_art_states": 0,
+  "transform_ownership": 0,
+  "tiling": 0,
+  "action_phrases": 1,
+  "beat_media": 1,
+  "contact_morphology": 0,
+  "supported_reach": 0,
+  "portals": 0,
+  "cast_shadows": 0
+ }
+}

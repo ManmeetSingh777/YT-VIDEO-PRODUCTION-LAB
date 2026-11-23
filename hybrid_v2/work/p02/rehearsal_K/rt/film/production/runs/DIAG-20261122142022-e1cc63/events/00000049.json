@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:49",
+ "sequence": 49,
+ "prev_event_sha256": "a1e931d0d2839ba810cef61fbb57f548b77e3da482680969b377beae739fdaa5",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwrxc6hv",
+ "operation_id": null,
+ "task_id": "demand_pilot_hand_open",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:48"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:27.694Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "demand_pilot_hand_open",
+  "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+  "inputs": [],
+  "expected_outputs": [
+   "planned art for pilot_hand_open"
+  ],
+  "deps": [],
+  "invariants": [
+   "every visible state has an explicit dependency"
+  ],
+  "verification": "supplied_by_plan",
+  "evidence_location": "frames 0,100",
+  "category": "MISSING_ART_STATE",
+  "group": null
+ },
+ "lock_generation": 49,
+ "event_sha256": "f38641946dc8d29ba1ecffcd42b104ba8734cb44f9006f77eedf9db31dc1cbe1"
+}

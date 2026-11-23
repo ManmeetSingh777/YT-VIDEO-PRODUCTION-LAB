@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:19",
+ "sequence": 19,
+ "prev_event_sha256": "4c45bdf51f5fdd6dc3beefe525f7bd5d6b176aae7d571f24135ef9d52ea31b6a",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwru47az",
+ "operation_id": null,
+ "task_id": "direction_approval",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:18"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:16.396Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "direction_approval",
+  "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(direction)",
+  "inputs": [],
+  "expected_outputs": [
+   "verified direction receipt"
+  ],
+  "deps": [
+   "attention_rt_shot",
+   "attention_rt_world_shot"
+  ],
+  "invariants": [],
+  "verification": "verifyApproval over the current bundle",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 19,
+ "event_sha256": "4b30f423efe9f4dd83bb4283c5ff21d2f34f0d043d0da8a44d57fc57a4490a6f"
+}

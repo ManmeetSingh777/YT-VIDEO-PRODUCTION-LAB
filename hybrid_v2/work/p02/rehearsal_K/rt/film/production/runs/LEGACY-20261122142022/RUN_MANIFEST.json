@@ -1,0 +1,8 @@
+{
+ "schema_version": 1,
+ "run_id": "LEGACY-20261122142022",
+ "film_id": "film",
+ "run_type": "LEGACY",
+ "created_utc": "2026-11-22T14:20:22.759Z",
+ "note": "IMPORTED_LEGACY_UNVERIFIED stream: pre-ledger history, hashed as found; never authenticated"
+}

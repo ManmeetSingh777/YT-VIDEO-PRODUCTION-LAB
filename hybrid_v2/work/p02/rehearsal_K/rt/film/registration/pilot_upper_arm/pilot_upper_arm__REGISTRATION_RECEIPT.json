@@ -1,0 +1,129 @@
+{
+ "part_id": "pilot_upper_arm",
+ "status": "PENDING_REVIEW",
+ "transform_mode": "SIMILARITY",
+ "raster_to_canonical": [
+  1.1002978541573007,
+  0.15463677884451663,
+  -0.15463677884451663,
+  1.1002978541573007,
+  359.9999999999999,
+  230
+ ],
+ "scale": 1.1111111111111114,
+ "source": {
+  "master": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\assets\\art\\pilot_master.png",
+  "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "raw_part": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\delivered\\upper_arm.png",
+  "raw_sha256": "da1cbebfa55c68448bd3a2627a3e22ea8d32d311842652a4866a0e848acf6cd5",
+  "region_mask": null
+ },
+ "approved_part_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_upper_arm\\attempt_da1cbebfa55c\\pilot_upper_arm.png",
+ "approved_part_sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+ "source_pixel_crop_in_raw": [
+  46,
+  36,
+  94,
+  173
+ ],
+ "manifest_fields": {
+  "width_px": 94,
+  "height_px": 173,
+  "source_pixel_crop": [
+   0,
+   0,
+   94,
+   173
+  ],
+  "crop_to_canonical_matrix": [
+   1.1002978541573007,
+   0.15463677884451663,
+   -0.15463677884451663,
+   1.1002978541573007,
+   405.0467772528331,
+   276.72401457651057
+  ],
+  "canonical_rect": [
+   378.29461451273175,
+   276.72401457651057,
+   130.18016103088763,
+   204.88738598059757
+  ],
+  "pivot_xy": [
+   430,
+   300
+  ],
+  "pivot_landmark_id": "shoulder_r",
+  "landmarks": {
+   "shoulder_r": [
+    430,
+    300
+   ],
+   "upper_arm_mid": [
+    450,
+    380
+   ],
+   "elbow_r": [
+    470,
+    460
+   ]
+  },
+  "alpha_mode": "STRAIGHT",
+  "underpaint_asset_ids": [],
+  "hidden_surfaces": []
+ },
+ "landmark_sidecar": {
+  "sha256": "07e501c3726ad49210062a17d8b62ce43b9719a9ea7938f35174084a1ecad242",
+  "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+  "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)",
+  "landmarks": {
+   "shoulder_r": [
+    71.15479369120311,
+    53.61898297023478
+   ],
+   "upper_arm_mid": [
+    99.00008219767602,
+    122.4131681023467
+   ],
+   "elbow_r": [
+    126.84537070414899,
+    191.20735323445857
+   ]
+  }
+ },
+ "landmark_residuals": [
+  {
+   "landmark": "shoulder_r",
+   "residual_px": 0
+  },
+  {
+   "landmark": "upper_arm_mid",
+   "residual_px": 0
+  },
+  {
+   "landmark": "elbow_r",
+   "residual_px": 0
+  }
+ ],
+ "max_residual_px": 0,
+ "alpha_report": {
+  "transparent": 28624,
+  "partial": 378,
+  "opaque": 7398
+ },
+ "rest_overlay": {
+  "overlay_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_upper_arm\\attempt_da1cbebfa55c\\pilot_upper_arm__overlay_on_master.png",
+  "difference_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_upper_arm\\attempt_da1cbebfa55c\\pilot_upper_arm__difference.png",
+  "mean_abs_diff_opaque": 7.804938655667065,
+  "max_abs_diff_opaque": 42.839485506213045,
+  "pixels_compared": 8868
+ },
+ "failures": [],
+ "missing_art": [],
+ "reviewer_verdict": null,
+ "review_required": "visual check of overlay on transparent, contrasting and master backgrounds at full resolution (contour drift, seams, fringes)",
+ "master_asset_id": "pilot_master",
+ "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+ "tolerance_px": 2,
+ "planned_alpha_mode": "STRAIGHT"
+}

@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:41",
+ "sequence": 41,
+ "prev_event_sha256": "be497a81cd3e5207fd6c8160d4c23516e5a6b9813de818ef3e0b4e3214e43955",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwru0w8q",
+ "operation_id": null,
+ "task_id": "narration_timeline",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:40"
+ ],
+ "wall_time_utc": "2026-11-22T12:47:42.503Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 41,
+ "event_sha256": "9e3de92f7cf5d8910c2444e4db23e810d794dba94a86644a21ef8b25a90bb78f"
+}

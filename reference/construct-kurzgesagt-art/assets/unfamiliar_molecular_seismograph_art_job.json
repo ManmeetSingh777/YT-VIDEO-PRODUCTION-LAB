@@ -1,0 +1,493 @@
+{
+  "job_id": "MOLECULAR-TRANSFER-SEISMOGRAPH-001",
+  "first_pass_control": {
+    "version": 2,
+    "viewer_proof": {
+      "what_changes": "Physical instrument stylus at left touches revolving cylindrical paper drum at right. A coherent navy ink oscillation visibly begins exactly at tip on drum surface; scientist rests a hand on actual machine knob and follows the growing line.",
+      "recognition_test": "Silent viewer can locate the stylus/drum touching point and infer why a wiggling line appears. There is no explanatory floating arrow, unrelated computer UI or decorative scientific display.",
+      "focal_order": [
+        "stylus tip touching drum",
+        "ink trace growing from touch",
+        "scientist eye and hand relationship"
+      ],
+      "camera_view": "Eye-level medium-close three-quarter demonstration; machine foreground occupies x=.45-.90,y=.40-.85, scientist upper-left large and cropped only below seated legs; no room-wide miniatures."
+    },
+    "references": [
+      {
+        "path": "assets/question_native_witnesses/BRAIN_0274_high_intensity_face.jpg",
+        "role": "STYLE_ONLY: bounded expressive human face parts, not photoreal portrait",
+        "noncopy": "No identical face, pink skin silhouette, composition, acting or background"
+      },
+      {
+        "path": "assets/question_native_witnesses/AI_0285_machine_actor_interior.jpg",
+        "role": "STYLE_ONLY: real machine housing, dark glass and interacting operator with body hierarchy",
+        "noncopy": "No film computer, operator hair/profile, room or objects"
+      },
+      {
+        "path": "assets/question_native_witnesses/NUCLEAR_0145_lab_procedural_people.jpg",
+        "role": "STYLE_ONLY counterexample: specialized people and practical tools in an unlike bright lab context",
+        "noncopy": "No source coats, lab setup, people or palette copy"
+      }
+    ],
+    "source_contrast": "BRAIN@274 teaches emotional face contour parts and AI@285 teaches a built apparatus and its operator; NUCLEAR@145 gives a bright material-conditional scientist unlike the dark machine room. Choose an original restrained human-machine mid-close without copying any film face, equipment, outfit or palette.",
+    "subject_specs": [
+      {
+        "subject_id": "seismologist",
+        "family": "HUMAN_ACTING_CLOSE",
+        "shape_topology": "Original three-quarter head, solid swept haircap, one distinct scarf, one continuous near arm/hand holding knob and far support arm. Eye gaze and hand contact both point at one physical stylus/drum contact.",
+        "material_mapping": "Matte coral face with hard-edged cheek, dark navy cap with one large violet patch, teal shirt and darker sleeve underside, mustard scarf. No photographic facial blending.",
+        "focal_scale_and_view": "Human face is upper-left approx 280px high, body fills much of left half of 1080 composition. A hand actually touches one knob on seismograph.",
+        "specific_negative_rendering": [
+          "No anime portrait",
+          "No detailed individual curls/realistic fingers",
+          "No unrelated face makeup/gloss"
+        ]
+      },
+      {
+        "subject_id": "seismograph",
+        "family": "MACHINE",
+        "shape_topology": "Original readable industrial apparatus: sturdy feet on desk and one bolted housing, a large paper cylinder drum to right, visible left-side pivot and thin pen/stylus resting against drum with tiny actual contact; knob physically attached at near front. Draw the wiggly line only on wrapped drum paper, beginning at pen tip.",
+        "material_mapping": "Pale cream cylindrical paper body with two flat shadowed visible surface bands; teal machine frame front, darker navy side; small warm-orange brass knob one local patch; dark navy ink line clipped to paper cylinder and no other random screen decals.",
+        "focal_scale_and_view": "Functional pen/drum contact at x=.69,y=.57 and over 100px region; paper drum width ~330px, height ~420px.",
+        "specific_negative_rendering": [
+          "No floating disconnected pen",
+          "No generic computer monitor or LEDs",
+          "No decorative trace floating over the room"
+        ]
+      }
+    ],
+    "character_designs": [
+      {
+        "subject_id": "seismologist",
+        "family": "HUMAN_ACTING_CLOSE",
+        "unique_original_identity": "Original young adult observatory worker with thick asymmetrically swept navy haircap, one large mustard neckerchief, medium coral skin and angular teal overshirt. No witness human identity or costume copied.",
+        "intended_view": "Three-quarter left torso facing right and looking at real stylus contact; seated at the level of small observation table",
+        "screen_bbox_norm": [
+          0.09,
+          0.06,
+          0.62,
+          0.94
+        ],
+        "minimum_screen_height_px": 600,
+        "silhouette": {
+          "outline_path": "One heavy rounded navy hair mass attached to exposed coral face, slightly sloped shoulders to teal shirt, near forearm bent toward stylus guide, far arm under torso, seated dark plum hip, hands overlap mechanical apparatus as actual physical contacts.",
+          "named_masses": [
+            "large swept haircap",
+            "face/neck",
+            "angular scarf",
+            "teal overshirt",
+            "forearms/hands",
+            "dark seated legs"
+          ],
+          "near_far_order": "near sleeve in front of torso, near hand touches instrument handle; far sleeve partly behind machine frame; scarf is above shirt and below chin"
+        },
+        "head": {
+          "skull_contour": "Broad forehead arcing to short slightly projecting nose, tapered cheek to smaller chin; no individual facial planes blended",
+          "face_plane": "single coral face parent with small bounded deeper coral cheek on shadow side",
+          "hair_outer_path": "single navy solid swept cap over upper third head and one attached outward lobe on left",
+          "hair_lobes": "two attached dark-violet local planes within one parent cap, no strands"
+        },
+        "face": {
+          "visibility": "near eye fully visible, far eye narrower and inset with three-quarter turn",
+          "eye_regions": "two small white off-round sclera regions with tiny dark pupil marks looking down-right at stylus",
+          "brow_regions": "two attached dark thick simple curves; near one angled slightly up in concentration",
+          "nose_region": "one projecting coral contour bump, not a full modeled 3D nose",
+          "mouth_region": "tiny open dark curved wedge showing quiet concentration",
+          "expression_geometry": "subtle brow/eye focus and mouth inset, not anime face or extensive soft highlights"
+        },
+        "body": {
+          "garment_masses": "single teal torso fill with one dark teal inner-sleeve patch, mustard scarf one angular ribbon and dark plum lower body",
+          "hand_construction": "near hand broad palm and thumb over the seismograph brass knob, two far fingers partly hidden behind the handle; far hand on table support",
+          "support_and_weight": "torso supported by chair cropped below; wrist physically rests on actual instrument control; no free floating hand"
+        },
+        "color_surfaces": [
+          {
+            "owner": "face",
+            "base_fill": "flat warm coral",
+            "patches": [
+              "one dark coral cheek/ear island"
+            ]
+          },
+          {
+            "owner": "teal shirt",
+            "base_fill": "solid teal green-blue",
+            "patches": [
+              "one dark under-sleeve plane"
+            ]
+          },
+          {
+            "owner": "hair",
+            "base_fill": "ink navy",
+            "patches": [
+              "one violet inner cap lobe"
+            ]
+          }
+        ],
+        "rendering_exclusions": [
+          "No painterly human facial blending or textured hair strands",
+          "No glowing anime eyes or realism",
+          "No photographic skin pores/clothing weave"
+        ],
+        "state_family": [
+          "canonical contact with knob and focused face",
+          "near hand turns knob while wrist identity remains",
+          "surprised eyebrow and open mouth variant"
+        ],
+        "original_content_noncopy": true
+      }
+    ],
+    "palette_roles": {
+      "substrate": "Quiet warm muted light lemon/peach stage behind the worktable; no clutter or windows full of objects",
+      "focal_subject": "Original teal machine frame vs cream paper and coral focal face; warm mustard scarf local accent",
+      "causal_active": "Ink line only inside cream rotating drum paper at actual stylus tip, deeper navy ink contrast",
+      "supporting_shapes": "Worktable one broad muted violet top face and two support planes, faint upper wall only",
+      "material_plane_rules": "Hard-edged machine front/side/top in same perspective, one dark sleeve plane and one cheek patch",
+      "optical_exceptions": "NONE: no exaggerated highlights, bloom or glass reflections"
+    },
+    "density_and_focus": {
+      "t1_major": "Face-to-tip gaze, hand-to-knob grip, actual stylus-to-drum contact and growing ink trace",
+      "t2_owned_partwork": "Physical pivot mount, drum endcap, two frame supports, machine knob and small eye/mouth contours",
+      "t3_repeats_or_none": "NONE: no decorative machinery/UI icons, calendars, plants, books, window city or fabric weave",
+      "primary_read_region": "instrument contact x=.63-.76,y=.5-.68 and ink trace to right",
+      "quiet_support_region": "upper/right neutral wall and lower-left blank table edge"
+    },
+    "causal_frame_geometry": {
+      "named_visible_anchors": [
+        {
+          "name": "needle contact",
+          "screen_position_norm": [
+            0.69,
+            0.57
+          ],
+          "drawable_parent": "seismograph",
+          "visible_mark": "dark navy stylus pen tip physically sits against cream paper drum wall"
+        },
+        {
+          "name": "trace endpoint",
+          "screen_position_norm": [
+            0.79,
+            0.59
+          ],
+          "drawable_parent": "seismograph",
+          "visible_mark": "navy oscillating line drawn inside cream paper only and physically connected back to tip"
+        },
+        {
+          "name": "scientist knob",
+          "screen_position_norm": [
+            0.53,
+            0.7
+          ],
+          "drawable_parent": "seismologist",
+          "visible_mark": "near fingers/actual brass knob connected to apparatus"
+        }
+      ],
+      "essential_connections": "Visible mechanical pen physically touches rotating paper, ink originates at pen contact, hand wraps attached machine knob",
+      "frame_edge_policy": "No stylus, origin, hand-to-knob, trace or primary face cut off; only lower legs and quiet wall may crop",
+      "authorized_overlay_symbols": "NONE: no floating arrows, charts, title or added formula labels"
+    },
+    "asset_state_plan": {
+      "canonical_master": "Seismologist and seismograph spatially registered on one original approved view",
+      "derivation_path": "whole approved master provides separately masked clean drum, stylus, hand variants and ink growth state",
+      "motion_interfaces": [
+        "stylus spring/contact",
+        "drum rotating paper texture and growing trace",
+        "hand knob control",
+        "eyes/mouth state"
+      ]
+    },
+    "forbidden_extras": [
+      "No copied source actor/equipment/scene",
+      "No 3D painted face",
+      "No unrelated room clutter",
+      "No extra computer UI or invented warning signs"
+    ]
+  },
+  "molecular_visual_decisions": {
+    "highest_impact_question": "Will first-pass construction make the *physical* stylus→paper contact legible and keep a simple flat explanatory actor, instead of an attractive portrait with disconnected lab props?",
+    "chosen_methods": [
+      "F57",
+      "F59",
+      "F60",
+      "F61",
+      "F64",
+      "F65",
+      "F66",
+      "F68"
+    ],
+    "positive_source_contrast": "AI@285 functional machine supports view-family and BRAIN@274 proves face-plane expressions can be deliberately graphic",
+    "contradicting_source_case": "NUCLEAR@145 colored practical lab people in brighter world rule out universal dark/cinematic human-machine look",
+    "primary_proof": {
+      "subject_parent_id": "seismograph",
+      "bbox_norm": [
+        0.43,
+        0.38,
+        0.92,
+        0.87
+      ],
+      "observable_before_after": "ink drawn only where physical moving needle touches cream drum paper"
+    },
+    "topology_and_projections": {
+      "view_family": "OBLIQUE_TWO_AXES",
+      "parts": [
+        "human continuous hand/grip",
+        "machine housing",
+        "drum",
+        "stylus",
+        "pivot",
+        "trace"
+      ],
+      "ports": [
+        "tip at (0.69,0.57)",
+        "knob at (0.53,0.7)"
+      ],
+      "occlusion_order": [
+        "wall",
+        "seated actor far arm",
+        "machine far housing",
+        "drum and pen",
+        "near hand and front frame"
+      ]
+    },
+    "color_and_surface_owners": {
+      "palette_slots": {
+        "stage": "warm pale muted",
+        "face": "coral",
+        "shirt": "teal",
+        "hair": "dark navy",
+        "drum": "cream",
+        "ink": "dark navy"
+      },
+      "specific_material_patches": [
+        "fixed dark cheek patch",
+        "shirt underside",
+        "machine side plane"
+      ],
+      "allowed_optical_masks": [
+        "NONE"
+      ]
+    },
+    "density_budget_by_region": {
+      "main_proof": [
+        "tip contact and line"
+      ],
+      "support": [
+        "actor face and knob"
+      ],
+      "quiet": [
+        "top and left stage"
+      ],
+      "repetition_parent_masks": [
+        "NONE"
+      ]
+    },
+    "animation_ancestry": {
+      "canonical_master_id": "ORIGINAL_SEISMO_001",
+      "registered_anchors": [
+        "drum spindle",
+        "pen tip",
+        "hand knob"
+      ],
+      "intermediate_states": [
+        "drum blank",
+        "trace growing",
+        "hand knob turns"
+      ],
+      "alpha_underpaint_overscan": [
+        "approved master-derived clean drum and hand"
+      ]
+    },
+    "specific_generational_exclusions": [
+      "No glossy 3D Pixar face",
+      "No unrelated desk stacks",
+      "No random screen or floating line",
+      "No disconnected fingers"
+    ],
+    "falsification_test": "If line floats off paper or does not begin at the physical stylus, causal output fails even if image looks attractive."
+  },
+  "original_content": {
+    "script_excerpt": "A tiny seismograph records the movement of the ground. As the instrument shakes, a needle touching a rotating paper drum draws a wiggling trace. A scientist points to the actual contact and watches the trace grow.",
+    "scene_goal": "One original science demonstration: a needle in physical contact with a rotating paper drum marks the ground movement in a mechanically understandable way.",
+    "new_subjects": [
+      "original scientist",
+      "real mechanical seismograph and rotating paper drum",
+      "actual contact stylus and visible ink trail"
+    ],
+    "noncopy_source_content": true
+  },
+  "canvas": {
+    "aspect": "16:9",
+    "view": "closely framed slight oblique view of original seismograph and human actor",
+    "scale": "medium-close 1080 frame with large physical connection",
+    "focal_order": [
+      "actual ink pen/drum junction",
+      "wiggling line",
+      "human reaction"
+    ]
+  },
+  "method_bindings": [
+    {
+      "method_id": "F57",
+      "conditions": "Original seismograph causal ink recording and human witness frame",
+      "source_witnesses": [
+        "BRAIN@274",
+        "AI@285",
+        "NUCLEAR@145"
+      ],
+      "invariant_transferred": "Bounded face geometry, coherent physical projection, owner-material and actual contact topology",
+      "variation_required": "Entirely new actor/costume/needle/drum and gesture, no original film scene borrowed",
+      "observable_verification": "Pen touches paper, trace originates there and scientist hand touches knob"
+    },
+    {
+      "method_id": "F64",
+      "conditions": "Original seismograph causal ink recording and human witness frame",
+      "source_witnesses": [
+        "BRAIN@274",
+        "AI@285",
+        "NUCLEAR@145"
+      ],
+      "invariant_transferred": "Bounded face geometry, coherent physical projection, owner-material and actual contact topology",
+      "variation_required": "Entirely new actor/costume/needle/drum and gesture, no original film scene borrowed",
+      "observable_verification": "Pen touches paper, trace originates there and scientist hand touches knob"
+    },
+    {
+      "method_id": "F68",
+      "conditions": "Original seismograph causal ink recording and human witness frame",
+      "source_witnesses": [
+        "BRAIN@274",
+        "AI@285",
+        "NUCLEAR@145"
+      ],
+      "invariant_transferred": "Bounded face geometry, coherent physical projection, owner-material and actual contact topology",
+      "variation_required": "Entirely new actor/costume/needle/drum and gesture, no original film scene borrowed",
+      "observable_verification": "Pen touches paper, trace originates there and scientist hand touches knob"
+    }
+  ],
+  "subject_graph": [
+    {
+      "id": "seismologist",
+      "family": "human",
+      "whole_silhouette": "seated actor with large continuous navy hair cap and distinct connected near arm bent to knob",
+      "view_dependent_parts": [
+        {
+          "part": "face",
+          "parent": "seismologist",
+          "shape": "two paired simplified eye regions and bounded cheek"
+        }
+      ],
+      "attachment_and_contact": [
+        {
+          "child": "near_hand",
+          "parent": "seismograph",
+          "occlusion": "finger lobes wrap front and rear knob surfaces"
+        }
+      ],
+      "surface_materials": [
+        {
+          "part": "shirt",
+          "base_color_role": "teal flat",
+          "attached_color_patches": [
+            "dark elbow underplane"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seismograph",
+      "family": "machine",
+      "whole_silhouette": "connected housing, paper cylinder with spindle and actual pen pivot at cylinder surface",
+      "view_dependent_parts": [
+        {
+          "part": "paper_drum",
+          "parent": "seismograph",
+          "shape": "cream cylinder front face, curved paper side, endcap"
+        }
+      ],
+      "attachment_and_contact": [
+        {
+          "child": "stylus_tip",
+          "parent": "paper_drum",
+          "occlusion": "real pen tip touches outer curved paper at named coordinate"
+        }
+      ],
+      "surface_materials": [
+        {
+          "part": "paper",
+          "base_color_role": "cream opaque",
+          "attached_color_patches": [
+            "bounded dark navy drawn trace"
+          ]
+        }
+      ]
+    }
+  ],
+  "world": {
+    "projection": "slight oblique, exact machine top/front/side aligned with tabletop",
+    "layers": [
+      "pale wall",
+      "tabletop",
+      "far seated actor",
+      "machine housing/drum",
+      "near active hand/pen"
+    ],
+    "material_family_map": {
+      "paper": "solid cylinder with one darker contour",
+      "machine": "teal frame with dark side plane",
+      "person": "flat parent color regions"
+    },
+    "focal_contrast_vs_environment": "pen and ink navy on cream paper against muted wall",
+    "environmental_density_condition": "few main parts only; no decoration",
+    "ground_and_support": [
+      "drum spindle anchored to machine",
+      "machine feet on worktable",
+      "human supported by seat"
+    ]
+  },
+  "lighting": {
+    "opaque_color_patches": [
+      "shirt elbow patch",
+      "machine dark side",
+      "drum paper shadow sector"
+    ],
+    "optical_reflection_masks": [
+      "none"
+    ],
+    "emissive_connected_shapes": [
+      "none"
+    ],
+    "atmospheric_halation_only": [
+      "none"
+    ]
+  },
+  "manufacturing": {
+    "production_medium": "source-conditioned original raster cartoon",
+    "style_witness_roles": [
+      "STYLE_ONLY: bounded expressive human face parts, not photoreal portrait",
+      "STYLE_ONLY: real machine housing, dark glass and interacting operator with body hierarchy",
+      "STYLE_ONLY counterexample: specialized people and practical tools in an unlike bright lab context"
+    ],
+    "method_resolution": "F57, F64 and F68 are actual selected source rules; all molecular choices placed ahead of text",
+    "provider_action": "source images attached actual provider; no prose-only shortcut",
+    "state_derivation": "preserve drawn master for animation"
+  },
+  "observable_negative_tests": [
+    "no separated hand/knob",
+    "no stylus hovering over paper",
+    "no line drawn outside paper",
+    "no painterly face/detail",
+    "no borrowed source actor"
+  ],
+  "uncontrolled_high_impact_decisions": [],
+  "medium_tree": [
+    "WORLD",
+    "SCHEMATIC"
+  ],
+  "animation": {
+    "still_test_only": true,
+    "film_qualification": false,
+    "future_cels": [
+      "blank drum",
+      "trace",
+      "knob acting"
+    ]
+  }
+}

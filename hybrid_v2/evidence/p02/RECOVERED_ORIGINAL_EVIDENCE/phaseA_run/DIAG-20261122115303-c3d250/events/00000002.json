@@ -1,0 +1,36 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122115303-c3d250:2",
+ "sequence": 2,
+ "prev_event_sha256": "4bfba1f50f5d8dcde73b078c308ccdace700f99a067c840d17b3353fff4f4e71",
+ "film_id": "film",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": null,
+ "attempt_id": null,
+ "operation_id": null,
+ "task_id": null,
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": null,
+ "input_refs": [
+  {
+   "legacy_run_id": "LEGACY-20261122115303",
+   "head_sha256": "e358cd5544cf92e98e012c4917c77e684c07d4a42d94b67fc9a2385764bae82b",
+   "events": 38,
+   "imported_now": 37
+  }
+ ],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "LINKED_UNVERIFIED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122115303-c3d250:1"
+ ],
+ "wall_time_utc": "2026-11-22T11:53:04.395Z",
+ "elapsed_ms": null,
+ "event_type": "LEGACY_STREAM_LINKED",
+ "lock_generation": 2,
+ "event_sha256": "51bc8b7d02a882ec827b23deb46b9fd673f3a314da086937b139fe26aef11f18"
+}

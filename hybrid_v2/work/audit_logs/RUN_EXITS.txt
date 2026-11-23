@@ -1,0 +1,13 @@
+suite_exit 1
+stage2_exit 0
+c0_after_exit 0
+export_exit 0
+stage3_exit 0
+s3c_ev_exit 0
+sc_ev_exit 0
+ledger_exit 0
+trace_exit 0
+suite_exit 0
+sc_ev_exit 0
+ledger_exit 0
+trace_exit 0

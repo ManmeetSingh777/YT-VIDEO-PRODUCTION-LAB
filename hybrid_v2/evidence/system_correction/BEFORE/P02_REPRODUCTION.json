@@ -1,0 +1,218 @@
+{
+ "generated_by": "tests/art_bridge/c0_reproduce_p02.mjs",
+ "revision": "9a2a9ad428fb03d26a88e68b21b1f72e45d6cd9d",
+ "note": "live-code reproduction; temp copies under hybrid_v2/work/c0",
+ "reproduced": [
+  "P02-1",
+  "P02-2",
+  "P02-3",
+  "P02-4",
+  "P02-5",
+  "P02-6",
+  "P02-7",
+  "P02-8",
+  "P02-9",
+  "P02-10",
+  "P02-11",
+  "P02-12"
+ ],
+ "probes": [
+  {
+   "id": "P02-1",
+   "failure_ids": [
+    "F045"
+   ],
+   "claim": "contract context is null for every non-character master",
+   "observed": [
+    {
+     "asset": "drum_in",
+     "kind": "WORLD",
+     "context": "NULL"
+    },
+    {
+     "asset": "ines_master",
+     "kind": "CHARACTER",
+     "context": "OBJECT"
+    },
+    {
+     "asset": "laundromat_far",
+     "kind": "WORLD",
+     "context": "NULL"
+    },
+    {
+     "asset": "ledger_master",
+     "kind": "DIAGRAM",
+     "context": "NULL"
+    },
+    {
+     "asset": "street_far",
+     "kind": "WORLD",
+     "context": "NULL"
+    },
+    {
+     "asset": "washer_master",
+     "kind": "MACHINE",
+     "context": "NULL"
+    }
+   ],
+   "reproduced": true
+  },
+  {
+   "id": "P02-2",
+   "failure_ids": [
+    "F045"
+   ],
+   "claim": "requiredMethods returns [] for non-character identities",
+   "observed": [
+    {
+     "asset": "drum_in",
+     "required": 0
+    },
+    {
+     "asset": "ines_master",
+     "required": 14
+    },
+    {
+     "asset": "laundromat_far",
+     "required": 0
+    },
+    {
+     "asset": "ledger_master",
+     "required": 0
+    },
+    {
+     "asset": "street_far",
+     "required": 0
+    },
+    {
+     "asset": "washer_master",
+     "required": 0
+    }
+   ],
+   "reproduced": true
+  },
+  {
+   "id": "P02-3",
+   "failure_ids": [
+    "F046"
+   ],
+   "claim": "compileArtJob without a contract writes a provider-ready request with gate NOT_EVALUATED",
+   "observed": {
+    "gate": "NOT_EVALUATED",
+    "request_written": true
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-4",
+   "failure_ids": [
+    "F048"
+   ],
+   "claim": "exportOutbox deletes prior compiled requests (whole-tree rmSync)",
+   "observed": {
+    "prior_marker_survived": false
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-5",
+   "failure_ids": [
+    "F026"
+   ],
+   "claim": "a compiled non-character master request carries a molecular placeholder / generic primitive design",
+   "observed": {
+    "placeholder": true,
+    "generic_circle": true
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-6",
+   "failure_ids": [
+    "F046",
+    "F063"
+   ],
+   "claim": "submitJob reaches the provider for a non-character master with no gate, no design approval, no story approval",
+   "observed": {
+    "status": "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW",
+    "provider_calls": 1
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-7",
+   "failure_ids": [
+    "F047"
+   ],
+   "claim": "story approval is inferred from doc.status",
+   "observed": {
+    "story_approval": "APPROVED"
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-8",
+   "failure_ids": [
+    "F028",
+    "F050"
+   ],
+   "claim": "Ines request at the 32k edge, with SAME AS pointers and method text replaced by hashes",
+   "observed": {
+    "chars": 31949,
+    "same_as_pointers": 14,
+    "grounding_in_prompt": false
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-9",
+   "failure_ids": [
+    "F049"
+   ],
+   "claim": "method trace certifies a consumer by export existence",
+   "observed": {
+    "uses_typeof_function": true
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-10",
+   "failure_ids": [
+    "F051"
+   ],
+   "claim": "contact solver reports error 0 with a reversed palm orientation",
+   "observed": {
+    "error_px": 0,
+    "orientation_checked": false
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-11",
+   "failure_ids": [
+    "F053",
+    "F007"
+   ],
+   "claim": "rig feasibility covers contact frames only; FIT_RIG only for the character master",
+   "observed": {
+    "fit_rig_masters": [
+     "ines_master"
+    ],
+    "feasibility_frames_from": "contact_events only"
+   },
+   "reproduced": true
+  },
+  {
+   "id": "P02-12",
+   "failure_ids": [
+    "F059",
+    "P06"
+   ],
+   "claim": "film QA accepts a render receipt from a CLI source string",
+   "observed": {
+    "source_flag_accepted": true
+   },
+   "reproduced": true
+  }
+ ]
+}

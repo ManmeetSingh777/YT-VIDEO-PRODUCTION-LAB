@@ -1,0 +1,18 @@
+{
+ "landmarks": {
+  "head_top": [
+   130,
+   30
+  ],
+  "neck": [
+   130,
+   190
+  ],
+  "pelvis": [
+   130,
+   570
+  ]
+ },
+ "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)"
+}

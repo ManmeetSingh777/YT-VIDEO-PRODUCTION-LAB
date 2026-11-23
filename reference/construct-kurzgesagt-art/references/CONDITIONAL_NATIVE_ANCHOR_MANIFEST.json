@@ -1,0 +1,79 @@
+{
+  "purpose": "Portable original-HD STYLE-ONLY witnesses for contrasting methods; never copy original scene, designs or shot content",
+  "image_dimensions": [1920, 1080],
+  "source_films": 5,
+  "selected_witnesses": [
+    {
+      "path": "assets/conditional_native_anchors/MEMORIES_10101_close_human.jpg",
+      "film": "MEMORIES",
+      "frame_zero_based": 10101,
+      "time_sec": 168.35,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "close acting human: contiguous hair/face/sleeve islands, simple hand, quiet cyan support",
+      "sha256": "fc0962d7b2eb2ef64683560c18975e384649c3dcfd5559583392e622b8d986ab"
+    },
+    {
+      "path": "assets/conditional_native_anchors/BRAIN_16539_close_actor.jpg",
+      "film": "BRAIN",
+      "frame_zero_based": 16539,
+      "time_sec": 275.65,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "unlike close acting human against broad bounded planes",
+      "sha256": "d132c9b5c04389790e592f2d4bddd01d493a1b04172c3d0b73bc4557d8085363"
+    },
+    {
+      "path": "assets/conditional_native_anchors/AI_34051_small_human_abstract_stage.jpg",
+      "film": "AI",
+      "frame_zero_based": 34051,
+      "time_sec": 567.52,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "small human representing a role; simplified marks, large negative space and projected relational support",
+      "sha256": "2c0270bafe7712ab8ec679fae6fa6b5c78be4c9a37011c3d570c904d512c3a64"
+    },
+    {
+      "path": "assets/conditional_native_anchors/NUCLEAR_12174_macro_biological_subject.jpg",
+      "film": "NUCLEAR",
+      "frame_zero_based": 12174,
+      "time_sec": 202.9,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "macro scientific biological body can have more local structural parts while stage stays quiet",
+      "sha256": "f331dca29fad11b9032022b90dd96f5ba407eb406e07afb5d1fe4494b25ea644"
+    },
+    {
+      "path": "assets/conditional_native_anchors/SOLAR_04897_suited_figures.jpg",
+      "film": "SOLAR",
+      "frame_zero_based": 4897,
+      "time_sec": 81.62,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "complexity attached to mechanical suit/visor parts rather than extra skin/clothing textures",
+      "sha256": "348a5dcd8e1bf7099158945971f4a7c4eebc94b7f6b7f89be0f88dad5ce4e077"
+    },
+    {
+      "path": "assets/conditional_native_anchors/MEMORIES_03825_dense_neural_field.jpg",
+      "film": "MEMORIES",
+      "frame_zero_based": 3825,
+      "time_sec": 63.75,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "dense repeat nodes attached to branching paths; active subset selectively illuminated",
+      "sha256": "e16141a231bd94272b4f3aef2ed041792de25e6796825ad0417001affb68ed97"
+    },
+    {
+      "path": "assets/conditional_native_anchors/AI_39233_owned_repeat_crowd.jpg",
+      "film": "AI",
+      "frame_zero_based": 39233,
+      "time_sec": 653.88,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "dense population with a single repeat silhouette and scale recursion projected into depth",
+      "sha256": "1ff5015fb92efeea9e050e0b99550d98ae5c90e9f317036a6f887aaaf975e9c9"
+    },
+    {
+      "path": "assets/conditional_native_anchors/AI_21328_sparse_relation_diagram.jpg",
+      "film": "AI",
+      "frame_zero_based": 21328,
+      "time_sec": 355.47,
+      "source_class": "EXPLAINER_ART",
+      "contrast_role": "minimal flat relational array on cyan, causal emphasis on one node column",
+      "sha256": "915748f996585479db8a64f3e41210a4f97e483f5abb69f7a860570666961cb4"
+    }
+  ]
+}

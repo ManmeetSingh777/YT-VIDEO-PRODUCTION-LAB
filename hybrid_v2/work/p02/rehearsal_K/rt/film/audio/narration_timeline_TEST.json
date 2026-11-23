@@ -1,0 +1,32 @@
+{
+ "provenance": "TEST_FIXTURE",
+ "script_sha256": "578e4de457465e0055ae7544e3f18e47e7d4106039aaee8af713ea032440e6e9",
+ "audio_sha256": "a9214cd3bb395ee20283ebe8b4079cdd84b5e689d4aaab94439812a89185e119",
+ "alignment": {
+  "method": "FORCED_ALIGNMENT",
+  "tool": "fixture-aligner",
+  "tool_version": "0",
+  "confidence": 1,
+  "output_file": "audio/alignment_output_TEST.json",
+  "output_sha256": "d8fc8a5c2fd23dc18d7f723d213ee5101afeb55ccfb9308ee3c96bcca0d9ad57",
+  "words": [
+   {
+    "w": "diagnostic",
+    "start_s": 1,
+    "end_s": 1.5
+   },
+   {
+    "w": "tone",
+    "start_s": 61,
+    "end_s": 61.4
+   }
+  ]
+ },
+ "cues": [
+  {
+   "id": "world_reveal",
+   "word_index": 1,
+   "critical": true
+  }
+ ]
+}

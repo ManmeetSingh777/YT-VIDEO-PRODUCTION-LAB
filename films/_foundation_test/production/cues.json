@@ -1,0 +1,485 @@
+{
+ "narration": {
+  "s1": [
+   0.4,
+   3.685
+  ],
+  "s2": [
+   3.985,
+   8.764
+  ],
+  "s3": [
+   9.114,
+   15.471
+  ],
+  "s4": [
+   15.971,
+   18.937
+  ]
+ },
+ "words": {
+  "s1": [
+   {
+    "w": "This",
+    "start": 0.45,
+    "end": 0.62,
+    "method": "estimated"
+   },
+   {
+    "w": "is",
+    "start": 0.62,
+    "end": 0.86,
+    "method": "estimated"
+   },
+   {
+    "w": "a",
+    "start": 0.86,
+    "end": 1.08,
+    "method": "estimated"
+   },
+   {
+    "w": "foundation",
+    "start": 1.08,
+    "end": 1.68,
+    "method": "estimated"
+   },
+   {
+    "w": "test",
+    "start": 1.68,
+    "end": 1.77,
+    "method": "estimated"
+   },
+   {
+    "w": "for",
+    "start": 1.77,
+    "end": 1.99,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 1.99,
+    "end": 2.12,
+    "method": "estimated"
+   },
+   {
+    "w": "studio",
+    "start": 2.12,
+    "end": 2.64,
+    "method": "estimated"
+   },
+   {
+    "w": "not",
+    "start": 2.64,
+    "end": 2.88,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 2.88,
+    "end": 3.12,
+    "method": "estimated"
+   },
+   {
+    "w": "next",
+    "start": 3.12,
+    "end": 3.3,
+    "method": "estimated"
+   },
+   {
+    "w": "film",
+    "start": 3.3,
+    "end": 3.66,
+    "method": "estimated"
+   }
+  ],
+  "s2": [
+   {
+    "w": "A",
+    "start": 4.015,
+    "end": 4.105,
+    "method": "estimated"
+   },
+   {
+    "w": "keeper",
+    "start": 4.105,
+    "end": 4.495,
+    "method": "estimated"
+   },
+   {
+    "w": "walks",
+    "start": 4.495,
+    "end": 4.665,
+    "method": "estimated"
+   },
+   {
+    "w": "to",
+    "start": 4.665,
+    "end": 4.775,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 4.775,
+    "end": 4.875,
+    "method": "estimated"
+   },
+   {
+    "w": "lamp",
+    "start": 4.875,
+    "end": 5.325,
+    "method": "estimated"
+   },
+   {
+    "w": "planting",
+    "start": 5.325,
+    "end": 5.645,
+    "method": "estimated"
+   },
+   {
+    "w": "every",
+    "start": 5.645,
+    "end": 6.115,
+    "method": "estimated"
+   },
+   {
+    "w": "step",
+    "start": 6.115,
+    "end": 6.495,
+    "method": "estimated"
+   },
+   {
+    "w": "and",
+    "start": 6.495,
+    "end": 6.725,
+    "method": "estimated"
+   },
+   {
+    "w": "takes",
+    "start": 6.725,
+    "end": 7.135,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 7.135,
+    "end": 7.295,
+    "method": "estimated"
+   },
+   {
+    "w": "lantern",
+    "start": 7.295,
+    "end": 7.705,
+    "method": "estimated"
+   },
+   {
+    "w": "by",
+    "start": 7.705,
+    "end": 7.795,
+    "method": "estimated"
+   },
+   {
+    "w": "its",
+    "start": 7.795,
+    "end": 7.975,
+    "method": "estimated"
+   },
+   {
+    "w": "handle",
+    "start": 7.975,
+    "end": 8.595,
+    "method": "estimated"
+   }
+  ],
+  "s3": [
+   {
+    "w": "When",
+    "start": 9.154,
+    "end": 9.304,
+    "method": "estimated"
+   },
+   {
+    "w": "she",
+    "start": 9.304,
+    "end": 9.544,
+    "method": "estimated"
+   },
+   {
+    "w": "lifts",
+    "start": 9.544,
+    "end": 9.804,
+    "method": "estimated"
+   },
+   {
+    "w": "it",
+    "start": 9.804,
+    "end": 10.194,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 10.194,
+    "end": 10.324,
+    "method": "estimated"
+   },
+   {
+    "w": "lantern",
+    "start": 10.324,
+    "end": 10.774,
+    "method": "estimated"
+   },
+   {
+    "w": "unfolds",
+    "start": 10.774,
+    "end": 11.074,
+    "method": "estimated"
+   },
+   {
+    "w": "into",
+    "start": 11.074,
+    "end": 11.524,
+    "method": "estimated"
+   },
+   {
+    "w": "a",
+    "start": 11.524,
+    "end": 11.684,
+    "method": "estimated"
+   },
+   {
+    "w": "star",
+    "start": 11.684,
+    "end": 12.164,
+    "method": "estimated"
+   },
+   {
+    "w": "and",
+    "start": 12.164,
+    "end": 12.284,
+    "method": "estimated"
+   },
+   {
+    "w": "every",
+    "start": 12.284,
+    "end": 12.814,
+    "method": "estimated"
+   },
+   {
+    "w": "shadow",
+    "start": 12.814,
+    "end": 13.184,
+    "method": "estimated"
+   },
+   {
+    "w": "in",
+    "start": 13.184,
+    "end": 13.364,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 13.364,
+    "end": 13.514,
+    "method": "estimated"
+   },
+   {
+    "w": "room",
+    "start": 13.514,
+    "end": 13.704,
+    "method": "estimated"
+   },
+   {
+    "w": "turns",
+    "start": 13.704,
+    "end": 13.914,
+    "method": "estimated"
+   },
+   {
+    "w": "to",
+    "start": 13.914,
+    "end": 14.094,
+    "method": "estimated"
+   },
+   {
+    "w": "follow",
+    "start": 14.094,
+    "end": 14.524,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 14.524,
+    "end": 14.704,
+    "method": "estimated"
+   },
+   {
+    "w": "new",
+    "start": 14.704,
+    "end": 14.834,
+    "method": "estimated"
+   },
+   {
+    "w": "light",
+    "start": 14.834,
+    "end": 15.314,
+    "method": "estimated"
+   }
+  ],
+  "s4": [
+   {
+    "w": "Through",
+    "start": 16.061,
+    "end": 16.211,
+    "method": "estimated"
+   },
+   {
+    "w": "the",
+    "start": 16.211,
+    "end": 16.301,
+    "method": "estimated"
+   },
+   {
+    "w": "window",
+    "start": 16.301,
+    "end": 16.901,
+    "method": "estimated"
+   },
+   {
+    "w": "a",
+    "start": 16.901,
+    "end": 16.981,
+    "method": "estimated"
+   },
+   {
+    "w": "second",
+    "start": 16.981,
+    "end": 17.291,
+    "method": "estimated"
+   },
+   {
+    "w": "world",
+    "start": 17.291,
+    "end": 17.431,
+    "method": "estimated"
+   },
+   {
+    "w": "was",
+    "start": 17.431,
+    "end": 17.511,
+    "method": "estimated"
+   },
+   {
+    "w": "waiting",
+    "start": 17.511,
+    "end": 17.761,
+    "method": "estimated"
+   },
+   {
+    "w": "all",
+    "start": 17.761,
+    "end": 17.921,
+    "method": "estimated"
+   },
+   {
+    "w": "along",
+    "start": 17.921,
+    "end": 18.511,
+    "method": "estimated"
+   }
+  ]
+ },
+ "scenes": {
+  "sc01": {
+   "start": 0,
+   "dur": 15.371,
+   "events": {
+    "walk_start": 1.221,
+    "arrive": 5.125,
+    "grip": 7.975,
+    "lift": 9.444,
+    "unfold": 10.774,
+    "light_turn": 12.814
+   },
+   "sound": [
+    {
+     "t": 7.975,
+     "sfx": "click",
+     "from_event": "grip"
+    },
+    {
+     "t": 10.774,
+     "sfx": "chime",
+     "from_event": "unfold"
+    }
+   ],
+   "contract": {
+    "main_event": "keeper walks to the hanging lantern, grips the handle, lifts it; lantern unfolds into a star; shadows re-aim",
+    "unacceptable": [
+     "feet slide during the walk",
+     "hand passes through the handle",
+     "lantern snaps to the hand",
+     "shadow planes stay fixed while the light moves",
+     "star is a cross-fade instead of a geometry change"
+    ],
+    "owned_components": [
+     {
+      "id": "keeper",
+      "motion": "walk/reach/lift"
+     },
+     {
+      "id": "lantern",
+      "motion": "attached to hand socket, unfolds"
+     },
+     {
+      "id": "light",
+      "motion": "key light direction follows lantern"
+     }
+    ],
+    "articulation": [
+     {
+      "who": "keeper",
+      "action": "walks with planted feet",
+      "contact": "feet→floor"
+     },
+     {
+      "who": "keeper",
+      "action": "right hand closes on handle",
+      "contact": "handR→lantern.handle"
+     }
+    ]
+   }
+  },
+  "sc02": {
+   "start": 15.371,
+   "dur": 4.766,
+   "events": {
+    "push": 0.6,
+    "through": 1.92
+   },
+   "sound": [
+    {
+     "t": 17.291,
+     "sfx": "whoosh",
+     "from_event": "through"
+    }
+   ],
+   "contract": {
+    "main_event": "camera pushes into the window; the inner world parallaxes independently of the room and fills the frame",
+    "unacceptable": [
+     "inner world is a flat sticker",
+     "rectangle seam visible at the rim"
+    ],
+    "owned_components": [
+     {
+      "id": "portal",
+      "motion": "mask grows past the frame"
+     },
+     {
+      "id": "town",
+      "motion": "own parallax"
+     }
+    ],
+    "articulation": []
+   }
+  }
+ }
+}

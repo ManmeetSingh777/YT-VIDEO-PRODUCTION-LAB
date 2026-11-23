@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122115303-c3d250:9",
+ "sequence": 9,
+ "prev_event_sha256": "5a50ff86f958cd58d9f632c6e6080c58f02596da8bdf2dbe91d28ca5ffa1e70d",
+ "film_id": "film",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": "S01_STORY",
+ "attempt_id": "Amwrs2nkk",
+ "operation_id": null,
+ "task_id": "story_contract",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "5c0b4be70ca2ed7865ebe455597fb86451b4650ba14d8fb0487fc909d356ca22",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122115303-c3d250:8"
+ ],
+ "wall_time_utc": "2026-11-22T11:53:04.865Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "story_contract",
+  "producer": "engine/story/mechanism.mjs#validateStoryContract",
+  "inputs": [
+   "story/STORY_CONTRACT.json"
+  ],
+  "expected_outputs": [
+   "validated claims/mechanisms/obstacles"
+  ],
+  "deps": [],
+  "invariants": [
+   "claims VERIFIED",
+   "mechanisms survive counterfactuals",
+   "obstacles resolved by mechanism state"
+  ],
+  "verification": "re-run validator; zero failures",
+  "evidence_location": "production/store"
+ },
+ "lock_generation": 9,
+ "event_sha256": "f7beb1cf8b5ffd0c865dfb6638ce9e0fa244b1094354a7c7a279f6f6f5b1aa32"
+}

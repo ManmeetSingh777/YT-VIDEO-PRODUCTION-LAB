@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:91",
+ "sequence": 91,
+ "prev_event_sha256": "150247ddcb55b043bb355d9ca955730f6d4ac8b7e858a2e53da181c763c625e2",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S06_REGISTRATION_RIG",
+ "attempt_id": "Amwru0zi4",
+ "operation_id": null,
+ "task_id": "registration_pilot_master",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:90"
+ ],
+ "wall_time_utc": "2026-11-22T12:47:46.443Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "registration_pilot_master",
+  "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+  "inputs": [],
+  "expected_outputs": [
+   "verified registration receipt"
+  ],
+  "deps": [],
+  "invariants": [
+   "measured geometry by content; residual within tolerance"
+  ],
+  "verification": "receipt verifies by content",
+  "evidence_location": "production/store",
+  "category": "REGISTRATION_OR_RIG",
+  "group": null
+ },
+ "lock_generation": 91,
+ "event_sha256": "b261218c51cabbd7c9ae7fcea0ff3401fe9606c034a33d7990f0caff9ab06ffa"
+}

@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:25",
+ "sequence": 25,
+ "prev_event_sha256": "a9aa58cccf7ebac98e0c8dda298b48c281b0b04a56ccb96414cb0bd436490792",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwru47az",
+ "operation_id": null,
+ "task_id": "direction_approval",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:24"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:16.561Z",
+ "elapsed_ms": 4,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "verifyApproval over the current bundle",
+  "pass": true,
+  "measurement": "APPROVED"
+ },
+ "lock_generation": 25,
+ "event_sha256": "18856ccb123f381a3a5740587c9ad350ffa6c635256124550ff20d370465b2bd"
+}

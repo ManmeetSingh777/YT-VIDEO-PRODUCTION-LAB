@@ -1,0 +1,47 @@
+{
+ "name": "skin_value",
+ "decision": {
+  "palette.skin": "#b0704a"
+ },
+ "elements_total": 480,
+ "changed": 24,
+ "added": 0,
+ "removed": 0,
+ "unchanged": 456,
+ "traced_regions": 156,
+ "changed_outside_traced": [],
+ "outside_count": 0,
+ "verdict": "CONTROLS+CONFINED (differential change = traced consumers)",
+ "pixels": {
+  "changed_px": 54118,
+  "changed_pct": 2.61,
+  "bbox": [
+   75,
+   493,
+   1317,
+   413
+  ]
+ },
+ "sample_changed": [
+  "sheet-w0-LIT-foreR",
+  "sheet-w0-LIT-neck",
+  "sheet-w0-LIT-palmR",
+  "sheet-w0-LIT-head",
+  "sheet-w0-LIT-moustache",
+  "sheet-w0-LIT-nose",
+  "sheet-w1-LIT-neck",
+  "sheet-w1-LIT-head",
+  "sheet-w1-LIT-moustache",
+  "sheet-w1-LIT-foreR",
+  "sheet-w1-LIT-nose",
+  "sheet-w1-LIT-palmR",
+  "sheet-w2-LIT-neck",
+  "sheet-w2-LIT-head",
+  "sheet-w2-LIT-moustache",
+  "sheet-w2-LIT-nose",
+  "sheet-w2-LIT-foreR",
+  "sheet-w2-LIT-palmR",
+  "sheet-w3-LIT-neck",
+  "sheet-w3-LIT-head"
+ ]
+}

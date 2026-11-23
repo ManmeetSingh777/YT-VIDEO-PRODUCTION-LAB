@@ -1,0 +1,16 @@
+{
+ "provider": {
+  "configured": false,
+  "live_calls_made": 0
+ },
+ "approved_gpt_images": 0,
+ "human_receipts": 0,
+ "human_receipts_by_scope": {},
+ "native_art_reviews": 0,
+ "motion_reviews": 0,
+ "story_approved": false,
+ "direction_approved": false,
+ "recorded_narration": false,
+ "manufactured_approvals": 0,
+ "statement": "ZERO real GPT images, ZERO human art/motion/story/film reviews in the real film. Every TEST_TRUSTED receipt in this repository lives in temporary diagnostic fixtures under hybrid_v2/work and is refused by production gates."
+}

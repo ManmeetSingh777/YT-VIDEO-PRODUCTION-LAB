@@ -1,0 +1,310 @@
+{
+ "artjob_id": "ARTJOB_MASTER_ines_master_211539ad",
+ "root_dependency": "ines_master",
+ "identity_id": "ines",
+ "state_kind": "MASTER",
+ "asset_kind": "MASTER",
+ "medium": {
+  "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+  "why": "identity is locked from one approved master; derived states are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    900,
+    1920
+   ]
+  ],
+  "view_id": "threeq_r",
+  "pose_id": "neutral",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "pelvis",
+   "chest",
+   "neck",
+   "head_top",
+   "chin",
+   "shoulder_r",
+   "elbow_r",
+   "wrist_r",
+   "shoulder_l",
+   "elbow_l",
+   "wrist_l",
+   "hip_r",
+   "knee_r",
+   "ankle_r",
+   "hip_l",
+   "knee_l",
+   "ankle_l"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "ines_rig",
+    "joint": "pelvis",
+    "rest_xy": [
+     300,
+     620
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "chest",
+    "rest_xy": [
+     300,
+     430
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "neck",
+    "rest_xy": [
+     300,
+     330
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "shoulder_r",
+    "rest_xy": [
+     360,
+     360
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "elbow_r",
+    "rest_xy": [
+     380,
+     480
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "wrist_r",
+    "rest_xy": [
+     395,
+     590
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "shoulder_l",
+    "rest_xy": [
+     240,
+     360
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "elbow_l",
+    "rest_xy": [
+     225,
+     480
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "wrist_l",
+    "rest_xy": [
+     215,
+     590
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "hip_r",
+    "rest_xy": [
+     330,
+     630
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "knee_r",
+    "rest_xy": [
+     335,
+     800
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "ankle_r",
+    "rest_xy": [
+     340,
+     960
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "hip_l",
+    "rest_xy": [
+     270,
+     630
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "knee_l",
+    "rest_xy": [
+     265,
+     800
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "ankle_l",
+    "rest_xy": [
+     260,
+     960
+    ]
+   }
+  ],
+  "required_sockets": [
+   {
+    "socket": "ines_grip_r",
+    "joint": "wrist_r",
+    "local_xy": [
+     4,
+     26
+    ]
+   },
+   {
+    "socket": "ines_pinch_r",
+    "joint": "wrist_r",
+    "local_xy": [
+     10,
+     38
+    ]
+   },
+   {
+    "socket": "ines_sole_r",
+    "joint": "ankle_r",
+    "local_xy": [
+     20,
+     18
+    ]
+   },
+   {
+    "socket": "ines_sole_l",
+    "joint": "ankle_l",
+    "local_xy": [
+     20,
+     18
+    ]
+   }
+  ],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "ines_leg_l_far",
+   "ines_shin_l_far",
+   "ines_foot_l_far",
+   "ines_arm_l_far",
+   "ines_forearm_l_far",
+   "ines_hand_l_far",
+   "ines_torso",
+   "ines_coat_hem",
+   "ines_head",
+   "ines_face_eyes",
+   "ines_face_mouth",
+   "ines_brow",
+   "ines_hair_back",
+   "ines_leg_r",
+   "ines_shin_r",
+   "ines_foot_r",
+   "ines_sleeve_r",
+   "ines_elbow_r_underpaint",
+   "ines_forearm_r",
+   "ines_hand_r_far_fingers",
+   "ines_hand_r_palm",
+   "ines_hand_r_near_fingers",
+   "ines_hand_r_near_open",
+   "ines_hand_r_far_open",
+   "ines_hand_r_near_pinch",
+   "ines_hand_r_far_pinch",
+   "coin_prop",
+   "ines_face_eyes_curious",
+   "ines_brow_raised",
+   "ines_face_mouth_open",
+   "ines_face_mouth_smile_profile",
+   "ines_face_eyes_soft_profile",
+   "ines_head_profile",
+   "ines_face_eyes_profile",
+   "ines_face_mouth_profile",
+   "ines_brow_profile",
+   "ines_hair_profile",
+   "ines_torso_profile"
+  ],
+  "why_this_drawing_is_needed": "canonical whole-look identity; every Ines state is a source-attached edit of it. Required by: shot S02"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "1753e34a981941c9dc5c84bf47638fbb76d20f71273728dac666bc089beb9c30",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "340a002dbd26a3ecd6b1bdc6",
+ "dependency_parts_digest": "340a002dbd26a3ecd6b1bdc64a09708864caaf7f286a1db42e1000eb9e23151b",
+ "gate": {
+  "pass": true,
+  "family": "ACTING_HUMAN",
+  "failures": [],
+  "required_methods": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F14",
+   "F15",
+   "F16",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F30",
+   "F31",
+   "F33",
+   "F35",
+   "F36",
+   "F51",
+   "F52",
+   "F53",
+   "F56",
+   "F57",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F77",
+   "F78",
+   "F79",
+   "F80"
+  ]
+ }
+}

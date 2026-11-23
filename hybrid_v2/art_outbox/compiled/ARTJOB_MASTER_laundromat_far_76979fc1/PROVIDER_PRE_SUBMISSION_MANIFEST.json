@@ -1,0 +1,34 @@
+{
+  "job_id": "ARTJOB_MASTER_laundromat_far_76979fc1",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "ff31195581f74bbf714f5d1fa306842ce73588ee1716c6eec75e80cc8cf4058c",
+  "prompt_characters": 14464,
+  "source_image_inputs": [
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\abstract_world_witnesses\\AI_whole_world_variation_contact.jpg",
+      "sha256": "6362b82017c07be01dfb7be6441b05f3ffb884764a3c3cea699dbaaedce1551a",
+      "width": 1920,
+      "height": 1490,
+      "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\AI_0234_rear_operator.jpg",
+      "sha256": "0dafe80daf4805b5b4c60ab3470d63c5af8ae739c91bcb20eed85de38bf585de",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: operator facing a machine, hand-to-device relationship"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F08",
+    "F10",
+    "F70"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

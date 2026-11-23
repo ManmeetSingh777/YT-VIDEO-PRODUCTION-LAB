@@ -1,0 +1,88 @@
+{
+ "frame": 3600,
+ "segment": {
+  "frames": [
+   3600,
+   3700
+  ],
+  "shot": "rt_world_shot",
+  "camera_moving": false,
+  "actions": [],
+  "rig_states": {},
+  "assets": [
+   {
+    "id": "rt_world_far",
+    "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+    "delivered": true,
+    "role": "world rt_world_w FAR"
+   }
+  ],
+  "camera_track": "cam_world",
+  "world": "rt_world_w",
+  "effects": [],
+  "motion_blur": false,
+  "static_hold": true,
+  "chunk": [
+   3600,
+   4200
+  ]
+ },
+ "assets": [
+  {
+   "asset": "rt_world_far",
+   "delivered": true,
+   "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "bytes_match": true,
+   "provenance": null,
+   "approval": "VERIFIED",
+   "registration_receipt": [
+    "LANDMARK_SIDECAR.json",
+    "MASTER_REGISTRATION_RECEIPT.json"
+   ],
+   "plan_entry": {
+    "kind": "WORLD_PLANE",
+    "derived_from": null
+   },
+   "design": null
+  }
+ ],
+ "story": "APPROVED",
+ "direction": "APPROVED",
+ "stage_handoffs": {
+  "S00_IDEA": {
+   "status": "COMMITTED",
+   "handoff": "485fb1fac020958b6a1204160fbe522fcddd96b6afb11a4d3614ef426ead71ef"
+  },
+  "S01_STORY": {
+   "status": "COMMITTED",
+   "handoff": "e5dc60e83f6fab03623452f8101736d3d1697d85854179ce6d322aac5cff5c24"
+  },
+  "S02_EXPERIENCE": {
+   "status": "COMMITTED",
+   "handoff": "03bad952732d884303361f40a687ef9576fee10339d21b20cd63b558f888ef31"
+  },
+  "S03_TIMING_MOTION": {
+   "status": "COMMITTED",
+   "handoff": "ca08158378675e4a0f924882c26b638393a255d2575b4687d5ddb840e76b7b6e"
+  },
+  "S04_ART_DEMAND": {
+   "status": "COMMITTED",
+   "handoff": "0c08ebb70f1a3b0f45db13e507aa8829f9e85b0cdd55bfbc12ba0b4f267319e3"
+  },
+  "S05_ART_PRODUCTION": {
+   "status": "COMMITTED",
+   "handoff": "0cc4dcdc374ddf628e3cda44721f1a9c5d88d565b76a1569ba195a2ead350348"
+  },
+  "S06_REGISTRATION_RIG": {
+   "status": "COMMITTED",
+   "handoff": "0453f6fcc6ed79ffa8a49874b1274163ce7b3e36c2d42e8d014e52b3715416bf"
+  },
+  "S07_NEUTRINO_RENDER": {
+   "status": "BLOCKED",
+   "handoff": null
+  }
+ },
+ "blockers": [
+  "asset rt_world_far: no design for master rt_world_far"
+ ]
+}

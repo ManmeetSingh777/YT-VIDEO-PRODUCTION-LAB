@@ -1,0 +1,202 @@
+{
+ "approval_refs": [],
+ "blockers": [],
+ "event_chain_head_sha256": "92fdc26c221dd214264d953782341cbf8c996d3480ecfa9b68f524db4f86bc03",
+ "film_id": "film",
+ "input_artifact_refs": [
+  {
+   "name": "S06_REGISTRATION_RIG/STAGE_HANDOFF",
+   "sha256": "bebe63d33c413dfa08f0dd04dd5f58e9a7eb3cc35772b2332695cae914a940bc"
+  }
+ ],
+ "input_revision_hash": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "output_artifact_refs": [
+  {
+   "bytes": 79514488,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_00000_00600.mkv",
+   "sha256": "c978cac1b49af7c90ead33b496db656b3316bb74b2037fe6dc03b6d58f64aa6c"
+  },
+  {
+   "bytes": 85411731,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_00600_01200.mkv",
+   "sha256": "58f304335a7b1ca236144c4aa4cba96aeed7afe291c77b6efce0843e7e1ec8ed"
+  },
+  {
+   "bytes": 83777592,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_01200_01800.mkv",
+   "sha256": "b753d3536db5112646099bbcf1db5259da31eb39c093e6c3bc1e6ab3ae95e1e2"
+  },
+  {
+   "bytes": 82372656,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_01800_02400.mkv",
+   "sha256": "6a00740c46c056e676bfd35c70103cdc14018798857e64879db8a538ddf01bfc"
+  },
+  {
+   "bytes": 79345679,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_02400_03000.mkv",
+   "sha256": "065f88029f7144fdfc8c6dbc5611ef05b03a2a9b4af041e26cece07679245dab"
+  },
+  {
+   "bytes": 69762509,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_03000_03600.mkv",
+   "sha256": "4006051e7590acf9d17144b502f4ad964e17bf77d21cab554318a3deaf9fd32c"
+  },
+  {
+   "bytes": 51646403,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_03600_04200.mkv",
+   "sha256": "a962894b3d508054b969dde8e5ebe74ee55eaa92f91e20753780d98d9dffa3b0"
+  },
+  {
+   "bytes": 46685190,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_04200_04800.mkv",
+   "sha256": "d8ef14ae737ce86873d915bbdca9b7c2f0a3d315023dfcd44bee60bcdfe1ffd3"
+  },
+  {
+   "bytes": 46685190,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_04800_05400.mkv",
+   "sha256": "c2e083c7f114f40fa98e5042e499720211d2ce3da78be102b138e7ec927aa377"
+  },
+  {
+   "bytes": 46685190,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_05400_06000.mkv",
+   "sha256": "8252d4e248d78747876a4f3b7685329d26231a57f3783ddbdfbf0d0bc4523236"
+  },
+  {
+   "bytes": 46685190,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_06000_06600.mkv",
+   "sha256": "10f7824de359a2a08ed8bc9fd56bdddc80358cfd093e4a65d826aa1b1f2ecd9f"
+  },
+  {
+   "bytes": 46685190,
+   "name": "render/chunks/6fd37bfb063f09e0/chunk_06600_07200.mkv",
+   "sha256": "05bd08d588cdfd1dbcb00052b25dbc6406b730ca4bc1086311120724567dc44f"
+  },
+  {
+   "name": "render/film.mp4",
+   "sha256": "ed1b87ebec99b112a06f9af7c030bd606403a46e92a6ea3cc98a718c691a7f7d"
+  },
+  {
+   "bytes": 872,
+   "name": "render/RENDER_COMPLETION_RECEIPT.json",
+   "sha256": "de385a43e6e01fe8f92241c26c1060d185195409cd023b8c95a006e649387ed8",
+   "source": "render/RENDER_COMPLETION_RECEIPT.json"
+  }
+ ],
+ "output_revision_hash": "850691555cb0e49d86e20efac3862a6ab17383887292d3d4cfafbc2dc985ec02",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "required_checks": [
+  {
+   "task_id": "chunk_0_600",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 154 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_600_1200",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 249 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_1200_1800",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 245 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_1800_2400",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 247 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_2400_3000",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 231 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_3000_3600",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 234 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_3600_4200",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 201 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_4200_4800",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 232 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_4800_5400",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 196 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_5400_6000",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 201 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_6000_6600",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 201 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "chunk_6600_7200",
+   "verification": {
+    "measurement": "600 frames 1920x1080@60/1; rss 174 MiB",
+    "method": "segment probe + hashes + defect scan",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "assemble",
+   "verification": {
+    "measurement": "{\"codec\":\"h264\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":7200,\"video_duration\":120,\"audio_duration\":120}",
+    "method": "final probe",
+    "pass": true
+   }
+  }
+ ],
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "run_type": "DIAGNOSTIC",
+ "schema_version": 1,
+ "stage_attempt_id": "Amwrxcflg",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "status": "COMMITTED",
+ "time_completed_utc": "2026-11-22T14:48:20.975Z",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558"
+}

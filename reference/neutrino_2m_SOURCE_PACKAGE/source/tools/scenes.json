@@ -1,0 +1,79 @@
+[
+ {
+  "id": "kitchen",
+  "src": "scene_kitchen.mjs",
+  "fn": "buildKitchen",
+  "start": 0,
+  "dur": 15.3
+ },
+ {
+  "id": "ascent",
+  "src": "scene_space.mjs",
+  "fn": "buildAscent",
+  "start": 15.3,
+  "dur": 5.763
+ },
+ {
+  "id": "sun",
+  "src": "scene_sun.mjs",
+  "fn": "buildSun",
+  "start": 21.063,
+  "dur": 10.551
+ },
+ {
+  "id": "flight",
+  "src": "scene_space.mjs",
+  "fn": "buildFlight",
+  "start": 31.614,
+  "dur": 11.932
+ },
+ {
+  "id": "body",
+  "src": "scene_body.mjs",
+  "fn": "buildBody",
+  "start": 43.546,
+  "dur": 3.707
+ },
+ {
+  "id": "planet",
+  "src": "scene_planet.mjs",
+  "fn": "buildPlanet",
+  "start": 47.253,
+  "dur": 8.206
+ },
+ {
+  "id": "doors",
+  "src": "scene_doors.mjs",
+  "fn": "buildDoors",
+  "start": 55.459,
+  "dur": 14.567
+ },
+ {
+  "id": "ice",
+  "src": "scene_ice.mjs",
+  "fn": "buildIce",
+  "start": 70.026,
+  "dur": 17.175
+ },
+ {
+  "id": "flash",
+  "src": "scene_flash.mjs",
+  "fn": "buildFlash",
+  "start": 87.201,
+  "dur": 14.623
+ },
+ {
+  "id": "source",
+  "src": "scene_source.mjs",
+  "fn": "buildSource",
+  "start": 101.824,
+  "dur": 6.056
+ },
+ {
+  "id": "end",
+  "src": "scene_end.mjs",
+  "fn": "buildEnd",
+  "start": 107.88,
+  "dur": 12.12
+ }
+]

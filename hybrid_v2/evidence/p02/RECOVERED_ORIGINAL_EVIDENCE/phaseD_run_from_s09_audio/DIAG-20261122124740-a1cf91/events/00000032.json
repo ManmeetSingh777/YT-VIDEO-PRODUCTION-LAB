@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:32",
+ "sequence": 32,
+ "prev_event_sha256": "5e3e16be1bc56d35556b7d583f605f7aec185555417010682817bd096e7b6d39",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwru0w8q",
+ "operation_id": null,
+ "task_id": "narration_timeline",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:31"
+ ],
+ "wall_time_utc": "2026-11-22T12:47:42.190Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "narration_timeline",
+  "producer": "engine/story/narration.mjs#validateNarrationTimeline",
+  "inputs": [],
+  "expected_outputs": [
+   "measured word anchors"
+  ],
+  "deps": [],
+  "invariants": [
+   "critical cues anchored to a measured forced alignment"
+  ],
+  "verification": "zero errors",
+  "evidence_location": "production/store",
+  "category": "AUDIO_ALIGNMENT",
+  "group": null
+ },
+ "lock_generation": 32,
+ "event_sha256": "50f60eae1f9fc255ed65690bdab39a9a2c6bb89d685a93b17aa09d55e7be39be"
+}

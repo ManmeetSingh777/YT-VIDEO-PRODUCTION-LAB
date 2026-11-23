@@ -1,0 +1,74 @@
+{
+ "approval_refs": [],
+ "blockers": [],
+ "event_chain_head_sha256": "ae2913727dd09452fe8b8d7f5a7260f3341726127830bb785d5510e11c3a59ae",
+ "film_id": "film",
+ "input_artifact_refs": [
+  {
+   "name": "S02_EXPERIENCE/STAGE_HANDOFF",
+   "sha256": "c7cf0b1c0db8fff7f4b2a68b5d3959b7b9abc8586362e808b488a603006725f5"
+  }
+ ],
+ "input_revision_hash": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "output_artifact_refs": [
+  {
+   "bytes": 705,
+   "name": "audio/narration_timeline_TEST.json",
+   "sha256": "d703984c98dc6783f86b062804cae0628650c4263f69bbd0f4e5cfba83f6f924",
+   "source": "audio/narration_timeline_TEST.json"
+  }
+ ],
+ "output_revision_hash": "44fa6c84dc5fa9a3ec8e46de736e186356f7bd68136b360836708bee5d234337",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "required_checks": [
+  {
+   "task_id": "tiling",
+   "verification": {
+    "measurement": "7200 frames tiled",
+    "method": "checkTiling ok",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "actions_rt_shot",
+   "verification": {
+    "measurement": "complete",
+    "method": "complete === true",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "actions_rt_world_shot",
+   "verification": {
+    "measurement": "complete",
+    "method": "complete === true",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "feasibility_pilot",
+   "verification": {
+    "measurement": "0 frames solved",
+    "method": "status FEASIBLE",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "narration_timeline",
+   "verification": {
+    "measurement": "1 anchors",
+    "method": "zero errors",
+    "pass": true
+   }
+  }
+ ],
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "run_type": "DIAGNOSTIC",
+ "schema_version": 1,
+ "stage_attempt_id": "Amwrxc5o6",
+ "stage_id": "S03_TIMING_MOTION",
+ "status": "COMMITTED",
+ "time_completed_utc": "2026-11-22T14:20:27.177Z",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558"
+}

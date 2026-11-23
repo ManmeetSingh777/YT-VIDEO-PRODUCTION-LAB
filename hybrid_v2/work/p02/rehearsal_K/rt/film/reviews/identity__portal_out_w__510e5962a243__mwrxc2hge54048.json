@@ -1,0 +1,147 @@
+{
+ "receipt_id": "identity__portal_out_w__510e5962a243__mwrxc2hge54048",
+ "scope": "identity",
+ "record_id": "portal_out_w",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "DIAGNOSTIC rehearsal only",
+ "evidence": [
+  "registration/portal_out/MASTER_REGISTRATION_RECEIPT.json"
+ ],
+ "bundle_sha256": "510e5962a243f030e20315804b7aeb83feea6f0d6ccf41ad70aac28cfe196c17",
+ "bundle": {
+  "content": {
+   "allowed_views": [
+    "front"
+   ],
+   "canonical_asset_id": "portal_out",
+   "id": "portal_out_w",
+   "kind": "WORLD",
+   "landmarks": {
+    "p_bl": [
+     0,
+     270
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "portal_centre": [
+     240,
+     135
+    ]
+   },
+   "master_sha256": "e8c34d4a02a2f1e9add0387dd63192c0dc3055fc3f30dcbd3a2b0fd66dcf2967",
+   "material_owners": [
+    "portal_out_w"
+   ],
+   "palette_roles": {},
+   "source_method_ids": [
+    "F08"
+   ]
+  },
+  "id": "portal_out_w",
+  "master": {
+   "alpha_mode": "OPAQUE",
+   "camera_footprint": null,
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "color_space": "sRGB",
+   "coordinate_space": "WORLD_LOCAL",
+   "crop_to_canonical_matrix": [
+    0.5,
+    0,
+    0,
+    0.5,
+    0,
+    0
+   ],
+   "depth_band": "FAR",
+   "draw_order_constraints": [],
+   "expression_id": null,
+   "file": "assets/art/portal_out.png",
+   "height_px": 540,
+   "hidden_surfaces": [],
+   "id": "portal_out",
+   "identity_id": "portal_out_w",
+   "incompatible_states": [],
+   "kind": "TRANSITION_PLATE",
+   "landmarks": {
+    "p_bl": [
+     0,
+     270
+    ],
+    "p_tl": [
+     0,
+     0
+    ],
+    "p_tr": [
+     480,
+     0
+    ],
+    "portal_centre": [
+     240,
+     135
+    ]
+   },
+   "layer_owner": "portal_out_w",
+   "mask_asset_ids": [],
+   "material_plane_ids": [],
+   "motion_modes_allowed": [
+    "RIGID",
+    "ARTICULATED",
+    "CAMERA_WORLD",
+    "TRANSITION",
+    "REGISTERED_CELS",
+    "PROCEDURAL"
+   ],
+   "occluder_asset_ids": [],
+   "overscan_rect": null,
+   "parent_part_id": null,
+   "pivot_landmark_id": "portal_centre",
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pose_id": null,
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "provider_receipt_id": "masterreg_portal_out",
+   "render_scale_range": [
+    0.25,
+    2
+   ],
+   "required_contact_sockets": [],
+   "sha256": "e8c34d4a02a2f1e9add0387dd63192c0dc3055fc3f30dcbd3a2b0fd66dcf2967",
+   "sockets": {},
+   "source_pixel_crop": [
+    0,
+    0,
+    960,
+    540
+   ],
+   "underpaint_asset_ids": [],
+   "valid_interpolation_targets": [],
+   "view_id": "front",
+   "width_px": 960
+  },
+  "master_registration_receipt_sha256": "e50d160039c0f54c73871b3d45ab46141652e77c6827f78baa644d4560f1a959",
+  "scope": "identity"
+ },
+ "reviewed_at": "2026-11-22T14:20:22.036Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

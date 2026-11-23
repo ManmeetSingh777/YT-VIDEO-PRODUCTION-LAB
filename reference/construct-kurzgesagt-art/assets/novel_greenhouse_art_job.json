@@ -1,0 +1,201 @@
+{
+  "job_id": "NOVEL-GREENHOUSE-001",
+  "first_pass_control": {
+    "version": 2,
+    "viewer_proof": {
+      "what_changes": "The connected seed branch group switches from unlit coral to pale yellow along its actual forks, while the scanner is visibly held and the helper's clamp remains attached to its lamp rail.",
+      "recognition_test": "At the size this viewer sees, the seed is the first thing seen, then the hand-tool contact, then the lamp attachment; a viewer can point to all three physical links.",
+      "focal_order": ["connected seed cross section", "scanner hand and face", "lamp clamp"],
+      "camera_view": "Eye-level medium acting view, three-quarter seated/standing relationship with subject crop large enough to inspect the hand; all focal contacts within the frame. No aerial miniature environment."
+    },
+    "source_contrast": "Compare BRAIN couch human's contiguous dark outer form, bounded face patches and few facial contours against MEMORIES clinic's different multi-human profile and full torso. This supports conditional human construction, not copying either face or wardrobe.",
+    "references": [
+      {"path": "assets/character_native_anchors/BRAIN_0157_couch_human.jpg", "role": "STYLE_ONLY: focal human silhouette and face-plane topology", "noncopy": "Do not copy specific actor or arrangement"},
+      {"path": "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg", "role": "STYLE_ONLY: unlike human shape family and material/color blocking", "noncopy": "Do not copy clinic or human designs"}
+    ],
+    "subject_specs": [
+      {"subject_id": "scientist", "family": "HUMAN_GESTURE_FULL", "shape_topology": "Full continuous tapered coat torso; one connected near arm goes from shoulder to elbow to palm on scanner; far forearm rises from far shoulder beneath seed tray; legs terminate in two broad supporting boots. Head is an irregular ovoid with one raised asymmetrical two-lobe hair block, not individual strands.", "material_mapping": "Coat turquoise one solid patch and one navy fold patch following near elbow, face peach one contiguous fill with a dark bounded ear/cheek patch, pants navy, hair dark ink purple and a single warmer cap patch. Use no fabric weave, rim glow or skin painterly gradient.", "focal_scale_and_view": "Three-quarter head and hands large enough to discern a dark mouth crescent, two paired eyes, oppositional thumb and scanner handle without zooming; character occupies at least half frame height.", "specific_negative_rendering": ["No softly shaded anime portrait", "No pore/textile microtexture", "No individual photoreal hair strands"]},
+      {"subject_id": "maintenance_robot", "family": "MACHINE", "shape_topology": "Top-front-side chassis with physically continuous two-segment arms; visible clamp jaws wrap and cover portions of grow-light rail; recessed lens cannot float outside robot panel.", "material_mapping": "Lavender chassis parent fill; muted indigo side plane; single cyan aperture within real screen housing; one small light island on lens glass.", "focal_scale_and_view": "Robot and clamp are subordinate to scientist and connected seed, but the rail contact must still be readable.", "specific_negative_rendering": ["No sticker button confetti", "No weightless hovering unconnected claw"]},
+      {"subject_id": "seed_network", "family": "BIOLOGICAL_MICRO", "shape_topology": "Single enclosed glass capsule with continuous base and rooted central trunk; unequal forked branches have all terminal buds attached; no disconnected sparkle objects.", "material_mapping": "Deep coral branches with exactly one attached yellow activated branch group; pale aqua lens glass with two parent-shaped hard-edged reflection islands.", "focal_scale_and_view": "Foreground seed cross section, visibly held by tray and associated with scanner, is main contrast region.", "specific_negative_rendering": ["No bokeh points", "No random glowing sprinkles"]}
+    ],
+    "character_designs": [
+      {"subject_id": "scientist", "family": "HUMAN_GESTURE_FULL", "unique_original_identity": "New botanist scientist wearing turquoise botanical jacket with a broad stitched geometric cuff and asymmetric two-lobe aubergine hair cap; not a film witness character.", "intended_view": "Three-quarter facing scanner with head tilted down and near shoulder lower", "screen_bbox_norm": [0.06, 0.08, 0.54, 0.95], "minimum_screen_height_px": 580,
+       "silhouette": {"outline_path": "Hair outward left lobe, jaw, collar notch, right sleeve diagonal to tool, near wrist, coat taper to broad trousers, two separated boot soles", "named_masses": ["hair", "head", "neck", "trapezoid coat", "near sleeve", "far sleeve", "trousers", "two boots"], "near_far_order": "Near hand/thumb over scanner grip, far fingers behind handle; far sleeve tucked behind torso"},
+       "head": {"skull_contour": "Wide forehead to small projecting nose then chin; simple one-segment jaw", "face_plane": "Single peach plane; bounded darker cheek/ear island on far side", "hair_outer_path": "Two attached asymmetrical oblong black-violet lobes forming one continuous cap", "hair_lobes": "One left outward lobe, one raised top lobe, one thin sideburn attached to cap"},
+       "face": {"visibility": "Near eye full and far eye compressed by turn", "eye_regions": "Two pale almond sclera islands with tiny navy pupil circles, far sclera shorter", "brow_regions": "Two dark thin arcs following the eye lines, near brow tilted", "nose_region": "Single small peach/darker trapezoidal protrusion at right contour", "mouth_region": "One dark short crescent opening, no individual teeth", "expression_geometry": "Concentrated curiosity: near brow elevated 3px at output scale; eyes aim at seed, mouth corner up"},
+       "body": {"garment_masses": "Coat dark inner collar, one near elbow fold patch; two broad trousers and block boots, no invented buttons", "hand_construction": "Near palm one rounded polygon with thumb at upper scanner side and two joined far finger lobes behind; far open palm supports tray", "support_and_weight": "Both boot soles align to floor perspective; tray rests on far palm; scanner touches near palm"},
+       "color_surfaces": [{"owner": "face", "base_fill": "peach flat", "patches": ["darker coral cheek/ear hard-edge island"]}, {"owner": "coat", "base_fill": "turquoise flat", "patches": ["dark teal elbow plane", "navy collar island"]}],
+       "rendering_exclusions": ["No semi-realistic facial painterly blending", "No dense hair strands", "No arbitrary glitter"], "state_family": ["canonical pose with scanner down", "scanner raised with canonical head/collar identity held", "speaking mouth and brow state"], "original_content_noncopy": true}
+    ],
+    "asset_state_plan": {"canonical_master": "Scientist, robot, seed, tray and greenhouse registered on same canvas with distinct color-owned parents", "derivation_path": "Approve canonical master then derive scanner-raised and illuminated-seed states using same camera anchors, cutout layers and inpainted backgrounds", "motion_interfaces": ["scanner handle / thumb overlap", "seed on tray contact", "lamp rail / gripper clamp overlap"]},
+    "palette_roles": {"substrate": "Broad dark navy side of greenhouse with a quiet flat cyan distant window, not a photographic lit interior", "focal_subject": "Peach face, turquoise coat, coral seed against separated cool background planes; no face-to-background color bleed", "causal_active": "Only seed's actually branched internal route changes to pale yellow, not scattered sparks", "supporting_shapes": "Muted green grow-bed faces and dark-violet robot-side plane; no independent high-contrast wallpaper", "material_plane_rules": "One bounded dark elbow plane on coat, one light top face on robot, two small transparent highlights on seed lens", "optical_exceptions": "One localized seed-shell glass reflection and physically attached lamp wash; no room-wide bloom"},
+    "density_and_focus": {"t1_major": "Readable botanist-hand-tool, seed-tree, robot-gripper-lamp contacts", "t2_owned_partwork": "Only actual connected seed branches, main robot housing/window/floor geometry, useful face marks", "t3_repeats_or_none": "At most two tiny grow-bed plant families behind focal hands; no extra decorative prop repetition", "primary_read_region": "Seed and near scanner grip at foreground centre are recognized before any background", "quiet_support_region": "Left and upper wall form broad opaque flat planes with no desks, book stacks or textile detail"},
+    "causal_frame_geometry": {"named_visible_anchors": [{"name":"seed-network capsule","screen_position_norm":[0.56,0.57],"drawable_parent":"seed_network","visible_mark":"branching rooted seed and tray centre"},{"name":"scanner actual hand grip","screen_position_norm":[0.43,0.5],"drawable_parent":"scientist","visible_mark":"near thumb in front of scanner handle, far fingers behind"},{"name":"lamp contact","screen_position_norm":[0.72,0.3],"drawable_parent":"maintenance_robot","visible_mark":"gripper jaws overlap and clamp lamp bracket"}],"essential_connections":"Actual physical contacts are seed→tray, hand→scanner handle, robot jaws→lamp bracket; no unsupported connecting arrows.","frame_edge_policy":"All three primary contacts fully visible at final crop; only peripheral environmental surfaces may run off canvas.","authorized_overlay_symbols":"NONE. No captions, independent infographic arrows, imaginary glyphs or unrelated action puffs."},
+    "forbidden_extras": ["No source human face or film scene copied", "No painterly gradient portrait", "No unsupported cute mechanical buttons or detached visual symbols", "No over-detailed wide environment competing with seed"]
+  },
+  "original_content": {
+    "script_excerpt": "An astronaut botanist discovers a seed that makes oxygen without sunlight, and her helper robot brings a grow lamp closer.",
+    "scene_goal": "Explain that the seed's branching interior is activated while the light apparatus is adjusted.",
+    "new_subjects": ["original woman astronaut-botanist", "three-pronged optical scanner", "translucent biological seed", "hovering maintenance robot", "asteroid greenhouse"],
+    "noncopy_source_content": true
+  },
+  "canvas": {
+    "aspect": "16:9",
+    "view": "slightly elevated three-quarter illustration showing botanist hands, seed cross-section, robot gripper and planted boots",
+    "scale": "medium-wide scene, whole human visible",
+    "focal_order": ["seed anatomy", "scientist scanner grip and face", "robot attached lamp", "greenhouse depth"]
+  },
+  "method_bindings": [
+    {
+      "method_id": "F01",
+      "conditions": "All focal organisms and apparatus need complete silhouette and part attachment",
+      "source_witnesses": ["BRAIN_BLINDS__human_acting:f023160", "NUCLEAR_FLIES__fly_macro:f018840"],
+      "invariant_transferred": "purpose-built continuous contour, attached anatomy and local material parts",
+      "variation_required": "new astronaut/scanner/seed/robot anatomy rather than original actors",
+      "observable_verification": "all limbs and machine appendages terminate in named real contacts"
+    },
+    {
+      "method_id": "F05",
+      "conditions": "three-quarter speaking woman with unique asymmetric short hair",
+      "source_witnesses": ["MEMORIES__clinic_interaction:f045240", "BRAIN_BLINDS__human_acting:f023160"],
+      "invariant_transferred": "whole hair mass, bounded cheek patch, head-dependent near/far eyes and expression",
+      "variation_required": "original face, hair, suit and dialogue expression",
+      "observable_verification": "no anime detailed facial rendering or copied clinician glasses"
+    },
+    {
+      "method_id": "F06",
+      "conditions": "human holds tool and supports a tray with weight on both feet",
+      "source_witnesses": ["MEMORIES__clinic_interaction:f045300", "AI_FINAL__machine_interface:f014040"],
+      "invariant_transferred": "action-specific arm/hand pose drawings and actual prop contact",
+      "variation_required": "grip around pronged scanner; opposite palm supports seed tray",
+      "observable_verification": "thumb and finger masses wrap scanner handle and tray supports actual seed"
+    },
+    {
+      "method_id": "F09",
+      "conditions": "new robot apparatus and grow-light with functional parts",
+      "source_witnesses": ["AI_FINAL__machine_interface:f014040", "SOLAR_SYSTEM__technology_action:f041160"],
+      "invariant_transferred": "connected functional machinery, face-specific surfaces, recessed optics and controls",
+      "variation_required": "robot's hover chassis, clamp/gripper joints and actual light support",
+      "observable_verification": "clamp grips fixture, screen recessed into housing, lens highlight inside glass"
+    },
+    {
+      "method_id": "F54",
+      "conditions": "novel seed branch terminals and greenhouse window repeats are owned by physically different source geometries",
+      "source_witnesses": ["MEMORIES_0062_biological_density", "AI_0035_oblique_city"],
+      "invariant_transferred": "repeat small marks only inside named graph or projected parent faces",
+      "variation_required": "new seed forks and new greenhouse geometry, no borrowed source layouts",
+      "observable_verification": "no floating buds and no windows detached from their projected wall surfaces"
+    }
+  ],
+  "subject_graph": [
+    {
+      "id": "scientist",
+      "family": "human",
+      "purpose": "inspect and verbally explain seed",
+      "whole_silhouette": "short asymmetric swept hair, triangular coat torso, bent outward right arm, bracing left arm over seed tray, separated near/far pant legs and two boots flat on greenhouse floor",
+      "view_dependent_parts": [
+        {"part": "head_hair", "shape": "single curved cap with three attached tufts and distinct facial exposure", "parent": "scientist"},
+        {"part": "face", "shape": "three-quarter warm peach plane with far eye partly narrower and one bounded cheek orange patch", "parent": "scientist"},
+        {"part": "right_hand", "shape": "palmar curl and opposing thumb around scanner grip; fingers behind handle", "parent": "scientist"},
+        {"part": "left_hand", "shape": "open supported palm beneath tray near rim", "parent": "scientist"}
+      ],
+      "attachment_and_contact": [
+        {"child": "right_hand", "parent": "scanner_grip", "occlusion": "near thumb in front, two far finger masses behind handle"},
+        {"child": "left_hand", "parent": "tray", "occlusion": "palm under tray front edge"},
+        {"child": "both_boots", "parent": "floor", "occlusion": "soles meet floor along coherent perspective"}
+      ],
+      "surface_materials": [
+        {"part": "coat", "base_color_role": "cool pale cyan", "attached_color_patches": ["dark-cyan sleeve underplane follows elbow bend", "deep violet near collar and narrow cuff"]},
+        {"part": "face", "base_color_role": "peach focal skin", "attached_color_patches": ["orange bounded cheek lobe", "darker ear inset"]}
+      ],
+      "face_and_expression": "speaking smile with dark mouth opening, distinct eyebrow arcs, visible white sclera and navy iris pairs with far eye partially compressed",
+      "state_family": ["neutral inspect", "speaking", "scanner raised", "turn toward robot"],
+      "unseen_high_impact_decisions": []
+    },
+    {
+      "id": "maintenance_robot",
+      "family": "machine",
+      "purpose": "hold grow light at correct location over seed",
+      "whole_silhouette": "three-quarter rounded-rect chassis with distinct top/front/side and two jointed arms; near arm reaches upward ending in a clamp with two opposing jaws around light bracket",
+      "view_dependent_parts": [
+        {"part": "front_screen", "shape": "recessed cyan-black rectangle within housing front face", "parent": "maintenance_robot"},
+        {"part": "optical_eye", "shape": "inset circular lens with one bounded bright cyan reflection", "parent": "maintenance_robot"},
+        {"part": "gripper", "shape": "two mechanical fingers with real hinge points closing on light rail", "parent": "maintenance_robot"}
+      ],
+      "attachment_and_contact": [
+        {"child": "gripper", "parent": "grow_light_bracket", "occlusion": "jaws wrap rail front and back, no floating gap"}
+      ],
+      "surface_materials": [
+        {"part": "housing", "base_color_role": "lavender-violet technical body", "attached_color_patches": ["pale top face", "dark indigo side face", "narrow cyan recessed sensor"]}
+      ],
+      "face_and_expression": "N/A",
+      "state_family": ["hover holding", "lamp adjusted"],
+      "unseen_high_impact_decisions": []
+    },
+    {
+      "id": "seed_network",
+      "family": "biological cross-section",
+      "purpose": "show physically connected oxygen production branches",
+      "whole_silhouette": "one seed capsule with dark inner rim, transparent outer shell, central branching core and attached buds under real glass boundary",
+      "view_dependent_parts": [
+        {"part": "root", "shape": "single tapering trunk forking into unequal thinner branches", "parent": "seed_network"},
+        {"part": "terminal_buds", "shape": "small attached teardrop or leaf pairs only at branch ends", "parent": "seed_network"},
+        {"part": "glass", "shape": "continuous enclosing capsule with bounded cyan reflection patches", "parent": "seed_network"}
+      ],
+      "attachment_and_contact": [
+        {"child": "seed_capsule_base", "parent": "tray", "occlusion": "transparent enclosure rests inside tray opening"}
+      ],
+      "surface_materials": [
+        {"part": "branches", "base_color_role": "deep warm coral", "attached_color_patches": ["pale yellow lit active connected branch subset"]},
+        {"part": "glass", "base_color_role": "pale cyan transparent optic", "attached_color_patches": ["two bounded reflection islands following lens curvature"]}
+      ],
+      "face_and_expression": "N/A",
+      "state_family": ["inactive", "connected-group activation"],
+      "unseen_high_impact_decisions": []
+    }
+  ],
+  "world": {
+    "projection": "consistent slightly elevated three-quarter floor perspective, receding growing-bed axes and window frame",
+    "layers": ["deep violet asteroid space", "rocky distance", "panoramic window frame", "rear grow beds", "astronaut and seed tray", "near foliage edge"],
+    "material_family_map": {
+      "growing_beds": "teal solid volumes with separate top soil and dark side faces",
+      "plants": "broad-lobed leaves, stalk family and finer attached branch family",
+      "fixtures": "connected pipes with clamps, real grow-lamp rails, inset monitor cabinet"
+    },
+    "focal_contrast_vs_environment": "bright biological seed and coral face above quiet blue-purple structural room planes",
+    "environmental_density_condition": "functional medium-detail science greenhouse with three plant families and no unrelated props",
+    "ground_and_support": ["both boots on floor", "seed on tray", "grow light attached to overhead bracket"]
+  },
+  "lighting": {
+    "opaque_color_patches": ["hard-edged coat sleeve and equipment face variants"],
+    "optical_reflection_masks": ["seed glass capsule", "robot sensor lens"],
+    "emissive_connected_shapes": ["seed activation paths", "actual lamp body"],
+    "atmospheric_halation_only": ["small halo behind seed's lit branches", "restricted grow-light wash"]
+  },
+  "animation": {
+    "scene_tracks": [
+      {"owner": "SUBJECT_PART", "time_range": [0, 1], "asset_states": ["scientist scanner and two-grip states"]},
+      {"owner": "MATERIAL_LIGHT_STATE", "time_range": [0.2, 0.9], "asset_states": ["seed inactive", "selected connected branches lit"]}
+    ],
+    "contact_constraints": ["fingers always intersect scanner grip as intended", "robot clamp stays attached to light rail"],
+    "source_style_motion_witnesses": ["MEMORIES__dense_synapses:f005520-f005580"]
+  },
+  "manufacturing": {
+    "route": "REFERENCE_GUIDED_IMAGE",
+    "source_reference_roles": ["STYLE_ONLY: multiple unlike character sources", "STYLE_ONLY: unlike technology and world sources"],
+    "canonical_asset_inputs": [],
+    "masks_and_layer_order": ["background space", "greenhouse window", "plant beds", "human/robot", "seed core", "seed glass mask", "local glow"],
+    "seed_and_provider_config": {"seed": "record actual provider seed if supported"}
+  },
+  "observable_negative_tests": [
+    "no source character identity leakage",
+    "no dense anime facial linework",
+    "no generic 3D shaded all-over beveling",
+    "all hands and robot clamp maintain valid contact",
+    "no unconnected glowing seed flecks"
+  ],
+  "uncontrolled_high_impact_decisions": [],
+  "knowledge_state": "METHOD_CANDIDATE",
+  "output_receipt": null,
+  "visual_evaluation": null
+}

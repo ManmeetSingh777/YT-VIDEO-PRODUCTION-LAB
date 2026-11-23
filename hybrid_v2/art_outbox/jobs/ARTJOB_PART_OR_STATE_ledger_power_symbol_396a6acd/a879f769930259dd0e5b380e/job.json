@@ -1,0 +1,75 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ledger_power_symbol_396a6acd",
+ "root_dependency": "ledger_power_symbol",
+ "identity_id": "ledger_glyphs",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "SYMBOL",
+ "medium": {
+  "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+  "why": "code animates quantities of an approved symbol; it does not invent the symbol"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "ledger_master",
+ "motion_context": {
+  "identity_id": "ledger_glyphs",
+  "canonical_parent_asset": "ledger_master",
+  "shot_ids": [
+   "S04"
+  ],
+  "frame_ranges": [
+   [
+    3000,
+    4080
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "PROCEDURAL",
+  "predecessor_state_id": "ledger_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "approved symbol animated procedurally (code computes quantities, never the symbol). Required by: shot S04; action S04_ledger"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "6a3ea979e215a7870d7fcf656166a4ad2feb526b67740c6ee59f40638292fb02",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "a879f769930259dd0e5b380e",
+ "dependency_parts_digest": "a879f769930259dd0e5b380ec5080bd70dbf4392665f652f1a18a9b6eae498dd",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

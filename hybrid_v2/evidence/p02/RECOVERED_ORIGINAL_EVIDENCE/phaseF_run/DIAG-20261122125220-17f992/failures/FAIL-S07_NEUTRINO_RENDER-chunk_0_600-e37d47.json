@@ -1,0 +1,33 @@
+{
+ "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-e37d47",
+ "run_id": "DIAG-20261122125220-17f992",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwru726v",
+ "task_id": "chunk_0_600",
+ "frame_ranges": [
+  [
+   0,
+   600
+  ]
+ ],
+ "artifact_refs": [],
+ "first_observed_bad_output": "FFV1 segment frames 0..599",
+ "expected_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+ "observed_measurement": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":0,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":1,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":2,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028446}]",
+ "applicability_predicate": "stage S07_NEUTRINO_RENDER, task class chunk_0",
+ "failure_class": "RENDER_OR_MEMORY",
+ "root_producer_or_UNKNOWN": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+ "suspected_mechanism": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":0,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":1,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028448},{\"frame\":2,\"kind\":\"UNCOVERED_EDGE\",\"count\":6000,\"sentinel\":2028446}]",
+ "causal_evidence_refs": [],
+ "rejected_bypass_paths": [],
+ "invalidated_downstream_nodes": [
+  "assemble",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "repair_owner": "RENDER_PRODUCER",
+ "resume_from_stage": "S07_NEUTRINO_RENDER",
+ "retry_safe_boolean": true,
+ "external_spend_risk": false,
+ "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122125220-17f992 --failure FAIL-S07_NEUTRINO_RENDER-chunk_0_600-e37d47"
+}

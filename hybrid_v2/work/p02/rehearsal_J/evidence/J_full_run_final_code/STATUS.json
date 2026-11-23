@@ -1,0 +1,108 @@
+{
+ "run_id": "DIAG-20261122135030-301725",
+ "chain_head": "e7b7a0201bfd50f0e0de499b6e84a660631f305450358426bf8469ef40fe2004",
+ "events": 196,
+ "tasks": {
+  "total": 59,
+  "completed": 59,
+  "failed": 0,
+  "blocked": 0,
+  "stale": 0,
+  "remaining": 0,
+  "percent_verified": 100
+ },
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 2,
+   "verified": 2,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 5,
+   "verified": 5,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 10,
+   "verified": 10,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 12,
+   "verified": 12,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 13,
+   "verified": 13,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "COMMITTED",
+   "tasks": 13,
+   "verified": 13,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "BLOCKED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "next_operation": "none",
+ "failures": []
+}

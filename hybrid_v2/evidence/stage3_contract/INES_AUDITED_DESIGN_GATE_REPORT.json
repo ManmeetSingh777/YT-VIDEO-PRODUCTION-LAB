@@ -1,0 +1,67 @@
+{
+ "revision": "611c9dd58abc46ac8e90d21e6cf041354edf3dcf",
+ "note": "the design audited at 094a1d0, evaluated by the new gate",
+ "pass": false,
+ "failure_codes": [
+  "UNSUPPORTED_ART_FAMILY",
+  "METHOD_BINDING_MISMATCH:F01",
+  "METHOD_BINDING_MISMATCH:F01",
+  "METHOD_BINDING_MISMATCH:F05",
+  "METHOD_BINDING_MISMATCH:F05",
+  "METHOD_BINDING_MISMATCH:F52",
+  "METHOD_BINDING_MISMATCH:F52",
+  "METHOD_BINDING_MISMATCH:F64",
+  "METHOD_BINDING_MISMATCH:F64",
+  "MOLECULAR_DECISIONS_MISSING"
+ ],
+ "failures": [
+  {
+   "code": "UNSUPPORTED_ART_FAMILY",
+   "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F01",
+   "reason": "binding does not pin the source clause of F01 (silhouette and functional anatomy)"
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F01",
+   "reason": "F01 must decide silhouette_masses, functional_parts (silhouette and functional anatomy); binding says \"original full-figure character with complete bounded silhouette\""
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F05",
+   "reason": "binding does not pin the source clause of F05 (human head and facial-state fabrication)"
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F05",
+   "reason": "F05 must decide head_construction, facial_states (human head and facial-state fabrication); binding says \"character construction\""
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F52",
+   "reason": "binding does not pin the source clause of F52 (mark count from scale and semantic role)"
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F52",
+   "reason": "F52 must decide projected_head_height_px, mark_budget (mark count from scale and semantic role); binding says \"acting face\""
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F64",
+   "reason": "binding does not pin the source clause of F64 (identity routed by illustration family)"
+  },
+  {
+   "code": "METHOD_BINDING_MISMATCH",
+   "method": "F64",
+   "reason": "F64 must decide illustration_family, canonical_identity (identity routed by illustration family); binding says \"hand construction\""
+  },
+  {
+   "code": "MOLECULAR_DECISIONS_MISSING",
+   "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+  }
+ ]
+}

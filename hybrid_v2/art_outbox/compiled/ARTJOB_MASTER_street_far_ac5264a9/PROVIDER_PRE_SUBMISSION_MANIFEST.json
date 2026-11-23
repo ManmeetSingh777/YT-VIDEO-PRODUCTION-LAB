@@ -1,0 +1,34 @@
+{
+  "job_id": "ARTJOB_MASTER_street_far_ac5264a9",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "a4bac892e44dadc8a245f0355d3336b9f617c04e7dfeadcf72ece8c76cffe904",
+  "prompt_characters": 15001,
+  "source_image_inputs": [
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\abstract_world_witnesses\\AI_whole_world_variation_contact.jpg",
+      "sha256": "6362b82017c07be01dfb7be6441b05f3ffb884764a3c3cea699dbaaedce1551a",
+      "width": 1920,
+      "height": 1490,
+      "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\conditional_native_anchors\\SOLAR_04897_suited_figures.jpg",
+      "sha256": "348a5dcd8e1bf7099158945971f4a7c4eebc94b7f6b7f89be0f88dad5ce4e077",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: night palette with one lit focal block"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F22",
+    "F69",
+    "F70"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

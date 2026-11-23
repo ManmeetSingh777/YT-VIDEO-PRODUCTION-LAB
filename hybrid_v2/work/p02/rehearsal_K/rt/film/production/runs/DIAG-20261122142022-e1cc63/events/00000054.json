@@ -1,0 +1,45 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:54",
+ "sequence": 54,
+ "prev_event_sha256": "2efd5bd5b07820f2fc65255e8b0d14f1e4c6ad35edb0c2124effb06d5e4a43d8",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwrxc6hv",
+ "operation_id": null,
+ "task_id": "demand_portal_aperture",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:53"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:27.935Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "demand_portal_aperture",
+  "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+  "inputs": [],
+  "expected_outputs": [
+   "planned art for portal_aperture"
+  ],
+  "deps": [],
+  "invariants": [
+   "every visible state has an explicit dependency"
+  ],
+  "verification": "supplied_by_plan",
+  "evidence_location": "frames 3480,3600",
+  "category": "MISSING_ART_STATE",
+  "group": null
+ },
+ "lock_generation": 54,
+ "event_sha256": "f0e56b5e3bb6f14a4f3bc85184e1c4bfe26620cbb16b6f837638d596cf326844"
+}

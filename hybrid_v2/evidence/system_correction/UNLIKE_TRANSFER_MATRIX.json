@@ -1,0 +1,55 @@
+{
+ "rule": "every generalized producer is exercised on subjects absent from the laundromat proposal; no scene/character branch exists in engine code (INDEPENDENT_TRACE.json)",
+ "rows": [
+  {
+   "test": "U02",
+   "what": "marine organism + volcanic world routing",
+   "status": "PASS"
+  },
+  {
+   "test": "A02",
+   "what": "machine topology",
+   "status": "PASS"
+  },
+  {
+   "test": "A03",
+   "what": "natural world / organism (no human leak)",
+   "status": "PASS"
+  },
+  {
+   "test": "A04",
+   "what": "diagram/data world",
+   "status": "PASS"
+  },
+  {
+   "test": "T08 (actions)",
+   "what": "scientist sample transfer + octopus shell",
+   "status": "PASS"
+  },
+  {
+   "test": "T08 (mechanisms)",
+   "what": "infection + orbital energy",
+   "status": "PASS"
+  },
+  {
+   "test": "unlike continuity",
+   "what": "carried object + weather",
+   "status": "PASS"
+  },
+  {
+   "test": "R07",
+   "what": "machine hinge + organism appendage fit",
+   "status": "PASS"
+  },
+  {
+   "test": "M12",
+   "what": "underwater release phrase",
+   "status": "PASS"
+  },
+  {
+   "test": "L03",
+   "what": "non-matching subject gets no rule",
+   "status": "PASS"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+Contents moved (byte-verified, 7537 files) to C:\MOTION_NATIVE_STUDIO_V1_EVIDENCE_OFFLOAD\hybrid_v2\work\p02\injection
+Manifest: C:\MOTION_NATIVE_STUDIO_V1_EVIDENCE_OFFLOAD\hybrid_v2\work\p02\INJECTION_OFFLOAD_MANIFEST.json
+Reason: drive E: was full; nothing was deleted.
+
+Second batch (1771 files, rerun of P02-R23 S08/S09) moved byte-verified to C:\MOTION_NATIVE_STUDIO_V1_EVIDENCE_OFFLOAD\hybrid_v2\work\p02\injection_rerun_20261122_213420 (manifest OFFLOAD_MANIFEST.json there).

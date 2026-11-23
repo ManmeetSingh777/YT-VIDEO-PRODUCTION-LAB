@@ -1,0 +1,44 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:48",
+ "sequence": 48,
+ "prev_event_sha256": "124989137e096b382f63fcd2e66839d25c0cbb71c364b01b12ebdb10434b94f5",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwrtyy5j",
+ "operation_id": null,
+ "task_id": "demand_pilot_forearm",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:47"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:11.453Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "demand_pilot_forearm",
+  "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+  "inputs": [],
+  "expected_outputs": [
+   "planned art for pilot_forearm"
+  ],
+  "deps": [],
+  "invariants": [
+   "every visible state has an explicit dependency"
+  ],
+  "verification": "supplied_by_plan",
+  "evidence_location": "frames 0,600",
+  "category": "MISSING_ART_STATE"
+ },
+ "lock_generation": 48,
+ "event_sha256": "b266775152052f591eec6878d1287318c70ae4c2dc14c7a89d42ef398687ab28"
+}

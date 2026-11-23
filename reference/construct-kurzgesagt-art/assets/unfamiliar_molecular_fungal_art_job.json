@@ -1,0 +1,394 @@
+{
+  "job_id": "MOLECULAR-TRANSFER-FUNGAL-001",
+  "first_pass_control": {
+    "version": 2,
+    "viewer_proof": {
+      "what_changes": "In an underground cross-section, a phosphate parcel visibly moves along a rooted fungal cable and enters a tree root at a real shared junction; the entering root region switches color. It is an original hypothetical diagram of nutrient exchange, not a literal film process.",
+      "recognition_test": "Without text, viewer sees connected fungal origin at left, one selected continuous transport path across scene, and an actual insertion into a root at right, while disconnected fungi remain inactive.",
+      "focal_order": [
+        "physical contact point of fungal branch with root",
+        "connected active phosphorous channel",
+        "inactive branch network"
+      ],
+      "camera_view": "Frontal flattened underground cutaway at close microscope-like stage, no distant full forest, one massive root cross-section occupies right 42 percent and branching hyphae occupy centre-left."
+    },
+    "source_contrast": "MEMORIES@62 has dense physical branching biology while AI@702 uses separate conceptual stages and AI@444 uses nearly white abstract support. This job chooses real underground biological graph with a quiet muted rock substrate; neither an AI neon world nor uniformly busy purple forest.",
+    "references": [
+      {
+        "path": "assets/question_native_witnesses/MEMORIES_0062_biological_network_density.jpg",
+        "role": "STYLE_ONLY: dark source tissue uses connected branching terminals and bounded colored material regions",
+        "noncopy": "No source organisms, colors, composition, faces, event or original branch layout"
+      },
+      {
+        "path": "assets/question_native_witnesses/AI_0702_nodes_and_links.jpg",
+        "role": "STYLE_ONLY: unlike information-relational world uses discrete node stages, attachments and readable active edges",
+        "noncopy": "No source node characters, stage structure, labels, colors or story"
+      },
+      {
+        "path": "assets/question_native_witnesses/AI_0444_pale_information_stage.jpg",
+        "role": "STYLE_ONLY counterexample: abstract world can have luminous pale negative space rather than mandatory dark purple",
+        "noncopy": "No source stage, technology or layout copied"
+      }
+    ],
+    "subject_specs": [
+      {
+        "subject_id": "fungal_network",
+        "family": "BIOLOGICAL_MICRO",
+        "shape_topology": "One visible mycelial central hypha enters at left x=0.08,y=0.59, forks at three concrete nodes, two inactive branches end in attached rounded spore-like hyphal bulbs, and a specific active branch travels to a clearly visible joined socket on tree root at x=0.71,y=0.52. The active route is one continuous narrow tubular region through exact forks, no disconnected dotted path.",
+        "material_mapping": "Muted indigo-purple tube parent base with only one bounded lime-yellow active inner-channel region; branch edges are coherent shape color boundaries, not neon wires; tiny branch cell marks live inside the tube mask.",
+        "focal_scale_and_view": "A thick visible fungal path runs between x=0.13..0.73, y=0.39..0.69; actual root-socket junction is the focal 0.2-wide region.",
+        "specific_negative_rendering": [
+          "No bokeh particles or unlabeled floating icons",
+          "No copied original neural scene",
+          "No thin neon grid UI"
+        ]
+      },
+      {
+        "subject_id": "root_cross_section",
+        "family": "BIOLOGICAL_MICRO",
+        "shape_topology": "One broad tan branching tree-root cutaway enters from right x=1.0, holds a nested dark root-bark outer layer and salmon inner cortex. A visibly open pore/symbiotic exchange socket meets a fungal branch at x=0.71,y=0.52; no root disconnected from junction.",
+        "material_mapping": "Tan earth root base, attached dark sienna bark stripe, one warm peach inner cylinder band and one bounded lime-yellow intake patch at contact. Two large croped lobes and a few root-fiber shapes only inside the root parent mask.",
+        "focal_scale_and_view": "Right-side macro cross section, root thickness around 300 px at 1080 output; entrance socket visible as main center-right event.",
+        "specific_negative_rendering": [
+          "No cinematic wood grain photorealism",
+          "No detached growth sparkles"
+        ]
+      }
+    ],
+    "character_designs": [],
+    "asset_state_plan": {
+      "canonical_master": "One original underground cross-section plate keyed by root and fungal junction",
+      "derivation_path": "derive inactive, transport active, root accepting state from same registered master without re-generating whole scene",
+      "motion_interfaces": [
+        "one actual transport channel alpha",
+        "junction filling mask",
+        "clean inactive network underpaint"
+      ]
+    },
+    "palette_roles": {
+      "substrate": "Broad nearly-flat cool muted turquoise-grey earth field with 2 alternate gentle curved zones and no individual dirt confetti",
+      "focal_subject": "Tan root large right contour against cooler earth; indigo hypha connected into root",
+      "causal_active": "A single lime-yellow color travels along only one existing channel and finally fills attached root junction",
+      "supporting_shapes": "Grey-green few irregular pebble masses under main route, low contrast, no background microbe stickers",
+      "material_plane_rules": "Bounded root bark/interior regions, fungal tube wall and inset channel regions; no universal outline",
+      "optical_exceptions": "NONE; transport color is a flat state patch, not a bloom source"
+    },
+    "density_and_focus": {
+      "t1_major": "root cross-section, full hypha from left fork to real root connection, surrounding soil substrate",
+      "t2_owned_partwork": "exact parent-owned darker root rim, fungal attached branches, limited attached hairlike fibers",
+      "t3_repeats_or_none": "At most six tiny root microfibers and four earth pebbles; all parent-subordinate; none floating",
+      "primary_read_region": "right junction x=0.65..0.82,y=0.43..0.65 is largest local focus",
+      "quiet_support_region": "upper quarter and lower left remain broad connected earth color fields"
+    },
+    "causal_frame_geometry": {
+      "named_visible_anchors": [
+        {
+          "name": "fungal origin",
+          "screen_position_norm": [
+            0.12,
+            0.59
+          ],
+          "drawable_parent": "fungal_network",
+          "visible_mark": "thick continuous rooted fungal trunk entering from left border"
+        },
+        {
+          "name": "root intake",
+          "screen_position_norm": [
+            0.71,
+            0.52
+          ],
+          "drawable_parent": "root_cross_section",
+          "visible_mark": "fungal tip visibly inserts beneath near root epidermis at symbiotic socket"
+        }
+      ],
+      "essential_connections": "One uninterrupted fungal hyphal path visibly runs from source fork to inserted root junction, and root uptake color patches inside its own cortex",
+      "frame_edge_policy": "Fungal input may enter left edge, broad root may continue beyond right edge; shared junction at x~0.71 must always be fully visible",
+      "authorized_overlay_symbols": "NONE; no labels, arrows, letters or floating icons on source-style test"
+    },
+    "forbidden_extras": [
+      "No source film subject/scene layout",
+      "No faceless futuristic robot or neon grid",
+      "No over-rendered moss garden/3D mushroom landscape",
+      "No added arrows or sparkles"
+    ]
+  },
+  "molecular_visual_decisions": {
+    "highest_impact_question": "How can a nontextual connected nutritional exchange be unambiguously visible using a real physical graph and local color activation?",
+    "chosen_methods": [
+      "F57",
+      "F59",
+      "F61",
+      "F71",
+      "F74",
+      "F77"
+    ],
+    "positive_source_contrast": "MEMORIES@62: biology terminals join to actual stalks, many scales and dark support",
+    "contradicting_source_case": "AI@444 pale info world and AI@702 node stages prevent universal biological-dark-violet or neon UI recipe",
+    "primary_proof": {
+      "subject_parent_id": "fungal_network",
+      "bbox_norm": [
+        0.07,
+        0.34,
+        0.83,
+        0.77
+      ],
+      "observable_before_after": "actual inner channel goes from inactive to colored active along same hypha, ending inside root tissue"
+    },
+    "topology_and_projections": {
+      "view_family": "FLAT_ORTHO_CUTAWAY",
+      "parts": [
+        "fungal trunk",
+        "three attached forks",
+        "active connecting fork",
+        "root bark",
+        "cortex",
+        "shared socket"
+      ],
+      "ports": [
+        "fungal tip/root junction at (0.71,0.52)"
+      ],
+      "occlusion_order": [
+        "earth back",
+        "far root",
+        "fungal tube",
+        "near root edge",
+        "root highlight"
+      ]
+    },
+    "color_and_surface_owners": {
+      "palette_slots": {
+        "earth": "cool slate-teal quiet field",
+        "fungal_body": "indigo",
+        "root_base": "warm tan",
+        "active_channel": "lime yellow"
+      },
+      "specific_material_patches": [
+        "root bark dark contour enclosed by root",
+        "thin active channel inside tube"
+      ],
+      "allowed_optical_masks": [
+        "NONE"
+      ]
+    },
+    "density_budget_by_region": {
+      "main_proof": [
+        "root junction, channel"
+      ],
+      "support": [
+        "other attached hyphal forks"
+      ],
+      "quiet": [
+        "upper earth",
+        "lower left earth"
+      ],
+      "repetition_parent_masks": [
+        "root microfibers within root",
+        "hyphal nubs on hypha only"
+      ]
+    },
+    "animation_ancestry": {
+      "canonical_master_id": "NOVEL_FUNGAL_EXCHANGE_MASTER",
+      "registered_anchors": [
+        "source fork",
+        "root socket"
+      ],
+      "intermediate_states": [
+        "inactive",
+        "travel halfway",
+        "at junction",
+        "root uptakes"
+      ],
+      "alpha_underpaint_overscan": [
+        "one clean master and owned activation layer, no independent redraw of whole plate"
+      ]
+    },
+    "specific_generational_exclusions": [
+      "No unconnected bright confetti",
+      "No alien mushroom city",
+      "No film-sourced brain illustration",
+      "No floating diagram arrows"
+    ],
+    "falsification_test": "If a single glowing branch does not visibly connect and enter the root socket, or diffuse tree scenery overtakes the diagram, first pass fails"
+  },
+  "original_content": {
+    "script_excerpt": "Beneath a forest, microscopic fungi can exchange mineral nutrients with the roots of a tree. Follow one exchange: a nutrient travels along a connected fungal filament and enters the root at their contact.",
+    "scene_goal": "One causal nutrient exchange across an actual physical interface, not a landscape painting",
+    "new_subjects": [
+      "unfamiliar fungus mycelial filament",
+      "tree-root tissue in close cutaway",
+      "soil substrate"
+    ],
+    "noncopy_source_content": true
+  },
+  "canvas": {
+    "aspect": "16:9",
+    "view": "flattened microscope-facing cutaway; root cortex at right and source-to-target hypha left-middle",
+    "scale": "close mechanism, target junction readable at 1080px",
+    "focal_order": [
+      "root contact",
+      "active hypha",
+      "inactive supporting network"
+    ]
+  },
+  "method_bindings": [
+    {
+      "method_id": "F57",
+      "conditions": "One continuous causal nutrient route is the proof",
+      "source_witnesses": [
+        "BRAIN@334",
+        "NUCLEAR@420"
+      ],
+      "invariant_transferred": "Choose crop/causal endpoints before scene decorations",
+      "variation_required": "Entirely original non-source fungal partners, root composition and causal exchange",
+      "observable_verification": "All visible colored channels are physically attached and terminate on actual root/fungal parent surfaces"
+    },
+    {
+      "method_id": "F71",
+      "conditions": "Physical fungus/plant anatomy graph",
+      "source_witnesses": [
+        "MEMORIES@62",
+        "AI@702"
+      ],
+      "invariant_transferred": "Draw actual connected branches, not floating glyphs",
+      "variation_required": "Entirely original non-source fungal partners, root composition and causal exchange",
+      "observable_verification": "All visible colored channels are physically attached and terminate on actual root/fungal parent surfaces"
+    },
+    {
+      "method_id": "F74",
+      "conditions": "A communicating system must visibly map source→edge→target",
+      "source_witnesses": [
+        "AI@702",
+        "MEMORIES@62"
+      ],
+      "invariant_transferred": "Semantic graph with rooted nodes and attached activation",
+      "variation_required": "Entirely original non-source fungal partners, root composition and causal exchange",
+      "observable_verification": "All visible colored channels are physically attached and terminate on actual root/fungal parent surfaces"
+    }
+  ],
+  "subject_graph": [
+    {
+      "id": "fungal_network",
+      "family": "biological cross section",
+      "whole_silhouette": "connected tapering hypha with 3 actual branching junctions running left source to root intake",
+      "view_dependent_parts": [
+        {
+          "part": "hypha",
+          "parent": "fungal_network",
+          "shape": "connected root and forks with one bound internal channel"
+        }
+      ],
+      "attachment_and_contact": [
+        {
+          "child": "near_tip",
+          "parent": "root_cross_section",
+          "occlusion": "hypha tip tucks under root near epidermal rim"
+        }
+      ],
+      "surface_materials": [
+        {
+          "part": "hypha",
+          "base_color_role": "indigo parent tube",
+          "attached_color_patches": [
+            "inner causal lime route"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "root_cross_section",
+      "family": "biological cross section",
+      "whole_silhouette": "large tan branching root seen as cutaway entering from right",
+      "view_dependent_parts": [
+        {
+          "part": "inner_cortex",
+          "parent": "root_cross_section",
+          "shape": "nested cortex and real socket area"
+        }
+      ],
+      "attachment_and_contact": [
+        {
+          "child": "root_socket",
+          "parent": "fungal_network",
+          "occlusion": "near root bark partially covers inserted hypha"
+        }
+      ],
+      "surface_materials": [
+        {
+          "part": "root",
+          "base_color_role": "warm tan tissue",
+          "attached_color_patches": [
+            "dark bark band",
+            "uptake lime region"
+          ]
+        }
+      ]
+    }
+  ],
+  "world": {
+    "projection": "flat microscope tissue cutaway, no camera perspective vanishing points",
+    "layers": [
+      "cool earth field",
+      "far root",
+      "hypha and connected branches",
+      "near root bark",
+      "active inner channel"
+    ],
+    "material_family_map": {
+      "root": "contiguous organic lobes with parent-owned cortex",
+      "fungus": "tapering attached tube",
+      "soil": "broad cool color field"
+    },
+    "focal_contrast_vs_environment": "lime active channel inside indigo hypha meets tan root",
+    "environmental_density_condition": "regional T3 only on physical parents",
+    "ground_and_support": [
+      "true root and hypha meeting point"
+    ]
+  },
+  "lighting": {
+    "opaque_color_patches": [
+      "tan root cortex",
+      "dark bark band",
+      "active hypha inset"
+    ],
+    "optical_reflection_masks": [
+      "none"
+    ],
+    "emissive_connected_shapes": [
+      "none, activation flat hue only"
+    ],
+    "atmospheric_halation_only": [
+      "none"
+    ]
+  },
+  "manufacturing": {
+    "production_medium": "source-conditioned 2D raster image",
+    "style_witness_roles": [
+      "STYLE_ONLY: dark source tissue uses connected branching terminals and bounded colored material regions",
+      "STYLE_ONLY: unlike information-relational world uses discrete node stages, attachments and readable active edges",
+      "STYLE_ONLY counterexample: abstract world can have luminous pale negative space rather than mandatory dark purple"
+    ],
+    "method_resolution": "F57 causal proof, F71 physical biology, F74 semantic mapping, F61 conditional palette",
+    "provider_action": "CALL image_gen with actual image references and compiled payload; inspect first output pixels",
+    "state_derivation": "from one registered approved master if motion states are needed"
+  },
+  "observable_negative_tests": [
+    "no disconnected terminal from hypha",
+    "no missing root insertion",
+    "no extra scientific arrow or generated text",
+    "no painterly cinematic mushrooms or borrowed neural layout"
+  ],
+  "uncontrolled_high_impact_decisions": [],
+  "medium_tree": [
+    "MACRO",
+    "SCHEMATIC"
+  ],
+  "animation": {
+    "still_test_only": true,
+    "proposed_states": [
+      "inactive",
+      "active tube",
+      "root uptake"
+    ],
+    "motion_not_qualified": true
+  }
+}

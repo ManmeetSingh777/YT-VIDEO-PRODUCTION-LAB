@@ -1,0 +1,41 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:110",
+ "sequence": 110,
+ "prev_event_sha256": "05ddb7455d88e0093b367355bfa14b81b5ab5f2d7dde2569617a8b8a7dff2c03",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S05_ART_PRODUCTION",
+ "attempt_id": "Amwrxc86i",
+ "operation_id": null,
+ "task_id": "asset_portal_in",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [
+  {
+   "name": "assets/art/portal_in.png",
+   "sha256": "86731b61c043c38ec92c682dadb4c89693a3def1ffc5589f0bf0f141805e4855",
+   "bytes": 12704,
+   "source": "assets/art/portal_in.png"
+  }
+ ],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:109"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:32.587Z",
+ "elapsed_ms": 10,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "byte hash + verifyApproval",
+  "pass": true,
+  "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+ },
+ "lock_generation": 110,
+ "event_sha256": "29620305a13fc666320eda58123e077d77dcbf53c001b1c6ab3824eeb3a9bae8"
+}

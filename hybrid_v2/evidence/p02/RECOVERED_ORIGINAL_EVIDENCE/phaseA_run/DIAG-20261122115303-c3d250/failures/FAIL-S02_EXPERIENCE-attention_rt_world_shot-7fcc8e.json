@@ -1,0 +1,33 @@
+{
+ "failure_id": "FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwrs2nwo",
+ "task_id": "attention_rt_world_shot",
+ "frame_ranges": [],
+ "artifact_refs": [],
+ "first_observed_bad_output": "attention beats with owners",
+ "expected_invariant": "every attention target has a consuming track",
+ "observed_measurement": "primary_focus \"cam_world\" has no consuming track in [3600,7200)",
+ "applicability_predicate": "stage S02_EXPERIENCE, task class attention_rt_world",
+ "failure_class": "DIRECTION_OR_ATTENTION",
+ "root_producer_or_UNKNOWN": "engine/story/experience.mjs#compileAttention",
+ "suspected_mechanism": "primary_focus \"cam_world\" has no consuming track in [3600,7200)",
+ "causal_evidence_refs": [],
+ "rejected_bypass_paths": [],
+ "invalidated_downstream_nodes": [
+  "direction_approval",
+  "S03_TIMING_MOTION",
+  "S04_ART_DEMAND",
+  "S05_ART_PRODUCTION",
+  "S06_REGISTRATION_RIG",
+  "S07_NEUTRINO_RENDER",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "repair_owner": "EXPERIENCE_DIRECTOR",
+ "resume_from_stage": "S02_EXPERIENCE",
+ "retry_safe_boolean": false,
+ "external_spend_risk": false,
+ "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122115303-c3d250 --failure FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e"
+}

@@ -1,0 +1,51 @@
+{
+ "chain": {
+  "ok": true,
+  "events": 198,
+  "head_sha256": "7363d22535e987b6a5aaf2cd187d2787e2612c092cc58458443e010d414c061a",
+  "problems": []
+ },
+ "handoffs": [
+  {
+   "stage": "S00_IDEA",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S01_STORY",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "ok": false,
+   "reason": "producer source changed since the handoff (stale)"
+  }
+ ],
+ "ok": false
+}

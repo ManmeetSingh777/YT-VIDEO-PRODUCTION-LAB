@@ -1,0 +1,44 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:28",
+ "sequence": 28,
+ "prev_event_sha256": "da7fbdf5e3dfd7a8c701d19ba6d912a29364b8b75ddd43aedc48f8e30a3444f6",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwru47r4",
+ "operation_id": null,
+ "task_id": "tiling",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:27"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:16.965Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "tiling",
+  "producer": "engine/film/film_revision.mjs#checkTiling",
+  "inputs": [],
+  "expected_outputs": [
+   "exact frame ownership"
+  ],
+  "deps": [],
+  "invariants": [
+   "shots tile [0,total) exactly"
+  ],
+  "verification": "checkTiling ok",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 28,
+ "event_sha256": "c3d87fc91d896062aaf80e17cf283f5b2a5f440cc6a85d998cb1129a053a8657"
+}

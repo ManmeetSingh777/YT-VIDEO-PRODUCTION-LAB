@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:201",
+ "sequence": 201,
+ "prev_event_sha256": "f50e50cc275b35f0400f8e1a1d69ac0013ef155012d34b832d1629e7c53c160a",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S08_QA_REPAIR",
+ "attempt_id": "Amwryc2mm",
+ "operation_id": null,
+ "task_id": "render_receipt",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:200"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:30.431Z",
+ "elapsed_ms": 6738,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "verifyRenderReceipt ok",
+  "pass": true,
+  "measurement": "resampled 0,388,599,600,1199,1200,1494,1799,1800,2399,2400,2999,3000,3599,3600,4199,4200,4799,4800,5399,5400,5999,6000,6295,6599,6600,7199"
+ },
+ "lock_generation": 201,
+ "event_sha256": "da949ceb2e5aed7a259beeb9440e2abaea2774af4f0a09af96b6ad14e2709e37"
+}

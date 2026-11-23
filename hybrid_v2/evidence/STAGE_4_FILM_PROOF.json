@@ -1,0 +1,116 @@
+{
+ "stage": "STAGE_4_FILM",
+ "tested_revision": "0d9b324972c9ad10089945262e3230ee634d3e2f",
+ "generated_at": "2026-11-21T23:36:30.758Z",
+ "status": "BLOCKED",
+ "blockers": [
+  "STORY_APPROVAL_PENDING: films/hv2_film001/direction/EXPERIENCE_DIRECTOR_PROPOSAL.md",
+  "NO_APPROVED_ART: 0 approved assets; WAITING_FOR_GPT_ART outbox exported",
+  "NO_NARRATION: no recorded narration with measured word alignment"
+ ],
+ "project": "films/hv2_film001",
+ "direction": {
+  "proposal": "films/hv2_film001/direction/EXPERIENCE_DIRECTOR_PROPOSAL.md",
+  "shot_score": "films/hv2_film001/direction/SHOT_SCORE_60FPS.json",
+  "approval": "PENDING"
+ },
+ "production_graph": {
+  "manifest": "films/hv2_film001/handoff/ART_AND_MOTION_MANIFEST_V2.json",
+  "art_dependency_plan": "films/hv2_film001/handoff/ART_DEPENDENCY_PLAN.json",
+  "motion_plan_qualification": "films/hv2_film001/handoff/MOTION_PLAN_S02.json",
+  "builder": "films/hv2_film001/handoff/build_production_graph.mjs",
+  "shots": 7,
+  "total_frames": 7200
+ },
+ "manifest_check": {
+  "command": "node engine/tools/art_bridge_check.mjs check --root films/hv2_film001 --manifest handoff/ART_AND_MOTION_MANIFEST_V2.json --json films/hv2_film001/qa/manifest_v2_report.json",
+  "pass": false,
+  "exit_code": 1,
+  "error_counts": {
+   "MISSING_ART_ASSET": 553,
+   "MISSING_CANONICAL_MASTER": 6,
+   "MISSING_TRANSITION_STATE": 6,
+   "UNAPPROVED_ART": 18
+  },
+  "coverage": {
+   "frames_covered": 7200,
+   "total": 7200
+  }
+ },
+ "qualification": {
+  "scene": "S02",
+  "command": "node engine\\tools\\art_bridge_qa.mjs qa --root films/hv2_film001 --manifest handoff/ART_AND_MOTION_MANIFEST_V2.json --scene S02 --plan films/hv2_film001/handoff/MOTION_PLAN_S02.json --out films/hv2_film001/qa/hybrid_v2",
+  "pass": false,
+  "gates": {
+   "mechanical_fixture_pass": false,
+   "art_registration_pass": false,
+   "artistic_review_pass": false,
+   "audio_alignment_pass": false,
+   "whole_film_pass": false,
+   "production_pass": false
+  },
+  "exit_code": 1,
+  "missing_art": 111,
+  "missing_capabilities": [
+   "MISSING_WORD_ALIGNMENT: no recorded narration with measured word timing; critical narration-bound events cannot be certified"
+  ],
+  "motion_feasibility_without_art": {
+   "note": "art-free staging check; state-edge approval deliberately not required here (reported by the manifest check)",
+   "status": "FEASIBLE_EXCEPT_DIRECTION_GAPS",
+   "direction_gaps": [
+    {
+     "code": "UNSUPPORTED_MOTION_CLASS",
+     "file": null,
+     "record_id": "S02_room_life",
+     "shot_id": null,
+     "frame_range": null,
+     "dependency": null,
+     "suggested_producer": null,
+     "human_readable_reason": "PROCEDURAL action has no declared mechanism"
+    }
+   ],
+   "actions_solved": [
+    "S02_operate_washer",
+    "S02_push_in",
+    "S02_porthole"
+   ],
+   "frames_evaluated": 1020,
+   "failures": {},
+   "locked_contact_max_error_px": {
+    "S02_operate_washer:ines_sole_l": 5.084229945850415e-13,
+    "S02_operate_washer:ines_grip_r": 0.000004185586483308007,
+    "S02_operate_washer:ines_pinch_r": 0.00014400954480262273
+   }
+  },
+  "unlike_family_proposed": "S04 ledger (diagram/mechanism family)",
+  "rendered": false,
+  "reason_not_rendered": "no approved art: rendering would require substitute art, which is forbidden"
+ },
+ "outbox": {
+  "jobs": 74,
+  "by_order": {
+   "1": 6,
+   "2": 38,
+   "3": 24,
+   "4": 6
+  },
+  "by_status": {
+   "WAITING_FOR_GPT_ART": 6,
+   "WAITING_ON_MASTER_APPROVAL": 68
+  },
+  "compiled": 6,
+  "empty_frame_ranges_with_triggers": 0
+ },
+ "film_render": {
+  "status": "NOT_STARTED",
+  "frames_rendered": 0,
+  "mp4": null,
+  "reason": "blocked until approved story, approved GPT art for every dependency and recorded narration exist; and the independent audit review"
+ },
+ "claims_not_made": [
+  "not production-qualified",
+  "no QUALIFICATION_PASSED",
+  "no FULL_RENDER_REVIEWED",
+  "fixture renders are not target art"
+ ]
+}

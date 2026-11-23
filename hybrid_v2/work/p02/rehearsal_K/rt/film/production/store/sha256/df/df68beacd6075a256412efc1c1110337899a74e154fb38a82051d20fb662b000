@@ -1,0 +1,50 @@
+{
+ "approval_refs": [],
+ "blockers": [],
+ "event_chain_head_sha256": "2bb5c9185451cd9fce7b1e000f5a73124d8160387ae8338e018ab35dd3cba30f",
+ "film_id": "film",
+ "input_artifact_refs": [
+  {
+   "name": "S00_IDEA/STAGE_HANDOFF",
+   "sha256": "49230827a87e7dc98ccf428997e2fa7b9d1b4f3ef9d5f8cbcdb17be79564628e"
+  }
+ ],
+ "input_revision_hash": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "output_artifact_refs": [
+  {
+   "bytes": 125,
+   "name": "story/STORY_CONTRACT.json",
+   "sha256": "8661653be6cc65f784a7cdc47447ba5ea3125f86099dc81f00b26fd779bf3469",
+   "source": "story/STORY_CONTRACT.json"
+  }
+ ],
+ "output_revision_hash": "f456d7c8f8d6f2a5a424f53e8841ec25a44e612947cf1e80f6f22695e1aeaa85",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "required_checks": [
+  {
+   "task_id": "story_contract",
+   "verification": {
+    "measurement": "0 failures",
+    "method": "re-run validator; zero failures",
+    "pass": true
+   }
+  },
+  {
+   "task_id": "story_approval",
+   "verification": {
+    "measurement": "APPROVED TEST_TRUSTED",
+    "method": "verifyApproval over the current bundle",
+    "pass": true
+   }
+  }
+ ],
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "run_type": "DIAGNOSTIC",
+ "schema_version": 1,
+ "stage_attempt_id": "Amwrxc4nf",
+ "stage_id": "S01_STORY",
+ "status": "COMMITTED",
+ "time_completed_utc": "2026-11-22T14:20:25.340Z",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558"
+}

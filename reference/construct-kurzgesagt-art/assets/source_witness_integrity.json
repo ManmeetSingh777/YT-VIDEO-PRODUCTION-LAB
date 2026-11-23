@@ -1,0 +1,145 @@
+{
+  "engineering_integrity": "PASS",
+  "intervals_audited": 15,
+  "total_indexed_positions": 3492,
+  "per_interval": [
+    {
+      "interval": "AI_FINAL__machine_interface",
+      "first_frame": 13860,
+      "last_frame": 14099,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "AI_FINAL__desk_pan",
+      "first_frame": 32100,
+      "last_frame": 32339,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "AI_FINAL__isometric_city",
+      "first_frame": 45720,
+      "last_frame": 45914,
+      "indexed_frames": 195,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "BRAIN_BLINDS__first_person",
+      "first_frame": 720,
+      "last_frame": 959,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "BRAIN_BLINDS__red_object",
+      "first_frame": 9360,
+      "last_frame": 9599,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "BRAIN_BLINDS__human_acting",
+      "first_frame": 23100,
+      "last_frame": 23339,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "MEMORIES__portrait",
+      "first_frame": 1080,
+      "last_frame": 1319,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "MEMORIES__dense_synapses",
+      "first_frame": 5460,
+      "last_frame": 5699,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "MEMORIES__clinic_interaction",
+      "first_frame": 45120,
+      "last_frame": 45359,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "NUCLEAR_FLIES__bio_world",
+      "first_frame": 4920,
+      "last_frame": 5159,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "NUCLEAR_FLIES__fly_macro",
+      "first_frame": 18780,
+      "last_frame": 18956,
+      "indexed_frames": 177,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 8,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "NUCLEAR_FLIES__landscape",
+      "first_frame": 23040,
+      "last_frame": 23279,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "SOLAR_SYSTEM__cosmic_world",
+      "first_frame": 900,
+      "last_frame": 1139,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 11,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "SOLAR_SYSTEM__mascots_interaction",
+      "first_frame": 10620,
+      "last_frame": 10859,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    },
+    {
+      "interval": "SOLAR_SYSTEM__technology_action",
+      "first_frame": 40980,
+      "last_frame": 41219,
+      "indexed_frames": 240,
+      "missing_thumbnails": 0,
+      "listed_native_witnesses": 12,
+      "not_claimed": "native-resolution semantic inspection of every frame"
+    }
+  ],
+  "errors": [],
+  "semantic_frame_understanding": "NOT_PROVEN_BY_THIS_AUDIT",
+  "construction_method_transfer": "NOT_PROVEN_BY_THIS_AUDIT"
+}

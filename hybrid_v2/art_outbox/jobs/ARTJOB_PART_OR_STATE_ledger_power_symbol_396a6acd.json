@@ -1,0 +1,108 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ledger_power_symbol_396a6acd",
+ "root_dependency": "ledger_power_symbol",
+ "identity_id": "ledger_glyphs",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "SYMBOL",
+ "medium": {
+  "medium": "TRANSPARENT_RASTER_SYMBOL_OR_PROVIDER_SVG",
+  "why": "code animates quantities of an approved symbol; it does not invent the symbol"
+ },
+ "manufacturing_order": 3,
+ "derived_from": "ledger_master",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ledger_power_symbol",
+   "frame_range": [
+    3000,
+    3001
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S04_ledger",
+   "frame_range": [
+    3000,
+    4080
+   ],
+   "shot_id": "S04"
+  }
+ ],
+ "motion_context": {
+  "identity_id": "ledger_glyphs",
+  "canonical_parent_asset": "ledger_master",
+  "shot_ids": [
+   "S04"
+  ],
+  "frame_ranges": [
+   [
+    3000,
+    4080
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "PROCEDURAL",
+  "predecessor_state_id": "ledger_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "approved symbol animated procedurally (code computes quantities, never the symbol). Required by: shot S04; action S04_ledger"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "6a3ea979e215a7870d7fcf656166a4ad2feb526b67740c6ee59f40638292fb02",
+ "registration_contract": {
+  "asset_kind": "SYMBOL",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "STRAIGHT",
+  "view_id": "front",
+  "depth_band": "FOCAL",
+  "landmark_frame": "registered against approved master ledger_master"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "ledger_power_symbol",
+  "role": "DERIVED",
+  "derived_from": "ledger_master",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: ledger_master"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_ledger_power_symbol_396a6acd.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_ledger_power_symbol_396a6acd.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

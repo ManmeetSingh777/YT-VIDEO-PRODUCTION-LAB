@@ -1,0 +1,33 @@
+{
+  "job_id": "ARTJOB_MASTER_drum_in_4c40db2c",
+  "status": "COMPILED_WITH_IMAGES_NOT_SUBMITTED",
+  "prompt_sha256": "74f5ada23866f3ab227cf55748b0e58018f421cf5a18d5f64b40e68202765682",
+  "prompt_characters": 13093,
+  "source_image_inputs": [
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\abstract_world_witnesses\\AI_whole_world_variation_contact.jpg",
+      "sha256": "6362b82017c07be01dfb7be6441b05f3ffb884764a3c3cea699dbaaedce1551a",
+      "width": 1920,
+      "height": 1490,
+      "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region"
+    },
+    {
+      "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\abstract_world_witnesses\\AI_mechanism_and_actions_contact.jpg",
+      "sha256": "c760c22663d8c3d7f7f7e75630056b57bf24ea6cde7b0e0dcf51bd08814d259a",
+      "width": 1920,
+      "height": 894,
+      "role": "STYLE_ONLY: functional parts with visible connections and flat material planes"
+    }
+  ],
+  "provider_tool": "image_gen.imagegen",
+  "provider_request_submitted": false,
+  "first_pass_output_observed": false,
+  "repaired_output_observed": false,
+  "compiled_method_ids": [
+    "F21",
+    "F72"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened."
+}

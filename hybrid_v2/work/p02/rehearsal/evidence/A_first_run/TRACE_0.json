@@ -1,0 +1,285 @@
+{
+ "frame": 0,
+ "segment": {
+  "frames": [
+   0,
+   100
+  ],
+  "shot": "rt_shot",
+  "actions": [
+   "pilot_close_hand"
+  ],
+  "rig_states": {
+   "pilot_rig": {
+    "pose": "open",
+    "view": null,
+    "contacts": []
+   }
+  },
+  "assets": [
+   {
+    "id": "pilot_body",
+    "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+    "delivered": true
+   },
+   {
+    "id": "pilot_underpaint",
+    "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+    "delivered": true
+   },
+   {
+    "id": "pilot_upper_arm",
+    "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+    "delivered": true
+   },
+   {
+    "id": "pilot_forearm",
+    "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+    "delivered": true
+   },
+   {
+    "id": "pilot_hand_open",
+    "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+    "delivered": true
+   }
+  ],
+  "camera_track": null,
+  "world": null,
+  "effects": [],
+  "motion_blur": false,
+  "static_hold": false,
+  "chunk": [
+   0,
+   600
+  ]
+ },
+ "assets": [
+  {
+   "asset": "pilot_body",
+   "delivered": true,
+   "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "bytes_match": true,
+   "provenance": null,
+   "approval": "VERIFIED",
+   "registration_receipt": [
+    "LANDMARK_SIDECAR.json",
+    "pilot_body__REGISTRATION_RECEIPT.json"
+   ],
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "methods": [
+     "F01",
+     "F02",
+     "F03",
+     "F04",
+     "F05",
+     "F06",
+     "F14",
+     "F30",
+     "F33",
+     "F51",
+     "F52",
+     "F53",
+     "F58",
+     "F59",
+     "F61",
+     "F62",
+     "F64",
+     "F65",
+     "F66",
+     "F67"
+    ]
+   }
+  },
+  {
+   "asset": "pilot_underpaint",
+   "delivered": true,
+   "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "bytes_match": true,
+   "provenance": null,
+   "approval": "VERIFIED",
+   "registration_receipt": [
+    "LANDMARK_SIDECAR.json",
+    "pilot_underpaint__REGISTRATION_RECEIPT.json"
+   ],
+   "plan_entry": {
+    "kind": "UNDERPAINT",
+    "derived_from": "pilot_master"
+   },
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "methods": [
+     "F01",
+     "F02",
+     "F03",
+     "F04",
+     "F05",
+     "F06",
+     "F14",
+     "F30",
+     "F33",
+     "F51",
+     "F52",
+     "F53",
+     "F58",
+     "F59",
+     "F61",
+     "F62",
+     "F64",
+     "F65",
+     "F66",
+     "F67"
+    ]
+   }
+  },
+  {
+   "asset": "pilot_upper_arm",
+   "delivered": true,
+   "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+   "bytes_match": true,
+   "provenance": null,
+   "approval": "VERIFIED",
+   "registration_receipt": [
+    "LANDMARK_SIDECAR.json",
+    "pilot_upper_arm__REGISTRATION_RECEIPT.json"
+   ],
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "methods": [
+     "F01",
+     "F02",
+     "F03",
+     "F04",
+     "F05",
+     "F06",
+     "F14",
+     "F30",
+     "F33",
+     "F51",
+     "F52",
+     "F53",
+     "F58",
+     "F59",
+     "F61",
+     "F62",
+     "F64",
+     "F65",
+     "F66",
+     "F67"
+    ]
+   }
+  },
+  {
+   "asset": "pilot_forearm",
+   "delivered": true,
+   "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "bytes_match": true,
+   "provenance": null,
+   "approval": "VERIFIED",
+   "registration_receipt": [
+    "LANDMARK_SIDECAR.json",
+    "pilot_forearm__REGISTRATION_RECEIPT.json"
+   ],
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "methods": [
+     "F01",
+     "F02",
+     "F03",
+     "F04",
+     "F05",
+     "F06",
+     "F14",
+     "F30",
+     "F33",
+     "F51",
+     "F52",
+     "F53",
+     "F58",
+     "F59",
+     "F61",
+     "F62",
+     "F64",
+     "F65",
+     "F66",
+     "F67"
+    ]
+   }
+  },
+  {
+   "asset": "pilot_hand_open",
+   "delivered": true,
+   "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "bytes_match": true,
+   "provenance": null,
+   "approval": "VERIFIED",
+   "registration_receipt": [
+    "LANDMARK_SIDECAR.json",
+    "pilot_hand_open__REGISTRATION_RECEIPT.json"
+   ],
+   "plan_entry": {
+    "kind": "PART",
+    "derived_from": "pilot_master"
+   },
+   "design": {
+    "file": "art_designs/pilot_master.design.json",
+    "sha256": "f038d24888820301f009b91fa2d6307cd1faf2f64942d6d51c192412abb29bd2",
+    "methods": [
+     "F01",
+     "F02",
+     "F03",
+     "F04",
+     "F05",
+     "F06",
+     "F14",
+     "F30",
+     "F33",
+     "F51",
+     "F52",
+     "F53",
+     "F58",
+     "F59",
+     "F61",
+     "F62",
+     "F64",
+     "F65",
+     "F66",
+     "F67"
+    ]
+   }
+  }
+ ],
+ "story": "APPROVED",
+ "direction": "APPROVED",
+ "stage_handoffs": {
+  "S00_IDEA": {
+   "status": "COMMITTED",
+   "handoff": "5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67ec54df4e1b0"
+  },
+  "S01_STORY": {
+   "status": "COMMITTED",
+   "handoff": "f876a96f2e77832743bb92c102111e5bfae92715d3d8dd0406ad069d147fae81"
+  },
+  "S02_EXPERIENCE": {
+   "status": "BLOCKED",
+   "handoff": null
+  }
+ },
+ "blockers": []
+}

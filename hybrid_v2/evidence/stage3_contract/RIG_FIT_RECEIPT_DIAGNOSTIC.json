@@ -1,0 +1,158 @@
+{
+ "provenance": "DIAGNOSTIC_FIXTURE (tests/art_bridge/stage3_rigfit_fixture.mjs): proves the mechanism only, never art quality",
+ "asset": "pilot_master",
+ "identity": "pilot",
+ "rig": "pilot_rig",
+ "pixels_changed": false,
+ "master_sha256": "a62f4ab5e5983e011065544dd20969bf01130d8750d5878f661f18e550ee3cd7",
+ "frame_anchors": [
+  "head_top",
+  "neck",
+  "pelvis"
+ ],
+ "joints": [
+  {
+   "rig": "pilot_rig",
+   "joint": "shoulder_r",
+   "before": [
+    195,
+    135
+   ],
+   "after": [
+    195,
+    135
+   ]
+  },
+  {
+   "rig": "pilot_rig",
+   "joint": "elbow_r",
+   "before": [
+    215,
+    215
+   ],
+   "after": [
+    210,
+    195
+   ]
+  },
+  {
+   "rig": "pilot_rig",
+   "joint": "wrist_r",
+   "before": [
+    225,
+    295
+   ],
+   "after": [
+    217.5,
+    255
+   ]
+  }
+ ],
+ "limb_changes": [
+  {
+   "rig": "pilot_rig",
+   "bone": "pelvis->shoulder_r",
+   "provisional_length": 171.02631376487068,
+   "fitted_length": 171.02631376487068,
+   "ratio": 1
+  },
+  {
+   "rig": "pilot_rig",
+   "bone": "shoulder_r->elbow_r",
+   "provisional_length": 82.46211251235322,
+   "fitted_length": 61.84658438426491,
+   "ratio": 0.75
+  },
+  {
+   "rig": "pilot_rig",
+   "bone": "elbow_r->wrist_r",
+   "provisional_length": 80.62257748298549,
+   "fitted_length": 60.46693311223912,
+   "ratio": 0.75
+  }
+ ],
+ "planned_pivots_updated": [
+  {
+   "asset": "pilot_upper_arm",
+   "before": [
+    195,
+    135
+   ],
+   "after": [
+    195,
+    135
+   ]
+  },
+  {
+   "asset": "pilot_forearm",
+   "before": [
+    215,
+    215
+   ],
+   "after": [
+    210,
+    195
+   ]
+  },
+  {
+   "asset": "pilot_underpaint",
+   "before": [
+    215,
+    215
+   ],
+   "after": [
+    210,
+    195
+   ]
+  },
+  {
+   "asset": "pilot_hand_open",
+   "before": [
+    225,
+    295
+   ],
+   "after": [
+    217.5,
+    255
+   ]
+  },
+  {
+   "asset": "pilot_hand_grip",
+   "before": [
+    225,
+    295
+   ],
+   "after": [
+    217.5,
+    255
+   ]
+  }
+ ],
+ "feasibility": {
+  "status": "INFEASIBLE_REQUIRES_RESTAGING_OR_NEW_POSE_ART",
+  "failures": [
+   {
+    "code": "UNREACHABLE_IK",
+    "record_id": "pilot_close_hand",
+    "shot": "rt_shot",
+    "plan": "MOTION_PLAN.json",
+    "reason": "target at 181.774 outside reach [1.656, 146.776]",
+    "frame_range": [
+     200,
+     300
+    ],
+    "frame_count": 100
+   }
+  ],
+  "checked": [
+   {
+    "shot": "rt_shot",
+    "plan": "MOTION_PLAN.json",
+    "contact_frames": 600
+   }
+  ],
+  "remedy": "approved restaging of the action (placement/timing/targets) or new pose art; never distort the approved proportions"
+ },
+ "rule": "the approved art determines the rig; if the planned action is infeasible the action is RESTAGED (approved) or new pose art is requested; proportions are never distorted",
+ "at": "2026-11-22T08:25:22.006Z"
+}

@@ -1,0 +1,11 @@
+/hyperframes
+
+THIS IS A FRESH ORIGINAL SCIENCE-YOUTUBE EXPLAINER PROJECT, NOT A FICTIONAL SHORT FILM.
+
+Read all files in `DIRECTION_V4` completely, especially `01_SCRIPT_AND_FACTS.md`, `02_VISUAL_MOTION_GRAMMAR.md`, `03_PRODUCTION_CONTRACT.md`, `04_SHOT_MAP.csv`, and `05_REVIEW_GATE.md`. Treat `03_PRODUCTION_CONTRACT.md` as authoritative. The old city movie is NOT the brief. Make original artwork and original cinematic metaphors; don't copy identifiable material from Kurzgesagt or anyone else.
+
+Topic: "100 Trillion Ghosts Are Passing Through You Right Now" (neutrinos). Produce a 120-second original narrated YouTube science explainer at 1080p 30fps with high-end custom 2D vector illustration, crisp science teaching, fast meaningful editing, complex coordinated motion, articulated character acting, motivated camera transformations, and visually rich coherent environments.
+
+START PRODUCING ACTUAL ART NOW. First create 5 actual full-resolution polished hero frames (not text). Generate the original timed narration/voice draft and a rough full-length visual animatic. Then produce a 12-second real-motion proof, inspect it at normal speed and repair concrete faults, and CONTINUE to the full 120-second editable HyperFrames composition + `final.mp4`. No repeating initialization checks, no thousands-of-actors simulation, no third-party API charges, no lengthy preproduction essays, no slowing things down with a cinematic movie structure, no generic slides/static cutouts.
+
+Deliver the files and honest report. Do not claim success until actual frames, actual motion, audio status, dimensions and duration have been inspected. You can proceed without requesting approval at each phase; stop only for a genuine blocker or forbidden paid dependency. Keep the art as ambitious as the direction. Begin.

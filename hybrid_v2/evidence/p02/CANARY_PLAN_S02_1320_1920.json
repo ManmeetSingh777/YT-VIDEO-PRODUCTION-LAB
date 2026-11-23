@@ -1,0 +1,1057 @@
+{
+ "film": "films\\hv2_film001",
+ "window": [
+  1320,
+  1920
+ ],
+ "frames": 600,
+ "shots": [
+  "S02"
+ ],
+ "actions_in_window": [
+  {
+   "id": "S02_operate_washer",
+   "mode": "ARTICULATED",
+   "frames": [
+    900,
+    1920
+   ]
+  },
+  {
+   "id": "S02_room_life",
+   "mode": "PROCEDURAL",
+   "frames": [
+    900,
+    1920
+   ]
+  },
+  {
+   "id": "S02_push_in",
+   "mode": "CAMERA_WORLD",
+   "frames": [
+    1680,
+    1920
+   ]
+  },
+  {
+   "id": "S02_porthole",
+   "mode": "TRANSITION",
+   "frames": [
+    1800,
+    1920
+   ]
+  }
+ ],
+ "art_jobs": [
+  {
+   "asset": "drum_in",
+   "kind": "TRANSITION_PLATE",
+   "identity": "drum_world",
+   "derived_from": null,
+   "manufacturing_order": 1,
+   "alpha": "OPAQUE",
+   "artjob": "ARTJOB_MASTER_drum_in_4c40db2c",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER"
+   ],
+   "compiled_stages": null,
+   "demand": "continuous transition S02->S03 needs its IN plate"
+  },
+  {
+   "asset": "ines_master",
+   "kind": "MASTER",
+   "identity": "ines",
+   "derived_from": null,
+   "manufacturing_order": 1,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_MASTER_ines_master_211539ad",
+   "outbox_status": "WAITING_FOR_APPROVALS_THEN_GPT_ART",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER"
+   ],
+   "compiled_stages": null,
+   "demand": "master/dependency of an edit in the window"
+  },
+  {
+   "asset": "washer_master",
+   "kind": "MASTER",
+   "identity": "washer",
+   "derived_from": null,
+   "manufacturing_order": 1,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_MASTER_washer_master_38ddfd06",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER"
+   ],
+   "compiled_stages": null,
+   "demand": "master/dependency of an edit in the window"
+  },
+  {
+   "asset": "ines_arm_l_far",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_arm_l_far_6c406170",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_arm_l_far"
+  },
+  {
+   "asset": "ines_brow",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_brow_90370167",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_brow"
+  },
+  {
+   "asset": "ines_coat_hem",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_coat_hem_0d4df647",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_coat_hem"
+  },
+  {
+   "asset": "ines_elbow_r_underpaint",
+   "kind": "UNDERPAINT",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_UNDERPAINT_ines_elbow_r_underpaint_7bc0388f",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_elbow_r_underpaint"
+  },
+  {
+   "asset": "ines_face_eyes",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_eyes_42eedf3d",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_face_eyes"
+  },
+  {
+   "asset": "ines_face_mouth",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_mouth_eba1297a",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_face_mouth"
+  },
+  {
+   "asset": "ines_foot_l_far",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_foot_l_far_0b889bea",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_foot_l_far"
+  },
+  {
+   "asset": "ines_foot_r",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_foot_r_51d5fe63",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_foot_r"
+  },
+  {
+   "asset": "ines_forearm_l_far",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_forearm_l_far_cc9e4a93",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_forearm_l_far"
+  },
+  {
+   "asset": "ines_forearm_r",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_forearm_r_c2b7425a",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_forearm_r"
+  },
+  {
+   "asset": "ines_hair_back",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hair_back_336e79d6",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_hair_back"
+  },
+  {
+   "asset": "ines_hand_l_far",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hand_l_far_a2f91796",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_hand_l_far"
+  },
+  {
+   "asset": "ines_hand_r_far_fingers",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hand_r_far_fingers_080552d5",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_hand_r_far_fingers"
+  },
+  {
+   "asset": "ines_hand_r_near_fingers",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hand_r_near_fingers_f9dda600",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_hand_r_near_fingers"
+  },
+  {
+   "asset": "ines_hand_r_palm",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hand_r_palm_f913c5d6",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_hand_r_palm"
+  },
+  {
+   "asset": "ines_head",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_head_54537212",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_head"
+  },
+  {
+   "asset": "ines_leg_l_far",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_leg_l_far_fca949a0",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_leg_l_far"
+  },
+  {
+   "asset": "ines_leg_r",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_leg_r_0c77ff6c",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_leg_r"
+  },
+  {
+   "asset": "ines_shin_l_far",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_shin_l_far_9049fa68",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_shin_l_far"
+  },
+  {
+   "asset": "ines_shin_r",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_shin_r_53098108",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_shin_r"
+  },
+  {
+   "asset": "ines_sleeve_r",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_sleeve_r_034ca407",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_sleeve_r"
+  },
+  {
+   "asset": "ines_torso",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_torso_1a45acc0",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig neutral binds ines_torso"
+  },
+  {
+   "asset": "washer_cabinet",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_cabinet_5ffba447",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig idle binds washer_cabinet"
+  },
+  {
+   "asset": "washer_coin_flap",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_coin_flap_be988a70",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig idle binds washer_coin_flap"
+  },
+  {
+   "asset": "washer_door_glass",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_door_glass_ec07d877",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig idle binds washer_door_glass"
+  },
+  {
+   "asset": "washer_door_glass_half",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_door_glass_half_45ebad5f",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig door_half binds washer_door_glass"
+  },
+  {
+   "asset": "washer_door_glass_open",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_door_glass_open_75da9602",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig door_open binds washer_door_glass"
+  },
+  {
+   "asset": "washer_door_ring",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_door_ring_dba9e80d",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig idle binds washer_door_ring"
+  },
+  {
+   "asset": "washer_door_ring_half",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_door_ring_half_6fee6a08",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig door_half binds washer_door_ring"
+  },
+  {
+   "asset": "washer_door_ring_open",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_door_ring_open_724eb66c",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig door_open binds washer_door_ring"
+  },
+  {
+   "asset": "washer_drum_interior",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_drum_interior_07cee76b",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig idle binds washer_drum_interior"
+  },
+  {
+   "asset": "washer_laundry_load",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_laundry_load_59d67832",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig idle binds washer_laundry_load"
+  },
+  {
+   "asset": "washer_laundry_load_tumbling",
+   "kind": "PART",
+   "identity": "washer",
+   "derived_from": "washer_master",
+   "manufacturing_order": 2,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_washer_laundry_load_tumbling_6b8e4e3b",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "washer_rig running binds washer_laundry_load"
+  },
+  {
+   "asset": "ines_brow_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_brow_profile_9619c7dc",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_turn binds ines_brow"
+  },
+  {
+   "asset": "ines_brow_raised",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_brow_raised_dc2469a3",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious binds ines_brow"
+  },
+  {
+   "asset": "ines_face_eyes_curious",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_eyes_curious_5ea80f82",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious binds ines_face_eyes"
+  },
+  {
+   "asset": "ines_face_eyes_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_eyes_profile_fc7b2bc3",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_turn binds ines_face_eyes"
+  },
+  {
+   "asset": "ines_face_eyes_soft_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_eyes_soft_profile_930ab277",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_satisfied binds ines_face_eyes"
+  },
+  {
+   "asset": "ines_face_mouth_open",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_mouth_open_4b7b3c7e",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious binds ines_face_mouth"
+  },
+  {
+   "asset": "ines_face_mouth_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_mouth_profile_ef46a1ec",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_turn binds ines_face_mouth"
+  },
+  {
+   "asset": "ines_face_mouth_smile_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_face_mouth_smile_profile_b179b156",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_satisfied binds ines_face_mouth"
+  },
+  {
+   "asset": "ines_hair_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hair_profile_b251db12",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_turn binds ines_hair_back"
+  },
+  {
+   "asset": "ines_hand_r_far_pinch",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hand_r_far_pinch_b2fa8fed",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig hand_pinch binds ines_hand_r_far_fingers"
+  },
+  {
+   "asset": "ines_hand_r_near_pinch",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_hand_r_near_pinch_7a878511",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig hand_pinch binds ines_hand_r_near_fingers"
+  },
+  {
+   "asset": "ines_head_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_head_profile_4d996da5",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_turn binds ines_head"
+  },
+  {
+   "asset": "ines_torso_profile",
+   "kind": "PART",
+   "identity": "ines",
+   "derived_from": "ines_master",
+   "manufacturing_order": 3,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_PART_OR_STATE_ines_torso_profile_b7967157",
+   "outbox_status": "WAITING_ON_MASTER_APPROVAL",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "ines_rig curious/profile_turn binds ines_torso"
+  },
+  {
+   "asset": "porthole_aperture",
+   "kind": "MASK",
+   "identity": "laundromat",
+   "derived_from": "washer_master",
+   "manufacturing_order": 4,
+   "alpha": "STRAIGHT",
+   "artjob": "ARTJOB_TRANSITION_PLATE_porthole_aperture_987ddfbc",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "continuous transition S02->S03 needs its MASK plate"
+  },
+  {
+   "asset": "porthole_glass_middle",
+   "kind": "TRANSITION_PLATE",
+   "identity": "laundromat",
+   "derived_from": "washer_master",
+   "manufacturing_order": 4,
+   "alpha": "OPAQUE",
+   "artjob": "ARTJOB_TRANSITION_PLATE_porthole_glass_middle_613e64fa",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "continuous transition S02->S03 needs its MIDDLE plate"
+  },
+  {
+   "asset": "porthole_out",
+   "kind": "TRANSITION_PLATE",
+   "identity": "laundromat",
+   "derived_from": "washer_master",
+   "manufacturing_order": 4,
+   "alpha": "OPAQUE",
+   "artjob": "ARTJOB_TRANSITION_PLATE_porthole_out_0e3a99ce",
+   "outbox_status": "BLOCKED_CONTRACT",
+   "blocked_on": [
+    "STORY_APPROVAL_REQUIRED",
+    "DIRECTION_APPROVAL_REQUIRED",
+    "ART_CONTRACT_REFUSED",
+    "NO_IMAGE_PROVIDER",
+    "MASTER_APPROVAL"
+   ],
+   "compiled_stages": null,
+   "demand": "continuous transition S02->S03 needs its OUT plate"
+  }
+ ],
+ "unplanned_demands_BLOCKING": [
+  {
+   "demand": "ines_grip_r::GRIP_hand_state",
+   "why": "GRIP contact ines_grip_r→washer_handle needs a closure drawing",
+   "frames": [
+    [
+     1050,
+     1260
+    ],
+    [
+     1320,
+     1392
+    ]
+   ]
+  },
+  {
+   "demand": "ines_pinch_r::FOLLOW_hand_state",
+   "why": "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing",
+   "frames": [
+    [
+     1470,
+     1560
+    ]
+   ]
+  },
+  {
+   "demand": "w_laundromat",
+   "why": "camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at ≥2.145 px/unit",
+   "frames": [
+    [
+     900,
+     1920
+    ]
+   ]
+  }
+ ],
+ "totals": {
+  "assets": 52,
+  "request_stages_range": "52..156",
+  "stage_count_basis": "no job is compiled yet (all BLOCKED_CONTRACT); 1..3 stages per job assumed from compiled fixture jobs (masters 1, derived edits up to 3)",
+  "api_calls_if_one_call_per_stage": "52..156",
+  "images_at_candidates_per_call": "104..312",
+  "outbox_status_counts": {
+   "BLOCKED_CONTRACT": 18,
+   "WAITING_FOR_APPROVALS_THEN_GPT_ART": 1,
+   "WAITING_ON_MASTER_APPROVAL": 33
+  }
+ },
+ "routes": {
+  "EXTERNAL_GPT_OPERATOR_HANDOFF": "export-gpt-job per stage → operator generates in ChatGPT with the installed F01–F80 skill → import-gpt-candidates (OPERATOR-ATTESTED provenance); no API spend",
+  "OPENAI_IMAGES_API": "submit per stage; needs LIVE_VERIFIED capabilities (bounded canary) + a signed paid-run manifest"
+ },
+ "spend_estimate_api_route": {
+  "assumption_price_per_image_usd": 0.25,
+  "candidates_per_call": 2,
+  "retry_budget_fraction": 0.25,
+  "estimated_ceiling_usd_range": "32.50..97.50",
+  "note": "ASSUMPTION — replace price with the provider's published price for the chosen model/size/quality before signing the paid-run manifest"
+ }
+}

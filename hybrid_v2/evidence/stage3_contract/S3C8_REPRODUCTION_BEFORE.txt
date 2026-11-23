@@ -1,0 +1,36 @@
+REVISION 094a1d07f338e04199e75fe9f8306d3490776636 — intake still at audited state (S3C-8 only)
+TAP version 13
+# Subtest: S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible
+not ok 1 - S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible
+  ---
+  duration_ms: 1005.5931
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\stage3_contract.test.mjs:58:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    {"asset":"pilot_master","identity":"pilot","status":"REGISTRATION_FAILED","raster_to_canonical":[0.5649769594862778,0.01883999191895795,-0.01883999191895795,0.5649769594862778,-36.3144597639735,-32.633721957456714],"scale":0.5652909959002227,"rotation_deg":1.9099047478172804,"residuals":[{"landmark":"head_top","residual_canonical_px":6.753527478171455},{"landmark":"neck","residual_canonical_px":5.
+    + actual - expected
+    
+    + 'REGISTRATION_FAILED'
+    - 'REGISTERED_PENDING_REVIEW'
+             ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'REGISTERED_PENDING_REVIEW'
+  actual: 'REGISTRATION_FAILED'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/stage3_contract.test.mjs:62:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1123.3649

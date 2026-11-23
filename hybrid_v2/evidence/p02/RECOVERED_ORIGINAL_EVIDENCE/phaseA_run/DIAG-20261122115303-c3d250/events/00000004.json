@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122115303-c3d250:4",
+ "sequence": 4,
+ "prev_event_sha256": "7f915df3de9fbe6501b4fe8f82d711992a73afa4181e95da3ab2cb3d4845fd7a",
+ "film_id": "film",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": "S00_IDEA",
+ "attempt_id": "Amwrs2nbz",
+ "operation_id": null,
+ "task_id": "film_intent",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "5c0b4be70ca2ed7865ebe455597fb86451b4650ba14d8fb0487fc909d356ca22",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122115303-c3d250:3"
+ ],
+ "wall_time_utc": "2026-11-22T11:53:04.536Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "film_intent",
+  "producer": "story/FILM_INTENT.json (human-supplied)",
+  "inputs": [
+   "story/FILM_INTENT.json"
+  ],
+  "expected_outputs": [
+   "intent record"
+  ],
+  "deps": [],
+  "invariants": [
+   "objectives, audience, length and constraints are stated by a human"
+  ],
+  "verification": "fields present; provenance recorded",
+  "evidence_location": "production/store",
+  "category": "MISSING_AUTHORITY"
+ },
+ "lock_generation": 4,
+ "event_sha256": "8a66c718e5460a417ec8792caedc0c42be0e8af6326aa30f45f1b557aad41a93"
+}

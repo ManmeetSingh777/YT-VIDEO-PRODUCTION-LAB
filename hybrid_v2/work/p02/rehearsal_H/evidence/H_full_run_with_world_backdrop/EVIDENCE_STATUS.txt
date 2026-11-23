@@ -1,0 +1,5 @@
+STOPPED BY OPERATOR after 4/12 chunks. The original evidence is preserved in place: the ledger in ../../rt/film/production/runs, plus chunk receipts and FFV1 segments in ../../rt/film/render/chunks.
+Finding: chunk 0 (0..599) passed with 0 defects and 600 distinct frames, and the world backdrop fixed the UNCOVERED_EDGE of phases F/G.
+Chunks 600..2399: FROZEN_FRAME on every frame (1 distinct image) while the dust-particle effect is active.
+Root cause: engine/film/chrome_frames.mjs#withEffects emitted particle groups with an inline style="visibility:hidden", and nu.js toggles visibility via style.display, so the particles never painted.
+The run was stopped because the producer must be repaired, which stales this run's revision. It is superseded by the next phase, in a NEW directory.

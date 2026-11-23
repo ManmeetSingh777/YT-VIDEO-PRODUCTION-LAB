@@ -1,0 +1,2 @@
+[build] rehearsal film via the real intake API → hybrid_v2\work\p02\rehearsal_I\rt\film
+[preflight] [["S00_IDEA","READY"],["S01_STORY","READY"],["S02_EXPERIENCE","READY"],["S03_TIMING_MOTION","READY"],["S04_ART_DEMAND","READY"],["S05_ART_PRODUCTION","READY"],["S06_REGISTRATION_RIG","READY"],["S07_NEUTRINO_RENDER","READY"],["S08_QA_REPAIR","READY"],["S09_FILM_AUDIO_FINAL","BLOCKED_HUMAN"]]

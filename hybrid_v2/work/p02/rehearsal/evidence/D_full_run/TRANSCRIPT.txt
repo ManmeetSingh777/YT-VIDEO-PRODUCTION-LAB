@@ -1,0 +1,30 @@
+# STATUS: UNVERIFIED — console capture only, NOT original proof. Phase D_full_run's original evidence (its STATUS.json/VERIFY.json/WHY/TRACE files and the run's ledger under the film's production/runs) was deleted by an operator cleanup and by the --build rebuild of the film; it is not recoverable. Nothing in this file may be cited as a passed test.
+[preflight] [["S00_IDEA","READY"],["S01_STORY","READY"],["S02_EXPERIENCE","READY"],["S03_TIMING_MOTION","READY"],["S04_ART_DEMAND","READY"],["S05_ART_PRODUCTION","READY"],["S06_REGISTRATION_RIG","READY"],["S07_NEUTRINO_RENDER","READY"],["S08_QA_REPAIR","READY"],["S09_FILM_AUDIO_FINAL","BLOCKED_HUMAN"]]
+[start] DIAG-20261122124740-a1cf91 → [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"COMMITTED"},{"stage":"S03_TIMING_MOTION","status":"COMMITTED"},{"stage":"S04_ART_DEMAND","status":"COMMITTED"},{"stage":"S05_ART_PRODUCTION","status":"COMMITTED"},{"stage":"S06_REGISTRATION_RIG","status":"COMMITTED"},{"stage":"S07_NEUTRINO_RENDER","status":"BLOCKED"}]
+[status]
+run DIAG-20261122124740-a1cf91 events 147 verified 34/47 (72.3%) failed 1 blocked 12
+  S00_IDEA               COMMITTED    1/1 failed 0 blocked 0
+  S01_STORY              COMMITTED    2/2 failed 0 blocked 0
+  S02_EXPERIENCE         COMMITTED    3/3 failed 0 blocked 0
+  S03_TIMING_MOTION      COMMITTED    5/5 failed 0 blocked 0
+  S04_ART_DEMAND         COMMITTED    6/6 failed 0 blocked 0
+  S05_ART_PRODUCTION     COMMITTED    8/8 failed 0 blocked 0
+  S06_REGISTRATION_RIG   COMMITTED    9/9 failed 0 blocked 0
+  S07_NEUTRINO_RENDER    BLOCKED      0/13 failed 1 blocked 12
+  S08_QA_REPAIR          NOT_STARTED  0/0 failed 0 blocked 0
+  S09_FILM_AUDIO_FINAL   NOT_STARTED  0/0 failed 0 blocked 0
+  next: resolve chunk_0_600
+[why FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba] first violated invariant: exact frame count, 1920x1080, 60/1; no defect; absolute seeking
+    observed: RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625
+    root producer: engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames) owner RENDER_PRODUCER class RENDER_OR_MEMORY
+    blast radius: ["assemble","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S07_NEUTRINO_RENDER retry_safe true
+[trace 0] {"frame":0,"segment":{"frames":[0,100],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"open","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a
+[trace 100] {"frame":100,"segment":{"frames":[100,420],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 450] {"frame":450,"segment":{"frames":[420,480],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 3599] {"frame":3599,"segment":{"frames":[3000,3600],"shot":"rt_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[],"camera_track":null,"world":null,"effects":[],"motion_blur":false,"static_hold":true,"chunk":[3000,3600]},"assets":[],"story":"APPROVED","direction":"APPROVED","stage_handoffs":{"S00_IDEA":{"status":"COMMITTED","handoff":"5c6435eab0b0197b27d2b104c0ed26d0d868097b83a48541fcdf
+[trace 3600] {"frame":3600,"segment":{"frames":[3600,3700],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 3900] {"frame":3900,"segment":{"frames":[3900,4200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 7199] {"frame":7199,"segment":{"frames":[6600,7200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[6600,7200]},"as
+[verify] chain ok=true events=147 head=76a2e8eaddc16bf5c5064b2afda46b1417684b2529a84a3b971eb3b950442d6b handoffs=S00_IDEA:true,S01_STORY:true,S02_EXPERIENCE:true,S03_TIMING_MOTION:true,S04_ART_DEMAND:true,S05_ART_PRODUCTION:true,S06_REGISTRATION_RIG:true
+[done] D_full_run in 90 s; run DIAG-20261122124740-a1cf91

@@ -1,0 +1,33 @@
+{
+  "film_id": "SOLAR",
+  "source": "source_originals/Why Humanity Will Never Leave The Solar System - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+  "source_sha256": "72160d842966be4a6bd8b41cee611014d5d1c05e60cbd89a4c3f0f336af6c06b",
+  "decoded_frames": 45809,
+  "frame_dimensions": [
+    1920,
+    1080
+  ],
+  "source_native_pixel_domain": true,
+  "downscale": null,
+  "signalstats_pixel_features": [
+    "YMIN",
+    "YLOW",
+    "YAVG",
+    "YHIGH",
+    "YMAX",
+    "UMIN",
+    "UAVG",
+    "VMIN",
+    "VAVG",
+    "SATAVG",
+    "YDIF",
+    "UDIF",
+    "VDIF",
+    "HUEAVG"
+  ],
+  "native_temporal_feature": "lavfi.scd.score and lavfi.scd.mafd per frame",
+  "metadata_sha256": "fa3065a55eae07680b62155d22ee95ed3df4087cdff90965ab6134d1224838f3",
+  "seconds": 1033.4,
+  "evidence_scope": "Every full-raster frame technically analyzed and temporal signals stored. Not semantic full-frame visual comprehension, reconstruction, or a complete source transfer qualification.",
+  "status": "VERIFIED_NATIVE_PIXEL_PASS"
+}

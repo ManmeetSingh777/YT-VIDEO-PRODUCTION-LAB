@@ -1,0 +1,167 @@
+{
+ "asset": "pilot_master",
+ "identity": "pilot",
+ "status": "REGISTERED_PENDING_REVIEW",
+ "raster_to_canonical": [
+  0.5,
+  0,
+  0,
+  0.5,
+  -20,
+  -15
+ ],
+ "scale": 0.5,
+ "rotation_deg": 0,
+ "residuals": [
+  {
+   "landmark": "head_top",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "neck",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "pelvis",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "shoulder_r",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "upper_arm_mid",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "elbow_r",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "forearm_mid",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "wrist_r",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "knuckle_r",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  },
+  {
+   "landmark": "thumb_r",
+   "role": "FRAME_ANCHOR",
+   "residual_canonical_px": 0
+  }
+ ],
+ "max_residual_px": 0,
+ "tolerance_px": 1,
+ "registration_mode": "SIMILARITY",
+ "frame_anchors": [
+  "head_top",
+  "neck",
+  "pelvis",
+  "shoulder_r",
+  "upper_arm_mid",
+  "elbow_r",
+  "forearm_mid",
+  "wrist_r",
+  "knuckle_r",
+  "thumb_r"
+ ],
+ "provisional_deviation": null,
+ "accepted_geometry": {
+  "width_px": 640,
+  "height_px": 900,
+  "source_pixel_crop": [
+   0,
+   0,
+   640,
+   900
+  ],
+  "crop_to_canonical_matrix": [
+   0.5,
+   0,
+   0,
+   0.5,
+   -20,
+   -15
+  ],
+  "canonical_rect": [
+   -20,
+   -15,
+   320,
+   450
+  ]
+ },
+ "landmark_sidecar": {
+  "sha256": "28ef05e3cf9416f4df85639cee5c5923554281b1d60cc0f4c39dc2ad001bc1f7",
+  "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+  "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)",
+  "landmarks": {
+   "head_top": [
+    340,
+    90
+   ],
+   "neck": [
+    340,
+    250
+   ],
+   "pelvis": [
+    340,
+    630
+   ],
+   "shoulder_r": [
+    430,
+    300
+   ],
+   "upper_arm_mid": [
+    450,
+    380
+   ],
+   "elbow_r": [
+    470,
+    460
+   ],
+   "forearm_mid": [
+    480,
+    540
+   ],
+   "wrist_r": [
+    490,
+    620
+   ],
+   "knuckle_r": [
+    506,
+    690
+   ],
+   "thumb_r": [
+    524,
+    638
+   ]
+  }
+ },
+ "source": {
+  "file": "master.png",
+  "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "width": 640,
+  "height": 900,
+  "alpha": {
+   "transparent": 451288,
+   "partial": 1518,
+   "opaque": 123194
+  }
+ },
+ "planned_alpha_mode": "STRAIGHT",
+ "provenance": "DIAGNOSTIC_FIXTURE"
+}

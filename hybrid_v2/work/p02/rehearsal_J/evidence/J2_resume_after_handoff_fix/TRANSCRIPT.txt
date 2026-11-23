@@ -1,0 +1,24 @@
+[preflight] [["S00_IDEA","READY"],["S01_STORY","READY"],["S02_EXPERIENCE","READY"],["S03_TIMING_MOTION","READY"],["S04_ART_DEMAND","READY"],["S05_ART_PRODUCTION","READY"],["S06_REGISTRATION_RIG","READY"],["S07_NEUTRINO_RENDER","READY"],["S08_QA_REPAIR","READY"],["S09_FILM_AUDIO_FINAL","BLOCKED_HUMAN"]]
+[resume] DIAG-20261122135030-301725
+[status]
+run DIAG-20261122135030-301725 events 198 verified 59/59 (100%) failed 0 blocked 0
+  S00_IDEA               COMMITTED    1/1 failed 0 blocked 0
+  S01_STORY              COMMITTED    2/2 failed 0 blocked 0
+  S02_EXPERIENCE         COMMITTED    3/3 failed 0 blocked 0
+  S03_TIMING_MOTION      COMMITTED    5/5 failed 0 blocked 0
+  S04_ART_DEMAND         COMMITTED    10/10 failed 0 blocked 0
+  S05_ART_PRODUCTION     COMMITTED    12/12 failed 0 blocked 0
+  S06_REGISTRATION_RIG   COMMITTED    13/13 failed 0 blocked 0
+  S07_NEUTRINO_RENDER    COMMITTED    13/13 failed 0 blocked 0
+  S08_QA_REPAIR          BLOCKED      0/0 failed 0 blocked 0
+  S09_FILM_AUDIO_FINAL   NOT_STARTED  0/0 failed 0 blocked 0
+  next: none
+[trace 0] {"frame":0,"segment":{"frames":[0,100],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"open","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a
+[trace 100] {"frame":100,"segment":{"frames":[100,420],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 450] {"frame":450,"segment":{"frames":[420,480],"shot":"rt_shot","camera_moving":false,"actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a
+[trace 3599] {"frame":3599,"segment":{"frames":[3000,3600],"shot":"rt_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_char","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3000,3600]},"assets":[
+[trace 3600] {"frame":3600,"segment":{"frames":[3600,3700],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 3900] {"frame":3900,"segment":{"frames":[3900,4200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"as
+[trace 7199] {"frame":7199,"segment":{"frames":[6600,7200],"shot":"rt_world_shot","camera_moving":false,"actions":[],"rig_states":{},"assets":[{"id":"rt_world_far","sha256":"895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357","delivered":true,"role":"world rt_world_w FAR"}],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[6600,7200]},"as
+[verify] chain ok=true events=198 head=7363d22535e987b6a5aaf2cd187d2787e2612c092cc58458443e010d414c061a handoffs=S00_IDEA:false,S01_STORY:false,S02_EXPERIENCE:false,S03_TIMING_MOTION:false,S04_ART_DEMAND:false,S05_ART_PRODUCTION:false,S06_REGISTRATION_RIG:false,S07_NEUTRINO_RENDER:false
+[done] J2_resume_after_handoff_fix in 14 s; run DIAG-20261122135030-301725

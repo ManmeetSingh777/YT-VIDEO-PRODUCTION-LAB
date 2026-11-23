@@ -1,0 +1,132 @@
+{
+ "id": "rt_plan",
+ "tracks": {
+  "pilot_rig": {
+   "joints": {
+    "shoulder_r": [
+     [
+      0,
+      0
+     ],
+     [
+      300,
+      -25,
+      "sine.inOut"
+     ],
+     [
+      600,
+      0,
+      "sine.inOut"
+     ]
+    ],
+    "elbow_r": [
+     [
+      0,
+      10
+     ],
+     [
+      300,
+      45,
+      "sine.inOut"
+     ],
+     [
+      420,
+      140,
+      "sine.inOut"
+     ],
+     [
+      480,
+      140
+     ],
+     [
+      600,
+      10,
+      "sine.inOut"
+     ]
+    ]
+   }
+  }
+ },
+ "cameras": {
+  "cam_world": {
+   "x": [
+    [
+     3600,
+     500
+    ]
+   ],
+   "y": [
+    [
+     3600,
+     277.5
+    ]
+   ],
+   "zoom": [
+    [
+     3600,
+     1.9
+    ],
+    [
+     3700,
+     1.9
+    ],
+    [
+     3900,
+     2.6,
+     "sine.inOut"
+    ]
+   ]
+  },
+  "cam_char": {
+   "x": [
+    [
+     0,
+     500
+    ]
+   ],
+   "y": [
+    [
+     0,
+     277.5
+    ]
+   ],
+   "zoom": [
+    [
+     0,
+     1.9
+    ]
+   ]
+  }
+ },
+ "effects": [
+  {
+   "id": "dust",
+   "shot": "rt_shot",
+   "asset_id": "pilot_underpaint",
+   "count": 12,
+   "seed": 7,
+   "frames": [
+    600,
+    2400
+   ],
+   "size": [
+    24,
+    24
+   ],
+   "wind": [
+    30,
+    -12
+   ]
+  }
+ ],
+ "motion_blur": [
+  {
+   "frames": [
+    420,
+    480
+   ],
+   "shutter": 0.5,
+   "samples": 4
+  }
+ ]
+}

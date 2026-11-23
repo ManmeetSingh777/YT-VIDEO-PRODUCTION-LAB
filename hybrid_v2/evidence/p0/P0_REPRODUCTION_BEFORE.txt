@@ -1,0 +1,203 @@
+REVISION 7a86e6c28c056dc9d4a2309f80c4b871c8959a30
+TAP version 13
+# Subtest: P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+not ok 1 - P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+  ---
+  duration_ms: 20.9951
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:12:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    69 jobs lost their frame ranges, e.g. ARTJOB_MASTER_drum_in_5cb15c8e
+    
+    69 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 69
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p0_audit.test.mjs:14:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: P0-1b Ines master context covers the S02 interval and the master's shots
+not ok 2 - P0-1b Ines master context covers the S02 interval and the master's shots
+  ---
+  duration_ms: 13.7092
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:16:1'
+  failureType: 'testCodeFailure'
+  error: '[]'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p0_audit.test.mjs:18:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: P0-1c perturbing S02 grip timing changes only dependent job contexts
+not ok 3 - P0-1c perturbing S02 grip timing changes only dependent job contexts
+  ---
+  duration_ms: 1.4871
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\art_intake.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:664:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:663:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: P0-2a all six canonical-master jobs route to the canonical master medium
+not ok 4 - P0-2a all six canonical-master jobs route to the canonical master medium
+  ---
+  duration_ms: 13.5226
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:33:1'
+  failureType: 'testCodeFailure'
+  error: 'ARTJOB_MASTER_drum_in_5cb15c8e: OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p0_audit.test.mjs:36:35)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+not ok 5 - P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+  ---
+  duration_ms: 5.0676
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN'
+    - 'CANONICAL_WORLD_PLATE_WITH_OVERSCAN'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'CANONICAL_WORLD_PLATE_WITH_OVERSCAN'
+  actual: 'OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p0_audit.test.mjs:41:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+not ok 6 - P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+  ---
+  duration_ms: 0.7971
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:53:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\art_intake.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:664:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:663:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+not ok 7 - P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+  ---
+  duration_ms: 0.9955
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:67:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\approvals.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:664:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:663:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+not ok 8 - P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+  ---
+  duration_ms: 0.7982
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:83:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot find module 'E:\\MOTION_NATIVE_STUDIO_V1\\engine\\art_bridge\\art_intake.mjs' imported from E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs"
+  code: 'ERR_MODULE_NOT_FOUND'
+  stack: |-
+    finalizeResolution (node:internal/modules/esm/resolve:274:11)
+    moduleResolve (node:internal/modules/esm/resolve:859:10)
+    defaultResolve (node:internal/modules/esm/resolve:983:11)
+    #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+    ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+    ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+    onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:664:36)
+    TracingChannel.tracePromise (node:diagnostics_channel:344:14)
+    ModuleLoader.import (node:internal/modules/esm/loader:663:21)
+    defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:222:31)
+  ...
+# Subtest: P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+not ok 9 - P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+  ---
+  duration_ms: 2069.5004
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\art_bridge\\p0_audit.test.mjs:100:1'
+  failureType: 'testCodeFailure'
+  error: "Cannot read properties of undefined (reading 'mechanical_fixture_pass')"
+  code: 'ERR_TEST_FAILURE'
+  name: 'TypeError'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/art_bridge/p0_audit.test.mjs:103:24)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 0
+# fail 9
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2259.0688

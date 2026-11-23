@@ -1,0 +1,51 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S02_EXPERIENCE",
+ "stage_attempt_id": "Amwru0vrn",
+ "input_artifact_refs": [
+  {
+   "name": "S01_STORY/STAGE_HANDOFF",
+   "sha256": "8495bf6011a89305e8be4992481aca97e7aac718e883d02f9f09e9a85a568b9c"
+  }
+ ],
+ "input_revision_hash": "2c1cfb2b4ba7bf43b9cf495e6f4fdfd1c24ed7c84018ba00b5ace8f370147bfc",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [],
+ "output_revision_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+ "required_checks": [
+  {
+   "task_id": "attention_rt_shot",
+   "verification": {
+    "method": "zero DIRECTION_DECISION_INERT",
+    "pass": true,
+    "measurement": "all consumed"
+   }
+  },
+  {
+   "task_id": "attention_rt_world_shot",
+   "verification": {
+    "method": "zero DIRECTION_DECISION_INERT",
+    "pass": true,
+    "measurement": "all consumed"
+   }
+  },
+  {
+   "task_id": "direction_approval",
+   "verification": {
+    "method": "verifyApproval over the current bundle",
+    "pass": true,
+    "measurement": "APPROVED"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T12:47:41.844Z",
+ "event_chain_head_sha256": "6715e44ab802b6a8bed5e9ae5787f10c503d5fcede7e5263cb0eda5b0a23413a",
+ "run_type": "DIAGNOSTIC"
+}

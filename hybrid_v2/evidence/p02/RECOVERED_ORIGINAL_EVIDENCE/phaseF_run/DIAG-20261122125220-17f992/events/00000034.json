@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125220-17f992:34",
+ "sequence": 34,
+ "prev_event_sha256": "c22b2942cd9856d90c37c834da5e6830d38d0859daffc8e94ad69f630fbdd937",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125220-17f992",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwru6wci",
+ "operation_id": null,
+ "task_id": "tiling",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "b581b56cfcd45e1d5346c65c6e5560d936bc4032f86ab42836c2610ae4bdbef4",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125220-17f992:33"
+ ],
+ "wall_time_utc": "2026-11-22T12:52:22.372Z",
+ "elapsed_ms": 0,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "checkTiling ok",
+  "pass": true,
+  "measurement": "7200 frames tiled"
+ },
+ "lock_generation": 34,
+ "event_sha256": "074543e50a63e8fe57c070a83ef3109a4278064f3cc34aded94a723b51c8c552"
+}

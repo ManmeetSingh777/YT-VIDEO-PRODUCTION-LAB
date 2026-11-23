@@ -1,0 +1,13 @@
+S2-1 MECHANICAL_PASS__ARTISTIC_BLOCKED {"opaque_diff":0,"alpha_diff":0,"partial_premul_max":0.839,"checker":[0.839,0.839]}
+S2-2 MECHANICAL_PASS {"probe_marker_max_err_px":0.208,"pivot_drift":0,"chain_marker_max_err_px":0.264,"joint_gap_px":1.1368683772161603e-13}
+S2-3 MECHANICAL_PASS__ARTISTIC_BLOCKED {"locked_frames":390,"numeric_max_err_px":2.092086177092657e-7,"layering":{"far_below_handle":true,"palm_below_handle":true,"near_above_handle":true},"pixel_layer_checks":"9/9"}
+S2-4 MECHANICAL_PASS__ARTISTIC_BLOCKED {"sole_numeric_max":5.084229945850415e-13,"sole_rendered_spread_px":0,"cel_swaps_checked":3,"cel_max_jump_px":0,"cel_rendered_spread_max":0.53,"stance_runs":15}
+S2-5 MECHANICAL_PASS__ARTISTIC_BLOCKED {"holes_with_underpaint":0,"holes_without":119,"over_range_frames":13,"art_jobs":1}
+S2-6 MECHANICAL_PASS__ARTISTIC_BLOCKED {"anchor_max_err_px":0.331,"switch_frames":{"smile":200,"threeq":400},"residuals":[0,0,0,0]}
+S2-7 MECHANICAL_PASS__ARTISTIC_BLOCKED {"footprint_errors":0,"sentinel_pixels_max":0,"bands":3}
+S2-8 MECHANICAL_PASS__ARTISTIC_BLOCKED {"stages":["OUT","MIDDLE","IN"],"numeric_anchor_max":0,"rendered_anchor_max_err":0.579,"blank":0}
+S2-9 MECHANICAL_PASS {"compared":11,"mismatches":0,"js_or_fetch_failures":0}
+S2-10 MECHANICAL_PASS__ARTISTIC_BLOCKED {"ratio":-1.6666666666666667,"angle_err_deg":0.059,"symbols":[2,6,7]}
+S2-REG MECHANICAL_PASS__ARTISTIC_BLOCKED {"residual":0,"scale":0.740741,"rotation":-17,"status":"PENDING_REVIEW"}
+S2-60FPS MECHANICAL_PASS {"ffprobe":{"width":1920,"height":1080,"r_frame_rate":"60/1","duration":"10.000000","nb_read_frames":"600"}}
+wrote hybrid_v2/evidence/STAGE_2_MOTION_PROOF.json ALL MECHANICAL PASS 100.9s

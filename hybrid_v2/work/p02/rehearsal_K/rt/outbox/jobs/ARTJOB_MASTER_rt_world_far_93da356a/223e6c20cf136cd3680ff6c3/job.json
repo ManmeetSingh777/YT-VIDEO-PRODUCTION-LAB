@@ -1,0 +1,98 @@
+{
+ "artjob_id": "ARTJOB_MASTER_rt_world_far_93da356a",
+ "root_dependency": "rt_world_far",
+ "identity_id": "rt_world",
+ "state_kind": "MASTER",
+ "asset_kind": "WORLD_PLANE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "rt_world",
+  "canonical_parent_asset": "rt_world_far",
+  "shot_ids": [
+   "rt_world_shot"
+  ],
+  "frame_ranges": [
+   [
+    3600,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "plate_tl",
+   "plate_tr",
+   "plate_bl",
+   "plate_mid"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_world"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -100,
+    -60,
+    1200,
+    675
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -100,
+   -60,
+   1200,
+   675
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": null,
+  "predecessor_state_id": null,
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "canonical world plate (delivered at 2 px per canonical unit). Required by: shot rt_world_shot; world rt_world_w in rt_world_shot"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "target_motion_mode": "not applicable to this state (no dependent motion uses it)",
+  "predecessor_state_id": "canonical master: no predecessor",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "18768edfd8c5500d6099ffe74d013e08c15cf78f78c2c9f2c3a2841bf1843100",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "223e6c20cf136cd3680ff6c3",
+ "dependency_parts_digest": "223e6c20cf136cd3680ff6c3c6158d6e05e57b977b4870fd44d359ac8b4c3422",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "ART_CONTRACT_NOT_EVALUATED",
+    "reason": "no design for master rt_world_far"
+   }
+  ],
+  "required_methods": []
+ }
+}

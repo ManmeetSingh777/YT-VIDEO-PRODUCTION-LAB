@@ -1,0 +1,7280 @@
+{
+ "ARTJOB_MASTER_drum_in_4c40db2c": {
+  "digest": "50189c485671b1d1977861a8",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_FOR_GPT_ART",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "drum_in",
+     "frame_range": [
+      1800,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_porthole",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_CANONICAL_MASTER",
+     "record_id": "drum_world",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "TRANSITION_PLATE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FAR",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "drum_rim_out",
+    "rim_to_ledger_middle",
+    "rim_aperture",
+    "drum_paddles"
+   ]
+  }
+ },
+ "ARTJOB_MASTER_ines_master_211539ad": {
+  "digest": "340a002dbd26a3ecd6b1bdc6",
+  "status": "WAITING_FOR_APPROVALS_THEN_GPT_ART",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+  "readiness": "WAITING_FOR_GPT_ART",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_master",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_CANONICAL_MASTER",
+     "record_id": "ines",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "MASTER",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "ines_leg_l_far",
+    "ines_shin_l_far",
+    "ines_foot_l_far",
+    "ines_arm_l_far",
+    "ines_forearm_l_far",
+    "ines_hand_l_far",
+    "ines_torso",
+    "ines_coat_hem",
+    "ines_head",
+    "ines_face_eyes",
+    "ines_face_mouth",
+    "ines_brow",
+    "ines_hair_back",
+    "ines_leg_r",
+    "ines_shin_r",
+    "ines_foot_r",
+    "ines_sleeve_r",
+    "ines_elbow_r_underpaint",
+    "ines_forearm_r",
+    "ines_hand_r_far_fingers",
+    "ines_hand_r_palm",
+    "ines_hand_r_near_fingers",
+    "ines_hand_r_near_open",
+    "ines_hand_r_far_open",
+    "ines_hand_r_near_pinch",
+    "ines_hand_r_far_pinch",
+    "coin_prop",
+    "ines_face_eyes_curious",
+    "ines_brow_raised",
+    "ines_face_mouth_open",
+    "ines_face_mouth_smile_profile",
+    "ines_face_eyes_soft_profile",
+    "ines_head_profile",
+    "ines_face_eyes_profile",
+    "ines_face_mouth_profile",
+    "ines_brow_profile",
+    "ines_hair_profile",
+    "ines_torso_profile"
+   ]
+  }
+ },
+ "ARTJOB_MASTER_laundromat_far_76979fc1": {
+  "digest": "3846127501e137fc6310d5f8",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_FOR_GPT_ART",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "laundromat_far",
+     "frame_range": [
+      0,
+      1681
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_push_in",
+     "frame_range": [
+      1680,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_CANONICAL_MASTER",
+     "record_id": "laundromat",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "WORLD_PLANE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FAR",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "laundromat_mid_machines",
+    "laundromat_fg_counter"
+   ]
+  }
+ },
+ "ARTJOB_MASTER_ledger_master_105f0939": {
+  "digest": "a89499eafadc09bcf6459d10",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_FOR_GPT_ART",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_master",
+     "frame_range": [
+      3000,
+      4080
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_CANONICAL_MASTER",
+     "record_id": "ledger_glyphs",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "MASTER",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "ledger_turn_counter",
+    "ledger_coin_symbol",
+    "ledger_water_symbol",
+    "ledger_power_symbol",
+    "ledger_gas_symbol",
+    "ledger_lever_symbols",
+    "ledger_type_values"
+   ]
+  }
+ },
+ "ARTJOB_MASTER_street_far_ac5264a9": {
+  "digest": "c0b69822c7e3851d53147338",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_FOR_GPT_ART",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S05_street",
+     "frame_range": [
+      4080,
+      5160
+     ],
+     "shot_id": "S05"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "street_far",
+     "frame_range": [
+      4080,
+      4081
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_CANONICAL_MASTER",
+     "record_id": "street_night",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "WORLD_PLANE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FAR",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "street_mid_shops",
+    "street_fg_lamp",
+    "laundromat_window_interior"
+   ]
+  }
+ },
+ "ARTJOB_MASTER_washer_master_38ddfd06": {
+  "digest": "ba9b6180200a5eceac928c46",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_FOR_GPT_ART",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_master",
+     "frame_range": [
+      0,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_CANONICAL_MASTER",
+     "record_id": "washer",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "MASTER",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+   },
+   "dependents": [
+    "washer_drum_interior",
+    "washer_laundry_load",
+    "washer_laundry_load_tumbling",
+    "washer_cabinet",
+    "washer_door_ring",
+    "washer_door_glass",
+    "washer_door_ring_half",
+    "washer_door_glass_half",
+    "washer_door_ring_open",
+    "washer_door_glass_open",
+    "washer_coin_flap",
+    "porthole_out",
+    "porthole_glass_middle",
+    "porthole_aperture"
+   ]
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_arm_l_far_6c406170": {
+  "digest": "6f45f1ffed95d531fddf17e5",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_arm_l_far",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_arm_l_far",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "shoulder_l",
+    "planned_pivot_xy": [
+     240,
+     360
+    ],
+    "joint_id": "shoulder_l",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_brow_90370167": {
+  "digest": "8c679c2c24c3f0aa90f9f28f",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_brow",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_coat_hem_0d4df647": {
+  "digest": "c647d188055656996a861215",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_coat_hem",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_coat_hem",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "pelvis",
+    "planned_pivot_xy": [
+     300,
+     620
+    ],
+    "joint_id": "pelvis",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_eyes_42eedf3d": {
+  "digest": "8c679c2c24c3f0aa90f9f28f",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_face_eyes",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_mouth_eba1297a": {
+  "digest": "8c679c2c24c3f0aa90f9f28f",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_face_mouth",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_foot_l_far_0b889bea": {
+  "digest": "482007865689e5eec3fb4e3b",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_l_far",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_foot_l_far",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "ankle_l",
+    "planned_pivot_xy": [
+     260,
+     960
+    ],
+    "joint_id": "ankle_l",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_foot_r_51d5fe63": {
+  "digest": "fe655d8f767e3b2cd9b7dfb0",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_foot_r",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_foot_r",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "ankle_r",
+    "planned_pivot_xy": [
+     340,
+     960
+    ],
+    "joint_id": "ankle_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_forearm_l_far_cc9e4a93": {
+  "digest": "92a27671dd06d9f910cee7e2",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_l_far",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_forearm_l_far",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "elbow_l",
+    "planned_pivot_xy": [
+     225,
+     480
+    ],
+    "joint_id": "elbow_l",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_forearm_r_c2b7425a": {
+  "digest": "14a036d8e14877a838c0f085",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_forearm_r",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_forearm_r",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "elbow_r",
+    "planned_pivot_xy": [
+     380,
+     480
+    ],
+    "joint_id": "elbow_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hair_back_336e79d6": {
+  "digest": "8f4ffacb6093eb9acafe5a83",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_back",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_hair_back",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_l_far_a2f91796": {
+  "digest": "49a6603d50062d4417845b6b",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_l_far",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_hand_l_far",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_l",
+    "planned_pivot_xy": [
+     215,
+     590
+    ],
+    "joint_id": "wrist_l",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_far_fingers_080552d5": {
+  "digest": "69a7ce12f2d75d31f4be5924",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_fingers",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_hand_r_far_fingers",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_near_fingers_f9dda600": {
+  "digest": "6843e23d72af5667e52626e8",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_fingers",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_hand_r_near_fingers",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_palm_f913c5d6": {
+  "digest": "4db5db19a53b6ba95d5ec695",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_palm",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_hand_r_palm",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_head_54537212": {
+  "digest": "8f4ffacb6093eb9acafe5a83",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_head",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_leg_l_far_fca949a0": {
+  "digest": "45062aa1485897803678492b",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_l_far",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_leg_l_far",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hip_l",
+    "planned_pivot_xy": [
+     270,
+     630
+    ],
+    "joint_id": "hip_l",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_leg_r_0c77ff6c": {
+  "digest": "bac7629de018dcb015ce4248",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_leg_r",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_leg_r",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hip_r",
+    "planned_pivot_xy": [
+     330,
+     630
+    ],
+    "joint_id": "hip_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_shin_l_far_9049fa68": {
+  "digest": "3719a294dbe6114eca508715",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_shin_l_far",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_l_far",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "knee_l",
+    "planned_pivot_xy": [
+     265,
+     800
+    ],
+    "joint_id": "knee_l",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_shin_r_53098108": {
+  "digest": "6a362d15d65132cd8c4b9b4b",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_shin_r",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_shin_r",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "knee_r",
+    "planned_pivot_xy": [
+     335,
+     800
+    ],
+    "joint_id": "knee_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_sleeve_r_034ca407": {
+  "digest": "c70bf384cf177705be2d1e14",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_sleeve_r",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_sleeve_r",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "shoulder_r",
+    "planned_pivot_xy": [
+     360,
+     360
+    ],
+    "joint_id": "shoulder_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_torso_1a45acc0": {
+  "digest": "97e0835d1110860a8729ff63",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_torso",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "pelvis",
+    "planned_pivot_xy": [
+     300,
+     620
+    ],
+    "joint_id": "pelvis",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_laundromat_fg_counter_7a5dd400": {
+  "digest": "1375d6751aab809825393bb8",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: laundromat_far"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "laundromat_fg_counter",
+     "frame_range": [
+      0,
+      1681
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_push_in",
+     "frame_range": [
+      1680,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "OCCLUDER",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOREGROUND",
+    "landmark_frame": "registered against approved master laundromat_far"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_laundromat_mid_machines_01530d91": {
+  "digest": "94e7c883db21b43038c164ce",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: laundromat_far"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "laundromat_mid_machines",
+     "frame_range": [
+      0,
+      901
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_room_life",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "WORLD_PLANE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "MID",
+    "landmark_frame": "registered against approved master laundromat_far"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_laundromat_window_interior_6c487be4": {
+  "digest": "9db2ec540134004e38a3be62",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: street_far"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "laundromat_window_interior",
+     "frame_range": [
+      4080,
+      4081
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S05_street",
+     "frame_range": [
+      4080,
+      5160
+     ],
+     "shot_id": "S05"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "WORLD_PLANE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "MID",
+    "landmark_frame": "registered against approved master street_far"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_street_fg_lamp_895a61a5": {
+  "digest": "a2e01ad536cf76aacd979fc2",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: street_far"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S05_street",
+     "frame_range": [
+      4080,
+      5160
+     ],
+     "shot_id": "S05"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "street_fg_lamp",
+     "frame_range": [
+      4080,
+      4081
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "OCCLUDER",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOREGROUND",
+    "landmark_frame": "registered against approved master street_far"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_street_mid_shops_d489ecf7": {
+  "digest": "9db2ec540134004e38a3be62",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: street_far"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S05_street",
+     "frame_range": [
+      4080,
+      5160
+     ],
+     "shot_id": "S05"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "street_mid_shops",
+     "frame_range": [
+      4080,
+      4081
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "WORLD_PLANE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "MID",
+    "landmark_frame": "registered against approved master street_far"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_cabinet_5ffba447": {
+  "digest": "24935497aaae1cfe9ebdf698",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_cabinet",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.washer_cabinet",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "base",
+    "planned_pivot_xy": [
+     300,
+     600
+    ],
+    "joint_id": "body",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_coin_flap_be988a70": {
+  "digest": "9443f9b27cf967c43c27e3dd",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_coin_flap",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.washer_coin_flap",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "coin_slot",
+    "planned_pivot_xy": [
+     110,
+     380
+    ],
+    "joint_id": "coin_flap",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_door_glass_ec07d877": {
+  "digest": "87f4ed820a5463759d5edb01",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S01_sock_tumble",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.washer_door_glass",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hinge",
+    "planned_pivot_xy": [
+     432,
+     330
+    ],
+    "joint_id": "door",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_door_glass_half_45ebad5f": {
+  "digest": "be47f5eadfed43296588a335",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass_half",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass_half",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.door_half",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hinge",
+    "planned_pivot_xy": [
+     432,
+     330
+    ],
+    "joint_id": "door",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_door_glass_open_75da9602": {
+  "digest": "d4f9446274f4f23a3781dc82",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass_open",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass_open",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_glass_open",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.door_open",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hinge",
+    "planned_pivot_xy": [
+     432,
+     330
+    ],
+    "joint_id": "door",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_door_ring_dba9e80d": {
+  "digest": "b4e151589745aa27a3e41105",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.washer_door_ring",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hinge",
+    "planned_pivot_xy": [
+     432,
+     330
+    ],
+    "joint_id": "door",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_door_ring_half_6fee6a08": {
+  "digest": "be47f5eadfed43296588a335",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring_half",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring_half",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.door_half",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hinge",
+    "planned_pivot_xy": [
+     432,
+     330
+    ],
+    "joint_id": "door",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_door_ring_open_724eb66c": {
+  "digest": "d4f9446274f4f23a3781dc82",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring_open",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring_open",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_door_ring_open",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.door_open",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hinge",
+    "planned_pivot_xy": [
+     432,
+     330
+    ],
+    "joint_id": "door",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_drum_interior_07cee76b": {
+  "digest": "1e6bbc9a25fe4c0ddf435a83",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_drum_interior",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.washer_drum_interior",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hub",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "drum",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_laundry_load_59d67832": {
+  "digest": "e143e1f21abc07ffa89916e7",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.washer_laundry_load",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hub",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "drum",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_washer_laundry_load_tumbling_6b8e4e3b": {
+  "digest": "98d232e5b56119fcce6f8ad4",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S01_sock_tumble",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": "S01"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S07_return",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load_tumbling",
+     "frame_range": [
+      0,
+      900
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load_tumbling",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load_tumbling",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_laundry_load_tumbling",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "washer_rig.running",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "hub",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "drum",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_UNDERPAINT_ines_elbow_r_underpaint_7bc0388f": {
+  "digest": "c799d3c200c381ad4f1caf66",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      900,
+      990
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1050,
+      1170
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1170,
+      1230
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1230,
+      1260
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1320,
+      1356
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1356,
+      1392
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1392,
+      1410
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_elbow_r_underpaint",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.ines_elbow_r_underpaint",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "UNDERPAINT",
+    "pivot_landmark_id": "elbow_r",
+    "planned_pivot_xy": [
+     380,
+     480
+    ],
+    "joint_id": "elbow_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_coin_prop_f47c99c9": {
+  "digest": "0e2068a986cf32682523e795",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "coin_prop",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_drum_paddles_32453ff4": {
+  "digest": "eeb5f5dae79a2d94562911ad",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: drum_in"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "drum_paddles",
+     "frame_range": [
+      1920,
+      1921
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S03_drum",
+     "frame_range": [
+      1920,
+      3000
+     ],
+     "shot_id": "S03"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master drum_in"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_brow_profile_9619c7dc": {
+  "digest": "0b0bf27f2c59d5676417d054",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow_profile",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow_profile",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_satisfied",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_turn",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_brow_raised_dc2469a3": {
+  "digest": "cbae4761afc65db0bfc574b3",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_brow_raised",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.curious",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_eyes_curious_5ea80f82": {
+  "digest": "cbae4761afc65db0bfc574b3",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes_curious",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.curious",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_eyes_profile_fc7b2bc3": {
+  "digest": "8cdf6b3c9ea1a0f036ecdcc4",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes_profile",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_turn",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_eyes_soft_profile_930ab277": {
+  "digest": "5b327001616578e4585fcfb9",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_eyes_soft_profile",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_satisfied",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_mouth_open_4b7b3c7e": {
+  "digest": "cbae4761afc65db0bfc574b3",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth_open",
+     "frame_range": [
+      1590,
+      1620
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.curious",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_mouth_profile_ef46a1ec": {
+  "digest": "8cdf6b3c9ea1a0f036ecdcc4",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth_profile",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_turn",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_face_mouth_smile_profile_b179b156": {
+  "digest": "5b327001616578e4585fcfb9",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_face_mouth_smile_profile",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_satisfied",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hair_profile_b251db12": {
+  "digest": "0b0bf27f2c59d5676417d054",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_profile",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hair_profile",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_satisfied",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_turn",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_far_open_dc5e8cd5": {
+  "digest": "282434e8af6ea710a6252ecc",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_open",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_open",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.hand_open",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_far_pinch_b2fa8fed": {
+  "digest": "16f2fadcaa40cb214cab5c9f",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_pinch",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_pinch",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_pinch",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_far_pinch",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.hand_pinch",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_near_open_aa2b0a74": {
+  "digest": "282434e8af6ea710a6252ecc",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_open",
+     "frame_range": [
+      990,
+      1050
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_open",
+     "frame_range": [
+      1260,
+      1320
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.hand_open",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_hand_r_near_pinch_7a878511": {
+  "digest": "16f2fadcaa40cb214cab5c9f",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_pinch",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_pinch",
+     "frame_range": [
+      1410,
+      1470
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_pinch",
+     "frame_range": [
+      1470,
+      1560
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_hand_r_near_pinch",
+     "frame_range": [
+      1560,
+      1590
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.hand_pinch",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_operate_washer",
+     "frame_range": [
+      900,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "wrist_r",
+    "planned_pivot_xy": [
+     395,
+     590
+    ],
+    "joint_id": "wrist_r",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "threeq_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_head_profile_4d996da5": {
+  "digest": "0b0bf27f2c59d5676417d054",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head_profile",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_head_profile",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_satisfied",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_turn",
+     "frame_range": null,
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "neck",
+    "planned_pivot_xy": [
+     300,
+     330
+    ],
+    "joint_id": "neck",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ines_torso_profile_b7967157": {
+  "digest": "7d4b725fa23f7c9b2af33b9e",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ines_master"
+  ],
+  "compiled": null,
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_satisfied",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_rig.profile_turn",
+     "frame_range": null,
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso_profile",
+     "frame_range": [
+      1620,
+      1740
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ines_torso_profile",
+     "frame_range": [
+      1740,
+      1920
+     ],
+     "shot_id": "S02"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "PART",
+    "pivot_landmark_id": "pelvis",
+    "planned_pivot_xy": [
+     300,
+     620
+    ],
+    "joint_id": "pelvis",
+    "alpha_mode": "STRAIGHT",
+    "view_id": "profile_r",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ines_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_coin_symbol_efde1b59": {
+  "digest": "a879f769930259dd0e5b380e",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_coin_symbol",
+     "frame_range": [
+      3000,
+      3001
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S04_ledger",
+     "frame_range": [
+      3000,
+      4080
+     ],
+     "shot_id": "S04"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "SYMBOL",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_gas_symbol_e2349a1a": {
+  "digest": "a879f769930259dd0e5b380e",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_gas_symbol",
+     "frame_range": [
+      3000,
+      3001
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S04_ledger",
+     "frame_range": [
+      3000,
+      4080
+     ],
+     "shot_id": "S04"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "SYMBOL",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_lever_symbols_7322da84": {
+  "digest": "3d00770f19fc8cb558cc3722",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_lever_symbols",
+     "frame_range": [
+      5160,
+      5161
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S06_levers",
+     "frame_range": [
+      5160,
+      6240
+     ],
+     "shot_id": "S06"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "SYMBOL",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_power_symbol_396a6acd": {
+  "digest": "a879f769930259dd0e5b380e",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_power_symbol",
+     "frame_range": [
+      3000,
+      3001
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S04_ledger",
+     "frame_range": [
+      3000,
+      4080
+     ],
+     "shot_id": "S04"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "SYMBOL",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_turn_counter_12a52315": {
+  "digest": "b1cbdebebdf3088f6ce64569",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_turn_counter",
+     "frame_range": [
+      1920,
+      1921
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S03_drum",
+     "frame_range": [
+      1920,
+      3000
+     ],
+     "shot_id": "S03"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S07_return",
+     "frame_range": [
+      6240,
+      7200
+     ],
+     "shot_id": "S07"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "SYMBOL",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_type_values_1866a5f5": {
+  "digest": "9a2286e61b8b38a3d174a093",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_type_values",
+     "frame_range": [
+      3000,
+      3001
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S04_ledger",
+     "frame_range": [
+      3000,
+      4080
+     ],
+     "shot_id": "S04"
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S06_levers",
+     "frame_range": [
+      5160,
+      6240
+     ],
+     "shot_id": "S06"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "TYPE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_PART_OR_STATE_ledger_water_symbol_39f551d6": {
+  "digest": "a879f769930259dd0e5b380e",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: ledger_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "ledger_water_symbol",
+     "frame_range": [
+      3000,
+      3001
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S04_ledger",
+     "frame_range": [
+      3000,
+      4080
+     ],
+     "shot_id": "S04"
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "SYMBOL",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master ledger_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_TRANSITION_PLATE_drum_rim_out_5bc7cafe": {
+  "digest": "28c7884bfadeebe0cce1d88c",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: drum_in"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "TRANSITION_PLATE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master drum_in"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_TRANSITION_PLATE_porthole_aperture_987ddfbc": {
+  "digest": "7fe275f92ea15f6f51c90905",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "MASK",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_TRANSITION_PLATE_porthole_glass_middle_613e64fa": {
+  "digest": "e1197608f990ee87a0e36d4b",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "porthole_glass_middle",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_porthole",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "TRANSITION_PLATE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_TRANSITION_PLATE_porthole_out_0e3a99ce": {
+  "digest": "e1197608f990ee87a0e36d4b",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: washer_master"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "porthole_out",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_ART_ASSET",
+     "record_id": "S02_porthole",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": "S02"
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S02->S03",
+     "frame_range": [
+      1800,
+      1920
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "TRANSITION_PLATE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master washer_master"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_TRANSITION_PLATE_rim_aperture_51f0f1dd": {
+  "digest": "615f651085ccae2dbe7adef9",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: drum_in"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "MASK",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "STRAIGHT",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master drum_in"
+   },
+   "dependents": []
+  }
+ },
+ "ARTJOB_TRANSITION_PLATE_rim_to_ledger_middle_6f5ff48a": {
+  "digest": "28c7884bfadeebe0cce1d88c",
+  "status": "BLOCKED_CONTRACT",
+  "blocked_on": [
+   "STORY_APPROVAL_REQUIRED: no human story approval receipt",
+   "DIRECTION_APPROVAL_REQUIRED: no human direction approval receipt",
+   "ART_CONTRACT_REFUSED",
+   "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "MASTER_APPROVAL: drum_in"
+  ],
+  "compiled": "BLOCKED_CONTRACT",
+  "readiness": "WAITING_ON_MASTER_APPROVAL",
+  "mutable": {
+   "triggered_by": [
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    },
+    {
+     "code": "MISSING_TRANSITION_STATE",
+     "record_id": "S03->S04",
+     "frame_range": [
+      2880,
+      3000
+     ],
+     "shot_id": null
+    }
+   ],
+   "registration_contract": {
+    "asset_kind": "TRANSITION_PLATE",
+    "pivot_landmark_id": null,
+    "planned_pivot_xy": null,
+    "joint_id": null,
+    "alpha_mode": "OPAQUE",
+    "view_id": "front",
+    "depth_band": "FOCAL",
+    "landmark_frame": "registered against approved master drum_in"
+   },
+   "dependents": []
+  }
+ }
+}

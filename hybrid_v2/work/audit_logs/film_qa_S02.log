@@ -1,0 +1,2 @@
+FAIL gates={"mechanical_fixture_pass":false,"art_registration_pass":false,"artistic_review_pass":false,"audio_alignment_pass":false,"whole_film_pass":false,"production_pass":false} scene=S02 frames=[] failures=0 missing_art=111 → films\hv2_film001\qa\hybrid_v2\QA_RESULT.json
+exit=1

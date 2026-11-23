@@ -1,0 +1,134 @@
+{
+ "frame": 7199,
+ "segment": {
+  "frames": [
+   6600,
+   7200
+  ],
+  "shot": "rt_world_shot",
+  "camera_moving": false,
+  "actions": [],
+  "rig_states": {},
+  "assets": [
+   {
+    "id": "rt_world_far",
+    "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+    "delivered": true,
+    "role": "world rt_world_w FAR"
+   }
+  ],
+  "camera_track": "cam_world",
+  "world": "rt_world_w",
+  "effects": [],
+  "motion_blur": false,
+  "static_hold": true,
+  "chunk": [
+   6600,
+   7200
+  ]
+ },
+ "assets": [
+  {
+   "asset": "rt_world_far",
+   "role": "world rt_world_w FAR",
+   "delivered": true,
+   "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+   "bytes_match": true,
+   "provenance": "DIAGNOSTIC_FIXTURE",
+   "provider_lineage": null,
+   "approval": {
+    "status": "VERIFIED",
+    "receipt": "asset__rt_world_far__d427686716da__mwrxc2g8d4642a",
+    "reviewer_kind": "TEST_TRUSTED"
+   },
+   "registration": {
+    "ok": true,
+    "receipt": [
+     "LANDMARK_SIDECAR.json",
+     "MASTER_REGISTRATION_RECEIPT.json"
+    ]
+   },
+   "plan_entry": {
+    "kind": "WORLD_PLANE",
+    "derived_from": null
+   },
+   "artjob": null,
+   "design": null
+  }
+ ],
+ "output": {
+  "renderer": "art_bridge_chrome_frames",
+  "renderer_provenance": "ART_BRIDGE_CAPTURE",
+  "chunk": [
+   6600,
+   7200
+  ],
+  "frame_rgb_sha256": "fa5bae449d0083a0a48d00383f89e658b6007802f990ca4cf6186741604072d3",
+  "expected_state_sha256": "199215f8d0b0c9252c8b509a540acaf04a2b07f4fcc13c68205b27ae42bbc1cb",
+  "segment": "render/chunks/6fd37bfb063f09e0/chunk_06600_07200.mkv",
+  "segment_sha256": "05bd08d588cdfd1dbcb00052b25dbc6406b730ca4bc1086311120724567dc44f",
+  "mp4_sha256": "ed1b87ebec99b112a06f9af7c030bd606403a46e92a6ea3cc98a718c691a7f7d"
+ },
+ "shot": {
+  "id": "rt_world_shot",
+  "score": {
+   "attention_path": [
+    "cam_world"
+   ],
+   "events": []
+  },
+  "semantic_actions": []
+ },
+ "story": "APPROVED",
+ "direction": "APPROVED",
+ "narration": {
+  "words_near": [],
+  "audio_sha256": "a9214cd3bb395ee20283ebe8b4079cdd84b5e689d4aaab94439812a89185e119",
+  "script_sha256": "578e4de457465e0055ae7544e3f18e47e7d4106039aaee8af713ea032440e6e9"
+ },
+ "stage_handoffs": {
+  "S00_IDEA": {
+   "status": "COMMITTED",
+   "handoff": "49230827a87e7dc98ccf428997e2fa7b9d1b4f3ef9d5f8cbcdb17be79564628e"
+  },
+  "S01_STORY": {
+   "status": "COMMITTED",
+   "handoff": "df68beacd6075a256412efc1c1110337899a74e154fb38a82051d20fb662b000"
+  },
+  "S02_EXPERIENCE": {
+   "status": "COMMITTED",
+   "handoff": "c7cf0b1c0db8fff7f4b2a68b5d3959b7b9abc8586362e808b488a603006725f5"
+  },
+  "S03_TIMING_MOTION": {
+   "status": "COMMITTED",
+   "handoff": "5ea103adaec347847873f8119491ba31a41ac2b49d395966a5d9f159090da92c"
+  },
+  "S04_ART_DEMAND": {
+   "status": "COMMITTED",
+   "handoff": "addb23fe18840de6ead941be7a3db5e63f07098c4af64e222cae427fb2899c76"
+  },
+  "S05_ART_PRODUCTION": {
+   "status": "COMMITTED",
+   "handoff": "9ca71f90e19c5febd7b7f468c67e27bfce0af34819735b69c0c42fd6699cd176"
+  },
+  "S06_REGISTRATION_RIG": {
+   "status": "COMMITTED",
+   "handoff": "bebe63d33c413dfa08f0dd04dd5f58e9a7eb3cc35772b2332695cae914a940bc"
+  },
+  "S07_NEUTRINO_RENDER": {
+   "status": "COMMITTED",
+   "handoff": "ee10e55335cc76a601515123e354a9cb3a0b10abf510eb362cbf45cd03cbc264"
+  },
+  "S08_QA_REPAIR": {
+   "status": "COMMITTED",
+   "handoff": "86890b7a4eb3ee40c5dd40d898f701fa2fb979d18b554774d9f41fbc3e13fcaa"
+  },
+  "S09_FILM_AUDIO_FINAL": {
+   "status": "BLOCKED",
+   "handoff": null
+  }
+ },
+ "blockers": [
+  "asset rt_world_far: no design for master rt_world_far"
+ ]
+}

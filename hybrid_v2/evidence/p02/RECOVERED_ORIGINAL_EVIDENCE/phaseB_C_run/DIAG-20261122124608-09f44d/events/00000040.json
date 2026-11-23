@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124608-09f44d:40",
+ "sequence": 40,
+ "prev_event_sha256": "e791f52d246fc33a491c47c253546e8b7d2a9028d00113a45ee6642e9d41cb3a",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S03_TIMING_MOTION",
+ "attempt_id": "Amwrtyxaf",
+ "operation_id": null,
+ "task_id": "feasibility_pilot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124608-09f44d:39"
+ ],
+ "wall_time_utc": "2026-11-22T12:46:10.573Z",
+ "elapsed_ms": 3,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "status FEASIBLE",
+  "pass": true,
+  "measurement": "0 frames solved"
+ },
+ "lock_generation": 40,
+ "event_sha256": "caebf7e35aa40e81941f17d3367213c9d37a900a00719a90691adc37caa1c94d"
+}

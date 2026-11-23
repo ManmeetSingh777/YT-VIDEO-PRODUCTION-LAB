@@ -1,0 +1,112 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_pilot_forearm_8c449dea",
+ "root_dependency": "pilot_forearm",
+ "identity_id": "pilot",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "pilot_master",
+ "motion_context": {
+  "identity_id": "pilot",
+  "canonical_parent_asset": "pilot_master",
+  "shot_ids": [
+   "rt_shot"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    600
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": "open|grip",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "elbow_r"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "pilot_rig",
+    "joint": "elbow_r",
+    "rest_xy": [
+     215,
+     215
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [
+   "elbow_inner"
+  ],
+  "near_far_order": [
+   {
+    "relation": "ABOVE",
+    "asset_id": "pilot_upper_arm"
+   }
+  ],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "pilot_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "forearm cutout; bending reveals the inner elbow, owned by pilot_underpaint. Required by: state pilot_rig:open/- pilot_close_hand; state pilot_rig:grip/- pilot_close_hand"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "3dc81c05d3129917f21eead3c2b78a1ed96e7d28b7ba8c643bb8f4b3c96356e4",
+ "frame_precision": "STATE_INTERVALS",
+ "generation": "d30a7689383197fae4497fb5",
+ "dependency_parts_digest": "d30a7689383197fae4497fb50ac6fe72d160f1951b807e3761221cf93ec25f8a",
+ "gate": {
+  "pass": true,
+  "family": "ACTING_HUMAN",
+  "failures": [],
+  "required_methods": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F05",
+   "F06",
+   "F14",
+   "F15",
+   "F17",
+   "F18",
+   "F19",
+   "F20",
+   "F30",
+   "F31",
+   "F33",
+   "F36",
+   "F51",
+   "F52",
+   "F53",
+   "F56",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F77",
+   "F79",
+   "F80"
+  ]
+ }
+}

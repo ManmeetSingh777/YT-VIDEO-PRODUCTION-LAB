@@ -1,0 +1,3 @@
+[{"id":"narration","src":"assets/audio/narration.wav","dur":120,"vol":1},
+ {"id":"music","src":"assets/audio/music.wav","dur":120,"vol":0.42},
+ {"id":"sfx","src":"assets/audio/sfx.wav","dur":120,"vol":0.8}]

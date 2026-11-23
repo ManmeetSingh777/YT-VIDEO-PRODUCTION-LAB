@@ -1,0 +1,37 @@
+{
+ "receipt_id": "state__pilot_rig__open__12a5a6cb6339__mwrxc21d193410",
+ "scope": "state",
+ "record_id": "pilot_rig::open",
+ "verdict": "APPROVED",
+ "reviewer": "roundtrip-operator",
+ "reviewer_kind": "DIAGNOSTIC",
+ "attestation": null,
+ "notes": "",
+ "scope_note": "DIAGNOSTIC_ONLY: fixture rasters, not target art",
+ "evidence": [],
+ "bundle_sha256": "12a5a6cb6339eba9898ad391701a402f2a3cce5bfec4f71c9d172635919176db",
+ "bundle": {
+  "bound_asset_hashes": {
+   "pilot_body": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "pilot_forearm": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "pilot_hand_open": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+   "pilot_underpaint": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "pilot_upper_arm": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0"
+  },
+  "content": {
+   "asset_bindings": {},
+   "contact_set": [],
+   "id": "open",
+   "landmark_correspondence": [
+    "wrist_r",
+    "knuckle_r"
+   ],
+   "required_underpaint": [],
+   "view_facing": "front"
+  },
+  "id": "pilot_rig::open",
+  "scope": "state"
+ },
+ "reviewed_at": "2026-11-22T14:20:21.457Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

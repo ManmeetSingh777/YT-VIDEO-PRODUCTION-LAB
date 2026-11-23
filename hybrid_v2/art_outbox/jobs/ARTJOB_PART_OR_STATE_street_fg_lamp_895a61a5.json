@@ -1,0 +1,128 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_street_fg_lamp_895a61a5",
+ "root_dependency": "street_fg_lamp",
+ "identity_id": "street_night",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "OCCLUDER",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "street_far",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S05_street",
+   "frame_range": [
+    4080,
+    5160
+   ],
+   "shot_id": "S05"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "street_fg_lamp",
+   "frame_range": [
+    4080,
+    4081
+   ],
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "street_night",
+  "canonical_parent_asset": "street_far",
+  "shot_ids": [
+   "S05"
+  ],
+  "frame_ranges": [
+   [
+    4080,
+    5160
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S05"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ],
+   "depth_band": "FOREGROUND"
+  },
+  "oversized_paint_rect": [
+   -480,
+   -270,
+   2880,
+   1620
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD",
+  "predecessor_state_id": "street_far",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "street depth layers + lit window interior seen from outside. Required by: shot S05; action S05_street; world w_street in S05"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "5c99152dcde0a0d654a2e5337a706446f3e80c2987afe8d8db978bfb5f514b49",
+ "registration_contract": {
+  "asset_kind": "OCCLUDER",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "STRAIGHT",
+  "view_id": "front",
+  "depth_band": "FOREGROUND",
+  "landmark_frame": "registered against approved master street_far"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "street_fg_lamp",
+  "role": "DERIVED",
+  "derived_from": "street_far",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: street_far"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_street_fg_lamp_895a61a5.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_street_fg_lamp_895a61a5.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

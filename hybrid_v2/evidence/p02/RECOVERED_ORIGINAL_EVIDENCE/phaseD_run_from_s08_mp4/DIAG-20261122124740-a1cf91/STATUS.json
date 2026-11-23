@@ -1,0 +1,1786 @@
+{
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "chain_head_sha256": "76a2e8eaddc16bf5c5064b2afda46b1417684b2529a84a3b971eb3b950442d6b",
+ "events": 147,
+ "stages": {
+  "S00_IDEA": {
+   "stage_id": "S00_IDEA",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0v3q"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "5c6435eab0b0197b27d2b104c0ed26d0d868097b83a48541fcdf5ddce216954a",
+    "bytes": 1255
+   }
+  },
+  "S01_STORY": {
+   "stage_id": "S01_STORY",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0vfd"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "8495bf6011a89305e8be4992481aca97e7aac718e883d02f9f09e9a85a568b9c",
+    "bytes": 1574
+   }
+  },
+  "S02_EXPERIENCE": {
+   "stage_id": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0vrn"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "964bea918376c370097dff706469c0aa97eb3be970b78c9d6c0a7da06aa6dcc3",
+    "bytes": 1560
+   }
+  },
+  "S03_TIMING_MOTION": {
+   "stage_id": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0w8q"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "3ce36600a92634c7ee4d869e29a03f4f29bfc4fe76f6a133846bfb4704dbe327",
+    "bytes": 2019
+   }
+  },
+  "S04_ART_DEMAND": {
+   "stage_id": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0wyd"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "6aa7ae0c1fd2eca390936992ecceb65c9e165315b8fbe5963e992ccf24eb517e",
+    "bytes": 2251
+   }
+  },
+  "S05_ART_PRODUCTION": {
+   "stage_id": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0xxr"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "1f866f5dde04a846770ce1d1fbedf6e1e6eee0ed60cdea35045066010179a07e",
+    "bytes": 4272
+   }
+  },
+  "S06_REGISTRATION_RIG": {
+   "stage_id": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwru0zi4"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "42f6a08ab9ae476fa44de88eebce971468f55cec87001eefbbeb4ff14931b8e8",
+    "bytes": 2606
+   }
+  },
+  "S07_NEUTRINO_RENDER": {
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "status": "BLOCKED",
+   "attempts": [
+    "Amwru11l1"
+   ]
+  }
+ },
+ "tasks": {
+  "total": 47,
+  "completed": 34,
+  "failed": 1,
+  "blocked": 12,
+  "stale": 0,
+  "remaining": 13,
+  "percent_verified": 72.3
+ },
+ "task_list": [
+  {
+   "task_id": "film_intent",
+   "stage_id": "S00_IDEA",
+   "spec": {
+    "task_id": "film_intent",
+    "producer": "story/FILM_INTENT.json (human-supplied)",
+    "inputs": [
+     "story/FILM_INTENT.json"
+    ],
+    "expected_outputs": [
+     "intent record"
+    ],
+    "deps": [],
+    "invariants": [
+     "objectives, audience, length and constraints are stated by a human"
+    ],
+    "verification": "fields present; provenance recorded",
+    "evidence_location": "production/store",
+    "category": "MISSING_AUTHORITY",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:6",
+   "verification": {
+    "method": "fields present; provenance recorded",
+    "pass": true,
+    "measurement": "complete"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "story/FILM_INTENT.json",
+     "sha256": "dc73da0f1383b1b87b7e5a7500a36b6f665035ce1299d4d38e190ab02ece56fc",
+     "bytes": 331,
+     "source": "story/FILM_INTENT.json"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:40.666Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "story_contract",
+   "stage_id": "S01_STORY",
+   "spec": {
+    "task_id": "story_contract",
+    "producer": "engine/story/mechanism.mjs#validateStoryContract",
+    "inputs": [
+     "story/STORY_CONTRACT.json"
+    ],
+    "expected_outputs": [
+     "validated claims/mechanisms/obstacles"
+    ],
+    "deps": [],
+    "invariants": [
+     "claims VERIFIED",
+     "mechanisms survive counterfactuals",
+     "obstacles resolved by mechanism state"
+    ],
+    "verification": "re-run validator; zero failures",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:12",
+   "verification": {
+    "method": "re-run validator; zero failures",
+    "pass": true,
+    "measurement": "0 failures"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "story/STORY_CONTRACT.json",
+     "sha256": "8661653be6cc65f784a7cdc47447ba5ea3125f86099dc81f00b26fd779bf3469",
+     "bytes": 125,
+     "source": "story/STORY_CONTRACT.json"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:41.039Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "story_approval",
+   "stage_id": "S01_STORY",
+   "spec": {
+    "task_id": "story_approval",
+    "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(story)",
+    "inputs": [
+     "approvals/STORY.POINTER.json"
+    ],
+    "expected_outputs": [
+     "verified story receipt"
+    ],
+    "deps": [
+     "story_contract"
+    ],
+    "invariants": [
+     "independent human approval of the exact story bundle"
+    ],
+    "verification": "verifyApproval over the current bundle",
+    "evidence_location": "production/store",
+    "category": "MISSING_AUTHORITY",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:14",
+   "verification": {
+    "method": "verifyApproval over the current bundle",
+    "pass": true,
+    "measurement": "APPROVED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:41.086Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "attention_rt_shot",
+   "stage_id": "S02_EXPERIENCE",
+   "spec": {
+    "task_id": "attention_rt_shot",
+    "producer": "engine/story/experience.mjs#compileAttention",
+    "inputs": [
+     "direction/SHOT_SCORE_60FPS.json#rt_shot"
+    ],
+    "expected_outputs": [
+     "attention beats with owners"
+    ],
+    "deps": [],
+    "invariants": [
+     "every attention target has a consuming track"
+    ],
+    "verification": "zero DIRECTION_DECISION_INERT",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:21",
+   "verification": {
+    "method": "zero DIRECTION_DECISION_INERT",
+    "pass": true,
+    "measurement": "all consumed"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:41.554Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "attention_rt_world_shot",
+   "stage_id": "S02_EXPERIENCE",
+   "spec": {
+    "task_id": "attention_rt_world_shot",
+    "producer": "engine/story/experience.mjs#compileAttention",
+    "inputs": [
+     "direction/SHOT_SCORE_60FPS.json#rt_world_shot"
+    ],
+    "expected_outputs": [
+     "attention beats with owners"
+    ],
+    "deps": [],
+    "invariants": [
+     "every attention target has a consuming track"
+    ],
+    "verification": "zero DIRECTION_DECISION_INERT",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:23",
+   "verification": {
+    "method": "zero DIRECTION_DECISION_INERT",
+    "pass": true,
+    "measurement": "all consumed"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:41.610Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "direction_approval",
+   "stage_id": "S02_EXPERIENCE",
+   "spec": {
+    "task_id": "direction_approval",
+    "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(direction)",
+    "inputs": [],
+    "expected_outputs": [
+     "verified direction receipt"
+    ],
+    "deps": [
+     "attention_rt_shot",
+     "attention_rt_world_shot"
+    ],
+    "invariants": [],
+    "verification": "verifyApproval over the current bundle",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:25",
+   "verification": {
+    "method": "verifyApproval over the current bundle",
+    "pass": true,
+    "measurement": "APPROVED"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:41.671Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "tiling",
+   "stage_id": "S03_TIMING_MOTION",
+   "spec": {
+    "task_id": "tiling",
+    "producer": "engine/film/film_revision.mjs#checkTiling",
+    "inputs": [],
+    "expected_outputs": [
+     "exact frame ownership"
+    ],
+    "deps": [],
+    "invariants": [
+     "shots tile [0,total) exactly"
+    ],
+    "verification": "checkTiling ok",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:34",
+   "verification": {
+    "method": "checkTiling ok",
+    "pass": true,
+    "measurement": "7200 frames tiled"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:42.255Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "actions_rt_shot",
+   "stage_id": "S03_TIMING_MOTION",
+   "spec": {
+    "task_id": "actions_rt_shot",
+    "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+    "inputs": [
+     "story/SEMANTIC_ACTIONS.json",
+     "direction/SHOT_SCORE_60FPS.json#rt_shot"
+    ],
+    "expected_outputs": [
+     "executable sub-operations"
+    ],
+    "deps": [
+     "tiling"
+    ],
+    "invariants": [
+     "every visible verb compiles",
+     "no orphan contact",
+     "possession conserved"
+    ],
+    "verification": "complete === true",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:36",
+   "verification": {
+    "method": "complete === true",
+    "pass": true,
+    "measurement": "complete"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:42.320Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "actions_rt_world_shot",
+   "stage_id": "S03_TIMING_MOTION",
+   "spec": {
+    "task_id": "actions_rt_world_shot",
+    "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+    "inputs": [
+     "story/SEMANTIC_ACTIONS.json",
+     "direction/SHOT_SCORE_60FPS.json#rt_world_shot"
+    ],
+    "expected_outputs": [
+     "executable sub-operations"
+    ],
+    "deps": [
+     "tiling"
+    ],
+    "invariants": [
+     "every visible verb compiles",
+     "no orphan contact",
+     "possession conserved"
+    ],
+    "verification": "complete === true",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:38",
+   "verification": {
+    "method": "complete === true",
+    "pass": true,
+    "measurement": "complete"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:42.392Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "feasibility_pilot",
+   "stage_id": "S03_TIMING_MOTION",
+   "spec": {
+    "task_id": "feasibility_pilot",
+    "producer": "engine/art_bridge/art_intake.mjs#checkRigFeasibility",
+    "inputs": [],
+    "expected_outputs": [
+     "all action frames solvable"
+    ],
+    "deps": [
+     "tiling"
+    ],
+    "invariants": [
+     "every action frame of the identity solves; legal state/view edges"
+    ],
+    "verification": "status FEASIBLE",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:40",
+   "verification": {
+    "method": "status FEASIBLE",
+    "pass": true,
+    "measurement": "0 frames solved"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:42.465Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "narration_timeline",
+   "stage_id": "S03_TIMING_MOTION",
+   "spec": {
+    "task_id": "narration_timeline",
+    "producer": "engine/story/narration.mjs#validateNarrationTimeline",
+    "inputs": [],
+    "expected_outputs": [
+     "measured word anchors"
+    ],
+    "deps": [],
+    "invariants": [
+     "critical cues anchored to a measured forced alignment"
+    ],
+    "verification": "zero errors",
+    "evidence_location": "production/store",
+    "category": "AUDIO_ALIGNMENT",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:42",
+   "verification": {
+    "method": "zero errors",
+    "pass": true,
+    "measurement": "1 anchors"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "audio/narration_timeline_TEST.json",
+     "sha256": "d703984c98dc6783f86b062804cae0628650c4263f69bbd0f4e5cfba83f6f924",
+     "bytes": 705,
+     "source": "audio/narration_timeline_TEST.json"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:42.553Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "demand_pilot_body",
+   "stage_id": "S04_ART_DEMAND",
+   "spec": {
+    "task_id": "demand_pilot_body",
+    "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "inputs": [],
+    "expected_outputs": [
+     "planned art for pilot_body"
+    ],
+    "deps": [],
+    "invariants": [
+     "every visible state has an explicit dependency"
+    ],
+    "verification": "supplied_by_plan",
+    "evidence_location": "frames 0,600",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:52",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_body frames [[0,600]]"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:43.321Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "demand_pilot_underpaint",
+   "stage_id": "S04_ART_DEMAND",
+   "spec": {
+    "task_id": "demand_pilot_underpaint",
+    "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "inputs": [],
+    "expected_outputs": [
+     "planned art for pilot_underpaint"
+    ],
+    "deps": [],
+    "invariants": [
+     "every visible state has an explicit dependency"
+    ],
+    "verification": "supplied_by_plan",
+    "evidence_location": "frames 0,600",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:54",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_underpaint frames [[0,600]]"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:43.410Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "demand_pilot_upper_arm",
+   "stage_id": "S04_ART_DEMAND",
+   "spec": {
+    "task_id": "demand_pilot_upper_arm",
+    "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "inputs": [],
+    "expected_outputs": [
+     "planned art for pilot_upper_arm"
+    ],
+    "deps": [],
+    "invariants": [
+     "every visible state has an explicit dependency"
+    ],
+    "verification": "supplied_by_plan",
+    "evidence_location": "frames 0,600",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:56",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_upper_arm frames [[0,600]]"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:43.497Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "demand_pilot_forearm",
+   "stage_id": "S04_ART_DEMAND",
+   "spec": {
+    "task_id": "demand_pilot_forearm",
+    "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "inputs": [],
+    "expected_outputs": [
+     "planned art for pilot_forearm"
+    ],
+    "deps": [],
+    "invariants": [
+     "every visible state has an explicit dependency"
+    ],
+    "verification": "supplied_by_plan",
+    "evidence_location": "frames 0,600",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:58",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_forearm frames [[0,600]]"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:43.586Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "demand_pilot_hand_open",
+   "stage_id": "S04_ART_DEMAND",
+   "spec": {
+    "task_id": "demand_pilot_hand_open",
+    "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "inputs": [],
+    "expected_outputs": [
+     "planned art for pilot_hand_open"
+    ],
+    "deps": [],
+    "invariants": [
+     "every visible state has an explicit dependency"
+    ],
+    "verification": "supplied_by_plan",
+    "evidence_location": "frames 0,100",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:60",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig open binds pilot_hand_open frames [[0,100]]"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:43.678Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "demand_pilot_hand_grip",
+   "stage_id": "S04_ART_DEMAND",
+   "spec": {
+    "task_id": "demand_pilot_hand_grip",
+    "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "inputs": [],
+    "expected_outputs": [
+     "planned art for pilot_hand_grip"
+    ],
+    "deps": [],
+    "invariants": [
+     "every visible state has an explicit dependency"
+    ],
+    "verification": "supplied_by_plan",
+    "evidence_location": "frames 100,600",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:62",
+   "verification": {
+    "method": "supplied_by_plan",
+    "pass": true,
+    "measurement": "pilot_rig grip binds pilot_hand_open frames [[100,600]]"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:43.774Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_master",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_master",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_master"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_master.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:74",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_master.png",
+     "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+     "bytes": 13515,
+     "source": "assets/art/pilot_master.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:44.889Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_rt_world_far",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_rt_world_far",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:rt_world_far"
+    ],
+    "expected_outputs": [
+     "assets/art/rt_world_far.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:76",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/rt_world_far.png",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "bytes": 142512,
+     "source": "assets/art/rt_world_far.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.002Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_body",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_body",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_body"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_body.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:78",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_body.png",
+     "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+     "bytes": 4257,
+     "source": "assets/art/pilot_body.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.122Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_upper_arm",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_upper_arm",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_upper_arm"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_upper_arm.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:80",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_upper_arm.png",
+     "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+     "bytes": 1558,
+     "source": "assets/art/pilot_upper_arm.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.247Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_forearm",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_forearm",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_forearm"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_forearm.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:82",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_forearm.png",
+     "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+     "bytes": 1586,
+     "source": "assets/art/pilot_forearm.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.387Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_underpaint",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_underpaint",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_underpaint"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_underpaint.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:84",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_underpaint.png",
+     "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+     "bytes": 644,
+     "source": "assets/art/pilot_underpaint.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.512Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_hand_open",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_hand_open",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_hand_open"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_hand_open.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:86",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_hand_open.png",
+     "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+     "bytes": 1636,
+     "source": "assets/art/pilot_hand_open.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.632Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "asset_pilot_hand_grip",
+   "stage_id": "S05_ART_PRODUCTION",
+   "spec": {
+    "task_id": "asset_pilot_hand_grip",
+    "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+    "inputs": [
+     "plan:pilot_hand_grip"
+    ],
+    "expected_outputs": [
+     "assets/art/pilot_hand_grip.png"
+    ],
+    "deps": [],
+    "invariants": [
+     "bytes match the manifest hash",
+     "provenance is honest",
+     "approval verifies (HUMAN in production)"
+    ],
+    "verification": "byte hash + verifyApproval",
+    "evidence_location": "production/store",
+    "category": "MISSING_ART_STATE",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:88",
+   "verification": {
+    "method": "byte hash + verifyApproval",
+    "pass": true,
+    "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "assets/art/pilot_hand_grip.png",
+     "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+     "bytes": 891,
+     "source": "assets/art/pilot_hand_grip.png"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:45.760Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_master",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_master",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:101",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:47.140Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_rt_world_far",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_rt_world_far",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:103",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:47.283Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_body",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_body",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:105",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:47.427Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_upper_arm",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_upper_arm",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:107",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:47.584Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_forearm",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_forearm",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:109",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:47.735Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_underpaint",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_underpaint",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:111",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:47.897Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_hand_open",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_hand_open",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:113",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:48.066Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "registration_pilot_hand_grip",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "registration_pilot_hand_grip",
+    "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+    "inputs": [],
+    "expected_outputs": [
+     "verified registration receipt"
+    ],
+    "deps": [],
+    "invariants": [
+     "measured geometry by content; residual within tolerance"
+    ],
+    "verification": "receipt verifies by content",
+    "evidence_location": "production/store",
+    "category": "REGISTRATION_OR_RIG",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:115",
+   "verification": {
+    "method": "receipt verifies by content",
+    "pass": true,
+    "measurement": "verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:48.226Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "states_edges",
+   "stage_id": "S06_REGISTRATION_RIG",
+   "spec": {
+    "task_id": "states_edges",
+    "producer": "engine/art_bridge/approvals.mjs#verifyAllApprovals",
+    "inputs": [],
+    "expected_outputs": [
+     "approved states and edges"
+    ],
+    "deps": [
+     "registration_pilot_master",
+     "registration_rt_world_far",
+     "registration_pilot_body",
+     "registration_pilot_upper_arm",
+     "registration_pilot_forearm",
+     "registration_pilot_underpaint",
+     "registration_pilot_hand_open",
+     "registration_pilot_hand_grip"
+    ],
+    "invariants": [],
+    "verification": "no failing/unreviewed state or edge",
+    "evidence_location": "production/store",
+    "group": null
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122124740-a1cf91:117",
+   "verification": {
+    "method": "no failing/unreviewed state or edge",
+    "pass": true,
+    "measurement": "all verified"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:47:48.403Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "chunk_0_600",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_0_600",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 0..599"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "FAILED",
+   "last_event": "DIAG-20261122124740-a1cf91:134",
+   "verification": {
+    "pass": false,
+    "measurement": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba",
+   "at": "2026-11-22T12:49:05.008Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "chunk_600_1200",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_600_1200",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 600..1199"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:135",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.117Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_1200_1800",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_1200_1800",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 1200..1799"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:136",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.221Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_1800_2400",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_1800_2400",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 1800..2399"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:137",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.321Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_2400_3000",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_2400_3000",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 2400..2999"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:138",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.417Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_3000_3600",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_3000_3600",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 3000..3599"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:139",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.507Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_3600_4200",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_3600_4200",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 3600..4199"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:140",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.600Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_4200_4800",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_4200_4800",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 4200..4799"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:141",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.690Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_4800_5400",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_4800_5400",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 4800..5399"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:142",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.788Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_5400_6000",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_5400_6000",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 5400..5999"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:143",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.886Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_6000_6600",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_6000_6600",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 6000..6599"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:144",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:05.986Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "chunk_6600_7200",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "chunk_6600_7200",
+    "producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+    "inputs": [],
+    "expected_outputs": [
+     "FFV1 segment frames 6600..7199"
+    ],
+    "deps": [],
+    "invariants": [
+     "exact frame count, 1920x1080, 60/1",
+     "no defect",
+     "absolute seeking"
+    ],
+    "verification": "ffprobe of the segment + frame hashes + defect scan",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:145",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:06.079Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  },
+  {
+   "task_id": "assemble",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "spec": {
+    "task_id": "assemble",
+    "producer": "engine/film/segment_render.mjs#renderFilm (assembly)",
+    "inputs": [],
+    "expected_outputs": [
+     "render/film.mp4",
+     "RENDER_COMPLETION_RECEIPT.json"
+    ],
+    "deps": [
+     "chunk_0_600",
+     "chunk_600_1200",
+     "chunk_1200_1800",
+     "chunk_1800_2400",
+     "chunk_2400_3000",
+     "chunk_3000_3600",
+     "chunk_3600_4200",
+     "chunk_4200_4800",
+     "chunk_4800_5400",
+     "chunk_5400_6000",
+     "chunk_6000_6600",
+     "chunk_6600_7200"
+    ],
+    "invariants": [],
+    "verification": "final probe matches total frames/size/rate",
+    "evidence_location": "production/store",
+    "category": "RENDER_OR_MEMORY",
+    "group": "render"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122124740-a1cf91:146",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T12:49:06.176Z",
+   "blocked_on": [
+    "chunk_0_600"
+   ]
+  }
+ ],
+ "failures": [
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba",
+   "run_id": "DIAG-20261122124740-a1cf91",
+   "stage_id": "S07_NEUTRINO_RENDER",
+   "attempt_id": "Amwru11l1",
+   "task_id": "chunk_0_600",
+   "frame_ranges": [
+    [
+     420,
+     421
+    ]
+   ],
+   "artifact_refs": [],
+   "first_observed_bad_output": "FFV1 segment frames 0..599",
+   "expected_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed_measurement": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625",
+   "applicability_predicate": "stage S07_NEUTRINO_RENDER, task class chunk_0",
+   "failure_class": "RENDER_OR_MEMORY",
+   "root_producer_or_UNKNOWN": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+   "suspected_mechanism": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625",
+   "causal_evidence_refs": [],
+   "rejected_bypass_paths": [],
+   "invalidated_downstream_nodes": [
+    "assemble",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "repair_owner": "RENDER_PRODUCER",
+   "resume_from_stage": "S07_NEUTRINO_RENDER",
+   "retry_safe_boolean": true,
+   "external_spend_risk": false,
+   "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122124740-a1cf91 --failure FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba"
+  }
+ ],
+ "next_operation": "resolve chunk_0_600"
+}

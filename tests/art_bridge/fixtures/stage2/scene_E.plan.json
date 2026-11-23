@@ -1,0 +1,93 @@
+{
+ "id": "planE",
+ "placements": {
+  "gearA": {
+   "x": 800,
+   "y": 540
+  },
+  "gearB": {
+   "x": 960,
+   "y": 540
+  }
+ },
+ "tracks": {
+  "gearA": {
+   "joints": {
+    "spin": [
+     [
+      0,
+      0
+     ],
+     [
+      600,
+      540,
+      "power2.inOut"
+     ]
+    ]
+   }
+  }
+ },
+ "procedural": {
+  "gear_drive_act": {
+   "type": "GEAR_TRAIN",
+   "driver": {
+    "rig": "gearA",
+    "joint": "spin"
+   },
+   "followers": [
+    {
+     "rig": "gearB",
+     "joint": "spin",
+     "teeth_driver": 30,
+     "teeth_follower": 18,
+     "phase_deg": 0
+    }
+   ]
+  },
+  "flow_out": {
+   "type": "FLOW_PATH",
+   "symbol_asset": "flow_symbol",
+   "path": [
+    [
+     1040,
+     540
+    ],
+    [
+     1300,
+     540
+    ],
+    [
+     1300,
+     760
+    ],
+    [
+     1700,
+     760
+    ]
+   ],
+   "count": [
+    [
+     0,
+     0
+    ],
+    [
+     150,
+     3,
+     "linear"
+    ],
+    [
+     450,
+     9,
+     "linear"
+    ],
+    [
+     600,
+     4,
+     "linear"
+    ]
+   ],
+   "speed_px_per_frame": 3,
+   "spacing_px": 60
+  }
+ }
+}

@@ -1,0 +1,176 @@
+{
+ "spec": "§7.5",
+ "tested_revision": "0d9b324972c9ad10089945262e3230ee634d3e2f",
+ "rows": [
+  {
+   "injection": "Delete one approved hand asset",
+   "required_outcome": "MISSING_ART_ASSET, exact ArtJob; no procedural hand",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-3",
+    "observed": [
+     "MISSING_ART_ASSET"
+    ],
+    "art_jobs": [
+     {
+      "id": "ARTJOB_PART_OR_STATE_hand_near2_d2316601",
+      "state_kind": "PART_OR_STATE",
+      "root_dependency": "hand_near2"
+     }
+    ]
+   }
+  },
+  {
+   "injection": "Move wrist pivot without moving pixels",
+   "required_outcome": "landmark mismatch before scene acceptance",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-1",
+    "observed": [
+     "UNREGISTERED_PIVOT"
+    ]
+   }
+  },
+  {
+   "injection": "Reach beyond approved limb lengths",
+   "required_outcome": "UNREACHABLE_IK; no silent clamp",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-3",
+    "detail": {
+     "frames": 390,
+     "first": {
+      "f": 90,
+      "missing": 225.2252545146212
+     },
+     "worst_missing_px": 303.970063397156
+    },
+    "unit": "tests/art_bridge/stage1.test.mjs two-bone IK"
+   }
+  },
+  {
+   "injection": "Remove elbow underpaint in a deep bend",
+   "required_outcome": "MISSING_UNDERPAINT or visible seam refusal",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-5",
+    "manifest": [
+     "MISSING_UNDERPAINT"
+    ],
+    "rendered_seam_pixels": 119
+   }
+  },
+  {
+   "injection": "Turn a front-only character to profile",
+   "required_outcome": "UNSUPPORTED_VIEW; request matching view art",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-6",
+    "observed": [
+     "UNSUPPORTED_VIEW"
+    ]
+   }
+  },
+  {
+   "injection": "Morph two unrelated SVG command topologies",
+   "required_outcome": "INVALID_MORPH_TOPOLOGY",
+   "status": "PARTIAL",
+   "evidence": {
+    "proof": "S2-6 (raster morph refused), stage2.test (REGISTERED_MORPH on raster)",
+    "gap": "no homologous SVG command-topology comparator yet: every vector morph is refused unless both sides are VECTOR_PATH assets; command/winding/subpath comparison not implemented"
+   }
+  },
+  {
+   "injection": "Remove an approved source witness from an art request",
+   "required_outcome": "provider payload/evidence failure",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S3-NEG-WITNESS"
+   }
+  },
+  {
+   "injection": "Register method as used without code/provider consumption",
+   "required_outcome": "METHOD_NO_REAL_CONSUMER",
+   "status": "PASS",
+   "evidence": {
+    "proof": "tests/art_bridge/stage1.test.mjs 'declared method use without a real consumer'"
+   }
+  },
+  {
+   "injection": "Put camera and rig tracks on same SVG node",
+   "required_outcome": "INVALID_TRANSFORM_OWNER",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-2 (double ownership of one joint node)",
+    "note": "camera transforms live only on dedicated per-band ancestor groups emitted by composeShot; a plan cannot address them"
+   }
+  },
+  {
+   "injection": "Delete transition middle art",
+   "required_outcome": "MISSING_TRANSITION_STATE; no arbitrary dissolve",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-8",
+    "observed": [
+     "MISSING_TRANSITION_STATE"
+    ]
+   }
+  },
+  {
+   "injection": "Pan camera beyond painted art",
+   "required_outcome": "OUTSIDE_CAMERA_FOOTPRINT",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-7",
+    "spans": [
+     [
+      212,
+      386
+     ]
+    ],
+    "rendered_blank_pixels": 84240
+   }
+  },
+  {
+   "injection": "Random-seek to frame 500 after frame 1000",
+   "required_outcome": "identical to linear capture",
+   "status": "PASS",
+   "evidence": {
+    "proof": "S2-9",
+    "output": {
+     "compared": 11,
+     "mismatches": 0,
+     "js_or_fetch_failures": 0
+    }
+   }
+  },
+  {
+   "injection": "Remove light receiver/underpaint",
+   "required_outcome": "actual compositing failure; no arbitrary oval shadow",
+   "status": "PARTIAL",
+   "evidence": {
+    "proof": "S2-5 (underpaint removal → seam/refusal)",
+    "gap": "cast-shadow occluder/receiver pairs are not implemented; lighting supports authored attached planes only (no shadow is ever invented)"
+   }
+  },
+  {
+   "injection": "Break a word cue",
+   "required_outcome": "MISSING_WORD_ALIGNMENT; critical event cannot be certified",
+   "status": "PASS",
+   "evidence": {
+    "proof": "tests/art_bridge/stage2.test.mjs word cues (real films/_qual_A timings are estimated → refused)"
+   }
+  },
+  {
+   "injection": "One static master for every acting state",
+   "required_outcome": "state coverage remains missing",
+   "status": "PASS",
+   "evidence": {
+    "proof": "tests/art_bridge/stage2.test.mjs state coverage; S2-6 negative 3"
+   }
+  }
+ ],
+ "pass": 13,
+ "partial": 2,
+ "fail": 0
+}

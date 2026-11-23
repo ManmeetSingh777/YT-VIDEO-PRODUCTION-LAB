@@ -1,0 +1,156 @@
+{
+  "job_id": "UNFAMILIAR-MYCELIUM-WORLD-001",
+  "original_content": {
+    "script_excerpt": "Deep below a mixed forest, threads of underground fungi connect different root systems into a living material-exchange network.",
+    "scene_goal": "Without labels, see two distinct plant root systems bridged by a continuous third fungal network carrying signals along attached filaments.",
+    "new_subjects": ["original cross-sectional underground woodland", "two different rooted tree species", "branching fungal hyphal network", "distinct root and fungal transfer contacts"],
+    "noncopy_source_content": true
+  },
+  "canvas": {
+    "aspect": "16:9",
+    "view": "highly illustrative planar cross-section, distant above-ground tree crowns occupy top fifth and the underground continuous soil cutaway fills the middle and lower area",
+    "scale": "landscape-wide ecological explanation, with an emphasized native crop area containing an actual root-fungal connection",
+    "focal_order": ["one bright branch of a connected fungal network bridging the roots", "correctly attached root exchange points", "overlapping earth strata and individual fine roots", "the above-ground forest setting"]
+  },
+  "medium_tree": ["WORLD", "MACRO"],
+  "medium_route_reason": "A complete forest soil world shows habitat; one broad root-fungus exchange region is constructed at macro scale within the same cutaway, not a separate floating sticker.",
+  "method_bindings": [
+    {
+      "method_id": "F37",
+      "conditions": "A complete ecological world is required to understand the material network under ordinary soil.",
+      "source_witnesses": ["VOLCANO@15.2", "MEMORIES@62", "NUCLEAR@296"],
+      "invariant_transferred": "build explicit environment substrate, whole regional silhouettes and connected part topology before small details",
+      "variation_required": "original underground rooted trees and fungal material, unlike any reference scene",
+      "observable_verification": "the source and receiving roots are spatially identifiable and linked by one attached fungus path"
+    },
+    {
+      "method_id": "F41",
+      "conditions": "Fine biological filaments and small attachment structures fill a meaningful soil region, not an arbitrary grid.",
+      "source_witnesses": ["MEMORIES@62", "MEMORIES@75", "NUCLEAR@200"],
+      "invariant_transferred": "hierarchically branched parent graph with terminal contacts and region-conditioned biological density",
+      "variation_required": "branch forms must be new plausible fungal mycelium/plant roots, never copied synapse or neurons",
+      "observable_verification": "every bright terminal touches a visible fungus/plant root; filament can be traced to main network"
+    },
+    {
+      "method_id": "F46",
+      "conditions": "Soil, root bark, fungus filaments, rock and tiny active transfer points are different materials.",
+      "source_witnesses": ["VOLCANO@15.2", "MEMORIES@62", "AI@514"],
+      "invariant_transferred": "solid filled local color patches for organic masses; small limited emission only on connected active paths",
+      "variation_required": "fungal palette is tied to new soil lighting rather than a neon computer or source neuron color",
+      "observable_verification": "delete glow: coherent soil, roots and continuous fungal filaments remain; no universal outline"
+    },
+    {
+      "method_id": "F47",
+      "conditions": "This is a high-density habitat with identifiable trunks, root branches, hyphae, organic debris and soft soil layers.",
+      "source_witnesses": ["AI@35", "MEMORIES@62", "VOLCANO@15.2"],
+      "invariant_transferred": "T0 environment skeleton, T1 complete parent-linked units, T2 attached local details and restrained T3 effects",
+      "variation_required": "new tree/root/fungus units replace any source building, synapse or cartoon animal",
+      "observable_verification": "at 160x90 the connected fungal path remains readable and at native 100 percent every complex crop has real attached anatomy"
+    },
+    {
+      "method_id": "F49",
+      "conditions": "Prompt submission needs a strict new content part graph, projection, no extra characters and owner-limited effects.",
+      "source_witnesses": ["VOLCANO@15.2", "MEMORIES@62", "NUCLEAR@296"],
+      "invariant_transferred": "compile typed substrate, functional root/fungal endpoints, material and effect masks into a drawable prompt",
+      "variation_required": "new subterranean soil exchange architecture, not a source character or film plot",
+      "observable_verification": "every source-to-target connection is actually illustrated; there are no faces, drones, UI, labels or unrelated glowing dots"
+    }
+  ],
+  "subject_graph": [
+    {
+      "id": "soil_world",
+      "family": "ecological cutaway",
+      "whole_silhouette": "contiguous undulating dark soil cross-section below a shallow grass/wildflower upper ground contour and two above-ground attached tree canopy silhouettes",
+      "view_dependent_parts": ["above-ground silhouettes", "near deep soil strata", "mid-soil branching networks", "embedded irregular stones"],
+      "attachment_and_contact": ["tree trunks connect through soil line to rooted tapers", "stones embedded in explicit soil volume"],
+      "surface_materials": ["deep plum/brown broad soil bands", "different medium-dark ochre/violet cutaway strata", "green varied attached crown groups"]
+    },
+    {
+      "id": "root_left",
+      "family": "tree root network",
+      "whole_silhouette": "one broad exposed main woody root tapering downward then dividing into unequal branching fine roots with actual subbranch links",
+      "view_dependent_parts": ["outer bark plane", "2-5 named major branch stems", "many tapered minor roots"],
+      "attachment_and_contact": ["trunk passes through shared upper soil boundary", "several small root hairs contact attached fungal threads"],
+      "surface_materials": ["warm rusty root main fill", "bounded sienna facing patches", "lighter interior tissue only where cut open"]
+    },
+    {
+      "id": "root_right",
+      "family": "different tree root system",
+      "whole_silhouette": "thin tall trunk descends to a broad asymmetrical spreading root system, differing in branch rhythm and thickness from root_left",
+      "view_dependent_parts": ["deep bark strip", "lateral spreading first branches", "filigree fine root tips"],
+      "attachment_and_contact": ["all major branches join an actual root crown", "multiple physical fungal exchange contact interfaces at root tip surfaces"],
+      "surface_materials": ["cool terracotta bark fill", "dark material-local shadow wedges"]
+    },
+    {
+      "id": "fungal_network",
+      "family": "fungal hyphal web",
+      "whole_silhouette": "continuous thin meandering branched linked network weaving around embedded stones and plant root branches, attached to both root systems through explicit fine end interfaces",
+      "view_dependent_parts": ["one main cross-screen branch", "differing thinner interconnected side hyphae", "small attached nodules and ring contacts"],
+      "attachment_and_contact": ["hypha path touches root_left", "hypha path touches root_right", "occludes behind selected thick root planes", "runs in front of some soil stratum and behind small stones"],
+      "surface_materials": ["pale cream-turquoise solid narrow continuous hyphae", "tiny locally activated gold-green path segment", "low-value unlit fine branches"]
+    }
+  ],
+  "world": {
+    "projection": "flattened cutaway with slightly offset illustrative foreground/below-ground overlap; no digital perspective grid",
+    "layers": ["sky and far canopy", "ground/soil back bands", "embedded stones", "root masses", "fungal web woven with roots", "near dirt and selected root occluders", "two small connection emitter strips"],
+    "material_family_map": {"soil": "three continuous broad irregular strata", "root": "root species-specific branch surfaces", "fungus": "fine continuous attached network", "rock": "bounded angular solid planes", "canopy": "grouped lobed organic leaves"},
+    "focal_contrast_vs_environment": "one highlighted actual hyphal route crossing a quieter dark soil field",
+    "environmental_density_condition": "tissue-like high-density middle soil; broad quiet regions between major roots, no confetti texture",
+    "ground_and_support": ["rooted trunks intersect upper soil surface correctly", "hyphae attach to both root classes", "embedded stones hide sections of web rather than float"]
+  },
+  "world_system": {
+    "world_class": "BIOLOGICAL_MICRO",
+    "world_purpose": "Show a continuous fungal network bridging two physically different tree root systems beneath one woodland habitat",
+    "substrate": "whole illustration is an ecological horizontal soil cross-section with continuous upper land contour",
+    "coord_system": "2D section coordinates, botanical parent-branch topology; independent screen-depth overlap of foreground soil and roots",
+    "regions": [
+      {"id": "surface", "shape": "narrow illustrated grass and tree canopy region", "depth": "far", "material": "leaf and sky"},
+      {"id": "soil", "shape": "one large connected underground cutaway with 3 irregular earth layers", "depth": "mid", "material": "soil"},
+      {"id": "exchange", "shape": "mid-height meandering web region spanning distinct roots", "depth": "mid-near", "material": "fungal tissue"}
+    ],
+    "parts": [
+      {"id": "root_left", "parent": "soil", "silhouette": "thick taper from a short broad-leaved trunk, 3 forked main roots, many finer terminal hairs", "projection": "cutaway", "function": "first root partner"},
+      {"id": "root_right", "parent": "soil", "silhouette": "thin tall conifer trunk joining widely spread thin lateral roots", "projection": "cutaway", "function": "second distinct root partner"},
+      {"id": "fungal_network", "parent": "soil", "silhouette": "many joined cream-colored fine threads around soil stones with two thick highlighted route branches", "projection": "cutaway", "function": "exchange link between two rooted systems"}
+    ],
+    "relationships": [
+      {"from": "fungal_network", "to": "root_left", "type": "root-tip physical exchange contact", "path": "continuous fungal strand terminates at multiple left root hair points"},
+      {"from": "fungal_network", "to": "root_right", "type": "root-tip physical exchange contact", "path": "same joined network reaches multiple right root hairs"}
+    ],
+    "detail_generators": [
+      {"parent": "root_left", "unit": "tapered attached secondary root", "distribution": "fork only from actual root parent", "count_or_density": "3 principal forks plus 8-16 thin tips", "disabled_when": "branch behind near soil occluder"},
+      {"parent": "root_right", "unit": "long thin lateral root with branching tips", "distribution": "connected irregularly from main root", "count_or_density": "2 long horizontal laterals plus multiple fine tips", "disabled_when": "too far to read"},
+      {"parent": "fungal_network", "unit": "narrow continuous splitting filament", "distribution": "connected growing network within soil mask, weighted toward roots and suitable soil stratum", "count_or_density": "dense central region, a few broad dark breathing gaps, no isolated free-floating ends except actual unseen continuation", "disabled_when": "hidden behind stone or thick root"}
+    ],
+    "material_ownership": [
+      {"part": "root_left", "fill": "warm rusty continuous main root plane", "edge": "darker adjacent soil or local root shadow", "light": "none"},
+      {"part": "root_right", "fill": "terracotta thin main root", "edge": "adjacent soil contrast", "light": "none"},
+      {"part": "fungal_network", "fill": "pale cream/turquoise connected paths", "edge": "sharp path fill", "light": "only a selected route from contact to contact"}
+    ],
+    "effect_ownership": [
+      {"owner": "fungal_network", "kind": "activated connected path highlight", "allowed_region": "the one highlighted fully attached fungus strand between root contacts", "count_or_coverage_limit": "one slender continuous path plus at most a few terminal pinlights", "forbidden_regions": "background soil, tree crowns, unconnected fungus threads and all rocks"}
+    ],
+    "visibility_masks": ["sky", "upper terrain and earth", "stones", "far roots", "far fungal branches", "near fungal route", "near root shadows", "local active path halo"],
+    "focal_read_test": "at 160x90 two different tree roots are clearly linked by one bright continuous non-circuit biological web",
+    "native_crop_tests": ["left hypha-to-root contact", "right hypha-to-root contact", "network junction behind stone", "soil/fungal contrast and plant branch taper"],
+    "source_only_witnesses": ["MEMORIES@62", "NUCLEAR@296", "VOLCANO@15.2"],
+    "allowed_subject_ids": ["root_left", "root_right", "fungal_network"],
+    "forbidden_extras": ["unrequested human scientist", "anthropomorphic eye or neural mascot", "digital grid, microchip or data screen", "unattached sparkles", "source-film branching neuron"],
+    "content_noncopy_invariants": ["no native neuron forest copied", "no source jungle characters", "no source microscope scene layout"]
+  },
+  "lighting": {
+    "opaque_color_patches": ["earth layers", "root structural planes", "stone structural planes"],
+    "optical_reflection_masks": [],
+    "emissive_connected_shapes": ["one network route between the roots"],
+    "atmospheric_halation_only": ["tight glow close to the one activated hyphal path"]
+  },
+  "manufacturing": {
+    "route": "REFERENCE_GUIDED_IMAGE",
+    "source_reference_roles": ["STYLE_ONLY MEMORIES@62 attached dense biology", "STYLE_ONLY NUCLEAR@296 terrain ecology", "STYLE_ONLY VOLCANO@15.2 parent vegetation masses"],
+    "canonical_asset_inputs": [],
+    "masks_and_layer_order": ["sky", "rear soil", "root systems", "far fungal branches", "near fungal path", "near dirt occluders", "route light"],
+    "seed_and_provider_config": {"actual_provider_seed": "record if supplied"}
+  },
+  "observable_negative_tests": ["no neural cell body copied", "no floating unattached bright dots", "every fungal thread linked to an actual parent", "no universal heavy black outline", "no generic blue data grid", "no extra human or AI character"],
+  "uncontrolled_high_impact_decisions": []
+}

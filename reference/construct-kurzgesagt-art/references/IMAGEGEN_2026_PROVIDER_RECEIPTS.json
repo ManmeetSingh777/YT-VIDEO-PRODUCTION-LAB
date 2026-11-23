@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-20",
+  "evidence_status": "ACTUAL_IMAGEGEN_TOOL_CALLS_AND_OUTPUT_PIXELS_OBSERVED",
+  "provider": "image_gen.imagegen",
+  "the_four_outputs_do_not_certify_animation": true,
+  "records": [
+    {
+      "job_id": "QUALIFY-UNFAMILIAR-CURRENT-001",
+      "attempt": 1,
+      "kind": "FIRST_PASS_UNREPAIRED",
+      "prompt_sha256": "ba7dd9b57964624189222f7df98de0c200996dcb01f01142d9609b77223672ea",
+      "source_sha256": ["c0578fb5d8bd5f8d97215b95a833a0ad20b650f8cd3d500c3855783df1236deb", "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a"],
+      "output_path": "assets/qualification_firstpass_human_v1.png",
+      "output_sha256": "49ac8b24a2eea517819117133cf2b10098f233675367bfefc61258c80977d065",
+      "output_dimensions": [1672, 941],
+      "first_pass_style_construction": "PARTIAL_POSITIVE",
+      "failure": "Unauthored white motion arrow"
+    },
+    {
+      "job_id": "QUALIFY-UNFAMILIAR-CURRENT-001",
+      "attempt": 2,
+      "kind": "FRESH_REGENERATION_AFTER_GENERALIZED_RULE_CHANGE",
+      "prompt_sha256": "1e59d61d9b72c71de7e7c3896e70b91e8e1306f68738b03238258a5dd5f62181",
+      "source_sha256": ["c0578fb5d8bd5f8d97215b95a833a0ad20b650f8cd3d500c3855783df1236deb", "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a"],
+      "output_path": "assets/qualification_revised_human_v2.png",
+      "output_sha256": "eab4fab081f8fb92a6af4c1fde418bcd855e533e266948e51aa8ae169a7a261a",
+      "output_dimensions": [1672, 941],
+      "observed_repair": "Motion arrow no longer visible; no animation states verified"
+    },
+    {
+      "job_id": "QUALIFY-ORIGINAL-SEISMIC-CUTAWAY-001",
+      "attempt": 1,
+      "kind": "FIRST_PASS_UNREPAIRED",
+      "prompt_sha256": "fbe5fe072fcabec8f8271990c741411e210e42f95dc5f7955707ffd7636b975c",
+      "source_sha256": ["915748f996585479db8a64f3e41210a4f97e483f5abb69f7a860570666961cb4", "e16141a231bd94272b4f3aef2ed041792de25e6796825ad0417001affb68ed97"],
+      "output_path": "assets/qualification_firstpass_seismic_v1.png",
+      "output_sha256": "707415e9c93542d3dd7ba44a926a004d0bf7182aa7d14d78290ef1d1ffb362bb",
+      "output_dimensions": [1672, 941],
+      "first_pass_style_construction": "PARTIAL_POSITIVE",
+      "failure": "Ray begins at edge instead of a visibly constructed origin fault"
+    },
+    {
+      "job_id": "QUALIFY-ORIGINAL-SEISMIC-CUTAWAY-001",
+      "attempt": 2,
+      "kind": "FRESH_REGENERATION_AFTER_GENERALIZED_RULE_CHANGE",
+      "prompt_sha256": "7bc7ca8b476c2a5027b6efa7744925a0c73f7adc3836a201b4a991726ce115e1",
+      "source_sha256": ["915748f996585479db8a64f3e41210a4f97e483f5abb69f7a860570666961cb4", "e16141a231bd94272b4f3aef2ed041792de25e6796825ad0417001affb68ed97"],
+      "output_path": "assets/qualification_revised_seismic_v2.png",
+      "output_sha256": "85038f074926592f71b0233c994c0ee7b7f03400e2b758dbd59ea10903bda5ad",
+      "output_dimensions": [1672, 941],
+      "observed_repair": "Visible fault is connected to ray; fault partly exits bottom border and extra front mark remains"
+    }
+  ]
+}

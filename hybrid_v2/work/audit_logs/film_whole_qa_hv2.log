@@ -1,0 +1,2 @@
+FAIL gates={"coverage":true,"manifest_production":false,"registration_evidence":false,"shots_qa":false,"transitions":false,"audio":false,"render":false,"human_film_review":false}
+exit=1

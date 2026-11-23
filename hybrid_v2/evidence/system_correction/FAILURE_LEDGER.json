@@ -1,0 +1,5411 @@
+{
+ "generated_by": "engine/tools/build_failure_ledger.mjs",
+ "schema": "schemas/failure_ledger.schema.json",
+ "revision": "4da33a2aafc81a7c52085602b00d587a49548639",
+ "tap_log_sha256": "bd74734b20179d8e4565947f7df3e68cdce11a97ab7eea2872a372e2b0359fd0",
+ "counts": {
+  "IMPLEMENTED_UNQUALIFIED": 43,
+  "QUALIFIED_ON_DIAGNOSTICS": 29
+ },
+ "rule": "QUALIFIED_ON_REAL_ART / QUALIFIED_FULL_FILM require provider pixels + human receipts: none exist, so no row can reach them",
+ "rows": [
+  {
+   "id": "F001",
+   "failed_invariant": "identity-specific face topology and scale-dependent feature hierarchy, no oval/sticker faces",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#validateMethodDecisions",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#allocateDetail",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#validateMethodDecisions",
+    "engine/art_bridge/source_method_causality.mjs#allocateDetail"
+   ],
+   "proof_tests": [
+    {
+     "id": "A01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A03 organism / natural world: human garment/head rules never leak into branches, leaves or limbs"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F002",
+   "failed_invariant": "art-driven parts/cels/underpaint preserve silhouette; no tube limbs or elbow gaps",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#isGenericPrimitive",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#validatePlanContract",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#isGenericPrimitive",
+    "engine/art_bridge/art_intake.mjs#validatePlanContract"
+   ],
+   "proof_tests": [
+    {
+     "id": "A01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic"
+     ]
+    },
+    {
+     "id": "R08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted"
+     ]
+    },
+    {
+     "id": "B2-a",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners"
+     ]
+    },
+    {
+     "id": "B2-c",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW",
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F003",
+   "failed_invariant": "grip = patch + orientation + closure + layer order",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/contact_solver.mjs#gripMorphology",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd93109100611834d66898274b477fd54d6573b1de765e20425505ea13b9f678",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "5070e19f29b0a9e888605cb29d601b9002c215cd91fadfda0a1f42cf5ddd17e3",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/temporal.mjs",
+      "engine/tools/art_bridge_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/contact_solver.mjs#gripMorphology",
+    "engine/art_bridge/temporal.mjs#compileMotionTracks"
+   ],
+   "proof_tests": [
+    {
+     "id": "M03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler",
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F004",
+   "failed_invariant": "IK refuses wrong branch/unreachable/limits; radians never read as degrees",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/constraints.mjs#solveTwoBonePosition",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "6fe63f7d42d0a4f9620f42e8ec6a587651fd0b116308fefb89fa49044842a486",
+     "production_call_sites": [
+      "engine/art_bridge/constraints.mjs",
+      "engine/art_bridge/contact_solver.mjs",
+      "engine/art_bridge/load_manifest.mjs",
+      "engine/art_bridge/temporal.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/contact_solver.mjs#solveContact",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd93109100611834d66898274b477fd54d6573b1de765e20425505ea13b9f678",
+     "production_call_sites": [
+      "engine/art_bridge/contact_solver.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/constraints.mjs#solveTwoBonePosition",
+    "engine/art_bridge/contact_solver.mjs#solveContact"
+   ],
+   "proof_tests": [
+    {
+     "id": "M02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F005",
+   "failed_invariant": "support solver + phrases: no frozen torso, no foot slide",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/contact_solver.mjs#balance",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd93109100611834d66898274b477fd54d6573b1de765e20425505ea13b9f678",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#compilePhrase",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/contact_solver.mjs#balance",
+    "engine/art_bridge/motion_systems.mjs#compilePhrase"
+   ],
+   "proof_tests": [
+    {
+     "id": "M05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F006",
+   "failed_invariant": "measured canonical geometry, no hand-entered pivots",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/asset_geometry.mjs#geometryFields",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "3bb56fe8e39e741149d5dd7080157d33581d7f02d87eaceaea9e5bff62a97628",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/registration.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#ingestMaster",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/asset_geometry.mjs#geometryFields",
+    "engine/art_bridge/art_intake.mjs#ingestMaster"
+   ],
+   "proof_tests": [
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    },
+    {
+     "id": "B1-a",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine"
+     ]
+    },
+    {
+     "id": "B1-b",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F007",
+   "failed_invariant": "every rigged family fits its interfaces to approved pixels",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#fitInterfacesToMeasured",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs"
+     ]
+    },
+    {
+     "producer": "films/hv2_film001/handoff/build_production_graph.mjs",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c34290840b0930655bc31ad43695a8111d23f01532d9d236d6cc55f383419b1f",
+     "production_call_sites": []
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_intake.mjs#fitInterfacesToMeasured",
+    "films/hv2_film001/handoff/build_production_graph.mjs"
+   ],
+   "proof_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    },
+    {
+     "id": "S3C-8",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible"
+     ]
+    },
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    },
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F008",
+   "failed_invariant": "per-frame coverage demands approved views/states",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "833a7ba983dfb83307f22ca1e0bb158bcbee47b1f90edb468862f873415144dc",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_demand.mjs#deriveArtDemands"
+   ],
+   "proof_tests": [
+    {
+     "id": "H1",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "H1 demands are derived from the real action graph (every bound state, contact closure, camera coverage) with frames — no fixed image count",
+      "H1 planned alpha contract is enforced at intake (no silent rewrite)"
+     ]
+    },
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    },
+    {
+     "id": "M06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M06 a full turn needs registered view cels; rotating the front PNG is refused"
+     ]
+    },
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    },
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F009",
+   "failed_invariant": "material-owned cast shadows with occluder/receiver",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#castShadow",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#castShadow"
+   ],
+   "proof_tests": [
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    },
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    },
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F010",
+   "failed_invariant": "authored world depth, life and projection",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#projectionGrammar",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    },
+    {
+     "producer": "engine/story/experience.mjs#compileAttention",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e06484a390f0848cf36700395191a6b2940eb714bb1ffcbb71064aa4231a1386",
+     "production_call_sites": [
+      "engine/story/experience.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/source_method_causality.mjs#projectionGrammar",
+    "engine/story/experience.mjs#compileAttention"
+   ],
+   "proof_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A03 organism / natural world: human garment/head rules never leak into branches, leaves or limbs"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW",
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F011",
+   "failed_invariant": "camera movement needs purpose + layered depth; one owner per node",
+   "root_producers": [
+    {
+     "producer": "engine/story/experience.mjs#cameraPurpose",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e06484a390f0848cf36700395191a6b2940eb714bb1ffcbb71064aa4231a1386",
+     "production_call_sites": [
+      "engine/story/experience.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#validateTransformOwnership",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/experience.mjs#cameraPurpose",
+    "engine/art_bridge/motion_systems.mjs#validateTransformOwnership"
+   ],
+   "proof_tests": [
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    },
+    {
+     "id": "M01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M01 disjoint transform ownership: camera → plane → root → joint → art; double owners, wrong nesting and cycles are refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F012",
+   "failed_invariant": "causal mechanism survives counterfactuals",
+   "root_producers": [
+    {
+     "producer": "engine/story/mechanism.mjs#evaluateMechanism",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "573020b69f244d68e445d8d5d22c2403295f475a92693e51751e50dc133793e3",
+     "production_call_sites": [
+      "engine/story/mechanism.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/mechanism.mjs#evaluateMechanism"
+   ],
+   "proof_tests": [
+    {
+     "id": "T01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)"
+     ]
+    },
+    {
+     "id": "T08 (mechanisms)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    },
+    {
+     "id": "T08 (mechanisms)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08 (mechanisms)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    },
+    {
+     "id": "T08 (mechanisms)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "HUMAN_STORY_AND_DIRECTION_APPROVAL"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F013",
+   "failed_invariant": "every visible verb compiles to executable sub-operations",
+   "root_producers": [
+    {
+     "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e0dd7545f9029facf30fe2bc80bc9326b270a4f800c52ca86f66141f89e0d990",
+     "production_call_sites": [
+      "engine/story/action_coverage.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/action_coverage.mjs#compileActionCoverage"
+   ],
+   "proof_tests": [
+    {
+     "id": "T02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')"
+     ]
+    },
+    {
+     "id": "REAL proposal S02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "REAL proposal S02: the 'loads' verb and the carried bag compile to exact missing operations (reproduces F013 without a scene patch)"
+     ]
+    },
+    {
+     "id": "G-wiring",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "G-wiring the film-contracts compiler (run by exportOutbox before art) reports the real proposal's blockers from its own producers"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08 (actions)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "HUMAN_STORY_AND_DIRECTION_APPROVAL"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F014",
+   "failed_invariant": "transfer/hold/release/collision sub-actions and ownership",
+   "root_producers": [
+    {
+     "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e0dd7545f9029facf30fe2bc80bc9326b270a4f800c52ca86f66141f89e0d990",
+     "production_call_sites": [
+      "engine/story/action_coverage.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/action_coverage.mjs#compileActionCoverage"
+   ],
+   "proof_tests": [
+    {
+     "id": "T02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')"
+     ]
+    },
+    {
+     "id": "T03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T03 one hand cannot grip two unrelated props at once; an unclaimed contact is an ORPHAN action; possession cannot teleport"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08 (actions)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F015",
+   "failed_invariant": "computed shot boundary state continuity",
+   "root_producers": [
+    {
+     "producer": "engine/story/continuity.mjs#checkContinuity",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "8e619e94073aff7d22772098fcce90d689213c60a9b2e924a6038cbe5990b5d8",
+     "production_call_sites": [
+      "engine/story/continuity.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/continuity.mjs#checkContinuity"
+   ],
+   "proof_tests": [
+    {
+     "id": "T05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T05 outgoing door OPEN but incoming CLOSED (opening only later) is refused; an approved, reasoned time jump is accepted"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "unlike continuity",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "unlike continuity: carried object and weather/lighting state across cuts; frame gaps are refused"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F016",
+   "failed_invariant": "obstacles resolved only by mechanism state",
+   "root_producers": [
+    {
+     "producer": "engine/story/mechanism.mjs#validateStoryContract",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "573020b69f244d68e445d8d5d22c2403295f475a92693e51751e50dc133793e3",
+     "production_call_sites": [
+      "engine/story/mechanism.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/mechanism.mjs#validateStoryContract"
+   ],
+   "proof_tests": [
+    {
+     "id": "T04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08 (mechanisms)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "HUMAN_STORY_AND_DIRECTION_APPROVAL"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F017",
+   "failed_invariant": "direction decisions have consuming tracks",
+   "root_producers": [
+    {
+     "producer": "engine/story/experience.mjs#compileAttention",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e06484a390f0848cf36700395191a6b2940eb714bb1ffcbb71064aa4231a1386",
+     "production_call_sites": [
+      "engine/story/experience.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/story/experience.mjs#directionFieldsConsumed",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e06484a390f0848cf36700395191a6b2940eb714bb1ffcbb71064aa4231a1386",
+     "production_call_sites": [
+      "engine/story/experience.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/experience.mjs#compileAttention",
+    "engine/story/experience.mjs#directionFieldsConsumed"
+   ],
+   "proof_tests": [
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "G-wiring",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "G-wiring the film-contracts compiler (run by exportOutbox before art) reports the real proposal's blockers from its own producers"
+     ]
+    },
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    },
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "HUMAN_STORY_AND_DIRECTION_APPROVAL"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F018",
+   "failed_invariant": "multi-owner simultaneous phrases",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#compilePhrase",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#compilePhrase"
+   ],
+   "proof_tests": [
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    },
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F019",
+   "failed_invariant": "mechanism consequence observable",
+   "root_producers": [
+    {
+     "producer": "engine/story/mechanism.mjs#runCounterfactuals",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "573020b69f244d68e445d8d5d22c2403295f475a92693e51751e50dc133793e3",
+     "production_call_sites": [
+      "engine/story/mechanism.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#compilePhrase",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/mechanism.mjs#runCounterfactuals",
+    "engine/art_bridge/motion_systems.mjs#compilePhrase"
+   ],
+   "proof_tests": [
+    {
+     "id": "T01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08 (mechanisms)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F020",
+   "failed_invariant": "approved continuous transitions, no aperture pop",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#validatePortal",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/transitions.mjs#compileTransition",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d3f7e29ad7f428d8c80a8da67442cc3c8bab1175cc1688abc9349ed92fc02b97",
+     "production_call_sites": [
+      "engine/art_bridge/scene_graph.mjs",
+      "engine/art_bridge/transitions.mjs",
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#validatePortal",
+    "engine/art_bridge/transitions.mjs#compileTransition"
+   ],
+   "proof_tests": [
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    },
+    {
+     "id": "B1-f",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)"
+     ]
+    },
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    },
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F021",
+   "failed_invariant": "view-family ancestry; no rotated front PNG",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#validateViewTurn",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": []
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#validateViewTurn"
+   ],
+   "proof_tests": [
+    {
+     "id": "M06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M06 a full turn needs registered view cels; rotating the front PNG is refused"
+     ]
+    },
+    {
+     "id": "M06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M06 a full turn needs registered view cels; rotating the front PNG is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M06 a full turn needs registered view cels; rotating the front PNG is refused"
+     ]
+    },
+    {
+     "id": "M06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M06 a full turn needs registered view cels; rotating the front PNG is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F022",
+   "failed_invariant": "immutable master lineage; drift detected",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/approvals.mjs#verifyApproval",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "98256da4d2fee14230bb3bea240976449b04ddb0ef2ab8e375eaea245c88b40a",
+     "production_call_sites": [
+      "engine/art_bridge/approvals.mjs",
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/art_intake.mjs",
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_requests.mjs#dependencyDigest",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "a57efb91e8a2d8717b18c830819de78b927683f58f45d8ea7be2e48115d2c501",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/art_requests.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/approvals.mjs#verifyApproval",
+    "engine/art_bridge/art_requests.mjs#dependencyDigest"
+   ],
+   "proof_tests": [
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    },
+    {
+     "id": "P0-4",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges"
+     ]
+    },
+    {
+     "id": "H4",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "H4 review history is immutable; a rejection clears the current pointer; every decision survives"
+     ]
+    },
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    },
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F023",
+   "failed_invariant": "two-way view/pose/alpha/resolution agreement",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#validateAgreementUniversal",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#validateAgreementUniversal"
+   ],
+   "proof_tests": [
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "S3C-4",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "S3C-4 view agreement: the motion contract carries the rig's canonical view, and a design/motion view mismatch is refused"
+     ]
+    },
+    {
+     "id": "S3C-5",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused"
+     ]
+    },
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    },
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    },
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F024",
+   "failed_invariant": "per-method Build decisions (F64 etc.) verified",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#validateBindings",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#validateMethodDecisions",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#validateBindings",
+    "engine/art_bridge/art_contract.mjs#validateMethodDecisions"
+   ],
+   "proof_tests": [
+    {
+     "id": "S3C-1",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "S3C-1 method fidelity: the audited Ines brief (F64 bound as hand construction, F05/F52 mislabelled) is refused before compile"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F025",
+   "failed_invariant": "decisions actually affect work",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/request_stages.mjs#planStages",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "2259d20512e0ae4b03d56ebc571486449bcb7b45609b6525fb05ae9aa30012d6",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/request_stages.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/request_stages.mjs#planStages"
+   ],
+   "proof_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "A01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A02 machine: functional topology methods are required; a box-plus-circles decision is refused, a functional one is delivered"
+     ]
+    },
+    {
+     "id": "A03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A03 organism / natural world: human garment/head rules never leak into branches, leaves or limbs"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F026",
+   "failed_invariant": "no placeholder molecular / generic primitive, every family",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#validateMolecular",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#isGenericPrimitive",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#validateMolecular",
+    "engine/art_bridge/art_contract.mjs#isGenericPrimitive"
+   ],
+   "proof_tests": [
+    {
+     "id": "U01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U01 all six masters produce a NON-NULL contract status; each incomplete design is BLOCKED (never COMPILED/SUBMITTED)"
+     ]
+    },
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "A02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A02 machine: functional topology methods are required; a box-plus-circles decision is refused, a functional one is delivered"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F027",
+   "failed_invariant": "witness regions on real pixels, human-confirmed",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/witness_regions.mjs#validateRegions",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "7c5ac2181f8134466e26f5e3d56f9d09b0a6d16f1f12aa0467077c77293afe02",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/witness_regions.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_review.mjs#buildReviewPacket",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "b73d490113af29929e21aa4dbba56987d99b74da3cf947ef710ec99aece3649d",
+     "production_call_sites": [
+      "engine/art_bridge/art_review.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/witness_regions.mjs#validateRegions",
+    "engine/art_bridge/art_review.mjs#buildReviewPacket"
+   ],
+   "proof_tests": [
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    },
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    },
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F028",
+   "failed_invariant": "complete versioned method delivery under the provider limit",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/request_stages.mjs#planStages",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "2259d20512e0ae4b03d56ebc571486449bcb7b45609b6525fb05ae9aa30012d6",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/request_stages.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/request_stages.mjs#planStages"
+   ],
+   "proof_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "U05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F029",
+   "failed_invariant": "detail by projected size and attention",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#allocateDetail",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/source_method_causality.mjs#allocateDetail"
+   ],
+   "proof_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F030",
+   "failed_invariant": "projection grammar enforced on planes",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#projectionGrammar",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/source_method_causality.mjs#projectionGrammar"
+   ],
+   "proof_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F031",
+   "failed_invariant": "F19/20/29/34/49/55 consumers perturbed",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#routeBeatMedia",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#cameraSizedArtworkDemand",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/art_demand.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/source_method_causality.mjs#routeBeatMedia",
+    "engine/art_bridge/source_method_causality.mjs#cameraSizedArtworkDemand"
+   ],
+   "proof_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F032",
+   "failed_invariant": "learning shown by novel first pass",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/repair_memory.mjs#selectRules",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "ee9a9bd61d9686118f72b556f4b22f0333c3485c6cdf1748f5ab0380ff622664",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/repair_memory.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/repair_memory.mjs#selectRules"
+   ],
+   "proof_tests": [
+    {
+     "id": "L02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L02 a NEW first pass (no local patch) consumes the matching rule: the compiled request carries its positive operations"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F033",
+   "failed_invariant": "independent review; no self-grading",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_review.mjs#recordArtReview",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "b73d490113af29929e21aa4dbba56987d99b74da3cf947ef710ec99aece3649d",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/approvals.mjs#writeReceipt",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "98256da4d2fee14230bb3bea240976449b04ddb0ef2ab8e375eaea245c88b40a",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/art_review.mjs",
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_review.mjs#recordArtReview",
+    "engine/art_bridge/approvals.mjs#writeReceipt"
+   ],
+   "proof_tests": [
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    },
+    {
+     "id": "H5",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator"
+     ]
+    },
+    {
+     "id": "T01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)"
+     ]
+    },
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    },
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW",
+    "HUMAN_STORY_AND_DIRECTION_APPROVAL"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F034",
+   "failed_invariant": "conditional transfer learning",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/repair_memory.mjs#selectRules",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "ee9a9bd61d9686118f72b556f4b22f0333c3485c6cdf1748f5ab0380ff622664",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/repair_memory.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/repair_memory.mjs#matchingRulesDigest",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "ee9a9bd61d9686118f72b556f4b22f0333c3485c6cdf1748f5ab0380ff622664",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/repair_memory.mjs#selectRules",
+    "engine/art_bridge/repair_memory.mjs#matchingRulesDigest"
+   ],
+   "proof_tests": [
+    {
+     "id": "L01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L01 a failure is recorded against its producer (general class, predicate, invariant); scene-named classes are refused"
+     ]
+    },
+    {
+     "id": "L02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L02 a NEW first pass (no local patch) consumes the matching rule: the compiled request carries its positive operations"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    },
+    {
+     "id": "L04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L04 a rule contradicting the approved design/source blocks (REPAIR_RULE_CONFLICT) instead of being chosen"
+     ]
+    },
+    {
+     "id": "L05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L05 diagnostic or missing pixels can never mark artistic learning qualified"
+     ]
+    },
+    {
+     "id": "L06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L06 a memory change invalidates only the jobs whose predicate it matches"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F035",
+   "failed_invariant": "predicate/producer repairs, not scene patches",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/repair_memory.mjs#recordFailure",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "ee9a9bd61d9686118f72b556f4b22f0333c3485c6cdf1748f5ab0380ff622664",
+     "production_call_sites": [
+      "engine/art_bridge/repair_memory.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/repair_memory.mjs#recordFailure"
+   ],
+   "proof_tests": [
+    {
+     "id": "L01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L01 a failure is recorded against its producer (general class, predicate, invariant); scene-named classes are refused"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F036",
+   "failed_invariant": "every trigger keeps frame ranges",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#planJobs",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#resolveContractContext",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/art_requests.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_intake.mjs#planJobs",
+    "engine/art_bridge/art_contract.mjs#resolveContractContext"
+   ],
+   "proof_tests": [
+    {
+     "id": "P0-1",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges",
+      "P0-1b Ines master context covers the S02 interval and the master's shots",
+      "P0-1c perturbing S02 grip timing changes only dependent job contexts",
+      "P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows"
+     ]
+    },
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P0-1d",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F037",
+   "failed_invariant": "master medium follows master semantics",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_requests.mjs#routeMedium",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "a57efb91e8a2d8717b18c830819de78b927683f58f45d8ea7be2e48115d2c501",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/art_requests.mjs",
+      "engine/methods/proofs/p_world.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_requests.mjs#routeMedium"
+   ],
+   "proof_tests": [
+    {
+     "id": "P0-2",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-2a all six canonical-master jobs route to the canonical master medium",
+      "P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused"
+     ]
+    },
+    {
+     "id": "U01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U01 all six masters produce a NON-NULL contract status; each incomplete design is BLOCKED (never COMPILED/SUBMITTED)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F038",
+   "failed_invariant": "immutable registration/lineage/approval",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "793fa20722689183bd8c6adcae924676ad31e671b6520aa1c0cf026da5a45ed5",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/registration_evidence.mjs",
+      "engine/tools/art_bridge_film_qa.mjs",
+      "engine/tools/art_bridge_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt"
+   ],
+   "proof_tests": [
+    {
+     "id": "H2",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "H2 registration receipt content is verified and bound into the approval"
+     ]
+    },
+    {
+     "id": "P0-3",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F039",
+   "failed_invariant": "content-scoped approvals; stale reuse refused",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/approvals.mjs#verifyApproval",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "98256da4d2fee14230bb3bea240976449b04ddb0ef2ab8e375eaea245c88b40a",
+     "production_call_sites": [
+      "engine/art_bridge/approvals.mjs",
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/art_intake.mjs",
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/approvals.mjs#verifyApproval",
+    "engine/art_bridge/art_contract.mjs#scopeApprovalStatus"
+   ],
+   "proof_tests": [
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    },
+    {
+     "id": "P0-4",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges"
+     ]
+    },
+    {
+     "id": "P03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F040",
+   "failed_invariant": "authorized provider adapter; stub never real",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#submitJob",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_intake.mjs#submitJob"
+   ],
+   "proof_tests": [
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    },
+    {
+     "id": "P0-5",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent"
+     ]
+    },
+    {
+     "id": "H3",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "IMAGE_PROVIDER credentials"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F041",
+   "failed_invariant": "layered fail-closed QA",
+   "root_producers": [
+    {
+     "producer": "engine/film/qa_layers.mjs#computeLayers",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e9594404b6e533daad45e17c9e8d785b66c284c4ce6cf0689642793b5c4a3dbe",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    },
+    {
+     "producer": "engine/tools/art_bridge_film_qa.mjs#qualifyFilm",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "004a0cfc370d319dfa9eebb62e0e6a1e54ae572bf1c23a78ee360ac34ee8348e",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/qa_layers.mjs#computeLayers",
+    "engine/tools/art_bridge_film_qa.mjs#qualifyFilm"
+   ],
+   "proof_tests": [
+    {
+     "id": "P05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "B3-5",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F042",
+   "failed_invariant": "B1 full-quad canonical bbox",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/asset_geometry.mjs#canonicalBBox",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "3bb56fe8e39e741149d5dd7080157d33581d7f02d87eaceaea9e5bff62a97628",
+     "production_call_sites": [
+      "engine/art_bridge/asset_geometry.mjs",
+      "engine/art_bridge/transitions.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/asset_geometry.mjs#canonicalBBox"
+   ],
+   "proof_tests": [
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    },
+    {
+     "id": "B1-a",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine"
+     ]
+    },
+    {
+     "id": "B1-e",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)"
+     ]
+    },
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    },
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F043",
+   "failed_invariant": "B2 underpaint ownership end-to-end",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#validatePlanContract",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_intake.mjs#validatePlanContract"
+   ],
+   "proof_tests": [
+    {
+     "id": "B2-a",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners"
+     ]
+    },
+    {
+     "id": "B2-b",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses"
+     ]
+    },
+    {
+     "id": "B2-c",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam"
+     ]
+    },
+    {
+     "id": "B2-d",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused"
+     ]
+    },
+    {
+     "id": "R08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted"
+     ]
+    },
+    {
+     "id": "R08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted"
+     ]
+    },
+    {
+     "id": "R08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F044",
+   "failed_invariant": "B3 honest whole-film positive path",
+   "root_producers": [
+    {
+     "producer": "engine/tools/art_bridge_film_qa.mjs#qualifyFilm",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "004a0cfc370d319dfa9eebb62e0e6a1e54ae572bf1c23a78ee360ac34ee8348e",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/tools/art_bridge_film_qa.mjs#qualifyFilm"
+   ],
+   "proof_tests": [
+    {
+     "id": "B3-3",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)"
+     ]
+    },
+    {
+     "id": "B3-6",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F045",
+   "failed_invariant": "contract covers every family/state kind",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#resolveContractContext",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/art_requests.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_families.mjs#resolveFamily",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d7203325e31047551fd6b97f89f7a9367ddf3977f86f3dd7fb02cae8aaa465a5",
+     "production_call_sites": [
+      "engine/art_bridge/art_families.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#resolveContractContext",
+    "engine/art_bridge/art_families.mjs#resolveFamily"
+   ],
+   "proof_tests": [
+    {
+     "id": "U01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U01 all six masters produce a NON-NULL contract status; each incomplete design is BLOCKED (never COMPILED/SUBMITTED)"
+     ]
+    },
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    },
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    },
+    {
+     "id": "U02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F046",
+   "failed_invariant": "no null-context fail-open",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_requests.mjs#compileArtJob",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "a57efb91e8a2d8717b18c830819de78b927683f58f45d8ea7be2e48115d2c501",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#requireApprovedContract",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_requests.mjs#compileArtJob",
+    "engine/art_bridge/art_contract.mjs#requireApprovedContract"
+   ],
+   "proof_tests": [
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U01 all six masters produce a NON-NULL contract status; each incomplete design is BLOCKED (never COMPILED/SUBMITTED)"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F047",
+   "failed_invariant": "story approval only from receipts",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_contract.mjs#approveScope",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "583703f539a064f34d8eb1c935913d475e9c4c6432f5a16b5eee357d7c991791",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    },
+    {
+     "producer": "engine/tools/art_outbox.mjs#exportOutbox",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "24790845e6559e1e77af4a908dc7f71a76108d5c66663dfb2a73ba54284ff900",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_contract.mjs#approveScope",
+    "engine/tools/art_outbox.mjs#exportOutbox"
+   ],
+   "proof_tests": [
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    },
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "T04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    },
+    {
+     "id": "U06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "HUMAN_STORY_AND_DIRECTION_APPROVAL"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F048",
+   "failed_invariant": "immutable content-addressed outbox",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/outbox_store.mjs#materialize",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d7808828c628147f315f88517e0cb0f10fdbe00fe0862a6746824c50e61a4aa1",
+     "production_call_sites": [
+      "engine/art_bridge/outbox_store.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    },
+    {
+     "producer": "engine/tools/art_outbox.mjs#exportOutbox",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "24790845e6559e1e77af4a908dc7f71a76108d5c66663dfb2a73ba54284ff900",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/outbox_store.mjs#materialize",
+    "engine/tools/art_outbox.mjs#exportOutbox"
+   ],
+   "proof_tests": [
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    },
+    {
+     "id": "U05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion"
+     ]
+    },
+    {
+     "id": "U05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "U05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion"
+     ]
+    },
+    {
+     "id": "U05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F049",
+   "failed_invariant": "method status from causal evidence, not export existence",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/method_trace.mjs#buildMethodTrace",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4cad946f0ccc481caf9fbdca000d7bd339b678d247f5966365e612a53687359a",
+     "production_call_sites": [
+      "engine/art_bridge/method_trace.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/method_trace.mjs#buildMethodTrace"
+   ],
+   "proof_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F050",
+   "failed_invariant": "no 32k edge / SAME AS pointers",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/request_stages.mjs#planStages",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "2259d20512e0ae4b03d56ebc571486449bcb7b45609b6525fb05ae9aa30012d6",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/request_stages.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/request_stages.mjs#planStages"
+   ],
+   "proof_tests": [
+    {
+     "id": "A05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED"
+     ]
+    },
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F051",
+   "failed_invariant": "zero XY with reversed palm fails",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/contact_solver.mjs#gripMorphology",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd93109100611834d66898274b477fd54d6573b1de765e20425505ea13b9f678",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "5070e19f29b0a9e888605cb29d601b9002c215cd91fadfda0a1f42cf5ddd17e3",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/temporal.mjs",
+      "engine/tools/art_bridge_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/contact_solver.mjs#gripMorphology",
+    "engine/art_bridge/temporal.mjs#compileMotionTracks"
+   ],
+   "proof_tests": [
+    {
+     "id": "M03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error"
+     ]
+    },
+    {
+     "id": "M03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error"
+     ]
+    },
+    {
+     "id": "M03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F052",
+   "failed_invariant": "body compensation is support-solved",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/contact_solver.mjs#solveContact",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd93109100611834d66898274b477fd54d6573b1de765e20425505ea13b9f678",
+     "production_call_sites": [
+      "engine/art_bridge/contact_solver.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/contact_solver.mjs#solveContact"
+   ],
+   "proof_tests": [
+    {
+     "id": "M05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched"
+     ]
+    },
+    {
+     "id": "M05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched"
+     ]
+    },
+    {
+     "id": "M05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F053",
+   "failed_invariant": "view/expression feasibility after rig fit",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#checkRigFeasibility",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_intake.mjs#checkRigFeasibility"
+   ],
+   "proof_tests": [
+    {
+     "id": "M10",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)"
+     ]
+    },
+    {
+     "id": "S3C-8",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible"
+     ]
+    },
+    {
+     "id": "M10",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M10",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)"
+     ]
+    },
+    {
+     "id": "M10",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F054",
+   "failed_invariant": "homologous morph + approved deform map",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/deform.mjs#validateMorph",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd29e5a99be42a154654b067b351e953c2a1e38ea04d526eb4d03a3a4bfc84bc",
+     "production_call_sites": [
+      "engine/art_bridge/deform.mjs",
+      "engine/art_bridge/state_router.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/deform.mjs#validateDeformMap",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "cd29e5a99be42a154654b067b351e953c2a1e38ea04d526eb4d03a3a4bfc84bc",
+     "production_call_sites": [
+      "engine/art_bridge/deform.mjs",
+      "engine/art_bridge/state_router.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/deform.mjs#validateMorph",
+    "engine/art_bridge/deform.mjs#validateDeformMap"
+   ],
+   "proof_tests": [
+    {
+     "id": "M07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map",
+      "M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge"
+     ]
+    },
+    {
+     "id": "M07b",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge"
+     ]
+    },
+    {
+     "id": "M07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map",
+      "M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map",
+      "M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge"
+     ]
+    },
+    {
+     "id": "M07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map",
+      "M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F055",
+   "failed_invariant": "cast shadow relation",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#castShadow",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#castShadow"
+   ],
+   "proof_tests": [
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    },
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    },
+    {
+     "id": "M09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F056",
+   "failed_invariant": "portal OUT/MIDDLE/IN on pixels",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#validatePortal",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#validatePortal"
+   ],
+   "proof_tests": [
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    },
+    {
+     "id": "B1-f",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)"
+     ]
+    },
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    },
+    {
+     "id": "M11",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F057",
+   "failed_invariant": "recorded audio drives frame events",
+   "root_producers": [
+    {
+     "producer": "engine/story/narration.mjs#validateNarrationTimeline",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "caf1a1c0c5fa705e0efba82159cb60f801ee17b442de08795a94bd161d1c137c",
+     "production_call_sites": [
+      "engine/story/narration.mjs",
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    },
+    {
+     "producer": "engine/tools/art_bridge_film_qa.mjs#qualifyFilm",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "004a0cfc370d319dfa9eebb62e0e6a1e54ae572bf1c23a78ee360ac34ee8348e",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/narration.mjs#validateNarrationTimeline",
+    "engine/tools/art_bridge_film_qa.mjs#qualifyFilm"
+   ],
+   "proof_tests": [
+    {
+     "id": "T06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T06 changed script or audio invalidates word-linked frame anchors; estimated timing cannot anchor a critical cue"
+     ]
+    },
+    {
+     "id": "P04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks"
+     ]
+    },
+    {
+     "id": "P04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks"
+     ]
+    },
+    {
+     "id": "P04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F058",
+   "failed_invariant": "whole A/V film segmentation/restart determinism",
+   "root_producers": [
+    {
+     "producer": "engine/film/segment_render.mjs#renderFilm",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d3569f3c5ac188c224a2a034e22ba93f4948ce38a4e74c3c466ce96df761a67a",
+     "production_call_sites": []
+    },
+    {
+     "producer": "engine/film/film_revision.mjs#checkTiling",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "1537378a5395a81249f71974c0909db0a3e8ddd00185ed913763e2af04aeb0f7",
+     "production_call_sites": [
+      "engine/film/film_revision.mjs",
+      "engine/tools/art_bridge_film_qa.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/segment_render.mjs#renderFilm",
+    "engine/film/film_revision.mjs#checkTiling"
+   ],
+   "proof_tests": [
+    {
+     "id": "P01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused"
+     ]
+    },
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    },
+    {
+     "id": "P05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification"
+     ]
+    },
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    },
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F059",
+   "failed_invariant": "render authority only from the render path",
+   "root_producers": [
+    {
+     "producer": "engine/film/segment_render.mjs#verifyRenderReceipt",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d3569f3c5ac188c224a2a034e22ba93f4948ce38a4e74c3c466ce96df761a67a",
+     "production_call_sites": [
+      "engine/film/segment_render.mjs",
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/segment_render.mjs#verifyRenderReceipt"
+   ],
+   "proof_tests": [
+    {
+     "id": "P06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render"
+     ]
+    },
+    {
+     "id": "B3-4",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt"
+     ]
+    },
+    {
+     "id": "P06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render"
+     ]
+    },
+    {
+     "id": "P06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F060",
+   "failed_invariant": "upstream change stales QA/approvals",
+   "root_producers": [
+    {
+     "producer": "engine/film/film_revision.mjs#buildFilmRevision",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "1537378a5395a81249f71974c0909db0a3e8ddd00185ed913763e2af04aeb0f7",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs",
+      "engine/tools/art_bridge_qa.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_requests.mjs#dependencyDigest",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "a57efb91e8a2d8717b18c830819de78b927683f58f45d8ea7be2e48115d2c501",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/art_requests.mjs",
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/film_revision.mjs#buildFilmRevision",
+    "engine/art_bridge/art_requests.mjs#dependencyDigest"
+   ],
+   "proof_tests": [
+    {
+     "id": "P03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render"
+     ]
+    },
+    {
+     "id": "U04",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes"
+     ]
+    },
+    {
+     "id": "P03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render"
+     ]
+    },
+    {
+     "id": "P03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F061",
+   "failed_invariant": "native style + full-speed choreography human-qualified",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_review.mjs#recordArtReview",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "b73d490113af29929e21aa4dbba56987d99b74da3cf947ef710ec99aece3649d",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_review.mjs#recordArtReview"
+   ],
+   "proof_tests": [
+    {
+     "id": "A07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    },
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW",
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW",
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F062",
+   "failed_invariant": "renderer never draws/changes art for unsupported animation",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "833a7ba983dfb83307f22ca1e0bb158bcbee47b1f90edb468862f873415144dc",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/story/narration.mjs#assertNotDiagnostic",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "caf1a1c0c5fa705e0efba82159cb60f801ee17b442de08795a94bd161d1c137c",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+    "engine/story/narration.mjs#assertNotDiagnostic"
+   ],
+   "proof_tests": [
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    },
+    {
+     "id": "T09",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T09 the timed animatic retains DIAGNOSTIC_ONLY provenance and cannot pass an art or film gate"
+     ]
+    },
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    },
+    {
+     "id": "M15",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F063",
+   "failed_invariant": "absent provider/review never represented as completion",
+   "root_producers": [
+    {
+     "producer": "engine/film/qa_layers.mjs#computeLayers",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e9594404b6e533daad45e17c9e8d785b66c284c4ce6cf0689642793b5c4a3dbe",
+     "production_call_sites": [
+      "engine/tools/art_bridge_film_qa.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#submitJob",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/tools/art_outbox.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/qa_layers.mjs#computeLayers",
+    "engine/art_bridge/art_intake.mjs#submitJob"
+   ],
+   "proof_tests": [
+    {
+     "id": "U03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    },
+    {
+     "id": "P08",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F064",
+   "failed_invariant": "methods learned, not characters/metaphors copied",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/repair_memory.mjs#selectRules",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "ee9a9bd61d9686118f72b556f4b22f0333c3485c6cdf1748f5ab0380ff622664",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/repair_memory.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/method_applicability.mjs#applicability",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e83adff2c657f407dd9f2c2f6b326029f83b8280b6feb085f1ac4edec38755e1",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs",
+      "engine/art_bridge/method_applicability.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/repair_memory.mjs#selectRules",
+    "engine/art_bridge/method_applicability.mjs#applicability"
+   ],
+   "proof_tests": [
+    {
+     "id": "A03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A03 organism / natural world: human garment/head rules never leak into branches, leaves or limbs"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    },
+    {
+     "id": "L03",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "L03 a non-matching subject receives no rule"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F065",
+   "failed_invariant": "critical action/claim/attention present in the frames",
+   "root_producers": [
+    {
+     "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e0dd7545f9029facf30fe2bc80bc9326b270a4f800c52ca86f66141f89e0d990",
+     "production_call_sites": [
+      "engine/story/action_coverage.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/story/experience.mjs#compileAttention",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e06484a390f0848cf36700395191a6b2940eb714bb1ffcbb71064aa4231a1386",
+     "production_call_sites": [
+      "engine/story/experience.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/story/action_coverage.mjs#compileActionCoverage",
+    "engine/story/experience.mjs#compileAttention"
+   ],
+   "proof_tests": [
+    {
+     "id": "T02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')"
+     ]
+    },
+    {
+     "id": "T07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "T08 (actions)",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F066",
+   "failed_invariant": "declared intervals are covered and altered",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/art_intake.mjs#checkRigFeasibility",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "c9309ebb45179106ca6dda4f4bf809e2126c56d06030f5c2d6074d0f5cb3614c",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#seededParticles",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": []
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/art_intake.mjs#checkRigFeasibility",
+    "engine/art_bridge/motion_systems.mjs#seededParticles"
+   ],
+   "proof_tests": [
+    {
+     "id": "M10",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)"
+     ]
+    },
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    },
+    {
+     "id": "P01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused"
+     ]
+    },
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    },
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F067",
+   "failed_invariant": "camera/object ownership preserves projected anchors",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#validateTransformOwnership",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": [
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/asset_geometry.mjs#canonicalBBox",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "3bb56fe8e39e741149d5dd7080157d33581d7f02d87eaceaea9e5bff62a97628",
+     "production_call_sites": [
+      "engine/art_bridge/asset_geometry.mjs",
+      "engine/art_bridge/transitions.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#validateTransformOwnership",
+    "engine/art_bridge/asset_geometry.mjs#canonicalBBox"
+   ],
+   "proof_tests": [
+    {
+     "id": "M01",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M01 disjoint transform ownership: camera → plane → root → joint → art; double owners, wrong nesting and cycles are refused"
+     ]
+    },
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    },
+    {
+     "id": "B1-d",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree"
+     ]
+    },
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    },
+    {
+     "id": "R01/R02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F068",
+   "failed_invariant": "plane tilt/normal from the projection contract",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/source_method_causality.mjs#projectionGrammar",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "4eb7928adaa0d4561b35a1b39871ebf0dcdab1307c4e56174d3f267f2844eb93",
+     "production_call_sites": [
+      "engine/art_bridge/art_contract.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/source_method_causality.mjs#projectionGrammar"
+   ],
+   "proof_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    },
+    {
+     "id": "A06",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F069",
+   "failed_invariant": "shutter blur is a compositor consumer",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/motion_systems.mjs#shutterSamples",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "0bd560a4e36b5b2284d738ba91c2f8994329b0e1cbea0c211fe89f07d7dc32ff",
+     "production_call_sites": []
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/motion_systems.mjs#shutterSamples"
+   ],
+   "proof_tests": [
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    },
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    },
+    {
+     "id": "M13",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_ART_MOTION + HUMAN_MOTION_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F070",
+   "failed_invariant": "edits preserve pixels outside the authorized region",
+   "root_producers": [
+    {
+     "producer": "engine/art_bridge/registration.mjs#registerPart",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "ac2d6f3dd0d9cb7632c53f6fbd9c9ef8fdb267f54996a77759845f3091c0b568",
+     "production_call_sites": [
+      "engine/art_bridge/art_intake.mjs",
+      "engine/art_bridge/registration.mjs"
+     ]
+    },
+    {
+     "producer": "engine/art_bridge/request_stages.mjs#planStages",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "2259d20512e0ae4b03d56ebc571486449bcb7b45609b6525fb05ae9aa30012d6",
+     "production_call_sites": [
+      "engine/art_bridge/art_requests.mjs",
+      "engine/art_bridge/request_stages.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/art_bridge/registration.mjs#registerPart",
+    "engine/art_bridge/request_stages.mjs#planStages"
+   ],
+   "proof_tests": [
+    {
+     "id": "P0-3",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved"
+     ]
+    },
+    {
+     "id": "H2",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "H2 registration receipt content is verified and bound into the approval"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "R07",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "REAL_GPT_ART + HUMAN_ART_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F071",
+   "failed_invariant": "renderer retries cannot alter content; hashes reproducible",
+   "root_producers": [
+    {
+     "producer": "engine/film/segment_render.mjs#renderChunk",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d3569f3c5ac188c224a2a034e22ba93f4948ce38a4e74c3c466ce96df761a67a",
+     "production_call_sites": [
+      "engine/film/segment_render.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/segment_render.mjs#renderChunk"
+   ],
+   "proof_tests": [
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    },
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    },
+    {
+     "id": "P02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt"
+     ]
+    }
+   ],
+   "external_dependencies": [],
+   "status": "QUALIFIED_ON_DIAGNOSTICS",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  },
+  {
+   "id": "F072",
+   "failed_invariant": "no frozen/duplicated frames hiding missing motion",
+   "root_producers": [
+    {
+     "producer": "engine/film/segment_render.mjs#frameDefects",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "d3569f3c5ac188c224a2a034e22ba93f4948ce38a4e74c3c466ce96df761a67a",
+     "production_call_sites": [
+      "engine/film/segment_render.mjs"
+     ]
+    },
+    {
+     "producer": "engine/story/action_coverage.mjs#compileActionCoverage",
+     "exists": true,
+     "exported": true,
+     "file_sha256": "e0dd7545f9029facf30fe2bc80bc9326b270a4f800c52ca86f66141f89e0d990",
+     "production_call_sites": [
+      "engine/story/action_coverage.mjs",
+      "engine/tools/compile_film_contracts.mjs"
+     ]
+    }
+   ],
+   "applicability": "generalized (no scene/character branch; see unlike transfer tests)",
+   "repair": [
+    "engine/film/segment_render.mjs#frameDefects",
+    "engine/story/action_coverage.mjs#compileActionCoverage"
+   ],
+   "proof_tests": [
+    {
+     "id": "P05",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification"
+     ]
+    },
+    {
+     "id": "T02",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')"
+     ]
+    }
+   ],
+   "transfer_tests": [
+    {
+     "id": "M12",
+     "executed": true,
+     "passed": true,
+     "tests": [
+      "M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused"
+     ]
+    }
+   ],
+   "external_dependencies": [
+    "APPROVED_STORY + RECORDED_NARRATION + 7200_FRAME_REAL_RENDER + HUMAN_FILM_REVIEW"
+   ],
+   "status": "IMPLEMENTED_UNQUALIFIED",
+   "evidence": {
+    "tap_log": "hybrid_v2/work/audit_logs/node_test_tap.txt",
+    "failing": [],
+    "broken_producers": []
+   },
+   "reviewer": "PENDING_INDEPENDENT_AUDIT"
+  }
+ ]
+}

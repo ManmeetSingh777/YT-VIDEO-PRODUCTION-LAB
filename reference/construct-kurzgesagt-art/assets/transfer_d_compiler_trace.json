@@ -1,0 +1,30 @@
+{
+  "job_id": "NOVEL-GREENHOUSE-001",
+  "method_source": "/home/agent/.codex/skills/remote-skills/construct-kurzgesagt-art/references/STYLE_OPERATIONS.md",
+  "output_art_verified": false,
+  "prompt_character_count": 22506,
+  "prompt_sha256": "c34857425df2187a1a002b3c307b374f85bdadaa85274feee836457e8b3cd61b",
+  "provider_request_submitted": false,
+  "selected_methods": [
+    "F01",
+    "F05",
+    "F06",
+    "F09",
+    "F12",
+    "F10"
+  ],
+  "source_job_sha256": "b0eb54480904d27fced1a9724646683176656301eeef8efd30806fed796f7f94",
+  "source_witnesses": [
+    "BRAIN_BLINDS__human_acting:f023160",
+    "NUCLEAR_FLIES__fly_macro:f018840",
+    "MEMORIES__clinic_interaction:f045240",
+    "MEMORIES__clinic_interaction:f045300",
+    "AI_FINAL__machine_interface:f014040",
+    "SOLAR_SYSTEM__technology_action:f041160",
+    "MEMORIES__dense_synapses:f005520",
+    "MEMORIES__dense_synapses:f005580",
+    "BRAIN_BLINDS__first_person:f000840"
+  ],
+  "status": "COMPILED_NOT_DEMONSTRATED",
+  "transfer_qualified": false
+}

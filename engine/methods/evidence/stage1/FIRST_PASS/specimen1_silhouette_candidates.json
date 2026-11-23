@@ -1,0 +1,55 @@
+{
+ "subjectId": "hydrologist",
+ "order": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "intents": {
+  "A": "stocky field hydrologist: broad sloped shoulders, quilted vest to mid-thigh with a flared hem, wide-leg cargo trousers, rolled near sleeve, heavy boots, short side-fringe bob",
+  "B": "lean surveyor: narrow shoulders, knee-length straight field coat, slim trousers, high top-knot",
+  "C": "compact worker in a rain cape: triangular cape over the shoulders, wide-brim hat, short legs",
+  "D": "hooded wader technician: long limbs, narrow torso, chest-high waders with wide straight legs, peaked hood up"
+ },
+ "aspect": {
+  "A": 0.419,
+  "B": 0.383,
+  "C": 0.454,
+  "D": 0.411
+ },
+ "distinctness": [
+  {
+   "a": "A",
+   "b": "B",
+   "iou": 0.66
+  },
+  {
+   "a": "A",
+   "b": "C",
+   "iou": 0.776
+  },
+  {
+   "a": "A",
+   "b": "D",
+   "iou": 0.795
+  },
+  {
+   "a": "B",
+   "b": "C",
+   "iou": 0.587
+  },
+  {
+   "a": "B",
+   "b": "D",
+   "iou": 0.654
+  },
+  {
+   "a": "C",
+   "b": "D",
+   "iou": 0.681
+  }
+ ],
+ "sheet": "E:\\MOTION_NATIVE_STUDIO_V1\\engine\\methods\\evidence\\stage1\\FIRST_PASS\\specimen1_silhouette_candidates.png",
+ "sheetSha256": "a9bc326afbc4007531cd32200ef2a0c8f5b4ab3aa919ef95013b3c02b26ec1f3"
+}

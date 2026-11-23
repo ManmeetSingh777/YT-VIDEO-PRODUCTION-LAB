@@ -1,0 +1,37 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122115303-c3d250",
+ "stage_id": "S00_IDEA",
+ "stage_attempt_id": "Amwrs2nbz",
+ "input_artifact_refs": [],
+ "input_revision_hash": "e6f87f78657f70fb7b8ef07f852d700da942718df7500b71a2e263b61c31a90d",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "5c0b4be70ca2ed7865ebe455597fb86451b4650ba14d8fb0487fc909d356ca22",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [
+  {
+   "name": "story/FILM_INTENT.json",
+   "sha256": "dc73da0f1383b1b87b7e5a7500a36b6f665035ce1299d4d38e190ab02ece56fc",
+   "bytes": 331,
+   "source": "story/FILM_INTENT.json"
+  }
+ ],
+ "output_revision_hash": "231fc67fffc0232d28d6318c8a395daeac274ca62bcc8ff35f0e4bf953002b52",
+ "required_checks": [
+  {
+   "task_id": "film_intent",
+   "verification": {
+    "method": "fields present; provenance recorded",
+    "pass": true,
+    "measurement": "complete"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T11:53:04.695Z",
+ "event_chain_head_sha256": "a86221aaab7b83ef4aefc0c0f6d40c67d68ae8ddf70c1a2a87ea83e361787db7",
+ "run_type": "DIAGNOSTIC"
+}

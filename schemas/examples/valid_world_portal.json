@@ -1,0 +1,1525 @@
+{
+ "schema_version": "2.0.0",
+ "project_id": "diag_world_fixture",
+ "production_mode": "COMPLETE_FILM_ART_PACKAGE",
+ "status": "PLANNED",
+ "stage": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "total_frames": 7200,
+  "coord_system": "SVG_Y_DOWN_PX",
+  "color_space": "sRGB"
+ },
+ "authority": {
+  "script": null,
+  "direction": null,
+  "style_skill": "skill/SKILL.md",
+  "visual_bible": null,
+  "source_witness_manifest": "skill/QUESTION_NATIVE_WITNESS_MANIFEST.json"
+ },
+ "identities": [
+  {
+   "id": "diag_actor",
+   "kind": "CHARACTER",
+   "canonical_asset_id": "actor_master",
+   "master_sha256": "2ca8a310448cc0f59a24873529cc42ca30f4e572a02cfd63e57553e1af9f4085",
+   "landmarks": {
+    "shoulder": [
+     130,
+     120
+    ],
+    "elbow": [
+     130,
+     200
+    ],
+    "wrist": [
+     130,
+     270
+    ],
+    "pelvis": [
+     100,
+     250
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "diag_actor"
+   ],
+   "source_method_ids": [
+    "F01",
+    "F05",
+    "F06"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "shot_all"
+   ],
+   "approved_review_id": "diag_review"
+  },
+  {
+   "id": "diag_crank",
+   "kind": "PROP",
+   "canonical_asset_id": "crank_master",
+   "master_sha256": "b42c199959cc5ed5b33af6ee65955743aba51ed78a8fe71ad9816d8ce69478a1",
+   "landmarks": {
+    "hub": [
+     30,
+     30
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "diag_crank"
+   ],
+   "source_method_ids": [
+    "F09"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "shot_all"
+   ],
+   "approved_review_id": "diag_review"
+  },
+  {
+   "id": "diag_world",
+   "kind": "WORLD",
+   "canonical_asset_id": "world_master",
+   "master_sha256": "22cd3f2490f7640c06c6ac96ec3effcae8b5a347ab055b8bac8799ada64c61a4",
+   "landmarks": {
+    "portal_centre": [
+     240,
+     135
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "diag_world"
+   ],
+   "source_method_ids": [
+    "F21",
+    "F48"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "shot_a",
+    "shot_b"
+   ],
+   "approved_review_id": "diag_review"
+  }
+ ],
+ "assets": [
+  {
+   "id": "actor_master",
+   "identity_id": "diag_actor",
+   "kind": "MASTER",
+   "file": "diag/actor_master.png",
+   "sha256": "2ca8a310448cc0f59a24873529cc42ca30f4e572a02cfd63e57553e1af9f4085",
+   "width_px": 200,
+   "height_px": 400,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    0,
+    0,
+    200,
+    400
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    200,
+    400
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    100,
+    250
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "torso",
+   "identity_id": "diag_actor",
+   "kind": "PART",
+   "file": "diag/torso.png",
+   "sha256": "f5c82c78de17e7e6b68fbd4a1ce95ccb2a66b0c99b538b4af6043f1feb952883",
+   "width_px": 80,
+   "height_px": 140,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    60,
+    110,
+    80,
+    140
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    80,
+    140
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    100,
+    250
+   ],
+   "pivot_landmark_id": "pelvis",
+   "sockets": {},
+   "landmarks": {
+    "pelvis": [
+     100,
+     250
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "upper_arm",
+   "identity_id": "diag_actor",
+   "kind": "PART",
+   "file": "diag/upper_arm.png",
+   "sha256": "311fa23f7249c92dfdcb7998eab359fdf2a8e86390dd2374988847352ecb49a2",
+   "width_px": 24,
+   "height_px": 84,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    118,
+    116,
+    24,
+    84
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    24,
+    84
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": "torso",
+   "pivot_xy": [
+    130,
+    120
+   ],
+   "pivot_landmark_id": "shoulder",
+   "sockets": {},
+   "landmarks": {
+    "shoulder": [
+     130,
+     120
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "torso"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "forearm",
+   "identity_id": "diag_actor",
+   "kind": "PART",
+   "file": "diag/forearm.png",
+   "sha256": "d8e8711aeb10dfb2b00b42f01700302ff6f3c731162005d210f77dd2e00bb6cd",
+   "width_px": 22,
+   "height_px": 74,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    119,
+    196,
+    22,
+    74
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    22,
+    74
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": "upper_arm",
+   "pivot_xy": [
+    130,
+    200
+   ],
+   "pivot_landmark_id": "elbow",
+   "sockets": {},
+   "landmarks": {
+    "elbow": [
+     130,
+     200
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "upper_arm"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [
+    "elbow_inner"
+   ],
+   "underpaint_asset_ids": [
+    "elbow_underpaint"
+   ],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "elbow_underpaint",
+   "identity_id": "diag_actor",
+   "kind": "UNDERPAINT",
+   "file": "diag/elbow_underpaint.png",
+   "sha256": "e82f91b037e8ad1227884fd37907dcf644c84d30d9ed94c63fe9aa9d4f22b69c",
+   "width_px": 26,
+   "height_px": 26,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    117,
+    187,
+    26,
+    26
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    26,
+    26
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": "upper_arm",
+   "pivot_xy": [
+    130,
+    200
+   ],
+   "pivot_landmark_id": "elbow",
+   "sockets": {},
+   "landmarks": {
+    "elbow": [
+     130,
+     200
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "hand_far_fingers",
+   "identity_id": "diag_actor",
+   "kind": "PART",
+   "file": "diag/hand_far_fingers.png",
+   "sha256": "140815f8fe5c1096ada61ee601752779ddb4a7174f47f85aecba5bded25cdcc4",
+   "width_px": 22,
+   "height_px": 16,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    119,
+    280,
+    22,
+    16
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    22,
+    16
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": "forearm",
+   "pivot_xy": [
+    130,
+    270
+   ],
+   "pivot_landmark_id": "wrist",
+   "sockets": {},
+   "landmarks": {
+    "wrist": [
+     130,
+     270
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [
+    {
+     "relation": "BELOW",
+     "asset_id": "crank_handle"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "hand_palm",
+   "identity_id": "diag_actor",
+   "kind": "PART",
+   "file": "diag/hand_palm.png",
+   "sha256": "81e7fc093caab1f704563e412cc8947030f585fa290db40d49f3af9947320773",
+   "width_px": 26,
+   "height_px": 24,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    117,
+    266,
+    26,
+    24
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    26,
+    24
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": "forearm",
+   "pivot_xy": [
+    130,
+    270
+   ],
+   "pivot_landmark_id": "wrist",
+   "sockets": {},
+   "landmarks": {
+    "wrist": [
+     130,
+     270
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "hand_near_fingers",
+   "identity_id": "diag_actor",
+   "kind": "PART",
+   "file": "diag/hand_near_fingers.png",
+   "sha256": "bd82036cb9f2e800244d0280b09ee5cdc3601929c0ecd36e4189a0c69f6f05bf",
+   "width_px": 22,
+   "height_px": 16,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    119,
+    280,
+    22,
+    16
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    22,
+    16
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "parent_part_id": "forearm",
+   "pivot_xy": [
+    130,
+    270
+   ],
+   "pivot_landmark_id": "wrist",
+   "sockets": {},
+   "landmarks": {
+    "wrist": [
+     130,
+     270
+    ]
+   },
+   "layer_owner": "diag_actor",
+   "draw_order_constraints": [
+    {
+     "relation": "ABOVE",
+     "asset_id": "crank_handle"
+    }
+   ],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "ARTICULATED",
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "crank_master",
+   "identity_id": "diag_crank",
+   "kind": "MASTER",
+   "file": "diag/crank_master.png",
+   "sha256": "b42c199959cc5ed5b33af6ee65955743aba51ed78a8fe71ad9816d8ce69478a1",
+   "width_px": 60,
+   "height_px": 60,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    0,
+    0,
+    60,
+    60
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    60,
+    60
+   ],
+   "coordinate_space": "PROP_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    30,
+    30
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_crank",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "crank_handle",
+   "identity_id": "diag_crank",
+   "kind": "PART",
+   "file": "diag/crank_handle.png",
+   "sha256": "def64645a70791cae983485f921790021c0ed8356df6c1e9a599eb4628f7e6be",
+   "width_px": 14,
+   "height_px": 40,
+   "alpha_mode": "STRAIGHT",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    23,
+    10,
+    14,
+    40
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    14,
+    40
+   ],
+   "coordinate_space": "PROP_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    30,
+    30
+   ],
+   "pivot_landmark_id": "hub",
+   "sockets": {},
+   "landmarks": {
+    "hub": [
+     30,
+     30
+    ]
+   },
+   "layer_owner": "diag_crank",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "world_master",
+   "identity_id": "diag_world",
+   "kind": "MASTER",
+   "file": "diag/world_master.png",
+   "sha256": "22cd3f2490f7640c06c6ac96ec3effcae8b5a347ab055b8bac8799ada64c61a4",
+   "width_px": 480,
+   "height_px": 270,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_world",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "overscan_rect": [
+    -40,
+    -20,
+    560,
+    310
+   ],
+   "motion_modes_allowed": [
+    "CAMERA_WORLD",
+    "TRANSITION"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "world_out",
+   "identity_id": "diag_world",
+   "kind": "TRANSITION_PLATE",
+   "file": "diag/world_out.png",
+   "sha256": "024337a7f83a9d0fc4876ac0c5cf011298ea3284a161f7441f5973e321e54669",
+   "width_px": 480,
+   "height_px": 270,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_world",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "overscan_rect": [
+    -40,
+    -20,
+    560,
+    310
+   ],
+   "motion_modes_allowed": [
+    "CAMERA_WORLD",
+    "TRANSITION"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "world_mid",
+   "identity_id": "diag_world",
+   "kind": "TRANSITION_PLATE",
+   "file": "diag/world_mid.png",
+   "sha256": "04d510af0dca00d8e5e937404d99819b2ad03e81b4ce1c6ca11d9e204edc26e3",
+   "width_px": 480,
+   "height_px": 270,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_world",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "overscan_rect": [
+    -40,
+    -20,
+    560,
+    310
+   ],
+   "motion_modes_allowed": [
+    "CAMERA_WORLD",
+    "TRANSITION"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "world_in",
+   "identity_id": "diag_world",
+   "kind": "TRANSITION_PLATE",
+   "file": "diag/world_in.png",
+   "sha256": "0386032b6317698242deb805e3bdeb551d13f8c3f4b1d174e86406d15523be57",
+   "width_px": 480,
+   "height_px": 270,
+   "alpha_mode": "OPAQUE",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_world",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": [
+    0,
+    0,
+    480,
+    270
+   ],
+   "overscan_rect": [
+    -40,
+    -20,
+    560,
+    310
+   ],
+   "motion_modes_allowed": [
+    "CAMERA_WORLD",
+    "TRANSITION"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  },
+  {
+   "id": "portal_mask",
+   "identity_id": "diag_world",
+   "kind": "MASK",
+   "file": "diag/portal_mask.png",
+   "sha256": "ed1839fa160ba7144657021cf64421677a308e311b240d10a9612453a97c9e6b",
+   "width_px": 120,
+   "height_px": 120,
+   "alpha_mode": "BINARY_MASK",
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "canonical_rect": [
+    180,
+    75,
+    120,
+    120
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    120,
+    120
+   ],
+   "coordinate_space": "WORLD_LOCAL",
+   "parent_part_id": null,
+   "pivot_xy": [
+    240,
+    135
+   ],
+   "pivot_landmark_id": null,
+   "sockets": {},
+   "landmarks": {},
+   "layer_owner": "diag_world",
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.5,
+    2
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "TRANSITION"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE"
+  }
+ ],
+ "worlds": [
+  {
+   "id": "world_a",
+   "identity_id": "diag_world",
+   "depth_owners": [
+    {
+     "id": "far",
+     "depth_band": "FAR",
+     "asset_ids": [
+      "world_master"
+     ]
+    }
+   ],
+   "camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "overscan_rect": [
+    -160,
+    -90,
+    2240,
+    1260
+   ]
+  }
+ ],
+ "rigs": [
+  {
+   "id": "actor_rig",
+   "identity_id": "diag_actor",
+   "root_part": "pelvis",
+   "joints": [
+    {
+     "id": "pelvis",
+     "parent_id": null,
+     "rest_xy": [
+      100,
+      250
+     ],
+     "rotation_limits_deg": [
+      -30,
+      30
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": [
+      "torso"
+     ]
+    },
+    {
+     "id": "shoulder",
+     "parent_id": "pelvis",
+     "rest_xy": [
+      130,
+      120
+     ],
+     "rotation_limits_deg": [
+      -170,
+      170
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": [
+      "upper_arm"
+     ]
+    },
+    {
+     "id": "elbow",
+     "parent_id": "shoulder",
+     "rest_xy": [
+      130,
+      200
+     ],
+     "rotation_limits_deg": [
+      -150,
+      5
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": [
+      "forearm",
+      "elbow_underpaint"
+     ]
+    },
+    {
+     "id": "wrist",
+     "parent_id": "elbow",
+     "rest_xy": [
+      130,
+      270
+     ],
+     "rotation_limits_deg": [
+      -60,
+      60
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": [
+      "hand_palm",
+      "hand_near_fingers",
+      "hand_far_fingers"
+     ]
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "torso",
+     "joint_id": "pelvis",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "torso",
+     "material_owner_id": "diag_actor"
+    },
+    {
+     "asset_id": "upper_arm",
+     "joint_id": "shoulder",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "upper_arm",
+     "material_owner_id": "diag_actor"
+    },
+    {
+     "asset_id": "elbow_underpaint",
+     "joint_id": "elbow",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "elbow_underpaint",
+     "material_owner_id": "diag_actor"
+    },
+    {
+     "asset_id": "forearm",
+     "joint_id": "elbow",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "forearm",
+     "material_owner_id": "diag_actor"
+    },
+    {
+     "asset_id": "hand_far_fingers",
+     "joint_id": "wrist",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "hand_far_fingers",
+     "material_owner_id": "diag_actor"
+    },
+    {
+     "asset_id": "hand_palm",
+     "joint_id": "wrist",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "hand_palm",
+     "material_owner_id": "diag_actor"
+    },
+    {
+     "asset_id": "hand_near_fingers",
+     "joint_id": "wrist",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "hand_near_fingers",
+     "material_owner_id": "diag_actor"
+    }
+   ],
+   "sockets": [
+    {
+     "id": "grip",
+     "joint_id": "wrist",
+     "local_xy": [
+      0,
+      14
+     ],
+     "semantic_role": "palm grip centre"
+    }
+   ],
+   "pose_states": [
+    {
+     "id": "rest",
+     "asset_bindings": {
+      "torso": "torso",
+      "upper_arm": "upper_arm",
+      "forearm": "forearm"
+     },
+     "landmark_correspondence": [
+      "shoulder",
+      "elbow",
+      "wrist",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": "diag_review"
+    }
+   ],
+   "view_states": [],
+   "constraints": [
+    {
+     "id": "arm_ik",
+     "type": "TWO_BONE_IK",
+     "chain": [
+      "shoulder",
+      "elbow",
+      "wrist"
+     ],
+     "bend_sign": 1
+    }
+   ],
+   "allowed_state_edges": []
+  }
+ ],
+ "actions": [
+  {
+   "id": "grip_crank",
+   "shot_id": "shot_a",
+   "frame_range": [
+    0,
+    600
+   ],
+   "semantic_goal": "hand grips the crank handle and turns it",
+   "mode": "ARTICULATED",
+   "actors": [
+    {
+     "rig_id": "actor_rig",
+     "root_world_xy": [
+      960,
+      700
+     ]
+    }
+   ],
+   "targets": [
+    "crank_handle"
+   ],
+   "contact_events": [
+    {
+     "start_frame": 60,
+     "end_frame": 540,
+     "source_socket": "grip",
+     "target_socket": "handle_grip",
+     "contact_type": "GRIP",
+     "allowed_error_px": 0.5,
+     "near_far_relation": "near fingers over handle, palm and far fingers behind",
+     "release_behavior": "open hand at end",
+     "target_world_xy": [
+      1060,
+      660
+     ]
+    }
+   ],
+   "pose_events": [
+    {
+     "frame": 0,
+     "state_id": "rest"
+    }
+   ],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [
+    "crank rotation"
+   ],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "hand_palm",
+    "hand_near_fingers",
+    "hand_far_fingers",
+    "crank_handle"
+   ],
+   "proof_conditions": [
+    "grip socket stays on handle socket for every frame in [60,540)"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "shot_a",
+   "start_frame": 0,
+   "end_frame": 3600,
+   "world_id": "world_a",
+   "entry_state": "rest",
+   "events": [
+    "grip"
+   ],
+   "attention_path": [
+    "hand"
+   ],
+   "camera_track_id": null,
+   "required_asset_ids": [
+    "actor_master",
+    "world_master"
+   ],
+   "exit_state": "portal open",
+   "continuity_to": "shot_b"
+  },
+  {
+   "id": "shot_b",
+   "start_frame": 3600,
+   "end_frame": 7200,
+   "world_id": "world_a",
+   "entry_state": "inside portal",
+   "events": [],
+   "attention_path": [
+    "portal centre"
+   ],
+   "camera_track_id": null,
+   "required_asset_ids": [
+    "world_in"
+   ],
+   "exit_state": "end",
+   "continuity_to": null,
+   "hold_purpose": "diagnostic interior hold"
+  }
+ ],
+ "transitions": [
+  {
+   "from_shot": "shot_a",
+   "to_shot": "shot_b",
+   "frame_range": [
+    3540,
+    3660
+   ],
+   "mode": "CONTINUOUS",
+   "reason": "enter the portal while keeping its rim as the shared anchor",
+   "continuity_invariant": "portal rim",
+   "out_asset_ids": [
+    "world_out"
+   ],
+   "middle_asset_ids": [
+    "world_mid"
+   ],
+   "in_asset_ids": [
+    "world_in"
+   ],
+   "shared_landmarks": [
+    "portal_centre"
+   ],
+   "camera_correspondence": "portal rim scale-matched",
+   "mask_or_occluder_ids": [
+    "portal_mask"
+   ],
+   "assembly_review_id": "diag_review"
+  }
+ ],
+ "audio": {
+  "narration_file": null,
+  "word_alignment_file": null,
+  "sfx_events_file": null
+ },
+ "learning": {
+  "repair_memory_file": null,
+  "compiler_receipts": []
+ },
+ "evidence": {
+  "asset_review_index": null,
+  "motion_review_index": null,
+  "method_trace_index": null
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "schema_version": 1,
+ "film_id": "film",
+ "run_id": "DIAG-20261122124608-09f44d",
+ "stage_id": "S03_TIMING_MOTION",
+ "stage_attempt_id": "Amwrtyxaf",
+ "input_artifact_refs": [
+  {
+   "name": "S02_EXPERIENCE/STAGE_HANDOFF",
+   "sha256": "03bad952732d884303361f40a687ef9576fee10339d21b20cd63b558f888ef31"
+  }
+ ],
+ "input_revision_hash": "25096f3d920df94b68345d95dec178d5beb33256ab0c3bf9980b0e03f87897c1",
+ "producer_module_export": "engine/production/stages.mjs#runStage",
+ "producer_source_sha256": "534ae100fe643bd4ae2e40d53afe8003383f1251b655a703271f95224b22087b",
+ "tool_environment_digest": "271b12aa4ea2e76eb4025d1ec7018925c48058d73602f94469a5ae753df75558",
+ "output_artifact_refs": [
+  {
+   "name": "audio/narration_timeline_TEST.json",
+   "sha256": "d703984c98dc6783f86b062804cae0628650c4263f69bbd0f4e5cfba83f6f924",
+   "bytes": 705,
+   "source": "audio/narration_timeline_TEST.json"
+  }
+ ],
+ "output_revision_hash": "44fa6c84dc5fa9a3ec8e46de736e186356f7bd68136b360836708bee5d234337",
+ "required_checks": [
+  {
+   "task_id": "tiling",
+   "verification": {
+    "method": "checkTiling ok",
+    "pass": true,
+    "measurement": "7200 frames tiled"
+   }
+  },
+  {
+   "task_id": "actions_rt_shot",
+   "verification": {
+    "method": "complete === true",
+    "pass": true,
+    "measurement": "complete"
+   }
+  },
+  {
+   "task_id": "actions_rt_world_shot",
+   "verification": {
+    "method": "complete === true",
+    "pass": true,
+    "measurement": "complete"
+   }
+  },
+  {
+   "task_id": "feasibility_pilot",
+   "verification": {
+    "method": "status FEASIBLE",
+    "pass": true,
+    "measurement": "0 frames solved"
+   }
+  },
+  {
+   "task_id": "narration_timeline",
+   "verification": {
+    "method": "zero errors",
+    "pass": true,
+    "measurement": "1 anchors"
+   }
+  }
+ ],
+ "approval_refs": [],
+ "status": "COMMITTED",
+ "blockers": [],
+ "time_completed_utc": "2026-11-22T12:46:10.983Z",
+ "event_chain_head_sha256": "61a1bff86edcadf7f22922fbbb1911f7410c956e5f045c85541933c343644653",
+ "run_type": "DIAGNOSTIC"
+}

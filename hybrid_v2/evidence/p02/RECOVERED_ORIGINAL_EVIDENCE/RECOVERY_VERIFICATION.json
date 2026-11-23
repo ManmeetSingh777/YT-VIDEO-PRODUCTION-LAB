@@ -1,0 +1,188 @@
+{
+ "method": "engine/production/ledger.mjs#verifyChain on byte copies recovered from test film copies (copy-filter defect copied production/)",
+ "note": "chunk segments/frame hashes of these runs are NOT recovered unless listed; the test copies' render/ folders were re-rendered by the tests",
+ "runs": [
+  {
+   "folder": "phaseA_run",
+   "run_id": "DIAG-20261122115303-c3d250",
+   "chain_ok": true,
+   "events": 25,
+   "head": "c9902c3e6c2be4df69e3da99842fb9d3aabeb547120bb6d335b5e7e052d1c4d9",
+   "problems": [],
+   "stages": {
+    "S00_IDEA": "COMMITTED",
+    "S01_STORY": "COMMITTED",
+    "S02_EXPERIENCE": "BLOCKED"
+   },
+   "chunks_verified": [],
+   "failures": [
+    {
+     "task": "attention_rt_world_shot",
+     "observed": "primary_focus \"cam_world\" has no consuming track in [3600,7200)"
+    }
+   ]
+  },
+  {
+   "folder": "phaseB_C_run",
+   "run_id": "DIAG-20261122124608-09f44d",
+   "chain_ok": true,
+   "events": 160,
+   "head": "e5bfb8883e71886059ef24d12737bce1ce2281f58987c1a0f2fa1ade6b0d77f6",
+   "problems": [],
+   "stages": {
+    "S00_IDEA": "COMMITTED",
+    "S01_STORY": "COMMITTED",
+    "S02_EXPERIENCE": "COMMITTED",
+    "S03_TIMING_MOTION": "COMMITTED",
+    "S04_ART_DEMAND": "COMMITTED",
+    "S05_ART_PRODUCTION": "COMMITTED",
+    "S06_REGISTRATION_RIG": "COMMITTED",
+    "S07_NEUTRINO_RENDER": "BLOCKED"
+   },
+   "chunks_verified": [],
+   "failures": [
+    {
+     "task": "chunk_0_600",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_600_1200",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_1200_1800",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_1800_2400",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_2400_3000",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_3000_3600",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_3600_4200",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_4200_4800",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_4800_5400",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_5400_6000",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_6000_6600",
+     "observed": "EXCEPTION: t.run is not a function"
+    },
+    {
+     "task": "chunk_6600_7200",
+     "observed": "EXCEPTION: t.run is not a function"
+    }
+   ]
+  },
+  {
+   "folder": "phaseD_run_from_s08_mp4",
+   "run_id": "DIAG-20261122124740-a1cf91",
+   "chain_ok": true,
+   "events": 147,
+   "head": "76a2e8eaddc16bf5c5064b2afda46b1417684b2529a84a3b971eb3b950442d6b",
+   "problems": [],
+   "stages": {
+    "S00_IDEA": "COMMITTED",
+    "S01_STORY": "COMMITTED",
+    "S02_EXPERIENCE": "COMMITTED",
+    "S03_TIMING_MOTION": "COMMITTED",
+    "S04_ART_DEMAND": "COMMITTED",
+    "S05_ART_PRODUCTION": "COMMITTED",
+    "S06_REGISTRATION_RIG": "COMMITTED",
+    "S07_NEUTRINO_RENDER": "BLOCKED"
+   },
+   "chunks_verified": [],
+   "failures": [
+    {
+     "task": "chunk_0_600",
+     "observed": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625"
+    }
+   ]
+  },
+  {
+   "folder": "phaseD_run_from_s09_audio",
+   "run_id": "DIAG-20261122124740-a1cf91",
+   "chain_ok": true,
+   "events": 147,
+   "head": "76a2e8eaddc16bf5c5064b2afda46b1417684b2529a84a3b971eb3b950442d6b",
+   "problems": [],
+   "stages": {
+    "S00_IDEA": "COMMITTED",
+    "S01_STORY": "COMMITTED",
+    "S02_EXPERIENCE": "COMMITTED",
+    "S03_TIMING_MOTION": "COMMITTED",
+    "S04_ART_DEMAND": "COMMITTED",
+    "S05_ART_PRODUCTION": "COMMITTED",
+    "S06_REGISTRATION_RIG": "COMMITTED",
+    "S07_NEUTRINO_RENDER": "BLOCKED"
+   },
+   "chunks_verified": [],
+   "failures": [
+    {
+     "task": "chunk_0_600",
+     "observed": "RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625"
+    }
+   ]
+  },
+  {
+   "folder": "phaseE_run",
+   "run_id": "DIAG-20261122125015-b5a341",
+   "chain_ok": true,
+   "events": 133,
+   "head": "313f5691a13d4c4cbcd4272a33bbb3f71db00410108a7f9cec3df960af15a8bb",
+   "problems": [],
+   "stages": {
+    "S00_IDEA": "COMMITTED",
+    "S01_STORY": "COMMITTED",
+    "S02_EXPERIENCE": "COMMITTED",
+    "S03_TIMING_MOTION": "COMMITTED",
+    "S04_ART_DEMAND": "COMMITTED",
+    "S05_ART_PRODUCTION": "COMMITTED",
+    "S06_REGISTRATION_RIG": "COMMITTED"
+   },
+   "chunks_verified": [],
+   "failures": []
+  },
+  {
+   "folder": "phaseF_run",
+   "run_id": "DIAG-20261122125220-17f992",
+   "chain_ok": true,
+   "events": 134,
+   "head": "17fb4ca705bd36b775cb53203d5647a481e85ef1e47643f04b0cfffa9eeda6f7",
+   "problems": [],
+   "stages": {
+    "S00_IDEA": "COMMITTED",
+    "S01_STORY": "COMMITTED",
+    "S02_EXPERIENCE": "COMMITTED",
+    "S03_TIMING_MOTION": "COMMITTED",
+    "S04_ART_DEMAND": "COMMITTED",
+    "S05_ART_PRODUCTION": "COMMITTED",
+    "S06_REGISTRATION_RIG": "COMMITTED"
+   },
+   "chunks_verified": [],
+   "failures": [
+    {
+     "task": "chunk_0_600",
+     "observed": "probe {\"codec\":\"ffv1\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null} defects [{\"frame\":0,\"kind\":\"UNCOV"
+    }
+   ]
+  }
+ ]
+}

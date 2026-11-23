@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122125015-b5a341:17",
+ "sequence": 17,
+ "prev_event_sha256": "cc48e5557b4fb502e43ea25e2f04c24ad91c5e836cca03173aa804ef6171456f",
+ "film_id": "film",
+ "run_id": "DIAG-20261122125015-b5a341",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwru47az",
+ "operation_id": null,
+ "task_id": "attention_rt_shot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122125015-b5a341:16"
+ ],
+ "wall_time_utc": "2026-11-22T12:50:16.348Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "attention_rt_shot",
+  "producer": "engine/story/experience.mjs#compileAttention",
+  "inputs": [
+   "direction/SHOT_SCORE_60FPS.json#rt_shot"
+  ],
+  "expected_outputs": [
+   "attention beats with owners"
+  ],
+  "deps": [],
+  "invariants": [
+   "every attention target has a consuming track"
+  ],
+  "verification": "zero DIRECTION_DECISION_INERT",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 17,
+ "event_sha256": "8bd7de3123854427dc8d61e38ecf598480565279ce25af120e8dedb674682464"
+}

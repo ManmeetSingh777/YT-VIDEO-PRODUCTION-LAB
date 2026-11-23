@@ -1,0 +1,46 @@
+{
+ "id": "planB",
+ "placements": {},
+ "tracks": {},
+ "cels": {
+  "walk_cycle": {
+   "distance": [
+    [
+     0,
+     0
+    ],
+    [
+     600,
+     1400,
+     "linear"
+    ]
+   ],
+   "step_distance_px": 50,
+   "start_xy": [
+    300,
+    800
+   ],
+   "band": "FOCAL",
+   "cycle": [
+    {
+     "asset_id": "walker_cel0",
+     "anchor": "right_foot",
+     "lands": "left_foot"
+    },
+    {
+     "asset_id": "walker_cel1",
+     "anchor": "left_foot"
+    },
+    {
+     "asset_id": "walker_cel2",
+     "anchor": "left_foot",
+     "lands": "right_foot"
+    },
+    {
+     "asset_id": "walker_cel3",
+     "anchor": "right_foot"
+    }
+   ]
+  }
+ }
+}

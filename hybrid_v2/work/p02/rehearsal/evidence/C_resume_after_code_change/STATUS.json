@@ -1,0 +1,205 @@
+{
+ "run_id": "DIAG-20261122124608-09f44d",
+ "chain_head": "e5bfb8883e71886059ef24d12737bce1ce2281f58987c1a0f2fa1ade6b0d77f6",
+ "events": 160,
+ "tasks": {
+  "total": 47,
+  "completed": 34,
+  "failed": 12,
+  "blocked": 1,
+  "stale": 0,
+  "remaining": 13,
+  "percent_verified": 72.3
+ },
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 2,
+   "verified": 2,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 5,
+   "verified": 5,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 6,
+   "verified": 6,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 8,
+   "verified": 8,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 9,
+   "verified": 9,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "BLOCKED",
+   "tasks": 13,
+   "verified": 0,
+   "failed": 12,
+   "blocked": 1,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "next_operation": "resolve chunk_0_600",
+ "failures": [
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_600-ec9426",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_0_600",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_600_1200-7861bd",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_600_1200",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_1200_1800-452cdb",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_1200_1800",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_1800_2400-13cf99",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_1800_2400",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_2400_3000-19b359",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_2400_3000",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_3000_3600-8ff848",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_3000_3600",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_3600_4200-d457f0",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_3600_4200",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_4200_4800-088015",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_4200_4800",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_4800_5400-66874b",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_4800_5400",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_5400_6000-0748d8",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_5400_6000",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_6000_6600-7520fd",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_6000_6600",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_6600_7200-4ee41b",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_6600_7200",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "EXCEPTION: t.run is not a function"
+  }
+ ]
+}

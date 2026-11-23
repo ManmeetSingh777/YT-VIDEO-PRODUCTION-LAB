@@ -1,0 +1,158 @@
+{
+ "artjob_id": "ARTJOB_MASTER_washer_master_38ddfd06",
+ "root_dependency": "washer_master",
+ "identity_id": "washer",
+ "state_kind": "MASTER",
+ "asset_kind": "MASTER",
+ "medium": {
+  "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+  "why": "identity is locked from one approved master; derived states are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "washer",
+  "canonical_parent_asset": "washer_master",
+  "shot_ids": [
+   "S01",
+   "S02",
+   "S07"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    1920
+   ],
+   [
+    6240,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "hub",
+   "hinge",
+   "handle",
+   "coin_slot",
+   "base"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "washer_rig",
+    "joint": "body",
+    "rest_xy": [
+     300,
+     600
+    ]
+   },
+   {
+    "rig": "washer_rig",
+    "joint": "door",
+    "rest_xy": [
+     432,
+     330
+    ]
+   },
+   {
+    "rig": "washer_rig",
+    "joint": "handle",
+    "rest_xy": [
+     170,
+     330
+    ]
+   },
+   {
+    "rig": "washer_rig",
+    "joint": "drum",
+    "rest_xy": [
+     300,
+     330
+    ]
+   },
+   {
+    "rig": "washer_rig",
+    "joint": "coin_flap",
+    "rest_xy": [
+     110,
+     380
+    ]
+   }
+  ],
+  "required_sockets": [
+   {
+    "socket": "washer_handle",
+    "joint": "handle",
+    "local_xy": [
+     0,
+     0
+    ]
+   },
+   {
+    "socket": "washer_coin_slot",
+    "joint": "coin_flap",
+    "local_xy": [
+     0,
+     6
+    ]
+   }
+  ],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED|CAMERA_WORLD",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "washer_drum_interior",
+   "washer_laundry_load",
+   "washer_laundry_load_tumbling",
+   "washer_cabinet",
+   "washer_door_ring",
+   "washer_door_glass",
+   "washer_door_ring_half",
+   "washer_door_glass_half",
+   "washer_door_ring_open",
+   "washer_door_glass_open",
+   "washer_coin_flap",
+   "porthole_out",
+   "porthole_glass_middle",
+   "porthole_aperture"
+  ],
+  "why_this_drawing_is_needed": "canonical machine identity with door, drum, coin slot. Required by: shot S01; shot S02; shot S07"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "1f643d2ecd8cacaf752ae2e96a6a566cc46668ba4c2cf6b545ad358a53f4455e",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "ba9b6180200a5eceac928c46",
+ "dependency_parts_digest": "ba9b6180200a5eceac928c46d06136c8c3ef98b276cb254be9ab4c73f5b99274",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

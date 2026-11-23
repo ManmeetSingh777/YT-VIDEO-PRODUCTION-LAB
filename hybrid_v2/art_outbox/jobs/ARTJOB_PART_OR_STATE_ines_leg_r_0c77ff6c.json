@@ -1,0 +1,243 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_ines_leg_r_0c77ff6c",
+ "root_dependency": "ines_leg_r",
+ "identity_id": "ines",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "PART",
+ "medium": {
+  "medium": "TRANSPARENT_REGISTERED_EDIT_OF_APPROVED_MASTER",
+  "why": "registered cutout/layer edited from the approved master (alpha PNG, measured pivot and landmarks)"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "ines_master",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    900,
+    990
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    990,
+    1050
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1050,
+    1170
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1170,
+    1230
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1230,
+    1260
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1260,
+    1320
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1320,
+    1356
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1356,
+    1392
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1392,
+    1410
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1410,
+    1470
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1470,
+    1560
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1560,
+    1590
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1590,
+    1620
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1620,
+    1740
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_leg_r",
+   "frame_range": [
+    1740,
+    1920
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_rig.ines_leg_r",
+   "frame_range": null,
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    900,
+    1920
+   ]
+  ],
+  "view_id": "threeq_r",
+  "pose_id": "neutral|hand_open|hand_pinch|curious",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "hip_r"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "ines_rig",
+    "joint": "hip_r",
+    "rest_xy": [
+     330,
+     630
+    ]
+   }
+  ],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": "ines_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "registered cutout on joint hip_r for the S02 reach/grip/insert action. Required by: state ines_rig:neutral/- S02_operate_washer; state ines_rig:hand_open/- S02_operate_washer; state ines_rig:hand_pinch/- S02_operate_washer; state ines_rig:curious/- S02_operate_washer; state ines_rig:curious/profile_turn S02_operate_washer; state ines_rig:curious/profile_satisfied S02_operate_washer"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "ec97c8f8b477e919b9df7dcfa04ea76808609dc8fedea5d415a4ea8344fd6cfd",
+ "registration_contract": {
+  "asset_kind": "PART",
+  "pivot_landmark_id": "hip_r",
+  "planned_pivot_xy": [
+   330,
+   630
+  ],
+  "joint_id": "hip_r",
+  "alpha_mode": "STRAIGHT",
+  "view_id": "threeq_r",
+  "depth_band": "FOCAL",
+  "landmark_frame": "registered against approved master ines_master"
+ },
+ "frame_precision": "STATE_INTERVALS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "ines_leg_r",
+  "role": "DERIVED",
+  "derived_from": "ines_master",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: ines_master"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_ines_leg_r_0c77ff6c.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_ines_leg_r_0c77ff6c.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

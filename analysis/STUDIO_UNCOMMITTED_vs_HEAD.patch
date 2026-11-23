@@ -1,0 +1,1680 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index bd0c421..86d933c 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -10,13 +10,18 @@ the renderer never improvises art (`MISSING_ART_ASSET` → ArtJob). `engine/runt
+ 
+ **Status (see HANDOFF.md "Hybrid V2 — current status"):** Stage 1 MECHANICAL_PASS; Stage 2 MECHANICAL_PASS on diagnostic fixtures (art BLOCKED);
+ Stage 3 BLOCKED (no image provider; outbox exported); Stage 4 BLOCKED (story approval pending, no art, no narration).
+-**STOP POINT:** system-correction directive (`inputs/HYBRID_V2_ZERO_AMBIGUITY_CORRECTION_DIRECTIVE.md`) executed on branch `hv2-system-correction`;
+-`audit_outbox/HYBRID_V2_SYSTEM_CORRECTION_AUDIT.zip` awaits independent audit. Every production request passes `art_contract.mjs#requireApprovedContract`
+-(story + direction + design HUMAN receipts) before any provider is discovered. Do NOT submit art, approve anything, start bulk production or render the film.
++**STOP POINT:** P02 system-repair directive (`inputs/HYBRID_V2_P02_SYSTEM_REPAIR_AND_PROOF_DIRECTIVE.md`) executed on branch `hv2-system-correction`;
++`audit_outbox/HYBRID_V2_P02_REPAIR_AUDIT.zip` awaits independent audit (read `hybrid_v2/evidence/p02/FINAL_REPORT.md`). Production runs go only through
++`engine/tools/production_run.mjs` (preflight/start/status/watch/trace/why/resume/verify/export-audit) on the hash-chained ledger; HUMAN authority = signed envelopes
++verified against trust anchors OUTSIDE the repo (`ART_BRIDGE_REVIEWER_KEYS_FILE`); test trust only inside `.diagnostic_namespace` films. Every chargeable provider
++call needs a signed paid-run manifest (`engine/production/run_authorization.mjs`) and LIVE_VERIFIED capabilities. Do NOT submit art, approve anything,
++create a paid run, start bulk production or render the real film until Manmeet authorizes a bounded canary after the audit.
++**Authorization reconciliation:** the V1 "Stage 1 is the ONLY authorized stage" list below is historical. Hybrid V2 work is authorized directive-by-directive by Manmeet
++(latest: P02, software repair + diagnostic rehearsal only). No directive so far authorizes paid art, real approvals or the real film render.
+ Art intake goes only through `engine/art_bridge/art_intake.mjs` (export/submit/ingest-master/review-master/ingest-part/review-part/approve-*);
+ approvals are hash-scoped receipts (`approvals.mjs`), never strings typed into JSON.
+ 
+-Commands: `node --test tests/art_bridge/*.test.mjs` · `node tests/art_bridge/stage2_proofs.mjs` · `node engine/tools/art_bridge_check.mjs check ...` ·
++Commands: `node --test tests/art_bridge/*.test.mjs tests/p02/*.test.mjs` · `node tests/p02/run_rehearsal.mjs --phase X` · `node tests/p02/replay_audit.mjs` · `node tests/art_bridge/stage2_proofs.mjs` · `node engine/tools/art_bridge_check.mjs check ...` ·
+ `node engine/tools/art_bridge_qa.mjs qa ...` · `node engine/tools/art_outbox.mjs export|status|ingest ...` (exact forms in HANDOFF.md).
+ Diagnostic fixtures (`tests/art_bridge/fixtures`, provenance DIAGNOSTIC_FIXTURE) prove mechanics only and are never target art.
+ 
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 21fe90e..e22823c 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -1,6 +1,45 @@
+ # HANDOFF — Motion-Native Studio V1
+ 
+-## System-correction directive (C0–C8) — CURRENT STOP POINT
++## P02 system-repair + production-ledger directive — CURRENT STOP POINT
++Input: `inputs/HYBRID_V2_P02_SYSTEM_REPAIR_AND_PROOF_DIRECTIVE.md`, plus the mid-run "machine-generated executable checklist" requirement. Branch `hv2-system-correction`.
++Package: `audit_outbox/HYBRID_V2_P02_REPAIR_AUDIT.zip`. Read `hybrid_v2/evidence/p02/FINAL_REPORT.md` first, then `OPEN_ITEMS.md`, `TEST_RESULTS.md` and `REHEARSAL_REPORT.md`.
++- **Production controller.** `engine/tools/production_run.mjs` provides preflight/start/status/watch/trace/why/resume/verify/export-audit.
++  - Per-film checklist: S00–S09 tasks are derived from the film's own contracts (`engine/production/stages.mjs`).
++  - Ledger: hash-chained, content-addressed, with fenced locks and a HEAD pointer (`engine/production/ledger.mjs`).
++  - Legacy history is migrated into a separate IMPORTED_LEGACY_UNVERIFIED stream.
++- **Renderer.** Production Chrome renderer `art_bridge_chrome_frames` (`engine/film/chrome_frames.mjs`): native 1920×1080 RGB24 of the registered layers, using the preserved nu.js.
++  - Output path: per-chunk FFV1 segments → MP4, plus a completion receipt verified by fresh-session re-render.
++  - Coverage gate: `engine/film/coverage_gate.mjs`.
++- **Authority.**
++  - Signed review envelopes against external trust anchors (`reviewer_auth.mjs`). The diagnostic namespace isolates test trust.
++  - Candidate selection is by ID under a lease (`candidate_store.mjs`).
++  - Provider outcome states, with no blind retry. Paid-run manifests (`engine/production/run_authorization.mjs`).
++  - Capability classes DECLARED/LIVE_VERIFIED/FAILED/UNTESTED.
++  - GPT operator handoff: `engine/art_bridge/gpt_handoff.mjs`, CLI `art_outbox.mjs export-gpt-job|import-gpt-candidates|select-candidate`.
++  - INERT_CONTROL differential: `engine/production/inert_control.mjs`.
++- **Tests.** Suites: `tests/art_bridge/` and `tests/p02/` (P02-R01..R27, RP1..RP6, PORTAL-INTAKE).
++  - Rehearsal: `node tests/p02/run_rehearsal.mjs --phase X --build`.
++  - Replay: `node tests/p02/replay_audit.mjs`.
++  - Ledger: `LEDGER_EXTRA_ROWS=tests/p02/ledger_rows_p02.mjs LEDGER_OUT=hybrid_v2/evidence/p02/FAILURE_LEDGER_P02.json node engine/tools/build_failure_ledger.mjs hybrid_v2/work/audit_logs/p02_tap.txt`.
++- **Still missing (correctly blocked).** ZERO real art, human trust anchors, approved story or narration.
++  - `films/hv2_film001` production preflight: every stage blocked (`PRODUCTION_PREFLIGHT_hv2_film001.json`).
++- **Rehearsal result (phase K, `hybrid_v2/work/p02/rehearsal_K`).**
++  - S00–S08 committed; S09 `final_media` verified; `film_review` blocked by design.
++  - MP4: 7200 frames, 1920×1080, 60/1, image-backed via Chrome.
++  - Limits: K predates the blur fixes F111/F112, and the world plate has no design record (P02-R14 FAIL).
++  - Earlier phases A–J and their recovered ledgers are listed in `REHEARSAL_REPORT.md` and `RECOVERED_ORIGINAL_EVIDENCE/`.
++- **Tests:** 185 executed (merged TAP logs), 184 pass, and 1 FAIL that is honest (P02-R14).
++- **Ledger:** 112 rows: 51 QUALIFIED_ON_DIAGNOSTICS, 59 IMPLEMENTED_UNQUALIFIED, 2 FAIL (F090, F095, both via R14).
++- **Disk.** Drive E: filled twice. Regenerable R23/trace test copies were MOVED, byte-verified with manifests, to `C:\MOTION_NATIVE_STUDIO_V1_EVIDENCE_OFFLOAD\`. Nothing was deleted.
++- **Deliverables.**
++  - `audit_outbox/HYBRID_V2_P02_REPAIR_AUDIT.zip`
++  - `exports/HYBRID_V2_COMPLETE_SOURCE_SNAPSHOT.zip`
++  - `exports/NEUTRINO_ORIGINAL_VS_CURRENT_EXECUTION_MAP.md`
++- **NEXT (per Manmeet, after the audit).** No more full-length diagnostic rehearsals. The next qualification is a REAL-ART 10 s canary: `films/hv2_film001` S02 frames 1320–1920 (`hybrid_v2/evidence/p02/CANARY_PLAN.md`).
++  - Approvals and the art route must be decided by Manmeet before any generation.
++- **STOP.** Independent audit of the ZIPs comes next. Do NOT submit art, approve anything, create a paid run, or render the real film until Manmeet authorizes a bounded canary.
++
++## System-correction directive (C0–C8) — previous stop point
+ Input: `inputs/HYBRID_V2_ZERO_AMBIGUITY_CORRECTION_DIRECTIVE.md`. Branch `hv2-system-correction`. Package: `audit_outbox/HYBRID_V2_SYSTEM_CORRECTION_AUDIT.zip`.
+ Read `hybrid_v2/audit_docs/SYSTEM_CORRECTION_README.md`, `hybrid_v2/evidence/system_correction/ROOT_CAUSE_REPAIR_MATRIX.md`, `FAILURE_LEDGER.json` (computed).
+ - C1 universal fail-closed contract (all families/state kinds; story/direction/design receipts; requireApprovedContract before provider discovery;
+diff --git a/engine/art_bridge/approvals.mjs b/engine/art_bridge/approvals.mjs
+index 2bdbae4..eac8a82 100644
+--- a/engine/art_bridge/approvals.mjs
++++ b/engine/art_bridge/approvals.mjs
+@@ -12,7 +12,9 @@ import { registrationReceiptDigest } from "./registration_evidence.mjs";
+ const sha = (s) => crypto.createHash("sha256").update(typeof s === "string" ? s : JSON.stringify(s)).digest("hex");
+ const strip = (o, ...k) => { const c = { ...o }; for (const x of k) delete c[x]; return c; };
+ const canon = (v) => (Array.isArray(v) ? v.map(canon) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, canon(v[k])])) : v);
+-export const testTrust = () => process.env.ART_BRIDGE_TEST_TRUST === "1";
++import { verifyEnvelope, consumeNonce, isDiagnosticNamespace } from "./reviewer_auth.mjs";
++/** test trust is STRUCTURALLY isolated (F087): the env switch AND a diagnostic-namespace film; a production film can never be test-trusted */
++export const testTrust = (root = null) => process.env.ART_BRIDGE_TEST_TRUST === "1" && (root === null ? true : isDiagnosticNamespace(root));
+ 
+ /** bundleFor(doc, scope, id, root) — the exact content an approval covers (root lets the bundle include evidence digests) */
+ export function bundleFor(doc, scope, id, root = null) {
+@@ -56,8 +58,12 @@ export function writeReceipt(root, doc, { scope, id, reviewer, verdict, notes =
+   if (!reviewer || !String(reviewer).trim()) throw new Error("a review receipt needs an explicit reviewer");
+   if (!["APPROVED", "REJECTED", "REVISE_AT_ART_SOURCE", "REVISE_AT_RIG_SOURCE", "REVOKED"].includes(verdict)) throw new Error(`invalid verdict ${verdict}`);
+   const b = bundle || bundleFor(doc, scope, id, root); if (!b) throw new Error(`no ${scope} record ${id}`);
+-  const h = bundleHash(b), kind = attestation?.method === "INTERACTIVE_TTY" ? "HUMAN" : attestation?.method === "TEST_TRUST" && testTrust() ? "TEST_TRUSTED" : "DIAGNOSTIC";
+-  if (attestation?.method === "TEST_TRUST" && !testTrust()) throw new Error("TEST_TRUST attestation outside ART_BRIDGE_TEST_TRUST=1 is refused");
++  // F081: a typed-characters TTY confirmation is a LOCAL OPERATOR confirmation, never independent human authority. HUMAN requires a signed
++  // review envelope verified against trust anchors provisioned outside the repo, bound to THIS bundle, scope and record (nonce single-use).
++  const h = bundleHash(b); let kind = "DIAGNOSTIC";
++  if (attestation?.method === "SIGNED_ENVELOPE") { const v = verifyEnvelope(attestation.envelope, { root, scope, recordId: id, bundleSha: h }); if (!v.ok) throw new Error(`review envelope refused: ${v.reason}`); if (attestation.envelope.verdict !== verdict) throw new Error("envelope verdict differs from the recorded verdict"); consumeNonce(root, attestation.envelope); kind = v.kind; }
++  else if (attestation?.method === "INTERACTIVE_TTY") kind = "LOCAL_OPERATOR_CONFIRMATION";
++  else if (attestation?.method === "TEST_TRUST") { if (!testTrust(root)) throw new Error("TEST_TRUST attestation is refused outside a diagnostic-namespace film with ART_BRIDGE_TEST_TRUST=1"); kind = "TEST_TRUSTED"; }
+   const receipt_id = `${scope}__${id.replace(/[^A-Za-z0-9_-]/g, "_")}__${h.slice(0, 12)}__${Date.now().toString(36)}${crypto.randomBytes(3).toString("hex")}`;
+   const rec = { receipt_id, scope, record_id: id, verdict, reviewer, reviewer_kind: kind, attestation, notes, scope_note, evidence, bundle_sha256: h, bundle: b, reviewed_at: new Date().toISOString(), tested_revision: revision };
+   fs.mkdirSync(path.join(root, "reviews"), { recursive: true });
+@@ -86,7 +92,9 @@ export function verifyApproval(doc, root, scope, id, approvedId, { requireHuman
+   const now = bundle || bundleFor(doc, scope, id, root); if (!now) return { ok: false, status: "RECORD_MISSING", reason: "record no longer exists" };
+   const h = bundleHash(now); if (h !== r.bundle_sha256 || bundleHash(r.bundle) !== r.bundle_sha256) return { ok: false, status: "STALE_RECEIPT", reason: "approved content changed since review (pixels, registration evidence, placement, bindings or edge)", details: { approved: r.bundle_sha256, now: h } };
+   const kind = r.reviewer_kind || "DIAGNOSTIC";
+-  if (requireHuman && !(kind === "HUMAN" || (kind === "TEST_TRUSTED" && testTrust()))) return { ok: false, status: "NOT_HUMAN", reason: `production requires a human approval; receipt reviewer_kind is ${kind}` };
++  if (kind === "HUMAN") { const v = verifyEnvelope(r.attestation?.envelope, { root, scope, recordId: id, bundleSha: r.bundle_sha256 }); if (!v.ok || v.kind !== "HUMAN") return { ok: false, status: "NOT_HUMAN", reason: `HUMAN receipt signature no longer verifies: ${v.reason || v.kind}` }; }
++  const diagOk = isDiagnosticNamespace(root) && testTrust(root) && ["TEST_TRUSTED", "DIAGNOSTIC_SIGNED"].includes(kind);
++  if (requireHuman && !(kind === "HUMAN" || diagOk)) return { ok: false, status: kind === "LOCAL_OPERATOR_CONFIRMATION" ? "LOCAL_OPERATOR_ONLY" : "NOT_HUMAN", reason: `production requires an independently signed human approval; receipt reviewer_kind is ${kind}${kind === "LOCAL_OPERATOR_CONFIRMATION" ? " (a typed TTY confirmation is not independent authority)" : ""}` };
+   return { ok: true, status: "VERIFIED", receipt: approvedId, reviewer: r.reviewer, reviewer_kind: kind, scope_note: r.scope_note };
+ }
+ 
+diff --git a/engine/art_bridge/art_demand.mjs b/engine/art_bridge/art_demand.mjs
+index 95cbf72..bec1694 100644
+--- a/engine/art_bridge/art_demand.mjs
++++ b/engine/art_bridge/art_demand.mjs
+@@ -14,7 +14,9 @@ export function deriveArtDemands({ doc, plan, motionPlans = {} }) {
+     const rig = doc.rigs.find((r) => r.id === x.rig), closureArt = x.pose && x.pose !== rig?.pose_states[0]?.id ? Object.entries(x.bindings).filter(([slot, a]) => a !== slot).map(([, a]) => a) : [];
+     for (const c of x.contacts) if (["GRIP", "FOLLOW", "PINCH"].includes(c.contact_type)) add(closureArt.length && closureArt.every((a) => planned.has(a)) ? closureArt[0] : `${c.source_socket}::${c.contact_type}_hand_state`, { why: `${c.contact_type} contact ${c.source_socket}→${c.target_socket} needs a closure drawing`, frames: [Math.max(x.interval[0], c.start_frame), Math.min(x.interval[1], c.end_frame)], representation: "REGISTERED_CELS", consumer: x.action });
+   }
+-  for (const t of doc.transitions || []) if (/CONTINUOUS|PORTAL/i.test(t.kind || t.type || "")) for (const part of ["OUT", "MIDDLE", "IN"]) add(`${t.from_shot}->${t.to_shot}::${part}_plate`, { why: `continuous transition ${t.from_shot}->${t.to_shot} needs its ${part} plate`, frames: t.frame_range || [0, 0], representation: "TRANSITION", consumer: "transitions.mjs#compileTransition" });
++  // continuous/portal transitions: the plates (and aperture masks) the CONTRACT names; an unnamed part is demanded under a typed placeholder
++  // (P02 repair: the demand previously used fixed placeholder names and read t.kind/t.type, so a contract with planned plates — mode CONTINUOUS — was never satisfied)
++  for (const t of doc.transitions || []) if (/CONTINUOUS|PORTAL/i.test(t.mode || t.kind || t.type || "")) for (const [part, ids] of [["OUT", t.out_asset_ids], ["MIDDLE", t.middle_asset_ids], ["IN", t.in_asset_ids], ["MASK", t.mask_or_occluder_ids]]) for (const aid of ids?.length ? ids : part === "MASK" ? [] : [`${t.from_shot}->${t.to_shot}::${part}_plate`]) add(aid, { why: `continuous transition ${t.from_shot}->${t.to_shot} needs its ${part} plate`, frames: t.frame_range || [0, 0], representation: "TRANSITION", consumer: "transitions.mjs#compileTransition" });
+   for (const sh of doc.shots.filter((s) => s.world_id && s.camera_track_id)) { const cam = motionPlans[sh.id]?.cameras?.[sh.camera_track_id]; if (!cam) continue; const w = (doc.worlds || []).find((x) => x.id === sh.world_id), frames = []; for (let f = sh.start_frame; f < sh.end_frame; f += 6) frames.push(f);
+     const d = cameraSizedArtworkDemand({ camera: (f) => ({ x: ev(cam.x, f), y: ev(cam.y, f), zoom: ev(cam.zoom, f) }), frames }); add(w?.canonical_asset_id || sh.world_id, { why: `camera ${sh.camera_track_id} needs coverage ${JSON.stringify(d.canonical_coverage_rect)} at ≥${d.min_density_px_per_unit} px/unit`, frames: [sh.start_frame, sh.end_frame], representation: "CAMERA_WORLD", consumer: "scene_graph.mjs#composeShot" }); }
+   const out = [...dem.values()].map((d) => ({ asset: d.asset, why: [...d.why], frames: merge(d.frames), representation: d.representation, consumers: [...d.consumers], supplied_by_plan: planned.has(d.asset) }));
+diff --git a/engine/art_bridge/art_intake.mjs b/engine/art_bridge/art_intake.mjs
+index 9d86f86..baaa514 100644
+--- a/engine/art_bridge/art_intake.mjs
++++ b/engine/art_bridge/art_intake.mjs
+@@ -23,6 +23,7 @@ import { discoverProvider } from "./providers/image_provider.mjs";
+ import { err } from "./errors.mjs";
+ import { gateForJob, requireApprovedContract, scopeBundle } from "./art_contract.mjs";
+ import { readCurrent, verifyGeneration } from "./outbox_store.mjs";
++import { prepareRequest, recordOutcome, sealResult, loadResult, selectCandidate, loadSelection, capabilityStatus } from "./candidate_store.mjs";
+ import { dependencyDigest } from "./art_requests.mjs";
+ import { compileMotionTracks } from "./temporal.mjs";
+ 
+@@ -101,20 +102,30 @@ export async function planJobs({ film, manifest = MF }) {
+ 
+ /* ───────────── P0-3: master registration, review, part registration, resumption ───────────── */
+ const KIND_SPACE = { CHARACTER: "CHARACTER_LOCAL", PROP: "PROP_LOCAL", MACHINE: "PROP_LOCAL", WORLD: "WORLD_LOCAL", DIAGRAM: "WORLD_LOCAL", EFFECT: "WORLD_LOCAL" };
+-const PROVENANCE = ["GPT_PROVIDER_ART", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE"];
++const PROVENANCE = ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE"];
++/** F091: a GPT provenance claim is accepted ONLY when the exact bytes are a valid candidate of a SEALED provider-result / operator-handoff record
++ *  (outbox = arg or ART_BRIDGE_OUTBOX) whose recorded provenance equals the claim; a typed --provenance flag never establishes origin. */
++export function requireProvenanceLineage({ file, provenance, outbox = process.env.ART_BRIDGE_OUTBOX || null, record_id = null }) {
++  if (!["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF"].includes(provenance)) return null;
++  const h = fsha(file), subs = outbox && path.join(path.resolve(outbox), "submissions");
++  if (subs && fs.existsSync(subs)) for (const j of fs.readdirSync(subs)) { const jd = path.join(subs, j); if (!fs.statSync(jd).isDirectory()) continue;
++    for (const k of fs.readdirSync(jd)) { const sd = path.join(jd, k); if (!fs.existsSync(path.join(sd, "RESULT.sha256"))) continue; let r; try { r = loadResult(sd); } catch { continue; }
++      const c = (r.record.candidates || []).find((x) => x.sha256 === h && x.valid === true); if (c && r.record.provenance_to_ingest === provenance) return { artjob: j, submission: k, candidate_id: c.id, record_sha256: r.record_sha256, origin_verification: r.record.origin_verification || "PROVIDER_API_RESPONSE" }; } }
++  throw err("PROVENANCE_COUNTERFEIT", { record_id, reason: `provenance ${provenance} claimed for ${path.basename(file)} but no sealed ${provenance} record in the outbox contains these bytes as a valid candidate`, producer: "engine/art_bridge/art_intake.mjs#requireProvenanceLineage", repair_owner: "ART_OPERATOR", resume_at: "SUBMIT_OR_IMPORT_CANDIDATE" });
++}
+ // shot_usage from the action graph (which shot shows this asset on which frames) — the asset carries its own motion obligation
+ function shotUsage(doc, p) {
+   const plan = { assets: [p] }, r = requirementsFor(doc, plan).get(p.asset_id); if (!r) return [];
+   return doc.shots.flatMap((s) => r.spans.filter(([a, b]) => a < s.end_frame && s.start_frame < b).map(([a, b]) => ({ shot_id: s.id, frame_range: [Math.max(a, s.start_frame), Math.min(b, s.end_frame)] })));
+ }
+-function assetRecord(doc, p, fields, provenance, receiptRef) {
++function assetRecord(doc, p, fields, provenance, receiptRef, lineage = null) {
+   const I = doc.identities.find((i) => i.id === p.identity_id);
+   return { id: p.asset_id, identity_id: p.identity_id, kind: p.kind, file: fields.file, sha256: fields.sha256, width_px: fields.width_px, height_px: fields.height_px, alpha_mode: p.alpha_mode, color_space: "sRGB",
+     approved_review_id: null, provider_receipt_id: receiptRef, canonical_rect: fields.canonical_rect, source_pixel_crop: fields.source_pixel_crop, crop_to_canonical_matrix: fields.crop_to_canonical_matrix,
+     coordinate_space: KIND_SPACE[I.kind] || "CHARACTER_LOCAL", parent_part_id: null, pivot_xy: fields.pivot_xy, pivot_landmark_id: fields.pivot_landmark_id, sockets: {}, landmarks: fields.landmarks, layer_owner: p.identity_id,
+     draw_order_constraints: p.draw_order || [], depth_band: p.depth_band || "FOCAL", render_scale_range: [0.25, 2], view_id: p.view_id || "front", pose_id: p.pose_id, expression_id: p.expression_id, hidden_surfaces: p.hidden_surfaces || [],
+     underpaint_asset_ids: fields.underpaint_asset_ids || [], mask_asset_ids: [], occluder_asset_ids: [], material_plane_ids: [], camera_footprint: null, overscan_rect: p.overscan_rect, motion_modes_allowed: ["RIGID", "ARTICULATED", "CAMERA_WORLD", "TRANSITION", "REGISTERED_CELS", "PROCEDURAL"],
+-    incompatible_states: [], valid_interpolation_targets: [], required_contact_sockets: [], shot_usage: shotUsage(doc, p), provenance_class: provenance };
++    incompatible_states: [], valid_interpolation_targets: [], required_contact_sockets: [], shot_usage: shotUsage(doc, p), provenance_class: provenance, provider_lineage: lineage };
+ }
+ /** reviewed landmark sidecar: values + reviewer + its own hash (bound into the registration receipt, re-audit hardening 2) */
+ const sidecar = (f) => { const j = readJ(f); if (!j.landmarks || !j.reviewed_by) throw err("UNREGISTERED_PIVOT", { reason: `landmark sidecar ${f} needs {landmarks:{name:[x,y]}, reviewed_by, method}: unreviewed correspondences are not accepted` }); return { ...j, sha256: fsha(f) }; };
+@@ -145,8 +156,9 @@ export function validatePlanContract(doc, plan) {
+   return errs;
+ }
+ 
+-export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY" }) {
++export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
+   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
++  const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
+   const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset), I = doc.identities.find((i) => i.canonical_asset_id === asset);
+   if (!p || !I) throw new Error(`${asset} is not a planned canonical master`);
+   const png = readPNG(file); checkAlphaContract(asset, p.alpha_mode, png);
+@@ -174,7 +186,7 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
+     writeJ(path.join(regDir, "MASTER_REGISTRATION_RECEIPT.json"), receipt); writeJ(path.join(attempt, "MASTER_REGISTRATION_RECEIPT.json"), receipt); }
+   const rootJ = doc.rigs.find((r) => r.identity_id === I.id)?.root_part, pivotId = names.includes(rootJ) ? rootJ : names[0];
+   const fields = { file: path.relative(FILM, dest).split(path.sep).join("/"), sha256: fsha(dest), ...geom, pivot_xy: measured[pivotId], pivot_landmark_id: pivotId, landmarks: measured };
+-  const rec = assetRecord(doc, { ...p, kind: p.kind === "WORLD_PLANE" ? "WORLD_PLANE" : "MASTER" }, fields, provenance, `masterreg_${asset}`);
++  const rec = assetRecord(doc, { ...p, kind: ["WORLD_PLANE", "TRANSITION_PLATE", "MASK"].includes(p.kind) ? p.kind : "MASTER" }, fields, provenance, `masterreg_${asset}`, lineage);
+   doc.assets = doc.assets.filter((a) => a.id !== asset).concat(rec); I.master_sha256 = fields.sha256; I.approved_review_id = null; // new pixels always need a new review
+   saveDoc(FILM, doc); log(FILM, { op: "ingest-master", asset, sha256: fields.sha256, max_residual_px: maxRes, status: receipt.status, canonical_rect: geom.canonical_rect });
+   return receipt;
+@@ -257,8 +269,9 @@ function masterApproved(doc, FILM, masterId) {
+   return va.ok && vi.ok ? { ok: true, master: m, identity: I } : { ok: false, reason: `master ${masterId} not approved (${va.status}/${vi.status})` };
+ }
+ 
+-export async function ingestPart({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY" }) {
++export async function ingestPart({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
+   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
++  const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
+   const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset);
+   if (!p || !p.derived_from) throw new Error(`${asset} is not a planned derived state`);
+   const contract = validatePlanContract(doc, { assets: plan.assets.filter((x) => x.asset_id === asset || Object.values(p.surface_underpaint || {}).includes(x.asset_id)) }).filter((e) => e.record_id === asset || e.dependency === asset);
+@@ -285,7 +298,7 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
+   const dest = path.join(FILM, "assets", "art", `${asset}.png`); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.copyFileSync(rec.approved_part_file, dest);
+   const measured = Object.fromEntries(names.map((k) => [k, ap(Tc, lm.landmarks[k])]));
+   const fields = { file: path.relative(FILM, dest).split(path.sep).join("/"), sha256: fsha(dest), width_px: geom.width_px, height_px: geom.height_px, canonical_rect: geom.canonical_rect, source_pixel_crop: [0, 0, geom.width_px, geom.height_px], crop_to_canonical_matrix: geom.crop_to_canonical_matrix, pivot_xy: measured[p.pivot_landmark_id], pivot_landmark_id: p.pivot_landmark_id, landmarks: measured, underpaint_asset_ids: underpaintIds };
+-  const a = assetRecord(doc, p, fields, provenance, `partreg_${asset}`);
++  const a = assetRecord(doc, p, fields, provenance, `partreg_${asset}`, lineage);
+   doc.assets = doc.assets.filter((x) => x.id !== asset).concat(a); saveDoc(FILM, doc);
+   log(FILM, { op: "ingest-part", asset, kind: p.kind, sha256: fields.sha256, master: m.id, max_residual_px: rec.max_residual_px, canonical_rect: geom.canonical_rect, underpaint_asset_ids: underpaintIds });
+   return { status: "REGISTERED_PENDING_REVIEW", asset, kind: p.kind, receipt: rec, crop_to_canonical: geom.crop_to_canonical_matrix, canonical_rect: geom.canonical_rect };
+@@ -367,41 +380,59 @@ export async function submitJob({ film, out, job, env = process.env, provenanceO
+   const request = readJ(path.join(cur.compiledDir, `STAGE_${String(k).padStart(2, "0")}_REQUEST.json`)), manifest = readJ(path.join(cur.compiledDir, "PROVIDER_PRE_SUBMISSION_MANIFEST.json")), witnesses = manifest.source_image_inputs.map((w) => ({ path: w.path, sha256: w.sha256 }));
+   for (const w of witnesses) if (!fs.existsSync(w.path) || fsha(w.path) !== w.sha256) return refusal(job, err("UNQUALIFIED_STYLE_ASSET", { record_id: job, reason: `witness mismatch ${w.path}` }));
+   let reference = null;
+-  if (J.derived_from) { const ma = masterApproved(doc, FILM, J.derived_from); if (!ma.ok) return refusal(job, err("UNAPPROVED_ART", { record_id: job, reason: ma.reason })); reference = { path: path.join(FILM, ma.master.file), sha256: ma.master.sha256 }; if (fsha(reference.path) !== reference.sha256) return refusal(job, err("ASSET_HASH_MISMATCH", { record_id: job, reason: "approved master bytes changed" })); }
+-  else if (k > 1) { // stage k edits the SELECTED output of stage k-1
+-    const prevKey = readCurrentStage(out, job, k - 1); if (!prevKey && !predecessorCandidate) return refusal(job, err("STAGE_PREDECESSOR_MISSING", { record_id: job, reason: `stage ${k} needs the selected output of stage ${k - 1}`, resume_at: `SUBMIT_STAGE_${k - 1}` }));
+-    const pc = predecessorCandidate || prevKey; reference = { path: pc.file, sha256: pc.sha256 }; if (!fs.existsSync(reference.path) || fsha(reference.path) !== reference.sha256) return refusal(job, err("STAGE_PREDECESSOR_MISSING", { record_id: job, reason: "selected predecessor candidate bytes missing or changed" })); }
++  if (predecessorCandidate) return refusal(job, err("STAGE_PREDECESSOR_MISSING", { record_id: job, reason: "caller-supplied predecessor overrides are refused; select a candidate by ID (selectStageCandidate)", producer: "engine/art_bridge/art_intake.mjs#submitJob" }));
++  let masterRef = null;
++  if (J.derived_from) { const ma = masterApproved(doc, FILM, J.derived_from); if (!ma.ok) return refusal(job, err("UNAPPROVED_ART", { record_id: job, reason: ma.reason })); masterRef = { path: path.join(FILM, ma.master.file), sha256: ma.master.sha256 }; if (fsha(masterRef.path) !== masterRef.sha256) return refusal(job, err("ASSET_HASH_MISMATCH", { record_id: job, reason: "approved master bytes changed" })); }
++  if (k === 1) reference = masterRef; // stage 1 of a derived job edits the APPROVED master
++  if (k > 1) { // stage k edits the SELECTED candidate of stage k-1: loaded ONLY from the committed, re-verified selection (no caller path)
++    try { const sel = loadSelection({ out, job, stage: k - 1, generation: cur.digest }); if (sel.record_stage !== k - 1) throw err("STAGE_PREDECESSOR_MISSING", { reason: "selection is not from the immediately preceding stage" }); reference = { path: sel.file, sha256: sel.candidate_sha256, candidate_id: sel.candidate_id }; }
++    catch (e) { return refusal(job, e.code ? e : err("STAGE_PREDECESSOR_MISSING", { record_id: job, reason: e.message })); } }
++  if (k > 1 && masterRef) witnesses.unshift({ ...masterRef, role: "IDENTITY_REFERENCE: approved master (stage k edits the stage k-1 selection; identity stays bound to the master)" });
+   // ONLY NOW: provider discovery (after every authority verified)
+   const provider = discoverProvider(env), caps = await provider.capabilities();
+   if (!caps.available) return { status: "WAITING_FOR_GPT_ART", job, blocker: caps.blocker, file_written: false, provider_called: false };
+   if (!stub && (testTrust() || gate.design_approval?.reviewer_kind === "TEST_TRUSTED")) return refusal(job, err("TEST_TRUST_FORBIDDEN", { record_id: job, reason: "test-trusted authority can never reach a real provider" }));
++  const transparent = J.motion_context.alpha_requirement !== "OPAQUE", required = { generate: !reference, edit: !!reference, transparentRaster: transparent, multipleReferences: witnesses.length > 1 };
++  // F092: a REAL provider needs every required capability LIVE_VERIFIED by a stored canary result; declared JSON is not evidence
++  const capStatus = capabilityStatus(path.resolve(out), provider.report, { ...required, ...Object.fromEntries(Object.keys(required).map((k2) => [k2, true])) });
++  if (!stub) { const missing = Object.entries(required).filter(([k2, need]) => need && capStatus[k2] !== "LIVE_VERIFIED").map(([k2]) => `${k2}:${capStatus[k2] || "UNTESTED"}`); if (missing.length) return refusal(job, err("PROVIDER_NOT_AUTHORIZED", { record_id: job, reason: `required provider capabilities are not live-verified: ${missing.join(", ")} (bounded canary authorization required)`, producer: "engine/art_bridge/art_intake.mjs#submitJob", resume_at: "CAPABILITY_CANARY" })); }
+   const size = env.IMAGE_PROVIDER_SIZE || "1536x1024";
+-  const payload = { provider: provider.report.provider, model: provider.report.model, endpoint: provider.report.base || null, capabilities: caps, size, prompt_sha256: hsha(request.prompt), stage: k, mode: reference ? "edit" : "generate", reference: reference?.sha256 || null, witnesses: witnesses.map((w) => w.sha256), transparent: J.motion_context.alpha_requirement !== "OPAQUE", generation: cur.digest };
+-  const key = hsha(payload), subDir = path.join(out, "submissions", job, key.slice(0, 16)), prior = path.join(subDir, "PROVIDER_RESULT.json");
+-  if (fs.existsSync(prior)) { const p = readJ(prior); if (p.payload_key_sha256 === key && ["CANDIDATES_RECEIVED_PENDING_SELECTION", "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW"].includes(p.status)) return { ...p, status: "ALREADY_SUBMITTED_SAME_PAYLOAD", previous_status: p.status }; }
+-  const opts = { prompt: request.prompt, outDir: subDir, transparent: payload.transparent, size };
+-  let res, attempt = 0; const attempts = [];
+-  for (;;) { try { res = reference ? await provider.edit(J, reference, witnesses, opts) : await provider.generate(J, witnesses, opts); attempts.push({ attempt: attempt + 1, ok: true }); break; }
+-    catch (e) { attempts.push({ attempt: attempt + 1, ok: false, error: e.message, retryable: !!e.retryable }); if (e.code === "PROVIDER_EXECUTION_ERROR" && e.retryable && attempt < maxRetries) { attempt++; continue; }
+-      const fail = { status: "PROVIDER_FAILED", job, payload_key_sha256: key, attempts, error: e.message, code: e.code || null, resumable: true }; writeJ(prior, fail); return fail; } }
++  const payload = { provider: provider.report.provider, model: provider.report.model, endpoint: provider.report.base || null, capabilities: caps, capability_status: capStatus, size, prompt_sha256: hsha(request.prompt), stage: k, mode: reference ? "edit" : "generate", reference: reference?.sha256 || null, witnesses: witnesses.map((w) => w.sha256), transparent, generation: cur.digest, film: path.basename(FILM) };
++  const key = hsha(payload), subDir = path.join(out, "submissions", job, key.slice(0, 16));
++  if (fs.existsSync(path.join(subDir, "PROVIDER_RESULT.json"))) { const p = loadResult(subDir).record; return { ...p, status: "ALREADY_SUBMITTED_SAME_PAYLOAD", previous_status: p.status, provider_called: false }; }
++  // F084: EXTERNAL_REQUEST_PREPARED before any send; an earlier prepared request without a terminal outcome blocks a (possibly paid) resend
++  const prep = prepareRequest(subDir, { job, stage: k, payload_key_sha256: key, payload, attachments: witnesses.map((w) => w.sha256), reference: reference?.sha256 || null, budget_authorization: env.ART_BRIDGE_BUDGET_AUTHORIZATION || null, charge_policy: stub ? "TEST_STUB_NO_CHARGE" : "PROVIDER_CHARGES_PER_CALL", provider_idempotency: "NONE_DOCUMENTED" });
++  if (prep.state !== "NEW") return { status: prep.state === "OUTCOME_UNKNOWN" ? "EXTERNAL_OUTCOME_UNKNOWN" : `ALREADY_${prep.state}`, job, provider_called: false, local_request_id: prep.prepared.local_request_id, reason: prep.state === "OUTCOME_UNKNOWN" ? "a prior request may have been sent without a recorded outcome: reconcile (candidate_store.mjs#reconcileOutcome) before any resend; no automatic paid retry" : `prior outcome ${prep.state}` };
++  // F089: a chargeable call must consume a signed paid-run authorization naming this exact job/generation/stage within its ceiling
++  if (!stub) { try { const RA = await import("../production/run_authorization.mjs"); RA.consumeRunAuthorization(env.ART_BRIDGE_BUDGET_AUTHORIZATION, { root: FILM, ledgerDir: path.join(path.resolve(out), "authorizations"), artjob: job, generation: cur.digest, stage: k, payload_key_sha256: key }); }
++    catch (e) { recordOutcome(subDir, "DEFINITELY_NOT_SENT", { error: e.message, refused_before_send: true }); return refusal(job, e.code ? e : err("RUN_NOT_AUTHORIZED", { record_id: job, reason: e.message })); } }
++  const opts = { prompt: request.prompt, outDir: path.join(subDir, "provider_raw"), transparent, size, timeoutMs: +(env.IMAGE_PROVIDER_TIMEOUT_MS || 300000) };
++  let res; const attempts = [];
++  for (let attempt = 0; ; attempt++) { try { res = reference ? await provider.edit(J, reference, witnesses, opts) : await provider.generate(J, witnesses, opts); attempts.push({ attempt: attempt + 1, ok: true }); recordOutcome(subDir, "COMPLETED", { provider_response: res.response_meta || null }); break; }
++    catch (e) { const httpStatus = +(String(e.message).match(/HTTP (\d{3})/)?.[1] || 0), notSent = /ECONNREFUSED|ENOTFOUND|EAI_AGAIN/.test(String(e.cause?.code || e.message)), rejected = httpStatus === 429 || (httpStatus >= 400 && httpStatus < 500);
++      attempts.push({ attempt: attempt + 1, ok: false, error: e.message, http_status: httpStatus || null });
++      if (notSent || rejected) { recordOutcome(subDir, notSent ? "DEFINITELY_NOT_SENT" : "KNOWN_REJECTED", { error: e.message, http_status: httpStatus || null }); if (httpStatus === 429 && attempt < maxRetries) { if (!stub) { try { const RA = await import("../production/run_authorization.mjs"); RA.consumeRunAuthorization(env.ART_BRIDGE_BUDGET_AUTHORIZATION, { root: FILM, ledgerDir: path.join(path.resolve(out), "authorizations"), artjob: job, generation: cur.digest, stage: k, payload_key_sha256: key, retry: true }); } catch (x) { return refusal(job, x); } } prepareRequest(subDir, { job, stage: k, payload_key_sha256: key, payload, retry_of_rejected: true }); continue; } return { status: "PROVIDER_FAILED", job, outcome: notSent ? "DEFINITELY_NOT_SENT" : "KNOWN_REJECTED", payload_key_sha256: key, attempts, error: e.message, code: e.code || null, resumable: true, provider_called: !notSent }; }
++      log(FILM, { op: "submit-outcome-unknown", job, stage: k, error: e.message }); return { status: "EXTERNAL_OUTCOME_UNKNOWN", job, payload_key_sha256: key, attempts, error: e.message, provider_called: true, reason: "the provider may have completed (5xx/timeout/lost response): reconcile before any resend" }; } }
+   const candDir = path.join(out, "inbox", "candidates", job); fs.mkdirSync(candDir, { recursive: true });
++  const [rw, rh] = size.split("x").map(Number);
++  // F092: every required reference must have been SENT, and if the provider reports what it consumed, all of them consumed (no silent witness drop)
++  const needRefs = witnesses.length + (reference ? 1 : 0), ack = res.response_meta?.acknowledged_input_images, refProblems = [...(res.attachments_sent !== undefined && res.attachments_sent !== needRefs ? [`adapter sent ${res.attachments_sent} of ${needRefs} required reference images`] : []), ...(ack !== null && ack !== undefined && ack !== needRefs ? [`provider acknowledged ${ack} of ${needRefs} reference images (a dropped source witness/predecessor)`] : [])];
+   const candidates = res.outputs.map((o, i) => { const png = readPNG(o.file), target = path.join(candDir, `${key.slice(0, 16)}__${i}.png`);
+     if (fs.existsSync(target)) { if (fsha(target) !== o.sha256) throw new Error(`immutable candidate ${target} would be overwritten by different bytes`); } else fs.copyFileSync(o.file, target, fs.constants.COPYFILE_EXCL);
+-    const alpha_present = png.hasAlphaChannel && png.alpha.transparent + png.alpha.partial > 0; return { index: i, file: target, sha256: o.sha256, width: png.width, height: png.height, alpha_present, valid: payload.transparent ? alpha_present : true }; });
+-  const valid = candidates.filter((c) => c.valid);
+-  let status, promoted = null;
+-  if (!valid.length) status = "PROVIDER_OUTPUT_REJECTED";
+-  else if (valid.length === 1) { promoted = path.join(out, "inbox", `${job}__${key.slice(0, 16)}.png`); if (!fs.existsSync(promoted)) fs.copyFileSync(valid[0].file, promoted, fs.constants.COPYFILE_EXCL); status = "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW"; if (k < stages.length) writeStageSelection(out, job, k, { file: promoted, sha256: valid[0].sha256, key }); }
+-  else status = "CANDIDATES_RECEIVED_PENDING_SELECTION";
+-  const provenance = stub ? "TEST_STUB" : provenanceOverride || "GPT_PROVIDER_ART";
+-  const result = { ...res, outputs: candidates, candidates, promoted, mode: payload.mode, stage: k, of: stages.length, final_stage: k === stages.length, reference_hashes: reference ? [reference.sha256] : [], style_witness_hashes: witnesses.map((w) => w.sha256), payload_key: payload, payload_key_sha256: key, attempts: attempts.length, attempt_log: attempts, ancestry: { artjob: job, generation: cur.digest, derived_from: J.derived_from, predecessor: reference }, provenance_to_ingest: provenance, status, provider_called: true };
+-  writeJ(prior, result); log(FILM, { op: "submit", job, stage: k, mode: payload.mode, model: payload.model, candidates: candidates.map((c) => c.sha256), status, provenance });
+-  return result;
++    const alpha_present = png.hasAlphaChannel && png.alpha.transparent + png.alpha.partial > 0, size_ok = png.width === rw && png.height === rh, problems = [...(transparent && !alpha_present ? ["opaque output for a transparent request"] : []), ...(!size_ok ? [`size ${png.width}x${png.height} ≠ requested ${size}`] : []), ...refProblems];
++    return { id: `${key.slice(0, 16)}:${i}`, index: i, file: target, sha256: o.sha256, width: png.width, height: png.height, alpha_present, size_ok, problems, valid: problems.length === 0 }; });
++  const valid = candidates.filter((c) => c.valid), provenance = stub ? "TEST_STUB" : "GPT_PROVIDER_ART"; // provenanceOverride can never upgrade or rename origin
++  const status = !valid.length ? "PROVIDER_OUTPUT_REJECTED" : valid.length === 1 ? "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW" : "CANDIDATES_RECEIVED_PENDING_SELECTION";
++  const result = { ...res, outputs: candidates, candidates, mode: payload.mode, stage: k, of: stages.length, final_stage: k === stages.length, reference_hashes: reference ? [reference.sha256] : [], style_witness_hashes: witnesses.map((w) => w.sha256), payload_key: payload, payload_key_sha256: key, attempts: attempts.length, attempt_log: attempts, ancestry: { artjob: job, generation: cur.digest, derived_from: J.derived_from, predecessor: reference }, provenance_to_ingest: provenance, provenance_override_ignored: provenanceOverride && provenanceOverride !== provenance ? provenanceOverride : null, status, provider_called: true };
++  const recordSha = sealResult(subDir, result); let promoted = null;
++  if (valid.length === 1) { promoted = path.join(out, "inbox", `${job}__${key.slice(0, 16)}.png`); if (!fs.existsSync(promoted)) fs.copyFileSync(valid[0].file, promoted, fs.constants.COPYFILE_EXCL); if (k < stages.length) selectCandidate({ out, job, stage: k, generation: cur.digest, candidateId: valid[0].id, selector: "SINGLE_VALID_CANDIDATE" }); }
++  log(FILM, { op: "submit", job, stage: k, mode: payload.mode, model: payload.model, candidates: candidates.map((c) => c.sha256), status, provenance, record_sha256: recordSha });
++  return { ...result, promoted, record_sha256: recordSha };
++}
++/** selectStageCandidate — explicit operator selection by CANDIDATE ID within the sealed provider result (never a file path) */
++export function selectStageCandidate({ out, job, stage, candidateId, generation = null, file = undefined }) {
++  if (file !== undefined) throw err("STAGE_PREDECESSOR_MISSING", { record_id: job, reason: "selection by file path is refused; select a candidate ID from the sealed provider result", producer: "engine/art_bridge/art_intake.mjs#selectStageCandidate" });
++  const gen = generation || readCurrent(out, job)?.digest; return selectCandidate({ out, job, stage, generation: gen, candidateId, selector: "OPERATOR" });
+ }
+-const stageSelFile = (out, job, k) => path.join(out, "submissions", job, `STAGE_${String(k).padStart(2, "0")}_SELECTED.json`);
+-function readCurrentStage(out, job, k) { const f = stageSelFile(out, job, k); return fs.existsSync(f) ? readJ(f) : null; }
+-function writeStageSelection(out, job, k, sel) { const f = stageSelFile(out, job, k); if (!fs.existsSync(f)) writeJ(f, sel); }
+-/** selectStageCandidate — explicit operator selection when a stage returned several candidates (never automatic) */
+-export function selectStageCandidate({ out, job, stage, file }) { const f = stageSelFile(out, job, stage); if (fs.existsSync(f)) throw err("OUTBOX_IMMUTABLE_VIOLATION", { record_id: job, reason: `stage ${stage} already has a selected candidate` }); writeJ(f, { file, sha256: fsha(file), selected_at: new Date().toISOString() }); return readJ(f); }
+ 
+ export { registrationReceiptFile, verifyRegistrationReceipt } from "./registration_evidence.mjs";
+diff --git a/engine/art_bridge/asset_registry.mjs b/engine/art_bridge/asset_registry.mjs
+index 73f24b3..22f83ea 100644
+--- a/engine/art_bridge/asset_registry.mjs
++++ b/engine/art_bridge/asset_registry.mjs
+@@ -7,7 +7,7 @@ import { err } from "./errors.mjs";
+ const xmlSafe = /^[A-Za-z0-9_./-]+$/;
+ export async function createAssetRegistry(root, manifest, { production = false } = {}) {
+   const L = await loadManifest(root, manifest, { production });
+-  if (!L.ok) { const e = new Error(`asset registry: manifest failed (${L.errors.length} error(s))`); e.errors = L.errors; throw e; }
++  if (!L.ok) { const e = new Error(`asset registry: manifest failed (${L.errors.length} error(s)): ${L.errors.slice(0, 3).map((x) => `${x.code} ${x.record_id ?? ""}`).join("; ")}`); e.errors = L.errors; e.code = L.errors[0]?.code; throw e; } // typed: the first violated invariant's code
+   const doc = L.doc, byId = new Map();
+   for (const a of doc.assets) {
+     if (!xmlSafe.test(a.file)) throw err("ASSET_PATH_INVALID", { record_id: a.id, reason: "asset path contains characters not allowed in a package URL" });
+diff --git a/engine/art_bridge/errors.mjs b/engine/art_bridge/errors.mjs
+index 731a4d7..97f910b 100644
+--- a/engine/art_bridge/errors.mjs
++++ b/engine/art_bridge/errors.mjs
+@@ -16,6 +16,8 @@ export const CODES = Object.freeze([
+   "DIRECTION_DECISION_INERT", "NARRATION_NOT_MEASURED", "STALE_DEPENDENCY", "CONTACT_ORIENTATION_UNSATISFIABLE", "FOOT_SUPPORT_UNSATISFIABLE",
+   "ART_STATE_REQUIRED", "CONTACT_PATCH_MISS", "INVALID_DEFORM_MAP", "SHADOW_RELATION_MISSING", "FRAME_TILING_GAP", "RENDER_RECEIPT_INVALID",
+   "REPAIR_RULE_CONFLICT", "QA_LAYER_FAILED", "OUTBOX_IMMUTABLE_VIOLATION", "INTERFACE_UNFITTED", "METHOD_DECISION_INERT",
++  // P02 directive (F073-F092)
++  "PROVENANCE_COUNTERFEIT", "INERT_CONTROL", "FROZEN_FRAME", "INERT_ACTION_INTERVAL", "COVERAGE_GAP", "RUN_NOT_AUTHORIZED", "LEDGER_CHAIN_BROKEN", "EXTERNAL_OUTCOME_UNKNOWN", "CAPABILITY_UNVERIFIED", "LEASE_LOST",
+ ]);
+ /** directive N2: every refusal carries the same machine-readable fields (producer, invariant, owner, resume point, revisions, evidence) */
+ const N2 = ["producer", "failed_invariant", "dependency_ids", "required_art_or_operation", "repair_owner", "resume_at", "input_revision_hashes", "diagnostic_evidence", "severity", "frame_ranges"];
+diff --git a/engine/art_bridge/load_manifest.mjs b/engine/art_bridge/load_manifest.mjs
+index 00147b1..b1015e5 100644
+--- a/engine/art_bridge/load_manifest.mjs
++++ b/engine/art_bridge/load_manifest.mjs
+@@ -76,7 +76,7 @@ export async function loadManifest(projectRoot, manifestPath, options = {}) {
+   // identities: canonical master
+   for (const i of doc.identities) {
+     const m = assets.get(i.canonical_asset_id);
+-    if (!m || !(m.kind === "MASTER" || (i.kind === "WORLD" && ["WORLD_PLANE", "CLEAN_PLATE"].includes(m.kind)))) E("MISSING_CANONICAL_MASTER", { record_id: i.id, dependency: i.canonical_asset_id, suggested_producer: "GPT master generation", reason: "identity has no MASTER asset" });
++    if (!m || !(m.kind === "MASTER" || (i.kind === "WORLD" && ["WORLD_PLANE", "CLEAN_PLATE", "TRANSITION_PLATE", "MASK"].includes(m.kind)))) E("MISSING_CANONICAL_MASTER", { record_id: i.id, dependency: i.canonical_asset_id, suggested_producer: "GPT master generation", reason: "identity has no MASTER asset" });
+     else if (m.sha256 !== i.master_sha256) E("ART_IDENTITY_DRIFT", { record_id: i.id, reason: "identity master hash differs from the master asset" });
+     if (i.approved_review_id === null) E("UNAPPROVED_ART", { record_id: i.id, reason: "identity master not approved" });
+   }
+diff --git a/engine/art_bridge/png.mjs b/engine/art_bridge/png.mjs
+index f907dec..d8e390d 100644
+--- a/engine/art_bridge/png.mjs
++++ b/engine/art_bridge/png.mjs
+@@ -2,8 +2,9 @@
+ // actual bytes (spec §4 step 1: "Validate PNG dimensions and decode alpha"). Supports 8-bit greyscale/RGB/RGBA/grey+alpha, non-interlaced.
+ import fs from "node:fs"; import zlib from "node:zlib";
+ const SIG = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+-export function readPNG(file) {
+-  const b = fs.readFileSync(file);
++export function readPNG(file) { return decodePNG(fs.readFileSync(file), file); }
++/** decodePNG(buffer) — the same decoder over in-memory bytes (Chrome screenshots, provider responses) */
++export function decodePNG(b, file = "<buffer>") {
+   if (b.length < 33 || !b.subarray(0, 8).equals(SIG)) throw Object.assign(new Error(`not a PNG: ${file}`), { code: "IMAGE_DIMENSION_MISMATCH" });
+   let p = 8, W, H, depth, ctype, interlace; const idat = [];
+   while (p < b.length) { const len = b.readUInt32BE(p), type = b.toString("ascii", p + 4, p + 8), data = b.subarray(p + 8, p + 8 + len);
+diff --git a/engine/art_bridge/providers/image_provider.mjs b/engine/art_bridge/providers/image_provider.mjs
+index b5d69f2..131e338 100644
+--- a/engine/art_bridge/providers/image_provider.mjs
++++ b/engine/art_bridge/providers/image_provider.mjs
+@@ -55,12 +55,12 @@ export class OpenAIImagesProvider {
+     const body = { model: this.cfg.model, prompt, size: opts.size || "1536x1024", ...(opts.transparent ? { background: "transparent", output_format: "png" } : { output_format: "png" }) };
+     const receipt = this.receipt(job, mode, attachments, reference, body); fs.mkdirSync(opts.outDir, { recursive: true }); fs.writeFileSync(path.join(opts.outDir, "PROVIDER_REQUEST_RECEIPT.json"), JSON.stringify(receipt, null, 1));
+     let res;
+-    if (imgs.length) { const fd = new FormData(); for (const [k, v] of Object.entries(body)) fd.append(k, String(v)); for (const a of imgs) fd.append("image[]", new Blob([fs.readFileSync(a.path)]), path.basename(a.path)); res = await fetch(`${this.cfg.base}/images/edits`, { method: "POST", headers: { authorization: `Bearer ${this.cfg.key}` }, body: fd }); }
+-    else res = await fetch(`${this.cfg.base}/images/generations`, { method: "POST", headers: { authorization: `Bearer ${this.cfg.key}`, "content-type": "application/json" }, body: JSON.stringify(body) });
++    if (imgs.length) { const fd = new FormData(); for (const [k, v] of Object.entries(body)) fd.append(k, String(v)); for (const a of imgs) fd.append("image[]", new Blob([fs.readFileSync(a.path)]), path.basename(a.path)); res = await fetch(`${this.cfg.base}/images/edits`, { method: "POST", headers: { authorization: `Bearer ${this.cfg.key}` }, body: fd, signal: AbortSignal.timeout(opts.timeoutMs || 300000) }); }
++    else res = await fetch(`${this.cfg.base}/images/generations`, { method: "POST", headers: { authorization: `Bearer ${this.cfg.key}`, "content-type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(opts.timeoutMs || 300000) });
+     let json; try { json = await res.json(); } catch { json = {}; }
+     if (!res.ok) throw Object.assign(new Error(`provider HTTP ${res.status}: ${JSON.stringify(json).slice(0, 300)}`), { code: "PROVIDER_EXECUTION_ERROR", retryable: res.status >= 500 || res.status === 429 });
+     const outputs = (json.data || []).map((d, i) => { const buf = Buffer.from(d.b64_json, "base64"), f = path.join(opts.outDir, `${job.artjob_id}__out${i}.png`); fs.writeFileSync(f, buf); return { file: f, sha256: sha(buf), bytes: buf.length }; });
+-    const result = { ...receipt, outputs, response_meta: { created: json.created ?? null }, status: outputs.length ? "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW" : "NO_OUTPUT" };
++    const result = { ...receipt, outputs, attachments_sent: imgs.length, response_meta: { created: json.created ?? null, acknowledged_input_images: json.usage?.input_images ?? null }, status: outputs.length ? "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW" : "NO_OUTPUT" };
+     fs.writeFileSync(path.join(opts.outDir, "PROVIDER_RESULT.json"), JSON.stringify(result, null, 1));
+     return result;
+   }
+diff --git a/engine/art_bridge/repair_memory.mjs b/engine/art_bridge/repair_memory.mjs
+index a05ac59..69e46e4 100644
+--- a/engine/art_bridge/repair_memory.mjs
++++ b/engine/art_bridge/repair_memory.mjs
+@@ -36,11 +36,20 @@ export function matchingRulesDigest(memoryPath, context) {
+   if (!memoryPath || !fs.existsSync(memoryPath)) return null;
+   const m = JSON.parse(fs.readFileSync(memoryPath, "utf8")); return sha({ version: m.version, rules: (m.rules || []).filter((r) => predicateMatches(r.applies_when, context)) });
+ }
+-/** qualification of a learned rule: only real provider pixels (non-diagnostic provenance) + an unlike transfer can raise it above IMPLEMENTED_UNQUALIFIED */
+-export function ruleQualification(rule) {
+-  const real = rule.evidence_provenance === "GPT_PROVIDER_ART" && rule.before_sha256 && rule.after_sha256 && rule.before_sha256 !== rule.after_sha256;
+-  if (!real) return { status: "IMPLEMENTED_UNQUALIFIED", reason: `evidence provenance ${rule.evidence_provenance || "none"}: diagnostic or missing pixels cannot qualify artistic learning` };
+-  return rule.transfer_test?.result === "PASS" && rule.transfer_test?.unlike_subject ? { status: "QUALIFIED_REAL_PRODUCTION" } : { status: "TRANSFER_PROVED_PENDING", reason: "real repair observed; unlike transfer not yet shown" };
++/** ruleQualification(rule, {root}) — F083: computed ONLY from a resolvable evidence chain, never from self-described fields:
++ *  actual before/after image BYTES under root (hashes recomputed, distinct), a SEALED provider result record containing the after bytes (not a
++ *  stub), a verified HUMAN art-review receipt over the after candidate, a recorded first-pass change on an UNLIKE job (two different compiled
++ *  request hashes whose diff contains the rule's operation) and an unlike-family transfer result file. Missing any → IMPLEMENTED_UNQUALIFIED. */
++export function ruleQualification(rule, { root = null, verifyApproval = null, doc = null } = {}) {
++  const ev = rule.evidence || {}, why = [], fileOk = (p) => root && p && fs.existsSync(path.resolve(root, p)) && path.resolve(root, p).startsWith(path.resolve(root) + path.sep);
++  const fsha = (p) => crypto.createHash("sha256").update(fs.readFileSync(path.resolve(root, p))).digest("hex");
++  if (!fileOk(ev.before_file) || !fileOk(ev.after_file)) why.push("before/after image bytes are not accessible (a SHA field is not evidence)");
++  else { const b = fsha(ev.before_file), a = fsha(ev.after_file); if (b === a) why.push("before and after images are identical"); if (rule.before_sha256 && b !== rule.before_sha256) why.push("before bytes differ from the claimed hash"); if (rule.after_sha256 && a !== rule.after_sha256) why.push("after bytes differ from the claimed hash");
++    if (!fileOk(ev.provider_result) || !fileOk(ev.provider_result_sha)) why.push("no sealed provider result record"); else { const rec = fs.readFileSync(path.resolve(root, ev.provider_result), "utf8"); if (crypto.createHash("sha256").update(rec).digest("hex") !== fs.readFileSync(path.resolve(root, ev.provider_result_sha), "utf8").trim()) why.push("provider result record altered"); else { const r = JSON.parse(rec); if (r.provenance_to_ingest !== "GPT_PROVIDER_ART") why.push(`provider provenance ${r.provenance_to_ingest}`); if (!(r.candidates || []).some((c) => c.sha256 === a && c.valid)) why.push("the after image is not a valid candidate of that provider result"); } } }
++  if (!ev.review_receipt_id || !verifyApproval || !doc) why.push("no verifiable human art-review receipt"); else { const v = verifyApproval(doc, root, "art_review", rule.after_sha256, ev.review_receipt_id, { requireHuman: true }); if (!v.ok || v.reviewer_kind !== "HUMAN") why.push(`art review ${v.status}${v.reviewer_kind ? " " + v.reviewer_kind : ""}`); }
++  const fp = ev.first_pass_change; if (!fp || !fp.unlike_job || !fp.request_before_sha256 || !fp.request_after_sha256 || fp.request_before_sha256 === fp.request_after_sha256 || !fileOk(fp.request_after_file) || !fs.readFileSync(path.resolve(root, fp.request_after_file), "utf8").includes((rule.positive_construction_ops || [])[0] || "\u0000")) why.push("no observed first-pass request change on an unlike job carrying the rule's operation");
++  const tt = ev.transfer_result_file && fileOk(ev.transfer_result_file) ? JSON.parse(fs.readFileSync(path.resolve(root, ev.transfer_result_file), "utf8")) : null; if (!tt || tt.result !== "PASS" || !tt.unlike_family || tt.unlike_family === rule.applies_when?.family) why.push("no unlike-family transfer result");
++  return why.length ? { status: "IMPLEMENTED_UNQUALIFIED", reasons: why } : { status: "QUALIFIED_REAL_PRODUCTION", reasons: [] };
+ }
+ /** promoteToSkillRule(rec, rule) — skill-format rule (learning/REPAIR_MEMORY.json) built from a K1 record; refuses scene-specific scope */
+ export function promoteToSkillRule(rec, rule) {
+diff --git a/engine/art_bridge/runtime/bridge_rt.js b/engine/art_bridge/runtime/bridge_rt.js
+index ce4e895..9e547ad 100644
+--- a/engine/art_bridge/runtime/bridge_rt.js
++++ b/engine/art_bridge/runtime/bridge_rt.js
+@@ -2,9 +2,13 @@
+    Every runtime-owned element is written on every frame (transform via "a:transform", visibility via "vis", opacity via "o"), so a seek to
+    any frame produces the same DOM regardless of the previous frame. No per-frame IO, generation or cumulative state. */
+ (function () {
++  var bound = null, override = null, overrideTag = null, lastT = 0;
+   function bind(S, baked) {
++    bound = S;
+     var ids = baked.ids, frames = baked.frames, fps = baked.fps, first = baked.first_frame;
+     S.at(function (t) {
++      lastT = t;
++      if (override) { for (var j = 0; j < override.length; j++) { var o = override[j]; S.set(o[0], "a:transform", o[1]); S.set(o[0], "vis", o[2] === 1); S.set(o[0], "o", o[3]); } window.__artbFrame = overrideTag; return; }
+       var f = Math.round(t * fps) - first; if (f < 0) f = 0; if (f >= frames.length) f = frames.length - 1;
+       var row = frames[f];
+       for (var i = 0; i < ids.length; i++) { var r = row[i]; S.set(ids[i], "a:transform", r[0]); S.set(ids[i], "vis", r[1] === 1); S.set(ids[i], "o", r[2]); }
+@@ -14,5 +18,11 @@
+   function preload(urls) {
+     return Promise.all(urls.map(function (u) { var im = new Image(); im.src = u; return im.decode().then(function () { return { u: u, ok: true, w: im.naturalWidth, h: im.naturalHeight }; }, function (e) { return { u: u, ok: false, e: String(e) }; }); }));
+   }
+-  window.ARTB = { bind: bind, preload: preload };
++  /* sub-frame compositing (shutter samples): apply one row set computed by the same scene for a fractional time; the next seek restores
++     the integer frame, so no state accumulates */
++  /* P02 repair: nu.js S.set only STAGES values; S.render(t) clears staged state and re-runs the S.at hooks, which re-apply the baked frame. A
++     sub-frame row set must therefore be applied as a one-shot OVERRIDE consumed by the bound S.at hook inside a real S.render pass (the previous
++     version staged values that were never written, so shutter samples never reached the DOM). */
++  function applyRows(rows, tag) { override = rows; overrideTag = tag; try { bound.render(lastT); } finally { override = null; overrideTag = null; } window.__artbFrame = tag; }
++  window.ARTB = { bind: bind, preload: preload, applyRows: applyRows };
+ })();
+diff --git a/engine/art_bridge/scene_graph.mjs b/engine/art_bridge/scene_graph.mjs
+index 30535c2..381c037 100644
+--- a/engine/art_bridge/scene_graph.mjs
++++ b/engine/art_bridge/scene_graph.mjs
+@@ -77,8 +77,8 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel =
+   const pivotOf = (aid) => assets.get(aid).pivot_xy;
+ 
+   /** full runtime state for frame f: [[elementId, transform, visible, opacity]] for every runtime-owned element (+ the raw stateAtFrame) */
+-  function frameState(f) {
+-    const st = stateAtFrame(compiled, f), rows = [], inShot = st.shotId === shot.id, cam = st.camera;
++  function frameState(f, { subframe = false } = {}) {
++    const st = stateAtFrame(compiled, f, { subframe }), rows = [], inShot = st.shotId === shot.id, cam = st.camera;
+     for (const b of BANDS) if (ordered[b].length) rows.push([P(`cam-${b}`), fmt(cameraMatrix(cam, b, plan.parallax, doc.stage)), inShot ? 1 : 0, 1]);
+     const live = new Map(st.passes.map((p) => [p.pass_id, p]));
+     const lights = []; for (const p of st.passes) lights.push(...applyApprovedLighting(p, st.artStates[p.rig], f, { assets, lighting: plan.lighting }));
+diff --git a/engine/art_bridge/state_router.mjs b/engine/art_bridge/state_router.mjs
+index 66be26b..2123172 100644
+--- a/engine/art_bridge/state_router.mjs
++++ b/engine/art_bridge/state_router.mjs
+@@ -2,7 +2,8 @@
+ // approved edges that preserve registered anchors. State is a pure function of the event list at f — no "last state" variable.
+ import { err } from "./errors.mjs";
+ import { apply, dist } from "./math2d.mjs";
+-import { validateMorph, validateDeformMap } from "./deform.mjs";
++import { validateMorph, validateDeformMap } from "./deform.mjs";
++import { validateViewTurn } from "./motion_systems.mjs";
+ 
+ /** validateStateEdge(from, to, rig, assets) → the approved edge record, or throws UNSUPPORTED_STATE_EDGE / INVALID_MORPH_TOPOLOGY / UNSUPPORTED_VIEW */
+ export function validateStateEdge(from, to, rig, assets, identity = null, { requireApproval = true } = {}) {
+@@ -13,6 +14,10 @@ export function validateStateEdge(from, to, rig, assets, identity = null, { requ
+   if (!e) throw err("UNSUPPORTED_STATE_EDGE", { record_id: id, reason: "no approved edge" });
+   if (A.view_facing !== B.view_facing && !["REGISTERED_SWAP", "CEL_SEQUENCE"].includes(e.mode)) throw err(e.mode === "MATCHED_VECTOR_MORPH" ? "INVALID_MORPH_TOPOLOGY" : "UNSUPPORTED_STATE_EDGE", { record_id: id, reason: `view change by ${e.mode}` });
+   if (e.mode === "MATCHED_VECTOR_MORPH") { const raster = [...Object.values(A.asset_bindings), ...Object.values(B.asset_bindings)].filter((x) => assets.get(x)?.kind !== "VECTOR_PATH"); if (raster.length) throw err("INVALID_MORPH_TOPOLOGY", { record_id: id, dependency: raster.join(","), reason: "vector morph on raster assets" }); }
++  // a view-changing edge needs an approved cel of the new view sharing >=3 MEASURED landmarks with the old view (no rotated front PNG)
++  if (A.view_facing !== B.view_facing) { const lm = (st) => new Set(Object.values(st.asset_bindings).flatMap((x) => Object.keys(assets.get(x)?.landmarks || {}))), la = lm(A), shared = [...lm(B)].filter((k) => la.has(k));
++    const v = validateViewTurn({ from_view: A.view_facing, to_view: B.view_facing, cels: Object.values(B.asset_bindings).some((x) => assets.get(x)) ? [{ view: B.view_facing, landmarks_shared_with: { [A.view_facing]: shared } }] : [], rotation_of_front: e.mode === "ROTATE_FRONT" });
++    if (!v.ok) throw err(v.failures[0].code, { record_id: id, reason: v.failures[0].reason, producer: "engine/art_bridge/state_router.mjs#validateStateEdge" }); }
+   if (e.mode === "MATCHED_VECTOR_MORPH") for (const [slot, a] of Object.entries(A.asset_bindings)) { const b = B.asset_bindings[slot], pa = assets.get(a)?.path_d, pb = assets.get(b)?.path_d; if (pa && pb) { const v = validateMorph(pa, pb); if (!v.ok) throw err("INVALID_MORPH_TOPOLOGY", { record_id: id, dependency: slot, reason: v.failures.map((x) => x.reason).join("; ") }); } }
+   if (e.mode === "EXPLICIT_DEFORM") { const v = validateDeformMap(e.deform_map); if (!v.ok) throw err("INVALID_DEFORM_MAP", { record_id: id, reason: v.failures.map((x) => x.reason).join("; ") }); }
+   if (requireApproval && !e.approved_assembly_review_id) throw err("UNAPPROVED_ART", { record_id: id, reason: "state edge assembly not approved" });
+diff --git a/engine/art_bridge/temporal.mjs b/engine/art_bridge/temporal.mjs
+index f8470c4..43c407b 100644
+--- a/engine/art_bridge/temporal.mjs
++++ b/engine/art_bridge/temporal.mjs
+@@ -103,7 +103,7 @@ export function compileMotionTracks(actions, shots, ctx) {
+   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
+ 
+   const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {} };
+-  C.shotAt = (f) => shots[shotAt[f]] || null;
++  C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
+   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
+   C.placement = placement;
+   // root + joint values from tracks (+ gear followers + baked secondary)
+@@ -274,20 +274,22 @@ export function compileMotionTracks(actions, shots, ctx) {
+   return Object.freeze(C);
+ }
+ 
+-/** stateAtFrame(compiled, f): the spec §11.1 causal order, pure in f. */
+-export function stateAtFrame(compiled, f) {
+-  if (!Number.isInteger(f) || f < 0 || f >= compiled.totalFrames) throw new RangeError(`INVALID_FRAME ${f}`);
+-  const shot = compiled.shotAt(f);
+-  if (!shot) throw err("SHOT_COVERAGE_GAP", { frame_range: [f, f + 1], reason: `no shot at frame ${f}` });
+-  const primary = compiled.evalPrimary(f, shot);
+-  const contactGraph = compiled.contactsAt(f);
+-  const constrained = compiled.solveConstraints(f, primary, contactGraph);
+-  const artStates = compiled.resolveApprovedArtStates(f, constrained);
+-  const matrices = constrained.matrices;
+-  const passes = compiled.resolvePaintPasses(artStates, matrices);
+-  const cels = compiled.celsAt(f), procedural = compiled.proceduralAt(f);
+-  const secondary = compiled.evalBakedSecondary(f);
++/** stateAtFrame(compiled, t): the spec §11.1 causal order, pure in t. t is an integer frame, or a SUB-FRAME sample time inside a frame
++ *  (shutter blur, P02 repair; opt-in {subframe: true}): continuous motion (primary curves, constraints, camera) is evaluated at t; DISCRETE state — shot ownership,
++ *  contact graph, approved art states, cels, procedural phases, baked secondary, events — belongs to the integer frame floor(t). */
++export function stateAtFrame(compiled, f, { subframe = false } = {}) {
++  if (!(subframe ? Number.isFinite(f) : Number.isInteger(f)) || f < 0 || f >= compiled.totalFrames) throw new RangeError(`INVALID_FRAME ${f}`); // sub-frame times only when the caller is an explicit shutter sampler
++  const fi = Math.floor(f), shot = compiled.shotAt(fi);
++  if (!shot) throw err("SHOT_COVERAGE_GAP", { frame_range: [fi, fi + 1], reason: `no shot at frame ${fi}` });
++  const primary = compiled.evalPrimary(f, shot);
++  const contactGraph = compiled.contactsAt(fi);
++  const constrained = compiled.solveConstraints(f, primary, contactGraph);
++  const artStates = compiled.resolveApprovedArtStates(fi, constrained);
++  const matrices = constrained.matrices;
++  const passes = compiled.resolvePaintPasses(artStates, matrices);
++  const cels = compiled.celsAt(fi), procedural = compiled.proceduralAt(fi);
++  const secondary = compiled.evalBakedSecondary(fi);
+   const failures = [...constrained.failures];
+   for (const p of passes) if (!finite(p.matrix)) failures.push(err("RENDER_CAPTURE_FAILURE", { record_id: p.pass_id, frame_range: [f, f + 1], reason: "non-finite matrix" }));
+-  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(f) });
++  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(fi) });
+ }
+diff --git a/engine/film/film_revision.mjs b/engine/film/film_revision.mjs
+index 3a85113..240ba3b 100644
+--- a/engine/film/film_revision.mjs
++++ b/engine/film/film_revision.mjs
+@@ -1,18 +1,53 @@
+-// FilmRevision (directive J1.1–J1.2; F058, F060). One SHA-256 graph binds story, direction, motion plans, designs, approved assets, audio,
+-// runtime and compiler sources. Every QA result / render receipt records the revision it was produced on; any upstream change makes it stale.
++// FilmRevision (P02 directive F077; F058/F060). A recursive, allowlisted, content-addressed dependency closure of EVERYTHING production-reachable:
++// all engine code (art_bridge incl. runtime/bridge_rt.js, story, film, production, tools, runtime nu.js/mn.js/gsap, methods/source), the
++// installed F01–F80 skill (SKILL.md, scripts, references), schemas, and the film's authority inputs — manifest, plans, motion plans, direction,
++// story contracts, designs, the ACTUAL bytes of every delivered asset (re-hashed, never trusted from the manifest), registration receipts,
++// audio/script/alignment, approval pointers + receipts + review history. Scoped digests let consumers go stale only when THEIR scope changes.
++// Excluded by rule (documented in REVISION_DEPENDENCIES.json): logs, qa/, render/, production/, compositions, outbox history, generated reports.
+ import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
+ const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
+ const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex"), sha = (o) => crypto.createHash("sha256").update(JSON.stringify(o)).digest("hex");
+-const dirHash = (d, filter = () => true) => fs.existsSync(d) ? sha(fs.readdirSync(d).filter((f) => fs.statSync(path.join(d, f)).isFile() && filter(f)).sort().map((f) => [f, fsha(path.join(d, f))])) : null;
++function walk(root, keep, skip = () => false) { const out = []; if (!fs.existsSync(root)) return out; (function w(d) { for (const f of fs.readdirSync(d).sort()) { const p = path.join(d, f); if (skip(p)) continue; const s = fs.lstatSync(p); if (s.isSymbolicLink()) continue; if (s.isDirectory()) w(p); else if (keep(p)) out.push(p); } })(root); return out; }
++const relR = (p) => path.relative(REPO, p).split(path.sep).join("/");
++export const EXCLUDED = ["intake/INTAKE_LOG.jsonl and other *.log/*.jsonl logs (except reviews/HISTORY.jsonl, which carries revocations)", "qa/ (QA outputs bind TO a revision)", "downstream review receipts/history lines of scopes shot_review, unlike_transfer, film (they review a revision; their bundles bind its digest)", "render/ (outputs)", "production/ (the ledger records revisions; hashing it would cycle)", "story/FILM_CONTRACT_REPORT.json (generated report)", "hybrid_v2/art_outbox (request history)", "hybrid_v2/work (scratch)"];
++/** code closure: every file the production path can execute or read as authority (recursive) */
++export function codeClosure() {
++  const files = [...walk(path.join(REPO, "engine"), (p) => /\.(mjs|js|json|py)$/.test(p), (p) => /node_modules|__pycache__/.test(p)), ...walk(path.join(REPO, "schemas"), (p) => p.endsWith(".json")),
++    ...["SKILL.md"].map((f) => path.join(REPO, "reference", "construct-kurzgesagt-art", f)).filter((f) => fs.existsSync(f)), ...walk(path.join(REPO, "reference", "construct-kurzgesagt-art", "scripts"), (p) => p.endsWith(".py")), ...walk(path.join(REPO, "reference", "construct-kurzgesagt-art", "references"), () => true)];
++  return files.map((f) => [relR(f), fsha(f)]);
++}
++let codeCache = null; // per-process memo keyed by mtimes (the closure is re-hashed whenever any file changes)
++function cachedCode() { const stamp = sha(walk(path.join(REPO, "engine"), () => true, (p) => /node_modules/.test(p)).map((f) => [f, fs.statSync(f).mtimeMs, fs.statSync(f).size]).concat(walk(path.join(REPO, "reference", "construct-kurzgesagt-art"), () => true).map((f) => [f, fs.statSync(f).mtimeMs]))); if (!codeCache || codeCache.stamp !== stamp) codeCache = { stamp, files: codeClosure() }; return codeCache.files; }
++/** DOWNSTREAM review scopes review a revision (their bundle binds the revision digest); hashing them INTO the revision would make every such
++ *  review stale itself (cycle). Upstream approvals (story, direction, design, identity, asset, state, edge, ...) are inputs and are hashed. */
++export const DOWNSTREAM_REVIEW_SCOPES = ["shot_review", "unlike_transfer", "film"];
++function upstreamReviews(F) {
++  const d = path.join(F, "reviews"); if (!fs.existsSync(d)) return [];
++  const down = (scope) => DOWNSTREAM_REVIEW_SCOPES.includes(scope), out = [];
++  for (const f of fs.readdirSync(d).sort()) { const p = path.join(d, f);
++    if (f.endsWith(".json")) { let sc = null; try { sc = JSON.parse(fs.readFileSync(p, "utf8")).scope; } catch { sc = null; } if (!down(sc)) out.push([f, fsha(p)]); }
++    else if (f.endsWith("HISTORY.jsonl")) { const up = fs.readFileSync(p, "utf8").split("\n").filter((l) => { if (!l.trim()) return false; try { return !down(JSON.parse(l).scope); } catch { return true; } }); if (up.length) out.push([f, sha(up.join("\n"))]); } }
++  return out;
++}
+ export function buildFilmRevision(FILM, { manifest = "handoff/ART_AND_MOTION_MANIFEST_V2.json" } = {}) {
+-  const doc = JSON.parse(fs.readFileSync(path.join(FILM, manifest), "utf8")), opt = (rel) => (fs.existsSync(path.join(FILM, rel)) ? fsha(path.join(FILM, rel)) : null);
+-  const parts = { story: { contract: opt("story/STORY_CONTRACT.json"), proposal: opt("direction/EXPERIENCE_DIRECTOR_PROPOSAL.md") }, direction: { shot_score: opt("direction/SHOT_SCORE_60FPS.json"), action_coverage: opt("story/ACTION_COVERAGE.json") },
+-    manifest: opt(manifest), motion_plans: dirHash(path.join(FILM, "handoff"), (f) => /^MOTION_PLAN/.test(f)), designs: dirHash(path.join(FILM, "art_designs"), (f) => f.endsWith(".design.json")),
+-    assets: Object.fromEntries((doc.assets || []).map((a) => [a.id, a.sha256])), audio: { narration: doc.audio?.narration_file ? opt(doc.audio.narration_file) : null, timeline: doc.audio?.narration_timeline_file ? opt(doc.audio.narration_timeline_file) : null },
+-    runtime_nu_js: fsha(path.join(REPO, "engine", "runtime", "nu.js")), compiler: { art_bridge: dirHash(path.join(REPO, "engine", "art_bridge"), (f) => f.endsWith(".mjs")), film: dirHash(path.join(REPO, "engine", "film"), (f) => f.endsWith(".mjs")) },
+-    canvas: { width: doc.stage?.width ?? 1920, height: doc.stage?.height ?? 1080, fps: doc.stage?.fps, total_frames: doc.stage?.total_frames } };
+-  return { digest: sha(parts), parts };
++  const F = path.resolve(FILM), doc = JSON.parse(fs.readFileSync(path.join(F, manifest), "utf8")), opt = (rel) => (fs.existsSync(path.join(F, rel)) ? fsha(path.join(F, rel)) : null), integrity = [];
++  const dir = (rel, keep = () => true) => walk(path.join(F, rel), keep).map((f) => [path.relative(F, f).split(path.sep).join("/"), fsha(f)]);
++  const assets = Object.fromEntries((doc.assets || []).map((a) => { const f = path.join(F, a.file); if (!fs.existsSync(f)) { integrity.push({ asset: a.id, problem: "file missing" }); return [a.id, { declared: a.sha256, actual: null }]; } const actual = fsha(f); if (actual !== a.sha256) integrity.push({ asset: a.id, problem: "bytes differ from the manifest hash" }); return [a.id, { declared: a.sha256, actual }]; }));
++  const scopes = {
++    code: sha(cachedCode()),
++    story: sha({ intent: opt("story/FILM_INTENT.json"), contract: opt("story/STORY_CONTRACT.json"), semantic_actions: opt("story/SEMANTIC_ACTIONS.json"), proposal: opt("direction/EXPERIENCE_DIRECTOR_PROPOSAL.md") }),
++    direction: sha({ shot_score: opt("direction/SHOT_SCORE_60FPS.json"), action_coverage: opt("story/ACTION_COVERAGE.json"), phrases: opt("story/ACTION_PHRASES.json"), beats: opt("story/BEAT_MEDIA.json") }),
++    contracts: sha({ manifest: opt(manifest), dependency_plan: opt("handoff/ART_DEPENDENCY_PLAN.json"), motion_plans: dir("handoff", (p) => /MOTION_PLAN.*\.json$/.test(p)) }),
++    designs: sha(dir("art_designs", (p) => p.endsWith(".design.json"))),
++    art: sha(assets), registration: sha(dir("registration", (p) => p.endsWith(".json"))),
++    audio: sha(["narration_file", "narration_timeline_file", "script_file", "word_alignment_file"].map((k) => [k, doc.audio?.[k] ? opt(doc.audio[k]) : null]).concat(doc.audio?.narration_timeline_file && fs.existsSync(path.join(F, doc.audio.narration_timeline_file)) ? [["alignment_output", (() => { const t = JSON.parse(fs.readFileSync(path.join(F, doc.audio.narration_timeline_file), "utf8")); return t.alignment?.output_file ? opt(t.alignment.output_file) : null; })()]] : [])),
++    approvals: sha({ pointers: [...dir("approvals"), ...dir("art_designs", (p) => p.endsWith(".APPROVAL_POINTER.json"))], reviews: upstreamReviews(F) }),
++    canvas: sha({ width: doc.stage?.width, height: doc.stage?.height, fps: doc.stage?.fps, total_frames: doc.stage?.total_frames }),
++  };
++  return { digest: sha(scopes), scopes, integrity, parts: { assets, runtime_nu_js: fsha(path.join(REPO, "engine", "runtime", "nu.js")), canvas: { width: doc.stage?.width ?? 1920, height: doc.stage?.height ?? 1080, fps: doc.stage?.fps, total_frames: doc.stage?.total_frames } } };
+ }
++/** the dependency report (what is hashed, what is excluded and why) */
++export function revisionDependencies(FILM) { const r = buildFilmRevision(FILM); return { film: path.basename(path.resolve(FILM)), digest: r.digest, scopes: r.scopes, integrity: r.integrity, code_files: codeClosure().map(([f, h]) => ({ file: f, sha256: h })), excluded_by_rule: EXCLUDED }; }
+ /** checkTiling(shots, transitions, total) — shot intervals tile [0,total) exactly; transitions sit on a shot boundary and own no extra frames */
+ export function checkTiling(shots, transitions = [], total = 7200) {
+   const f = [], s = [...shots].sort((a, b) => a.start_frame - b.start_frame); let cur = 0;
+diff --git a/engine/film/segment_render.mjs b/engine/film/segment_render.mjs
+index 98bfeda..a22eab7 100644
+--- a/engine/film/segment_render.mjs
++++ b/engine/film/segment_render.mjs
+@@ -1,64 +1,107 @@
+-// Segmented, deterministic film rendering with a render-completion receipt (directive J1.3–J1.5; F058, F059, F066, F071).
+-// Frames are a PURE function of (revision, frame index, seed) supplied by a REGISTERED renderer; chunks are rendered and hashed independently,
+-// so a restart re-renders a chunk from its start and must reproduce identical hashes; retries may not change content. The MP4 is encoded to a
+-// temporary file, probed, and atomically published; only then is RENDER_COMPLETION_RECEIPT.json written — by this path and no other.
+-import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto"; import { spawn, execFileSync } from "node:child_process";
++// Segmented, bounded-memory, resumable film rendering (P02 directive F073/F074/F075; F058/F059/F066/F071/F072).
++// Renderers are ASYNC SESSIONS: createSession(args) → {renderFrame(f) → Promise<{rgb, state_sha}>, close(), width, height, info}.
++// Each frame is rendered, validated (exact width*height*3 RGB24), hashed, defect-scanned, written to the chunk's lossless FFV1 encoder with
++// back-pressure and RELEASED — only hashes stay in memory. A chunk becomes complete only after ffprobe proves its exact frame count, size and
++// rate; then its receipt is written atomically. A restart reuses only verified complete chunks of the same revision/renderer/seed and
++// regenerates any other chunk from its first absolute frame. The final MP4 is assembled from the verified chunks, probed, and published
++// atomically; only then RENDER_COMPLETION_RECEIPT.json is written — by this path and no other. Any failure kills child processes, closes the
++// session and leaves no success receipt and no half-published film.
++import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto"; import { spawn, execFileSync } from "node:child_process";
+ import { err } from "../art_bridge/errors.mjs";
++const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
+ const sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), fsha = (f) => sha(fs.readFileSync(f));
+-/** registered renderers: id → {module, export, provenance}. DIAGNOSTIC renderers can never yield a production pass. */
++/** registered renderers. DIAGNOSTIC renderers can NEVER yield a production pass, whatever labels say. */
+ export const RENDERERS = {
+-  diagnostic_flat: { module: "engine/film/segment_render.mjs", export: "diagnosticFlatRenderer", provenance: "DIAGNOSTIC_ONLY" },
+-  // OPEN SOFTWARE DEFECT (reported): no production per-frame Chrome adapter is registered yet. engine/art_bridge/render.mjs#capture is a
+-  // batch puppeteer capture with a different signature; an adapter (f) => RGB buffer over a persistent page is required before a real film render.
++  diagnostic_flat: { module: "engine/film/segment_render.mjs", export: "diagnosticFlatSession", provenance: "DIAGNOSTIC_ONLY" },
++  art_bridge_chrome_frames: { module: "engine/film/chrome_frames.mjs", export: "createChromeFrameSession", provenance: "ART_BRIDGE_CAPTURE" },
+ };
+-/** diagnosticFlatRenderer({w,h,seed}) → (f) => raw RGB buffer; a labelled DIAGNOSTIC pattern (frame index + seed), not film art */
+-export function diagnosticFlatRenderer({ w = 16, h = 9, seed = 1 } = {}) { return (f) => { const b = Buffer.alloc(w * h * 3); for (let i = 0; i < w * h; i++) { b[i * 3] = (f * 7 + seed) & 255; b[i * 3 + 1] = (i * 13 + seed) & 255; b[i * 3 + 2] = ((f >> 3) + i) & 255; } return b; }; }
++export const rendererSourceSha = (id) => fsha(path.join(REPO, RENDERERS[id].module));
++/** diagnosticFlatSession — NATIVE-resolution labelled diagnostic pattern (frame index + seed); no scaling path exists */
++export async function diagnosticFlatSession({ width = 1920, height = 1080, seed = 1, blackAt = null, frozenFrom = null, holdState = false } = {}) { // holdState: a DECLARED hold (expected state also holds) vs frozenFrom alone (frozen substitution)
++  const row = Buffer.allocUnsafe(width * 3);
++  return { width, height, info: { renderer: "diagnostic_flat", provenance: "DIAGNOSTIC_ONLY" }, async close() {},
++    async renderFrame(f) { const g = frozenFrom !== null && f >= frozenFrom ? frozenFrom : f, b = Buffer.allocUnsafe(width * height * 3);
++      if (blackAt === f) { b.fill(0); return { rgb: b, state_sha: sha(`flat:${seed}:${f}`) }; }
++      for (let x = 0; x < width; x++) { row[x * 3] = (g * 7 + seed) & 255; row[x * 3 + 1] = (x * 13 + seed) & 255; row[x * 3 + 2] = ((g >> 3) + (x >> 4)) & 255; }
++      for (let y = 0; y < height; y++) row.copy(b, y * width * 3); return { rgb: b, state_sha: sha(`flat:${seed}:${holdState ? g : f}`) }; } };
++}
++export async function openSession(renderer, args) { const R = RENDERERS[renderer]; if (!R) throw err("RENDER_RECEIPT_INVALID", { reason: `renderer ${renderer} is not registered` }); const m = await import(url.pathToFileURL(path.join(REPO, R.module))); return m[R.export](args); }
+ export const planChunks = (total, size) => { const out = []; for (let s = 0; s < total; s += size) out.push([s, Math.min(total, s + size)]); return out; };
+-/** renderChunk — frame hashes of one chunk; a transient failure is retried and the retry must reproduce the same bytes */
+-export function renderChunk(renderFrame, [s, e], { retries = 2, onFrame = null } = {}) {
+-  const hashes = [];
+-  for (let f = s; f < e; f++) { let buf, last = null;
+-    for (let a = 0; a <= retries; a++) { try { buf = renderFrame(f); break; } catch (x) { last = x; if (!x.transient || a === retries) throw err("RENDER_CAPTURE_FAILURE", { frame_range: [f, f + 1], reason: `frame ${f}: ${x.message}`, producer: "engine/film/segment_render.mjs#renderChunk", resume_at: `CHUNK_${s}` }); } }
+-    const h = sha(buf); hashes.push(h); onFrame?.(f, buf, h); }
+-  return { frames: [s, e], hashes, chunk_sha256: sha(hashes.join("")) };
++/** frameDefects(rgb, {width,height}) — black frame, magenta sentinel (missing art / uncovered camera footprint), uncovered EDGE (sentinel on the border rows/cols) */
++export function frameDefects(b, { width = null, height = null } = {}) {
++  let black = true, sentinel = 0; for (let i = 0; i + 2 < b.length; i += 3) { if (b[i] || b[i + 1] || b[i + 2]) black = false; if (b[i] === 255 && b[i + 1] === 0 && b[i + 2] === 255) sentinel++; }
++  if (black) return { kind: "BLACK_FRAME" };
++  if (sentinel && width && height) { let edge = 0; const px = (x, y) => { const i = (y * width + x) * 3; return b[i] === 255 && b[i + 1] === 0 && b[i + 2] === 255; }; for (let x = 0; x < width; x++) { if (px(x, 0)) edge++; if (px(x, height - 1)) edge++; } for (let y = 0; y < height; y++) { if (px(0, y)) edge++; if (px(width - 1, y)) edge++; } if (edge) return { kind: "UNCOVERED_EDGE", count: edge, sentinel }; }
++  return sentinel ? { kind: "SENTINEL_PIXELS", count: sentinel } : null;
+ }
+-/** renderFilm — full segmented render + encode + probe + atomic publish + completion receipt */
+-export async function renderFilm({ film, revision, renderer = "diagnostic_flat", rendererArgs = {}, total = 7200, fps = 60, chunkSize = 600, width = 1920, height = 1080, audio = null, outName = "film.mp4", seed = 1, crashAt = null }) {
+-  const FILM = path.resolve(film), R = RENDERERS[renderer]; if (!R) throw err("RENDER_RECEIPT_INVALID", { reason: `renderer ${renderer} is not registered` });
+-  const mod = await import(new URL(`../../${R.module}`, import.meta.url)), make = mod[R.export]; const renderFrame = make({ ...rendererArgs, seed });
+-  const dir = path.join(FILM, "render"), chunksDir = path.join(dir, "chunks", revision.digest.slice(0, 16)); fs.mkdirSync(chunksDir, { recursive: true });
+-  const w0 = rendererArgs.w ?? 16, h0 = rendererArgs.h ?? 9, tmp = path.join(dir, `.${outName}.tmp-${process.pid}.mp4`);
+-  const args = ["-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", `${w0}x${h0}`, "-r", String(fps), "-i", "pipe:0", ...(audio ? ["-i", audio] : []), "-vf", `scale=${width}:${height}:flags=neighbor`, "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p", "-r", String(fps), ...(audio ? ["-c:a", "aac", "-shortest"] : []), "-frames:v", String(total), tmp];
+-  const ff = spawn("ffmpeg", args, { stdio: ["pipe", "ignore", "pipe"] }); let ffErr = ""; ff.stderr.on("data", (d) => (ffErr += d));
+-  const done = new Promise((ok, no) => ff.on("close", (c) => (c === 0 ? ok() : no(new Error(`ffmpeg ${c}: ${ffErr.slice(0, 300)}`)))));
+-  const receipts = [];
+-  // any refusal or crash mid-render must release the encoder and its temporary output (no orphan process, no half-written MP4 left behind)
+-  const abort = (e) => { done.catch(() => {}); try { ff.stdin.destroy(); } catch {} ff.kill("SIGKILL"); try { fs.rmSync(tmp, { force: true }); } catch {} throw e; };
+-  try {
+-  for (const ch of planChunks(total, chunkSize)) {
+-    const cf = path.join(chunksDir, `chunk_${String(ch[0]).padStart(5, "0")}_${String(ch[1]).padStart(5, "0")}.json`);
+-    const frames = [], defects = []; const rec = renderChunk((f) => { if (crashAt !== null && f === crashAt) { crashAt = null; throw Object.assign(new Error("simulated renderer crash"), { transient: true }); } return renderFrame(f); }, ch, { onFrame: (f, buf) => { frames.push(buf); const d = frameDefects(buf); if (d) defects.push({ frame: f, ...d }); } });
+-    if (fs.existsSync(cf)) { const prev = JSON.parse(fs.readFileSync(cf, "utf8")); if (prev.chunk_sha256 !== rec.chunk_sha256) throw err("UNDETERMINISTIC_FRAME", { frame_range: ch, reason: "re-rendered chunk differs from its earlier receipt", producer: "engine/film/segment_render.mjs#renderFilm" }); }
+-    else fs.writeFileSync(cf, JSON.stringify({ ...rec, revision: revision.digest, renderer, seed }, null, 1));
+-    for (const b of frames) if (!ff.stdin.write(b)) await new Promise((r) => ff.stdin.once("drain", r));
+-    receipts.push({ frames: ch, chunk_sha256: rec.chunk_sha256, file: path.relative(FILM, cf).split(path.sep).join("/"), defects });
++/** renderChunk(session, [s,e], {write, onFrame, retries, crashAt}) — async, one frame in memory at a time; frozen-motion detection:
++ *  if the scene's expected state changed (state_sha differs) but the pixels did not, the renderer dropped motion (FROZEN_FRAME). */
++export async function renderChunk(session, [s, e], { write = null, retries = 1, crashAt = null, prev = null } = {}) {
++  const hashes = [], defects = [], stateHashes = []; let lastRgb = prev?.rgb_sha ?? null, lastState = prev?.state_sha ?? null;
++  for (let f = s; f < e; f++) {
++    let out = null;
++    for (let a = 0; a <= retries; a++) { try { if (crashAt && crashAt.frame === f && crashAt.attempts-- > 0) throw Object.assign(new Error(`injected crash at frame ${f}`), { transient: !!crashAt.transient }); out = await session.renderFrame(f); break; }
++      catch (x) { if (!x.transient || a === retries) throw x.code ? x : err("RENDER_CAPTURE_FAILURE", { frame_range: [f, f + 1], reason: `frame ${f}: ${x.message}`, producer: "engine/film/segment_render.mjs#renderChunk", resume_at: `CHUNK_${s}` }); } }
++    if (!Buffer.isBuffer(out?.rgb) || out.rgb.length !== session.width * session.height * 3) throw err("IMAGE_DIMENSION_MISMATCH", { frame_range: [f, f + 1], reason: `frame ${f} buffer ${out?.rgb?.length} ≠ ${session.width}x${session.height}x3 RGB24 (PNG bytes or tiny frames are refused)`, producer: "engine/film/segment_render.mjs#renderChunk" });
++    const h = sha(out.rgb), d = frameDefects(out.rgb, session); if (d) defects.push({ frame: f, ...d });
++    if (lastState !== null && out.state_sha !== lastState && h === lastRgb) defects.push({ frame: f, kind: "FROZEN_FRAME", reason: "expected scene state changed but the rendered pixels are identical to the previous frame" });
++    hashes.push(h); stateHashes.push(out.state_sha); lastRgb = h; lastState = out.state_sha;
++    if (write) await write(out.rgb); // the buffer reference is dropped after this iteration
+   }
+-  } catch (e) { abort(e); }
+-  ff.stdin.end(); await done;
+-  const probe = probeMp4(tmp), final = path.join(dir, outName); fs.renameSync(tmp, final); // atomic publish after a successful encode + probe
+-  const manifest = { revision: revision.digest, renderer, renderer_provenance: R.provenance, renderer_module: R.module, renderer_args: rendererArgs, seed, total, fps, chunk_size: chunkSize, chunks: receipts };
+-  const mf = path.join(dir, "FRAME_MANIFEST.json"); fs.writeFileSync(mf, JSON.stringify(manifest, null, 1));
+-  const receipt = { produced_by: "engine/film/segment_render.mjs#renderFilm", revision: revision.digest, frame_manifest: "render/FRAME_MANIFEST.json", frame_manifest_sha256: fsha(mf), mp4: path.relative(FILM, final).split(path.sep).join("/"), mp4_sha256: fsha(final), probe, renderer, renderer_provenance: R.provenance, audio_sha256: audio ? fsha(audio) : null, completed_at: new Date().toISOString() };
+-  fs.writeFileSync(path.join(dir, "RENDER_COMPLETION_RECEIPT.json"), JSON.stringify(receipt, null, 1));
+-  return receipt;
++  return { frames: [s, e], hashes, state_hashes: stateHashes, chunk_sha256: sha(hashes.join("")), defects, last: { rgb_sha: lastRgb, state_sha: lastState } };
++}
++/** remove a partial segment after its writer exited (Windows may hold the handle briefly; a lingering partial must never mask the typed failure) */
++function rmRetry(f) { for (let i = 0; i < 20; i++) { try { fs.rmSync(f, { force: true }); return; } catch (x) { if (x.code !== "EBUSY" && x.code !== "EPERM") throw x; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 50); } } }
++function encoder(tmp, { width, height, fps }) {
++  const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", `${width}x${height}`, "-r", String(fps), "-i", "pipe:0", "-c:v", "ffv1", "-level", "3", "-g", "1", "-slicecrc", "1", "-f", "matroska", tmp], { stdio: ["pipe", "ignore", "pipe"] });
++  let e = ""; ff.stderr.on("data", (d) => (e += d)); const done = new Promise((ok, no) => ff.on("close", (c) => (c === 0 ? ok() : no(new Error(`ffmpeg ${c}: ${e.slice(0, 300)}`))))); done.catch(() => {});
++  return { ff, done, write: (buf) => new Promise((ok, no) => { if (ff.stdin.destroyed) return no(new Error("encoder closed")); ff.stdin.write(buf, (x) => (x ? no(x) : ok())); }), kill: () => { try { ff.stdin.destroy(); } catch {} ff.kill("SIGKILL"); }, exited: new Promise((ok) => (ff.exitCode !== null || ff.signalCode !== null ? ok() : ff.once("close", ok))) };
+ }
+-export function probeMp4(mp4) {
+-  const v = JSON.parse(execFileSync("ffprobe", ["-v", "error", "-count_frames", "-show_entries", "stream=codec_type,width,height,r_frame_rate,nb_read_frames,duration", "-show_entries", "format=duration", "-of", "json", mp4], { encoding: "utf8" }));
++export function probeMp4(file) {
++  const v = JSON.parse(execFileSync("ffprobe", ["-v", "error", "-count_frames", "-show_entries", "stream=codec_type,codec_name,width,height,r_frame_rate,nb_read_frames,duration", "-show_entries", "format=duration", "-of", "json", file], { encoding: "utf8" }));
+   const vs = v.streams.find((s) => s.codec_type === "video"), as = v.streams.find((s) => s.codec_type === "audio");
+-  return { width: vs?.width, height: vs?.height, r_frame_rate: vs?.r_frame_rate, frames: +vs?.nb_read_frames, video_duration: +(vs?.duration ?? v.format.duration), audio_duration: as ? +as.duration : null };
++  return { codec: vs?.codec_name, width: vs?.width, height: vs?.height, r_frame_rate: vs?.r_frame_rate, frames: +vs?.nb_read_frames, video_duration: +(vs?.duration ?? v.format.duration), audio_duration: as ? +(as.duration ?? v.format.duration) : null };
++}
++const writeAtomic = (f, data) => { const t = `${f}.tmp-${process.pid}-${crypto.randomBytes(3).toString("hex")}`; fs.writeFileSync(t, data); fs.renameSync(t, f); };
++/** renderFilm — chunked capture → verified FFV1 segments → final MP4 → completion receipt. inject: {crashAt:{frame,attempts,transient}, failEncodeChunk, failAssemble} for crash tests */
++export async function renderFilm({ film, revision, renderer = "diagnostic_flat", rendererArgs = {}, total = 7200, fps = 60, chunkSize = 600, width = 1920, height = 1080, audio = null, outName = "film.mp4", seed = 1, inject = {}, onChunk = null }) {
++  const FILM = path.resolve(film), R = RENDERERS[renderer]; if (!R) throw err("RENDER_RECEIPT_INVALID", { reason: `renderer ${renderer} is not registered` });
++  const dir = path.join(FILM, "render"), key = { revision: revision.digest, renderer, renderer_source_sha256: rendererSourceSha(renderer), seed, width, height, fps, renderer_args: rendererArgs }, keySha = sha(JSON.stringify(key)), chunksDir = path.join(dir, "chunks", keySha.slice(0, 16));
++  fs.mkdirSync(chunksDir, { recursive: true });
++  const session = await openSession(renderer, { ...rendererArgs, film: FILM, seed, fps, width, height });
++  if (session.width !== width || session.height !== height) { await session.close(); throw err("IMAGE_DIMENSION_MISMATCH", { reason: `renderer session ${session.width}x${session.height} ≠ film ${width}x${height}` }); }
++  const receipts = [], mem = [], live = new Set(); let prev = null;
++  try {
++    for (const ch of planChunks(total, chunkSize)) {
++      const base = path.join(chunksDir, `chunk_${String(ch[0]).padStart(5, "0")}_${String(ch[1]).padStart(5, "0")}`), rcF = `${base}.json`, mkv = `${base}.mkv`;
++      if (fs.existsSync(rcF) && fs.existsSync(mkv)) { const rc = JSON.parse(fs.readFileSync(rcF, "utf8")); if (rc.key_sha256 === keySha && rc.mkv_sha256 === fsha(mkv)) { receipts.push({ ...rc, reused: true }); prev = rc.last; continue; } }
++      for (const x of [mkv, rcF]) fs.rmSync(x, { force: true }); // an unverified or stale chunk is discarded and regenerated from its FIRST frame
++      const tmp = `${base}.tmp-${process.pid}.mkv`, enc = encoder(tmp, { width, height, fps }); live.add(enc);
++      let r; try { r = await renderChunk(session, ch, { write: (b) => { if (inject.failEncodeChunk === ch[0]) { enc.kill(); inject.failEncodeChunk = null; } return enc.write(b); }, crashAt: inject.crashAt, prev }); enc.ff.stdin.end(); await enc.done; }
++      catch (e) { enc.kill(); await enc.exited; rmRetry(tmp); throw e.code ? e : err("RENDER_CAPTURE_FAILURE", { frame_range: ch, reason: e.message, producer: "engine/film/segment_render.mjs#renderFilm", resume_at: `CHUNK_${ch[0]}` }); } finally { live.delete(enc); }
++      const p = probeMp4(tmp); if (p.frames !== ch[1] - ch[0] || p.width !== width || p.height !== height || p.r_frame_rate !== `${fps}/1`) { fs.rmSync(tmp, { force: true }); throw err("RENDER_CAPTURE_FAILURE", { frame_range: ch, reason: `segment probe ${JSON.stringify(p)} does not match ${ch[1] - ch[0]} frames ${width}x${height}@${fps}` }); }
++      fs.renameSync(tmp, mkv); const rc = { key_sha256: keySha, key, frames: ch, hashes: r.hashes, state_hashes: r.state_hashes, chunk_sha256: r.chunk_sha256, defects: r.defects, mkv: path.relative(FILM, mkv).split(path.sep).join("/"), mkv_sha256: fsha(mkv), probe: p, last: r.last, rss_bytes: process.memoryUsage().rss };
++      writeAtomic(rcF, JSON.stringify(rc, null, 1)); receipts.push(rc); prev = r.last; mem.push({ chunk: ch, node_rss: process.memoryUsage().rss, heap: process.memoryUsage().heapUsed }); onChunk?.(rc);
++    }
++  } finally { for (const e of live) e.kill(); await session.close(); }
++  // assemble: verified chunks in order → final MP4 (exact cadence) + supplied audio → probe → atomic publish
++  const list = path.join(chunksDir, "concat.txt"); fs.writeFileSync(list, receipts.map((r) => `file '${path.join(FILM, r.mkv).replace(/\\/g, "/")}'`).join("\n"));
++  const tmp = path.join(dir, `.${outName}.tmp-${process.pid}.mp4`), final = path.join(dir, outName);
++  try { if (inject.failAssemble) throw new Error("injected assembly failure");
++    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", list, ...(audio ? ["-i", audio] : []), "-map", "0:v:0", ...(audio ? ["-map", "1:a:0", "-c:a", "aac", "-shortest"] : []), "-c:v", "libx264", "-preset", "ultrafast", "-crf", "12", "-pix_fmt", "yuv420p", "-r", String(fps), "-frames:v", String(total), tmp]); }
++  catch (e) { fs.rmSync(tmp, { force: true }); throw err("RENDER_CAPTURE_FAILURE", { reason: `final assembly failed: ${e.message.slice(0, 200)}`, producer: "engine/film/segment_render.mjs#renderFilm", resume_at: "ASSEMBLE" }); }
++  const probe = probeMp4(tmp); fs.renameSync(tmp, final);
++  const manifest = { revision: revision.digest, key_sha256: keySha, renderer, renderer_provenance: R.provenance, renderer_module: R.module, renderer_source_sha256: key.renderer_source_sha256, renderer_args: rendererArgs, session_info: session.info, seed, total, fps, width, height, chunk_size: chunkSize,
++    chunks: receipts.map((r) => ({ frames: r.frames, chunk_sha256: r.chunk_sha256, mkv: r.mkv, mkv_sha256: r.mkv_sha256, defects: r.defects, reused: !!r.reused })), memory: mem };
++  const mf = path.join(dir, "FRAME_MANIFEST.json"); writeAtomic(mf, JSON.stringify(manifest, null, 1));
++  const receipt = { produced_by: "engine/film/segment_render.mjs#renderFilm", revision: revision.digest, frame_manifest: "render/FRAME_MANIFEST.json", frame_manifest_sha256: fsha(mf), mp4: path.relative(FILM, final).split(path.sep).join("/"), mp4_sha256: fsha(final), probe, renderer, renderer_provenance: R.provenance, renderer_source_sha256: key.renderer_source_sha256, audio_sha256: audio ? fsha(audio) : null, completed_at: new Date().toISOString() };
++  writeAtomic(path.join(dir, "RENDER_COMPLETION_RECEIPT.json"), JSON.stringify(receipt, null, 1));
++  return receipt;
+ }
+-/** verifyRenderReceipt(FILM, revision) — only a receipt from renderFilm, on THIS revision, with matching manifest/MP4, re-rendering sampled frames identically */
+-export async function verifyRenderReceipt(FILM, revision, { samples = [0, 1799, 3600, 5400, 7199] } = {}) {
++/** verifyRenderReceipt(FILM, revision, {samples, seededSamples}) — async; authenticates the engine receipt and files, rejects a changed renderer
++ *  implementation / failed defect scan / stale revision / missing segment, and RE-RENDERS chunk-boundary + final + seeded random frames on a
++ *  FRESH session. Matching hashes prove reproducibility, never visual quality. */
++export async function verifyRenderReceipt(FILM, revision, { samples = null, seededSamples = 3, rendererArgs = null } = {}) {
+   const f = path.join(FILM, "render", "RENDER_COMPLETION_RECEIPT.json"), why = [];
+   if (!fs.existsSync(f)) return { ok: false, reasons: ["no render-completion receipt (a CLI source claim is not a render)"] };
+   const r = JSON.parse(fs.readFileSync(f, "utf8"));
+@@ -67,10 +110,16 @@ export async function verifyRenderReceipt(FILM, revision, { samples = [0, 1799,
+   const mf = path.join(FILM, r.frame_manifest || ""), mp4 = path.join(FILM, r.mp4 || "");
+   if (!fs.existsSync(mf) || fsha(mf) !== r.frame_manifest_sha256) why.push("frame manifest missing or changed");
+   if (!fs.existsSync(mp4) || fsha(mp4) !== r.mp4_sha256) why.push("MP4 missing or changed after the render");
+-  if (!why.length) { const m = JSON.parse(fs.readFileSync(mf, "utf8")), R = RENDERERS[m.renderer]; for (const c of m.chunks) for (const d of c.defects || []) why.push(`frame ${d.frame}: ${d.kind}`); const mod = await import(new URL(`../../${R.module}`, import.meta.url)), rf = mod[R.export]({ ...m.renderer_args, seed: m.seed });
+-    for (const s of samples.filter((x) => x < m.total)) { const ch = m.chunks.find((c) => c.frames[0] <= s && s < c.frames[1]), cr = JSON.parse(fs.readFileSync(path.join(FILM, ch.file), "utf8")); if (cr.hashes[s - ch.frames[0]] !== sha(rf(s))) why.push(`frame ${s} does not re-render identically`); } }
+-  return { ok: why.length === 0, reasons: why, receipt: r };
++  if (!RENDERERS[r.renderer]) why.push(`renderer ${r.renderer} not registered`); else if (rendererSourceSha(r.renderer) !== r.renderer_source_sha256) why.push("renderer implementation changed since the render");
++  if (why.length) return { ok: false, reasons: why, receipt: r };
++  const m = JSON.parse(fs.readFileSync(mf, "utf8"));
++  for (const c of m.chunks) { const seg = path.join(FILM, c.mkv); if (!fs.existsSync(seg) || fsha(seg) !== c.mkv_sha256) why.push(`segment ${c.mkv} missing or changed`); for (const d of c.defects || []) why.push(`frame ${d.frame}: ${d.kind}`); }
++  if (why.length) return { ok: false, reasons: why, receipt: r };
++  const bounds = []; for (const c of m.chunks) { if (c.frames[0] > 0) bounds.push(c.frames[0] - 1, c.frames[0]); } bounds.push(0, m.total - 1);
++  let rnd = (m.seed * 2654435761) >>> 0; for (let i = 0; i < seededSamples; i++) { rnd = (Math.imul(rnd, 1103515245) + 12345) >>> 0; bounds.push(rnd % m.total); }
++  const pick = [...new Set(samples ?? bounds)].filter((x) => x >= 0 && x < m.total).sort((a, b) => a - b);
++  const session = await openSession(m.renderer, { ...(rendererArgs || m.renderer_args), film: FILM, seed: m.seed, fps: m.fps, width: m.width, height: m.height });
++  try { for (const s of pick) { const c = m.chunks.find((x) => x.frames[0] <= s && s < x.frames[1]), cr = JSON.parse(fs.readFileSync(path.join(FILM, c.mkv.replace(/\.mkv$/, ".json")), "utf8")), got = sha((await session.renderFrame(s)).rgb); if (cr.hashes[s - c.frames[0]] !== got) why.push(`frame ${s} does not re-render identically on a fresh session`); } }
++  finally { await session.close(); }
++  return { ok: why.length === 0, reasons: why, receipt: r, resampled: pick };
+ }
+-
+-/** frameDefects(rgb) — an all-black frame or any magenta sentinel pixel (uncovered camera edge / missing art) is a render defect */
+-export function frameDefects(b) { let black = true, sentinel = 0; for (let i = 0; i + 2 < b.length; i += 3) { if (b[i] || b[i + 1] || b[i + 2]) black = false; if (b[i] === 255 && b[i + 1] === 0 && b[i + 2] === 255) sentinel++; } return black ? { kind: "BLACK_FRAME" } : sentinel ? { kind: "SENTINEL_PIXELS", count: sentinel } : null; }
+diff --git a/engine/story/action_coverage.mjs b/engine/story/action_coverage.mjs
+index bc602a2..5883a04 100644
+--- a/engine/story/action_coverage.mjs
++++ b/engine/story/action_coverage.mjs
+@@ -73,7 +73,12 @@ function satisfies(x, need, a) {
+ function neededArt(need, a) { return { GRIP_ON_CARRIED_OBJECT: `grip contact + hand art on ${a.carried_object}`, OBJECT_THROUGH_APERTURE: `${a.carried_object || a.object} trajectory through the aperture with near/far occlusion art (rim occluder)`, CONTAINED_STATE: `${a.carried_object} contained-state art inside ${a.recipient || a.object}`, CARRY_OR_SUPPLY: `${a.carried_object} prop art + carry contact`, TARGET_STATE_CHANGE: `${a.object} state change track`, MECHANISM_TRACK: `${a.object} mechanism track` }[need] || `${need} event`; }
+ 
+ /** eventsFromShotScore(shot) — adapter from the film's SHOT_SCORE format to typed executable events */
+-export function eventsFromShotScore(shot) {
+-  return (shot.events || []).map((e) => e.contact ? { kind: "CONTACT", contact_type: e.contact, frames: e.frames, source: e.source, target: e.target } : e.pose ? { kind: /^door_|^drum_/.test(e.pose) ? "STATE" : "POSE", frame: e.frame, state: e.pose, rig: /^door_|^drum_/.test(e.pose) ? "washer_rig" : null }
++// The owning rig of a pose/state event is the event's explicit rig, else the UNIQUE rig whose pose_states declare that state id (from the film
++// manifest); a non-character owner makes it an object STATE. No scene or rig name is hard-coded (P02 repair: the adapter previously mapped
++// "door_*/drum_*" to a literal "washer_rig", a scene-specific patch inside a reusable producer).
++export function eventsFromShotScore(shot, doc = null) {
++  const owner = (state, explicit) => { if (explicit) return doc?.rigs?.find((r) => r.id === explicit) || { id: explicit }; const rs = (doc?.rigs || []).filter((r) => (r.pose_states || []).some((p) => p.id === state)); return rs.length === 1 ? rs[0] : null; };
++  const kindOf = (r) => { const idk = r && doc?.identities?.find((i) => i.id === r.identity_id)?.kind; return idk && idk !== "CHARACTER" ? "STATE" : "POSE"; };
++  return (shot.events || []).map((e) => e.contact ? { kind: "CONTACT", contact_type: e.contact, frames: e.frames, source: e.source, target: e.target } : e.pose ? (() => { const r = owner(e.pose, e.rig); return { kind: kindOf(r), frame: e.frame, state: e.pose, rig: r?.id ?? null }; })()
+     : e.view ? { kind: "VIEW", frame: e.frame, state: e.view } : e.action ? { kind: "ACTION", frames: e.frames, mode: e.mode, object: e.action, goal: e.goal } : { kind: "OTHER", ...e });
+ }
+diff --git a/engine/tools/art_bridge_film_qa.mjs b/engine/tools/art_bridge_film_qa.mjs
+index 52edb2b..0761397 100644
+--- a/engine/tools/art_bridge_film_qa.mjs
++++ b/engine/tools/art_bridge_film_qa.mjs
+@@ -18,6 +18,8 @@ import { writeReceipt, verifyApproval, attestHuman, bundleHash, testTrust } from
+ import { buildFilmRevision, checkTiling } from "../film/film_revision.mjs";
+ import { verifyRenderReceipt } from "../film/segment_render.mjs";
+ import { computeLayers } from "../film/qa_layers.mjs";
++import { verifyShotQA, verifyUnlikeTransfer } from "../film/evidence_auth.mjs";
++import { runQA } from "./art_bridge_qa.mjs";
+ import { validateNarrationTimeline, assertNotDiagnostic } from "../story/narration.mjs";
+ const ALIGNERS = new Set(["montreal-forced-aligner", "aeneas", "whisperx", "gentle"]);
+ 
+@@ -38,7 +40,7 @@ export function recordFilmRender({ film, mp4, source = "ART_BRIDGE_CAPTURE", fra
+ 
+ async function gatesFor(FILM, manifest, check, doc) {
+   const revision = buildFilmRevision(FILM, { manifest });
+-  const g = {}, why = {}, trust = testTrust();
++  const g = {}, why = {}, trust = testTrust(FILM);
+   // 1 coverage
+   const cov = check.coverage, gaps = check.errors.filter((e) => e.code === "SHOT_COVERAGE_GAP");
+   g.coverage = doc.stage.fps === 60 && doc.stage.total_frames === 7200 && cov?.framesCovered === 7200 && gaps.length === 0; why.coverage = { fps: doc.stage.fps, total_frames: doc.stage.total_frames, frames_covered: cov?.framesCovered, gaps: gaps.map((e) => e.frame_range) };
+@@ -49,11 +51,8 @@ async function gatesFor(FILM, manifest, check, doc) {
+   const reg = doc.assets.map((a) => ({ id: a.id, ...verifyRegistrationReceipt(FILM, doc, a) })), badReg = reg.filter((r) => !r.ok);
+   g.registration_evidence = doc.assets.length > 0 && badReg.length === 0; why.registration_evidence = badReg.map((r) => `${r.id}: ${r.reasons.join("; ")}`);
+   // 4 per-shot QA on current hashes
+-  const hashes = Object.fromEntries(doc.assets.map((a) => [a.id, a.sha256])), shotRes = doc.shots.map((s) => { const f = path.join(FILM, "qa", "shots", s.id, "QA_RESULT.json"); if (!fs.existsSync(f)) return { shot: s.id, ok: false, why: "no per-shot QA result" };
+-    const r = J(f), stale = Object.entries(r.tested_asset_hashes || {}).filter(([k, v]) => hashes[k] !== v).map(([k]) => k), gq = r.gates || {};
+-    if (r.film_revision !== revision.digest) stale.push(`film revision ${String(r.film_revision).slice(0, 12)} != current ${revision.digest.slice(0, 12)}`);
+-    const ok = gq.mechanical_fixture_pass && gq.art_registration_pass && gq.artistic_review_pass && !stale.length && r.scene === s.id;
+-    return { shot: s.id, ok: !!ok, qa_sha256: fsha(f), stale_assets: stale, gates: gq, why: ok ? null : `gates ${JSON.stringify(gq)}${stale.length ? ` stale ${stale}` : ""}` }; });
++  // F082: QA files are indices; the registered executor is RE-RUN on the current revision and artistic review is a verified receipt
++  const shotRes = []; for (const s of doc.shots) { const v = await verifyShotQA(FILM, doc, s, revision.digest, runQA, manifest), f = path.join(FILM, "qa", "shots", s.id, "QA_RESULT.json"); shotRes.push({ shot: s.id, ok: v.ok, qa_sha256: fs.existsSync(f) ? fsha(f) : null, why: v.ok ? null : v.why }); }
+   g.shots_qa = shotRes.every((r) => r.ok); why.shots_qa = shotRes.filter((r) => !r.ok).map((r) => `${r.shot}: ${r.why}`);
+   // 5 transitions
+   const tr = doc.transitions.map((t) => { if (t.mode === "CUT") return { id: `${t.from_shot}->${t.to_shot}`, ok: true, mode: "CUT" }; try { const c = compileTransition(doc.shots.find((s) => s.id === t.from_shot), doc.shots.find((s) => s.id === t.to_shot), t, { doc }); let mx = 0; for (let f = t.frame_range[0]; f < t.frame_range[1]; f++) mx = Math.max(mx, ...c.frameAt(f).anchor_residuals_px); return { id: c.id, ok: mx < 1e-6, anchor_max: mx }; } catch (e) { return { id: `${t.from_shot}->${t.to_shot}`, ok: false, why: e.message }; } });
+@@ -73,7 +72,9 @@ async function gatesFor(FILM, manifest, check, doc) {
+   if (rr && !trust) { try { assertNotDiagnostic({ provenance: rr.renderer_provenance }); } catch (e) { rwhy.push(`renderer provenance ${rr.renderer_provenance} cannot qualify a film (${e.code})`); } if (rr.renderer_provenance !== "ART_BRIDGE_CAPTURE" && rr.renderer_provenance !== "DIAGNOSTIC_ONLY") rwhy.push(`renderer provenance ${rr.renderer_provenance} cannot qualify a film`); }
+   const tiling = checkTiling(doc.shots, doc.transitions, 7200); if (!tiling.ok) { g.coverage = false; why.coverage = { ...why.coverage, tiling: tiling.failures }; }
+   // unlike transfer: at least two passages from different families qualified by the same producers (real provider art unless test trust)
+-  const uf = path.join(FILM, "qa", "film", "UNLIKE_TRANSFER.json"), un = fs.existsSync(uf) ? J(uf) : null; g.unlike_transfer = !!(un && new Set((un.passages || []).filter((x) => x.pass === true && (trust || x.provenance === "GPT_PROVIDER_ART")).map((x) => x.family)).size >= 2); why.unlike_transfer = un ? un.passages : "no unlike-transfer qualification";
++  // F078: the unlike-transfer JSON is an index; each passage must resolve a verified provider→asset→registration→approval→review chain
++  const ut = verifyUnlikeTransfer(FILM, doc, revision.digest, process.env.ART_BRIDGE_OUTBOX || null); g.unlike_transfer = ut.ok; why.unlike_transfer = ut.ok ? ut.passages : ut.why;
++  if (revision.integrity.length) { rwhy.push(`asset bytes differ from the manifest: ${revision.integrity.map((x) => x.asset).join(", ")}`); }
+   g.render = rwhy.length === 0; why.render = { reasons: rwhy, probe: rp, renderer_provenance: rr?.renderer_provenance ?? null, revision: revision.digest };
+   return { g, why, shotRes, rr, revision };
+ }
+@@ -89,7 +90,7 @@ export async function qualifyFilm({ film, manifest = MF }) {
+   const automated = Object.values(g).every(Boolean), ptrF = path.join(FILM, "qa", "film", "FILM_REVIEW_POINTER.json"), ptr = fs.existsSync(ptrF) ? J(ptrF).receipt_id : null;
+   const v = verifyApproval(doc, FILM, "film", doc.project_id, ptr, { requireHuman: true, bundle: filmBundle(FILM, manifest, doc, shotRes, rr) });
+   g.human_film_review = automated && v.ok; why.human_film_review = v.ok ? { receipt: ptr, reviewer_kind: v.reviewer_kind } : { status: v.status, reason: v.reason };
+-  const trust = testTrust(), diag = (why.render?.renderer_provenance && why.render.renderer_provenance !== "ART_BRIDGE_CAPTURE") || why.manifest_production.provenance_waived_under_test_trust || v.reviewer_kind === "TEST_TRUSTED";
++  const trust = testTrust(FILM), diag = (why.render?.renderer_provenance && why.render.renderer_provenance !== "ART_BRIDGE_CAPTURE") || why.manifest_production.provenance_waived_under_test_trust || v.reviewer_kind === "TEST_TRUSTED";
+   const lay = computeLayers({ schema: g.coverage, mechanical: g.registration_evidence && g.transitions && g.shots_qa, realArt: g.manifest_production && g.shots_qa, unlike: g.unlike_transfer, fullFilm: g.audio && g.render && g.human_film_review, testTrust: trust, diagnosticProvenance: !!diag });
+   const pass = Object.values(g).every(Boolean);
+   const res = { stage: "WHOLE_FILM_QUALIFICATION", film: doc.project_id, gates: g, details: why, automated_gates_pass: automated, production_pass: pass && lay.verdict === "PRODUCTION_PASS", verdict: pass ? lay.verdict : "FAIL", layers: lay.layers, failing_layers: lay.failing_layers, film_revision: why.render.revision, test_trust: testTrust(), checked_at: new Date().toISOString() };
+diff --git a/engine/tools/art_bridge_qa.mjs b/engine/tools/art_bridge_qa.mjs
+index 5d428ec..b87a34e 100644
+--- a/engine/tools/art_bridge_qa.mjs
++++ b/engine/tools/art_bridge_qa.mjs
+@@ -45,6 +45,7 @@ export function measureWindow(C, shotId, [f0, f1]) {
+ 
+ export async function runQA({ root, manifest, scene, out, plan: planPath = null, frames: frameList = null, mp4 = false, mechanicalOnly = false, argv = process.argv }) {
+   const t0 = Date.now(), result = { stage: "HYBRID_V2_QA", scene, pass: false, evidence_paths: [], missing_capabilities: [], missing_art: [], unverified_artistic_decisions: [], affected_frames: [], exact_cli: `node ${path.relative(REPO, argv[1] || "engine/tools/art_bridge_qa.mjs")} ${argv.slice(2).join(" ")}`, reference_approval_ids: [], reviewer_verdict: "PENDING_HUMAN_VISUAL_REVIEW" };
++  result.inputs = { plan: planPath ? path.relative(root, path.resolve(planPath)).split(path.sep).join("/") : null, frames: frameList, scene, manifest }; // F082: recorded so film QA can RE-EXECUTE this run
+   try { result.film_revision = (await import("../film/film_revision.mjs")).buildFilmRevision(root, { manifest }).digest; } catch { result.film_revision = null; } // directive J3: shot QA is bound to the film revision it ran on
+   try { result.tested_revision = execFileSync("git", ["rev-parse", "HEAD"], { cwd: REPO, encoding: "utf8" }).trim(); } catch { result.tested_revision = null; }
+   fs.mkdirSync(out, { recursive: true });
+@@ -85,14 +86,14 @@ export async function runQA({ root, manifest, scene, out, plan: planPath = null,
+   const diag = doc.assets.filter((a) => a.provenance_class === "DIAGNOSTIC_FIXTURE").map((a) => a.id);
+   if (diag.length) result.unverified_artistic_decisions.push(`${diag.length} DIAGNOSTIC_FIXTURE assets: whole-look artistry cannot be reviewed on fixtures`);
+   // gates (audit P0-6): each read from real evidence; production requires all of them
+-  const sceneAssets = new Set(reg.preloadForShot(scene).map((r) => r.asset.id)), regOk = doc.assets.filter((a) => sceneAssets.has(a.id)).every((a) => (a.provenance_class !== "DIAGNOSTIC_FIXTURE" || testTrust()) && verifyRegistrationReceipt(root, doc, a).ok); // receipt CONTENT, not path existence
++  const sceneAssets = new Set(reg.preloadForShot(scene).map((r) => r.asset.id)), regOk = doc.assets.filter((a) => sceneAssets.has(a.id)).every((a) => (a.provenance_class !== "DIAGNOSTIC_FIXTURE" || testTrust(root)) && verifyRegistrationReceipt(root, doc, a).ok); // receipt CONTENT, not path existence
+   const humanAp = verifyAllApprovals(doc, path.resolve(root), { requireHuman: true }); // artistic sign-off = HUMAN-attested receipts only (TEST_TRUSTED under test trust)
+   const pending = [...humanAp.failures.map((f) => `${f.scope}:${f.record_id} ${f.status}`), ...humanAp.unreviewed.map((u) => `${u.scope}:${u.record_id} UNREVIEWED`)];
+   if (pending.length) result.unverified_artistic_decisions.push(`${pending.length} art/state/edge approvals not verified by receipts: ${pending.slice(0, 8).join(", ")}${pending.length > 8 ? " …" : ""}`);
+   const align = doc.audio?.word_alignment_file ? (() => { try { const w = JSON.parse(fs.readFileSync(path.join(root, doc.audio.word_alignment_file), "utf8")); return Object.values(w).flat().every((x) => ["forced_alignment", "measured", "aligned"].includes(x.method)); } catch { return false; } })() : false;
+-  result.gates = { mechanical_fixture_pass: allFail.length === 0 && cap.failures.length === 0 && result.missing_art.length === 0, art_registration_pass: regOk, artistic_review_pass: humanAp.failures.length === 0 && humanAp.unreviewed.length === 0 && (diag.length === 0 || testTrust()), audio_alignment_pass: align, whole_film_pass: false };
++  result.gates = { mechanical_fixture_pass: allFail.length === 0 && cap.failures.length === 0 && result.missing_art.length === 0, art_registration_pass: regOk, artistic_review_pass: humanAp.failures.length === 0 && humanAp.unreviewed.length === 0 && (diag.length === 0 || testTrust(root)), audio_alignment_pass: align, whole_film_pass: false };
+   result.gates.production_pass = Object.values(result.gates).every(Boolean); // whole_film_pass is always false here: only art_bridge_film_qa.mjs can certify a film
+-  result.test_trust = testTrust();
++  result.test_trust = testTrust(root);
+   result.gate_notes = { whole_film_pass: "single-scene QA never certifies the whole film", artistic_review_pass: "reads hash-scoped review receipts (approvals.mjs); a pending/absent/stale receipt keeps it false", audio_alignment_pass: "requires a word alignment file whose words are measured/forced-aligned" };
+   result.mechanical_only = mechanicalOnly;
+   result.pass = mechanicalOnly ? result.gates.mechanical_fixture_pass : result.gates.production_pass;
+diff --git a/engine/tools/art_outbox.mjs b/engine/tools/art_outbox.mjs
+index 94b29d8..a7dab80 100644
+--- a/engine/tools/art_outbox.mjs
++++ b/engine/tools/art_outbox.mjs
+@@ -14,6 +14,9 @@
+ //   review-part   --film DIR --asset ID --reviewer NAME --verdict V
+ //   approve-state --film DIR --rig ID --state ID --reviewer NAME --verdict V
+ //   approve-edge  --film DIR --rig ID --from S --to S --reviewer NAME --verdict V
++//   export-gpt-job --film DIR --job ID [--stage K]   EXTERNAL_GPT_OPERATOR_HANDOFF bundle (same contract authority as submit; no API call)
++//   import-gpt-candidates --film DIR --bundle DIR    operator-returned PNGs → sealed OPERATOR-ATTESTED candidates (approves nothing)
++//   select-candidate --job ID --stage K --candidate KEY16:IDX   explicit selection by candidate id under a fenced lock
+ //   resume        --film DIR [--out DIR]                                         (= export: recomputes readiness, invalidation, compiles ready jobs)
+ import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import { spawnSync } from "node:child_process";
+ import { compileArtJob, dependencyDigest } from "../art_bridge/art_requests.mjs";
+@@ -109,7 +112,10 @@ if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(proces
+     if ((cmd === "export" || cmd === "resume") && film) { const s = await exportOutbox({ film, out }); console.log(`${s.status}: ${s.jobs} jobs ${JSON.stringify(s.by_status)} compiled ${s.compiled}; empty-frame jobs ${s.empty_frame_ranges_with_triggers} → ${rel(out)}`); process.exit(0); }
+     if (cmd === "status") { const s = JSON.parse(fs.readFileSync(path.join(out, "OUTBOX_INDEX.json"), "utf8")); console.log(`${s.status}: ${s.jobs} jobs ${JSON.stringify(s.by_status)}`); process.exit(0); }
+     if (cmd === "submit" && film && get("--job")) { const r = show(await I.submitJob({ film, out, job: get("--job") })); process.exit(r.status.startsWith("PIXELS") || r.status.startsWith("ALREADY") ? 0 : 3); }
+-    if (cmd === "ingest-master") { const r = show(await I.ingestMaster({ film, asset: get("--asset"), file: get("--file"), landmarks: get("--landmarks"), provenance: get("--provenance") })); process.exit(r.status === "REGISTERED_PENDING_REVIEW" ? 0 : 1); }
++    if (cmd === "export-gpt-job") { const G = await import("../art_bridge/gpt_handoff.mjs"), r = await G.exportGptJob({ film, out, job: get("--job"), stage: +(get("--stage") || 1) }); show({ zip: r.zip, handoff_id: r.handoff_id, instructions: "WHAT_TO_DO_IN_CHATGPT.md inside the zip" }); process.exit(0); }
++    if (cmd === "import-gpt-candidates") { const G = await import("../art_bridge/gpt_handoff.mjs"), r = show(G.importGptCandidates({ film, out, bundleDir: get("--bundle") })); process.exit(r.status === "CANDIDATES_RECEIVED_PENDING_SELECTION" ? 0 : 1); }
++    if (cmd === "select-candidate") { show(I.selectStageCandidate({ out, job: get("--job"), stage: +get("--stage"), candidateId: get("--candidate") })); process.exit(0); }
++    if (cmd === "ingest-master") { const r = show(await I.ingestMaster({ film, asset: get("--asset"), file: get("--file"), landmarks: get("--landmarks"), provenance: get("--provenance"), outbox: out })); process.exit(r.status === "REGISTERED_PENDING_REVIEW" ? 0 : 1); }
+     if (cmd === "check-design" || cmd === "review-design") { // Stage 3 contract: BEFORE gate report, and the art director's design decision (HUMAN only with --human on an interactive TTY)
+       const C = await import("../art_bridge/art_contract.mjs"), FILM = path.resolve(film), doc = JSON.parse(fs.readFileSync(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"), "utf8")), job = (await I.planJobs({ film: FILM })).jobs.find((j) => j.root_dependency === get("--asset"));
+       if (!job) throw new Error(`no planned job for ${get("--asset")}`);
+@@ -124,7 +130,7 @@ if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(proces
+       for (const x of r.repair_inputs) RM.recordFailure(FILM, { failure_id: `ART-${x.candidate_sha256.slice(0, 10)}-${x.method_id}`, failure_class: x.failure_class, applicability: { method_id: x.method_id, family: design.art_family }, invariant: `the ${x.method_id} decision is visible in the delivered pixels`, producer: `art_designs/${get("--asset")}.design.json#${x.method_id}`, root_mechanism: x.edited_decision, before: { input_hash: x.candidate_sha256, frames_or_pixels: [x.region_px] }, status: "UNRESOLVED" });
+       show(r); process.exit(0); }
+     if (cmd === "review-master") { show(await I.reviewMaster({ film, identity: get("--identity"), reviewer: get("--reviewer"), verdict: get("--verdict"), notes: get("--notes") || "", scope_note: get("--scope-note") || "" })); process.exit(0); }
+-    if (cmd === "ingest-part") { const r = show(await I.ingestPart({ film, asset: get("--asset"), file: get("--file"), landmarks: get("--landmarks"), provenance: get("--provenance") })); process.exit(r.status === "REGISTERED_PENDING_REVIEW" ? 0 : 1); }
++    if (cmd === "ingest-part") { const r = show(await I.ingestPart({ film, asset: get("--asset"), file: get("--file"), landmarks: get("--landmarks"), provenance: get("--provenance"), outbox: out })); process.exit(r.status === "REGISTERED_PENDING_REVIEW" ? 0 : 1); }
+     if (cmd === "review-part") { show(await I.reviewPart({ film, asset: get("--asset"), reviewer: get("--reviewer"), verdict: get("--verdict"), notes: get("--notes") || "", scope_note: get("--scope-note") || "" })); process.exit(0); }
+     if (cmd === "approve-state") { show(await I.approveState({ film, rig: get("--rig"), state: get("--state"), reviewer: get("--reviewer"), verdict: get("--verdict"), scope_note: get("--scope-note") || "" })); process.exit(0); }
+     if (cmd === "approve-edge") { show(await I.approveStateEdge({ film, rig: get("--rig"), from: get("--from"), to: get("--to"), reviewer: get("--reviewer"), verdict: get("--verdict"), scope_note: get("--scope-note") || "" })); process.exit(0); }
+diff --git a/engine/tools/build_failure_ledger.mjs b/engine/tools/build_failure_ledger.mjs
+index ccc4fd8..d18b799 100644
+--- a/engine/tools/build_failure_ledger.mjs
++++ b/engine/tools/build_failure_ledger.mjs
+@@ -6,10 +6,16 @@
+ //   node engine/tools/build_failure_ledger.mjs [TAP_LOG]
+ import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto"; import { execFileSync } from "node:child_process";
+ const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".."), fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
+-const tap = process.argv[2] || path.join(REPO, "hybrid_v2", "work", "audit_logs", "node_test_tap.txt"), lines = fs.readFileSync(tap, "utf8").split(/\r?\n/);
+-const results = lines.map((l) => l.match(/^\s*(not ok|ok) \d+ - (.+?)(?: # .*)?$/)).filter(Boolean).map((m) => ({ ok: m[1] === "ok", name: m[2].trim() }));
++if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(process.argv[1])).href) { // CLI only: importing this module has no side effects
++// one or more TAP logs (comma-separated, in execution order): a later log's outcome for the SAME test name supersedes an earlier one (supplementary
++// reruns after a fix); every log is hashed into the ledger so the supersession is auditable
++const taps = (process.argv[2] || path.join(REPO, "hybrid_v2", "work", "audit_logs", "node_test_tap.txt")).split(",").map((t) => path.resolve(REPO, t)), tap = taps[0];
++const byName = new Map(), superseded = []; for (const t of taps) for (const m of fs.readFileSync(t, "utf8").split(/\r?\n/).map((l) => l.match(/^(not ok|ok) \d+ - (.+?)(?: # .*)?$/)).filter(Boolean)) { const name = m[2].trim(), ok = m[1] === "ok"; if (byName.has(name) && byName.get(name).ok !== ok) superseded.push({ test: name, was: byName.get(name).ok, now: ok, by: path.relative(REPO, t) }); byName.set(name, { ok, name, log: path.relative(REPO, t) }); }
++const results = [...byName.values()];
+ const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), find = (id) => results.filter((r) => new RegExp(`^${esc(id)}([a-z])?([ :]|$)`).test(r.name));
+-const { ROWS } = await import(url.pathToFileURL(path.join(REPO, "tests", "art_bridge", "ledger_rows.mjs")));
++// rows: the historical F001–F072 definitions plus (optional) extra row modules, e.g. tests/p02/ledger_rows_p02.mjs (F073+)
++const extra = (process.env.LEDGER_EXTRA_ROWS || "").split(",").filter(Boolean), ROWS = [...(await import(url.pathToFileURL(path.join(REPO, "tests", "art_bridge", "ledger_rows.mjs")))).ROWS];
++for (const m of extra) ROWS.push(...(await import(url.pathToFileURL(path.resolve(REPO, m)))).ROWS);
+ const srcFiles = []; for (const d of ["engine", "films/hv2_film001/handoff"]) (function walk(p) { for (const f of fs.readdirSync(p)) { const q = path.join(p, f); if (fs.statSync(q).isDirectory()) walk(q); else if (q.endsWith(".mjs")) srcFiles.push(q); } })(path.join(REPO, d));
+ const callSites = (exp, defFile) => srcFiles.filter((f) => { const s = fs.readFileSync(f, "utf8"), n = (s.match(new RegExp(`\\b${exp}\\s*\\(`, "g")) || []).length, defs = (s.match(new RegExp(`function\\s+${exp}\\s*\\(`, "g")) || []).length; return n - defs > 0; }).map((f) => path.relative(REPO, f).split(path.sep).join("/"));
+ const rows = [];
+@@ -23,6 +29,7 @@ for (const r of ROWS) {
+   rows.push({ id: r.id, failed_invariant: r.failed_invariant, root_producers: producers, applicability: "generalized (no scene/character branch; see unlike transfer tests)", repair: r.root_producers, proof_tests: proofs.filter((x) => r.proof_tests.includes(x.id)), transfer_tests: proofs.filter((x) => r.transfer_tests.includes(x.id)), external_dependencies: r.external_dependencies, status, evidence: { tap_log: path.relative(REPO, tap).split(path.sep).join("/"), failing: bad.map((x) => x.id), broken_producers: brokenProd.map((x) => x.producer) }, reviewer: "PENDING_INDEPENDENT_AUDIT" });
+ }
+ const rev = execFileSync("git", ["rev-parse", "HEAD"], { cwd: REPO, encoding: "utf8" }).trim(), counts = rows.reduce((m, r) => ((m[r.status] = (m[r.status] || 0) + 1), m), {});
+-const out = { generated_by: "engine/tools/build_failure_ledger.mjs", schema: "schemas/failure_ledger.schema.json", revision: rev, tap_log_sha256: fsha(tap), counts, rule: "QUALIFIED_ON_REAL_ART / QUALIFIED_FULL_FILM require provider pixels + human receipts: none exist, so no row can reach them", rows };
+-const dst = path.join(REPO, "hybrid_v2", "evidence", "system_correction", "FAILURE_LEDGER.json"); fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.writeFileSync(dst, JSON.stringify(out, null, 1));
++const out = { generated_by: "engine/tools/build_failure_ledger.mjs", schema: "schemas/failure_ledger.schema.json", revision: rev, tap_logs: taps.map((t) => ({ log: path.relative(REPO, t), sha256: fsha(t) })), superseded_outcomes: superseded, counts, rule: "QUALIFIED_ON_REAL_ART / QUALIFIED_FULL_FILM require provider pixels + human receipts: none exist, so no row can reach them", rows };
++const dst = process.env.LEDGER_OUT ? path.resolve(REPO, process.env.LEDGER_OUT) : path.join(REPO, "hybrid_v2", "evidence", "system_correction", "FAILURE_LEDGER.json"); fs.mkdirSync(path.dirname(dst), { recursive: true }); fs.writeFileSync(dst, JSON.stringify(out, null, 1));
+ console.log(`ledger ${rows.length} rows ${JSON.stringify(counts)} → ${path.relative(REPO, dst)}`);
++}
+diff --git a/engine/tools/compile_film_contracts.mjs b/engine/tools/compile_film_contracts.mjs
+index f4bf435..804d043 100644
+--- a/engine/tools/compile_film_contracts.mjs
++++ b/engine/tools/compile_film_contracts.mjs
+@@ -25,7 +25,7 @@ export function compileFilmContracts({ film }) {
+   S.story = story && story.provenance !== "DIAGNOSTIC_FIXTURE" ? validateStoryContract(story) : { status: "NOT_APPROVABLE", failures: [{ code: "FACT_CHECK_REQUIRED", reason: story ? "story contract is a diagnostic stand-in" : "no typed story contract (claims, mechanisms, obstacles): the proposal's facts are unverified" }] };
+   // semantic action coverage per shot (typed actions are the authority; prose is the check)
+   S.actions = (score?.shots || []).map((sh) => { const acts = typed?.[sh.shot] || [], prose = (sh.events || []).filter((e) => e.goal).map((e, i) => ({ id: `${sh.shot}.goal${i}`, text: e.goal })).concat(sh.entry ? [{ id: `${sh.shot}.entry`, text: sh.entry }] : []);
+-    const r = compileActionCoverage({ actions: acts, events: eventsFromShotScore(sh), prose, initial_possession: typed?.[`${sh.shot}__possession`] || {} }); return { shot: sh.shot, typed_actions: acts.length, complete: r.complete, errors: r.errors }; });
++    const r = compileActionCoverage({ actions: acts, events: eventsFromShotScore(sh, doc), prose, initial_possession: typed?.[`${sh.shot}__possession`] || {} }); return { shot: sh.shot, typed_actions: acts.length, complete: r.complete, errors: r.errors }; });
+   // continuity across cuts: element state tracks from the executed pose/view events of each shot
+   const tracks = {}; for (const x of stateIntervals(doc)) { const t = (tracks[x.shot] ||= {}); (t[`${x.rig}.pose`] ||= []).push([x.interval[0], x.pose]); if (x.view) (t[`${x.rig}.view`] ||= []).push([x.interval[0], x.view]); }
+   S.continuity = checkContinuity(doc.shots.map((s) => ({ id: s.id, frames: [s.start_frame, s.end_frame], tracks: tracks[s.id] || {} })), (doc.transitions || []).map((t) => ({ from: t.from_shot, to: t.to_shot, kind: t.mode, time_jump: t.time_jump })));
+diff --git a/films/hv2_film001/intake/DEPENDENT_JOB_STATUS.json b/films/hv2_film001/intake/DEPENDENT_JOB_STATUS.json
+index b04073e..6d235c7 100644
+--- a/films/hv2_film001/intake/DEPENDENT_JOB_STATUS.json
++++ b/films/hv2_film001/intake/DEPENDENT_JOB_STATUS.json
+@@ -1,5 +1,5 @@
+ {
+- "generated_at": "2026-11-22T08:28:25.389Z",
++ "generated_at": "2026-11-22T16:18:31.393Z",
+  "jobs": [
+   {
+    "asset": "ines_master",
+diff --git a/films/hv2_film001/intake/INTAKE_LOG.jsonl b/films/hv2_film001/intake/INTAKE_LOG.jsonl
+index 270372b..765d6ab 100644
+--- a/films/hv2_film001/intake/INTAKE_LOG.jsonl
++++ b/films/hv2_film001/intake/INTAKE_LOG.jsonl
+@@ -42,3 +42,17 @@
+ {"at":"2026-11-22T08:25:21.028Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
+ {"at":"2026-11-22T08:28:25.390Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
+ {"at":"2026-11-22T08:28:28.726Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T11:23:08.860Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T11:23:13.209Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T11:29:39.802Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T11:29:43.623Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T11:45:01.172Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T11:45:04.924Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T13:13:14.455Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T13:13:16.769Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T13:51:57.953Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T13:51:59.861Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T14:21:32.863Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T14:21:34.706Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
++{"at":"2026-11-22T16:18:31.394Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
++{"at":"2026-11-22T16:18:33.030Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
+diff --git a/films/hv2_film001/story/FILM_CONTRACT_REPORT.json b/films/hv2_film001/story/FILM_CONTRACT_REPORT.json
+index 6b7322b..dba875f 100644
+--- a/films/hv2_film001/story/FILM_CONTRACT_REPORT.json
++++ b/films/hv2_film001/story/FILM_CONTRACT_REPORT.json
+@@ -1,6 +1,6 @@
+ {
+  "film": "hv2_film001",
+- "revision": "65f069d8a27b1ba89abbcfa30295fd2bb57f4b0c82851ef5af787993a3d7dc4d",
++ "revision": "edaa9ee0cb261e87a46db134fd45637883c863cbdcf654c5cc07a7a1b28a0f4d",
+  "sections": {
+   "story": {
+    "status": "NOT_APPROVABLE",
+@@ -1601,6 +1601,142 @@
+      ],
+      "supplied_by_plan": true
+     },
++    {
++     "asset": "porthole_out",
++     "why": [
++      "continuous transition S02->S03 needs its OUT plate"
++     ],
++     "frames": [
++      [
++       1800,
++       1920
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "porthole_glass_middle",
++     "why": [
++      "continuous transition S02->S03 needs its MIDDLE plate"
++     ],
++     "frames": [
++      [
++       1800,
++       1920
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "drum_in",
++     "why": [
++      "continuous transition S02->S03 needs its IN plate"
++     ],
++     "frames": [
++      [
++       1800,
++       1920
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "porthole_aperture",
++     "why": [
++      "continuous transition S02->S03 needs its MASK plate"
++     ],
++     "frames": [
++      [
++       1800,
++       1920
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "drum_rim_out",
++     "why": [
++      "continuous transition S03->S04 needs its OUT plate"
++     ],
++     "frames": [
++      [
++       2880,
++       3000
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "rim_to_ledger_middle",
++     "why": [
++      "continuous transition S03->S04 needs its MIDDLE plate"
++     ],
++     "frames": [
++      [
++       2880,
++       3000
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "ledger_master",
++     "why": [
++      "continuous transition S03->S04 needs its IN plate"
++     ],
++     "frames": [
++      [
++       2880,
++       3000
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
++    {
++     "asset": "rim_aperture",
++     "why": [
++      "continuous transition S03->S04 needs its MASK plate"
++     ],
++     "frames": [
++      [
++       2880,
++       3000
++      ]
++     ],
++     "representation": "TRANSITION",
++     "consumers": [
++      "transitions.mjs#compileTransition"
++     ],
++     "supplied_by_plan": true
++    },
+     {
+      "asset": "w_laundromat",
+      "why": [
+diff --git a/hybrid_v2/evidence/system_correction/ART_DEMAND_FROM_ACTION_GRAPH.json b/hybrid_v2/evidence/system_correction/ART_DEMAND_FROM_ACTION_GRAPH.json
+index a66e100..6a8c9c8 100644
+--- a/hybrid_v2/evidence/system_correction/ART_DEMAND_FROM_ACTION_GRAPH.json
++++ b/hybrid_v2/evidence/system_correction/ART_DEMAND_FROM_ACTION_GRAPH.json
+@@ -1052,6 +1052,142 @@
+    ],
+    "supplied_by_plan": true
+   },
++  {
++   "asset": "porthole_out",
++   "why": [
++    "continuous transition S02->S03 needs its OUT plate"
++   ],
++   "frames": [
++    [
++     1800,
++     1920
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "porthole_glass_middle",
++   "why": [
++    "continuous transition S02->S03 needs its MIDDLE plate"
++   ],
++   "frames": [
++    [
++     1800,
++     1920
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "drum_in",
++   "why": [
++    "continuous transition S02->S03 needs its IN plate"
++   ],
++   "frames": [
++    [
++     1800,
++     1920
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "porthole_aperture",
++   "why": [
++    "continuous transition S02->S03 needs its MASK plate"
++   ],
++   "frames": [
++    [
++     1800,
++     1920
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "drum_rim_out",
++   "why": [
++    "continuous transition S03->S04 needs its OUT plate"
++   ],
++   "frames": [
++    [
++     2880,
++     3000
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "rim_to_ledger_middle",
++   "why": [
++    "continuous transition S03->S04 needs its MIDDLE plate"
++   ],
++   "frames": [
++    [
++     2880,
++     3000
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "ledger_master",
++   "why": [
++    "continuous transition S03->S04 needs its IN plate"
++   ],
++   "frames": [
++    [
++     2880,
++     3000
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
++  {
++   "asset": "rim_aperture",
++   "why": [
++    "continuous transition S03->S04 needs its MASK plate"
++   ],
++   "frames": [
++    [
++     2880,
++     3000
++    ]
++   ],
++   "representation": "TRANSITION",
++   "consumers": [
++    "transitions.mjs#compileTransition"
++   ],
++   "supplied_by_plan": true
++  },
+   {
+    "asset": "w_laundromat",
+    "why": [
+diff --git a/hybrid_v2/evidence/system_correction/SEMANTIC_ACTION_COVERAGE.json b/hybrid_v2/evidence/system_correction/SEMANTIC_ACTION_COVERAGE.json
+index 12610e4..5b17c77 100644
+--- a/hybrid_v2/evidence/system_correction/SEMANTIC_ACTION_COVERAGE.json
++++ b/hybrid_v2/evidence/system_correction/SEMANTIC_ACTION_COVERAGE.json
+@@ -59,6 +59,20 @@
+         1050,
+         1051
+        ]
++      },
++      {
++       "kind": "POSE",
++       "frames": [
++        1170,
++        1171
++       ]
++      },
++      {
++       "kind": "POSE",
++       "frames": [
++        1230,
++        1231
++       ]
+       }
+      ]
+     },
+@@ -140,23 +154,7 @@
+     {
+      "sub": "MOVE/TRANSFORM",
+      "need": "TARGET_STATE_CHANGE",
+-     "status": "COVERED",
+-     "events": [
+-      {
+-       "kind": "STATE",
+-       "frames": [
+-        1170,
+-        1171
+-       ]
+-      },
+-      {
+-       "kind": "STATE",
+-       "frames": [
+-        1230,
+-        1231
+-       ]
+-      }
+-     ]
++     "status": "MISSING"
+     },
+     {
+      "sub": "RELEASE",
+@@ -175,7 +173,7 @@
+      ]
+     }
+    ],
+-   "complete": true
++   "complete": false
+   },
+   {
+    "action": "s02_load",
+@@ -258,6 +256,13 @@
+         1321
+        ]
+       },
++      {
++       "kind": "POSE",
++       "frames": [
++        1356,
++        1357
++       ]
++      },
+       {
+        "kind": "POSE",
+        "frames": [
+@@ -361,6 +366,23 @@
+     "SUPPORT/TRANSFER via CARRY_OR_SUPPLY"
+    ]
+   },
++  {
++   "code": "UNCOMPILED_SEMANTIC_ACTION",
++   "record_id": "s02_open_door",
++   "frame_ranges": [
++    [
++     1050,
++     1260
++    ]
++   ],
++   "reason": "OPEN_APERTURE.MOVE/TRANSFORM has no executable TARGET_STATE_CHANGE event for washer_handle in [1050,1260)",
++   "dependency_ids": [
++    "washer_handle"
++   ],
++   "required_art_or_operation": [
++    "washer_handle state change track"
++   ]
++  },
+   {
+    "code": "UNCOMPILED_SEMANTIC_ACTION",
+    "record_id": "s02_load",
+diff --git a/schemas/motion_art_manifest_v2.schema.json b/schemas/motion_art_manifest_v2.schema.json
+index da53e76..ddcaea4 100644
+--- a/schemas/motion_art_manifest_v2.schema.json
++++ b/schemas/motion_art_manifest_v2.schema.json
+@@ -79,7 +79,8 @@
+         "camera_footprint": { "anyOf": [{ "$ref": "#/$defs/rect" }, { "type": "null" }] }, "overscan_rect": { "anyOf": [{ "$ref": "#/$defs/rect" }, { "type": "null" }] },
+         "motion_modes_allowed": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/motionClass" } }, "incompatible_states": { "$ref": "#/$defs/idList" }, "valid_interpolation_targets": { "$ref": "#/$defs/idList" }, "required_contact_sockets": { "$ref": "#/$defs/idList" },
+         "shot_usage": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["shot_id", "frame_range"], "properties": { "shot_id": { "$ref": "#/$defs/id" }, "frame_range": { "$ref": "#/$defs/frameRange" } } } },
+-        "provenance_class": { "enum": ["GPT_PROVIDER_ART", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE"] }
++        "provenance_class": { "enum": ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE"] },
++        "provider_lineage": { "type": ["object", "null"] }
+       }
+     },
+     "motionClass": { "enum": ["RIGID", "ARTICULATED", "REGISTERED_CELS", "REGISTERED_MORPH", "EXPLICIT_DEFORM", "PROCEDURAL", "CAMERA_WORLD", "TRANSITION"] },
+diff --git a/tests/art_bridge/film_revision_and_qa.test.mjs b/tests/art_bridge/film_revision_and_qa.test.mjs
+index 244cb01..bd2a70f 100644
+--- a/tests/art_bridge/film_revision_and_qa.test.mjs
++++ b/tests/art_bridge/film_revision_and_qa.test.mjs
+@@ -6,7 +6,7 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
+ const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), W = path.join(REPO, "hybrid_v2", "work", "film_qa_new");
+ const FR = await import("../../engine/film/film_revision.mjs"), SR = await import("../../engine/film/segment_render.mjs"), QL = await import("../../engine/film/qa_layers.mjs"), N = await import("../../engine/story/narration.mjs");
+ const J = (f) => JSON.parse(fs.readFileSync(f, "utf8"));
+-const tempFilm = (tag) => { const d = path.join(W, tag); fs.rmSync(d, { recursive: true, force: true }); fs.cpSync(path.join(REPO, "films", "hv2_film001"), d, { recursive: true, filter: (s) => !s.includes(`${path.sep}qa${path.sep}`) && !s.includes(`${path.sep}render${path.sep}`) }); return d; };
++const tempFilm = (tag) => { const d = path.join(W, tag); fs.rmSync(d, { recursive: true, force: true }); fs.cpSync(path.join(REPO, "films", "hv2_film001"), d, { recursive: true, filter: (s) => !s.includes(`${path.sep}qa${path.sep}`) && !s.includes(`${path.sep}render${path.sep}`) }); fs.writeFileSync(path.join(d, ".diagnostic_namespace"), "DIAGNOSTIC fixture film\n"); return d; };
+ 
+ test("P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused", () => {
+   const doc = J(path.join(REPO, "films", "hv2_film001", "handoff", "ART_AND_MOTION_MANIFEST_V2.json")), ok = FR.checkTiling(doc.shots, doc.transitions, 7200); assert.equal(ok.ok, true, JSON.stringify(ok.failures));
+@@ -15,13 +15,20 @@ test("P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off
+   assert.ok(FR.checkTiling(doc.shots, [{ from_shot: "S01", to_shot: "S03" }], 7200).failures.some((f) => /shared boundary/.test(f.reason)));
+ });
+ 
+-test("P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a re-render must match its chunk receipt", async () => {
+-  const d = tempFilm("p02"), rev = FR.buildFilmRevision(d), mk = SR.diagnosticFlatRenderer({ seed: 7 });
+-  const seq = SR.renderChunk(mk, [0, 600]), seek = [5, 299, 300, 599].map((f) => crypto.createHash("sha256").update(mk(f)).digest("hex")); assert.deepEqual(seek, [5, 299, 300, 599].map((f) => seq.hashes[f]));
+-  const a = await SR.renderFilm({ film: d, revision: rev, total: 600, chunkSize: 120, seed: 7, outName: "a.mp4" });
+-  const b = await SR.renderFilm({ film: d, revision: rev, total: 600, chunkSize: 120, seed: 7, outName: "b.mp4", crashAt: 250 }); // crash inside chunk 2 → retried, same chunk receipts
+-  assert.equal(J(path.join(d, "render", "FRAME_MANIFEST.json")).chunks.map((c) => c.chunk_sha256).join(), [0, 120, 240, 360, 480].map((s) => SR.renderChunk(mk, [s, Math.min(600, s + 120)]).chunk_sha256).join());
+-  await assert.rejects(SR.renderFilm({ film: d, revision: rev, total: 600, chunkSize: 120, seed: 8, outName: "c.mp4" }), (e) => e.code === "UNDETERMINISTIC_FRAME", "a different frame function for the same revision/chunk must be refused");
++test("P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a nondeterministic renderer fails re-render verification", async () => {
++  const d = tempFilm("p02"), rev = FR.buildFilmRevision(d), W = { width: 160, height: 90 }, s1 = await SR.diagnosticFlatSession({ ...W, seed: 7 });
++  const seq = await SR.renderChunk(s1, [0, 600]), s2 = await SR.diagnosticFlatSession({ ...W, seed: 7 }), seek = []; for (const f of [599, 5, 300, 299]) seek.push(crypto.createHash("sha256").update((await s2.renderFrame(f)).rgb).digest("hex"));
++  assert.deepEqual(seek, [599, 5, 300, 299].map((f) => seq.hashes[f]), "absolute seek (out of order, fresh session) equals sequential rendering");
++  const a = await SR.renderFilm({ film: d, revision: rev, ...W, total: 600, chunkSize: 120, seed: 7, outName: "a.mp4" }), ma = J(path.join(d, "render", "FRAME_MANIFEST.json"));
++  fs.rmSync(path.join(d, "render", "chunks"), { recursive: true, force: true });
++  const b = await SR.renderFilm({ film: d, revision: rev, ...W, total: 600, chunkSize: 120, seed: 7, outName: "b.mp4", inject: { crashAt: { frame: 250, attempts: 1, transient: true } } }), mb = J(path.join(d, "render", "FRAME_MANIFEST.json"));
++  assert.equal(mb.chunks.map((c) => c.chunk_sha256).join(), ma.chunks.map((c) => c.chunk_sha256).join(), "a retried transient crash cannot change content");
++  const exp = []; for (const [s, e] of SR.planChunks(600, 120)) exp.push((await SR.renderChunk(await SR.diagnosticFlatSession({ ...W, seed: 7 }), [s, e])).chunk_sha256); assert.equal(mb.chunks.map((c) => c.chunk_sha256).join(), exp.join());
++  await assert.rejects(SR.renderFilm({ film: d, revision: rev, ...W, total: 600, chunkSize: 120, seed: 9, outName: "x.mp4", inject: { crashAt: { frame: 130, attempts: 5, transient: false } } }), (e) => e.code === "RENDER_CAPTURE_FAILURE" && /frame 130/.test(e.message), "a non-transient crash fails the chunk with its frame range");
++  const after = await SR.verifyRenderReceipt(d, rev, {}); assert.equal(after.ok, true, `a failed render must not replace or corrupt the last verified receipt: ${after.reasons}`); assert.equal(after.receipt.mp4, "render/b.mp4");
++  const d3 = tempFilm("p02n"); SR.RENDERERS.fixture_nondeterministic = { module: "tests/art_bridge/fixtures_black_frame_renderer.mjs", export: "nondeterministic", provenance: "DIAGNOSTIC_ONLY" };
++  await SR.renderFilm({ film: d3, revision: FR.buildFilmRevision(d3), renderer: "fixture_nondeterministic", ...W, total: 120, chunkSize: 60 }); const v = await SR.verifyRenderReceipt(d3, FR.buildFilmRevision(d3), { samples: [0, 59, 60, 119] });
++  assert.equal(v.ok, false); assert.ok(v.reasons.some((x) => /does not re-render identically/.test(x)), JSON.stringify(v.reasons));
+   assert.equal(a.probe.frames, 600); assert.equal(b.probe.frames, 600);
+ });
+ 
+@@ -30,7 +37,7 @@ test("P03 any upstream change (manifest, story, direction, motion plan, design,
+   for (const rel of ["handoff/ART_AND_MOTION_MANIFEST_V2.json", "direction/EXPERIENCE_DIRECTOR_PROPOSAL.md", "direction/SHOT_SCORE_60FPS.json", "handoff/MOTION_PLAN_S02.json", "art_designs/ines_master.design.json"]) assert.notEqual(touch(rel), r0, rel);
+   assert.equal(FR.buildFilmRevision(d).digest, r0, "restored inputs restore the revision");
+   assert.equal(FR.buildFilmRevision(d).parts.runtime_nu_js, crypto.createHash("sha256").update(fs.readFileSync(path.join(REPO, "engine", "runtime", "nu.js"))).digest("hex"), "the runtime hash is part of the revision");
+-  await SR.renderFilm({ film: d, revision: FR.buildFilmRevision(d), total: 120, chunkSize: 60 });
++  await SR.renderFilm({ film: d, revision: FR.buildFilmRevision(d), width: 160, height: 90, total: 120, chunkSize: 60 });
+   fs.appendFileSync(path.join(d, "direction", "SHOT_SCORE_60FPS.json"), " "); const v = await SR.verifyRenderReceipt(d, FR.buildFilmRevision(d)); assert.equal(v.ok, false); assert.ok(v.reasons.some((x) => /different film revision/.test(x)));
+ });
+ 
+@@ -42,11 +49,11 @@ test("P04 measured narration places critical events; a changed word time moves t
+ });
+ 
+ test("P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification", async () => {
+-  const d = tempFilm("p05"), rev = FR.buildFilmRevision(d), na = await SR.renderFilm({ film: d, revision: rev, total: 120, chunkSize: 60, outName: "na.mp4" }); assert.equal(na.probe.audio_duration, null);
+-  const f30 = await SR.renderFilm({ film: d, revision: rev, total: 60, chunkSize: 60, fps: 30, outName: "f30.mp4" }); assert.equal(f30.probe.r_frame_rate, "30/1");
++  const d = tempFilm("p05"), rev = FR.buildFilmRevision(d), na = await SR.renderFilm({ film: d, revision: rev, width: 160, height: 90, total: 120, chunkSize: 60, outName: "na.mp4" }); assert.equal(na.probe.audio_duration, null);
++  const f30 = await SR.renderFilm({ film: d, revision: rev, width: 160, height: 90, total: 60, chunkSize: 60, fps: 30, outName: "f30.mp4" }); assert.equal(f30.probe.r_frame_rate, "30/1");
+   assert.deepEqual(SR.frameDefects(Buffer.alloc(30)), { kind: "BLACK_FRAME" }); assert.equal(SR.frameDefects(Buffer.from([255, 0, 255, 10, 10, 10])).kind, "SENTINEL_PIXELS"); assert.equal(SR.frameDefects(Buffer.from([1, 2, 3])), null);
+   const d2 = tempFilm("p05b"); SR.RENDERERS.diagnostic_black_at_30 = { module: "tests/art_bridge/fixtures_black_frame_renderer.mjs", export: "blackAt30", provenance: "DIAGNOSTIC_ONLY" };
+-  await SR.renderFilm({ film: d2, revision: FR.buildFilmRevision(d2), renderer: "diagnostic_black_at_30", total: 60, chunkSize: 60 }); const v = await SR.verifyRenderReceipt(d2, FR.buildFilmRevision(d2), { samples: [0] }); assert.ok(v.reasons.some((x) => /frame 30: BLACK_FRAME/.test(x)), JSON.stringify(v.reasons));
++  await SR.renderFilm({ film: d2, revision: FR.buildFilmRevision(d2), renderer: "diagnostic_black_at_30", width: 160, height: 90, total: 60, chunkSize: 60 }); const v = await SR.verifyRenderReceipt(d2, FR.buildFilmRevision(d2), { samples: [0] }); assert.ok(v.reasons.some((x) => /frame 30: BLACK_FRAME/.test(x)), JSON.stringify(v.reasons));
+ });
+ 
+ test("P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art", () => {
+diff --git a/tests/art_bridge/fixtures_black_frame_renderer.mjs b/tests/art_bridge/fixtures_black_frame_renderer.mjs
+index b7345f6..749b6d4 100644
+--- a/tests/art_bridge/fixtures_black_frame_renderer.mjs
++++ b/tests/art_bridge/fixtures_black_frame_renderer.mjs
+@@ -1,3 +1,9 @@
+-// DIAGNOSTIC renderer fixture: the flat pattern with one all-black frame (30), to prove black-frame detection on the real render path.
+-import { diagnosticFlatRenderer } from "../../engine/film/segment_render.mjs";
+-export function blackAt30({ seed = 1 } = {}) { const base = diagnosticFlatRenderer({ seed }); return (f) => (f === 30 ? Buffer.alloc(16 * 9 * 3) : base(f)); }
++// DIAGNOSTIC renderer fixtures (sessions, same contract as engine/film/segment_render.mjs#RENDERERS): used only to prove that the REAL render
++// path detects defects. blackAt30: the flat pattern with one all-black frame (30). nondeterministic: pixels depend on a per-session random salt.
++import crypto from "node:crypto";
++import { diagnosticFlatSession } from "../../engine/film/segment_render.mjs";
++export const blackAt30 = (args = {}) => diagnosticFlatSession({ ...args, blackAt: 30 });
++export async function nondeterministic(args = {}) {
++  const base = await diagnosticFlatSession(args), salt = crypto.randomBytes(1)[0] | 1;
++  return { ...base, info: { renderer: "fixture_nondeterministic", provenance: "DIAGNOSTIC_ONLY" }, async renderFrame(f) { const o = await base.renderFrame(f); o.rgb[0] = (o.rgb[0] + salt) & 255; return o; } };
++}
+diff --git a/tests/art_bridge/p01_film_qa.test.mjs b/tests/art_bridge/p01_film_qa.test.mjs
+index 9003a67..d995863 100644
+--- a/tests/art_bridge/p01_film_qa.test.mjs
++++ b/tests/art_bridge/p01_film_qa.test.mjs
+@@ -12,6 +12,8 @@ import { qualifyFilm, reviewFilm, recordFilmRender } from "../../engine/tools/ar
+ import { renderFilm } from "../../engine/film/segment_render.mjs";
+ import { buildFilmRevision } from "../../engine/film/film_revision.mjs";
+ import crypto from "node:crypto";
++import { writeReceipt } from "../../engine/art_bridge/approvals.mjs";
++import { shotReviewBundle, unlikeBundle } from "../../engine/film/evidence_auth.mjs";
+ const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
+ const render = (d, o = {}) => renderFilm({ film: d, revision: buildFilmRevision(d), audio: path.join(d, "audio", "narration_TEST_TONE.wav"), ...o });
+ 
+@@ -35,10 +37,16 @@ before(async () => {
+   fs.writeFileSync(path.join(film, "audio", "script_TEST.txt"), "test"); fs.writeFileSync(path.join(film, "audio", "alignment_output_TEST.json"), JSON.stringify([{ w: "test", start_s: 1.0, end_s: 1.4 }]));
+   fs.writeFileSync(path.join(film, "audio", "narration_timeline_TEST.json"), JSON.stringify({ provenance: "TEST_FIXTURE", script_sha256: fsha(path.join(film, "audio", "script_TEST.txt")), audio_sha256: fsha(path.join(film, "audio", "narration_TEST_TONE.wav")), alignment: { method: "FORCED_ALIGNMENT", tool: "fixture-aligner", tool_version: "0", confidence: 1, output_file: "audio/alignment_output_TEST.json", output_sha256: fsha(path.join(film, "audio", "alignment_output_TEST.json")), words: [{ w: "test", start_s: 1.0, end_s: 1.4 }] }, cues: [{ id: "c1", word_index: 0, critical: true }] }));
+   const d = J(path.join(film, MF)); d.audio.narration_file = "audio/narration_TEST_TONE.wav"; d.audio.narration_timeline_file = "audio/narration_timeline_TEST.json"; d.audio.script_file = "audio/script_TEST.txt"; fs.writeFileSync(path.join(film, MF), JSON.stringify(d, null, 1));
+-  fs.mkdirSync(path.join(film, "qa", "film"), { recursive: true }); fs.writeFileSync(path.join(film, "qa", "film", "UNLIKE_TRANSFER.json"), JSON.stringify({ provenance: "DIAGNOSTIC_FIXTURE", passages: [{ family: "ACTING_HUMAN", pass: true, provenance: "DIAGNOSTIC_FIXTURE" }, { family: "MACHINE_OR_MECHANISM", pass: true, provenance: "DIAGNOSTIC_FIXTURE" }] }));
+   // per-shot QA on a camera plan that stays inside the painted plate
+   const plan = J(path.join(film, "handoff", "MOTION_PLAN.json")); plan.cameras.cam_world.zoom = [[3600, 1.9]]; fs.writeFileSync(path.join(film, "handoff", "MOTION_PLAN_FILMQA.json"), JSON.stringify(plan));
+   for (const [s, fr] of [["rt_shot", [0, 99, 100, 101, 450, 3599]], ["rt_world_shot", [3600, 3900, 7199]]]) await runQA({ root: film, manifest: MF, scene: s, out: path.join(film, "qa", "shots", s), plan: path.join(film, "handoff", "MOTION_PLAN_FILMQA.json"), frames: fr, argv: ["node", "art_bridge_qa.mjs"] });
++  // F078/F082: shot QA is re-executed by film QA; artistic review is a receipt over the re-executed evidence (TEST_TRUST only in this namespace)
++  const doc = J(path.join(film, MF));
++  for (const s of ["rt_shot", "rt_world_shot"]) { const qa = J(path.join(film, "qa", "shots", s, "QA_RESULT.json")), rc = writeReceipt(film, doc, { scope: "shot_review", id: s, verdict: "APPROVED", attestation: T, bundle: shotReviewBundle(s, qa), ...op }); fs.writeFileSync(path.join(film, "qa", "shots", s, "SHOT_REVIEW_POINTER.json"), JSON.stringify({ receipt_id: rc.receipt_id })); }
++  // unlike transfer: an INDEX of passages; each resolves asset bytes → registration → approval → a review receipt over the passage on this revision
++  const rev = buildFilmRevision(film).digest, passages = [{ id: "acting_reach", family: "ACTING_HUMAN", asset_ids: ["pilot_body", "pilot_forearm", "pilot_hand_grip"], frame_samples: [99, 100, 101] }, { id: "world_plate", family: "ENVIRONMENT_PLATE", asset_ids: ["rt_world_far"], frame_samples: [3600, 7199] }];
++  for (const p of passages) p.review_receipt_id = writeReceipt(film, doc, { scope: "unlike_transfer", id: p.id, verdict: "APPROVED", attestation: T, bundle: unlikeBundle(p, rev, doc), ...op }).receipt_id;
++  fs.mkdirSync(path.join(film, "qa", "film"), { recursive: true }); fs.writeFileSync(path.join(film, "qa", "film", "UNLIKE_TRANSFER.json"), JSON.stringify({ provenance: "DIAGNOSTIC_FIXTURE", passages }, null, 1));
+   await render(film);
+ });
+ 
+@@ -69,6 +77,14 @@ test("B3-6 without test trust the same package is refused (diagnostic art, non-h
+   finally { process.env.ART_BRIDGE_TEST_TRUST = "1"; }
+ });
+ 
++test("B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail", async () => {
++  { const d = copy("neg_qa_bool"), f = path.join(d, "qa", "shots", "rt_shot", "QA_RESULT.json"), q = J(f); q.gates.art_registration_pass = !q.gates.art_registration_pass; fs.writeFileSync(f, JSON.stringify(q)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); assert.equal(r.verdict, "FAIL"); }
++  { const d = copy("neg_no_shot_review"); fs.rmSync(path.join(d, "qa", "shots", "rt_world_shot", "SHOT_REVIEW_POINTER.json")); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); }
++  { const d = copy("neg_forged_unlike"), f = path.join(d, "qa", "film", "UNLIKE_TRANSFER.json"); fs.writeFileSync(f, JSON.stringify({ passages: [{ family: "ACTING_HUMAN", pass: true }, { family: "MACHINE_OR_MECHANISM", pass: true }] })); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.unlike_transfer, false); }
++  { const d = copy("neg_one_family"), f = path.join(d, "qa", "film", "UNLIKE_TRANSFER.json"), u = J(f); u.passages = u.passages.slice(0, 1); fs.writeFileSync(f, JSON.stringify(u)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.unlike_transfer, false); assert.match(JSON.stringify(r.details.unlike_transfer), /two materially unlike families/); }
++  { const d = copy("neg_revision"); fs.appendFileSync(path.join(d, "handoff", "MOTION_PLAN.json"), " "); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); assert.equal(r.verdict, "FAIL"); }
++});
++
+ test("P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render", async () => {
+   const d = copy("p06_claim"); fs.rmSync(path.join(d, "render", "RENDER_COMPLETION_RECEIPT.json")); const mp4 = path.join(d, "render", "film.mp4");
+   recordFilmRender({ film: d, mp4, source: "ART_BRIDGE_CAPTURE" }); const r = await qualifyFilm({ film: d });
+diff --git a/tests/art_bridge/p01_reaudit.test.mjs b/tests/art_bridge/p01_reaudit.test.mjs
+index 04b13bd..449b57d 100644
+--- a/tests/art_bridge/p01_reaudit.test.mjs
++++ b/tests/art_bridge/p01_reaudit.test.mjs
+@@ -12,7 +12,7 @@ const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), ap = (T, p) => [T[0] *
+ const bbox = (pts) => { const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]); return [Math.min(...xs), Math.min(...ys), Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)]; };
+ const close = (a, b, eps = 1e-6) => a.length === b.length && a.every((v, i) => Math.abs(v - b[i]) <= eps);
+ let rt, doc; const asset = (id) => doc.assets.find((a) => a.id === id);
+-before(async () => { rt = await runRoundTrip(path.join(W, "rt")); doc = J(rt.manifest); });
++before(async () => { process.env.IMAGE_PROVIDER_SIZE = "170x170"; /* H3 stub returns the 170x170 hand_grip fixture; size is part of every generation */ rt = await runRoundTrip(path.join(W, "rt")); doc = J(rt.manifest); });
+ 
+ /* ───── B1 canonical geometry ───── */
+ test("B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine", () => {
+@@ -91,12 +91,12 @@ test("H2 registration receipt content is verified and bound into the approval",
+   assert.equal(verifyRegistrationReceipt(d, dd, a).ok, false); assert.equal(verifyApproval(dd, d, "asset", a.id, a.approved_review_id).ok, false);
+ });
+ test("H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume", async () => {
+-  const I = await import("../../engine/art_bridge/art_intake.mjs"), stub = await startProviderStub(rt.files.hand_grip, { outputs: 2, failFirst: 1 });
++  const I = await import("../../engine/art_bridge/art_intake.mjs"), stub = await startProviderStub(rt.files.hand_grip, { outputs: 2, failFirst: 1, failStatus: 429 });
+   const prevTT = process.env.ART_BRIDGE_TEST_TRUST; process.env.ART_BRIDGE_TEST_TRUST = "1"; // round-trip approvals are TEST_TRUST; honoured only on the loopback stub
+   try {
+-    const env = (model) => ({ IMAGE_PROVIDER: "openai-images", IMAGE_PROVIDER_MODEL: model, OPENAI_API_KEY: "test-key-not-real", OPENAI_BASE_URL: stub.url, IMAGE_PROVIDER_CAPS: JSON.stringify({ generate: true, edit: true, transparentRaster: true, multipleReferences: true, svgGeneration: false }) });
++    const env = (model) => ({ IMAGE_PROVIDER_SIZE: stub.size, IMAGE_PROVIDER: "openai-images", IMAGE_PROVIDER_MODEL: model, OPENAI_API_KEY: "test-key-not-real", OPENAI_BASE_URL: stub.url, IMAGE_PROVIDER_CAPS: JSON.stringify({ generate: true, edit: true, transparentRaster: true, multipleReferences: true, svgGeneration: false }) });
+     const a = await I.submitJob({ film: rt.film, out: rt.outbox, job: rt.jobIds.hand_grip, env: env("stub-a"), provenanceOverride: "TEST_STUB" });
+-    assert.equal(a.status, "CANDIDATES_RECEIVED_PENDING_SELECTION"); assert.equal(a.attempts, 2); assert.equal(a.candidates.length, 2); assert.notEqual(a.candidates[0].file, a.candidates[1].file);
++    assert.equal(a.status, "CANDIDATES_RECEIVED_PENDING_SELECTION", JSON.stringify(a.error || a.candidates?.map((c) => c.problems))); assert.equal(a.attempts, 2); assert.equal(a.candidates.length, 2); assert.notEqual(a.candidates[0].file, a.candidates[1].file);
+     const b = await I.submitJob({ film: rt.film, out: rt.outbox, job: rt.jobIds.hand_grip, env: env("stub-b"), provenanceOverride: "TEST_STUB" });
+     assert.notEqual(b.status, "ALREADY_SUBMITTED_SAME_PAYLOAD"); assert.notEqual(a.payload_key_sha256, b.payload_key_sha256);
+     for (const c of [...a.candidates, ...b.candidates]) assert.ok(fs.existsSync(c.file));
+diff --git a/tests/art_bridge/p0_audit.test.mjs b/tests/art_bridge/p0_audit.test.mjs
+index aea82ad..c6487be 100644
+--- a/tests/art_bridge/p0_audit.test.mjs
++++ b/tests/art_bridge/p0_audit.test.mjs
+@@ -6,7 +6,7 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
+ const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), OUTBOX = path.join(REPO, "hybrid_v2", "art_outbox");
+ const { readCurrent } = await import("../../engine/art_bridge/outbox_store.mjs"); // content-addressed outbox (directive E3): records resolve through CURRENT.json
+ const jobs = () => Object.keys(JSON.parse(fs.readFileSync(path.join(OUTBOX, "CURRENT.json"), "utf8"))).map((id) => readCurrent(OUTBOX, id).job);
+-const tmpFilm = (tag) => { const d = path.join(REPO, "hybrid_v2", "work", "p0", tag); fs.rmSync(d, { recursive: true, force: true }); fs.cpSync(path.join(REPO, "films", "hv2_film001"), d, { recursive: true, filter: (s) => !s.includes(`${path.sep}qa${path.sep}`) }); return d; };
++const tmpFilm = (tag) => { const d = path.join(REPO, "hybrid_v2", "work", "p0", tag); fs.rmSync(d, { recursive: true, force: true }); fs.cpSync(path.join(REPO, "films", "hv2_film001"), d, { recursive: true, filter: (s) => !s.includes(`${path.sep}qa${path.sep}`) }); fs.writeFileSync(path.join(d, ".diagnostic_namespace"), "DIAGNOSTIC fixture film\n"); return d; };
+ const hash = (o) => crypto.createHash("sha256").update(JSON.stringify(o)).digest("hex");
+ 
+ /* P0-1 — motion context frame ranges */
+@@ -83,16 +83,17 @@ test("P0-4 production refuses random strings, foreign receipts, replaced PNGs, m
+ /* P0-5 — provider submit path */
+ test("P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent", async () => {
+   const I = await import("../../engine/art_bridge/art_intake.mjs"); assert.equal(typeof I.submitJob, "function");
++  process.env.IMAGE_PROVIDER_SIZE = "170x170"; // the stub returns the 170x170 hand_grip fixture; size is part of every exported generation
+   const R = await import("./roundtrip_fixture.mjs"), rt = await R.runRoundTrip(path.join(REPO, "hybrid_v2", "work", "p0", "rt_p05"));
+   // directive N3: authority precedes provider discovery. The round-trip approvals are TEST_TRUST (diagnostic), honoured only on a loopback endpoint.
+   const prevTT = process.env.ART_BRIDGE_TEST_TRUST; process.env.ART_BRIDGE_TEST_TRUST = "1";
+-  const w = await I.submitJob({ film: rt.film, out: rt.outbox, job: rt.jobIds.hand_grip, env: { OPENAI_BASE_URL: "http://127.0.0.1:9/v1" } }); // loopback, no IMAGE_PROVIDER configured
++  const w = await I.submitJob({ film: rt.film, out: rt.outbox, job: rt.jobIds.hand_grip, env: { OPENAI_BASE_URL: "http://127.0.0.1:9/v1", IMAGE_PROVIDER_SIZE: "170x170" } }); // loopback, no IMAGE_PROVIDER configured
+   assert.equal(w.status, "WAITING_FOR_GPT_ART"); assert.equal(w.provider_called, false); assert.ok(!fs.existsSync(path.join(rt.outbox, "inbox", `${rt.jobIds.hand_grip}.png`)));
+-  const stub = await R.startProviderStub(rt.files.hand_grip); // TEST STUB HTTP server: returns a fixture PNG; proves adapter mechanics only
++  const stub = await R.startProviderStub(rt.files.hand_grip); // TEST STUB
+   try {
+-    const env = { IMAGE_PROVIDER: "openai-images", IMAGE_PROVIDER_MODEL: "stub-model", OPENAI_API_KEY: "test-key-not-real", OPENAI_BASE_URL: stub.url, IMAGE_PROVIDER_CAPS: JSON.stringify({ generate: true, edit: true, transparentRaster: true, multipleReferences: true, svgGeneration: false }) };
++    const env = { IMAGE_PROVIDER_SIZE: stub.size, IMAGE_PROVIDER: "openai-images", IMAGE_PROVIDER_MODEL: "stub-model", OPENAI_API_KEY: "test-key-not-real", OPENAI_BASE_URL: stub.url, IMAGE_PROVIDER_CAPS: JSON.stringify({ generate: true, edit: true, transparentRaster: true, multipleReferences: true, svgGeneration: false }) };
+     const r = await I.submitJob({ film: rt.film, out: rt.outbox, job: rt.jobIds.hand_grip, env, provenanceOverride: "TEST_STUB" });
+-    assert.equal(r.status, "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW"); assert.equal(r.mode, "edit"); assert.ok(r.reference_hashes.includes(rt.masterSha));
++    assert.equal(r.status, "PIXELS_RECEIVED_PENDING_REGISTRATION_AND_REVIEW", JSON.stringify(r.error || r.candidates?.map((c) => c.problems))); assert.equal(r.mode, "edit"); assert.ok(r.reference_hashes.includes(rt.masterSha));
+     assert.ok(r.outputs[0].alpha_present); assert.equal(stub.requests().length, 1);
+     const again = await I.submitJob({ film: rt.film, out: rt.outbox, job: rt.jobIds.hand_grip, env, provenanceOverride: "TEST_STUB" });
+     assert.equal(again.status, "ALREADY_SUBMITTED_SAME_PAYLOAD"); assert.equal(stub.requests().length, 1); assert.equal(r.provenance_to_ingest, "TEST_STUB");
+diff --git a/tests/art_bridge/repair_transfer.test.mjs b/tests/art_bridge/repair_transfer.test.mjs
+index 3319e61..2a5fd2c 100644
+--- a/tests/art_bridge/repair_transfer.test.mjs
++++ b/tests/art_bridge/repair_transfer.test.mjs
+@@ -43,7 +43,7 @@ test("L04 a rule contradicting the approved design/source blocks (REPAIR_RULE_CO
+ test("L05 diagnostic or missing pixels can never mark artistic learning qualified", () => {
+   assert.equal(RM.ruleQualification(rule("R", { family: "ACTING_HUMAN" })).status, "IMPLEMENTED_UNQUALIFIED");
+   assert.equal(RM.ruleQualification({ ...rule("R", { family: "ACTING_HUMAN" }), evidence_provenance: undefined }).status, "IMPLEMENTED_UNQUALIFIED");
+-  assert.equal(RM.ruleQualification({ ...rule("R", { family: "ACTING_HUMAN" }), evidence_provenance: "GPT_PROVIDER_ART" }).status, "TRANSFER_PROVED_PENDING");
++  assert.equal(RM.ruleQualification({ ...rule("R", { family: "ACTING_HUMAN" }), evidence_provenance: "GPT_PROVIDER_ART", transfer_test: { result: "PASS", unlike_subject: "x" } }).status, "IMPLEMENTED_UNQUALIFIED", "self-described provenance/PASS fields are not evidence (F083)");
+ });
+ 
+ test("L06 a memory change invalidates only the jobs whose predicate it matches", async () => {
+diff --git a/tests/art_bridge/roundtrip_fixture.mjs b/tests/art_bridge/roundtrip_fixture.mjs
+index e90122c..9039ff7 100644
+--- a/tests/art_bridge/roundtrip_fixture.mjs
++++ b/tests/art_bridge/roundtrip_fixture.mjs
+@@ -106,6 +106,7 @@ export function buildRoundTrip(dir) {
+   fs.mkdirSync(path.join(film, "skill"), { recursive: true }); for (const f of ["SKILL.md", "references/QUESTION_NATIVE_WITNESS_MANIFEST.json"]) fs.copyFileSync(path.join(REPO, "reference", "construct-kurzgesagt-art", f), path.join(film, "skill", path.basename(f)));
+   fs.mkdirSync(path.join(film, "learning"), { recursive: true }); fs.writeFileSync(path.join(film, "learning", "REPAIR_MEMORY.json"), fs.readFileSync(path.join(REPO, "films", "hv2_film001", "learning", "REPAIR_MEMORY.json")));
+   // compile-path testing only: the pilot borrows the (unapproved) Ines master design brief so derived jobs can be compiled and submitted to a stub
++  fs.writeFileSync(path.join(film, ".diagnostic_namespace"), "DIAGNOSTIC round-trip fixture film: test-trusted receipts are valid only here (F087)\n");
+   fs.mkdirSync(path.join(film, "art_designs"), { recursive: true }); const d = JSON.parse(fs.readFileSync(path.join(REPO, "films", "hv2_film001", "art_designs", "ines_master.design.json"), "utf8")); d.job_id = "pilot_master"; d.borrowed_for_compile_path_testing_only = true;
+   // DIAGNOSTIC adaptation of the borrowed brief to the PILOT's own motion contract (front view, open/grip states, 4 joints, 1 socket) so the
+   // universal gate can be exercised on the fixture; the pilot is a diagnostic capsule figure, never target art
+@@ -148,15 +149,16 @@ export async function runRoundTrip(dir, { log = () => {} } = {}) {
+ }
+ 
+ /** TEST STUB provider HTTP server (local only): answers the model check and image endpoints with a fixture PNG. Proves adapter mechanics; produces no art. */
+-export function startProviderStub(pngFile, { outputs = 1, failFirst = 0 } = {}) {
++export function startProviderStub(pngFile, { outputs = 1, failFirst = 0, failStatus = 500, dropReference = false, hang = false } = {}) {
++  const pngHead = fs.readFileSync(pngFile), stubSize = `${pngHead.readUInt32BE(16)}x${pngHead.readUInt32BE(20)}`; // the stub returns this exact image, so requests must ask for its real size
+   const reqs = [], b64 = fs.readFileSync(pngFile).toString("base64"); let fails = failFirst;
+   const srv = http.createServer((req, res) => {
+     if (req.method === "GET" && req.url.startsWith("/models/")) { res.writeHead(200, { "content-type": "application/json" }); res.end(JSON.stringify({ id: decodeURIComponent(req.url.slice(8)), object: "model" })); return; }
+-    if (req.method === "POST" && (req.url === "/images/edits" || req.url === "/images/generations")) { let n = 0; req.on("data", (c) => (n += c.length)); req.on("end", () => { reqs.push({ url: req.url, bytes: n, auth: req.headers.authorization === "Bearer test-key-not-real" }); if (fails > 0) { fails--; res.writeHead(500, { "content-type": "application/json" }); res.end(JSON.stringify({ error: "stub transient failure" })); return; }
+-      res.writeHead(200, { "content-type": "application/json" }); res.end(JSON.stringify({ created: 1, data: Array.from({ length: outputs }, () => ({ b64_json: b64 })) })); }); return; }
++    if (req.method === "POST" && (req.url === "/images/edits" || req.url === "/images/generations")) { let n = 0; let body = ""; req.on("data", (c) => { n += c.length; if (body.length < 4e7) body += c.toString("latin1"); }); req.on("end", () => { const images = (body.match(/name="image\[\]"/g) || []).length; if (hang) { reqs.push({ url: req.url, bytes: n, hung: true }); return; } reqs.push({ url: req.url, bytes: n, auth: req.headers.authorization === "Bearer test-key-not-real" }); if (fails > 0) { fails--; res.writeHead(failStatus, { "content-type": "application/json" }); res.end(JSON.stringify({ error: "stub transient failure" })); return; }
++      res.writeHead(200, { "content-type": "application/json" }); res.end(JSON.stringify({ created: 1, usage: { input_images: dropReference ? Math.max(0, images - 1) : images }, data: Array.from({ length: outputs }, () => ({ b64_json: b64 })) })); }); return; }
+     res.writeHead(404); res.end();
+   });
+-  return new Promise((ok) => srv.listen(0, "127.0.0.1", () => ok({ url: `http://127.0.0.1:${srv.address().port}`, requests: () => reqs, close: () => new Promise((d) => srv.close(d)) })));
++  return new Promise((ok) => srv.listen(0, "127.0.0.1", () => ok({ url: `http://127.0.0.1:${srv.address().port}`, size: stubSize, requests: () => reqs, close: () => new Promise((d) => { srv.closeAllConnections?.(); srv.close(d); }) })));
+ }
+ 
+ if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(process.argv[1])).href) {
+diff --git a/tests/art_bridge/universal_fixture.mjs b/tests/art_bridge/universal_fixture.mjs
+index 7358efd..18aaac0 100644
+--- a/tests/art_bridge/universal_fixture.mjs
++++ b/tests/art_bridge/universal_fixture.mjs
+@@ -4,12 +4,16 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
+ const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", "..");
+ export const W = path.join(REPO, "hybrid_v2", "work", "universal");
+ export const STUB_PNG = path.join(REPO, "tests", "art_bridge", "fixtures", "diag2", "hand_palm.png");
+-export const stubEnv = (url) => ({ IMAGE_PROVIDER: "openai-images", IMAGE_PROVIDER_MODEL: "stub", OPENAI_API_KEY: "test-key-not-real", OPENAI_BASE_URL: url, IMAGE_PROVIDER_CAPS: JSON.stringify({ generate: true, edit: true, transparentRaster: true, multipleReferences: true }) });
++const STUB_HEAD = fs.readFileSync(path.join(REPO, "tests", "art_bridge", "fixtures", "diag2", "hand_palm.png")), STUB_SIZE = `${STUB_HEAD.readUInt32BE(16)}x${STUB_HEAD.readUInt32BE(20)}`;
++// the requested size is part of every job generation: the fixture EXPORTS at the size its stub returns (an operator configures size before export)
++process.env.IMAGE_PROVIDER_SIZE = STUB_SIZE;
++export const stubEnv = (url) => ({ IMAGE_PROVIDER_SIZE: STUB_SIZE, IMAGE_PROVIDER: "openai-images", IMAGE_PROVIDER_MODEL: "stub", OPENAI_API_KEY: "test-key-not-real", OPENAI_BASE_URL: url, IMAGE_PROVIDER_CAPS: JSON.stringify({ generate: true, edit: true, transparentRaster: true, multipleReferences: true }) });
+ export const TT = { method: "TEST_TRUST", note: "DIAGNOSTIC fixture approval (ART_BRIDGE_TEST_TRUST=1); never production" };
+ 
+ export function tempFilm(tag) {
+   const d = path.join(W, tag, "film"); fs.rmSync(path.join(W, tag), { recursive: true, force: true });
+   fs.cpSync(path.join(REPO, "films", "hv2_film001"), d, { recursive: true, filter: (s) => !s.includes(`${path.sep}qa${path.sep}`) && !s.includes(`${path.sep}reviews${path.sep}`) && !s.includes(`${path.sep}approvals${path.sep}`) && !s.endsWith(".APPROVAL_POINTER.json") });
++  fs.writeFileSync(path.join(d, ".diagnostic_namespace"), "DIAGNOSTIC fixture film: test-trusted receipts are valid only here (F087)\n");
+   fs.mkdirSync(path.join(d, "story"), { recursive: true });
+   fs.writeFileSync(path.join(d, "story", "STORY_CONTRACT.json"), JSON.stringify({ provenance: "DIAGNOSTIC_FIXTURE", note: "stand-in for the approval machinery only; not a fact-checked story", claims: [] }, null, 1));
+   return d;

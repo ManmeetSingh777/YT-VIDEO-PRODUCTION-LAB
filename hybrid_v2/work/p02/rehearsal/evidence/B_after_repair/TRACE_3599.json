@@ -1,0 +1,61 @@
+{
+ "frame": 3599,
+ "segment": {
+  "frames": [
+   3000,
+   3600
+  ],
+  "shot": "rt_shot",
+  "camera_moving": false,
+  "actions": [],
+  "rig_states": {},
+  "assets": [],
+  "camera_track": null,
+  "world": null,
+  "effects": [],
+  "motion_blur": false,
+  "static_hold": true,
+  "chunk": [
+   3000,
+   3600
+  ]
+ },
+ "assets": [],
+ "story": "APPROVED",
+ "direction": "APPROVED",
+ "stage_handoffs": {
+  "S00_IDEA": {
+   "status": "COMMITTED",
+   "handoff": "485fb1fac020958b6a1204160fbe522fcddd96b6afb11a4d3614ef426ead71ef"
+  },
+  "S01_STORY": {
+   "status": "COMMITTED",
+   "handoff": "e5dc60e83f6fab03623452f8101736d3d1697d85854179ce6d322aac5cff5c24"
+  },
+  "S02_EXPERIENCE": {
+   "status": "COMMITTED",
+   "handoff": "03bad952732d884303361f40a687ef9576fee10339d21b20cd63b558f888ef31"
+  },
+  "S03_TIMING_MOTION": {
+   "status": "COMMITTED",
+   "handoff": "ca08158378675e4a0f924882c26b638393a255d2575b4687d5ddb840e76b7b6e"
+  },
+  "S04_ART_DEMAND": {
+   "status": "COMMITTED",
+   "handoff": "0c08ebb70f1a3b0f45db13e507aa8829f9e85b0cdd55bfbc12ba0b4f267319e3"
+  },
+  "S05_ART_PRODUCTION": {
+   "status": "COMMITTED",
+   "handoff": "0cc4dcdc374ddf628e3cda44721f1a9c5d88d565b76a1569ba195a2ead350348"
+  },
+  "S06_REGISTRATION_RIG": {
+   "status": "COMMITTED",
+   "handoff": "0453f6fcc6ed79ffa8a49874b1274163ce7b3e36c2d42e8d014e52b3715416bf"
+  },
+  "S07_NEUTRINO_RENDER": {
+   "status": "BLOCKED",
+   "handoff": null
+  }
+ },
+ "blockers": []
+}

@@ -1,0 +1,512 @@
+{
+ "schema_version": "2.0.0",
+ "project_id": "diag_stage2_B",
+ "production_mode": "COMPLETE_FILM_ART_PACKAGE",
+ "status": "PLANNED",
+ "stage": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "total_frames": 7200,
+  "coord_system": "SVG_Y_DOWN_PX",
+  "color_space": "sRGB"
+ },
+ "authority": {
+  "script": null,
+  "direction": null,
+  "style_skill": "skill/SKILL.md",
+  "visual_bible": null,
+  "source_witness_manifest": "skill/QUESTION_NATIVE_WITNESS_MANIFEST.json"
+ },
+ "identities": [
+  {
+   "id": "diag_walker",
+   "kind": "CHARACTER",
+   "canonical_asset_id": "walker_master",
+   "master_sha256": "abb9ffb62ba95786e049affff7aad4b63d1e7b642b101f022816ac522a625bd8",
+   "landmarks": {},
+   "palette_roles": {},
+   "material_owners": [
+    "diag_walker"
+   ],
+   "source_method_ids": [
+    "F01"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [],
+   "approved_review_id": "diag_review"
+  }
+ ],
+ "assets": [
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "RIGID"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "walker_master",
+   "identity_id": "diag_walker",
+   "kind": "MASTER",
+   "file": "diag2/walker_master.png",
+   "sha256": "abb9ffb62ba95786e049affff7aad4b63d1e7b642b101f022816ac522a625bd8",
+   "width_px": 140,
+   "height_px": 220,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    70,
+    110
+   ],
+   "pivot_landmark_id": null,
+   "landmarks": {},
+   "layer_owner": "diag_walker"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "REGISTERED_CELS"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "walker_cel0",
+   "identity_id": "diag_walker",
+   "kind": "CEL",
+   "file": "diag2/walker_cel0.png",
+   "sha256": "46ff707a456ccdc511951824dc9b3abfd84cb7f33ef2cb52c1dc0b5d14ecb14b",
+   "width_px": 140,
+   "height_px": 220,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    70,
+    110
+   ],
+   "pivot_landmark_id": "pelvis",
+   "landmarks": {
+    "pelvis": [
+     70,
+     110
+    ],
+    "right_foot": [
+     30,
+     210
+    ],
+    "left_foot": [
+     110,
+     210
+    ]
+   },
+   "layer_owner": "diag_walker"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "REGISTERED_CELS"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "walker_cel1",
+   "identity_id": "diag_walker",
+   "kind": "CEL",
+   "file": "diag2/walker_cel1.png",
+   "sha256": "db132992619b1c7a83150b439d5225f2c686ecd729be573aa3b0c9fa82dc9e49",
+   "width_px": 140,
+   "height_px": 220,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    70,
+    110
+   ],
+   "pivot_landmark_id": "pelvis",
+   "landmarks": {
+    "pelvis": [
+     70,
+     110
+    ],
+    "left_foot": [
+     70,
+     210
+    ],
+    "right_foot": [
+     80,
+     170
+    ]
+   },
+   "layer_owner": "diag_walker"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "REGISTERED_CELS"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "walker_cel2",
+   "identity_id": "diag_walker",
+   "kind": "CEL",
+   "file": "diag2/walker_cel2.png",
+   "sha256": "4d132661b8674d355a7175759c29e3af69e9c3b4a78193ddad16a408a422efbf",
+   "width_px": 140,
+   "height_px": 220,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    70,
+    110
+   ],
+   "pivot_landmark_id": "pelvis",
+   "landmarks": {
+    "pelvis": [
+     70,
+     110
+    ],
+    "left_foot": [
+     30,
+     210
+    ],
+    "right_foot": [
+     110,
+     210
+    ]
+   },
+   "layer_owner": "diag_walker"
+  },
+  {
+   "color_space": "sRGB",
+   "approved_review_id": "diag_review",
+   "provider_receipt_id": null,
+   "parent_part_id": null,
+   "sockets": {},
+   "draw_order_constraints": [],
+   "depth_band": "FOCAL",
+   "render_scale_range": [
+    0.25,
+    4
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "hidden_surfaces": [],
+   "underpaint_asset_ids": [],
+   "mask_asset_ids": [],
+   "occluder_asset_ids": [],
+   "material_plane_ids": [],
+   "camera_footprint": null,
+   "overscan_rect": null,
+   "motion_modes_allowed": [
+    "REGISTERED_CELS"
+   ],
+   "incompatible_states": [],
+   "valid_interpolation_targets": [],
+   "required_contact_sockets": [],
+   "shot_usage": [],
+   "provenance_class": "DIAGNOSTIC_FIXTURE",
+   "id": "walker_cel3",
+   "identity_id": "diag_walker",
+   "kind": "CEL",
+   "file": "diag2/walker_cel3.png",
+   "sha256": "52a9b0d27af9f9193af413ad7341ad79c314f04bf22aa53d4d22d4efda086210",
+   "width_px": 140,
+   "height_px": 220,
+   "alpha_mode": "STRAIGHT",
+   "canonical_rect": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "source_pixel_crop": [
+    0,
+    0,
+    140,
+    220
+   ],
+   "coordinate_space": "CHARACTER_LOCAL",
+   "pivot_xy": [
+    70,
+    110
+   ],
+   "pivot_landmark_id": "pelvis",
+   "landmarks": {
+    "pelvis": [
+     70,
+     110
+    ],
+    "right_foot": [
+     70,
+     210
+    ],
+    "left_foot": [
+     80,
+     170
+    ]
+   },
+   "layer_owner": "diag_walker"
+  }
+ ],
+ "worlds": [],
+ "rigs": [
+  {
+   "id": "walker",
+   "identity_id": "diag_walker",
+   "root_part": "root",
+   "joints": [
+    {
+     "id": "root",
+     "parent_id": null,
+     "rest_xy": [
+      70,
+      110
+     ],
+     "rotation_limits_deg": [
+      -170,
+      170
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "walker_master",
+     "joint_id": "root",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "walker_master",
+     "material_owner_id": "diag_walker"
+    }
+   ],
+   "sockets": [],
+   "pose_states": [
+    {
+     "id": "walk",
+     "asset_bindings": {},
+     "landmark_correspondence": [],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": "diag_review"
+    }
+   ],
+   "view_states": [],
+   "constraints": [],
+   "allowed_state_edges": []
+  }
+ ],
+ "actions": [
+  {
+   "id": "walk_cycle",
+   "shot_id": "shotB",
+   "frame_range": [
+    0,
+    600
+   ],
+   "semantic_goal": "walk left→right on distance-indexed registered cels",
+   "mode": "REGISTERED_CELS",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "walker_cel0",
+    "walker_cel1",
+    "walker_cel2",
+    "walker_cel3"
+   ],
+   "proof_conditions": [
+    "sampled-frame QA in tests/art_bridge/stage2_proofs.mjs"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "shotB",
+   "start_frame": 0,
+   "end_frame": 7200,
+   "world_id": null,
+   "entry_state": "start",
+   "events": [],
+   "attention_path": [
+    "focus"
+   ],
+   "camera_track_id": null,
+   "required_asset_ids": [],
+   "exit_state": "end",
+   "continuity_to": null,
+   "hold_purpose": "diagnostic hold"
+  }
+ ],
+ "transitions": [],
+ "audio": {
+  "narration_file": null,
+  "word_alignment_file": null,
+  "sfx_events_file": null
+ },
+ "learning": {
+  "repair_memory_file": null,
+  "compiler_receipts": []
+ },
+ "evidence": {
+  "asset_review_index": null,
+  "motion_review_index": null,
+  "method_trace_index": null
+ }
+}

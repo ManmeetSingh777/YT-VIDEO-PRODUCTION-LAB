@@ -1,0 +1,106 @@
+{
+ "ok": true,
+ "failures": [],
+ "coverage": {
+  "action": [
+   {
+    "id": "pilot_close_hand",
+    "frames": [
+     0,
+     600
+    ],
+    "rendered": true
+   }
+  ],
+  "art_state": [
+   {
+    "id": "pilot_rig:open",
+    "frames": [
+     0,
+     100
+    ],
+    "rendered": true
+   },
+   {
+    "id": "pilot_rig:grip",
+    "frames": [
+     100,
+     600
+    ],
+    "rendered": true
+   }
+  ],
+  "camera": [
+   {
+    "id": "cam_char",
+    "frames": [
+     0,
+     3600
+    ],
+    "rendered": true
+   },
+   {
+    "id": "cam_world",
+    "frames": [
+     3600,
+     7200
+    ],
+    "rendered": true
+   }
+  ],
+  "effect": [
+   {
+    "id": "dust",
+    "frames": [
+     600,
+     2400
+    ],
+    "rendered": true
+   }
+  ],
+  "blur": [
+   {
+    "id": "blur0",
+    "frames": [
+     420,
+     480
+    ],
+    "rendered": true
+   }
+  ],
+  "transition": [
+   {
+    "id": "rt_shot->rt_world_shot",
+    "frames": [
+     3480,
+     3600
+    ],
+    "rendered": true
+   }
+  ],
+  "shot_boundary": [
+   {
+    "id": "rt_world_shot",
+    "frames": [
+     3599,
+     3601
+    ],
+    "rendered": true
+   }
+  ],
+  "sound_cue": [
+   {
+    "id": "world_reveal",
+    "frames": [
+     3660,
+     3661
+    ],
+    "rendered": true
+   }
+  ]
+ },
+ "frames_hashed": 7200,
+ "moving_intervals": 8,
+ "static_holds": 9,
+ "note": "mechanical coverage only; artistic review stays an independent human gate"
+}

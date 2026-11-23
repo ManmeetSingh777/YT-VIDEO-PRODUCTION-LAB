@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:68",
+ "sequence": 68,
+ "prev_event_sha256": "67b21718155feeb1bae801e7f5d45ee8844d468a3d515e4f25f347836c8d8b5c",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwrxc6hv",
+ "operation_id": null,
+ "task_id": "demand_portal_out",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:67"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:28.686Z",
+ "elapsed_ms": 0,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "supplied_by_plan",
+  "pass": true,
+  "measurement": "continuous transition rt_shot->rt_world_shot needs its OUT plate frames [[3480,3600]]"
+ },
+ "lock_generation": 68,
+ "event_sha256": "3e18729dff57d17b68168f2ead4ba019983e0fc6ba8cbd0fed94de783d218e5b"
+}

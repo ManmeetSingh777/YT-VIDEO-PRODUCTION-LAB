@@ -1,0 +1,18 @@
+{
+ "landmarks": {
+  "wrist_r": [
+   73.1470650635485,
+   89.05479702177206
+  ],
+  "knuckle_r": [
+   77.64900457793618,
+   178.69843896367888
+  ],
+  "thumb_r": [
+   111.09431056906129,
+   118.59301901539129
+  ]
+ },
+ "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+ "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)"
+}

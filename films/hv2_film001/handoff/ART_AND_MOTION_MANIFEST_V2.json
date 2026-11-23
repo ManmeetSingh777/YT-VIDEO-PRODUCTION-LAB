@@ -1,0 +1,2259 @@
+{
+ "schema_version": "2.0.0",
+ "project_id": "hv2_film001",
+ "production_mode": "COMPLETE_FILM_ART_PACKAGE",
+ "status": "PLANNED",
+ "stage": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 60,
+  "total_frames": 7200,
+  "coord_system": "SVG_Y_DOWN_PX",
+  "color_space": "sRGB"
+ },
+ "authority": {
+  "script": "direction/EXPERIENCE_DIRECTOR_PROPOSAL.md",
+  "direction": "direction/SHOT_SCORE_60FPS.json",
+  "style_skill": "skill/SKILL.md",
+  "visual_bible": null,
+  "source_witness_manifest": "skill/QUESTION_NATIVE_WITNESS_MANIFEST.json"
+ },
+ "identities": [
+  {
+   "id": "ines",
+   "kind": "CHARACTER",
+   "canonical_asset_id": "ines_master",
+   "master_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "landmarks": {
+    "pelvis": [
+     300,
+     620
+    ],
+    "chest": [
+     300,
+     430
+    ],
+    "neck": [
+     300,
+     330
+    ],
+    "head_top": [
+     300,
+     150
+    ],
+    "chin": [
+     300,
+     315
+    ],
+    "shoulder_r": [
+     360,
+     360
+    ],
+    "elbow_r": [
+     380,
+     480
+    ],
+    "wrist_r": [
+     395,
+     590
+    ],
+    "shoulder_l": [
+     240,
+     360
+    ],
+    "elbow_l": [
+     225,
+     480
+    ],
+    "wrist_l": [
+     215,
+     590
+    ],
+    "hip_r": [
+     330,
+     630
+    ],
+    "knee_r": [
+     335,
+     800
+    ],
+    "ankle_r": [
+     340,
+     960
+    ],
+    "hip_l": [
+     270,
+     630
+    ],
+    "knee_l": [
+     265,
+     800
+    ],
+    "ankle_l": [
+     260,
+     960
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "ines"
+   ],
+   "source_method_ids": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F52",
+    "F58",
+    "F61",
+    "F62",
+    "F64",
+    "F65",
+    "F66",
+    "F67"
+   ],
+   "allowed_views": [
+    "threeq_r",
+    "profile_r",
+    "front"
+   ],
+   "required_shot_ids": [
+    "S02"
+   ],
+   "approved_review_id": null
+  },
+  {
+   "id": "washer",
+   "kind": "MACHINE",
+   "canonical_asset_id": "washer_master",
+   "master_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "landmarks": {
+    "hub": [
+     300,
+     330
+    ],
+    "hinge": [
+     432,
+     330
+    ],
+    "handle": [
+     170,
+     330
+    ],
+    "coin_slot": [
+     110,
+     380
+    ],
+    "base": [
+     300,
+     600
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "washer"
+   ],
+   "source_method_ids": [
+    "F01",
+    "F02",
+    "F09",
+    "F45",
+    "F46",
+    "F68"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "approved_review_id": null
+  },
+  {
+   "id": "laundromat",
+   "kind": "WORLD",
+   "canonical_asset_id": "laundromat_far",
+   "master_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "landmarks": {
+    "door_frame": [
+     2100,
+     700
+    ],
+    "row_vanish": [
+     1400,
+     640
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "laundromat"
+   ],
+   "source_method_ids": [
+    "F08",
+    "F10",
+    "F21",
+    "F38",
+    "F40",
+    "F48",
+    "F60",
+    "F70"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "S01",
+    "S02",
+    "S05",
+    "S06",
+    "S07"
+   ],
+   "approved_review_id": null
+  },
+  {
+   "id": "drum_world",
+   "kind": "WORLD",
+   "canonical_asset_id": "drum_in",
+   "master_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "landmarks": {
+    "porthole_centre": [
+     960,
+     540
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "drum_world"
+   ],
+   "source_method_ids": [
+    "F21",
+    "F44",
+    "F48"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "S03"
+   ],
+   "approved_review_id": null
+  },
+  {
+   "id": "ledger_glyphs",
+   "kind": "DIAGRAM",
+   "canonical_asset_id": "ledger_master",
+   "master_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "landmarks": {
+    "inflow": [
+     200,
+     540
+    ],
+    "outflow": [
+     1700,
+     540
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "ledger_glyphs"
+   ],
+   "source_method_ids": [
+    "F26",
+    "F27",
+    "F43",
+    "F74",
+    "F75"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "S03",
+    "S04",
+    "S06"
+   ],
+   "approved_review_id": null
+  },
+  {
+   "id": "street_night",
+   "kind": "WORLD",
+   "canonical_asset_id": "street_far",
+   "master_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+   "landmarks": {
+    "shopfront": [
+     1300,
+     620
+    ]
+   },
+   "palette_roles": {},
+   "material_owners": [
+    "street_night"
+   ],
+   "source_method_ids": [
+    "F22",
+    "F39",
+    "F40",
+    "F69",
+    "F70"
+   ],
+   "allowed_views": [
+    "front"
+   ],
+   "required_shot_ids": [
+    "S05"
+   ],
+   "approved_review_id": null
+  }
+ ],
+ "assets": [],
+ "worlds": [
+  {
+   "id": "w_laundromat",
+   "identity_id": "laundromat",
+   "depth_owners": [
+    {
+     "id": "far",
+     "depth_band": "FAR",
+     "asset_ids": [
+      "laundromat_far"
+     ]
+    },
+    {
+     "id": "mid",
+     "depth_band": "MID",
+     "asset_ids": [
+      "laundromat_mid_machines"
+     ]
+    },
+    {
+     "id": "fg",
+     "depth_band": "FOREGROUND",
+     "asset_ids": [
+      "laundromat_fg_counter"
+     ]
+    }
+   ],
+   "camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ]
+  },
+  {
+   "id": "w_drum",
+   "identity_id": "drum_world",
+   "depth_owners": [
+    {
+     "id": "far",
+     "depth_band": "FAR",
+     "asset_ids": [
+      "drum_in"
+     ]
+    },
+    {
+     "id": "mid",
+     "depth_band": "MID",
+     "asset_ids": [
+      "drum_paddles"
+     ]
+    }
+   ],
+   "camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ]
+  },
+  {
+   "id": "w_ledger",
+   "identity_id": "ledger_glyphs",
+   "depth_owners": [
+    {
+     "id": "far",
+     "depth_band": "FAR",
+     "asset_ids": [
+      "ledger_master"
+     ]
+    }
+   ],
+   "camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "overscan_rect": [
+    0,
+    0,
+    1920,
+    1080
+   ]
+  },
+  {
+   "id": "w_street",
+   "identity_id": "street_night",
+   "depth_owners": [
+    {
+     "id": "far",
+     "depth_band": "FAR",
+     "asset_ids": [
+      "street_far"
+     ]
+    },
+    {
+     "id": "mid",
+     "depth_band": "MID",
+     "asset_ids": [
+      "street_mid_shops",
+      "laundromat_window_interior"
+     ]
+    },
+    {
+     "id": "fg",
+     "depth_band": "FOREGROUND",
+     "asset_ids": [
+      "street_fg_lamp"
+     ]
+    }
+   ],
+   "camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "overscan_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ]
+  }
+ ],
+ "rigs": [
+  {
+   "id": "washer_rig",
+   "identity_id": "washer",
+   "root_part": "body",
+   "joints": [
+    {
+     "id": "body",
+     "parent_id": null,
+     "rest_xy": [
+      300,
+      600
+     ],
+     "rotation_limits_deg": [
+      -2,
+      2
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "door",
+     "parent_id": "body",
+     "rest_xy": [
+      432,
+      330
+     ],
+     "rotation_limits_deg": [
+      -1,
+      1
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "handle",
+     "parent_id": "body",
+     "rest_xy": [
+      170,
+      330
+     ],
+     "rotation_limits_deg": [
+      -1,
+      1
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "drum",
+     "parent_id": "body",
+     "rest_xy": [
+      300,
+      330
+     ],
+     "rotation_limits_deg": [
+      -1000000,
+      1000000
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "coin_flap",
+     "parent_id": "body",
+     "rest_xy": [
+      110,
+      380
+     ],
+     "rotation_limits_deg": [
+      -40,
+      0
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "washer_drum_interior",
+     "joint_id": "drum",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "washer_drum_interior",
+     "material_owner_id": "washer"
+    },
+    {
+     "asset_id": "washer_laundry_load",
+     "joint_id": "drum",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "washer_laundry_load",
+     "material_owner_id": "washer"
+    },
+    {
+     "asset_id": "washer_cabinet",
+     "joint_id": "body",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "washer_cabinet",
+     "material_owner_id": "washer"
+    },
+    {
+     "asset_id": "washer_door_ring",
+     "joint_id": "door",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "washer_door_ring",
+     "material_owner_id": "washer"
+    },
+    {
+     "asset_id": "washer_door_glass",
+     "joint_id": "door",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "washer_door_glass",
+     "material_owner_id": "washer"
+    },
+    {
+     "asset_id": "washer_coin_flap",
+     "joint_id": "coin_flap",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "washer_coin_flap",
+     "material_owner_id": "washer"
+    }
+   ],
+   "sockets": [
+    {
+     "id": "washer_handle",
+     "joint_id": "handle",
+     "local_xy": [
+      0,
+      0
+     ],
+     "semantic_role": "door handle grip (follows the registered handle landmark of each door state)"
+    },
+    {
+     "id": "washer_coin_slot",
+     "joint_id": "coin_flap",
+     "local_xy": [
+      0,
+      6
+     ],
+     "semantic_role": "coin slot mouth"
+    }
+   ],
+   "pose_states": [
+    {
+     "id": "idle",
+     "asset_bindings": {},
+     "landmark_correspondence": [
+      "hub",
+      "hinge",
+      "handle"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "door_half",
+     "asset_bindings": {
+      "washer_door_ring": "washer_door_ring_half",
+      "washer_door_glass": "washer_door_glass_half"
+     },
+     "landmark_correspondence": [
+      "hub",
+      "hinge",
+      "handle"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "door_open",
+     "asset_bindings": {
+      "washer_door_ring": "washer_door_ring_open",
+      "washer_door_glass": "washer_door_glass_open"
+     },
+     "landmark_correspondence": [
+      "hub",
+      "hinge",
+      "handle"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "running",
+     "asset_bindings": {
+      "washer_laundry_load": "washer_laundry_load_tumbling"
+     },
+     "landmark_correspondence": [
+      "hub",
+      "hinge"
+     ],
+     "contact_set": [],
+     "view_facing": "front",
+     "required_underpaint": [],
+     "approved_review_id": null
+    }
+   ],
+   "view_states": [],
+   "constraints": [],
+   "allowed_state_edges": []
+  },
+  {
+   "id": "ines_rig",
+   "identity_id": "ines",
+   "root_part": "pelvis",
+   "joints": [
+    {
+     "id": "pelvis",
+     "parent_id": null,
+     "rest_xy": [
+      300,
+      620
+     ],
+     "rotation_limits_deg": [
+      -25,
+      25
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "chest",
+     "parent_id": "pelvis",
+     "rest_xy": [
+      300,
+      430
+     ],
+     "rotation_limits_deg": [
+      -30,
+      30
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "neck",
+     "parent_id": "chest",
+     "rest_xy": [
+      300,
+      330
+     ],
+     "rotation_limits_deg": [
+      -35,
+      35
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "shoulder_r",
+     "parent_id": "chest",
+     "rest_xy": [
+      360,
+      360
+     ],
+     "rotation_limits_deg": [
+      -170,
+      170
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "elbow_r",
+     "parent_id": "shoulder_r",
+     "rest_xy": [
+      380,
+      480
+     ],
+     "rotation_limits_deg": [
+      -5,
+      150
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "wrist_r",
+     "parent_id": "elbow_r",
+     "rest_xy": [
+      395,
+      590
+     ],
+     "rotation_limits_deg": [
+      -70,
+      70
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "shoulder_l",
+     "parent_id": "chest",
+     "rest_xy": [
+      240,
+      360
+     ],
+     "rotation_limits_deg": [
+      -170,
+      170
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "elbow_l",
+     "parent_id": "shoulder_l",
+     "rest_xy": [
+      225,
+      480
+     ],
+     "rotation_limits_deg": [
+      -150,
+      5
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "wrist_l",
+     "parent_id": "elbow_l",
+     "rest_xy": [
+      215,
+      590
+     ],
+     "rotation_limits_deg": [
+      -70,
+      70
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "hip_r",
+     "parent_id": "pelvis",
+     "rest_xy": [
+      330,
+      630
+     ],
+     "rotation_limits_deg": [
+      -80,
+      80
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "knee_r",
+     "parent_id": "hip_r",
+     "rest_xy": [
+      335,
+      800
+     ],
+     "rotation_limits_deg": [
+      -5,
+      140
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "ankle_r",
+     "parent_id": "knee_r",
+     "rest_xy": [
+      340,
+      960
+     ],
+     "rotation_limits_deg": [
+      -40,
+      40
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "hip_l",
+     "parent_id": "pelvis",
+     "rest_xy": [
+      270,
+      630
+     ],
+     "rotation_limits_deg": [
+      -80,
+      80
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "knee_l",
+     "parent_id": "hip_l",
+     "rest_xy": [
+      265,
+      800
+     ],
+     "rotation_limits_deg": [
+      -5,
+      140
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    },
+    {
+     "id": "ankle_l",
+     "parent_id": "knee_l",
+     "rest_xy": [
+      260,
+      960
+     ],
+     "rotation_limits_deg": [
+      -40,
+      40
+     ],
+     "scale_limits": [
+      1,
+      1
+     ],
+     "driven_part_ids": []
+    }
+   ],
+   "render_parts": [
+    {
+     "asset_id": "ines_leg_l_far",
+     "joint_id": "hip_l",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_leg_l_far",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_shin_l_far",
+     "joint_id": "knee_l",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_shin_l_far",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_foot_l_far",
+     "joint_id": "ankle_l",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_foot_l_far",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_arm_l_far",
+     "joint_id": "shoulder_l",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_arm_l_far",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_forearm_l_far",
+     "joint_id": "elbow_l",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_forearm_l_far",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_hand_l_far",
+     "joint_id": "wrist_l",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_hand_l_far",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_torso",
+     "joint_id": "pelvis",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_torso",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_coat_hem",
+     "joint_id": "pelvis",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_coat_hem",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_head",
+     "joint_id": "neck",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_head",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_face_eyes",
+     "joint_id": "neck",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_face_eyes",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_face_mouth",
+     "joint_id": "neck",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_face_mouth",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_brow",
+     "joint_id": "neck",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_brow",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_hair_back",
+     "joint_id": "neck",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_hair_back",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_leg_r",
+     "joint_id": "hip_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_leg_r",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_shin_r",
+     "joint_id": "knee_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_shin_r",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_foot_r",
+     "joint_id": "ankle_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_foot_r",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_sleeve_r",
+     "joint_id": "shoulder_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_sleeve_r",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_elbow_r_underpaint",
+     "joint_id": "elbow_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_elbow_r_underpaint",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_forearm_r",
+     "joint_id": "elbow_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_forearm_r",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_hand_r_far_fingers",
+     "joint_id": "wrist_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_hand_r_far_fingers",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_hand_r_palm",
+     "joint_id": "wrist_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_hand_r_palm",
+     "material_owner_id": "ines"
+    },
+    {
+     "asset_id": "ines_hand_r_near_fingers",
+     "joint_id": "wrist_r",
+     "local_to_joint_matrix": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+     ],
+     "occlusion_owner_id": "ines_hand_r_near_fingers",
+     "material_owner_id": "ines"
+    }
+   ],
+   "sockets": [
+    {
+     "id": "ines_grip_r",
+     "joint_id": "wrist_r",
+     "local_xy": [
+      4,
+      26
+     ],
+     "semantic_role": "right palm grip centre"
+    },
+    {
+     "id": "ines_pinch_r",
+     "joint_id": "wrist_r",
+     "local_xy": [
+      10,
+      38
+     ],
+     "semantic_role": "thumb-index pinch (coin)"
+    },
+    {
+     "id": "ines_sole_r",
+     "joint_id": "ankle_r",
+     "local_xy": [
+      20,
+      18
+     ],
+     "semantic_role": "right sole"
+    },
+    {
+     "id": "ines_sole_l",
+     "joint_id": "ankle_l",
+     "local_xy": [
+      20,
+      18
+     ],
+     "semantic_role": "left sole"
+    }
+   ],
+   "pose_states": [
+    {
+     "id": "neutral",
+     "asset_bindings": {},
+     "landmark_correspondence": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "threeq_r",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "curious",
+     "asset_bindings": {
+      "ines_face_eyes": "ines_face_eyes_curious",
+      "ines_brow": "ines_brow_raised",
+      "ines_face_mouth": "ines_face_mouth_open"
+     },
+     "landmark_correspondence": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "threeq_r",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "hand_open",
+     "asset_bindings": {
+      "ines_hand_r_near_fingers": "ines_hand_r_near_open",
+      "ines_hand_r_far_fingers": "ines_hand_r_far_open"
+     },
+     "landmark_correspondence": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "threeq_r",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "hand_pinch",
+     "asset_bindings": {
+      "ines_hand_r_near_fingers": "ines_hand_r_near_pinch",
+      "ines_hand_r_far_fingers": "ines_hand_r_far_pinch"
+     },
+     "landmark_correspondence": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "threeq_r",
+     "required_underpaint": [],
+     "approved_review_id": null
+    }
+   ],
+   "view_states": [
+    {
+     "id": "profile_turn",
+     "asset_bindings": {
+      "ines_head": "ines_head_profile",
+      "ines_face_eyes": "ines_face_eyes_profile",
+      "ines_face_mouth": "ines_face_mouth_profile",
+      "ines_brow": "ines_brow_profile",
+      "ines_hair_back": "ines_hair_profile",
+      "ines_torso": "ines_torso_profile"
+     },
+     "landmark_correspondence": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "profile_r",
+     "required_underpaint": [],
+     "approved_review_id": null
+    },
+    {
+     "id": "profile_satisfied",
+     "asset_bindings": {
+      "ines_head": "ines_head_profile",
+      "ines_face_eyes": "ines_face_eyes_soft_profile",
+      "ines_face_mouth": "ines_face_mouth_smile_profile",
+      "ines_brow": "ines_brow_profile",
+      "ines_hair_back": "ines_hair_profile",
+      "ines_torso": "ines_torso_profile"
+     },
+     "landmark_correspondence": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "contact_set": [],
+     "view_facing": "profile_r",
+     "required_underpaint": [],
+     "approved_review_id": null
+    }
+   ],
+   "constraints": [
+    {
+     "id": "arm_r_ik",
+     "type": "TWO_BONE_IK",
+     "chain": [
+      "shoulder_r",
+      "elbow_r",
+      "wrist_r"
+     ],
+     "bend_sign": -1
+    },
+    {
+     "id": "leg_r_ik",
+     "type": "TWO_BONE_IK",
+     "chain": [
+      "hip_r",
+      "knee_r",
+      "ankle_r"
+     ],
+     "bend_sign": -1
+    },
+    {
+     "id": "leg_l_ik",
+     "type": "TWO_BONE_IK",
+     "chain": [
+      "hip_l",
+      "knee_l",
+      "ankle_l"
+     ],
+     "bend_sign": -1
+    }
+   ],
+   "allowed_state_edges": [
+    {
+     "from": "neutral",
+     "to": "profile_turn",
+     "mode": "REGISTERED_SWAP",
+     "max_transition_frames": 6,
+     "landmark_ids": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "mask_or_occluder_id": null,
+     "approved_assembly_review_id": null
+    },
+    {
+     "from": "profile_turn",
+     "to": "profile_satisfied",
+     "mode": "REGISTERED_SWAP",
+     "max_transition_frames": 4,
+     "landmark_ids": [
+      "head_top",
+      "chin",
+      "pelvis"
+     ],
+     "mask_or_occluder_id": null,
+     "approved_assembly_review_id": null
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "id": "S01_sock_tumble",
+   "shot_id": "S01",
+   "frame_range": [
+    0,
+    900
+   ],
+   "semantic_goal": "a single sock tumbles behind the porthole; camera pulls back to reveal the row",
+   "mode": "CAMERA_WORLD",
+   "actors": [
+    {
+     "rig_id": "washer_rig",
+     "root_world_xy": [
+      960,
+      760
+     ],
+     "root_scale": 1.2
+    }
+   ],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [
+    "drum rotation"
+   ],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "washer_laundry_load_tumbling",
+    "washer_door_glass"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S02_operate_washer",
+   "shot_id": "S02",
+   "frame_range": [
+    900,
+    1920
+   ],
+   "semantic_goal": "Ines plants, reaches, grips the door handle, swings the door open, loads, pinches a coin, inserts it, and the drum starts",
+   "mode": "ARTICULATED",
+   "actors": [
+    {
+     "rig_id": "ines_rig",
+     "root_world_xy": [
+      640,
+      640
+     ],
+     "root_scale": 0.9
+    },
+    {
+     "rig_id": "washer_rig",
+     "root_world_xy": [
+      911.5,
+      728.5
+     ],
+     "root_scale": 0.75
+    }
+   ],
+   "targets": [],
+   "contact_events": [
+    {
+     "start_frame": 900,
+     "end_frame": 1920,
+     "source_socket": "ines_sole_l",
+     "target_socket": "floor_l",
+     "contact_type": "PLANT",
+     "allowed_error_px": 0.5,
+     "near_far_relation": "foot on floor",
+     "release_behavior": "ramp",
+     "target_world_xy": [
+      622,
+      955
+     ]
+    },
+    {
+     "start_frame": 1050,
+     "end_frame": 1260,
+     "source_socket": "ines_grip_r",
+     "target_socket": "washer_handle",
+     "contact_type": "GRIP",
+     "allowed_error_px": 0.5,
+     "near_far_relation": "near fingers over handle; palm and far fingers behind",
+     "release_behavior": "ramp"
+    },
+    {
+     "start_frame": 1320,
+     "end_frame": 1392,
+     "source_socket": "ines_grip_r",
+     "target_socket": "washer_handle",
+     "contact_type": "GRIP",
+     "allowed_error_px": 0.5,
+     "near_far_relation": "push the door closed by the handle",
+     "release_behavior": "ramp"
+    },
+    {
+     "start_frame": 1470,
+     "end_frame": 1560,
+     "source_socket": "ines_pinch_r",
+     "target_socket": "washer_coin_slot",
+     "contact_type": "FOLLOW",
+     "allowed_error_px": 0.5,
+     "near_far_relation": "pinched coin follows into the slot mouth",
+     "release_behavior": "ramp"
+    }
+   ],
+   "pose_events": [
+    {
+     "frame": 900,
+     "state_id": "neutral"
+    },
+    {
+     "frame": 900,
+     "state_id": "idle"
+    },
+    {
+     "frame": 990,
+     "state_id": "hand_open"
+    },
+    {
+     "frame": 1050,
+     "state_id": "neutral"
+    },
+    {
+     "frame": 1170,
+     "state_id": "door_half"
+    },
+    {
+     "frame": 1260,
+     "state_id": "hand_open"
+    },
+    {
+     "frame": 1320,
+     "state_id": "neutral"
+    },
+    {
+     "frame": 1230,
+     "state_id": "door_open"
+    },
+    {
+     "frame": 1356,
+     "state_id": "door_half"
+    },
+    {
+     "frame": 1392,
+     "state_id": "idle"
+    },
+    {
+     "frame": 1410,
+     "state_id": "hand_pinch"
+    },
+    {
+     "frame": 1590,
+     "state_id": "curious"
+    },
+    {
+     "frame": 1590,
+     "state_id": "running"
+    }
+   ],
+   "view_events": [
+    {
+     "frame": 1620,
+     "from_state": "neutral",
+     "to_state": "profile_turn"
+    },
+    {
+     "frame": 1740,
+     "from_state": "profile_turn",
+     "to_state": "profile_satisfied"
+    }
+   ],
+   "secondary_owners": [
+    "ines_coat_hem",
+    "ines_hair_back"
+   ],
+   "causal_effects": [
+    "door swings on hinge",
+    "coin flap rotates",
+    "drum starts spinning",
+    "load tumbles"
+   ],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "ines_hand_r_palm",
+    "ines_hand_r_near_fingers",
+    "ines_hand_r_far_fingers",
+    "ines_hand_r_near_pinch",
+    "ines_hand_r_far_pinch",
+    "ines_elbow_r_underpaint",
+    "washer_door_ring",
+    "washer_coin_flap",
+    "coin_prop"
+   ],
+   "proof_conditions": [
+    "grip error ≤0.5px every locked frame",
+    "plant fixed",
+    "near/far fingers cross the handle",
+    "underpaint at the deep elbow bend",
+    "view swap holds head_top/chin"
+   ]
+  },
+  {
+   "id": "S02_room_life",
+   "shot_id": "S02",
+   "frame_range": [
+    900,
+    1920
+   ],
+   "semantic_goal": "background machines run: drums spin at different phases, a dryer door light blinks",
+   "mode": "PROCEDURAL",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [
+    "simultaneous environmental life"
+   ],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "laundromat_mid_machines"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S02_push_in",
+   "shot_id": "S02",
+   "frame_range": [
+    1680,
+    1920
+   ],
+   "semantic_goal": "camera pushes toward the porthole as the drum starts",
+   "mode": "CAMERA_WORLD",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "laundromat_far",
+    "laundromat_fg_counter"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S02_porthole",
+   "shot_id": "S02",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "semantic_goal": "push through the porthole into the drum",
+   "mode": "TRANSITION",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "porthole_out",
+    "porthole_glass_middle",
+    "drum_in"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S03_drum",
+   "shot_id": "S03",
+   "frame_range": [
+    1920,
+    3000
+   ],
+   "semantic_goal": "laundry tumbles; each full turn ticks a counter glyph",
+   "mode": "PROCEDURAL",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "drum_paddles",
+    "ledger_turn_counter"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S04_ledger",
+   "shot_id": "S04",
+   "frame_range": [
+    3000,
+    4080
+   ],
+   "semantic_goal": "coins flow in, water/power/gas flow out through three pipes; the remainder is what is left",
+   "mode": "PROCEDURAL",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "ledger_coin_symbol",
+    "ledger_water_symbol",
+    "ledger_power_symbol",
+    "ledger_gas_symbol",
+    "ledger_type_values"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S05_street",
+   "shot_id": "S05",
+   "frame_range": [
+    4080,
+    5160
+   ],
+   "semantic_goal": "pull back to the street at night; idle machines dim one by one as the clock sweeps",
+   "mode": "CAMERA_WORLD",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "street_far",
+    "street_mid_shops",
+    "street_fg_lamp",
+    "laundromat_window_interior"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S06_levers",
+   "shot_id": "S06",
+   "frame_range": [
+    5160,
+    6240
+   ],
+   "semantic_goal": "three moving levers compared against one utilisation meter (modelled, flagged)",
+   "mode": "PROCEDURAL",
+   "actors": [],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "ledger_lever_symbols",
+    "ledger_type_values"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  },
+  {
+   "id": "S07_return",
+   "shot_id": "S07",
+   "frame_range": [
+    6240,
+    7200
+   ],
+   "semantic_goal": "return to the sock; a counter now ticks with every turn",
+   "mode": "CAMERA_WORLD",
+   "actors": [
+    {
+     "rig_id": "washer_rig",
+     "root_world_xy": [
+      960,
+      760
+     ],
+     "root_scale": 1.2
+    }
+   ],
+   "targets": [],
+   "contact_events": [],
+   "pose_events": [],
+   "view_events": [],
+   "secondary_owners": [],
+   "causal_effects": [],
+   "visibility_effects": [],
+   "physics_track_id": null,
+   "required_assets": [
+    "washer_laundry_load_tumbling",
+    "ledger_turn_counter"
+   ],
+   "proof_conditions": [
+    "QA per art_bridge_qa"
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "start_frame": 0,
+   "end_frame": 900,
+   "world_id": "w_laundromat",
+   "entry_state": "dark drum window, one sock tumbling",
+   "events": [
+    "sock_tumble",
+    "pull_back_reveal_row"
+   ],
+   "attention_path": [
+    "sock",
+    "porthole",
+    "row of machines"
+   ],
+   "camera_track_id": "cam_S01",
+   "required_asset_ids": [
+    "laundromat_far",
+    "laundromat_mid_machines",
+    "laundromat_fg_counter",
+    "washer_master"
+   ],
+   "exit_state": "row of washers, one door open",
+   "continuity_to": "S02"
+  },
+  {
+   "id": "S02",
+   "start_frame": 900,
+   "end_frame": 1920,
+   "world_id": "w_laundromat",
+   "entry_state": "Ines enters frame right carrying a bag",
+   "events": [
+    "plant",
+    "reach",
+    "grip_door",
+    "open_door",
+    "load",
+    "pinch_coin",
+    "insert",
+    "start"
+   ],
+   "attention_path": [
+    "Ines face",
+    "hand",
+    "door handle",
+    "coin slot",
+    "porthole"
+   ],
+   "camera_track_id": "cam_S02",
+   "required_asset_ids": [
+    "laundromat_far",
+    "laundromat_mid_machines",
+    "laundromat_fg_counter",
+    "ines_master",
+    "washer_master"
+   ],
+   "exit_state": "camera pushed into the porthole",
+   "continuity_to": "S03"
+  },
+  {
+   "id": "S03",
+   "start_frame": 1920,
+   "end_frame": 3000,
+   "world_id": "w_drum",
+   "entry_state": "inside the drum, laundry tumbling",
+   "events": [
+    "turn_counter",
+    "price_per_turn_glyph"
+   ],
+   "attention_path": [
+    "tumbling load",
+    "turn counter glyph"
+   ],
+   "camera_track_id": "cam_S03",
+   "required_asset_ids": [
+    "drum_in",
+    "drum_paddles",
+    "ledger_turn_counter"
+   ],
+   "exit_state": "drum becomes a ledger wheel",
+   "continuity_to": "S04"
+  },
+  {
+   "id": "S04",
+   "start_frame": 3000,
+   "end_frame": 4080,
+   "world_id": "w_ledger",
+   "entry_state": "ledger wheel: turns in, costs out",
+   "events": [
+    "coins_in",
+    "water_out",
+    "power_out",
+    "gas_out",
+    "net_remains"
+   ],
+   "attention_path": [
+    "inflow",
+    "three outflow pipes",
+    "remainder"
+   ],
+   "camera_track_id": "cam_S04",
+   "required_asset_ids": [
+    "ledger_master",
+    "ledger_coin_symbol",
+    "ledger_water_symbol",
+    "ledger_power_symbol",
+    "ledger_gas_symbol",
+    "ledger_type_values"
+   ],
+   "exit_state": "remainder shrinks when the wheel slows",
+   "continuity_to": "S05"
+  },
+  {
+   "id": "S05",
+   "start_frame": 4080,
+   "end_frame": 5160,
+   "world_id": "w_street",
+   "entry_state": "pull back through the shop window to the night street",
+   "events": [
+    "idle_machines_dim",
+    "clock_sweeps",
+    "utilisation_meter"
+   ],
+   "attention_path": [
+    "lit shop",
+    "dark idle machines",
+    "clock"
+   ],
+   "camera_track_id": "cam_S05",
+   "required_asset_ids": [
+    "street_far",
+    "street_mid_shops",
+    "street_fg_lamp",
+    "laundromat_window_interior"
+   ],
+   "exit_state": "most machines idle at 3am",
+   "continuity_to": "S06"
+  },
+  {
+   "id": "S06",
+   "start_frame": 5160,
+   "end_frame": 6240,
+   "world_id": "w_laundromat",
+   "entry_state": "owner's levers: three moving alternatives compared",
+   "events": [
+    "lever_card_reader",
+    "lever_wash_fold",
+    "lever_hours"
+   ],
+   "attention_path": [
+    "lever 1",
+    "lever 2",
+    "lever 3",
+    "utilisation meter"
+   ],
+   "camera_track_id": "cam_S06",
+   "required_asset_ids": [
+    "laundromat_far",
+    "ledger_lever_symbols",
+    "ledger_type_values"
+   ],
+   "exit_state": "utilisation meter rises (modelled, flagged)",
+   "continuity_to": "S07"
+  },
+  {
+   "id": "S07",
+   "start_frame": 6240,
+   "end_frame": 7200,
+   "world_id": "w_laundromat",
+   "entry_state": "back to the porthole: the sock again",
+   "events": [
+    "sock_tumble",
+    "counter_ticks",
+    "door_click"
+   ],
+   "attention_path": [
+    "sock",
+    "counter"
+   ],
+   "camera_track_id": "cam_S07",
+   "required_asset_ids": [
+    "laundromat_far",
+    "washer_master"
+   ],
+   "exit_state": "hold on the counted spin",
+   "continuity_to": null,
+   "hold_purpose": "closing recognition hold: the opening image now reads as a counted turn"
+  }
+ ],
+ "transitions": [
+  {
+   "from_shot": "S01",
+   "to_shot": "S02",
+   "frame_range": [
+    870,
+    930
+   ],
+   "mode": "CUT",
+   "reason": "motivated cut on the door opening: same world, new staging",
+   "continuity_invariant": "open washer door",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "screen direction preserved",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S02",
+   "to_shot": "S03",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "mode": "CONTINUOUS",
+   "reason": "push through the porthole glass: the shared anchor is the porthole centre",
+   "continuity_invariant": "porthole centre",
+   "out_asset_ids": [
+    "porthole_out"
+   ],
+   "middle_asset_ids": [
+    "porthole_glass_middle"
+   ],
+   "in_asset_ids": [
+    "drum_in"
+   ],
+   "shared_landmarks": [
+    "porthole_centre"
+   ],
+   "camera_correspondence": "anchor-locked push",
+   "mask_or_occluder_ids": [
+    "porthole_aperture"
+   ],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S03",
+   "to_shot": "S04",
+   "frame_range": [
+    2880,
+    3000
+   ],
+   "mode": "CONTINUOUS",
+   "reason": "drum rim becomes the ledger wheel rim",
+   "continuity_invariant": "rotating rim",
+   "out_asset_ids": [
+    "drum_rim_out"
+   ],
+   "middle_asset_ids": [
+    "rim_to_ledger_middle"
+   ],
+   "in_asset_ids": [
+    "ledger_master"
+   ],
+   "shared_landmarks": [
+    "porthole_centre"
+   ],
+   "camera_correspondence": "rim scale-matched",
+   "mask_or_occluder_ids": [
+    "rim_aperture"
+   ],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S04",
+   "to_shot": "S05",
+   "frame_range": [
+    4020,
+    4080
+   ],
+   "mode": "CUT",
+   "reason": "cut to scale: from the abstract ledger to the real street at night",
+   "continuity_invariant": "slowing wheel → idle drums",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "none (honest cut)",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S05",
+   "to_shot": "S06",
+   "frame_range": [
+    5100,
+    5160
+   ],
+   "mode": "CUT",
+   "reason": "cut back inside to the owner's levers",
+   "continuity_invariant": "utilisation meter",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "meter stays screen-centre",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  },
+  {
+   "from_shot": "S06",
+   "to_shot": "S07",
+   "frame_range": [
+    6180,
+    6240
+   ],
+   "mode": "CUT",
+   "reason": "return to the opening image",
+   "continuity_invariant": "porthole",
+   "out_asset_ids": [],
+   "middle_asset_ids": [],
+   "in_asset_ids": [],
+   "shared_landmarks": [],
+   "camera_correspondence": "opening framing repeated",
+   "mask_or_occluder_ids": [],
+   "assembly_review_id": null
+  }
+ ],
+ "audio": {
+  "narration_file": null,
+  "word_alignment_file": null,
+  "sfx_events_file": null
+ },
+ "learning": {
+  "repair_memory_file": "learning/REPAIR_MEMORY.json",
+  "compiler_receipts": []
+ },
+ "evidence": {
+  "asset_review_index": null,
+  "motion_review_index": null,
+  "method_trace_index": null
+ }
+}

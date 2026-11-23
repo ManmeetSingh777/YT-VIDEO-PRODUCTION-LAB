@@ -1,0 +1,39 @@
+TAP version 13
+# Subtest: P02-R01 the production registry renders native 1920x1080 RGB24 frames from real layers; PNG bytes and 16x9 outputs are refused
+not ok 1 - P02-R01 the production registry renders native 1920x1080 RGB24 frames from real layers; PNG bytes and 16x9 outputs are refused
+  ---
+  duration_ms: 2985.3761
+  type: 'test'
+  location: 'E:\\MOTION_NATIVE_STUDIO_V1\\tests\\p02\\p02_render.test.mjs:19:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    no black/sentinel/edge defect
+    + actual - expected
+    
+    + {
+    +   count: 4285,
+    +   kind: 'UNCOVERED_EDGE',
+    +   sentinel: 1397100
+    + }
+    - null
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: ~
+  actual:
+    kind: 'UNCOVERED_EDGE'
+    count: 4285
+    sentinel: 1397100
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///E:/MOTION_NATIVE_STUDIO_V1/tests/p02/p02_render.test.mjs:21:118)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+ok 2 - P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+  ---
+  duration_ms: 266115.6927
+  type: 'test'
+  ...

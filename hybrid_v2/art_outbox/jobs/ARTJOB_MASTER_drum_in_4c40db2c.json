@@ -1,0 +1,211 @@
+{
+ "artjob_id": "ARTJOB_MASTER_drum_in_4c40db2c",
+ "root_dependency": "drum_in",
+ "identity_id": "drum_world",
+ "state_kind": "MASTER",
+ "asset_kind": "TRANSITION_PLATE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "dependents": [
+  "drum_rim_out",
+  "rim_to_ledger_middle",
+  "rim_aperture",
+  "drum_paddles"
+ ],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "drum_in",
+   "frame_range": [
+    1800,
+    3000
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S02_porthole",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_CANONICAL_MASTER",
+   "record_id": "drum_world",
+   "frame_range": null,
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_TRANSITION_STATE",
+   "record_id": "S02->S03",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_TRANSITION_STATE",
+   "record_id": "S02->S03",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_TRANSITION_STATE",
+   "record_id": "S02->S03",
+   "frame_range": [
+    1800,
+    1920
+   ],
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "drum_world",
+  "canonical_parent_asset": "drum_in",
+  "shot_ids": [
+   "S02",
+   "S03",
+   "S04"
+  ],
+  "frame_ranges": [
+   [
+    1800,
+    3000
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "porthole_centre"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S03"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -240,
+   -135,
+   2400,
+   1350
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "PROCEDURAL|TRANSITION",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "drum_rim_out",
+   "rim_to_ledger_middle",
+   "rim_aperture",
+   "drum_paddles"
+  ],
+  "why_this_drawing_is_needed": "IN plate of the porthole push and S03 world. Required by: shot S03; action S02_porthole; world w_drum in S03; transition S02->S03"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "77db8d152514f1d93f215e3f1e7c2a22ee5018a42b2ec2e38b4a4077fedd67f7",
+ "registration_contract": {
+  "asset_kind": "TRANSITION_PLATE",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "OPAQUE",
+  "view_id": "front",
+  "depth_band": "FAR",
+  "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_FOR_GPT_ART",
+ "readiness": {
+  "asset": "drum_in",
+  "role": "MASTER",
+  "status": "WAITING_FOR_GPT_ART"
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+ ],
+ "compiled_request": {
+  "gate": {
+   "pass": false,
+   "status": "NOT_EVALUATED",
+   "failures": [],
+   "design_approval": {
+    "status": "NOT_EVALUATED"
+   }
+  },
+  "job_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_drum_in_4c40db2c/ARTJOB.json",
+  "request_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_drum_in_4c40db2c/IMAGEGEN_REQUEST.json",
+  "prompt_sha256": "74f5ada23866f3ab227cf55748b0e58018f421cf5a18d5f64b40e68202765682",
+  "prompt_characters": 13093,
+  "compiled_method_ids": [
+   "F21",
+   "F72"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "witnesses": [
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "sha256": "6362b82017c07be01dfb7be6441b05f3ffb884764a3c3cea699dbaaedce1551a",
+    "width": 1920,
+    "height": 1490,
+    "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region",
+    "verified": true
+   },
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/abstract_world_witnesses/AI_mechanism_and_actions_contact.jpg",
+    "sha256": "c760c22663d8c3d7f7f7e75630056b57bf24ea6cde7b0e0dcf51bd08814d259a",
+    "width": 1920,
+    "height": 894,
+    "role": "STYLE_ONLY: functional parts with visible connections and flat material planes",
+    "verified": true
+   }
+  ],
+  "motion_context_sha256": "77db8d152514f1d93f215e3f1e7c2a22ee5018a42b2ec2e38b4a4077fedd67f7",
+  "status": "COMPILED_WAITING_FOR_GPT_ART"
+ },
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_MASTER_drum_in_4c40db2c.png",
+  "landmarks_sidecar": "inbox/ARTJOB_MASTER_drum_in_4c40db2c.landmarks.json",
+  "format": "lossless PNG, opaque"
+ }
+}

@@ -1,0 +1,307 @@
+{
+ "stage": "STAGE_3_ART",
+ "generated_by": "tests/art_bridge/stage3_proofs.mjs",
+ "tested_revision": "611c9dd58abc46ac8e90d21e6cf041354edf3dcf",
+ "generated_at": "2026-11-22T08:25:16.334Z",
+ "status": "BLOCKED",
+ "blockers": [
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "STORY_APPROVAL_PENDING: films/hv2_film001/direction/EXPERIENCE_DIRECTOR_PROPOSAL.md is a proposal, not an approved script"
+ ],
+ "provider_discovery": {
+  "report": {
+   "provider": null,
+   "model": null,
+   "credentials_present": {
+    "OPENAI_API_KEY": false,
+    "AZURE_OPENAI_API_KEY": false
+   },
+   "checked_at": "2026-11-22T08:25:15.869Z",
+   "blocker": "IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+   "live": false
+  },
+  "capabilities": {
+   "generate": false,
+   "edit": false,
+   "transparentRaster": false,
+   "svgGeneration": false,
+   "multipleReferences": false,
+   "available": false,
+   "blocker": "IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+  },
+  "adapter": "engine/art_bridge/providers/image_provider.mjs (OpenAIImagesProvider path implemented, NOT_TESTED: no credentials/model configured)"
+ },
+ "outbox": {
+  "index": "hybrid_v2/art_outbox/OUTBOX_INDEX.json",
+  "instructions": "hybrid_v2/art_outbox/INSTRUCTIONS_FOR_IMAGE_PRODUCTION.md",
+  "jobs": 74,
+  "by_order": {
+   "1": 6,
+   "2": 38,
+   "3": 24,
+   "4": 6
+  },
+  "by_status": {
+   "BLOCKED_CONTRACT": 37,
+   "WAITING_FOR_APPROVALS_THEN_GPT_ART": 1,
+   "WAITING_ON_MASTER_APPROVAL": 36
+  },
+  "empty_frame_ranges_with_triggers": 0,
+  "compiled_masters": [
+   {
+    "artjob_id": "ARTJOB_MASTER_drum_in_4c40db2c",
+    "asset": "drum_in",
+    "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+    "frame_ranges": [
+     [
+      1800,
+      3000
+     ]
+    ],
+    "compiled": "BLOCKED_CONTRACT",
+    "witnesses": []
+   },
+   {
+    "artjob_id": "ARTJOB_MASTER_ines_master_211539ad",
+    "asset": "ines_master",
+    "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+    "frame_ranges": [
+     [
+      900,
+      1920
+     ]
+    ],
+    "compiled": "COMPILED_WAITING_FOR_GPT_ART",
+    "witnesses": []
+   },
+   {
+    "artjob_id": "ARTJOB_MASTER_laundromat_far_76979fc1",
+    "asset": "laundromat_far",
+    "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+    "frame_ranges": [
+     [
+      0,
+      1920
+     ],
+     [
+      5160,
+      7200
+     ]
+    ],
+    "compiled": "BLOCKED_CONTRACT",
+    "witnesses": []
+   },
+   {
+    "artjob_id": "ARTJOB_MASTER_ledger_master_105f0939",
+    "asset": "ledger_master",
+    "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+    "frame_ranges": [
+     [
+      1920,
+      4080
+     ],
+     [
+      5160,
+      7200
+     ]
+    ],
+    "compiled": "BLOCKED_CONTRACT",
+    "witnesses": []
+   },
+   {
+    "artjob_id": "ARTJOB_MASTER_street_far_ac5264a9",
+    "asset": "street_far",
+    "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+    "frame_ranges": [
+     [
+      4080,
+      5160
+     ]
+    ],
+    "compiled": "BLOCKED_CONTRACT",
+    "witnesses": []
+   },
+   {
+    "artjob_id": "ARTJOB_MASTER_washer_master_38ddfd06",
+    "asset": "washer_master",
+    "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+    "frame_ranges": [
+     [
+      0,
+      1920
+     ],
+     [
+      6240,
+      7200
+     ]
+    ],
+    "compiled": "BLOCKED_CONTRACT",
+    "witnesses": []
+   }
+  ]
+ },
+ "mechanical_proofs": [
+  {
+   "id": "S3-COMPILE",
+   "claim": "canonical master passes the universal contract gate and compiles through the installed skill into ordered, complete stage requests (≥2 verified native witnesses, repair memory applied); motion reaches the artist only as requirements; the machine rig contract stays in BRIDGE_MOTION_CONTEXT.json; transparency is contract-owned; not provider-ready without human receipts",
+   "pass": true,
+   "evidence": {
+    "request": "hybrid_v2/work/stage3/baseline/IMAGEGEN_REQUEST.json",
+    "stages": [
+     {
+      "index": 1,
+      "phase": "STRUCTURE",
+      "mode": "GENERATE",
+      "methods": [
+       "F01",
+       "F05",
+       "F06",
+       "F33",
+       "F52",
+       "F53"
+      ],
+      "predecessor_sha256": "5475b51b2dab91526c2cdcffb9919241f889ae073c57e2832e9ceef31d1a2259",
+      "prompt_sha256": "8eb11e7983b60d2f23561d6b30a295b24569fa964c8e55874e1a81d8ac4916f4",
+      "characters": 29715
+     },
+     {
+      "index": 2,
+      "phase": "STRUCTURE",
+      "mode": "EDIT_PREVIOUS_STAGE",
+      "methods": [
+       "F57",
+       "F58",
+       "F59",
+       "F64",
+       "F65",
+       "F66"
+      ],
+      "predecessor_sha256": "8eb11e7983b60d2f23561d6b30a295b24569fa964c8e55874e1a81d8ac4916f4",
+      "prompt_sha256": "ebf799e95eea9d3747fe328cdf6779eb8a13d91d245b317143c5e20f3bfd413e",
+      "characters": 25873
+     },
+     {
+      "index": 3,
+      "phase": "SURFACE",
+      "mode": "EDIT_PREVIOUS_STAGE",
+      "methods": [
+       "F02",
+       "F03",
+       "F04",
+       "F51",
+       "F61",
+       "F62"
+      ],
+      "predecessor_sha256": "ebf799e95eea9d3747fe328cdf6779eb8a13d91d245b317143c5e20f3bfd413e",
+      "prompt_sha256": "8b2e73274b61475bac38abd12b3586e5093a622efa0c326923b14d3e7e7a0608",
+      "characters": 27935
+     }
+    ],
+    "prompt_sha256": "8eb11e7983b60d2f23561d6b30a295b24569fa964c8e55874e1a81d8ac4916f4",
+    "witnesses": [
+     {
+      "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+      "sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: full-body gesture read through torso tilt, tapering trouser masses and small hands",
+      "verified": true
+     },
+     {
+      "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg",
+      "sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: mid-distance actors with dark-mark eyes, rolled sleeve cuffs and hand-to-surface contact",
+      "verified": true
+     },
+     {
+      "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+      "sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+      "width": 1920,
+      "height": 1080,
+      "role": "STYLE_ONLY: grip topology on a held object (fingers in front, thumb behind) and owned cheek/ear colour patches",
+      "verified": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "S3-NEG-WITNESS",
+   "injection": "remove one approved source witness",
+   "expected": "refused before compile: the contract gate (grounding decisions cite the removed witness, ART_CONTRACT_REFUSED) or the skill compiler (UNQUALIFIED_STYLE_ASSET)",
+   "observed": "ART_CONTRACT_REFUSED",
+   "reason": "pre-generation contract refused: WITNESS_REGION_INVALID:F01, WITNESS_REGION_INVALID:F02, WITNESS_REGION_INVALID:F03, WITNESS_REGION_INVALID:F04, WITNESS_REGION_INVALID:F05, WITNESS_REGION_INVALID:F06, WITNESS_REGION_INVALID:F06, WITNESS_REGION_INVALID:F14, WITNESS_REGION_INVALID:F14, WITNESS_REGION_INVALID:F30, WITNESS_REGION_INVALID:F33, WITNESS_REGION_INVALID:F51, WITNESS_REGION_INVALID:F52, WITNESS_REGION_INVALID:F53, WITNESS_REGION_INVALID:F53, WITNESS_REGION_INVALID:F57, WITNESS_REGION_INVALID:F57, WITNESS_REGION_INVALID:F58, WITNESS_REGION_INVALID:F59, WITNESS_REGION_INVALID:F61, WITNESS_REGION_INVALID:F64, WITNESS_REGION_INVALID:F65, WITNESS_REGION_INVALID:F66, WITNESS_REGION_INVALID:F67, UNGROUNDED_DESIGN_DECISION, UNGROUNDED_DESIGN_DECISION, UNGROUNDED_DESIGN_DECISION",
+   "pass": true
+  },
+  {
+   "id": "S3-NEG-FAKE",
+   "injection": "reference a witness file that does not exist",
+   "expected": "compile refused; no fake attachment",
+   "observed": "ART_CONTRACT_REFUSED",
+   "reason": "pre-generation contract refused: WITNESS_REGION_INVALID:F01, WITNESS_REGION_INVALID:F04, WITNESS_REGION_INVALID:F06, WITNESS_REGION_INVALID:F33, WITNESS_REGION_INVALID:F52, WITNESS_REGION_INVALID:F53, WITNESS_REGION_INVALID:F57, WITNESS_REGION_INVALID:F59, WITNESS_REGION_INVALID:F61, WITNESS_REGION_INVALID:F65, WITNESS_REGION_INVALID:F66, UNGROUNDED_DESIGN_DECISION",
+   "pass": true
+  },
+  {
+   "id": "S3-NEG-NODESIGN",
+   "injection": "ArtJob without skill-conditioned first_pass_control",
+   "expected": "UNQUALIFIED_STYLE_ASSET",
+   "observed": "UNQUALIFIED_STYLE_ASSET",
+   "pass": true
+  },
+  {
+   "id": "S3-CAUSAL-F64",
+   "injection": "remove the F64 illustration-family identity-routing binding (F64 was previously misbound as hand construction)",
+   "expected": "refused BEFORE compile: MISSING_APPLICABLE_METHOD:F64 (an applicable method cannot be dropped)",
+   "observed": {
+    "ok": false,
+    "code": "ART_CONTRACT_REFUSED",
+    "reason": "pre-generation contract refused: MOLECULAR_DECISIONS_MISSING, MISSING_APPLICABLE_METHOD:F64",
+    "failures": [
+     "MOLECULAR_DECISIONS_MISSING",
+     "MISSING_APPLICABLE_METHOD:F64"
+    ]
+   },
+   "pass": true,
+   "note": "payload-level causality only; the pixel-level effect needs provider output"
+  }
+ ],
+ "acceptance": [
+  {
+   "criterion": "approved polished character identity with registered cutouts/expression/view/contact states",
+   "status": "BLOCKED",
+   "dependency": "GPT art + story approval"
+  },
+  {
+   "criterion": "distinct environment and mechanism family generated from style-conditioned requests",
+   "status": "BLOCKED",
+   "dependency": "GPT art"
+  },
+  {
+   "criterion": "producer actually receives native witnesses + master/edit reference; receipts prove calls and pixels",
+   "status": "BLOCKED",
+   "dependency": "provider; requests are compiled and verified (S3-COMPILE) but not submitted"
+  },
+  {
+   "criterion": "every qualification state has real files, alphas, landmarks, pivots, masks/underpaint",
+   "status": "BLOCKED",
+   "dependency": "GPT art; registration producer proven on diagnostic raster (STAGE_2 S2-REG)"
+  },
+  {
+   "criterion": "removing a high-impact F-art choice changes the output class",
+   "status": "PARTIAL_MECHANICAL",
+   "dependency": "payload changes (S3-CAUSAL-F64); pixel change needs provider"
+  },
+  {
+   "criterion": "an actual repair changes the next matching provider payload and produces new inspected pixels",
+   "status": "NOT_TESTED",
+   "dependency": "repair_learning.py record requires real before/after provider images; none exist"
+  },
+  {
+   "criterion": "no unapproved image or code-art substitute enters the render manifest",
+   "status": "MECHANICAL_PASS",
+   "evidence": "film manifest assets: [] ; loader rejects DIAGNOSTIC_FIXTURE in --production (Stage 1 test); ingest marks provenance GPT_PROVIDER_ART with approved_review_id null until review"
+  }
+ ],
+ "mechanical_pass": true
+}

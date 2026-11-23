@@ -1,0 +1,478 @@
+{
+ "artjob_id": "ARTJOB_MASTER_ines_master_211539ad",
+ "root_dependency": "ines_master",
+ "identity_id": "ines",
+ "state_kind": "MASTER",
+ "asset_kind": "MASTER",
+ "medium": {
+  "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+  "why": "identity is locked from one approved master; derived states are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "dependents": [
+  "ines_leg_l_far",
+  "ines_shin_l_far",
+  "ines_foot_l_far",
+  "ines_arm_l_far",
+  "ines_forearm_l_far",
+  "ines_hand_l_far",
+  "ines_torso",
+  "ines_coat_hem",
+  "ines_head",
+  "ines_face_eyes",
+  "ines_face_mouth",
+  "ines_brow",
+  "ines_hair_back",
+  "ines_leg_r",
+  "ines_shin_r",
+  "ines_foot_r",
+  "ines_sleeve_r",
+  "ines_elbow_r_underpaint",
+  "ines_forearm_r",
+  "ines_hand_r_far_fingers",
+  "ines_hand_r_palm",
+  "ines_hand_r_near_fingers",
+  "ines_hand_r_near_open",
+  "ines_hand_r_far_open",
+  "ines_hand_r_near_pinch",
+  "ines_hand_r_far_pinch",
+  "coin_prop",
+  "ines_face_eyes_curious",
+  "ines_brow_raised",
+  "ines_face_mouth_open",
+  "ines_face_mouth_smile_profile",
+  "ines_face_eyes_soft_profile",
+  "ines_head_profile",
+  "ines_face_eyes_profile",
+  "ines_face_mouth_profile",
+  "ines_brow_profile",
+  "ines_hair_profile",
+  "ines_torso_profile"
+ ],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "ines_master",
+   "frame_range": [
+    900,
+    1920
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_CANONICAL_MASTER",
+   "record_id": "ines",
+   "frame_range": null,
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "ines",
+  "canonical_parent_asset": "ines_master",
+  "shot_ids": [
+   "S02"
+  ],
+  "frame_ranges": [
+   [
+    900,
+    1920
+   ]
+  ],
+  "view_id": "threeq_r",
+  "pose_id": "neutral",
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "pelvis",
+   "chest",
+   "neck",
+   "head_top",
+   "chin",
+   "shoulder_r",
+   "elbow_r",
+   "wrist_r",
+   "shoulder_l",
+   "elbow_l",
+   "wrist_l",
+   "hip_r",
+   "knee_r",
+   "ankle_r",
+   "hip_l",
+   "knee_l",
+   "ankle_l"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "ines_rig",
+    "joint": "pelvis",
+    "rest_xy": [
+     300,
+     620
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "chest",
+    "rest_xy": [
+     300,
+     430
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "neck",
+    "rest_xy": [
+     300,
+     330
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "shoulder_r",
+    "rest_xy": [
+     360,
+     360
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "elbow_r",
+    "rest_xy": [
+     380,
+     480
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "wrist_r",
+    "rest_xy": [
+     395,
+     590
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "shoulder_l",
+    "rest_xy": [
+     240,
+     360
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "elbow_l",
+    "rest_xy": [
+     225,
+     480
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "wrist_l",
+    "rest_xy": [
+     215,
+     590
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "hip_r",
+    "rest_xy": [
+     330,
+     630
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "knee_r",
+    "rest_xy": [
+     335,
+     800
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "ankle_r",
+    "rest_xy": [
+     340,
+     960
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "hip_l",
+    "rest_xy": [
+     270,
+     630
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "knee_l",
+    "rest_xy": [
+     265,
+     800
+    ]
+   },
+   {
+    "rig": "ines_rig",
+    "joint": "ankle_l",
+    "rest_xy": [
+     260,
+     960
+    ]
+   }
+  ],
+  "required_sockets": [
+   {
+    "socket": "ines_grip_r",
+    "joint": "wrist_r",
+    "local_xy": [
+     4,
+     26
+    ]
+   },
+   {
+    "socket": "ines_pinch_r",
+    "joint": "wrist_r",
+    "local_xy": [
+     10,
+     38
+    ]
+   },
+   {
+    "socket": "ines_sole_r",
+    "joint": "ankle_r",
+    "local_xy": [
+     20,
+     18
+    ]
+   },
+   {
+    "socket": "ines_sole_l",
+    "joint": "ankle_l",
+    "local_xy": [
+     20,
+     18
+    ]
+   }
+  ],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "ines_leg_l_far",
+   "ines_shin_l_far",
+   "ines_foot_l_far",
+   "ines_arm_l_far",
+   "ines_forearm_l_far",
+   "ines_hand_l_far",
+   "ines_torso",
+   "ines_coat_hem",
+   "ines_head",
+   "ines_face_eyes",
+   "ines_face_mouth",
+   "ines_brow",
+   "ines_hair_back",
+   "ines_leg_r",
+   "ines_shin_r",
+   "ines_foot_r",
+   "ines_sleeve_r",
+   "ines_elbow_r_underpaint",
+   "ines_forearm_r",
+   "ines_hand_r_far_fingers",
+   "ines_hand_r_palm",
+   "ines_hand_r_near_fingers",
+   "ines_hand_r_near_open",
+   "ines_hand_r_far_open",
+   "ines_hand_r_near_pinch",
+   "ines_hand_r_far_pinch",
+   "coin_prop",
+   "ines_face_eyes_curious",
+   "ines_brow_raised",
+   "ines_face_mouth_open",
+   "ines_face_mouth_smile_profile",
+   "ines_face_eyes_soft_profile",
+   "ines_head_profile",
+   "ines_face_eyes_profile",
+   "ines_face_mouth_profile",
+   "ines_brow_profile",
+   "ines_hair_profile",
+   "ines_torso_profile"
+  ],
+  "why_this_drawing_is_needed": "canonical whole-look identity; every Ines state is a source-attached edit of it. Required by: shot S02"
+ },
+ "null_reasons": {
+  "expression_id": "not an expression state",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "1753e34a981941c9dc5c84bf47638fbb76d20f71273728dac666bc089beb9c30",
+ "registration_contract": {
+  "asset_kind": "MASTER",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "STRAIGHT",
+  "view_id": "threeq_r",
+  "depth_band": "FOCAL",
+  "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_FOR_GPT_ART",
+ "readiness": {
+  "asset": "ines_master",
+  "role": "MASTER",
+  "status": "WAITING_FOR_GPT_ART"
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+ ],
+ "compiled_request": {
+  "gate": {
+   "job": "ARTJOB_MASTER_ines_master_211539ad",
+   "design": "ines_master",
+   "pass": true,
+   "failures": [],
+   "required_methods": [
+    {
+     "method": "F01",
+     "reason": "whole silhouette and functional anatomy of a canonical character"
+    },
+    {
+     "method": "F58",
+     "reason": "silhouette must read before interior detail"
+    },
+    {
+     "method": "F61",
+     "reason": "new palette roles for a new identity"
+    },
+    {
+     "method": "F62",
+     "reason": "edges/shadows need owners (no universal outline)"
+    },
+    {
+     "method": "F64",
+     "reason": "character identity must be routed by illustration family"
+    },
+    {
+     "method": "F80",
+     "reason": "the request must carry the methods and unlike native witnesses"
+    },
+    {
+     "method": "F05",
+     "reason": "face visible: head and facial-state fabrication"
+    },
+    {
+     "method": "F65",
+     "reason": "face visible: eye/mouth mode from role and crop"
+    },
+    {
+     "method": "F52",
+     "reason": "mark count from projected scale"
+    },
+    {
+     "method": "F06",
+     "reason": "contacts in the action graph: PLANT, GRIP, FOLLOW"
+    },
+    {
+     "method": "F66",
+     "reason": "contacts and weight shifts need weight/garment/contact states"
+    },
+    {
+     "method": "F67",
+     "reason": "registered state family required: neutral, hand_open, hand_pinch, curious, profile_turn, profile_satisfied"
+    },
+    {
+     "method": "F59",
+     "reason": "the master is cut into joined/occluding registered parts"
+    },
+    {
+     "method": "F79",
+     "reason": "cutouts need alpha, underpaint and offscreen budget"
+    }
+   ],
+   "bound_methods": [
+    "F01",
+    "F02",
+    "F05",
+    "F06",
+    "F52",
+    "F58",
+    "F59",
+    "F61",
+    "F62",
+    "F64",
+    "F65",
+    "F66",
+    "F67",
+    "F79",
+    "F80"
+   ],
+   "required_figure_height_px": 882,
+   "checked_at": "2026-11-22T03:15:16.035Z",
+   "design_approval": {
+    "status": "BLOCKED_ON_DESIGN_APPROVAL",
+    "reason": "no human design approval receipt"
+   }
+  },
+  "job_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_ines_master_211539ad/ARTJOB.json",
+  "request_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_ines_master_211539ad/IMAGEGEN_REQUEST.json",
+  "prompt_sha256": "4888ebd20c4fc6c4260b6f5e3071832705807513df1654d9513d3c5fdf0226d9",
+  "prompt_characters": 31949,
+  "compiled_method_ids": [
+   "F01",
+   "F06",
+   "F64",
+   "F65",
+   "F66"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "witnesses": [
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+    "width": 1920,
+    "height": 1080,
+    "role": "STYLE_ONLY: full-body gesture read through torso tilt, tapering trouser masses and small hands",
+    "verified": true
+   },
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg",
+    "sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+    "width": 1920,
+    "height": 1080,
+    "role": "STYLE_ONLY: mid-distance actors with dark-mark eyes, rolled sleeve cuffs and hand-to-surface contact",
+    "verified": true
+   },
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+    "sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+    "width": 1920,
+    "height": 1080,
+    "role": "STYLE_ONLY: grip topology on a held object (fingers in front, thumb behind) and owned cheek/ear colour patches",
+    "verified": true
+   }
+  ],
+  "motion_context_sha256": "1753e34a981941c9dc5c84bf47638fbb76d20f71273728dac666bc089beb9c30",
+  "status": "COMPILED_WAITING_FOR_GPT_ART"
+ },
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_MASTER_ines_master_211539ad.png",
+  "landmarks_sidecar": "inbox/ARTJOB_MASTER_ines_master_211539ad.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

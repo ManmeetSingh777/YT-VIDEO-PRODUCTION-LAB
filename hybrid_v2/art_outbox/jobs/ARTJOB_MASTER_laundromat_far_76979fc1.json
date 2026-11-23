@@ -1,0 +1,191 @@
+{
+ "artjob_id": "ARTJOB_MASTER_laundromat_far_76979fc1",
+ "root_dependency": "laundromat_far",
+ "identity_id": "laundromat",
+ "state_kind": "MASTER",
+ "asset_kind": "WORLD_PLANE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "dependents": [
+  "laundromat_mid_machines",
+  "laundromat_fg_counter"
+ ],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "laundromat_far",
+   "frame_range": [
+    0,
+    1681
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S02_push_in",
+   "frame_range": [
+    1680,
+    1920
+   ],
+   "shot_id": "S02"
+  },
+  {
+   "code": "MISSING_CANONICAL_MASTER",
+   "record_id": "laundromat",
+   "frame_range": null,
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "laundromat",
+  "canonical_parent_asset": "laundromat_far",
+  "shot_ids": [
+   "S01",
+   "S02",
+   "S03",
+   "S06",
+   "S07"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    1920
+   ],
+   [
+    5160,
+    7200
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "door_frame",
+   "row_vanish"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S01",
+    "cam_S02",
+    "cam_S06",
+    "cam_S07"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -240,
+    -135,
+    2400,
+    1350
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -240,
+   -135,
+   2400,
+   1350
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD|PROCEDURAL|TRANSITION",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "laundromat_mid_machines",
+   "laundromat_fg_counter"
+  ],
+  "why_this_drawing_is_needed": "canonical interior with camera overscan for the S01 pull-back and S02 push. Required by: shot S01; shot S02; shot S06; shot S07; action S02_push_in; world w_laundromat in S01; world w_laundromat in S02; world w_laundromat in S06; world w_laundromat in S07"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "e13c24b67c74d567ccddc5b251ac7976fc6c13c7b5f59ead0181b4e7aea0d341",
+ "registration_contract": {
+  "asset_kind": "WORLD_PLANE",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "OPAQUE",
+  "view_id": "front",
+  "depth_band": "FAR",
+  "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_FOR_GPT_ART",
+ "readiness": {
+  "asset": "laundromat_far",
+  "role": "MASTER",
+  "status": "WAITING_FOR_GPT_ART"
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+ ],
+ "compiled_request": {
+  "gate": {
+   "pass": false,
+   "status": "NOT_EVALUATED",
+   "failures": [],
+   "design_approval": {
+    "status": "NOT_EVALUATED"
+   }
+  },
+  "job_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_laundromat_far_76979fc1/ARTJOB.json",
+  "request_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_laundromat_far_76979fc1/IMAGEGEN_REQUEST.json",
+  "prompt_sha256": "ff31195581f74bbf714f5d1fa306842ce73588ee1716c6eec75e80cc8cf4058c",
+  "prompt_characters": 14464,
+  "compiled_method_ids": [
+   "F08",
+   "F10",
+   "F70"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "witnesses": [
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "sha256": "6362b82017c07be01dfb7be6441b05f3ffb884764a3c3cea699dbaaedce1551a",
+    "width": 1920,
+    "height": 1490,
+    "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region",
+    "verified": true
+   },
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/character_native_anchors/AI_0234_rear_operator.jpg",
+    "sha256": "0dafe80daf4805b5b4c60ab3470d63c5af8ae739c91bcb20eed85de38bf585de",
+    "width": 1920,
+    "height": 1080,
+    "role": "STYLE_ONLY: operator facing a machine, hand-to-device relationship",
+    "verified": true
+   }
+  ],
+  "motion_context_sha256": "e13c24b67c74d567ccddc5b251ac7976fc6c13c7b5f59ead0181b4e7aea0d341",
+  "status": "COMPILED_WAITING_FOR_GPT_ART"
+ },
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_MASTER_laundromat_far_76979fc1.png",
+  "landmarks_sidecar": "inbox/ARTJOB_MASTER_laundromat_far_76979fc1.landmarks.json",
+  "format": "lossless PNG, opaque"
+ }
+}

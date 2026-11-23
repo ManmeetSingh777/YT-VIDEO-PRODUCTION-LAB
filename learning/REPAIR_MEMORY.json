@@ -1,0 +1,250 @@
+{
+ "version": 1,
+ "lessons": [
+  {
+   "rule_id": "_foundation_test:Q01",
+   "scope": "CONDITIONAL_FAMILY",
+   "status": "REPAIR_DEMONSTRATED",
+   "applies_when": {
+    "world_value": "dark",
+    "family": [
+     "HUMAN_GESTURE_FULL",
+     "HUMAN_ACTING_CLOSE",
+     "HUMAN_REAR_OCCLUDED"
+    ]
+   },
+   "params": {
+    "style.limbSupportContrast": 1.9
+   },
+   "observed_mismatch": "walk 1.2â€“5.0s: trouser fill #262150 vs floor/wainscot ~#2a2048 (near-equal value) â€” legs vanish, boots read as floating; planted steps unreadable",
+   "question": "When a full-body actor's lower limbs are a dark material on a dark support, what owns their readable silhouette in the source: a value step of the garment material against its support, an owned edge/rim, or local light?",
+   "source_evidence": [
+    {
+     "confirm": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\BRAIN_0386_runner_human.jpg",
+     "confirm_sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+     "counter": "reference\\construct-kurzgesagt-art\\assets\\conditional_native_anchors\\SOLAR_04897_suited_figures.jpg",
+     "counter_sha256": "348a5dcd8e1bf7099158945971f4a7c4eebc94b7f6b7f89be0f88dad5ce4e077",
+     "observed": "light support (runner, also NUCLEAR_0083 farm): trousers ARE the darkest mass, near/far legs split by two darks, light ankle band separates shoe. Dark support (SOLAR suited figures, maroon interior): figure masses are raised ABOVE the environment value; darkest role belongs to the environment; near masses lighter than far. No outlines in either.",
+     "at": "2026-11-21T13:20:35.875Z"
+    }
+   ],
+   "root_cause": "missing operation: IF the actor's support/environment value is dark (night interior, space)",
+   "incorrect_operation": "garment limb fills chosen as fixed dark swatches regardless of support value",
+   "corrected_operation": "engine/lib/style.mjs#separate: new op; cast/keeper.mjs#limbSupportContrast: legs/sleeves pass through separate(material, support, ctx.param)",
+   "positive_construction_ops": [
+    "pass every garment limb fill through separate(material, supportRole, ctx.param('style.limbSupportContrast')) — near limb at the full threshold, far limb at ~0.78×; keep the environment as the darkest role"
+   ],
+   "regression_boundary": "light supports (BRAIN_0386-type fields): dark trousers are the intended anchor — do not raise them; not a rule about faces, props or non-garment materials",
+   "before": [
+    {
+     "png": "learning/evidence/Q01/before/t002.600.png",
+     "sha256": "5a4bb36bf1c9ef3526278b0adf6285adb80c6d95340d65819850ad606c585aef"
+    },
+    {
+     "png": "learning/evidence/Q01/before/t003.400.png",
+     "sha256": "c2c7897ca5d26978e9cbcae9ed7b62ba5ca4eb7e0a3ef3b6ae1c62359dab6b8f"
+    },
+    {
+     "png": "learning/evidence/Q01/before/t004.200.png",
+     "sha256": "8d63c0a3abb9a0c6d261b61e4b994d9a97240c95723860fb6778152fea88a14a"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q01/after/t002.600.png",
+     "sha256": "31197fada2ef681605572f6bc030688bd2309588d5c8bf4c2547bc4a3eb16c0a"
+    },
+    {
+     "png": "learning/evidence/Q01/after/t003.400.png",
+     "sha256": "ad2cc33010c77260cf91a810b433f6bf99e249e9ac9a85f1c050e0174a9f34c1"
+    },
+    {
+     "png": "learning/evidence/Q01/after/t004.200.png",
+     "sha256": "4a9bd862aecc6c36aa5ec9e45727ceb7df6944247247d9399a9627f5d2b81231"
+    }
+   ],
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q01/before/t002.600.png",
+     "after": "learning/evidence/Q01/after/t002.600.png",
+     "sheet": "learning/evidence/Q01/compare_0.png",
+     "metrics": {
+      "mean_abs": 1.23,
+      "changed_px_gt24": 1.553,
+      "psnr": 31.37
+     }
+    },
+    {
+     "before": "learning/evidence/Q01/before/t003.400.png",
+     "after": "learning/evidence/Q01/after/t003.400.png",
+     "sheet": "learning/evidence/Q01/compare_1.png",
+     "metrics": {
+      "mean_abs": 1.137,
+      "changed_px_gt24": 1.436,
+      "psnr": 32.49
+     }
+    },
+    {
+     "before": "learning/evidence/Q01/before/t004.200.png",
+     "after": "learning/evidence/Q01/after/t004.200.png",
+     "sheet": "learning/evidence/Q01/compare_2.png",
+     "metrics": {
+      "mean_abs": 1.321,
+      "changed_px_gt24": 1.697,
+      "psnr": 31.79
+     }
+    }
+   ],
+   "recorded": "2026-11-21T13:26:20.308Z",
+   "rule": "garment_support_separation"
+  },
+  {
+   "rule_id": "_foundation_test:Q02",
+   "scope": "CONDITIONAL_FAMILY",
+   "status": "REPAIR_DEMONSTRATED",
+   "applies_when": {
+    "beat": "reaction_with_held_prop"
+   },
+   "observed_mismatch": "liftâ†’unfold 9.4â€“15s: hand target RAISE (1162,420) is beyond reach; arm folds over the head and the hanging star (radius 66, +70 below the grip) covers the face during the delighted reaction",
+   "question": "When an actor holds a luminous prop at the moment of their reaction, how is the prop positioned relative to the face so both the object's change and the face's response stay legible: offset to a separate region, or overlapping?",
+   "source_evidence": [
+    {
+     "confirm": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\BRAIN_0157_couch_human.jpg",
+     "confirm_sha256": "c0578fb5d8bd5f8d97215b95a833a0ad20b650f8cd3d500c3855783df1236deb",
+     "counter": "reference\\construct-kurzgesagt-art\\assets\\question_native_witnesses\\NUCLEAR_0145_lab_procedural_people.jpg",
+     "counter_sha256": "955c27cb5cae54685bc0978e01b68344d07e93fede6e26f7bde66b3e80d9e4b3",
+     "observed": "couch (light, relaxed): held prop raised ABOVE the face in its own region, face fully readable. lab (dark, attentive): object of attention sits in a separate lower region, both faces turned/gazing down to it; prop silhouette never overlaps a face plane; gaze line links them.",
+     "at": "2026-11-21T13:20:54.878Z"
+    }
+   ],
+   "root_cause": "missing operation: IF a held prop's change and the holder's reaction are read together",
+   "incorrect_operation": "presentation target chosen in world space without testing the prop silhouette against the face plane",
+   "corrected_operation": "films/_foundation_test/scenes/room_common.mjs#RAISE: targets moved to a forward presentation region; gaze poses aimed at the star",
+   "positive_construction_ops": [
+    "choose the held-prop target so its silhouette clears the face bbox by ≥30 px on the gaze side; aim head + pupils at the prop centre (gaze links the two regions)"
+   ],
+   "regression_boundary": "deliberate concealment/reveal gags where the prop is meant to hide the face",
+   "before": [
+    {
+     "png": "learning/evidence/Q02/before/t011.600.png",
+     "sha256": "419d68e7274bdb9fa19ee5333e64475c384bf192cfa04c7ee8114d4830a355ef"
+    },
+    {
+     "png": "learning/evidence/Q02/before/t012.600.png",
+     "sha256": "2d5d1d4d3964d7cea19be0d6542fff01cc16ae29c2347afdf9a64953141ea36a"
+    },
+    {
+     "png": "learning/evidence/Q02/before/t014.200.png",
+     "sha256": "93498128675334a0a644ec96d29cc89d5fac257db35e70e3c72c91223e13cae9"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q02/after/t011.600.png",
+     "sha256": "4ceccc7bc9c44c7ba8ff394d9c88d07b32647f3e9e2c7f71cc44b681f403e88d"
+    },
+    {
+     "png": "learning/evidence/Q02/after/t012.600.png",
+     "sha256": "c065c25cc135ac929e6c797f7479dffa4609a9a77d118050a52ffe8d438ca4d4"
+    },
+    {
+     "png": "learning/evidence/Q02/after/t014.200.png",
+     "sha256": "e3199e2be0270d25909a3542e9f3290499f5e045f91936f4ad9319f15d14582c"
+    }
+   ],
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q02/before/t011.600.png",
+     "after": "learning/evidence/Q02/after/t011.600.png",
+     "sheet": "learning/evidence/Q02/compare_0.png",
+     "metrics": {
+      "mean_abs": 15.2,
+      "changed_px_gt24": 26.392,
+      "psnr": 19.03
+     }
+    },
+    {
+     "before": "learning/evidence/Q02/before/t012.600.png",
+     "after": "learning/evidence/Q02/after/t012.600.png",
+     "sheet": "learning/evidence/Q02/compare_1.png",
+     "metrics": {
+      "mean_abs": 15.409,
+      "changed_px_gt24": 27.022,
+      "psnr": 18.81
+     }
+    },
+    {
+     "before": "learning/evidence/Q02/before/t014.200.png",
+     "after": "learning/evidence/Q02/after/t014.200.png",
+     "sheet": "learning/evidence/Q02/compare_2.png",
+     "metrics": {
+      "mean_abs": 15.583,
+      "changed_px_gt24": 26.704,
+      "psnr": 18.64
+     }
+    }
+   ],
+   "recorded": "2026-11-21T13:26:20.438Z"
+  },
+  {
+   "rule_id": "_qual_A:Q04",
+   "scope": "CONDITIONAL_FAMILY",
+   "status": "REPAIR_DEMONSTRATED",
+   "applies_when": {
+    "facialHair": true,
+    "family": [
+     "HUMAN_ACTING_CLOSE",
+     "HUMAN_GESTURE_FULL"
+    ]
+   },
+   "params": {
+    "face.facialHairContrast": 2.2
+   },
+   "observed_mismatch": "hero_v2 face: pale grey moustache (#d5d0dc) on warm skin (#d98a5c) has low luminance separation; the 30px mouth sits entirely under it; the reaction (effort→pleased) cannot read at 210px head",
+   "question": "When an older acting face carries a moustache at medium scale, how is the upper-lip/mouth region constructed so the expression stays readable: moustache value contrast against the face, separate visible mouth shape below it, and how much gap?",
+   "source_evidence": [
+    {
+     "confirm": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\NUCLEAR_0083_farm_humans.jpg",
+     "confirm_sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+     "counter": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\MEMORIES_0753_clinic_humans.jpg",
+     "counter_sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+     "observed": "farm (moustache): moustache = darkest face mark (hair value), compact bar; mouth a separate small dark shape BELOW it with a skin gap; nose small darker wedge above. clinic (no facial hair, unlike): mouth sits directly under the nose region. Grey-haired identity can keep light hair while the facial-hair mass separates by value.",
+     "at": "2026-11-21T14:35:45.410Z"
+    }
+   ],
+   "root_cause": "missing operation: IF facial hair covers the mouth region of an ACTING_CUE face",
+   "incorrect_operation": "facial-hair fill taken from the light hair colour; mouth drawn under the facial hair",
+   "corrected_operation": "engine/authoring/construct.mjs#separateFrom: value-separation op; films/_qual_A/subjects/engineer.mjs#facialHair: moustache fill + mouth geometry",
+   "positive_construction_ops": [
+    "facial-hair fill passes separateFrom(skin, >=2.2) before geometry; mouth is authored as a separate dark shape below it with a skin gap"
+   ],
+   "regression_boundary": "faces without facial hair; distant/REDUCED_ICON faces where the mouth is not an acting cue; dark facial hair already separated",
+   "before": [
+    {
+     "png": "learning/evidence/Q04/before/still_0.png",
+     "sha256": "0cd0f8005363b85892f81e088063a4a8606b8934f4a52339891b162a7f3c23d8"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q04/after/still_0.png",
+     "sha256": "d185e25f52c8b2bc34f657c1cc2c2be3b8cf68ded4a218dc0d2caf1e762989ca"
+    }
+   ],
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q04/before/still_0.png",
+     "after": "learning/evidence/Q04/after/still_0.png",
+     "sheet": "learning/evidence/Q04/compare_0.png",
+     "metrics": {
+      "mean_abs": 5.578,
+      "changed_px_gt24": 8.908,
+      "psnr": 21.04
+     }
+    }
+   ],
+   "recorded": "2026-11-21T14:37:51.842Z",
+   "rule": "facial_hair_value_separation"
+  }
+ ]
+}

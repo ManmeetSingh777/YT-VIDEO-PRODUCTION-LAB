@@ -1,0 +1,473 @@
+{
+  "description": "All source frames sequentially decoded and indexed. Image contact sheet inclusion does not certify artistic understanding.",
+  "sequences": [
+    {
+      "id": "AI_FINAL__machine_interface",
+      "source_file": "/mnt/data/five_films/A.I. \u2010 Humanity's Final Invention - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 231,
+      "end": 235,
+      "fps": 60.0,
+      "start_frame": 13860,
+      "last_decoded_frame": 14099,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        13860,
+        13867,
+        13868,
+        13920,
+        13936,
+        13980,
+        14030,
+        14033,
+        14040,
+        14081,
+        14082
+      ],
+      "mean_frame_diff": 3.979000239117156,
+      "max_frame_diff": 68.70875530478395
+    },
+    {
+      "id": "AI_FINAL__desk_pan",
+      "source_file": "/mnt/data/five_films/A.I. \u2010 Humanity's Final Invention - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 535,
+      "end": 539,
+      "fps": 60.0,
+      "start_frame": 32100,
+      "last_decoded_frame": 32339,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        32100,
+        32158,
+        32159,
+        32160,
+        32200,
+        32208,
+        32220,
+        32277,
+        32279,
+        32280,
+        32335,
+        32336
+      ],
+      "mean_frame_diff": 4.948911715534979,
+      "max_frame_diff": 6.2025221836419755
+    },
+    {
+      "id": "AI_FINAL__isometric_city",
+      "source_file": "/mnt/data/five_films/A.I. \u2010 Humanity's Final Invention - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 762,
+      "end": 765.25,
+      "fps": 60.0,
+      "start_frame": 45720,
+      "last_decoded_frame": 45914,
+      "decoded_frame_count": 195,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        45720,
+        45722,
+        45773,
+        45780,
+        45835,
+        45838,
+        45840,
+        45894,
+        45897,
+        45900,
+        45906,
+        45911
+      ],
+      "mean_frame_diff": 3.576982740285692,
+      "max_frame_diff": 69.67566068672839
+    },
+    {
+      "id": "BRAIN_BLINDS__first_person",
+      "source_file": "/mnt/data/five_films/Why Your Brain Blinds You For 2 Hours Every Day - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 12,
+      "end": 16,
+      "fps": 60.000026555734514,
+      "start_frame": 720,
+      "last_decoded_frame": 959,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        720,
+        726,
+        780,
+        793,
+        794,
+        840,
+        863,
+        880,
+        900,
+        940,
+        956
+      ],
+      "mean_frame_diff": 3.3224049760480967,
+      "max_frame_diff": 70.82873987268519
+    },
+    {
+      "id": "BRAIN_BLINDS__red_object",
+      "source_file": "/mnt/data/five_films/Why Your Brain Blinds You For 2 Hours Every Day - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 156,
+      "end": 160,
+      "fps": 60.000026555734514,
+      "start_frame": 9360,
+      "last_decoded_frame": 9599,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        9360,
+        9376,
+        9400,
+        9420,
+        9424,
+        9480,
+        9487,
+        9489,
+        9540,
+        9541,
+        9542
+      ],
+      "mean_frame_diff": 1.3307863839859826,
+      "max_frame_diff": 4.92650462962963
+    },
+    {
+      "id": "BRAIN_BLINDS__human_acting",
+      "source_file": "/mnt/data/five_films/Why Your Brain Blinds You For 2 Hours Every Day - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 385,
+      "end": 389,
+      "fps": 60.000026555734514,
+      "start_frame": 23100,
+      "last_decoded_frame": 23339,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        23100,
+        23104,
+        23160,
+        23216,
+        23217,
+        23220,
+        23221,
+        23224,
+        23280,
+        23309,
+        23310
+      ],
+      "mean_frame_diff": 0.4349409440907922,
+      "max_frame_diff": 0.6547550154320988
+    },
+    {
+      "id": "MEMORIES__portrait",
+      "source_file": "/mnt/data/five_films/How Are Memories Stored Inside Your Brain - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 18,
+      "end": 22,
+      "fps": 60.0,
+      "start_frame": 1080,
+      "last_decoded_frame": 1319,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        1080,
+        1108,
+        1109,
+        1140,
+        1143,
+        1146,
+        1200,
+        1241,
+        1246,
+        1260,
+        1317,
+        1319
+      ],
+      "mean_frame_diff": 0.48906506196952154,
+      "max_frame_diff": 1.018651138117284
+    },
+    {
+      "id": "MEMORIES__dense_synapses",
+      "source_file": "/mnt/data/five_films/How Are Memories Stored Inside Your Brain - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 91,
+      "end": 95,
+      "fps": 60.0,
+      "start_frame": 5460,
+      "last_decoded_frame": 5699,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        5460,
+        5511,
+        5512,
+        5520,
+        5564,
+        5565,
+        5580,
+        5630,
+        5633,
+        5640,
+        5697
+      ],
+      "mean_frame_diff": 5.016914725597994,
+      "max_frame_diff": 8.639551986882717
+    },
+    {
+      "id": "MEMORIES__clinic_interaction",
+      "source_file": "/mnt/data/five_films/How Are Memories Stored Inside Your Brain - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 752,
+      "end": 756,
+      "fps": 60.0,
+      "start_frame": 45120,
+      "last_decoded_frame": 45359,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        45120,
+        45123,
+        45125,
+        45180,
+        45238,
+        45239,
+        45240,
+        45291,
+        45293,
+        45300,
+        45301
+      ],
+      "mean_frame_diff": 0.602952694990998,
+      "max_frame_diff": 2.9080705054012346
+    },
+    {
+      "id": "NUCLEAR_FLIES__bio_world",
+      "source_file": "/mnt/data/five_films/How Nuclear Flies Protect You from Flesh-Eating Parasites - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 82,
+      "end": 86,
+      "fps": 60.00008827436851,
+      "start_frame": 4920,
+      "last_decoded_frame": 5159,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        4920,
+        4921,
+        4923,
+        4980,
+        4982,
+        4984,
+        5040,
+        5041,
+        5042,
+        5100,
+        5104,
+        5130
+      ],
+      "mean_frame_diff": 2.8585214120370375,
+      "max_frame_diff": 6.116970486111111
+    },
+    {
+      "id": "NUCLEAR_FLIES__fly_macro",
+      "source_file": "/mnt/data/five_films/How Nuclear Flies Protect You from Flesh-Eating Parasites - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 313,
+      "end": 315.95,
+      "fps": 60.00008827436851,
+      "start_frame": 18780,
+      "last_decoded_frame": 18956,
+      "decoded_frame_count": 177,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg"
+      ],
+      "native_witness_frames": [
+        18780,
+        18807,
+        18810,
+        18840,
+        18899,
+        18900,
+        18930,
+        18931
+      ],
+      "mean_frame_diff": 0.8672556829575573,
+      "max_frame_diff": 1.3716121720679013
+    },
+    {
+      "id": "NUCLEAR_FLIES__landscape",
+      "source_file": "/mnt/data/five_films/How Nuclear Flies Protect You from Flesh-Eating Parasites - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 384,
+      "end": 388,
+      "fps": 60.00008827436851,
+      "start_frame": 23040,
+      "last_decoded_frame": 23279,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        23040,
+        23043,
+        23078,
+        23100,
+        23153,
+        23158,
+        23160,
+        23178,
+        23183,
+        23220,
+        23273,
+        23278
+      ],
+      "mean_frame_diff": 2.3627323857060185,
+      "max_frame_diff": 29.093689718364196
+    },
+    {
+      "id": "SOLAR_SYSTEM__cosmic_world",
+      "source_file": "/mnt/data/five_films/Why Humanity Will Never Leave The Solar System - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 15,
+      "end": 19,
+      "fps": 60.0,
+      "start_frame": 900,
+      "last_decoded_frame": 1139,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        900,
+        912,
+        917,
+        960,
+        1018,
+        1019,
+        1020,
+        1022,
+        1023,
+        1080,
+        1081
+      ],
+      "mean_frame_diff": 1.125266444830247,
+      "max_frame_diff": 35.85640914351852
+    },
+    {
+      "id": "SOLAR_SYSTEM__mascots_interaction",
+      "source_file": "/mnt/data/five_films/Why Humanity Will Never Leave The Solar System - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 177,
+      "end": 181,
+      "fps": 60.0,
+      "start_frame": 10620,
+      "last_decoded_frame": 10859,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        10620,
+        10640,
+        10657,
+        10680,
+        10693,
+        10694,
+        10740,
+        10771,
+        10772,
+        10800,
+        10834,
+        10835
+      ],
+      "mean_frame_diff": 1.0726648401331018,
+      "max_frame_diff": 3.593231577932099
+    },
+    {
+      "id": "SOLAR_SYSTEM__technology_action",
+      "source_file": "/mnt/data/five_films/Why Humanity Will Never Leave The Solar System - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+      "start": 683,
+      "end": 687,
+      "fps": 60.0,
+      "start_frame": 40980,
+      "last_decoded_frame": 41219,
+      "decoded_frame_count": 240,
+      "all_frame_contact_pages": [
+        "ALL_FRAMES_PAGE_01.jpg",
+        "ALL_FRAMES_PAGE_02.jpg",
+        "ALL_FRAMES_PAGE_03.jpg",
+        "ALL_FRAMES_PAGE_04.jpg"
+      ],
+      "native_witness_frames": [
+        40980,
+        40985,
+        40991,
+        41040,
+        41044,
+        41047,
+        41100,
+        41114,
+        41116,
+        41160,
+        41171,
+        41190
+      ],
+      "mean_frame_diff": 2.386765618971836,
+      "max_frame_diff": 10.281684027777779
+    }
+  ]
+}

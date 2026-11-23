@@ -1,0 +1,145 @@
+{
+ "generated_at": "2026-11-21T23:36:30.760Z",
+ "tested_revision": "0d9b324972c9ad10089945262e3230ee634d3e2f",
+ "external_blockers": [
+  {
+   "id": "EXT-1",
+   "dependency": "authorized GPT image provider (or user-delivered approved art)",
+   "blocks": [
+    "Stage 3 acceptance",
+    "Stage 4 qualification + film",
+    "48 IMAGE_AUTHORSHIP methods"
+   ],
+   "resume": "configure IMAGE_PROVIDER/IMAGE_PROVIDER_MODEL/OPENAI_API_KEY/IMAGE_PROVIDER_CAPS or deliver files to hybrid_v2/art_outbox/inbox, then node engine/tools/art_outbox.mjs ingest ..."
+  },
+  {
+   "id": "EXT-2",
+   "dependency": "story approval (approved script or acceptance of the proposal)",
+   "blocks": [
+    "all film ArtJobs (topic-dependent)",
+    "narration"
+   ],
+   "resume": "approve/replace films/hv2_film001/direction/EXPERIENCE_DIRECTOR_PROPOSAL.md; rerun films/hv2_film001/handoff/build_production_graph.mjs"
+  },
+  {
+   "id": "EXT-3",
+   "dependency": "recorded narration with measured (forced-aligned) word timing",
+   "blocks": [
+    "critical event certification",
+    "finished-film QA"
+   ],
+   "resume": "set audio.narration_file and audio.word_alignment_file in the manifest; audio_cues.resolveEventCues"
+  },
+  {
+   "id": "EXT-4",
+   "dependency": "human whole-look artistic review",
+   "blocks": [
+    "every ARTISTIC status",
+    "approved_review_id on assets/states/edges"
+   ],
+   "resume": "review registered assets/overlays; set approved_review_id"
+  }
+ ],
+ "implementation_gaps": [
+  {
+   "id": "GAP-1",
+   "item": "homologous SVG command-topology morph comparator (REGISTERED_MORPH on VECTOR_PATH)",
+   "status": "NOT_IMPLEMENTED",
+   "effect": "every vector morph between raster/unknown topologies is refused; true vector morphs cannot run yet"
+  },
+  {
+   "id": "GAP-2",
+   "item": "cast-shadow occluder/receiver pairs (§5.5)",
+   "status": "NOT_IMPLEMENTED",
+   "effect": "only authored attached light planes; no shadows are rendered or invented"
+  },
+  {
+   "id": "GAP-3",
+   "item": "EXPLICIT_DEFORM maps (§5.3.5)",
+   "status": "REFUSED_BY_DESIGN_UNTIL_ART",
+   "effect": "MISSING_ART_ASSET until an approved deformation map/sequence exists"
+  },
+  {
+   "id": "GAP-4",
+   "item": "density / detail allocation and projection-grammar enforcement (F33, F47, F53, F77, F38, F60)",
+   "status": "NO_ENGINE_CONSUMER",
+   "effect": "carried only in ArtJob text; see COVERAGE_F01_F80.json"
+  },
+  {
+   "id": "GAP-5",
+   "item": "per-beat medium routing (F19/F20), parallel-state comparison scene (F29), world_system ArtJob compile (F49)",
+   "status": "PROOF_PENDING",
+   "effect": "consumers exist; no executed perturbation"
+  },
+  {
+   "id": "GAP-6",
+   "item": "S02 background room life (S02_room_life)",
+   "status": "DIRECTION_GAP",
+   "effect": "PROCEDURAL action without a declared mechanism; refused by compileMotionTracks"
+  },
+  {
+   "id": "GAP-7",
+   "item": "live provider execution (submitJob → OpenAIImagesProvider)",
+   "status": "BLOCKED",
+   "effect": "submit path implemented and exercised end-to-end against a local TEST STUB HTTP server (receipts, edit reference = approved master bytes, alpha decode, idempotency); no authorized provider is configured, so no real provider call has been made"
+  },
+  {
+   "id": "P1-1",
+   "item": "orientation-constrained grip (position + angle closure to the prop socket)",
+   "status": "NOT_IMPLEMENTED",
+   "effect": "grip locks position; hand angle follows FK world angle or the wrist track (RELATIVE)"
+  },
+  {
+   "id": "P1-2",
+   "item": "automatic torso/root counter-balance within approved bounds",
+   "status": "NOT_IMPLEMENTED",
+   "effect": "weight shift is direction-authored (root/chest tracks); not solved"
+  },
+  {
+   "id": "P1-4",
+   "item": "explicit expression/gaze/garment-fold/material-light/occlusion-topology state keys in assetStateCoverage",
+   "status": "PARTIAL",
+   "effect": "pose/view intervals and grip near/far are enforced and now rig-scoped; expression is still the pose-state id and light is a material-plane list"
+  },
+  {
+   "id": "P1-5",
+   "item": "checkMethodUses accepts a declared use naming the registered consumer without proof of decision→output dependence",
+   "status": "OPEN",
+   "effect": "method evidence attribution is per-method in COVERAGE_F01_F80.json but declared `method_uses` are still export-existence checks"
+  },
+  {
+   "id": "P1-6",
+   "item": "real-art learning loop (repair → next first-pass payload → improved pixels on a new subject)",
+   "status": "BLOCKED",
+   "effect": "repair memory loads with zero rules; needs real provider images"
+  },
+  {
+   "id": "GAP-8",
+   "item": "HyperFrames CLI capture of a bridge composition",
+   "status": "NOT_TESTED",
+   "effect": "capture uses Chrome via puppeteer-core on the same nu.js/GSAP timeline (window.__timelines contract); HyperFrames itself not run on a bridge composition"
+  },
+  {
+   "id": "GAP-9",
+   "item": "segment-wise asset unloading for 7200-frame renders (§11.7)",
+   "status": "NOT_IMPLEMENTED",
+   "effect": "per-shot preload only; full-film memory plan pending real asset sizes"
+  },
+  {
+   "id": "GAP-10",
+   "item": "assembly of per-shot renders + A/V sync measurement for the full film",
+   "status": "NOT_IMPLEMENTED",
+   "effect": "60-fps single-passage capture + ffprobe verified (S2-60FPS); no audio track exists"
+  }
+ ],
+ "method_status": {
+  "PENDING_PROVIDER_PIXELS": 48,
+  "CONSUMER_PROVED_MECHANICALLY": 16,
+  "PENDING_REAL_ART": 2,
+  "CONSUMER_PRESENT_PROOF_PENDING": 6,
+  "NO_DENSITY_CONSUMER": 4,
+  "NO_PROJECTION_ENFORCEMENT": 2,
+  "PENDING_REAL_REPAIR": 1,
+  "PENDING_STORY_APPROVAL": 1
+ }
+}

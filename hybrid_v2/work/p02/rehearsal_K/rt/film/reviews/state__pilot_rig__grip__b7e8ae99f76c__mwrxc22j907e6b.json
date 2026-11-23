@@ -1,0 +1,39 @@
+{
+ "receipt_id": "state__pilot_rig__grip__b7e8ae99f76c__mwrxc22j907e6b",
+ "scope": "state",
+ "record_id": "pilot_rig::grip",
+ "verdict": "APPROVED",
+ "reviewer": "roundtrip-operator",
+ "reviewer_kind": "DIAGNOSTIC",
+ "attestation": null,
+ "notes": "",
+ "scope_note": "DIAGNOSTIC_ONLY: fixture rasters, not target art",
+ "evidence": [],
+ "bundle_sha256": "b7e8ae99f76c6d52a24df592836344086e35e2063c2d0d641ca16e31b8b1d9cf",
+ "bundle": {
+  "bound_asset_hashes": {
+   "pilot_body": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+   "pilot_forearm": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+   "pilot_hand_open": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+   "pilot_underpaint": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+   "pilot_upper_arm": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0"
+  },
+  "content": {
+   "asset_bindings": {
+    "pilot_hand_open": "pilot_hand_grip"
+   },
+   "contact_set": [],
+   "id": "grip",
+   "landmark_correspondence": [
+    "wrist_r",
+    "knuckle_r"
+   ],
+   "required_underpaint": [],
+   "view_facing": "front"
+  },
+  "id": "pilot_rig::grip",
+  "scope": "state"
+ },
+ "reviewed_at": "2026-11-22T14:20:21.499Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

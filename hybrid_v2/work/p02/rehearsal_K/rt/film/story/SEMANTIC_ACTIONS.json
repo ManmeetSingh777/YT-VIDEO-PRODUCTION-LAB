@@ -1,0 +1,16 @@
+{
+ "provenance": "DIAGNOSTIC_FIXTURE",
+ "rt_shot": [
+  {
+   "id": "pilot_reach",
+   "verb_class": "REACH",
+   "actor": "pilot",
+   "frames": [
+    0,
+    600
+   ]
+  }
+ ],
+ "rt_world_shot": [],
+ "rt_shot__possession": {}
+}

@@ -1,0 +1,128 @@
+{
+ "artjob_id": "ARTJOB_PART_OR_STATE_laundromat_window_interior_6c487be4",
+ "root_dependency": "laundromat_window_interior",
+ "identity_id": "street_night",
+ "state_kind": "PART_OR_STATE",
+ "asset_kind": "WORLD_PLANE",
+ "medium": {
+  "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+  "why": "camera footprint and transition states need painted overscan"
+ },
+ "manufacturing_order": 2,
+ "derived_from": "street_far",
+ "dependents": [],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "laundromat_window_interior",
+   "frame_range": [
+    4080,
+    4081
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S05_street",
+   "frame_range": [
+    4080,
+    5160
+   ],
+   "shot_id": "S05"
+  }
+ ],
+ "motion_context": {
+  "identity_id": "street_night",
+  "canonical_parent_asset": "street_far",
+  "shot_ids": [
+   "S05"
+  ],
+  "frame_ranges": [
+   [
+    4080,
+    5160
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S05"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ],
+   "depth_band": "MID"
+  },
+  "oversized_paint_rect": [
+   -480,
+   -270,
+   2880,
+   1620
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD",
+  "predecessor_state_id": "street_far",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "street depth layers + lit window interior seen from outside. Required by: shot S05; action S05_street; world w_street in S05"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "c60d721f00daacd513d51b0bd25f946e48306c78b8f1e523479b29aa907cb155",
+ "registration_contract": {
+  "asset_kind": "WORLD_PLANE",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "STRAIGHT",
+  "view_id": "front",
+  "depth_band": "MID",
+  "landmark_frame": "registered against approved master street_far"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_ON_MASTER_APPROVAL",
+ "readiness": {
+  "asset": "laundromat_window_interior",
+  "role": "DERIVED",
+  "derived_from": "street_far",
+  "status": "WAITING_ON_MASTER_APPROVAL",
+  "edit_reference": null
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code",
+  "MASTER_APPROVAL: street_far"
+ ],
+ "compiled_request": null,
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_PART_OR_STATE_laundromat_window_interior_6c487be4.png",
+  "landmarks_sidecar": "inbox/ARTJOB_PART_OR_STATE_laundromat_window_interior_6c487be4.landmarks.json",
+  "format": "lossless PNG with real alpha (never a keyed background)"
+ }
+}

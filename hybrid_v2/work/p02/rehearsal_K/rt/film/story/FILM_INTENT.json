@@ -1,0 +1,13 @@
+{
+ "provenance": "DIAGNOSTIC_FIXTURE",
+ "objectives": [
+  "exercise S00-S09 on two unlike motion families"
+ ],
+ "audience": "pipeline auditors (not a film audience)",
+ "length_s": 120,
+ "constraints": [
+  "no paid calls",
+  "no human authority outside the namespace"
+ ],
+ "note": "DIAGNOSTIC stand-in for a human-supplied intent"
+}

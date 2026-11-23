@@ -1,0 +1,723 @@
+{
+ "generated_by": "tests/art_bridge/p0_roundtrip_evidence.mjs",
+ "tested_revision": "0d9b324972c9ad10089945262e3230ee634d3e2f",
+ "generated_at": "2026-11-21T23:36:09.290Z",
+ "truth": "DIAGNOSTIC_FIXTURE rasters (flat capsules) with exact construction landmarks; proves the intake/registration/approval/render mechanics only. No style image was fabricated; nothing here is target art.",
+ "steps": [
+  {
+   "step": "export (masters only)",
+   "result": {
+    "WAITING_FOR_GPT_ART": 1,
+    "BLOCKED_NO_DESIGN_BRIEF": 1,
+    "WAITING_ON_MASTER_APPROVAL": 6
+   }
+  },
+  {
+   "step": "ingest-part BEFORE master approval",
+   "result": "REFUSED: refused: master pilot_master not ingested; derived art is registered only against an approved master"
+  },
+  {
+   "step": "ingest-master",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-master",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-master world plate (2 px per canonical unit)",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-master world",
+   "result": "APPROVED"
+  },
+  {
+   "step": "resume/export (dependents become ready + compiled with master edit reference)",
+   "result": "WAITING_FOR_GPT_ART"
+  },
+  {
+   "step": "ingest-part truncated body (pivot on empty canvas)",
+   "result": "REGISTRATION_FAILED"
+  },
+  {
+   "step": "ingest-part body",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part body",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part upper_arm",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part upper_arm",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part forearm",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part forearm",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part underpaint",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part underpaint",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part hand_open",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part hand_open",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part hand_grip",
+   "result": "REGISTERED_PENDING_REVIEW"
+  },
+  {
+   "step": "review-part hand_grip",
+   "result": "APPROVED"
+  },
+  {
+   "step": "ingest-part off-axis hand (claimed landmarks disagree with pixels)",
+   "result": "REGISTRATION_FAILED"
+  },
+  {
+   "step": "approve-state open",
+   "result": "APPROVED"
+  },
+  {
+   "step": "approve-state grip",
+   "result": "APPROVED"
+  },
+  {
+   "step": "approve-edge open->grip",
+   "result": "APPROVED"
+  }
+ ],
+ "master_registration": {
+  "transform": [
+   0.5,
+   0,
+   0,
+   0.5,
+   -20,
+   -15
+  ],
+  "scale": 0.5,
+  "rotation_deg": 0,
+  "max_residual_px": 0,
+  "identity_master_sha256_synchronised": true,
+  "canonical_rect": [
+   -20,
+   -15,
+   320,
+   450
+  ]
+ },
+ "part_registrations": {
+  "pilot_body": {
+   "kind": "PART",
+   "max_residual_master_px": 5.684341886080802e-14,
+   "scale_to_master": 1,
+   "alpha": {
+    "transparent": 83738,
+    "partial": 662,
+    "opaque": 102800
+   },
+   "canonical_rect": [
+    105,
+    31.99999999999997,
+    90,
+    313
+   ],
+   "approved_review_id": "asset__pilot_body__3f984c4e1f63__mwr1qv4j3a2d2e",
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ]
+  },
+  "pilot_upper_arm": {
+   "kind": "PART",
+   "max_residual_master_px": 0,
+   "scale_to_master": 1.1111111111111114,
+   "alpha": {
+    "transparent": 28624,
+    "partial": 378,
+    "opaque": 7398
+   },
+   "canonical_rect": [
+    169.14730725636588,
+    123.3620072882553,
+    65.09008051544382,
+    102.44369299029877
+   ],
+   "approved_review_id": "asset__pilot_upper_arm__ccedbbe620c3__mwr1qvagecd9cb",
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ]
+  },
+  "pilot_forearm": {
+   "kind": "PART",
+   "max_residual_master_px": 5.684341886080802e-14,
+   "scale_to_master": 1,
+   "alpha": {
+    "transparent": 27468,
+    "partial": 458,
+    "opaque": 8474
+   },
+   "canonical_rect": [
+    202.34535529982978,
+    208.11544170010868,
+    35.42192366856543,
+    93.71649347115599
+   ],
+   "approved_review_id": "asset__pilot_forearm__43fc2babb0b3__mwr1qvfl7a358f",
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ]
+  },
+  "pilot_underpaint": {
+   "kind": "UNDERPAINT",
+   "max_residual_master_px": 5.684341886080802e-14,
+   "scale_to_master": 1,
+   "alpha": {
+    "transparent": 5188,
+    "partial": 188,
+    "opaque": 2724
+   },
+   "canonical_rect": [
+    199.99999999999997,
+    200,
+    30,
+    30
+   ],
+   "approved_review_id": "asset__pilot_underpaint__02d3cd12be4b__mwr1qvku2192f5",
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      600
+     ]
+    }
+   ]
+  },
+  "pilot_hand_open": {
+   "kind": "PART",
+   "max_residual_master_px": 1.1368683772161603e-13,
+   "scale_to_master": 0.8000000000000004,
+   "alpha": {
+    "transparent": 30121,
+    "partial": 369,
+    "opaque": 9510
+   },
+   "canonical_rect": [
+    209.64664322793453,
+    277.61323280239236,
+    47.818752749284045,
+    63.393016595913366
+   ],
+   "approved_review_id": "asset__pilot_hand_open__e67be0274fa6__mwr1qvq5440a9f",
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      0,
+      100
+     ]
+    }
+   ]
+  },
+  "pilot_hand_grip": {
+   "kind": "PART",
+   "max_residual_master_px": 1.1368683772161603e-13,
+   "scale_to_master": 0.9999999999999999,
+   "alpha": {
+    "transparent": 23760,
+    "partial": 268,
+    "opaque": 4872
+   },
+   "canonical_rect": [
+    208.99999999999997,
+    292.5,
+    40,
+    40
+   ],
+   "approved_review_id": "asset__pilot_hand_grip__730932943864__mwr1qvvc98f35e",
+   "shot_usage": [
+    {
+     "shot_id": "rt_shot",
+     "frame_range": [
+      100,
+      600
+     ]
+    }
+   ]
+  }
+ },
+ "off_axis_hand": {
+  "step": "ingest-part off-axis hand (claimed landmarks disagree with pixels)",
+  "result": "REGISTRATION_FAILED"
+ },
+ "approval_gates_mechanical": {
+  "manifest_valid": true,
+  "approvals_verified": true,
+  "no_diagnostic_assets": false,
+  "production_ready": false
+ },
+ "approvals_verified_count": 13,
+ "production_check": {
+  "gates": {
+   "manifest_valid": false,
+   "approvals_verified": false,
+   "no_diagnostic_assets": false,
+   "production_ready": false
+  },
+  "error_codes": [
+   "UNAPPROVED_ART",
+   "UNQUALIFIED_STYLE_ASSET"
+  ],
+  "note": "production refuses: DIAGNOSTIC_FIXTURE provenance (correct)"
+ },
+ "state_switch_render": {
+  "frames": [
+   {
+    "frame": 99,
+    "pose": "open",
+    "visible_hand_asset": "pilot_hand_open",
+    "wrist_world": [
+     979.1387728229641,
+     551.2129101910085
+    ],
+    "joint_wrist_world": [
+     979.1387728229641,
+     551.2129101910086
+    ]
+   },
+   {
+    "frame": 100,
+    "pose": "grip",
+    "visible_hand_asset": "pilot_hand_grip",
+    "wrist_world": [
+     979.2459212505056,
+     551.1382955236663
+    ],
+    "joint_wrist_world": [
+     979.2459212505056,
+     551.1382955236663
+    ]
+   },
+   {
+    "frame": 101,
+    "pose": "grip",
+    "visible_hand_asset": "pilot_hand_grip",
+    "wrist_world": [
+     979.3535904522054,
+     551.0628034242607
+    ],
+    "joint_wrist_world": [
+     979.3535904522055,
+     551.0628034242607
+    ]
+   }
+  ],
+  "render_failures": [],
+  "wrist_registration_max_px": 1.1368683772161603e-13,
+  "landmark_pixel_probe": [
+   {
+    "frame": 99,
+    "points": [
+     {
+      "landmark": "neck",
+      "world": [
+       900,
+       332
+      ],
+      "pixel": [
+       68,
+       108,
+       166
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "pelvis",
+      "world": [
+       900,
+       560
+      ],
+      "pixel": [
+       58,
+       91,
+       142
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "upper_arm_mid",
+      "world": [
+       971.0627109280312,
+       408.44204878971686
+      ],
+      "pixel": [
+       200,
+       140,
+       100
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "elbow_r",
+      "world": [
+       988.1254218560624,
+       454.8840975794338
+      ],
+      "pixel": [
+       215,
+       160,
+       115
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "forearm_mid",
+      "world": [
+       983.6320973395133,
+       503.04850388522124
+      ],
+      "pixel": [
+       215,
+       160,
+       115
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "wrist_r",
+      "world": [
+       979.1387728229641,
+       551.2129101910086
+      ],
+      "pixel": [
+       235,
+       185,
+       145
+      ],
+      "on_art": true
+     }
+    ]
+   },
+   {
+    "frame": 100,
+    "points": [
+     {
+      "landmark": "neck",
+      "world": [
+       900,
+       332
+      ],
+      "pixel": [
+       68,
+       108,
+       166
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "pelvis",
+      "world": [
+       900,
+       560
+      ],
+      "pixel": [
+       58,
+       91,
+       142
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "upper_arm_mid",
+      "world": [
+       971.1542860515622,
+       408.4083017364478
+      ],
+      "pixel": [
+       200,
+       140,
+       100
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "elbow_r",
+      "world": [
+       988.3085721031243,
+       454.8166034728955
+      ],
+      "pixel": [
+       215,
+       160,
+       115
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "forearm_mid",
+      "world": [
+       983.7772466768149,
+       502.9774494982809
+      ],
+      "pixel": [
+       215,
+       160,
+       115
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "wrist_r",
+      "world": [
+       979.2459212505056,
+       551.1382955236663
+      ],
+      "pixel": [
+       225,
+       170,
+       130
+      ],
+      "on_art": true
+     }
+    ]
+   },
+   {
+    "frame": 101,
+    "points": [
+     {
+      "landmark": "neck",
+      "world": [
+       900,
+       332
+      ],
+      "pixel": [
+       68,
+       108,
+       166
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "pelvis",
+      "world": [
+       900,
+       560
+      ],
+      "pixel": [
+       58,
+       91,
+       142
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "upper_arm_mid",
+      "world": [
+       971.2463491676604,
+       408.374167813419
+      ],
+      "pixel": [
+       200,
+       140,
+       100
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "elbow_r",
+      "world": [
+       988.4926983353207,
+       454.7483356268379
+      ],
+      "pixel": [
+       215,
+       160,
+       115
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "forearm_mid",
+      "world": [
+       983.9231443937631,
+       502.9055695255493
+      ],
+      "pixel": [
+       215,
+       160,
+       115
+      ],
+      "on_art": true
+     },
+     {
+      "landmark": "wrist_r",
+      "world": [
+       979.3535904522055,
+       551.0628034242607
+      ],
+      "pixel": [
+       225,
+       170,
+       130
+      ],
+      "on_art": true
+     }
+    ]
+   }
+  ],
+  "all_landmarks_on_painted_art": true,
+  "dom_order": [
+   "rt-pilot_rig--pilot_body--pilot_body",
+   "rt-pilot_rig--pilot_underpaint--pilot_underpaint",
+   "rt-pilot_rig--pilot_upper_arm--pilot_upper_arm",
+   "rt-pilot_rig--pilot_forearm--pilot_forearm",
+   "rt-pilot_rig--pilot_hand_open--pilot_hand_open",
+   "rt-pilot_rig--pilot_hand_open--pilot_hand_grip"
+  ]
+ },
+ "invalidation_landmark": {
+  "change": "identity elbow_r moved +2 canonical px",
+  "failures": [
+   "identity:pilot STALE_RECEIPT",
+   "asset:pilot_body STALE_RECEIPT",
+   "asset:pilot_upper_arm STALE_RECEIPT",
+   "asset:pilot_forearm STALE_RECEIPT",
+   "asset:pilot_underpaint STALE_RECEIPT",
+   "asset:pilot_hand_open STALE_RECEIPT",
+   "asset:pilot_hand_grip STALE_RECEIPT"
+  ],
+  "resume": {
+   "PENDING_REVIEW": 1,
+   "APPROVED": 1,
+   "INVALIDATED_MASTER_NOT_APPROVED": 6
+  }
+ },
+ "invalidation_pixel": {
+  "change": "one master pixel's red channel XOR 0x40, re-ingested",
+  "ingest_status": "REGISTERED_PENDING_REVIEW",
+  "new_master_sha256": "f52e3f352d42dd4b6e2cc543f1a743590eb45d4f5d14aa9182033c3f7f2f8a63",
+  "old_master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "failures": [
+   "asset:pilot_body STALE_RECEIPT",
+   "asset:pilot_upper_arm STALE_RECEIPT",
+   "asset:pilot_forearm STALE_RECEIPT",
+   "asset:pilot_underpaint STALE_RECEIPT",
+   "asset:pilot_hand_open STALE_RECEIPT",
+   "asset:pilot_hand_grip STALE_RECEIPT"
+  ],
+  "unreviewed": [
+   "identity:pilot",
+   "asset:pilot_master"
+  ],
+  "resume": {
+   "PENDING_REVIEW": 1,
+   "APPROVED": 1,
+   "INVALIDATED_MASTER_NOT_APPROVED": 6
+  },
+  "production_error_codes": [
+   "UNAPPROVED_ART",
+   "UNQUALIFIED_STYLE_ASSET"
+  ]
+ },
+ "images": {
+  "delivered_master": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/delivered_master.png",
+   "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f"
+  },
+  "canonical_grid": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/master_in_canonical_grid.png",
+   "legend": "delivered master resampled into canonical units; grid 25 units; blue = planned identity landmarks, red = measured landmarks"
+  },
+  "pilot_hand_open_overlay": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_hand_open__overlay_on_master.png",
+   "sha256": "b17f66fa452e3282e9f81ef07df8b1dbdb98053cbd66f22d6418bc085da7bc4d"
+  },
+  "pilot_hand_open_difference": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_hand_open__difference.png",
+   "sha256": "df04ff7f59441fa9412fb990d089b9425ee31aa80bf6b1498e49a591343ee918"
+  },
+  "pilot_hand_open_delivered": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_hand_open__delivered.png",
+   "sha256": "94f268c562de428089471aa7f607f007e53f489c8f4d271314c7f4430269c843"
+  },
+  "pilot_hand_grip_overlay": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_hand_grip__overlay_on_master.png",
+   "sha256": "be681a9f23eb1aa510c2774e75e487daa4fd003468747d7f419765b535ce8772"
+  },
+  "pilot_hand_grip_difference": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_hand_grip__difference.png",
+   "sha256": "0f190cd107e25f79066b854c5185f98649240efd55b3f6da042c1eb44d7f01cc"
+  },
+  "pilot_hand_grip_delivered": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_hand_grip__delivered.png",
+   "sha256": "d8f6da30ebc93485be24245d67e34a366e86a5f6c68543d17fd38f41b5ace7db"
+  },
+  "pilot_upper_arm_overlay": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_upper_arm__overlay_on_master.png",
+   "sha256": "a19515635493c051c7b3713eeee691ba1fbfe7d5aa39076746da65147aeffff8"
+  },
+  "pilot_upper_arm_difference": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_upper_arm__difference.png",
+   "sha256": "391297a39413fa76bd77a4819e29cbb2068d73e7c263b4aa735c7ea4a9c74e7b"
+  },
+  "pilot_upper_arm_delivered": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/pilot_upper_arm__delivered.png",
+   "sha256": "da1cbebfa55c68448bd3a2627a3e22ea8d32d311842652a4866a0e848acf6cd5"
+  },
+  "switch_frames": [
+   {
+    "file": "hybrid_v2/evidence/p0/roundtrip/switch_f99.png",
+    "sha256": "1873ea9fdbdaa89dd7b94e136329186f86bd9ffacaf11ca4f9f5dc2a5243cdd5"
+   },
+   {
+    "file": "hybrid_v2/evidence/p0/roundtrip/switch_f100.png",
+    "sha256": "ce3e88cbc5e9a64aedc3e98c3003610f07a1975cde9d405f2d85d1734ec49161"
+   },
+   {
+    "file": "hybrid_v2/evidence/p0/roundtrip/switch_f101.png",
+    "sha256": "0d20e6832528e911d7875675aec1636d14e271586ca85bf3b25e91c7644f16c9"
+   }
+  ],
+  "switch_strip": {
+   "file": "hybrid_v2/evidence/p0/roundtrip/switch_strip_99_100_101.png",
+   "sha256": "0fad1864631a798a046b4ac824939a4fa30254cd923466638be5c22b7322ef5a"
+  }
+ }
+}

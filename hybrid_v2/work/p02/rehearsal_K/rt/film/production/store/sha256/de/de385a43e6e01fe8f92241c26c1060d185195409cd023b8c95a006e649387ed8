@@ -1,0 +1,22 @@
+{
+ "produced_by": "engine/film/segment_render.mjs#renderFilm",
+ "revision": "257299fb86f4c0f535f7ec11b84562298b770215131b3830b54e3bcc39de070d",
+ "frame_manifest": "render/FRAME_MANIFEST.json",
+ "frame_manifest_sha256": "b99e196a651beaf71fbe6ef940bfc68223223dabb2e898991e49225561de9b69",
+ "mp4": "render/film.mp4",
+ "mp4_sha256": "ed1b87ebec99b112a06f9af7c030bd606403a46e92a6ea3cc98a718c691a7f7d",
+ "probe": {
+  "codec": "h264",
+  "width": 1920,
+  "height": 1080,
+  "r_frame_rate": "60/1",
+  "frames": 7200,
+  "video_duration": 120,
+  "audio_duration": 120
+ },
+ "renderer": "art_bridge_chrome_frames",
+ "renderer_provenance": "ART_BRIDGE_CAPTURE",
+ "renderer_source_sha256": "9082b8f1e7876be73e447e29c6e701e5922a5cb8cd2ace4be7e822c328a9e803",
+ "audio_sha256": "a9214cd3bb395ee20283ebe8b4079cdd84b5e689d4aaab94439812a89185e119",
+ "completed_at": "2026-11-22T14:48:19.473Z"
+}

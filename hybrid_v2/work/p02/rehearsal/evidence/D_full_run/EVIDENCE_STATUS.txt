@@ -1,0 +1,5 @@
+ORIGINAL LEDGER RECOVERED. Run DIAG-20261122124740-a1cf91: hash chain re-verified with engine/production/ledger.mjs#verifyChain = OK, 147 events, and the original failure record FAIL-S07_NEUTRINO_RENDER-chunk_0_600-7a86ba (RENDER_CAPTURE_FAILURE: frame 420: INVALID_FRAME 420.0625).
+Location: hybrid_v2/evidence/p02/RECOVERED_ORIGINAL_EVIDENCE/phaseD_run_from_s08_mp4 (an identical second copy is in phaseD_run_from_s09_audio). The bytes were copied from injection-test film copies, which had picked up the rehearsal film's production/ folder through a copy-filter defect.
+NOT recoverable: the phase folder's STATUS/VERIFY/WHY/TRACE files. No frame hashes ever existed for this run, because chunk 0 failed before any segment receipt was written.
+TRANSCRIPT.txt is a stdout capture kept for history only.
+Fresh evidence for the repaired behaviour (sub-frame shutter blur): P02-R07 (real Chrome pixels) plus the Phase G/H rehearsal blur interval [420,480).

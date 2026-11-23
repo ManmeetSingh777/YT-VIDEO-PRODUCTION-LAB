@@ -1,0 +1,101 @@
+{
+ "artjob_id": "ARTJOB_MASTER_street_far_ac5264a9",
+ "root_dependency": "street_far",
+ "identity_id": "street_night",
+ "state_kind": "MASTER",
+ "asset_kind": "WORLD_PLANE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "motion_context": {
+  "identity_id": "street_night",
+  "canonical_parent_asset": "street_far",
+  "shot_ids": [
+   "S05"
+  ],
+  "frame_ranges": [
+   [
+    4080,
+    5160
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "shopfront"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S05"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -480,
+   -270,
+   2880,
+   1620
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "street_mid_shops",
+   "street_fg_lamp",
+   "laundromat_window_interior"
+  ],
+  "why_this_drawing_is_needed": "canonical night street with overscan for the pull-back. Required by: shot S05; action S05_street; world w_street in S05"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "ee34d68cdfd179ebc48f3d87981311f6c4d4a3e94753f7f1f18421ba0a23b37f",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "c0b69822c7e3851d53147338",
+ "dependency_parts_digest": "c0b69822c7e3851d5314733869a76b50d0c8c0ac6b2f2d57526c9ef9566c4529",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "UNSUPPORTED_ART_FAMILY",
+    "reason": "design declares art_family null; one of ACTING_HUMAN, DISTANT_HUMAN, ANIMAL_OR_ORGANISM, MACHINE_OR_MECHANISM, PROP, INTERIOR_WORLD, EXTERIOR_WORLD, NATURAL_WORLD, DIAGRAM_OR_INFO, ABSTRACT_OR_MICRO_WORLD, EFFECT_OR_MATERIAL, TRANSITION_OR_CAMERA_PLATE, TYPOGRAPHY_OR_SYMBOL is required (no default)"
+   },
+   {
+    "code": "MOLECULAR_DECISIONS_MISSING",
+    "reason": "molecular_visual_decisions is absent: the highest-impact construction decisions are unspecified"
+   }
+  ],
+  "required_methods": []
+ }
+}

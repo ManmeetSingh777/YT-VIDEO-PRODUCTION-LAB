@@ -1,0 +1,72 @@
+{
+ "artjob_id": "ARTJOB_TRANSITION_PLATE_porthole_out_0e3a99ce",
+ "root_dependency": "porthole_out",
+ "identity_id": "laundromat",
+ "state_kind": "TRANSITION_PLATE",
+ "asset_kind": "TRANSITION_PLATE",
+ "medium": {
+  "medium": "OPAQUE_OR_LAYERED_RASTER_PLATE_WITH_OVERSCAN",
+  "why": "camera footprint and transition states need painted overscan"
+ },
+ "manufacturing_order": 4,
+ "derived_from": "washer_master",
+ "motion_context": {
+  "identity_id": "laundromat",
+  "canonical_parent_asset": "laundromat_far",
+  "shot_ids": [
+   "S02",
+   "S03"
+  ],
+  "frame_ranges": [
+   [
+    1800,
+    1920
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "TRANSITION",
+  "predecessor_state_id": "washer_master",
+  "successor_state_id": null,
+  "why_this_drawing_is_needed": "OUT/MIDDLE/IN transition state with registered porthole_centre. Required by: action S02_porthole; transition S02->S03"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "successor_state_id": "no planned state is derived from this one"
+ },
+ "motion_context_sha256": "a895039105813d5b2cb423bd25d0672d25287e2fb601f4824004e4755725a68d",
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "generation": "e1197608f990ee87a0e36d4b",
+ "dependency_parts_digest": "e1197608f990ee87a0e36d4b7920d175ac8e8422b270c8543f375bb0e3090e87",
+ "gate": {
+  "pass": false,
+  "family": null,
+  "failures": [
+   {
+    "code": "ART_CONTRACT_NOT_EVALUATED",
+    "reason": "derived job porthole_out lineage washer_master ≠ approved master laundromat_far"
+   }
+  ],
+  "required_methods": []
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:18",
+ "sequence": 18,
+ "prev_event_sha256": "d72061b364be34126c2e3293cd1b2c28d836f034f58703a9baaa71cecc2a5dd6",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S02_EXPERIENCE",
+ "attempt_id": "Amwru0vrn",
+ "operation_id": null,
+ "task_id": "attention_rt_world_shot",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "PLANNED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:17"
+ ],
+ "wall_time_utc": "2026-11-22T12:47:41.465Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_PLANNED",
+ "task": {
+  "task_id": "attention_rt_world_shot",
+  "producer": "engine/story/experience.mjs#compileAttention",
+  "inputs": [
+   "direction/SHOT_SCORE_60FPS.json#rt_world_shot"
+  ],
+  "expected_outputs": [
+   "attention beats with owners"
+  ],
+  "deps": [],
+  "invariants": [
+   "every attention target has a consuming track"
+  ],
+  "verification": "zero DIRECTION_DECISION_INERT",
+  "evidence_location": "production/store",
+  "group": null
+ },
+ "lock_generation": 18,
+ "event_sha256": "bfe3bc15d730025753c2d42ff1382db81cd7dd477a20550af52df141ca80cba4"
+}

@@ -1,0 +1,367 @@
+{
+ "job_id": "ARTJOB_MASTER_washer_master_38ddfd06",
+ "original_content": {
+  "script_excerpt": "PROPOSED: a front-loading coin washer whose door, drum and coin slot all move.",
+  "scene_goal": "canonical front view of one washer with a round door on a hinge, a visible drum behind glass, and a coin slot panel",
+  "new_subjects": [
+   "coin-operated front-loading washer"
+  ],
+  "noncopy_source_content": true
+ },
+ "canvas": {
+  "aspect": "16:9",
+  "view": "orthographic front view",
+  "scale": "machine 80% of image height",
+  "focal_order": [
+   "round door",
+   "coin slot",
+   "drum behind glass"
+  ]
+ },
+ "method_bindings": [
+  {
+   "method_id": "F09",
+   "conditions": "machine with functional parts",
+   "source_witnesses": [
+    "assets/abstract_world_witnesses/AI_mechanism_and_actions_contact.jpg",
+    "assets/character_native_anchors/AI_0234_rear_operator.jpg"
+   ],
+   "invariant_transferred": "parts read by function and connection",
+   "variation_required": "new machine design",
+   "observable_verification": "door hinge, drum, coin slot separately identifiable"
+  },
+  {
+   "method_id": "F68",
+   "conditions": "machine state change",
+   "source_witnesses": [
+    "assets/abstract_world_witnesses/AI_mechanism_and_actions_contact.jpg",
+    "assets/character_native_anchors/AI_0234_rear_operator.jpg"
+   ],
+   "invariant_transferred": "moving parts are separate owned shapes",
+   "variation_required": "new mechanism",
+   "observable_verification": "door ring separable from cabinet at the hinge"
+  }
+ ],
+ "subject_graph": [
+  {
+   "id": "washer",
+   "family": "machine",
+   "purpose": "be loaded, paid, started and spun in S01/S02/S07",
+   "whole_silhouette": "rounded box cabinet on a pedestal, large round door ring centred, narrow coin panel on the left side at door height",
+   "view_dependent_parts": [
+    "door ring",
+    "glass",
+    "drum",
+    "coin flap"
+   ],
+   "attachment_and_contact": [
+    "door hinged on its right",
+    "handle on the door ring's left",
+    "coin slot mouth on the left side panel at door height"
+   ],
+   "surface_materials": [
+    "off-white enamel",
+    "chrome ring",
+    "dark glass",
+    "steel drum"
+   ]
+  }
+ ],
+ "first_pass_control": {
+  "version": 2,
+  "viewer_proof": {
+   "what_changes": "identity only",
+   "recognition_test": "door, handle, coin slot read instantly at 1/10 scale",
+   "focal_order": [
+    "door",
+    "coin slot"
+   ],
+   "camera_view": "flat front"
+  },
+  "references": [
+   {
+    "path": "assets/abstract_world_witnesses/AI_mechanism_and_actions_contact.jpg",
+    "role": "STYLE_ONLY: functional parts with visible connections and flat material planes",
+    "noncopy": "no source machines or layouts"
+   },
+   {
+    "path": "assets/character_native_anchors/AI_0234_rear_operator.jpg",
+    "role": "STYLE_ONLY: operator facing a machine, hand-to-device relationship",
+    "noncopy": "no AI screens, room or source operator"
+   }
+  ],
+  "source_contrast": "Unlike the dense mechanism contact sheet: one appliance with three moving parts and large quiet enamel planes",
+  "subject_specs": [
+   {
+    "subject_id": "washer",
+    "family": "MACHINE",
+    "shape_topology": "cabinet box → door ring (circle) → glass disc → drum disc behind → coin panel rectangle with slot",
+    "material_mapping": "enamel one tone + one side plane; chrome ring with one highlight band; glass darker translucent",
+    "focal_scale_and_view": "80% height front",
+    "specific_negative_rendering": [
+     "no brand logos or text",
+     "no photoreal reflections",
+     "no extra dials"
+    ]
+   }
+  ],
+  "character_designs": [],
+  "palette_roles": {
+   "substrate": "flat light wall colour",
+   "focal_subject": "off-white enamel and chrome ring",
+   "causal_active": "coin slot mouth and handle are the darkest accents",
+   "supporting_shapes": "none",
+   "material_plane_rules": "one side plane on the cabinet",
+   "optical_exceptions": "one flat glass highlight band"
+  },
+  "density_and_focus": {
+   "t1_major": "cabinet + door",
+   "t2_owned_partwork": "handle, hinge, coin slot",
+   "t3_repeats_or_none": "NONE",
+   "primary_read_region": "door and coin panel",
+   "quiet_support_region": "cabinet top-left"
+  },
+  "causal_frame_geometry": {
+   "named_visible_anchors": [
+    {
+     "name": "door_handle",
+     "screen_position_norm": [
+      0.32,
+      0.6
+     ],
+     "drawable_parent": "door ring",
+     "visible_mark": "short vertical bar"
+    },
+    {
+     "name": "coin_slot",
+     "screen_position_norm": [
+      0.22,
+      0.63
+     ],
+     "drawable_parent": "coin panel",
+     "visible_mark": "dark slot mouth"
+    },
+    {
+     "name": "hinge",
+     "screen_position_norm": [
+      0.7,
+      0.6
+     ],
+     "drawable_parent": "door ring",
+     "visible_mark": "two hinge knuckles"
+    }
+   ],
+   "essential_connections": "door ring attached at hinge; drum visible through glass",
+   "frame_edge_policy": "whole machine inside frame",
+   "authorized_overlay_symbols": "NONE"
+  },
+  "asset_state_plan": {
+   "canonical_master": "this image",
+   "derivation_path": "door ring, glass, drum interior, laundry load, coin flap as separate registered cutouts; door half-open and open (foreshortened, swung toward the viewer on the right hinge) as registered state edits with a measured handle landmark",
+   "motion_interfaces": [
+    "hinge pivot",
+    "drum hub",
+    "coin flap pivot",
+    "handle socket",
+    "coin slot socket"
+   ]
+  },
+  "forbidden_extras": [
+   "no copied source characters, faces, costumes, layouts or stories",
+   "no text, logos or watermarks",
+   "no extra props, people or machines beyond the subject graph"
+  ]
+ },
+ "world": {
+  "projection": "orthographic front",
+  "layers": [
+   "wall",
+   "machine"
+  ],
+  "focal_contrast_vs_environment": "machine only"
+ },
+ "lighting": {
+  "opaque_color_patches": [
+   "cabinet side plane"
+  ],
+  "optical_reflection_masks": [
+   "glass band"
+  ],
+  "emissive_connected_shapes": [],
+  "atmospheric_halation_only": []
+ },
+ "manufacturing": {
+  "route": "REFERENCE_GUIDED_IMAGE",
+  "source_reference_roles": [
+   "STYLE_ONLY: functional parts with visible connections and flat material planes",
+   "STYLE_ONLY: operator facing a machine, hand-to-device relationship"
+  ],
+  "canonical_asset_inputs": [
+   "NONE — this request creates the canonical master"
+  ],
+  "masks_and_layer_order": [
+   "drum interior",
+   "laundry",
+   "cabinet",
+   "door ring",
+   "glass",
+   "coin flap"
+  ],
+  "seed_and_provider_config": {
+   "seed": "record if exposed"
+  },
+  "hybrid_v2_motion_context": {
+   "identity_id": "washer",
+   "canonical_parent_asset": "washer_master",
+   "shot_ids": [
+    "S01",
+    "S02",
+    "S07"
+   ],
+   "frame_ranges": [
+    [
+     0,
+     1920
+    ],
+    [
+     6240,
+     7200
+    ]
+   ],
+   "view_id": "front",
+   "pose_id": null,
+   "expression_id": null,
+   "required_continuity_landmarks": [
+    "hub",
+    "hinge",
+    "handle",
+    "coin_slot",
+    "base"
+   ],
+   "required_joint_pivots": [
+    {
+     "rig": "washer_rig",
+     "joint": "body",
+     "rest_xy": [
+      300,
+      600
+     ]
+    },
+    {
+     "rig": "washer_rig",
+     "joint": "door",
+     "rest_xy": [
+      432,
+      330
+     ]
+    },
+    {
+     "rig": "washer_rig",
+     "joint": "handle",
+     "rest_xy": [
+      170,
+      330
+     ]
+    },
+    {
+     "rig": "washer_rig",
+     "joint": "drum",
+     "rest_xy": [
+      300,
+      330
+     ]
+    },
+    {
+     "rig": "washer_rig",
+     "joint": "coin_flap",
+     "rest_xy": [
+      110,
+      380
+     ]
+    }
+   ],
+   "required_sockets": [
+    {
+     "socket": "washer_handle",
+     "joint": "handle",
+     "local_xy": [
+      0,
+      0
+     ]
+    },
+    {
+     "socket": "washer_coin_slot",
+     "joint": "coin_flap",
+     "local_xy": [
+      0,
+      6
+     ]
+    }
+   ],
+   "contact_type": null,
+   "alpha_requirement": "STRAIGHT",
+   "hidden_surfaces_to_paint": [],
+   "near_far_order": [],
+   "camera_footprint": null,
+   "oversized_paint_rect": null,
+   "lighting_validity": null,
+   "target_motion_mode": "ARTICULATED|CAMERA_WORLD",
+   "predecessor_state_id": null,
+   "successor_state_id": [
+    "washer_drum_interior",
+    "washer_laundry_load",
+    "washer_laundry_load_tumbling",
+    "washer_cabinet",
+    "washer_door_ring",
+    "washer_door_glass",
+    "washer_door_ring_half",
+    "washer_door_glass_half",
+    "washer_door_ring_open",
+    "washer_door_glass_open",
+    "washer_coin_flap",
+    "porthole_out",
+    "porthole_glass_middle",
+    "porthole_aperture"
+   ],
+   "why_this_drawing_is_needed": "canonical machine identity with door, drum, coin slot. Required by: shot S01; shot S02; shot S07"
+  },
+  "hybrid_v2_null_reasons": {
+   "pose_id": "not bound to a pose state",
+   "expression_id": "not an expression state",
+   "contact_type": "no contact in the action graph touches this state's joint",
+   "hidden_surfaces_to_paint": "no hidden surface declared",
+   "near_far_order": "no occlusion constraint involves this state",
+   "camera_footprint": "not a world/camera-revealed plate",
+   "oversized_paint_rect": "no overscan declared for this state",
+   "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+   "predecessor_state_id": "canonical master: no predecessor"
+  },
+  "hybrid_v2_registration_contract": {
+   "asset_kind": "MASTER",
+   "pivot_landmark_id": null,
+   "planned_pivot_xy": null,
+   "joint_id": null,
+   "alpha_mode": "STRAIGHT",
+   "view_id": "front",
+   "depth_band": "FOCAL",
+   "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+  },
+  "hybrid_v2_medium": {
+   "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+   "why": "identity is locked from one approved master; derived states are edits of it"
+  }
+ },
+ "observable_negative_tests": [
+  "FAIL if door and cabinet are one fused shape",
+  "FAIL if any text or logo appears"
+ ],
+ "uncontrolled_high_impact_decisions": [],
+ "knowledge_state": "FIRST_PASS_UNTESTED",
+ "proposal_status": "STORY_APPROVAL_PENDING",
+ "learning_context": {
+  "family": "MACHINE",
+  "view": "front",
+  "world_class": "UNSPECIFIED",
+  "subject_id": "washer"
+ }
+}

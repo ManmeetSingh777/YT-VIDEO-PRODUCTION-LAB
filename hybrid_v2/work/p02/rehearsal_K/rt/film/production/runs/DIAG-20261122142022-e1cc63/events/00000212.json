@@ -1,0 +1,29 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:212",
+ "sequence": 212,
+ "prev_event_sha256": "140e06fb87c76a774e44b2a75c57cc35af7f11f6615b79323065697a45d6390d",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S09_FILM_AUDIO_FINAL",
+ "attempt_id": "Amwryca8g",
+ "operation_id": null,
+ "task_id": "film_review",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "STARTED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:211"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:40.857Z",
+ "elapsed_ms": null,
+ "event_type": "TASK_STARTED",
+ "lock_generation": 212,
+ "event_sha256": "8f3745bd59bbb597ebc3e64b9635c3fb99c04471a4cc360190488df29e86522c"
+}

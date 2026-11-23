@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:62",
+ "sequence": 62,
+ "prev_event_sha256": "7d1f304046b3019e72fd89f8d4850746ec5d81a18f40b63d0fd7126e4a444d9f",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwrxc6hv",
+ "operation_id": null,
+ "task_id": "demand_pilot_forearm",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:61"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:28.352Z",
+ "elapsed_ms": 0,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "supplied_by_plan",
+  "pass": true,
+  "measurement": "pilot_rig open binds pilot_forearm frames [[0,600]]"
+ },
+ "lock_generation": 62,
+ "event_sha256": "9f75370254ae2a91b59d18eef6cb429b7fc721c294320203fe800cf52a4bd700"
+}

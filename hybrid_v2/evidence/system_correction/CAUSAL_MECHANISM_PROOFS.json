@@ -1,0 +1,25 @@
+{
+ "generated_by": "tests/art_bridge/story_mechanism_truth.test.mjs",
+ "proofs": {
+  "T01_correct": [],
+  "T01_inverted": [
+   {
+    "code": "MECHANISM_CONTRADICTION",
+    "counterfactual": "no_customers",
+    "target": "rent",
+    "expected": "> 0",
+    "got": 0,
+    "reason": "when activity stops, the time-based rent still accrues"
+   },
+   {
+    "code": "MECHANISM_CONTRADICTION",
+    "counterfactual": "no_customers",
+    "target": "cash",
+    "expected": "< 0",
+    "got": 0,
+    "reason": "when activity stops, the time-based rent still accrues"
+   }
+  ]
+ },
+ "note": "fixtures prove the evaluator; the film's own claims are not authored/verified (FACT_CHECK_REQUIRED)"
+}

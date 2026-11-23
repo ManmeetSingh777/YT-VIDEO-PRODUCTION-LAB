@@ -1,0 +1,40 @@
+{
+  "illustrative_world_schema_removed_from_provider_payload": true,
+  "job_id": "UNFAMILIAR-MYCELIUM-WORLD-001",
+  "medium_tree": [
+    "WORLD",
+    "MACRO"
+  ],
+  "method_source": "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/references/STYLE_OPERATIONS.md",
+  "method_sources": [
+    "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/references/STYLE_OPERATIONS.md",
+    "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/references/FULL_FILM_ROUTER_AND_METHODS.md",
+    "/home/agent/.codex/skills/remote-skills/skill-6aff13f34368819194251bf983949c4e/references/WORLD_SYSTEM_CONSTRUCTION.md"
+  ],
+  "output_art_verified": false,
+  "prompt_character_count": 30211,
+  "prompt_sha256": "e2837574f9ce626f3c30578588c05ccc0d26f12fa0aafa52f08ce7231262ee0a",
+  "provider_request_submitted": false,
+  "selected_methods": [
+    "F37",
+    "F41",
+    "F46",
+    "F47",
+    "F49"
+  ],
+  "source_job_sha256": "6573fc16775e248e333b1718c6c2c781f6d60d35be174f2b39320921bfbea06e",
+  "source_witnesses": [
+    "VOLCANO@15.2",
+    "MEMORIES@62",
+    "NUCLEAR@296",
+    "MEMORIES@75",
+    "NUCLEAR@200",
+    "AI@514",
+    "AI@35"
+  ],
+  "status": "COMPILED_NOT_DEMONSTRATED",
+  "temporal_plates_count": 0,
+  "transfer_qualified": false,
+  "world_class": "BIOLOGICAL_MICRO",
+  "world_construction_compiled": true
+}

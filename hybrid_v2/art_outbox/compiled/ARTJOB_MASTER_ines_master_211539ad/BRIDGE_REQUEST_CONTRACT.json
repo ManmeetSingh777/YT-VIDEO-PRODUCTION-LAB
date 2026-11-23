@@ -1,0 +1,178 @@
+{
+ "artjob_id": "ARTJOB_MASTER_ines_master_211539ad",
+ "gate": {
+  "job": "ARTJOB_MASTER_ines_master_211539ad",
+  "design": "ines_master",
+  "pass": true,
+  "failures": [],
+  "required_methods": [
+   {
+    "method": "F01",
+    "reason": "whole silhouette and functional anatomy of a canonical character"
+   },
+   {
+    "method": "F58",
+    "reason": "silhouette must read before interior detail"
+   },
+   {
+    "method": "F61",
+    "reason": "new palette roles for a new identity"
+   },
+   {
+    "method": "F62",
+    "reason": "edges/shadows need owners (no universal outline)"
+   },
+   {
+    "method": "F64",
+    "reason": "character identity must be routed by illustration family"
+   },
+   {
+    "method": "F80",
+    "reason": "the request must carry the methods and unlike native witnesses"
+   },
+   {
+    "method": "F05",
+    "reason": "face visible: head and facial-state fabrication"
+   },
+   {
+    "method": "F65",
+    "reason": "face visible: eye/mouth mode from role and crop"
+   },
+   {
+    "method": "F52",
+    "reason": "mark count from projected scale"
+   },
+   {
+    "method": "F06",
+    "reason": "contacts in the action graph: PLANT, GRIP, FOLLOW"
+   },
+   {
+    "method": "F66",
+    "reason": "contacts and weight shifts need weight/garment/contact states"
+   },
+   {
+    "method": "F67",
+    "reason": "registered state family required: neutral, hand_open, hand_pinch, curious, profile_turn, profile_satisfied"
+   },
+   {
+    "method": "F59",
+    "reason": "the master is cut into joined/occluding registered parts"
+   },
+   {
+    "method": "F79",
+    "reason": "cutouts need alpha, underpaint and offscreen budget"
+   }
+  ],
+  "bound_methods": [
+   "F01",
+   "F02",
+   "F05",
+   "F06",
+   "F52",
+   "F58",
+   "F59",
+   "F61",
+   "F62",
+   "F64",
+   "F65",
+   "F66",
+   "F67",
+   "F79",
+   "F80"
+  ],
+  "required_figure_height_px": 882,
+  "checked_at": "2026-11-22T03:15:16.035Z",
+  "design_approval": {
+   "status": "BLOCKED_ON_DESIGN_APPROVAL",
+   "reason": "no human design approval receipt"
+  }
+ },
+ "overrides": [
+  {
+   "field": "transparent_background",
+   "skill_value": false,
+   "contract_value": true,
+   "source": "motion_context.alpha_requirement=STRAIGHT"
+  }
+ ],
+ "method_delivery": {
+  "full_text_methods": [
+   "F01",
+   "F06",
+   "F64",
+   "F65",
+   "F66"
+  ],
+  "decision_only_methods": [
+   {
+    "method_id": "F02",
+    "source_clause_sha256": "0eb8ef8a0b72dd7c32d83dea489c59c6a991c1eee548f9eff0a352d7c99374d0"
+   },
+   {
+    "method_id": "F05",
+    "source_clause_sha256": "f4598310520b14b45bd2d9b0843c91bcb1c6208e7ec0a626d682fb02a599fd57"
+   },
+   {
+    "method_id": "F52",
+    "source_clause_sha256": "eaf6a4916e6bfa5524accceea916a3e781adb475d2bd03a84f66792b49042e11"
+   },
+   {
+    "method_id": "F58",
+    "source_clause_sha256": "f033e67fdb480405796f8a090cdc554a6ab7bd7b6cd50e37809327dcb24ffac4"
+   },
+   {
+    "method_id": "F59",
+    "source_clause_sha256": "5115c4cf9aa252cd8eff17745a0b348bbddba9695d4d79aafb43517a1e8a78e4"
+   },
+   {
+    "method_id": "F61",
+    "source_clause_sha256": "cdc226df0778c990adc366e4c221a7bda83b2cc05a47bfb20aa350b399cc7edf"
+   },
+   {
+    "method_id": "F62",
+    "source_clause_sha256": "b0abedf733f39e29aed179f297bb3a4079bad25fa71e8660ab0848226e89a274"
+   },
+   {
+    "method_id": "F67",
+    "source_clause_sha256": "5f8c5dfcbd121b56c2bf57ae2c9b01817efb6c1816c94903ee8d4522d5c6af73"
+   },
+   {
+    "method_id": "F79",
+    "source_clause_sha256": "d3093737f0f82be90acafe948f6b1ae97acbca1764e18388fb6cb856d557ff78"
+   },
+   {
+    "method_id": "F80",
+    "source_clause_sha256": "9e6d66d258fbbd76406fbe571b5d28fc615d69e0d02c84e7d0e6473756dfb80c"
+   }
+  ],
+  "rule": "F80: route the highest-impact decisions first; every bound decision is delivered; nothing truncated"
+ },
+ "motion_requirements_delivered_as_requirements": {
+  "attachment_semantics": {
+   "pelvis": "whole figure rotates/translates about the hips",
+   "chest": "upper body leans with the jacket as one mass",
+   "neck": "head turns/tilts at the collar band",
+   "shoulder_r": "near sleeve separates under the jacket shoulder line",
+   "elbow_r": "near sleeve bends at the elbow; inner sleeve exposed in deep bends (underpaint edit)",
+   "wrist_r": "hand separates at the cuff edge",
+   "shoulder_l": "far sleeve separates behind the jacket",
+   "elbow_l": "far sleeve bend (rarely visible)",
+   "wrist_l": "far hand at the far cuff",
+   "hip_r": "near trouser mass at the hem line",
+   "knee_r": "near knee bend inside the trouser mass",
+   "ankle_r": "near shoe at the hem",
+   "hip_l": "far trouser mass behind the near one",
+   "knee_l": "far knee bend",
+   "ankle_l": "far shoe — the planted support"
+  },
+  "contact_semantics": {
+   "ines_grip_r": "palm centre of the near hand closes on the washer door handle",
+   "ines_pinch_r": "thumb–index tips hold a coin and follow it into the slot",
+   "ines_sole_r": "near shoe sole on the ground line",
+   "ines_sole_l": "far shoe sole — planted during S02"
+  },
+  "note": "requirements only: the approved art determines the fitted rig geometry; no limb proportion or coordinate is prescribed to the artist"
+ },
+ "machine_motion_context_file": "BRIDGE_MOTION_CONTEXT.json",
+ "request_sha256": "a8528f8a33cc4cb18284b538f75c16f756757b17765f0196ce509da3ac1a2cf6"
+}

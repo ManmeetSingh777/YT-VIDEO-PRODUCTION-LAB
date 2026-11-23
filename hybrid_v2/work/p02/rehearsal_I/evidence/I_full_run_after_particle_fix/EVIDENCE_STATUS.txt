@@ -1,0 +1,4 @@
+STOPPED BY OPERATOR after 7/12 chunks. The original evidence is preserved in place: the ledger in ../../rt/film/production/runs, plus chunk receipts and FFV1 segments in ../../rt/film/render/chunks.
+Finding: chunks 0..2399 passed with 0 defects and 600 distinct frames each. The particle fix is confirmed on real Chrome pixels.
+Chunks 2400..3479: FROZEN_FRAME. This is a FALSE positive, caused by the expected-state hash including the transforms of HIDDEN particle rows: they keep changing after the effect ends while the visible picture legitimately holds.
+Repair: engine/film/chrome_frames.mjs computes state_sha over VISIBLE state only. The run was stopped because this repair stales its revision, and it is superseded by phase J (new directory).

@@ -1,0 +1,524 @@
+{
+ "job_id": "ARTJOB_MASTER_ines_master_211539ad",
+ "original_content": {
+  "script_excerpt": "PROPOSED (unapproved): Ines swings the washer door open, pinches a coin into the slot, and turns to watch the drum start.",
+  "scene_goal": "canonical full-figure identity of Ines in her rest state (threeq_r, neutral), from which every pose, hand, expression and view state is a source-attached edit",
+  "new_subjects": [
+   "Ines — original laundromat customer"
+  ],
+  "noncopy_source_content": true
+ },
+ "canvas": {
+  "aspect": "16:9",
+  "view": "full figure three-quarter right (threeq_r), eye level",
+  "scale": "figure 90% of image height; feet and hair fully visible",
+  "focal_order": [
+   "face",
+   "near hand",
+   "jacket silhouette"
+  ]
+ },
+ "method_bindings": [
+  {
+   "method_id": "F01",
+   "conditions": "silhouette and functional anatomy of an original full-figure character",
+   "source_witnesses": [
+    "assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg"
+   ],
+   "invariant_transferred": "filled, purpose-specific silhouette with connected anatomy",
+   "variation_required": "entirely new identity, costume and proportions",
+   "observable_verification": "outer silhouette unbroken from hair to shoes at one-tenth size",
+   "decision": "{\"silhouette_masses\":\"SAME AS first_pass_control.character_designs[0].silhouette.named_masses\",\"functional_parts\":[\"near hand that reaches, grips and pinches\",\"far foot that carries weight\",\"head that turns to profile\"]}"
+  },
+  {
+   "method_id": "F06",
+   "conditions": "whole gesture/support, task-specific hand art, contact graph and alternate drawings",
+   "source_witnesses": [
+    "assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg",
+    "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg"
+   ],
+   "invariant_transferred": "readable hand-to-object relationships with near/far occlusion",
+   "variation_required": "new task: door handle grip, coin pinch",
+   "observable_verification": "fingers never pass through the handle; grip closure readable",
+   "decision": "{\"gesture_support\":\"standing, weight on the far foot, torso tilted toward the action side\",\"contact_graph\":[{\"from\":\"ines.near_hand\",\"to\":\"washer.handle\",\"type\":\"GRIP\"},{\"from\":\"ines.near_hand\",\"to\":\"washer.coin_slot\",\"type\":\"FOLLOW/pinch\"},{\"from\":\"ines.far_foot\",\"to\":\"ground\",\"type\":\"PLANT\"}],\"hand_states\":[\"open (approach/release)\",\"closed grip (fingers in front, thumb behind)\",\"pinch (thumb and index tips)\"],\"alternate_drawings\":\"SAME AS first_pass_control.character_designs[0].state_family\"}"
+  },
+  {
+   "method_id": "F64",
+   "conditions": "identity routed by illustration family",
+   "source_witnesses": [
+    "assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg"
+   ],
+   "invariant_transferred": "family chosen before the identity",
+   "variation_required": "new person",
+   "observable_verification": "full body, hands and posture read at the planned scale",
+   "decision": "{\"illustration_family\":\"GESTURE_FULL_BODY\",\"canonical_identity\":{\"head_outer_contour\":\"SAME AS first_pass_control.character_designs[0].head.skull_contour\",\"hair_silhouette\":\"SAME AS first_pass_control.character_designs[0].head.hair_outer_path\",\"eyes_visible_from_view\":\"both: near eye full, far eye narrowed by the nose wedge\",\"neck_torso_garment\":\"short neck into the collar band of the mustard jacket\",\"near_far_arms\":\"near arm free of the jacket edge, far arm behind the jacket\",\"hands\":\"SAME AS first_pass_control.character_designs[0].body.hand_construction\",\"legs_feet\":\"wide teal trouser masses narrowing to small wedge shoes\",\"distinguishing_patches\":[\"lighter turned-back cuffs\",\"plum folded lock\",\"near cheek patch\"]}}"
+  },
+  {
+   "method_id": "F65",
+   "conditions": "eye and mouth construction from role and crop",
+   "source_witnesses": [
+    "assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg"
+   ],
+   "invariant_transferred": "eye mode chosen by projected head size and acting need",
+   "variation_required": "new face",
+   "observable_verification": "gaze direction readable in curious state",
+   "decision": "{\"face_eye_mode\":\"WHITE_SCLERA_ACTOR\",\"mouth_construction\":\"closed line (neutral), small open oval (curious), upturned line (satisfied, profile)\"}"
+  },
+  {
+   "method_id": "F66",
+   "conditions": "weight, garment volumes and contact states",
+   "source_witnesses": [
+    "assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg"
+   ],
+   "invariant_transferred": "weight support and contact states declared per pose",
+   "variation_required": "new action",
+   "observable_verification": "planted foot never slides; hand targets explicit",
+   "decision": "{\"pelvis_and_shoulder_axis\":\"pelvis level, shoulder axis tilted slightly toward the reaching side\",\"weight_support\":\"far foot\",\"garment_volumes\":\"SAME AS first_pass_control.character_designs[0].body.garment_masses\",\"hand_targets\":[\"door handle (grip)\",\"coin slot (pinch)\"]}"
+  }
+ ],
+ "subject_graph": [
+  {
+   "id": "ines",
+   "family": "human",
+   "purpose": "perform the S02 reach–grip–pinch–turn action",
+   "whole_silhouette": "SAME AS first_pass_control.character_designs[0].silhouette.outline_path",
+   "view_dependent_parts": [
+    "three-quarter face plane",
+    "near/far sleeves and trouser masses"
+   ],
+   "attachment_and_contact": [
+    "near hand free of the jacket edge, ready to reach",
+    "far foot carries the weight"
+   ],
+   "surface_materials": [
+    "mustard jacket",
+    "teal trousers",
+    "plum hair",
+    "warm brown skin"
+   ],
+   "face_and_expression": "SAME AS first_pass_control.character_designs[0].face.expression_geometry",
+   "state_family": "SAME AS first_pass_control.character_designs[0].state_family"
+  }
+ ],
+ "first_pass_control": {
+  "version": 2,
+  "viewer_proof": {
+   "what_changes": "identity only: one clean rest-state drawing that later states are edited from",
+   "recognition_test": "the same Ines is recognisable in every later state at one-tenth size",
+   "focal_order": [
+    "face",
+    "near hand",
+    "jacket silhouette"
+   ],
+   "camera_view": "eye-level three-quarter full figure on a transparent background"
+  },
+  "references": [
+   {
+    "path": "assets/character_native_anchors/BRAIN_0386_runner_human.jpg",
+    "role": "STYLE_ONLY: full-body gesture read through torso tilt, tapering trouser masses and small hands",
+    "noncopy": "no runner, park, bench, bird, bun hairstyle or source identity"
+   },
+   {
+    "path": "assets/character_native_anchors/NUCLEAR_0083_farm_humans.jpg",
+    "role": "STYLE_ONLY: mid-distance actors with dark-mark eyes, rolled sleeve cuffs and hand-to-surface contact",
+    "noncopy": "no farm, cattle, hat, moustache or source identities"
+   },
+   {
+    "path": "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg",
+    "role": "STYLE_ONLY: grip topology on a held object (fingers in front, thumb behind) and owned cheek/ear colour patches",
+    "noncopy": "no clinic, clipboard, glasses, sweater or source identities"
+   }
+  ],
+  "source_contrast": "Unlike the running figure (dynamic stride, white-sclera eyes at large head size) and the farm actors (dark-mark eyes at smaller head size, rolled cuffs): Ines stands at rest at a projected head height where white-sclera eyes still read, with turned-back cuffs as a separate owned colour",
+  "subject_specs": [
+   {
+    "subject_id": "ines",
+    "family": "HUMAN_GESTURE_FULL",
+    "shape_topology": "hair mass → face plane → jacket body → near/far sleeves with cuffs and hands → near/far trouser masses → wedge shoes",
+    "material_mapping": "jacket mustard with lighter cuffs and one darker far-side plane; trousers teal with darker inner-leg plane; skin one tone plus cheek and ear patches; hair one mass plus a lighter folded lock",
+    "focal_scale_and_view": "90% height, threeq_r",
+    "specific_negative_rendering": [
+     "no outlines on every shape",
+     "no gradient shading or cloth texture",
+     "no five separate finger sticks"
+    ]
+   }
+  ],
+  "character_designs": [
+   {
+    "subject_id": "ines",
+    "family": "HUMAN_GESTURE_FULL",
+    "view_id": "threeq_r",
+    "canonical_pose": "neutral",
+    "unique_original_identity": "Ines: an original adult laundromat customer — short asymmetric bob with one lock folded behind the near ear, mustard work jacket with turned-back cuffs, wide teal trousers; not modelled on any person or source character",
+    "intended_view": "three-quarter facing screen right (threeq_r), full figure, eye level",
+    "screen_bbox_norm": [
+     0.3,
+     0.08,
+     0.62,
+     0.96
+    ],
+    "minimum_screen_height_px": 1040,
+    "silhouette": {
+     "outline_path": "crown of the bob rises asymmetrically toward the far side, drops to a near-side lock, steps out to the jacket shoulder line, follows the slightly forward-tilted jacket back to a flared hem, then two wide trouser masses that narrow toward small wedge shoes; the near arm hangs free of the jacket edge so the hand reads against the background",
+     "named_masses": [
+      "bob hair mass over the skull, parent: head",
+      "face plane with near ear patch, parent: head",
+      "jacket body with collar band, parent: torso",
+      "near sleeve with turned-back cuff and hand, parent: jacket shoulder",
+      "far sleeve partly behind the jacket, parent: jacket shoulder",
+      "near and far trouser masses, parent: hips",
+      "wedge shoes, parent: trouser hems"
+     ],
+     "near_far_order": [
+      "near sleeve and hand in front of the jacket edge",
+      "far arm behind the jacket body",
+      "near trouser mass overlaps the far one at the knee",
+      "near ear patch in front of the hair underside"
+     ]
+    },
+    "head": {
+     "skull_contour": "compact rounded skull slightly wider at the crown than the jaw, jaw tapering to a small chin on the near side",
+     "face_plane": "three-quarter plane: far cheek clipped by the skull edge, near cheek with one warm patch, nose a small wedge on the far edge",
+     "hair_outer_path": "asymmetric bob: higher on the far side, straight-cut lower edge at jaw level, one lock folded behind the near ear",
+     "hair_lobes": [
+      "main bob mass",
+      "folded lock behind the near ear",
+      "short fringe edge over the near brow"
+     ]
+    },
+    "face": {
+     "visibility": "three_quarter",
+     "eye_regions": [
+      "near eye: white almond opening with a dark pupil",
+      "far eye: narrower white opening, partly clipped by the nose wedge"
+     ],
+     "brow_regions": [
+      "two short angular dark brows, the near one longer"
+     ],
+     "nose_region": "small darker wedge on the far edge of the face plane",
+     "mouth_region": "short closed line for neutral; separate states open and smile",
+     "expression_geometry": "neutral: brows level, lids relaxed, mouth closed line; curious: near brow lifts, lids open wider, mouth small open oval; satisfied (profile): lids lower, mouth upturned"
+    },
+    "body": {
+     "garment_masses": [
+      "mustard work jacket: one large filled mass with collar band and turned-back cuffs in a lighter mustard",
+      "wide teal trousers with one darker inner-leg plane"
+     ],
+     "hand_construction": "small mitten-like hand with a separate thumb; for gripping, fingers wrap in front of the held edge and the thumb sits behind it; for pinching, thumb and index tips meet with the other fingers folded",
+     "support_and_weight": "weight on the far foot, near knee relaxed, torso tilted slightly toward the action side"
+    },
+    "color_surfaces": [
+     {
+      "owner": "jacket",
+      "base_fill": "mustard",
+      "patches": [
+       "lighter turned-back cuffs",
+       "one darker side plane on the far side"
+      ]
+     },
+     {
+      "owner": "skin",
+      "base_fill": "warm brown",
+      "patches": [
+       "near cheek patch",
+       "ear patch"
+      ]
+     },
+     {
+      "owner": "hair",
+      "base_fill": "deep plum",
+      "patches": [
+       "folded lock slightly lighter"
+      ]
+     },
+     {
+      "owner": "trousers",
+      "base_fill": "teal",
+      "patches": [
+       "darker inner-leg plane"
+      ]
+     }
+    ],
+    "rendering_exclusions": [
+     "no outlines around every shape",
+     "no gradients, airbrush or cloth texture",
+     "no realistic fingers or knuckle wrinkles",
+     "no anime eye highlights"
+    ],
+    "state_family": [
+     "neutral",
+     "hand_open",
+     "hand_pinch",
+     "curious",
+     "profile_turn",
+     "profile_satisfied"
+    ],
+    "original_content_noncopy": true
+   }
+  ],
+  "palette_roles": {
+   "substrate": "transparent background (cutout master)",
+   "focal_subject": "mustard jacket and teal trousers",
+   "causal_active": "the near hand (warm skin) is the warmest small region",
+   "supporting_shapes": "none",
+   "material_plane_rules": "one darker side plane per garment, owned by that garment",
+   "optical_exceptions": "none"
+  },
+  "density_and_focus": {
+   "t1_major": "whole figure silhouette",
+   "t2_owned_partwork": "face features, thumb, cuffs, collar band",
+   "t3_repeats_or_none": "NONE",
+   "primary_read_region": "face and near hand",
+   "quiet_support_region": "transparent background"
+  },
+  "causal_frame_geometry": {
+   "named_visible_anchors": [
+    {
+     "name": "near_hand",
+     "screen_position_norm": [
+      0.56,
+      0.52
+     ],
+     "drawable_parent": "near sleeve",
+     "visible_mark": "open hand with separate thumb"
+    },
+    {
+     "name": "far_foot",
+     "screen_position_norm": [
+      0.44,
+      0.95
+     ],
+     "drawable_parent": "far trouser mass",
+     "visible_mark": "wedge shoe flat on the ground line"
+    }
+   ],
+   "essential_connections": "hand connected to cuff, sleeve and jacket shoulder; both shoes on one ground line",
+   "frame_edge_policy": "entire figure inside the frame with margin",
+   "authorized_overlay_symbols": "NONE"
+  },
+  "asset_state_plan": {
+   "canonical_master": "this image (rest state neutral, threeq_r)",
+   "derivation_path": "registered cutouts and every hand, expression and profile state are source-attached edits of this approved master; the approved master determines the fitted rig",
+   "motion_interfaces": [
+    "near arm must articulate at shoulder, elbow and wrist",
+    "near hand needs open, grip and pinch drawings",
+    "head needs curious and profile states",
+    "far foot stays planted"
+   ]
+  },
+  "forbidden_extras": [
+   "no copied source characters, faces, costumes, layouts or stories",
+   "no text, logos or watermarks",
+   "no extra props, people or machines beyond the subject graph"
+  ]
+ },
+ "world": {
+  "projection": "flat ground line, eye level",
+  "layers": [
+   "figure only"
+  ],
+  "focal_contrast_vs_environment": "figure only"
+ },
+ "lighting": {
+  "opaque_color_patches": [
+   "one darker side plane per garment"
+  ],
+  "optical_reflection_masks": [],
+  "emissive_connected_shapes": [],
+  "atmospheric_halation_only": []
+ },
+ "manufacturing": {
+  "route": "REFERENCE_GUIDED_IMAGE",
+  "source_reference_roles": [
+   "STYLE_ONLY: full-body gesture read through torso tilt, tapering trouser masses and small hands",
+   "STYLE_ONLY: mid-distance actors with dark-mark eyes, rolled sleeve cuffs and hand-to-surface contact",
+   "STYLE_ONLY: grip topology on a held object (fingers in front, thumb behind) and owned cheek/ear colour patches"
+  ],
+  "canonical_asset_inputs": [
+   "NONE — this request creates the canonical master"
+  ],
+  "masks_and_layer_order": [
+   "far arm",
+   "far trouser mass",
+   "jacket body",
+   "head",
+   "near trouser mass",
+   "near arm"
+  ],
+  "seed_and_provider_config": {
+   "seed": "record if exposed"
+  },
+  "bound_method_decisions": [
+   "F02 (surface-colour construction instead of generic line art): {\"surface_owners\":[\"jacket\",\"skin\",\"hair\",\"trousers\"]}",
+   "F05 (human head and facial-state fabrication): {\"head_construction\":\"SAME AS first_pass_control.character_designs[0].head\",\"facial_states\":[\"neutral\",\"curious\",\"profile_satisfied\"]}",
+   "F52 (mark count from projected scale and semantic role): {\"projected_head_height_px\":\"about one sixth of the figure height on screen (largest in S02)\",\"mark_budget\":\"two eye openings with pupils, two brows, nose wedge, mouth line, one cheek patch; no lashes, no lip detail\"}",
+   "F58 (silhouette before interior polish): {\"silhouette_test\":\"fill the figure in one flat colour at one-tenth size: head turn, near hand and planted foot must read\"}",
+   "F59 (parts join and occlude in a deliberate topology): {\"part_topology\":[{\"part\":\"near sleeve\",\"parent\":\"jacket shoulder\",\"overlap\":\"sleeve top under the jacket shoulder line\"},{\"part\":\"near hand\",\"parent\":\"near sleeve cuff\",\"overlap\":\"cuff over the wrist\"},{\"part\":\"far arm\",\"parent\":\"jacket\",\"overlap\":\"behind the jacket body\"},{\"part\":\"trouser masses\",\"parent\":\"jacket hem\",\"overlap\":\"under the hem\"}]}",
+   "F61 (conditional palette roles for a new identity): {\"palette_roles\":{\"identity\":\"mustard jacket\",\"support\":\"teal trousers\",\"focal_warm\":\"warm brown skin\",\"accent\":\"plum hair\"}}",
+   "F62 (edges and shadows have owners): {\"edge_owners\":[\"garment colour boundaries\",\"cuff band edges\",\"hair mass edge\"],\"shadow_owners\":[\"far-side jacket plane\",\"inner-leg trouser plane\"]}",
+   "F67 (expression and pose animation as a registered state family): {\"state_family\":\"SAME AS first_pass_control.character_designs[0].state_family\",\"registered_anchors\":[\"head_top\",\"chin\",\"pelvis\"]}",
+   "F79 (own the alpha, underpaint and offscreen budget): {\"alpha_mode\":\"STRAIGHT\",\"underpaint_plan\":\"inner elbow sleeve and shoulder seam produced later as source-attached underpaint edits\",\"offscreen_extent\":\"full figure inside the frame; no offscreen parts\"}",
+   "F80 (the first provider request contains the methods and unlike native pixels): {\"methods_in_request\":true,\"unlike_witnesses\":[\"SAME AS first_pass_control.references[0].path\",\"SAME AS first_pass_control.references[1].path\",\"SAME AS first_pass_control.references[2].path\"]}"
+  ],
+  "motion_requirements": {
+   "attachment_semantics": "{\"pelvis\":\"whole figure rotates/translates about the hips\",\"chest\":\"upper body leans with the jacket as one mass\",\"neck\":\"head turns/tilts at the collar band\",\"shoulder_r\":\"near sleeve separates under the jacket shoulder line\",\"elbow_r\":\"near sleeve bends at the elbow; inner sleeve exposed in deep bends (underpaint edit)\",\"wrist_r\":\"hand separates at the cuff edge\",\"shoulder_l\":\"far sleeve separates behind the jacket\",\"elbow_l\":\"far sleeve bend (rarely visible)\",\"wrist_l\":\"far hand at the far cuff\",\"hip_r\":\"near trouser mass at the hem line\",\"knee_r\":\"near knee bend inside the trouser mass\",\"ankle_r\":\"near shoe at the hem\",\"hip_l\":\"far trouser mass behind the near one\",\"knee_l\":\"far knee bend\",\"ankle_l\":\"far shoe — the planted support\"}",
+   "contact_semantics": "{\"ines_grip_r\":\"palm centre of the near hand closes on the washer door handle\",\"ines_pinch_r\":\"thumb–index tips hold a coin and follow it into the slot\",\"ines_sole_r\":\"near shoe sole on the ground line\",\"ines_sole_l\":\"far shoe sole — planted during S02\"}",
+   "note": "requirements only: the approved art determines the fitted rig geometry; no limb proportion or coordinate is prescribed to the artist"
+  },
+  "output": "{\"alpha_mode\":\"STRAIGHT\",\"figure_height_px\":1040,\"background\":\"transparent\"}"
+ },
+ "observable_negative_tests": [
+  "FAIL if fingers are separate sticks",
+  "FAIL if a front-view face is drawn on the three-quarter head",
+  "FAIL if feet are cropped or floating",
+  "FAIL if the hairstyle copies the witnesses' bun"
+ ],
+ "uncontrolled_high_impact_decisions": [],
+ "knowledge_state": "FIRST_PASS_UNTESTED",
+ "proposal_status": "STORY_AND_DESIGN_APPROVAL_PENDING",
+ "molecular_visual_decisions": {
+  "highest_impact_question": "Can one rest-state drawing of Ines carry a recognisable identity and a near hand that will later grip, pinch and release without redesign?",
+  "chosen_methods": [
+   "F01",
+   "F06",
+   "F64",
+   "F65",
+   "F66"
+  ],
+  "positive_source_contrast": "BRAIN runner (white-sclera eyes at large size) vs NUCLEAR farm actors (dark-mark eyes at mid size): choose by Ines' projected head size",
+  "contradicting_source_case": "MEMORIES clinic figure holds an object with fingers in front and thumb behind, so 'free mitten hands' cannot be a universal rule for Ines' grip state",
+  "primary_proof": {
+   "subject_parent_id": "ines",
+   "bbox_norm": [
+    0.3,
+    0.08,
+    0.62,
+    0.96
+   ],
+   "observable_before_after": "the rest drawing shows an open near hand clear of the jacket; later states change only the hand and face contours"
+  },
+  "topology_and_projections": {
+   "view_family": "THREE_QUARTER_RIGHT",
+   "parts": [
+    "hair",
+    "face",
+    "jacket",
+    "near sleeve+hand",
+    "far sleeve",
+    "trousers",
+    "shoes"
+   ],
+   "ports": [
+    "near hand",
+    "far foot"
+   ],
+   "occlusion_order": [
+    "far arm",
+    "far leg",
+    "jacket",
+    "head",
+    "near leg",
+    "near arm"
+   ]
+  },
+  "color_and_surface_owners": {
+   "palette_slots": {
+    "jacket": "mustard",
+    "trousers": "teal",
+    "skin": "warm brown",
+    "hair": "plum"
+   },
+   "specific_material_patches": [
+    "lighter cuffs",
+    "darker far-side jacket plane",
+    "darker inner-leg plane",
+    "cheek patch"
+   ],
+   "allowed_optical_masks": []
+  },
+  "density_budget_by_region": {
+   "main_proof": [
+    "face",
+    "near hand"
+   ],
+   "support": [
+    "jacket",
+    "trousers"
+   ],
+   "quiet": [
+    "background (transparent)"
+   ],
+   "repetition_parent_masks": []
+  },
+  "animation_ancestry": {
+   "canonical_master_id": "ines_master",
+   "registered_anchors": [
+    "head_top",
+    "chin",
+    "pelvis"
+   ],
+   "intermediate_states": [
+    "hand_open",
+    "hand_pinch",
+    "curious",
+    "profile_turn",
+    "profile_satisfied"
+   ],
+   "alpha_underpaint_overscan": [
+    "STRAIGHT alpha",
+    "inner elbow underpaint edit",
+    "no overscan"
+   ]
+  },
+  "specific_generational_exclusions": [
+   "no bun hairstyle (witness identity)",
+   "no glasses or clipboard",
+   "no props",
+   "no background scene"
+  ],
+  "falsification_test": "If at one-tenth size the near hand merges with the jacket or the head turn is unreadable, the silhouette decision is revised before any state art"
+ },
+ "output": {
+  "alpha_mode": "STRAIGHT",
+  "figure_height_px": 1040,
+  "background": "transparent"
+ },
+ "motion_requirements": {
+  "attachment_semantics": {
+   "pelvis": "whole figure rotates/translates about the hips",
+   "chest": "upper body leans with the jacket as one mass",
+   "neck": "head turns/tilts at the collar band",
+   "shoulder_r": "near sleeve separates under the jacket shoulder line",
+   "elbow_r": "near sleeve bends at the elbow; inner sleeve exposed in deep bends (underpaint edit)",
+   "wrist_r": "hand separates at the cuff edge",
+   "shoulder_l": "far sleeve separates behind the jacket",
+   "elbow_l": "far sleeve bend (rarely visible)",
+   "wrist_l": "far hand at the far cuff",
+   "hip_r": "near trouser mass at the hem line",
+   "knee_r": "near knee bend inside the trouser mass",
+   "ankle_r": "near shoe at the hem",
+   "hip_l": "far trouser mass behind the near one",
+   "knee_l": "far knee bend",
+   "ankle_l": "far shoe — the planted support"
+  },
+  "contact_semantics": {
+   "ines_grip_r": "palm centre of the near hand closes on the washer door handle",
+   "ines_pinch_r": "thumb–index tips hold a coin and follow it into the slot",
+   "ines_sole_r": "near shoe sole on the ground line",
+   "ines_sole_l": "far shoe sole — planted during S02"
+  },
+  "note": "requirements only: the approved art determines the fitted rig geometry; no limb proportion or coordinate is prescribed to the artist"
+ },
+ "learning_context": {
+  "family": "HUMAN_GESTURE_FULL",
+  "view": "threeq_r",
+  "world_class": "UNSPECIFIED",
+  "subject_id": "ines"
+ }
+}

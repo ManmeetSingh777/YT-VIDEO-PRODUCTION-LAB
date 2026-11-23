@@ -1,0 +1,17 @@
+{
+ "qa": "",
+ "scenes": [
+  {
+   "scene": "bkreview",
+   "used_events": [],
+   "contract_events": [],
+   "applied_lessons": []
+  }
+ ],
+ "lessons_available": [
+  "_foundation_test:Q01",
+  "_foundation_test:Q02",
+  "_qual_A:Q04"
+ ],
+ "problems": []
+}

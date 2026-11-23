@@ -1,0 +1,703 @@
+{
+ "built": "2026-11-21T13:24:02.228Z",
+ "qa": "",
+ "entries": [
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F64",
+   "applies_because": "full-body actor whose stride, reach and grip carry the scene's cause",
+   "required_visible_result": "family = HUMAN_GESTURE_FULL: whole body reads; face kept to a small mark budget",
+   "ops": [
+    {
+     "op": "defineRig",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-rig",
+     "built": true,
+     "as": "sc01-k-rig"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F58",
+   "applies_because": "identity must read before interior detail",
+   "required_visible_result": "bob + stiff collar + long coat hem readable as a black silhouette at 1/10 size",
+   "ops": [
+    {
+     "op": "defineRig",
+     "exists": true
+    },
+    {
+     "op": "surf",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-hairF",
+     "built": true,
+     "as": "sc01-k-hairF"
+    },
+    {
+     "id": "k-collarF",
+     "built": true,
+     "as": "sc01-k-collarF"
+    },
+    {
+     "id": "k-skirt",
+     "built": true,
+     "as": "sc01-k-skirt"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F59",
+   "applies_because": "parts join and occlude deliberately",
+   "required_visible_result": "far arm/leg behind torso, collar back wing behind neck, front wing in front; hair back mass behind skull",
+   "ops": [
+    {
+     "op": "defineRig",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-upperB",
+     "built": true,
+     "as": "sc01-k-upperB"
+    },
+    {
+     "id": "k-collarB",
+     "built": true,
+     "as": "sc01-k-collarB"
+    },
+    {
+     "id": "k-collarF",
+     "built": true,
+     "as": "sc01-k-collarF"
+    },
+    {
+     "id": "k-hairB",
+     "built": true,
+     "as": "sc01-k-hairB"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F02",
+   "applies_because": "opaque cloth and skin",
+   "required_visible_result": "forms are filled planes; contours are fill boundaries; no outline stroke on body",
+   "ops": [
+    {
+     "op": "surf",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-coat",
+     "built": true,
+     "as": "sc01-k-coat"
+    },
+    {
+     "id": "k-skull",
+     "built": true,
+     "as": "sc01-k-skull"
+    },
+    {
+     "id": "k-skirt",
+     "built": true,
+     "as": "sc01-k-skirt"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F62",
+   "applies_because": "edges and shadows have owners",
+   "required_visible_result": "core-shadow crescents are clipped inside each parent and aimed away from the light",
+   "ops": [
+    {
+     "op": "surf",
+     "exists": true
+    },
+    {
+     "op": "MN.rig",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-coat-L",
+     "built": true,
+     "as": "sc01-k-coat-L"
+    },
+    {
+     "id": "k-skull-L",
+     "built": true,
+     "as": "sc01-k-skull-L"
+    },
+    {
+     "id": "k-armF-L",
+     "built": true,
+     "as": "sc01-k-armF-L"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F04",
+   "applies_because": "opaque form lighting",
+   "required_visible_result": "hard bounded light/shade planes, no blur on the body",
+   "ops": [
+    {
+     "op": "surf",
+     "exists": true
+    },
+    {
+     "op": "MN.setLight",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-coat-L",
+     "built": true,
+     "as": "sc01-k-coat-L"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F05",
+   "applies_because": "three-quarter head with gaze acting",
+   "required_visible_result": "skull→hair cap→face plane order; near eye larger, far eye narrower; nose on the near contour",
+   "ops": [
+    {
+     "op": "defineRig",
+     "exists": true
+    },
+    {
+     "op": "surf",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-skull",
+     "built": true,
+     "as": "sc01-k-skull"
+    },
+    {
+     "id": "k-eyeNw",
+     "built": true,
+     "as": "sc01-k-eyeNw"
+    },
+    {
+     "id": "k-eyeFw",
+     "built": true,
+     "as": "sc01-k-eyeFw"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F65",
+   "applies_because": "gaze direction is part of the action (looks at lantern)",
+   "required_visible_result": "WHITE_SCLERA_ACTOR: pupil clipped inside a morphing eye white; lid closes by geometry",
+   "ops": [
+    {
+     "op": "defineRig",
+     "exists": true
+    },
+    {
+     "op": "R.pose",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-pupN",
+     "built": true,
+     "as": "sc01-k-pupN"
+    },
+    {
+     "id": "k-eyeNw",
+     "built": true,
+     "as": "sc01-k-eyeNw"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F67",
+   "applies_because": "expression changes during the scene",
+   "required_visible_result": "neutral→effort→delighted are blendshape states of one mouth/eye topology",
+   "ops": [
+    {
+     "op": "morphable",
+     "exists": true
+    },
+    {
+     "op": "R.pose",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-mouth",
+     "built": true,
+     "as": "sc01-k-mouth"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F06",
+   "applies_because": "walk, reach and grip are the scene's physical contacts",
+   "required_visible_result": "feet planted during stance; hand closes ON the handle; lantern follows the grip socket",
+   "ops": [
+    {
+     "op": "R.walk",
+     "exists": true
+    },
+    {
+     "op": "R.reach",
+     "exists": true
+    },
+    {
+     "op": "R.attach",
+     "exists": true
+    },
+    {
+     "op": "handPath",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-handFm",
+     "built": true,
+     "as": "sc01-k-handFm"
+    },
+    {
+     "id": "k-bootF",
+     "built": true,
+     "as": "sc01-k-bootF"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F66",
+   "applies_because": "body acting with garment response",
+   "required_visible_result": "skirt blendshape flares with the solved stride; sleeves bend as continuous contours",
+   "ops": [
+    {
+     "op": "R.post",
+     "exists": true
+    },
+    {
+     "op": "MN.rig",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-skirt",
+     "built": true,
+     "as": "sc01-k-skirt"
+    },
+    {
+     "id": "k-armF",
+     "built": true,
+     "as": "sc01-k-armF"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "family": "HUMAN_GESTURE_FULL",
+   "method": "F30",
+   "applies_because": "multi-state character library before animation",
+   "required_visible_result": "expr presets + hand states exist as data, used by the scene",
+   "ops": [
+    {
+     "op": "defineRig",
+     "exists": true
+    },
+    {
+     "op": "R.pose",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-handFm",
+     "built": true,
+     "as": "sc01-k-handFm"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "keeper",
+   "method": "F07",
+   "status": "not_applicable",
+   "reason": "not a mascot/animal"
+  },
+  {
+   "identity": "keeper",
+   "method": "F52",
+   "status": "not_applicable",
+   "reason": "single scale band in this test (wide/medium); no extreme close-up"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F37",
+   "applies_because": "interior must be a world, not a backdrop",
+   "required_visible_result": "wall/wainscot/floor/window/shelf/table/foreground plant on separate strata",
+   "ops": [
+    {
+     "op": "stratum",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "wall",
+     "built": true,
+     "as": "sc01-wall"
+    },
+    {
+     "id": "floor",
+     "built": true,
+     "as": "sc01-floor"
+    },
+    {
+     "id": "fg",
+     "built": true,
+     "as": "sc01-fg"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F38",
+   "applies_because": "all built props share one projection",
+   "required_visible_result": "sill, shelf, table top faces recede along one oblique vector",
+   "ops": [
+    {
+     "op": "oblique",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "wall",
+     "built": true,
+     "as": "sc01-wall"
+    },
+    {
+     "id": "table",
+     "built": true,
+     "as": "sc01-table"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F10",
+   "applies_because": "props are supported",
+   "required_visible_result": "jars stand on the shelf top, table legs reach the floor, cup on tabletop",
+   "ops": [
+    {
+     "op": "oblique",
+     "exists": true
+    },
+    {
+     "op": "surf",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "r-jar0",
+     "built": true,
+     "as": "sc01-r-jar0"
+    },
+    {
+     "id": "r-cup",
+     "built": true,
+     "as": "sc01-r-cup"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F48",
+   "applies_because": "window shows another place",
+   "required_visible_result": "complete inner world with its own strata visible through a real opening, rim over it",
+   "ops": [
+    {
+     "op": "local:innerWorld",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "iwsky",
+     "built": true,
+     "as": "sc01-iwsky"
+    },
+    {
+     "id": "iwtown",
+     "built": true,
+     "as": "sc01-iwtown"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F76",
+   "applies_because": "repeated windows/trees",
+   "required_visible_result": "lit windows sit on house front planes; trees seeded inside hill polygons",
+   "ops": [
+    {
+     "op": "repeat",
+     "exists": true
+    },
+    {
+     "op": "oblique",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "iwtown",
+     "built": true,
+     "as": "sc01-iwtown"
+    },
+    {
+     "id": "iwnear",
+     "built": true,
+     "as": "sc01-iwnear"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F11",
+   "applies_because": "foreground/background strata",
+   "required_visible_result": "dark near plant plane with own parallax and sway",
+   "ops": [
+    {
+     "op": "MN.sway",
+     "exists": true
+    },
+    {
+     "op": "MN.camera",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "fg",
+     "built": true,
+     "as": "sc01-fg"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "room",
+   "family": "FUNCTIONAL_INTERIOR",
+   "method": "F51",
+   "applies_because": "scene palette as roles",
+   "required_visible_result": "cool indigo env; warm lantern is the single focal accent; recede tone measured",
+   "ops": [
+    {
+     "op": "roles",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "wall",
+     "built": true,
+     "as": "sc01-wall"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "lantern",
+   "family": "PROP_TRANSFORMING",
+   "method": "F14",
+   "applies_because": "lantern → star is a real state change",
+   "required_visible_result": "outline resampled to a common 80-point topology and interpolated; pleats retire, facets arrive inside the same parent",
+   "ops": [
+    {
+     "op": "morphable",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "lan-body-d",
+     "built": true,
+     "as": "sc01-lan-body-d"
+    },
+    {
+     "id": "lan-facets",
+     "built": true,
+     "as": "sc01-lan-facets"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "lantern",
+   "family": "PROP_TRANSFORMING",
+   "method": "F13",
+   "applies_because": "luminous object",
+   "required_visible_result": "core and facets are drawn structure; halo is a separate fx layer",
+   "ops": [
+    {
+     "op": "emissive",
+     "exists": true
+    },
+    {
+     "op": "surf",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "lan-core",
+     "built": true,
+     "as": "sc01-lan-core"
+    },
+    {
+     "id": "lan-halo",
+     "built": true,
+     "as": "sc01-lan-halo"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "lantern",
+   "family": "PROP_TRANSFORMING",
+   "method": "F63",
+   "applies_because": "glow belongs to the emitter",
+   "required_visible_result": "nofx render keeps the star legible (facets + core) with halo removed",
+   "ops": [
+    {
+     "op": "emissive",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "lan-glow",
+     "built": true,
+     "as": "sc01-lan-glow"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  },
+  {
+   "identity": "lantern",
+   "family": "PROP_TRANSFORMING",
+   "method": "F22",
+   "applies_because": "light change is re-lighting, not a grade",
+   "required_visible_result": "after unfold the lantern is a point light; every attached shade plane re-aims toward it",
+   "ops": [
+    {
+     "op": "MN.setLight",
+     "exists": true
+    },
+    {
+     "op": "surf",
+     "exists": true
+    }
+   ],
+   "components": [
+    {
+     "id": "k-coat-L",
+     "built": true,
+     "as": "sc01-k-coat-L"
+    },
+    {
+     "id": "r-cup-L",
+     "built": true,
+     "as": "sc01-r-cup-L"
+    }
+   ],
+   "evidence": [],
+   "status": "implemented"
+  }
+ ]
+}

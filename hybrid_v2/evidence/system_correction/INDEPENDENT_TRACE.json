@@ -1,0 +1,197 @@
+{
+ "generated_by": "engine/tools/audit_trace.mjs",
+ "at": "2026-11-22T08:28:58.589Z",
+ "live_fail_open_hits": [
+  {
+   "code": "NULL_CONTRACT_PATH",
+   "file": "engine/art_bridge/art_requests.mjs",
+   "line": 141,
+   "context": "LIVE",
+   "text": "export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null, contract = null, film = null, masterJob = null, dryRun = false, editReference = null, limit = unde"
+  },
+  {
+   "code": "EXPORT_EXISTENCE_AS_PROOF",
+   "file": "engine/art_bridge/method_trace.mjs",
+   "line": 35,
+   "context": "LIVE",
+   "text": "try { const m = await import(url.pathToFileURL(file)); return typeof m[exp] === \"function\" ? { ok: true } : { ok: false, why: `export ${exp} is not a function in ${mod}` }; }"
+  },
+  {
+   "code": "BROAD_CATCH_SWALLOW",
+   "file": "engine/film/segment_render.mjs",
+   "line": 36,
+   "context": "LIVE",
+   "text": "const abort = (e) => { done.catch(() => {}); try { ff.stdin.destroy(); } catch {} ff.kill(\"SIGKILL\"); try { fs.rmSync(tmp, { force: true }); } catch {} throw e; };"
+  }
+ ],
+ "all_pattern_hits": [
+  {
+   "code": "PLACEHOLDER_TEXT",
+   "file": "engine/art_bridge/art_contract.mjs",
+   "line": 80,
+   "context": "REFUSAL_OR_DETECTOR",
+   "text": "const PLACEHOLDER = [/USE F57.F80 METHOD ROUTING/i, /whatever the model chooses/i, /\\bSAME AS\\b/, /which compositional construction would prove this/i, /actual name/i, /id from sub"
+  },
+  {
+   "code": "NULL_CONTRACT_PATH",
+   "file": "engine/art_bridge/art_requests.mjs",
+   "line": 139,
+   "context": "COMMENT",
+   "text": "*  (resolved here from the film; there is no contract=null path). The output is a staged, complete, content-addressed request set that is"
+  },
+  {
+   "code": "NULL_CONTRACT_PATH",
+   "file": "engine/art_bridge/art_requests.mjs",
+   "line": 141,
+   "context": "LIVE",
+   "text": "export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null, contract = null, film = null, masterJob = null, dryRun = false, editReference = null, limit = unde"
+  },
+  {
+   "code": "NULL_CONTRACT_PATH",
+   "file": "engine/art_bridge/art_requests.mjs",
+   "line": 143,
+   "context": "REFUSAL_OR_DETECTOR",
+   "text": "if (!FILM) throw err(\"ART_CONTRACT_NOT_EVALUATED\", { record_id: job?.artjob_id, reason: \"compileArtJob needs the film root to resolve the typed contract (no contract=null path)\", p"
+  },
+  {
+   "code": "MEASURED_BY_FLAG",
+   "file": "engine/art_bridge/audio_cues.mjs",
+   "line": 16,
+   "context": "REFUSAL_OR_DETECTOR",
+   "text": "if (critical && !MEASURED.has(hit.method)) throw err(\"MISSING_WORD_ALIGNMENT\", { record_id, dependency: `${sid}:${word}`, reason: `word timing method is \"${hit.method}\"; a critical"
+  },
+  {
+   "code": "EXPORT_EXISTENCE_AS_PROOF",
+   "file": "engine/art_bridge/method_trace.mjs",
+   "line": 35,
+   "context": "LIVE",
+   "text": "try { const m = await import(url.pathToFileURL(file)); return typeof m[exp] === \"function\" ? { ok: true } : { ok: false, why: `export ${exp} is not a function in ${mod}` }; }"
+  },
+  {
+   "code": "BROAD_CATCH_SWALLOW",
+   "file": "engine/film/segment_render.mjs",
+   "line": 36,
+   "context": "LIVE",
+   "text": "const abort = (e) => { done.catch(() => {}); try { ff.stdin.destroy(); } catch {} ff.kill(\"SIGKILL\"); try { fs.rmSync(tmp, { force: true }); } catch {} throw e; };"
+  },
+  {
+   "code": "PLACEHOLDER_TEXT",
+   "file": "engine/methods/proofs/p_world.mjs",
+   "line": 50,
+   "context": "REFUSAL_OR_DETECTOR",
+   "text": "refuse: [{ path: \"m.conduits\", value: [{ from: \"body\", to: \"out\", width: 10, via: [] }], why: \"no flow from input to output\" }, { path: \"m.conduits.0.to\", value: \"ghost\", why: \"con"
+  },
+  {
+   "code": "PLACEHOLDER_TEXT",
+   "file": "engine/methods/proofs/p_world.mjs",
+   "line": 140,
+   "context": "REFUSAL_OR_DETECTOR",
+   "text": "out.push(prove({ method: \"F36\", class: \"EVIDENCE_GATE\", name: \"F36 shotContract\", base: SC, producer: (d) => shotContract(d, [\"F01\", \"F39\", \"F69\"]), inputs: [\"source_methods\", \"sou"
+  }
+ ],
+ "provider_submission_closure": [
+  "engine/art_bridge/approvals.mjs",
+  "engine/art_bridge/art_contract.mjs",
+  "engine/art_bridge/art_families.mjs",
+  "engine/art_bridge/art_intake.mjs",
+  "engine/art_bridge/art_requests.mjs",
+  "engine/art_bridge/asset_geometry.mjs",
+  "engine/art_bridge/asset_state.mjs",
+  "engine/art_bridge/constraints.mjs",
+  "engine/art_bridge/coverage.mjs",
+  "engine/art_bridge/deform.mjs",
+  "engine/art_bridge/errors.mjs",
+  "engine/art_bridge/graph.mjs",
+  "engine/art_bridge/jsonschema.mjs",
+  "engine/art_bridge/load_manifest.mjs",
+  "engine/art_bridge/math2d.mjs",
+  "engine/art_bridge/method_applicability.mjs",
+  "engine/art_bridge/method_trace.mjs",
+  "engine/art_bridge/outbox_store.mjs",
+  "engine/art_bridge/png.mjs",
+  "engine/art_bridge/providers/image_provider.mjs",
+  "engine/art_bridge/registration.mjs",
+  "engine/art_bridge/registration_evidence.mjs",
+  "engine/art_bridge/repair_memory.mjs",
+  "engine/art_bridge/request_stages.mjs",
+  "engine/art_bridge/source_method_causality.mjs",
+  "engine/art_bridge/state_router.mjs",
+  "engine/art_bridge/temporal.mjs",
+  "engine/art_bridge/witness_regions.mjs",
+  "engine/tools/art_bridge_check.mjs"
+ ],
+ "receipt_writers": [
+  {
+   "file": "engine/art_bridge/art_contract.mjs",
+   "line": 289,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const r = writeReceipt(FILM, doc, { scope, id: bundle.id, reviewer, verdict, notes, attestation: att, bundle, evidence: Object.keys(bundle.f"
+  },
+  {
+   "file": "engine/art_bridge/art_contract.mjs",
+   "line": 303,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const rr = writeReceipt(FILM, doc, { scope: \"design\", id: design.job_id, reviewer, verdict, notes, scope_note, attestation: att, bundle, evi"
+  },
+  {
+   "file": "engine/art_bridge/art_intake.mjs",
+   "line": 247,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const ra = writeReceipt(FILM, doc, { scope: \"asset\", id: m.id, reviewer, verdict, notes, evidence: evd, scope_note, revision: rev, attestati"
+  },
+  {
+   "file": "engine/art_bridge/art_intake.mjs",
+   "line": 248,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const ri = writeReceipt(FILM, doc, { scope: \"identity\", id: identity, reviewer, verdict, notes, evidence: evd, scope_note, revision: rev, at"
+  },
+  {
+   "file": "engine/art_bridge/art_intake.mjs",
+   "line": 299,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const r = writeReceipt(FILM, doc, { scope: \"asset\", id: asset, reviewer, verdict, notes, scope_note, evidence: [`registration/${asset}/${ass"
+  },
+  {
+   "file": "engine/art_bridge/art_intake.mjs",
+   "line": 308,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const r = writeReceipt(FILM, doc, { scope: \"state\", id: `${rig}::${state}`, reviewer, verdict, notes, scope_note, revision: revision(), atte"
+  },
+  {
+   "file": "engine/art_bridge/art_intake.mjs",
+   "line": 315,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const r = writeReceipt(FILM, doc, { scope: \"edge\", id: `${rig}::${from}::${to}`, reviewer, verdict, notes, scope_note, evidence, revision: r"
+  },
+  {
+   "file": "engine/art_bridge/art_review.mjs",
+   "line": 26,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const r = writeReceipt(film, doc, { scope: \"art_review\", id: candidateSha, reviewer, verdict, notes, attestation: att, bundle, evidence: [pa"
+  },
+  {
+   "file": "engine/tools/art_bridge_film_qa.mjs",
+   "line": 105,
+   "human_requires": "attestation parameter (HUMAN only via interactive TTY)",
+   "text": "const r = writeReceipt(FILM, doc, { scope: \"film\", id: doc.project_id, reviewer, verdict, notes, bundle, attestation: att, evidence: [\"qa/fi"
+  }
+ ],
+ "producers_without_production_call_site": [
+  {
+   "row": "F021",
+   "producer": "engine/art_bridge/motion_systems.mjs#validateViewTurn",
+   "note": "exported and tested; no non-test call site — library consumer awaiting its production caller"
+  },
+  {
+   "row": "F066",
+   "producer": "engine/art_bridge/motion_systems.mjs#seededParticles",
+   "note": "exported and tested; no non-test call site — library consumer awaiting its production caller"
+  },
+  {
+   "row": "F069",
+   "producer": "engine/art_bridge/motion_systems.mjs#shutterSamples",
+   "note": "exported and tested; no non-test call site — library consumer awaiting its production caller"
+  }
+ ],
+ "note": "LIVE hits are reported for independent review; a LIVE hit is not automatically a defect (e.g. a deprecated option that now throws), but each must be explained in ROOT_CAUSE_REPAIR_MATRIX.md"
+}

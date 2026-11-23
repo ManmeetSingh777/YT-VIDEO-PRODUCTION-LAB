@@ -1,0 +1,129 @@
+{
+ "part_id": "pilot_hand_open",
+ "status": "PENDING_REVIEW",
+ "transform_mode": "SIMILARITY",
+ "raster_to_canonical": [
+  0.7878462024097668,
+  -0.13891854213354474,
+  0.13891854213354474,
+  0.7878462024097668,
+  419.9999999999999,
+  559.9999999999999
+ ],
+ "scale": 0.8000000000000004,
+ "source": {
+  "master": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\assets\\art\\pilot_master.png",
+  "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "raw_part": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\delivered\\hand_open.png",
+  "raw_sha256": "94f268c562de428089471aa7f607f007e53f489c8f4d271314c7f4430269c843",
+  "region_mask": null
+ },
+ "approved_part_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_hand_open\\attempt_94f268c562de\\pilot_hand_open.png",
+ "approved_part_sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+ "source_pixel_crop_in_raw": [
+  40,
+  56,
+  96,
+  144
+ ],
+ "manifest_fields": {
+  "width_px": 96,
+  "height_px": 144,
+  "source_pixel_crop": [
+   0,
+   0,
+   96,
+   144
+  ],
+  "crop_to_canonical_matrix": [
+   0.7878462024097668,
+   -0.13891854213354474,
+   0.13891854213354474,
+   0.7878462024097668,
+   459.29328645586907,
+   598.562645649605
+  ],
+  "canonical_rect": [
+   459.29328645586907,
+   585.2264656047847,
+   95.63750549856809,
+   126.78603319182673
+  ],
+  "pivot_xy": [
+   490,
+   620
+  ],
+  "pivot_landmark_id": "wrist_r",
+  "landmarks": {
+   "wrist_r": [
+    490,
+    620
+   ],
+   "knuckle_r": [
+    506,
+    690
+   ],
+   "thumb_r": [
+    524,
+    638
+   ]
+  },
+  "alpha_mode": "STRAIGHT",
+  "underpaint_asset_ids": [],
+  "hidden_surfaces": []
+ },
+ "landmark_sidecar": {
+  "sha256": "b817a1427f24f43bb15551409429ab169a6cfec4b455c5ad3f4a5c81f6b259b9",
+  "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+  "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)",
+  "landmarks": {
+   "wrist_r": [
+    73.1470650635485,
+    89.05479702177206
+   ],
+   "knuckle_r": [
+    77.64900457793618,
+    178.69843896367888
+   ],
+   "thumb_r": [
+    111.09431056906129,
+    118.59301901539129
+   ]
+  }
+ },
+ "landmark_residuals": [
+  {
+   "landmark": "wrist_r",
+   "residual_px": 1.1368683772161603e-13
+  },
+  {
+   "landmark": "knuckle_r",
+   "residual_px": 0
+  },
+  {
+   "landmark": "thumb_r",
+   "residual_px": 1.1368683772161603e-13
+  }
+ ],
+ "max_residual_px": 1.1368683772161603e-13,
+ "alpha_report": {
+  "transparent": 30121,
+  "partial": 369,
+  "opaque": 9510
+ },
+ "rest_overlay": {
+  "overlay_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_hand_open\\attempt_94f268c562de\\pilot_hand_open__overlay_on_master.png",
+  "difference_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_hand_open\\attempt_94f268c562de\\pilot_hand_open__difference.png",
+  "mean_abs_diff_opaque": 8.142910562698667,
+  "max_abs_diff_opaque": 33.66666666666671,
+  "pixels_compared": 5949
+ },
+ "failures": [],
+ "missing_art": [],
+ "reviewer_verdict": null,
+ "review_required": "visual check of overlay on transparent, contrasting and master backgrounds at full resolution (contour drift, seams, fringes)",
+ "master_asset_id": "pilot_master",
+ "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+ "tolerance_px": 2,
+ "planned_alpha_mode": "STRAIGHT"
+}

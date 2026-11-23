@@ -1,0 +1,151 @@
+{
+ "part_id": "pilot_hand_open",
+ "status": "REGISTRATION_FAILED",
+ "transform_mode": "SIMILARITY",
+ "raster_to_canonical": [
+  0.761904911603773,
+  0.3560455065398719,
+  -0.3560455065398719,
+  0.761904911603773,
+  428.4788351202495,
+  542.1003765934582
+ ],
+ "scale": 0.84099197205038,
+ "source": {
+  "master": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\assets\\art\\pilot_master.png",
+  "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+  "raw_part": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\delivered\\hand_offaxis.png",
+  "raw_sha256": "7c96091ee526f05ba6f91748f364fe4ede189311faf1e6d960d0e626ff9444c7",
+  "region_mask": null
+ },
+ "approved_part_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_hand_open\\attempt_7c96091ee526\\pilot_hand_open.png",
+ "approved_part_sha256": "c9aeebd3eb9545f963cac90534f19afe6b61f489cf12e97017aaa78c443846f9",
+ "source_pixel_crop_in_raw": [
+  71,
+  17,
+  123,
+  145
+ ],
+ "manifest_fields": {
+  "width_px": 123,
+  "height_px": 145,
+  "source_pixel_crop": [
+   0,
+   0,
+   123,
+   145
+  ],
+  "crop_to_canonical_matrix": [
+   0.761904911603773,
+   0.3560455065398719,
+   -0.3560455065398719,
+   0.761904911603773,
+   476.5213102329396,
+   580.3319910550533
+  ],
+  "canonical_rect": [
+   424.89471178465817,
+   580.3319910550533,
+   145.34090257554556,
+   154.26980948695132
+  ],
+  "pivot_xy": [
+   490,
+   620
+  ],
+  "pivot_landmark_id": "wrist_r",
+  "landmarks": {
+   "wrist_r": [
+    490,
+    620
+   ],
+   "knuckle_r": [
+    506,
+    690
+   ],
+   "thumb_r": [
+    524,
+    638
+   ]
+  },
+  "alpha_mode": "STRAIGHT",
+  "underpaint_asset_ids": [],
+  "hidden_surfaces": []
+ },
+ "landmark_sidecar": {
+  "sha256": "0061f185aa36c5158c5ca4d21f9bf0266824703f5561f18d3ee279965571df1c",
+  "reviewed_by": "roundtrip-operator (DIAGNOSTIC)",
+  "method": "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)",
+  "landmarks": {
+   "wrist_r": [
+    103.92993818298248,
+    49.79777052520967
+   ],
+   "knuckle_r": [
+    159.8951211552345,
+    118.13989942345279
+   ],
+   "thumb_r": [
+    150.80521431507475,
+    60.53129219985658
+   ]
+  }
+ },
+ "landmark_residuals": [
+  {
+   "landmark": "wrist_r",
+   "residual_px": 2.9554228896923815
+  },
+  {
+   "landmark": "knuckle_r",
+   "residual_px": 2.4368738749856305
+  },
+  {
+   "landmark": "thumb_r",
+   "residual_px": 4.476266963456247
+  }
+ ],
+ "max_residual_px": 4.476266963456247,
+ "alpha_report": {
+  "transparent": 29715,
+  "partial": 422,
+  "opaque": 9863
+ },
+ "rest_overlay": {
+  "overlay_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_hand_open\\attempt_7c96091ee526\\pilot_hand_open__overlay_on_master.png",
+  "difference_file": "E:\\MOTION_NATIVE_STUDIO_V1\\hybrid_v2\\work\\p02\\rehearsal_K\\rt\\film\\registration\\pilot_hand_open\\attempt_7c96091ee526\\pilot_hand_open__difference.png",
+  "mean_abs_diff_opaque": 31.24316913879848,
+  "max_abs_diff_opaque": 188.33333333333337,
+  "pixels_compared": 6816
+ },
+ "failures": [
+  {
+   "code": "UNREGISTERED_PIVOT",
+   "record_id": "pilot_hand_open",
+   "human_readable_reason": "landmark residual 4.476px > 2px: correspondences or transform class are wrong",
+   "details": {
+    "residuals": [
+     {
+      "landmark": "wrist_r",
+      "residual_px": 2.9554228896923815
+     },
+     {
+      "landmark": "knuckle_r",
+      "residual_px": 2.4368738749856305
+     },
+     {
+      "landmark": "thumb_r",
+      "residual_px": 4.476266963456247
+     }
+    ]
+   }
+  }
+ ],
+ "missing_art": [],
+ "reviewer_verdict": null,
+ "review_required": "visual check of overlay on transparent, contrasting and master backgrounds at full resolution (contour drift, seams, fringes)",
+ "master_asset_id": "pilot_master",
+ "master_sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+ "tolerance_px": 2,
+ "planned_alpha_mode": "STRAIGHT"
+}

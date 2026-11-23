@@ -1,0 +1,293 @@
+{
+ "run_id": "DIAG-20261122115303-c3d250",
+ "chain_head_sha256": "c9902c3e6c2be4df69e3da99842fb9d3aabeb547120bb6d335b5e7e052d1c4d9",
+ "events": 25,
+ "stages": {
+  "S00_IDEA": {
+   "stage_id": "S00_IDEA",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwrs2nbz"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67ec54df4e1b0",
+    "bytes": 1255
+   }
+  },
+  "S01_STORY": {
+   "stage_id": "S01_STORY",
+   "status": "COMMITTED",
+   "attempts": [
+    "Amwrs2nkk"
+   ],
+   "handoff": {
+    "name": "STAGE_HANDOFF",
+    "sha256": "f876a96f2e77832743bb92c102111e5bfae92715d3d8dd0406ad069d147fae81",
+    "bytes": 1574
+   }
+  },
+  "S02_EXPERIENCE": {
+   "stage_id": "S02_EXPERIENCE",
+   "status": "BLOCKED",
+   "attempts": [
+    "Amwrs2nwo"
+   ]
+  }
+ },
+ "tasks": {
+  "total": 6,
+  "completed": 4,
+  "failed": 1,
+  "blocked": 1,
+  "stale": 0,
+  "remaining": 2,
+  "percent_verified": 66.7
+ },
+ "task_list": [
+  {
+   "task_id": "film_intent",
+   "stage_id": "S00_IDEA",
+   "spec": {
+    "task_id": "film_intent",
+    "producer": "story/FILM_INTENT.json (human-supplied)",
+    "inputs": [
+     "story/FILM_INTENT.json"
+    ],
+    "expected_outputs": [
+     "intent record"
+    ],
+    "deps": [],
+    "invariants": [
+     "objectives, audience, length and constraints are stated by a human"
+    ],
+    "verification": "fields present; provenance recorded",
+    "evidence_location": "production/store",
+    "category": "MISSING_AUTHORITY"
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122115303-c3d250:6",
+   "verification": {
+    "method": "fields present; provenance recorded",
+    "pass": true,
+    "measurement": "complete"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "story/FILM_INTENT.json",
+     "sha256": "dc73da0f1383b1b87b7e5a7500a36b6f665035ce1299d4d38e190ab02ece56fc",
+     "bytes": 331,
+     "source": "story/FILM_INTENT.json"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T11:53:04.577Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "story_contract",
+   "stage_id": "S01_STORY",
+   "spec": {
+    "task_id": "story_contract",
+    "producer": "engine/story/mechanism.mjs#validateStoryContract",
+    "inputs": [
+     "story/STORY_CONTRACT.json"
+    ],
+    "expected_outputs": [
+     "validated claims/mechanisms/obstacles"
+    ],
+    "deps": [],
+    "invariants": [
+     "claims VERIFIED",
+     "mechanisms survive counterfactuals",
+     "obstacles resolved by mechanism state"
+    ],
+    "verification": "re-run validator; zero failures",
+    "evidence_location": "production/store"
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122115303-c3d250:12",
+   "verification": {
+    "method": "re-run validator; zero failures",
+    "pass": true,
+    "measurement": "0 failures"
+   },
+   "input_refs": [],
+   "output_refs": [
+    {
+     "name": "story/STORY_CONTRACT.json",
+     "sha256": "8661653be6cc65f784a7cdc47447ba5ea3125f86099dc81f00b26fd779bf3469",
+     "bytes": 125,
+     "source": "story/STORY_CONTRACT.json"
+    }
+   ],
+   "failure_id": null,
+   "at": "2026-11-22T11:53:04.932Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "story_approval",
+   "stage_id": "S01_STORY",
+   "spec": {
+    "task_id": "story_approval",
+    "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(story)",
+    "inputs": [
+     "approvals/STORY.POINTER.json"
+    ],
+    "expected_outputs": [
+     "verified story receipt"
+    ],
+    "deps": [
+     "story_contract"
+    ],
+    "invariants": [
+     "independent human approval of the exact story bundle"
+    ],
+    "verification": "verifyApproval over the current bundle",
+    "evidence_location": "production/store",
+    "category": "MISSING_AUTHORITY"
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122115303-c3d250:14",
+   "verification": {
+    "method": "verifyApproval over the current bundle",
+    "pass": true,
+    "measurement": "APPROVED TEST_TRUSTED"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T11:53:04.979Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "attention_rt_shot",
+   "stage_id": "S02_EXPERIENCE",
+   "spec": {
+    "task_id": "attention_rt_shot",
+    "producer": "engine/story/experience.mjs#compileAttention",
+    "inputs": [
+     "direction/SHOT_SCORE_60FPS.json#rt_shot"
+    ],
+    "expected_outputs": [
+     "attention beats with owners"
+    ],
+    "deps": [],
+    "invariants": [
+     "every attention target has a consuming track"
+    ],
+    "verification": "zero DIRECTION_DECISION_INERT",
+    "evidence_location": "production/store"
+   },
+   "status": "COMPLETED",
+   "last_event": "DIAG-20261122115303-c3d250:21",
+   "verification": {
+    "method": "zero DIRECTION_DECISION_INERT",
+    "pass": true,
+    "measurement": "all consumed"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T11:53:05.423Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "attention_rt_world_shot",
+   "stage_id": "S02_EXPERIENCE",
+   "spec": {
+    "task_id": "attention_rt_world_shot",
+    "producer": "engine/story/experience.mjs#compileAttention",
+    "inputs": [
+     "direction/SHOT_SCORE_60FPS.json#rt_world_shot"
+    ],
+    "expected_outputs": [
+     "attention beats with owners"
+    ],
+    "deps": [],
+    "invariants": [
+     "every attention target has a consuming track"
+    ],
+    "verification": "zero DIRECTION_DECISION_INERT",
+    "evidence_location": "production/store"
+   },
+   "status": "FAILED",
+   "last_event": "DIAG-20261122115303-c3d250:23",
+   "verification": {
+    "method": "zero DIRECTION_DECISION_INERT",
+    "pass": false,
+    "measurement": "primary_focus \"cam_world\" has no consuming track in [3600,7200)"
+   },
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": "FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e",
+   "at": "2026-11-22T11:53:05.481Z",
+   "blocked_on": []
+  },
+  {
+   "task_id": "direction_approval",
+   "stage_id": "S02_EXPERIENCE",
+   "spec": {
+    "task_id": "direction_approval",
+    "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(direction)",
+    "inputs": [],
+    "expected_outputs": [
+     "verified direction receipt"
+    ],
+    "deps": [
+     "attention_rt_shot",
+     "attention_rt_world_shot"
+    ],
+    "invariants": [],
+    "verification": "verifyApproval over the current bundle",
+    "evidence_location": "production/store"
+   },
+   "status": "BLOCKED",
+   "last_event": "DIAG-20261122115303-c3d250:24",
+   "input_refs": [],
+   "output_refs": [],
+   "failure_id": null,
+   "at": "2026-11-22T11:53:05.510Z",
+   "blocked_on": [
+    "attention_rt_world_shot"
+   ]
+  }
+ ],
+ "failures": [
+  {
+   "failure_id": "FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e",
+   "run_id": "DIAG-20261122115303-c3d250",
+   "stage_id": "S02_EXPERIENCE",
+   "attempt_id": "Amwrs2nwo",
+   "task_id": "attention_rt_world_shot",
+   "frame_ranges": [],
+   "artifact_refs": [],
+   "first_observed_bad_output": "attention beats with owners",
+   "expected_invariant": "every attention target has a consuming track",
+   "observed_measurement": "primary_focus \"cam_world\" has no consuming track in [3600,7200)",
+   "applicability_predicate": "stage S02_EXPERIENCE, task class attention_rt_world",
+   "failure_class": "DIRECTION_OR_ATTENTION",
+   "root_producer_or_UNKNOWN": "engine/story/experience.mjs#compileAttention",
+   "suspected_mechanism": "primary_focus \"cam_world\" has no consuming track in [3600,7200)",
+   "causal_evidence_refs": [],
+   "rejected_bypass_paths": [],
+   "invalidated_downstream_nodes": [
+    "direction_approval",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "repair_owner": "EXPERIENCE_DIRECTOR",
+   "resume_from_stage": "S02_EXPERIENCE",
+   "retry_safe_boolean": false,
+   "external_spend_risk": false,
+   "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261122115303-c3d250 --failure FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e"
+  }
+ ],
+ "next_operation": "resolve attention_rt_world_shot"
+}

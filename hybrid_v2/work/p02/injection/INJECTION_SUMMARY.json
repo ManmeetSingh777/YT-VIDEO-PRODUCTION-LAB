@@ -1,0 +1,23 @@
+[
+ {
+  "injection": "s08_mp4",
+  "first_failure": {
+   "stage": "S08_QA_REPAIR",
+   "task": "(handoff gate)",
+   "class": "QA_EVIDENCE_INVALID",
+   "observed": "S07_NEUTRINO_RENDER: output render/film.mp4: named file bytes differ from the recorded hash"
+  }
+ },
+ {
+  "injection": "s09_audio",
+  "first_failure": {
+   "failure_id": "FAIL-S09_FILM_AUDIO_FINAL-final_media-aca325",
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "final_media",
+   "class": "AUDIO_ALIGNMENT",
+   "invariant": "ffprobe of the published MP4",
+   "observed": "no audio stream"
+  },
+  "film_review": null
+ }
+]

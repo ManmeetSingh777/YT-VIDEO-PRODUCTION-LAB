@@ -1,0 +1,13 @@
+{
+  "method": "For each one 1920x1080 native source JPG, quantize to 14 RGB colors with Pillow FASTOCTREE; list the top region fractions. Color values are examples of class-conditional scene differences, NOT exact generation palette targets. JPEG, original compression, quantizer and framing change measured values.",
+  "witnesses": {
+    "assets/character_native_anchors/BRAIN_0157_couch_human.jpg": [{"hex":"#fcf268","area_fraction":0.305},{"hex":"#f4a51e","area_fraction":0.272},{"hex":"#10d6a1","area_fraction":0.196},{"hex":"#ed6403","area_fraction":0.070},{"hex":"#7eeb05","area_fraction":0.040}],
+    "assets/character_native_anchors/MEMORIES_0753_clinic_humans.jpg": [{"hex":"#3ccffc","area_fraction":0.366},{"hex":"#46e4fb","area_fraction":0.253},{"hex":"#42b1fc","area_fraction":0.086},{"hex":"#5e0169","area_fraction":0.070},{"hex":"#5b63f3","area_fraction":0.048}],
+    "assets/character_native_anchors/AI_0234_rear_operator.jpg": [{"hex":"#0b5e71","area_fraction":0.302},{"hex":"#1e1454","area_fraction":0.147},{"hex":"#3d0001","area_fraction":0.100},{"hex":"#0f94a9","area_fraction":0.091},{"hex":"#6156d4","area_fraction":0.074}],
+    "assets/molecular_native_anchors/AI_0444_light_data_theatre.jpg": [{"hex":"#e6fefd","area_fraction":0.560},{"hex":"#a5fbfa","area_fraction":0.321},{"hex":"#5ff7f2","area_fraction":0.093},{"hex":"#35f0f2","area_fraction":0.017},{"hex":"#085363","area_fraction":0.003}],
+    "assets/molecular_native_anchors/AI_0035_oblique_city.jpg": [{"hex":"#efa163","area_fraction":0.482},{"hex":"#1e299e","area_fraction":0.062},{"hex":"#2a5e9f","area_fraction":0.058},{"hex":"#5b55eb","area_fraction":0.047},{"hex":"#1c9ab5","area_fraction":0.044}],
+    "assets/molecular_native_anchors/MEMORIES_0062_biological_density.jpg": [{"hex":"#120221","area_fraction":0.566},{"hex":"#2b0c56","area_fraction":0.201},{"hex":"#4b1a6f","area_fraction":0.059},{"hex":"#4e208c","area_fraction":0.037},{"hex":"#382d99","area_fraction":0.019}],
+    "assets/molecular_native_anchors/AI_0874_axial_corridor.jpg": [{"hex":"#000423","area_fraction":0.438},{"hex":"#041556","area_fraction":0.429},{"hex":"#1e5c99","area_fraction":0.056},{"hex":"#08228f","area_fraction":0.021},{"hex":"#5ff1f1","area_fraction":0.014}],
+    "assets/molecular_native_anchors/NUCLEAR_0296_coastal_field.jpg": [{"hex":"#53e1eb","area_fraction":0.259},{"hex":"#2ec343","area_fraction":0.138},{"hex":"#0e7944","area_fraction":0.122},{"hex":"#0e994b","area_fraction":0.122},{"hex":"#5dd95b","area_fraction":0.067}]
+  }
+}

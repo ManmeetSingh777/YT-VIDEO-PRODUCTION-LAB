@@ -1,0 +1,181 @@
+{
+ "artjob_id": "ARTJOB_MASTER_street_far_ac5264a9",
+ "root_dependency": "street_far",
+ "identity_id": "street_night",
+ "state_kind": "MASTER",
+ "asset_kind": "WORLD_PLANE",
+ "medium": {
+  "medium": "CANONICAL_WORLD_PLATE_WITH_OVERSCAN",
+  "why": "canonical world identity painted once with declared overscan; layers and views are edits of it"
+ },
+ "manufacturing_order": 1,
+ "derived_from": null,
+ "dependents": [
+  "street_mid_shops",
+  "street_fg_lamp",
+  "laundromat_window_interior"
+ ],
+ "triggered_by": [
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "S05_street",
+   "frame_range": [
+    4080,
+    5160
+   ],
+   "shot_id": "S05"
+  },
+  {
+   "code": "MISSING_ART_ASSET",
+   "record_id": "street_far",
+   "frame_range": [
+    4080,
+    4081
+   ],
+   "shot_id": null
+  },
+  {
+   "code": "MISSING_CANONICAL_MASTER",
+   "record_id": "street_night",
+   "frame_range": null,
+   "shot_id": null
+  }
+ ],
+ "motion_context": {
+  "identity_id": "street_night",
+  "canonical_parent_asset": "street_far",
+  "shot_ids": [
+   "S05"
+  ],
+  "frame_ranges": [
+   [
+    4080,
+    5160
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "shopfront"
+  ],
+  "required_joint_pivots": [],
+  "required_sockets": [],
+  "contact_type": null,
+  "alpha_requirement": "OPAQUE",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": {
+   "camera_tracks": [
+    "cam_S05"
+   ],
+   "world_camera_footprint": [
+    0,
+    0,
+    1920,
+    1080
+   ],
+   "world_overscan_rect": [
+    -480,
+    -270,
+    2880,
+    1620
+   ],
+   "depth_band": "FAR"
+  },
+  "oversized_paint_rect": [
+   -480,
+   -270,
+   2880,
+   1620
+  ],
+  "lighting_validity": null,
+  "target_motion_mode": "CAMERA_WORLD",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "street_mid_shops",
+   "street_fg_lamp",
+   "laundromat_window_interior"
+  ],
+  "why_this_drawing_is_needed": "canonical night street with overscan for the pull-back. Required by: shot S05; action S05_street; world w_street in S05"
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "required_joint_pivots": "not attached to a rig joint",
+  "required_sockets": "no socket on this state's joint",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "motion_context_sha256": "ee34d68cdfd179ebc48f3d87981311f6c4d4a3e94753f7f1f18421ba0a23b37f",
+ "registration_contract": {
+  "asset_kind": "WORLD_PLANE",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "OPAQUE",
+  "view_id": "front",
+  "depth_band": "FAR",
+  "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+ },
+ "frame_precision": "SHOT_ACTION_OR_TRANSITION_SPANS",
+ "status": "WAITING_FOR_GPT_ART",
+ "readiness": {
+  "asset": "street_far",
+  "role": "MASTER",
+  "status": "WAITING_FOR_GPT_ART"
+ },
+ "blocked_on": [
+  "STORY_APPROVAL_PENDING",
+  "NO_IMAGE_PROVIDER: IMAGE_PROVIDER is not configured in this environment; no authorized image-generation/edit provider is available to Claude Code"
+ ],
+ "compiled_request": {
+  "gate": {
+   "pass": false,
+   "status": "NOT_EVALUATED",
+   "failures": [],
+   "design_approval": {
+    "status": "NOT_EVALUATED"
+   }
+  },
+  "job_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_street_far_ac5264a9/ARTJOB.json",
+  "request_file": "hybrid_v2/art_outbox/compiled/ARTJOB_MASTER_street_far_ac5264a9/IMAGEGEN_REQUEST.json",
+  "prompt_sha256": "a4bac892e44dadc8a245f0355d3336b9f617c04e7dfeadcf72ece8c76cffe904",
+  "prompt_characters": 15001,
+  "compiled_method_ids": [
+   "F22",
+   "F69",
+   "F70"
+  ],
+  "applied_repair_rule_ids": [],
+  "repair_memory_applied": true,
+  "witnesses": [
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/abstract_world_witnesses/AI_whole_world_variation_contact.jpg",
+    "sha256": "6362b82017c07be01dfb7be6441b05f3ffb884764a3c3cea699dbaaedce1551a",
+    "width": 1920,
+    "height": 1490,
+    "role": "STYLE_ONLY: layered depth owners and quiet substrate around a focal region",
+    "verified": true
+   },
+   {
+    "path": "reference/construct-kurzgesagt-art/assets/conditional_native_anchors/SOLAR_04897_suited_figures.jpg",
+    "sha256": "348a5dcd8e1bf7099158945971f4a7c4eebc94b7f6b7f89be0f88dad5ce4e077",
+    "width": 1920,
+    "height": 1080,
+    "role": "STYLE_ONLY: night palette with one lit focal block",
+    "verified": true
+   }
+  ],
+  "motion_context_sha256": "ee34d68cdfd179ebc48f3d87981311f6c4d4a3e94753f7f1f18421ba0a23b37f",
+  "status": "COMPILED_WAITING_FOR_GPT_ART"
+ },
+ "inbox": {
+  "expected_file": "inbox/ARTJOB_MASTER_street_far_ac5264a9.png",
+  "landmarks_sidecar": "inbox/ARTJOB_MASTER_street_far_ac5264a9.landmarks.json",
+  "format": "lossless PNG, opaque"
+ }
+}

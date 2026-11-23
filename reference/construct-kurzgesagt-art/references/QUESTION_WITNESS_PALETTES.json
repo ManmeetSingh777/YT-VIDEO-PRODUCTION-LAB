@@ -1,0 +1,7741 @@
+{
+  "method": "Native witness decoded, resized to <=960x540, 12-color median cut; per-witness distribution only, not a universal palette",
+  "witness_count": 85,
+  "samples": [
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 12,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 81.82,
+      "fraction_spread_gt_70": 0.7254,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0027,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            4,
+            5,
+            70
+          ],
+          "fraction": 0.2172
+        },
+        {
+          "rgb": [
+            40,
+            23,
+            108
+          ],
+          "fraction": 0.1234
+        },
+        {
+          "rgb": [
+            13,
+            3,
+            76
+          ],
+          "fraction": 0.1153
+        },
+        {
+          "rgb": [
+            35,
+            10,
+            99
+          ],
+          "fraction": 0.1102
+        },
+        {
+          "rgb": [
+            32,
+            3,
+            94
+          ],
+          "fraction": 0.1029
+        },
+        {
+          "rgb": [
+            56,
+            73,
+            151
+          ],
+          "fraction": 0.0979
+        },
+        {
+          "rgb": [
+            25,
+            2,
+            88
+          ],
+          "fraction": 0.097
+        },
+        {
+          "rgb": [
+            37,
+            17,
+            103
+          ],
+          "fraction": 0.0801
+        },
+        {
+          "rgb": [
+            50,
+            37,
+            129
+          ],
+          "fraction": 0.0451
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 203,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 114.72,
+      "fraction_spread_gt_70": 0.9994,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0124,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0433,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            24,
+            89,
+            145
+          ],
+          "fraction": 0.1267
+        },
+        {
+          "rgb": [
+            32,
+            17,
+            121
+          ],
+          "fraction": 0.1186
+        },
+        {
+          "rgb": [
+            132,
+            72,
+            158
+          ],
+          "fraction": 0.1117
+        },
+        {
+          "rgb": [
+            5,
+            48,
+            127
+          ],
+          "fraction": 0.1068
+        },
+        {
+          "rgb": [
+            17,
+            1,
+            79
+          ],
+          "fraction": 0.0967
+        },
+        {
+          "rgb": [
+            15,
+            48,
+            115
+          ],
+          "fraction": 0.0963
+        },
+        {
+          "rgb": [
+            18,
+            0,
+            79
+          ],
+          "fraction": 0.0867
+        },
+        {
+          "rgb": [
+            43,
+            3,
+            133
+          ],
+          "fraction": 0.0813
+        },
+        {
+          "rgb": [
+            16,
+            19,
+            96
+          ],
+          "fraction": 0.0793
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 219,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 129.56,
+      "fraction_spread_gt_70": 0.9965,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0222,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0067,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            67,
+            160,
+            185
+          ],
+          "fraction": 0.1462
+        },
+        {
+          "rgb": [
+            55,
+            136,
+            177
+          ],
+          "fraction": 0.1284
+        },
+        {
+          "rgb": [
+            61,
+            148,
+            182
+          ],
+          "fraction": 0.1269
+        },
+        {
+          "rgb": [
+            56,
+            144,
+            178
+          ],
+          "fraction": 0.1158
+        },
+        {
+          "rgb": [
+            49,
+            127,
+            175
+          ],
+          "fraction": 0.1001
+        },
+        {
+          "rgb": [
+            68,
+            157,
+            185
+          ],
+          "fraction": 0.0877
+        },
+        {
+          "rgb": [
+            66,
+            169,
+            195
+          ],
+          "fraction": 0.0688
+        },
+        {
+          "rgb": [
+            50,
+            198,
+            195
+          ],
+          "fraction": 0.0682
+        },
+        {
+          "rgb": [
+            42,
+            230,
+            205
+          ],
+          "fraction": 0.0604
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 250,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 104.03,
+      "fraction_spread_gt_70": 0.9537,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0151,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0172,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            17,
+            1,
+            76
+          ],
+          "fraction": 0.2527
+        },
+        {
+          "rgb": [
+            22,
+            0,
+            88
+          ],
+          "fraction": 0.1528
+        },
+        {
+          "rgb": [
+            28,
+            0,
+            111
+          ],
+          "fraction": 0.1103
+        },
+        {
+          "rgb": [
+            38,
+            26,
+            147
+          ],
+          "fraction": 0.1022
+        },
+        {
+          "rgb": [
+            31,
+            0,
+            117
+          ],
+          "fraction": 0.0916
+        },
+        {
+          "rgb": [
+            26,
+            0,
+            102
+          ],
+          "fraction": 0.0858
+        },
+        {
+          "rgb": [
+            46,
+            128,
+            180
+          ],
+          "fraction": 0.0854
+        },
+        {
+          "rgb": [
+            25,
+            1,
+            99
+          ],
+          "fraction": 0.0411
+        },
+        {
+          "rgb": [
+            4,
+            1,
+            73
+          ],
+          "fraction": 0.0405
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 334,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 105.27,
+      "fraction_spread_gt_70": 0.5159,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0173,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.022,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            7,
+            0,
+            69
+          ],
+          "fraction": 0.2028
+        },
+        {
+          "rgb": [
+            94,
+            1,
+            229
+          ],
+          "fraction": 0.1424
+        },
+        {
+          "rgb": [
+            2,
+            0,
+            27
+          ],
+          "fraction": 0.1396
+        },
+        {
+          "rgb": [
+            5,
+            0,
+            53
+          ],
+          "fraction": 0.1175
+        },
+        {
+          "rgb": [
+            4,
+            0,
+            40
+          ],
+          "fraction": 0.11
+        },
+        {
+          "rgb": [
+            118,
+            127,
+            196
+          ],
+          "fraction": 0.0926
+        },
+        {
+          "rgb": [
+            6,
+            0,
+            65
+          ],
+          "fraction": 0.0825
+        },
+        {
+          "rgb": [
+            94,
+            1,
+            227
+          ],
+          "fraction": 0.0643
+        },
+        {
+          "rgb": [
+            96,
+            1,
+            229
+          ],
+          "fraction": 0.0331
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 356,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 226.95,
+      "fraction_spread_gt_70": 0.9984,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.008,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0086,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            16,
+            209,
+            252
+          ],
+          "fraction": 0.2171
+        },
+        {
+          "rgb": [
+            17,
+            253,
+            224
+          ],
+          "fraction": 0.1545
+        },
+        {
+          "rgb": [
+            17,
+            238,
+            235
+          ],
+          "fraction": 0.1231
+        },
+        {
+          "rgb": [
+            19,
+            252,
+            227
+          ],
+          "fraction": 0.1119
+        },
+        {
+          "rgb": [
+            18,
+            221,
+            244
+          ],
+          "fraction": 0.1065
+        },
+        {
+          "rgb": [
+            18,
+            241,
+            234
+          ],
+          "fraction": 0.0897
+        },
+        {
+          "rgb": [
+            11,
+            116,
+            207
+          ],
+          "fraction": 0.0532
+        },
+        {
+          "rgb": [
+            16,
+            209,
+            250
+          ],
+          "fraction": 0.046
+        },
+        {
+          "rgb": [
+            15,
+            217,
+            245
+          ],
+          "fraction": 0.041
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 372,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 126.1,
+      "fraction_spread_gt_70": 0.9891,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0227,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0193,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            67,
+            159,
+            184
+          ],
+          "fraction": 0.213
+        },
+        {
+          "rgb": [
+            55,
+            135,
+            178
+          ],
+          "fraction": 0.1461
+        },
+        {
+          "rgb": [
+            58,
+            142,
+            179
+          ],
+          "fraction": 0.0939
+        },
+        {
+          "rgb": [
+            62,
+            148,
+            184
+          ],
+          "fraction": 0.0913
+        },
+        {
+          "rgb": [
+            68,
+            158,
+            186
+          ],
+          "fraction": 0.0834
+        },
+        {
+          "rgb": [
+            63,
+            154,
+            182
+          ],
+          "fraction": 0.0774
+        },
+        {
+          "rgb": [
+            99,
+            194,
+            194
+          ],
+          "fraction": 0.074
+        },
+        {
+          "rgb": [
+            44,
+            122,
+            169
+          ],
+          "fraction": 0.069
+        },
+        {
+          "rgb": [
+            45,
+            206,
+            173
+          ],
+          "fraction": 0.0651
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 423,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 171.24,
+      "fraction_spread_gt_70": 0.9971,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0044,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0049,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            97,
+            75,
+            247
+          ],
+          "fraction": 0.1331
+        },
+        {
+          "rgb": [
+            47,
+            148,
+            243
+          ],
+          "fraction": 0.105
+        },
+        {
+          "rgb": [
+            41,
+            190,
+            239
+          ],
+          "fraction": 0.0959
+        },
+        {
+          "rgb": [
+            85,
+            161,
+            246
+          ],
+          "fraction": 0.0944
+        },
+        {
+          "rgb": [
+            98,
+            103,
+            247
+          ],
+          "fraction": 0.0863
+        },
+        {
+          "rgb": [
+            80,
+            144,
+            246
+          ],
+          "fraction": 0.0846
+        },
+        {
+          "rgb": [
+            66,
+            82,
+            224
+          ],
+          "fraction": 0.0829
+        },
+        {
+          "rgb": [
+            77,
+            111,
+            246
+          ],
+          "fraction": 0.082
+        },
+        {
+          "rgb": [
+            97,
+            120,
+            247
+          ],
+          "fraction": 0.0651
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 436,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 103.39,
+      "fraction_spread_gt_70": 0.9993,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0014,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0166,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            17,
+            1,
+            76
+          ],
+          "fraction": 0.1705
+        },
+        {
+          "rgb": [
+            14,
+            48,
+            112
+          ],
+          "fraction": 0.1425
+        },
+        {
+          "rgb": [
+            15,
+            30,
+            102
+          ],
+          "fraction": 0.1339
+        },
+        {
+          "rgb": [
+            12,
+            82,
+            137
+          ],
+          "fraction": 0.1163
+        },
+        {
+          "rgb": [
+            13,
+            119,
+            175
+          ],
+          "fraction": 0.1145
+        },
+        {
+          "rgb": [
+            18,
+            5,
+            86
+          ],
+          "fraction": 0.092
+        },
+        {
+          "rgb": [
+            16,
+            10,
+            89
+          ],
+          "fraction": 0.0891
+        },
+        {
+          "rgb": [
+            45,
+            3,
+            128
+          ],
+          "fraction": 0.0673
+        },
+        {
+          "rgb": [
+            19,
+            0,
+            76
+          ],
+          "fraction": 0.0486
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 444,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 60.25,
+      "fraction_spread_gt_70": 0.376,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0108,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.008,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            193,
+            253,
+            253
+          ],
+          "fraction": 0.1436
+        },
+        {
+          "rgb": [
+            238,
+            255,
+            254
+          ],
+          "fraction": 0.1068
+        },
+        {
+          "rgb": [
+            159,
+            254,
+            249
+          ],
+          "fraction": 0.0976
+        },
+        {
+          "rgb": [
+            86,
+            233,
+            232
+          ],
+          "fraction": 0.0885
+        },
+        {
+          "rgb": [
+            220,
+            255,
+            254
+          ],
+          "fraction": 0.0867
+        },
+        {
+          "rgb": [
+            136,
+            249,
+            247
+          ],
+          "fraction": 0.083
+        },
+        {
+          "rgb": [
+            245,
+            255,
+            254
+          ],
+          "fraction": 0.0811
+        },
+        {
+          "rgb": [
+            236,
+            255,
+            253
+          ],
+          "fraction": 0.0792
+        },
+        {
+          "rgb": [
+            204,
+            254,
+            253
+          ],
+          "fraction": 0.0741
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 514,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 117.3,
+      "fraction_spread_gt_70": 0.8341,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0188,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0279,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            51,
+            141,
+            186
+          ],
+          "fraction": 0.1415
+        },
+        {
+          "rgb": [
+            63,
+            72,
+            185
+          ],
+          "fraction": 0.11
+        },
+        {
+          "rgb": [
+            50,
+            0,
+            130
+          ],
+          "fraction": 0.0974
+        },
+        {
+          "rgb": [
+            61,
+            0,
+            149
+          ],
+          "fraction": 0.0946
+        },
+        {
+          "rgb": [
+            89,
+            231,
+            212
+          ],
+          "fraction": 0.0913
+        },
+        {
+          "rgb": [
+            28,
+            0,
+            92
+          ],
+          "fraction": 0.0787
+        },
+        {
+          "rgb": [
+            37,
+            0,
+            107
+          ],
+          "fraction": 0.0783
+        },
+        {
+          "rgb": [
+            19,
+            0,
+            75
+          ],
+          "fraction": 0.0774
+        },
+        {
+          "rgb": [
+            4,
+            0,
+            48
+          ],
+          "fraction": 0.067
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 580,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 99.23,
+      "fraction_spread_gt_70": 0.768,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0177,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.013,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            36,
+            20,
+            118
+          ],
+          "fraction": 0.144
+        },
+        {
+          "rgb": [
+            38,
+            0,
+            102
+          ],
+          "fraction": 0.144
+        },
+        {
+          "rgb": [
+            36,
+            0,
+            99
+          ],
+          "fraction": 0.0909
+        },
+        {
+          "rgb": [
+            73,
+            136,
+            104
+          ],
+          "fraction": 0.081
+        },
+        {
+          "rgb": [
+            46,
+            240,
+            129
+          ],
+          "fraction": 0.0804
+        },
+        {
+          "rgb": [
+            40,
+            38,
+            114
+          ],
+          "fraction": 0.0787
+        },
+        {
+          "rgb": [
+            49,
+            68,
+            102
+          ],
+          "fraction": 0.0771
+        },
+        {
+          "rgb": [
+            38,
+            0,
+            99
+          ],
+          "fraction": 0.0757
+        },
+        {
+          "rgb": [
+            58,
+            97,
+            101
+          ],
+          "fraction": 0.071
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 650,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 101.83,
+      "fraction_spread_gt_70": 0.788,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0131,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0135,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            27,
+            44,
+            139
+          ],
+          "fraction": 0.1478
+        },
+        {
+          "rgb": [
+            2,
+            0,
+            52
+          ],
+          "fraction": 0.1338
+        },
+        {
+          "rgb": [
+            18,
+            42,
+            113
+          ],
+          "fraction": 0.1221
+        },
+        {
+          "rgb": [
+            6,
+            0,
+            65
+          ],
+          "fraction": 0.0997
+        },
+        {
+          "rgb": [
+            32,
+            44,
+            154
+          ],
+          "fraction": 0.0974
+        },
+        {
+          "rgb": [
+            28,
+            1,
+            105
+          ],
+          "fraction": 0.0953
+        },
+        {
+          "rgb": [
+            97,
+            253,
+            149
+          ],
+          "fraction": 0.0771
+        },
+        {
+          "rgb": [
+            17,
+            56,
+            131
+          ],
+          "fraction": 0.0645
+        },
+        {
+          "rgb": [
+            39,
+            122,
+            161
+          ],
+          "fraction": 0.0471
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 663,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 109.31,
+      "fraction_spread_gt_70": 0.9394,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0084,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0105,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            42,
+            234,
+            191
+          ],
+          "fraction": 0.1392
+        },
+        {
+          "rgb": [
+            31,
+            90,
+            128
+          ],
+          "fraction": 0.1208
+        },
+        {
+          "rgb": [
+            22,
+            38,
+            104
+          ],
+          "fraction": 0.1008
+        },
+        {
+          "rgb": [
+            34,
+            5,
+            107
+          ],
+          "fraction": 0.0991
+        },
+        {
+          "rgb": [
+            135,
+            255,
+            210
+          ],
+          "fraction": 0.0935
+        },
+        {
+          "rgb": [
+            51,
+            8,
+            123
+          ],
+          "fraction": 0.0834
+        },
+        {
+          "rgb": [
+            11,
+            10,
+            88
+          ],
+          "fraction": 0.074
+        },
+        {
+          "rgb": [
+            14,
+            6,
+            89
+          ],
+          "fraction": 0.0737
+        },
+        {
+          "rgb": [
+            64,
+            13,
+            137
+          ],
+          "fraction": 0.0737
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 686,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 88.19,
+      "fraction_spread_gt_70": 0.5893,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0166,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0248,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            24,
+            100,
+            113
+          ],
+          "fraction": 0.1274
+        },
+        {
+          "rgb": [
+            23,
+            128,
+            126
+          ],
+          "fraction": 0.1183
+        },
+        {
+          "rgb": [
+            22,
+            63,
+            84
+          ],
+          "fraction": 0.1046
+        },
+        {
+          "rgb": [
+            14,
+            7,
+            44
+          ],
+          "fraction": 0.1017
+        },
+        {
+          "rgb": [
+            34,
+            173,
+            148
+          ],
+          "fraction": 0.097
+        },
+        {
+          "rgb": [
+            16,
+            20,
+            53
+          ],
+          "fraction": 0.08
+        },
+        {
+          "rgb": [
+            18,
+            34,
+            62
+          ],
+          "fraction": 0.0783
+        },
+        {
+          "rgb": [
+            193,
+            243,
+            208
+          ],
+          "fraction": 0.0773
+        },
+        {
+          "rgb": [
+            32,
+            143,
+            137
+          ],
+          "fraction": 0.0764
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 740,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 91.31,
+      "fraction_spread_gt_70": 0.5274,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0222,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0147,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            20,
+            8,
+            53
+          ],
+          "fraction": 0.1561
+        },
+        {
+          "rgb": [
+            13,
+            4,
+            100
+          ],
+          "fraction": 0.1505
+        },
+        {
+          "rgb": [
+            14,
+            36,
+            141
+          ],
+          "fraction": 0.1223
+        },
+        {
+          "rgb": [
+            40,
+            17,
+            68
+          ],
+          "fraction": 0.0942
+        },
+        {
+          "rgb": [
+            207,
+            165,
+            36
+          ],
+          "fraction": 0.0931
+        },
+        {
+          "rgb": [
+            12,
+            72,
+            216
+          ],
+          "fraction": 0.0899
+        },
+        {
+          "rgb": [
+            65,
+            31,
+            48
+          ],
+          "fraction": 0.0758
+        },
+        {
+          "rgb": [
+            50,
+            20,
+            68
+          ],
+          "fraction": 0.0684
+        },
+        {
+          "rgb": [
+            58,
+            36,
+            86
+          ],
+          "fraction": 0.0509
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 810,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 126.8,
+      "fraction_spread_gt_70": 0.8304,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0202,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0235,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            13,
+            54,
+            123
+          ],
+          "fraction": 0.15
+        },
+        {
+          "rgb": [
+            20,
+            164,
+            214
+          ],
+          "fraction": 0.12
+        },
+        {
+          "rgb": [
+            207,
+            255,
+            187
+          ],
+          "fraction": 0.0929
+        },
+        {
+          "rgb": [
+            3,
+            13,
+            71
+          ],
+          "fraction": 0.0872
+        },
+        {
+          "rgb": [
+            163,
+            235,
+            210
+          ],
+          "fraction": 0.0859
+        },
+        {
+          "rgb": [
+            45,
+            251,
+            206
+          ],
+          "fraction": 0.0833
+        },
+        {
+          "rgb": [
+            1,
+            7,
+            64
+          ],
+          "fraction": 0.0796
+        },
+        {
+          "rgb": [
+            24,
+            108,
+            165
+          ],
+          "fraction": 0.0731
+        },
+        {
+          "rgb": [
+            132,
+            255,
+            192
+          ],
+          "fraction": 0.0644
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "abstract_agent_media",
+      "time_s": 821,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 112.37,
+      "fraction_spread_gt_70": 0.8822,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0091,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0108,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            27,
+            5,
+            104
+          ],
+          "fraction": 0.1616
+        },
+        {
+          "rgb": [
+            6,
+            1,
+            74
+          ],
+          "fraction": 0.1311
+        },
+        {
+          "rgb": [
+            5,
+            4,
+            78
+          ],
+          "fraction": 0.1157
+        },
+        {
+          "rgb": [
+            38,
+            2,
+            119
+          ],
+          "fraction": 0.1055
+        },
+        {
+          "rgb": [
+            4,
+            97,
+            120
+          ],
+          "fraction": 0.1014
+        },
+        {
+          "rgb": [
+            22,
+            246,
+            142
+          ],
+          "fraction": 0.0793
+        },
+        {
+          "rgb": [
+            8,
+            119,
+            127
+          ],
+          "fraction": 0.0732
+        },
+        {
+          "rgb": [
+            10,
+            103,
+            124
+          ],
+          "fraction": 0.0637
+        },
+        {
+          "rgb": [
+            41,
+            144,
+            145
+          ],
+          "fraction": 0.0633
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 35,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 130.28,
+      "fraction_spread_gt_70": 0.9181,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.098,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0895,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            239,
+            160,
+            106
+          ],
+          "fraction": 0.1488
+        },
+        {
+          "rgb": [
+            40,
+            41,
+            153
+          ],
+          "fraction": 0.1018
+        },
+        {
+          "rgb": [
+            49,
+            99,
+            169
+          ],
+          "fraction": 0.1001
+        },
+        {
+          "rgb": [
+            143,
+            92,
+            190
+          ],
+          "fraction": 0.0922
+        },
+        {
+          "rgb": [
+            27,
+            199,
+            167
+          ],
+          "fraction": 0.0905
+        },
+        {
+          "rgb": [
+            158,
+            31,
+            102
+          ],
+          "fraction": 0.0884
+        },
+        {
+          "rgb": [
+            66,
+            70,
+            204
+          ],
+          "fraction": 0.0876
+        },
+        {
+          "rgb": [
+            212,
+            95,
+            99
+          ],
+          "fraction": 0.0795
+        },
+        {
+          "rgb": [
+            112,
+            216,
+            196
+          ],
+          "fraction": 0.0679
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 44,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 157.16,
+      "fraction_spread_gt_70": 0.9081,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.029,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0402,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            21,
+            255,
+            252
+          ],
+          "fraction": 0.1814
+        },
+        {
+          "rgb": [
+            6,
+            102,
+            157
+          ],
+          "fraction": 0.1596
+        },
+        {
+          "rgb": [
+            6,
+            56,
+            103
+          ],
+          "fraction": 0.1399
+        },
+        {
+          "rgb": [
+            172,
+            239,
+            165
+          ],
+          "fraction": 0.137
+        },
+        {
+          "rgb": [
+            49,
+            137,
+            123
+          ],
+          "fraction": 0.118
+        },
+        {
+          "rgb": [
+            108,
+            35,
+            107
+          ],
+          "fraction": 0.0857
+        },
+        {
+          "rgb": [
+            29,
+            239,
+            248
+          ],
+          "fraction": 0.0754
+        },
+        {
+          "rgb": [
+            53,
+            220,
+            217
+          ],
+          "fraction": 0.063
+        },
+        {
+          "rgb": [
+            25,
+            255,
+            252
+          ],
+          "fraction": 0.0293
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 61,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 68.67,
+      "fraction_spread_gt_70": 0.278,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.015,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0217,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            17,
+            0,
+            48
+          ],
+          "fraction": 0.1968
+        },
+        {
+          "rgb": [
+            18,
+            0,
+            46
+          ],
+          "fraction": 0.1476
+        },
+        {
+          "rgb": [
+            26,
+            40,
+            100
+          ],
+          "fraction": 0.1157
+        },
+        {
+          "rgb": [
+            24,
+            53,
+            118
+          ],
+          "fraction": 0.0978
+        },
+        {
+          "rgb": [
+            20,
+            18,
+            73
+          ],
+          "fraction": 0.0972
+        },
+        {
+          "rgb": [
+            14,
+            13,
+            66
+          ],
+          "fraction": 0.0882
+        },
+        {
+          "rgb": [
+            16,
+            0,
+            42
+          ],
+          "fraction": 0.0729
+        },
+        {
+          "rgb": [
+            71,
+            130,
+            160
+          ],
+          "fraction": 0.0497
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            44
+          ],
+          "fraction": 0.048
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 66,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 173.35,
+      "fraction_spread_gt_70": 0.9425,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0181,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.023,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            175,
+            246,
+            55
+          ],
+          "fraction": 0.2557
+        },
+        {
+          "rgb": [
+            8,
+            123,
+            216
+          ],
+          "fraction": 0.1859
+        },
+        {
+          "rgb": [
+            8,
+            102,
+            190
+          ],
+          "fraction": 0.1704
+        },
+        {
+          "rgb": [
+            233,
+            200,
+            71
+          ],
+          "fraction": 0.0836
+        },
+        {
+          "rgb": [
+            23,
+            125,
+            209
+          ],
+          "fraction": 0.0735
+        },
+        {
+          "rgb": [
+            214,
+            253,
+            162
+          ],
+          "fraction": 0.0538
+        },
+        {
+          "rgb": [
+            8,
+            102,
+            189
+          ],
+          "fraction": 0.0494
+        },
+        {
+          "rgb": [
+            163,
+            244,
+            53
+          ],
+          "fraction": 0.0464
+        },
+        {
+          "rgb": [
+            70,
+            181,
+            130
+          ],
+          "fraction": 0.0393
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 72,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 140.31,
+      "fraction_spread_gt_70": 0.9095,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0362,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.031,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            207,
+            65,
+            18
+          ],
+          "fraction": 0.1793
+        },
+        {
+          "rgb": [
+            162,
+            254,
+            253
+          ],
+          "fraction": 0.1398
+        },
+        {
+          "rgb": [
+            13,
+            200,
+            140
+          ],
+          "fraction": 0.1294
+        },
+        {
+          "rgb": [
+            7,
+            134,
+            77
+          ],
+          "fraction": 0.1171
+        },
+        {
+          "rgb": [
+            59,
+            48,
+            83
+          ],
+          "fraction": 0.0829
+        },
+        {
+          "rgb": [
+            11,
+            150,
+            107
+          ],
+          "fraction": 0.0793
+        },
+        {
+          "rgb": [
+            162,
+            253,
+            254
+          ],
+          "fraction": 0.0751
+        },
+        {
+          "rgb": [
+            246,
+            204,
+            135
+          ],
+          "fraction": 0.0684
+        },
+        {
+          "rgb": [
+            85,
+            228,
+            80
+          ],
+          "fraction": 0.0649
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 105,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 112.29,
+      "fraction_spread_gt_70": 0.5866,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0249,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0286,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            215,
+            96,
+            27
+          ],
+          "fraction": 0.1548
+        },
+        {
+          "rgb": [
+            247,
+            187,
+            64
+          ],
+          "fraction": 0.1542
+        },
+        {
+          "rgb": [
+            252,
+            248,
+            173
+          ],
+          "fraction": 0.1227
+        },
+        {
+          "rgb": [
+            36,
+            18,
+            67
+          ],
+          "fraction": 0.1199
+        },
+        {
+          "rgb": [
+            113,
+            41,
+            89
+          ],
+          "fraction": 0.1075
+        },
+        {
+          "rgb": [
+            193,
+            252,
+            188
+          ],
+          "fraction": 0.0888
+        },
+        {
+          "rgb": [
+            226,
+            128,
+            48
+          ],
+          "fraction": 0.0646
+        },
+        {
+          "rgb": [
+            228,
+            251,
+            187
+          ],
+          "fraction": 0.0633
+        },
+        {
+          "rgb": [
+            252,
+            248,
+            205
+          ],
+          "fraction": 0.049
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 138,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 107.37,
+      "fraction_spread_gt_70": 0.7306,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0229,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0274,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            104,
+            0,
+            127
+          ],
+          "fraction": 0.1754
+        },
+        {
+          "rgb": [
+            210,
+            246,
+            254
+          ],
+          "fraction": 0.1367
+        },
+        {
+          "rgb": [
+            254,
+            254,
+            254
+          ],
+          "fraction": 0.1191
+        },
+        {
+          "rgb": [
+            116,
+            95,
+            244
+          ],
+          "fraction": 0.111
+        },
+        {
+          "rgb": [
+            241,
+            107,
+            181
+          ],
+          "fraction": 0.1005
+        },
+        {
+          "rgb": [
+            245,
+            130,
+            143
+          ],
+          "fraction": 0.0849
+        },
+        {
+          "rgb": [
+            246,
+            162,
+            83
+          ],
+          "fraction": 0.0786
+        },
+        {
+          "rgb": [
+            244,
+            108,
+            167
+          ],
+          "fraction": 0.0778
+        },
+        {
+          "rgb": [
+            159,
+            168,
+            226
+          ],
+          "fraction": 0.0639
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 144,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 112.71,
+      "fraction_spread_gt_70": 0.898,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0323,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0289,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            179,
+            46,
+            70
+          ],
+          "fraction": 0.1662
+        },
+        {
+          "rgb": [
+            250,
+            209,
+            127
+          ],
+          "fraction": 0.1096
+        },
+        {
+          "rgb": [
+            77,
+            133,
+            101
+          ],
+          "fraction": 0.1012
+        },
+        {
+          "rgb": [
+            250,
+            231,
+            154
+          ],
+          "fraction": 0.097
+        },
+        {
+          "rgb": [
+            98,
+            19,
+            69
+          ],
+          "fraction": 0.093
+        },
+        {
+          "rgb": [
+            159,
+            230,
+            126
+          ],
+          "fraction": 0.0853
+        },
+        {
+          "rgb": [
+            221,
+            245,
+            132
+          ],
+          "fraction": 0.0775
+        },
+        {
+          "rgb": [
+            220,
+            103,
+            65
+          ],
+          "fraction": 0.0713
+        },
+        {
+          "rgb": [
+            251,
+            236,
+            183
+          ],
+          "fraction": 0.0629
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 162,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 145.3,
+      "fraction_spread_gt_70": 0.9318,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0267,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0203,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            9,
+            95,
+            233
+          ],
+          "fraction": 0.1712
+        },
+        {
+          "rgb": [
+            2,
+            37,
+            84
+          ],
+          "fraction": 0.1382
+        },
+        {
+          "rgb": [
+            76,
+            211,
+            252
+          ],
+          "fraction": 0.0992
+        },
+        {
+          "rgb": [
+            6,
+            67,
+            163
+          ],
+          "fraction": 0.0972
+        },
+        {
+          "rgb": [
+            5,
+            61,
+            146
+          ],
+          "fraction": 0.0934
+        },
+        {
+          "rgb": [
+            104,
+            135,
+            157
+          ],
+          "fraction": 0.0869
+        },
+        {
+          "rgb": [
+            7,
+            89,
+            218
+          ],
+          "fraction": 0.0791
+        },
+        {
+          "rgb": [
+            3,
+            46,
+            107
+          ],
+          "fraction": 0.0695
+        },
+        {
+          "rgb": [
+            4,
+            46,
+            109
+          ],
+          "fraction": 0.0692
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 197,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 134.64,
+      "fraction_spread_gt_70": 0.9569,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0238,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.025,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            145,
+            255,
+            232
+          ],
+          "fraction": 0.1287
+        },
+        {
+          "rgb": [
+            60,
+            255,
+            242
+          ],
+          "fraction": 0.123
+        },
+        {
+          "rgb": [
+            51,
+            118,
+            205
+          ],
+          "fraction": 0.1167
+        },
+        {
+          "rgb": [
+            22,
+            27,
+            132
+          ],
+          "fraction": 0.1103
+        },
+        {
+          "rgb": [
+            71,
+            13,
+            125
+          ],
+          "fraction": 0.1039
+        },
+        {
+          "rgb": [
+            127,
+            255,
+            238
+          ],
+          "fraction": 0.092
+        },
+        {
+          "rgb": [
+            189,
+            255,
+            240
+          ],
+          "fraction": 0.0693
+        },
+        {
+          "rgb": [
+            33,
+            212,
+            183
+          ],
+          "fraction": 0.0573
+        },
+        {
+          "rgb": [
+            162,
+            255,
+            229
+          ],
+          "fraction": 0.0567
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 275,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 89.43,
+      "fraction_spread_gt_70": 0.9849,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.016,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0182,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            18,
+            0,
+            84
+          ],
+          "fraction": 0.1406
+        },
+        {
+          "rgb": [
+            14,
+            16,
+            104
+          ],
+          "fraction": 0.1371
+        },
+        {
+          "rgb": [
+            16,
+            0,
+            80
+          ],
+          "fraction": 0.1256
+        },
+        {
+          "rgb": [
+            16,
+            1,
+            86
+          ],
+          "fraction": 0.118
+        },
+        {
+          "rgb": [
+            16,
+            7,
+            94
+          ],
+          "fraction": 0.117
+        },
+        {
+          "rgb": [
+            21,
+            28,
+            116
+          ],
+          "fraction": 0.1014
+        },
+        {
+          "rgb": [
+            28,
+            0,
+            98
+          ],
+          "fraction": 0.0739
+        },
+        {
+          "rgb": [
+            13,
+            7,
+            91
+          ],
+          "fraction": 0.059
+        },
+        {
+          "rgb": [
+            20,
+            0,
+            88
+          ],
+          "fraction": 0.0576
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 315,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 81.12,
+      "fraction_spread_gt_70": 0.7619,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.001,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0082,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            2,
+            79,
+            85
+          ],
+          "fraction": 0.2438
+        },
+        {
+          "rgb": [
+            3,
+            47,
+            58
+          ],
+          "fraction": 0.2244
+        },
+        {
+          "rgb": [
+            4,
+            79,
+            85
+          ],
+          "fraction": 0.1801
+        },
+        {
+          "rgb": [
+            14,
+            97,
+            95
+          ],
+          "fraction": 0.1153
+        },
+        {
+          "rgb": [
+            23,
+            120,
+            127
+          ],
+          "fraction": 0.0948
+        },
+        {
+          "rgb": [
+            5,
+            79,
+            75
+          ],
+          "fraction": 0.0511
+        },
+        {
+          "rgb": [
+            4,
+            82,
+            85
+          ],
+          "fraction": 0.0276
+        },
+        {
+          "rgb": [
+            2,
+            79,
+            87
+          ],
+          "fraction": 0.0209
+        },
+        {
+          "rgb": [
+            1,
+            82,
+            89
+          ],
+          "fraction": 0.0147
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 430,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 176.77,
+      "fraction_spread_gt_70": 0.9765,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0182,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0181,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            114,
+            40,
+            247
+          ],
+          "fraction": 0.2331
+        },
+        {
+          "rgb": [
+            74,
+            134,
+            247
+          ],
+          "fraction": 0.1692
+        },
+        {
+          "rgb": [
+            95,
+            86,
+            247
+          ],
+          "fraction": 0.1606
+        },
+        {
+          "rgb": [
+            77,
+            103,
+            237
+          ],
+          "fraction": 0.1009
+        },
+        {
+          "rgb": [
+            108,
+            50,
+            246
+          ],
+          "fraction": 0.098
+        },
+        {
+          "rgb": [
+            115,
+            202,
+            228
+          ],
+          "fraction": 0.0896
+        },
+        {
+          "rgb": [
+            92,
+            69,
+            237
+          ],
+          "fraction": 0.0738
+        },
+        {
+          "rgb": [
+            120,
+            46,
+            247
+          ],
+          "fraction": 0.0357
+        },
+        {
+          "rgb": [
+            113,
+            40,
+            245
+          ],
+          "fraction": 0.0218
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 496,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 136.94,
+      "fraction_spread_gt_70": 0.8796,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0611,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0533,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            209,
+            48,
+            202
+          ],
+          "fraction": 0.1488
+        },
+        {
+          "rgb": [
+            38,
+            12,
+            89
+          ],
+          "fraction": 0.1272
+        },
+        {
+          "rgb": [
+            11,
+            38,
+            158
+          ],
+          "fraction": 0.1221
+        },
+        {
+          "rgb": [
+            145,
+            247,
+            243
+          ],
+          "fraction": 0.095
+        },
+        {
+          "rgb": [
+            94,
+            244,
+            208
+          ],
+          "fraction": 0.0835
+        },
+        {
+          "rgb": [
+            224,
+            248,
+            202
+          ],
+          "fraction": 0.0821
+        },
+        {
+          "rgb": [
+            32,
+            235,
+            156
+          ],
+          "fraction": 0.0787
+        },
+        {
+          "rgb": [
+            109,
+            23,
+            142
+          ],
+          "fraction": 0.0756
+        },
+        {
+          "rgb": [
+            30,
+            191,
+            183
+          ],
+          "fraction": 0.0754
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 555,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 113.15,
+      "fraction_spread_gt_70": 0.8675,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0181,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0331,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            24,
+            75,
+            172
+          ],
+          "fraction": 0.1795
+        },
+        {
+          "rgb": [
+            3,
+            36,
+            113
+          ],
+          "fraction": 0.1172
+        },
+        {
+          "rgb": [
+            7,
+            11,
+            55
+          ],
+          "fraction": 0.1051
+        },
+        {
+          "rgb": [
+            7,
+            42,
+            124
+          ],
+          "fraction": 0.1047
+        },
+        {
+          "rgb": [
+            186,
+            216,
+            253
+          ],
+          "fraction": 0.0867
+        },
+        {
+          "rgb": [
+            22,
+            4,
+            80
+          ],
+          "fraction": 0.0867
+        },
+        {
+          "rgb": [
+            82,
+            152,
+            214
+          ],
+          "fraction": 0.0758
+        },
+        {
+          "rgb": [
+            35,
+            5,
+            94
+          ],
+          "fraction": 0.0694
+        },
+        {
+          "rgb": [
+            48,
+            197,
+            183
+          ],
+          "fraction": 0.0603
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 710,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 87.55,
+      "fraction_spread_gt_70": 0.7376,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0227,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.017,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            12,
+            68,
+            88
+          ],
+          "fraction": 0.1462
+        },
+        {
+          "rgb": [
+            40,
+            111,
+            105
+          ],
+          "fraction": 0.1378
+        },
+        {
+          "rgb": [
+            20,
+            0,
+            60
+          ],
+          "fraction": 0.1334
+        },
+        {
+          "rgb": [
+            112,
+            82,
+            86
+          ],
+          "fraction": 0.0908
+        },
+        {
+          "rgb": [
+            37,
+            7,
+            82
+          ],
+          "fraction": 0.0903
+        },
+        {
+          "rgb": [
+            49,
+            0,
+            95
+          ],
+          "fraction": 0.0703
+        },
+        {
+          "rgb": [
+            95,
+            28,
+            116
+          ],
+          "fraction": 0.0693
+        },
+        {
+          "rgb": [
+            19,
+            153,
+            141
+          ],
+          "fraction": 0.0668
+        },
+        {
+          "rgb": [
+            8,
+            73,
+            82
+          ],
+          "fraction": 0.0649
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 777,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 95.23,
+      "fraction_spread_gt_70": 0.9766,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0106,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0174,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            17,
+            1,
+            76
+          ],
+          "fraction": 0.1844
+        },
+        {
+          "rgb": [
+            19,
+            25,
+            105
+          ],
+          "fraction": 0.1328
+        },
+        {
+          "rgb": [
+            17,
+            0,
+            79
+          ],
+          "fraction": 0.1251
+        },
+        {
+          "rgb": [
+            18,
+            56,
+            126
+          ],
+          "fraction": 0.1116
+        },
+        {
+          "rgb": [
+            19,
+            86,
+            146
+          ],
+          "fraction": 0.0937
+        },
+        {
+          "rgb": [
+            26,
+            5,
+            104
+          ],
+          "fraction": 0.0892
+        },
+        {
+          "rgb": [
+            24,
+            0,
+            93
+          ],
+          "fraction": 0.0844
+        },
+        {
+          "rgb": [
+            19,
+            0,
+            78
+          ],
+          "fraction": 0.0705
+        },
+        {
+          "rgb": [
+            94,
+            219,
+            123
+          ],
+          "fraction": 0.0596
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 846,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 126.74,
+      "fraction_spread_gt_70": 0.9416,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.009,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.012,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            64,
+            109,
+            211
+          ],
+          "fraction": 0.1453
+        },
+        {
+          "rgb": [
+            57,
+            198,
+            241
+          ],
+          "fraction": 0.1369
+        },
+        {
+          "rgb": [
+            47,
+            35,
+            146
+          ],
+          "fraction": 0.1136
+        },
+        {
+          "rgb": [
+            25,
+            9,
+            101
+          ],
+          "fraction": 0.1075
+        },
+        {
+          "rgb": [
+            64,
+            69,
+            185
+          ],
+          "fraction": 0.0935
+        },
+        {
+          "rgb": [
+            56,
+            48,
+            164
+          ],
+          "fraction": 0.0925
+        },
+        {
+          "rgb": [
+            223,
+            175,
+            198
+          ],
+          "fraction": 0.088
+        },
+        {
+          "rgb": [
+            59,
+            66,
+            178
+          ],
+          "fraction": 0.0684
+        },
+        {
+          "rgb": [
+            181,
+            246,
+            227
+          ],
+          "fraction": 0.0522
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 856,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 117.66,
+      "fraction_spread_gt_70": 0.793,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0713,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0699,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            24,
+            155,
+            92
+          ],
+          "fraction": 0.1629
+        },
+        {
+          "rgb": [
+            21,
+            90,
+            76
+          ],
+          "fraction": 0.1074
+        },
+        {
+          "rgb": [
+            41,
+            19,
+            98
+          ],
+          "fraction": 0.1028
+        },
+        {
+          "rgb": [
+            55,
+            79,
+            113
+          ],
+          "fraction": 0.0864
+        },
+        {
+          "rgb": [
+            114,
+            232,
+            209
+          ],
+          "fraction": 0.0803
+        },
+        {
+          "rgb": [
+            196,
+            243,
+            201
+          ],
+          "fraction": 0.0726
+        },
+        {
+          "rgb": [
+            72,
+            12,
+            129
+          ],
+          "fraction": 0.0721
+        },
+        {
+          "rgb": [
+            22,
+            223,
+            162
+          ],
+          "fraction": 0.0697
+        },
+        {
+          "rgb": [
+            133,
+            92,
+            175
+          ],
+          "fraction": 0.069
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "whole_world_variation",
+      "time_s": 874,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 67.33,
+      "fraction_spread_gt_70": 0.5036,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0061,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0075,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            0,
+            16,
+            72
+          ],
+          "fraction": 0.1562
+        },
+        {
+          "rgb": [
+            0,
+            0,
+            31
+          ],
+          "fraction": 0.1396
+        },
+        {
+          "rgb": [
+            0,
+            7,
+            27
+          ],
+          "fraction": 0.1313
+        },
+        {
+          "rgb": [
+            2,
+            17,
+            93
+          ],
+          "fraction": 0.0964
+        },
+        {
+          "rgb": [
+            1,
+            3,
+            39
+          ],
+          "fraction": 0.0812
+        },
+        {
+          "rgb": [
+            0,
+            9,
+            57
+          ],
+          "fraction": 0.0799
+        },
+        {
+          "rgb": [
+            13,
+            43,
+            126
+          ],
+          "fraction": 0.0754
+        },
+        {
+          "rgb": [
+            30,
+            86,
+            149
+          ],
+          "fraction": 0.0643
+        },
+        {
+          "rgb": [
+            5,
+            10,
+            83
+          ],
+          "fraction": 0.0627
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 305,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 100.54,
+      "fraction_spread_gt_70": 0.9859,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0052,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0051,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            7,
+            86,
+            127
+          ],
+          "fraction": 0.2686
+        },
+        {
+          "rgb": [
+            2,
+            28,
+            79
+          ],
+          "fraction": 0.2151
+        },
+        {
+          "rgb": [
+            9,
+            71,
+            113
+          ],
+          "fraction": 0.1196
+        },
+        {
+          "rgb": [
+            4,
+            64,
+            109
+          ],
+          "fraction": 0.1181
+        },
+        {
+          "rgb": [
+            3,
+            45,
+            94
+          ],
+          "fraction": 0.1125
+        },
+        {
+          "rgb": [
+            2,
+            38,
+            88
+          ],
+          "fraction": 0.0619
+        },
+        {
+          "rgb": [
+            1,
+            32,
+            82
+          ],
+          "fraction": 0.0464
+        },
+        {
+          "rgb": [
+            2,
+            28,
+            81
+          ],
+          "fraction": 0.022
+        },
+        {
+          "rgb": [
+            23,
+            42,
+            86
+          ],
+          "fraction": 0.0176
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 416,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 125.44,
+      "fraction_spread_gt_70": 0.9785,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0182,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0541,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            16,
+            16,
+            90
+          ],
+          "fraction": 0.1379
+        },
+        {
+          "rgb": [
+            12,
+            70,
+            122
+          ],
+          "fraction": 0.1215
+        },
+        {
+          "rgb": [
+            13,
+            127,
+            151
+          ],
+          "fraction": 0.1081
+        },
+        {
+          "rgb": [
+            17,
+            174,
+            170
+          ],
+          "fraction": 0.1003
+        },
+        {
+          "rgb": [
+            13,
+            100,
+            138
+          ],
+          "fraction": 0.099
+        },
+        {
+          "rgb": [
+            20,
+            200,
+            177
+          ],
+          "fraction": 0.092
+        },
+        {
+          "rgb": [
+            22,
+            43,
+            108
+          ],
+          "fraction": 0.0859
+        },
+        {
+          "rgb": [
+            68,
+            20,
+            191
+          ],
+          "fraction": 0.0812
+        },
+        {
+          "rgb": [
+            19,
+            115,
+            138
+          ],
+          "fraction": 0.0644
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 468,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 97.39,
+      "fraction_spread_gt_70": 0.6279,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0065,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0074,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            4,
+            0,
+            49
+          ],
+          "fraction": 0.1142
+        },
+        {
+          "rgb": [
+            6,
+            0,
+            68
+          ],
+          "fraction": 0.1046
+        },
+        {
+          "rgb": [
+            51,
+            28,
+            179
+          ],
+          "fraction": 0.0991
+        },
+        {
+          "rgb": [
+            23,
+            3,
+            128
+          ],
+          "fraction": 0.0978
+        },
+        {
+          "rgb": [
+            4,
+            0,
+            55
+          ],
+          "fraction": 0.0973
+        },
+        {
+          "rgb": [
+            16,
+            0,
+            107
+          ],
+          "fraction": 0.0843
+        },
+        {
+          "rgb": [
+            32,
+            8,
+            146
+          ],
+          "fraction": 0.0791
+        },
+        {
+          "rgb": [
+            38,
+            16,
+            158
+          ],
+          "fraction": 0.0778
+        },
+        {
+          "rgb": [
+            10,
+            0,
+            88
+          ],
+          "fraction": 0.0654
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 561,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 157.72,
+      "fraction_spread_gt_70": 0.9274,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0501,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0529,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            240,
+            175,
+            224
+          ],
+          "fraction": 0.133
+        },
+        {
+          "rgb": [
+            11,
+            166,
+            215
+          ],
+          "fraction": 0.126
+        },
+        {
+          "rgb": [
+            20,
+            255,
+            214
+          ],
+          "fraction": 0.1233
+        },
+        {
+          "rgb": [
+            245,
+            131,
+            209
+          ],
+          "fraction": 0.1096
+        },
+        {
+          "rgb": [
+            168,
+            9,
+            128
+          ],
+          "fraction": 0.0999
+        },
+        {
+          "rgb": [
+            246,
+            118,
+            205
+          ],
+          "fraction": 0.0956
+        },
+        {
+          "rgb": [
+            37,
+            42,
+            139
+          ],
+          "fraction": 0.0863
+        },
+        {
+          "rgb": [
+            15,
+            221,
+            231
+          ],
+          "fraction": 0.0849
+        },
+        {
+          "rgb": [
+            19,
+            228,
+            232
+          ],
+          "fraction": 0.0767
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 726,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 78.9,
+      "fraction_spread_gt_70": 0.6164,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0167,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.023,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            74,
+            79,
+            150
+          ],
+          "fraction": 0.135
+        },
+        {
+          "rgb": [
+            8,
+            19,
+            54
+          ],
+          "fraction": 0.1296
+        },
+        {
+          "rgb": [
+            4,
+            65,
+            92
+          ],
+          "fraction": 0.1247
+        },
+        {
+          "rgb": [
+            5,
+            50,
+            79
+          ],
+          "fraction": 0.1026
+        },
+        {
+          "rgb": [
+            49,
+            22,
+            89
+          ],
+          "fraction": 0.0892
+        },
+        {
+          "rgb": [
+            107,
+            18,
+            77
+          ],
+          "fraction": 0.0875
+        },
+        {
+          "rgb": [
+            9,
+            98,
+            111
+          ],
+          "fraction": 0.0789
+        },
+        {
+          "rgb": [
+            217,
+            207,
+            164
+          ],
+          "fraction": 0.071
+        },
+        {
+          "rgb": [
+            157,
+            170,
+            160
+          ],
+          "fraction": 0.0634
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 744,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 65.37,
+      "fraction_spread_gt_70": 0.1598,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0127,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0098,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            3,
+            0,
+            53
+          ],
+          "fraction": 0.4987
+        },
+        {
+          "rgb": [
+            32,
+            0,
+            47
+          ],
+          "fraction": 0.1342
+        },
+        {
+          "rgb": [
+            105,
+            5,
+            32
+          ],
+          "fraction": 0.0766
+        },
+        {
+          "rgb": [
+            8,
+            0,
+            52
+          ],
+          "fraction": 0.0689
+        },
+        {
+          "rgb": [
+            18,
+            0,
+            50
+          ],
+          "fraction": 0.0617
+        },
+        {
+          "rgb": [
+            24,
+            1,
+            48
+          ],
+          "fraction": 0.0545
+        },
+        {
+          "rgb": [
+            252,
+            238,
+            106
+          ],
+          "fraction": 0.0473
+        },
+        {
+          "rgb": [
+            202,
+            102,
+            51
+          ],
+          "fraction": 0.0394
+        },
+        {
+          "rgb": [
+            83,
+            0,
+            37
+          ],
+          "fraction": 0.008
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 852,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 118.17,
+      "fraction_spread_gt_70": 0.7998,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0732,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.072,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            37,
+            24,
+            100
+          ],
+          "fraction": 0.175
+        },
+        {
+          "rgb": [
+            25,
+            89,
+            59
+          ],
+          "fraction": 0.1362
+        },
+        {
+          "rgb": [
+            89,
+            2,
+            151
+          ],
+          "fraction": 0.1135
+        },
+        {
+          "rgb": [
+            175,
+            234,
+            226
+          ],
+          "fraction": 0.0929
+        },
+        {
+          "rgb": [
+            41,
+            144,
+            82
+          ],
+          "fraction": 0.0804
+        },
+        {
+          "rgb": [
+            26,
+            196,
+            122
+          ],
+          "fraction": 0.0795
+        },
+        {
+          "rgb": [
+            15,
+            145,
+            85
+          ],
+          "fraction": 0.0784
+        },
+        {
+          "rgb": [
+            147,
+            138,
+            201
+          ],
+          "fraction": 0.0773
+        },
+        {
+          "rgb": [
+            86,
+            208,
+            174
+          ],
+          "fraction": 0.0581
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 861,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 119.45,
+      "fraction_spread_gt_70": 0.8015,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0621,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0609,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            39,
+            30,
+            109
+          ],
+          "fraction": 0.1305
+        },
+        {
+          "rgb": [
+            29,
+            164,
+            101
+          ],
+          "fraction": 0.1295
+        },
+        {
+          "rgb": [
+            22,
+            102,
+            81
+          ],
+          "fraction": 0.1141
+        },
+        {
+          "rgb": [
+            98,
+            21,
+            152
+          ],
+          "fraction": 0.0986
+        },
+        {
+          "rgb": [
+            59,
+            111,
+            120
+          ],
+          "fraction": 0.0975
+        },
+        {
+          "rgb": [
+            26,
+            201,
+            144
+          ],
+          "fraction": 0.0666
+        },
+        {
+          "rgb": [
+            28,
+            231,
+            183
+          ],
+          "fraction": 0.0662
+        },
+        {
+          "rgb": [
+            211,
+            249,
+            192
+          ],
+          "fraction": 0.064
+        },
+        {
+          "rgb": [
+            120,
+            243,
+            207
+          ],
+          "fraction": 0.0633
+        }
+      ]
+    },
+    {
+      "film": "AI",
+      "group": "mechanism_and_actions",
+      "time_s": 883,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 17.07,
+      "fraction_spread_gt_70": 0.0,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0001,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            238,
+            252,
+            253
+          ],
+          "fraction": 0.2264
+        },
+        {
+          "rgb": [
+            230,
+            247,
+            254
+          ],
+          "fraction": 0.1131
+        },
+        {
+          "rgb": [
+            241,
+            254,
+            254
+          ],
+          "fraction": 0.1126
+        },
+        {
+          "rgb": [
+            248,
+            254,
+            254
+          ],
+          "fraction": 0.1047
+        },
+        {
+          "rgb": [
+            210,
+            226,
+            250
+          ],
+          "fraction": 0.0854
+        },
+        {
+          "rgb": [
+            245,
+            255,
+            255
+          ],
+          "fraction": 0.0781
+        },
+        {
+          "rgb": [
+            243,
+            253,
+            254
+          ],
+          "fraction": 0.0564
+        },
+        {
+          "rgb": [
+            233,
+            252,
+            254
+          ],
+          "fraction": 0.0559
+        },
+        {
+          "rgb": [
+            250,
+            255,
+            255
+          ],
+          "fraction": 0.0545
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 18,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 66.77,
+      "fraction_spread_gt_70": 0.3297,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0124,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0167,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            6,
+            2,
+            19
+          ],
+          "fraction": 0.1463
+        },
+        {
+          "rgb": [
+            65,
+            102,
+            173
+          ],
+          "fraction": 0.1236
+        },
+        {
+          "rgb": [
+            8,
+            5,
+            64
+          ],
+          "fraction": 0.1092
+        },
+        {
+          "rgb": [
+            6,
+            3,
+            22
+          ],
+          "fraction": 0.104
+        },
+        {
+          "rgb": [
+            63,
+            165,
+            179
+          ],
+          "fraction": 0.0952
+        },
+        {
+          "rgb": [
+            8,
+            3,
+            26
+          ],
+          "fraction": 0.0843
+        },
+        {
+          "rgb": [
+            42,
+            1,
+            78
+          ],
+          "fraction": 0.0842
+        },
+        {
+          "rgb": [
+            8,
+            2,
+            28
+          ],
+          "fraction": 0.0766
+        },
+        {
+          "rgb": [
+            13,
+            3,
+            42
+          ],
+          "fraction": 0.0725
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 62,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 67.12,
+      "fraction_spread_gt_70": 0.4073,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.2695,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.1854,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            8,
+            1,
+            16
+          ],
+          "fraction": 0.1413
+        },
+        {
+          "rgb": [
+            10,
+            1,
+            27
+          ],
+          "fraction": 0.1287
+        },
+        {
+          "rgb": [
+            38,
+            0,
+            55
+          ],
+          "fraction": 0.1259
+        },
+        {
+          "rgb": [
+            53,
+            17,
+            96
+          ],
+          "fraction": 0.0932
+        },
+        {
+          "rgb": [
+            82,
+            20,
+            112
+          ],
+          "fraction": 0.0792
+        },
+        {
+          "rgb": [
+            52,
+            1,
+            71
+          ],
+          "fraction": 0.0728
+        },
+        {
+          "rgb": [
+            47,
+            55,
+            124
+          ],
+          "fraction": 0.0708
+        },
+        {
+          "rgb": [
+            161,
+            202,
+            142
+          ],
+          "fraction": 0.0631
+        },
+        {
+          "rgb": [
+            123,
+            136,
+            134
+          ],
+          "fraction": 0.0622
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 75,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 82.01,
+      "fraction_spread_gt_70": 0.4613,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0126,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0143,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            11,
+            5,
+            33
+          ],
+          "fraction": 0.1815
+        },
+        {
+          "rgb": [
+            164,
+            95,
+            138
+          ],
+          "fraction": 0.1383
+        },
+        {
+          "rgb": [
+            41,
+            1,
+            64
+          ],
+          "fraction": 0.1268
+        },
+        {
+          "rgb": [
+            59,
+            1,
+            87
+          ],
+          "fraction": 0.1262
+        },
+        {
+          "rgb": [
+            106,
+            1,
+            119
+          ],
+          "fraction": 0.0908
+        },
+        {
+          "rgb": [
+            26,
+            5,
+            47
+          ],
+          "fraction": 0.0768
+        },
+        {
+          "rgb": [
+            105,
+            13,
+            87
+          ],
+          "fraction": 0.0754
+        },
+        {
+          "rgb": [
+            11,
+            5,
+            34
+          ],
+          "fraction": 0.0737
+        },
+        {
+          "rgb": [
+            26,
+            2,
+            55
+          ],
+          "fraction": 0.0725
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 91,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 78.89,
+      "fraction_spread_gt_70": 0.5126,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.2105,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.1448,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            57,
+            43,
+            125
+          ],
+          "fraction": 0.1563
+        },
+        {
+          "rgb": [
+            7,
+            2,
+            18
+          ],
+          "fraction": 0.1443
+        },
+        {
+          "rgb": [
+            156,
+            68,
+            77
+          ],
+          "fraction": 0.1088
+        },
+        {
+          "rgb": [
+            32,
+            6,
+            57
+          ],
+          "fraction": 0.1026
+        },
+        {
+          "rgb": [
+            8,
+            2,
+            24
+          ],
+          "fraction": 0.0959
+        },
+        {
+          "rgb": [
+            46,
+            203,
+            206
+          ],
+          "fraction": 0.0957
+        },
+        {
+          "rgb": [
+            244,
+            225,
+            146
+          ],
+          "fraction": 0.0952
+        },
+        {
+          "rgb": [
+            16,
+            1,
+            35
+          ],
+          "fraction": 0.0842
+        },
+        {
+          "rgb": [
+            79,
+            15,
+            101
+          ],
+          "fraction": 0.0495
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 140,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 97.41,
+      "fraction_spread_gt_70": 0.5073,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0469,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0306,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            18,
+            63,
+            45
+          ],
+          "fraction": 0.1346
+        },
+        {
+          "rgb": [
+            18,
+            2,
+            7
+          ],
+          "fraction": 0.1162
+        },
+        {
+          "rgb": [
+            100,
+            5,
+            150
+          ],
+          "fraction": 0.1132
+        },
+        {
+          "rgb": [
+            177,
+            77,
+            27
+          ],
+          "fraction": 0.0945
+        },
+        {
+          "rgb": [
+            93,
+            235,
+            59
+          ],
+          "fraction": 0.0926
+        },
+        {
+          "rgb": [
+            7,
+            3,
+            19
+          ],
+          "fraction": 0.0888
+        },
+        {
+          "rgb": [
+            37,
+            8,
+            42
+          ],
+          "fraction": 0.0854
+        },
+        {
+          "rgb": [
+            248,
+            239,
+            86
+          ],
+          "fraction": 0.0782
+        },
+        {
+          "rgb": [
+            78,
+            43,
+            47
+          ],
+          "fraction": 0.0616
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 160,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 70.94,
+      "fraction_spread_gt_70": 0.4001,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0384,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0404,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            7,
+            0,
+            33
+          ],
+          "fraction": 0.2342
+        },
+        {
+          "rgb": [
+            164,
+            135,
+            108
+          ],
+          "fraction": 0.1336
+        },
+        {
+          "rgb": [
+            22,
+            0,
+            65
+          ],
+          "fraction": 0.11
+        },
+        {
+          "rgb": [
+            37,
+            0,
+            95
+          ],
+          "fraction": 0.1057
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            43
+          ],
+          "fraction": 0.0974
+        },
+        {
+          "rgb": [
+            119,
+            36,
+            111
+          ],
+          "fraction": 0.0916
+        },
+        {
+          "rgb": [
+            186,
+            224,
+            153
+          ],
+          "fraction": 0.09
+        },
+        {
+          "rgb": [
+            9,
+            0,
+            33
+          ],
+          "fraction": 0.053
+        },
+        {
+          "rgb": [
+            8,
+            1,
+            34
+          ],
+          "fraction": 0.0425
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 222,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 53.31,
+      "fraction_spread_gt_70": 0.1629,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0093,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0094,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            10,
+            0,
+            24
+          ],
+          "fraction": 0.1511
+        },
+        {
+          "rgb": [
+            6,
+            1,
+            23
+          ],
+          "fraction": 0.1383
+        },
+        {
+          "rgb": [
+            22,
+            9,
+            76
+          ],
+          "fraction": 0.1119
+        },
+        {
+          "rgb": [
+            9,
+            0,
+            40
+          ],
+          "fraction": 0.1113
+        },
+        {
+          "rgb": [
+            11,
+            3,
+            51
+          ],
+          "fraction": 0.1029
+        },
+        {
+          "rgb": [
+            6,
+            0,
+            29
+          ],
+          "fraction": 0.0806
+        },
+        {
+          "rgb": [
+            15,
+            5,
+            67
+          ],
+          "fraction": 0.0802
+        },
+        {
+          "rgb": [
+            7,
+            0,
+            34
+          ],
+          "fraction": 0.0766
+        },
+        {
+          "rgb": [
+            193,
+            180,
+            19
+          ],
+          "fraction": 0.0755
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 465,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 103.88,
+      "fraction_spread_gt_70": 0.656,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0094,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0091,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "fraction": 0.2598
+        },
+        {
+          "rgb": [
+            88,
+            2,
+            146
+          ],
+          "fraction": 0.1512
+        },
+        {
+          "rgb": [
+            100,
+            41,
+            210
+          ],
+          "fraction": 0.0969
+        },
+        {
+          "rgb": [
+            69,
+            216,
+            110
+          ],
+          "fraction": 0.0962
+        },
+        {
+          "rgb": [
+            74,
+            1,
+            134
+          ],
+          "fraction": 0.0849
+        },
+        {
+          "rgb": [
+            128,
+            0,
+            172
+          ],
+          "fraction": 0.0691
+        },
+        {
+          "rgb": [
+            50,
+            158,
+            181
+          ],
+          "fraction": 0.0511
+        },
+        {
+          "rgb": [
+            43,
+            2,
+            62
+          ],
+          "fraction": 0.0499
+        },
+        {
+          "rgb": [
+            29,
+            82,
+            147
+          ],
+          "fraction": 0.0466
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 542,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 50.15,
+      "fraction_spread_gt_70": 0.298,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0809,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.061,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "fraction": 0.2392
+        },
+        {
+          "rgb": [
+            19,
+            2,
+            6
+          ],
+          "fraction": 0.1136
+        },
+        {
+          "rgb": [
+            181,
+            156,
+            102
+          ],
+          "fraction": 0.1019
+        },
+        {
+          "rgb": [
+            37,
+            4,
+            13
+          ],
+          "fraction": 0.1014
+        },
+        {
+          "rgb": [
+            251,
+            233,
+            135
+          ],
+          "fraction": 0.0984
+        },
+        {
+          "rgb": [
+            8,
+            1,
+            2
+          ],
+          "fraction": 0.0818
+        },
+        {
+          "rgb": [
+            140,
+            92,
+            71
+          ],
+          "fraction": 0.0681
+        },
+        {
+          "rgb": [
+            50,
+            20,
+            33
+          ],
+          "fraction": 0.064
+        },
+        {
+          "rgb": [
+            125,
+            45,
+            86
+          ],
+          "fraction": 0.0606
+        }
+      ]
+    },
+    {
+      "film": "MEMORIES",
+      "group": "dense_biology_and_inner_worlds",
+      "time_s": 657,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 87.13,
+      "fraction_spread_gt_70": 0.4764,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0065,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0063,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "fraction": 0.3751
+        },
+        {
+          "rgb": [
+            156,
+            0,
+            222
+          ],
+          "fraction": 0.1237
+        },
+        {
+          "rgb": [
+            67,
+            3,
+            116
+          ],
+          "fraction": 0.1166
+        },
+        {
+          "rgb": [
+            203,
+            0,
+            185
+          ],
+          "fraction": 0.0765
+        },
+        {
+          "rgb": [
+            49,
+            1,
+            72
+          ],
+          "fraction": 0.0731
+        },
+        {
+          "rgb": [
+            19,
+            0,
+            22
+          ],
+          "fraction": 0.0648
+        },
+        {
+          "rgb": [
+            89,
+            13,
+            76
+          ],
+          "fraction": 0.0643
+        },
+        {
+          "rgb": [
+            164,
+            4,
+            112
+          ],
+          "fraction": 0.0465
+        },
+        {
+          "rgb": [
+            0,
+            0,
+            3
+          ],
+          "fraction": 0.0264
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 51,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 129.92,
+      "fraction_spread_gt_70": 0.8265,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0142,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0169,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "fraction": 0.134
+        },
+        {
+          "rgb": [
+            3,
+            14,
+            154
+          ],
+          "fraction": 0.1299
+        },
+        {
+          "rgb": [
+            8,
+            87,
+            226
+          ],
+          "fraction": 0.1028
+        },
+        {
+          "rgb": [
+            34,
+            139,
+            184
+          ],
+          "fraction": 0.0932
+        },
+        {
+          "rgb": [
+            1,
+            12,
+            124
+          ],
+          "fraction": 0.0903
+        },
+        {
+          "rgb": [
+            0,
+            2,
+            81
+          ],
+          "fraction": 0.089
+        },
+        {
+          "rgb": [
+            165,
+            247,
+            246
+          ],
+          "fraction": 0.0873
+        },
+        {
+          "rgb": [
+            82,
+            230,
+            243
+          ],
+          "fraction": 0.0845
+        },
+        {
+          "rgb": [
+            122,
+            1,
+            70
+          ],
+          "fraction": 0.0765
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 88,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 97.52,
+      "fraction_spread_gt_70": 0.7727,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0108,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0128,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            96,
+            211,
+            170
+          ],
+          "fraction": 0.1596
+        },
+        {
+          "rgb": [
+            137,
+            215,
+            162
+          ],
+          "fraction": 0.1253
+        },
+        {
+          "rgb": [
+            170,
+            211,
+            135
+          ],
+          "fraction": 0.118
+        },
+        {
+          "rgb": [
+            176,
+            97,
+            53
+          ],
+          "fraction": 0.1024
+        },
+        {
+          "rgb": [
+            185,
+            136,
+            17
+          ],
+          "fraction": 0.0933
+        },
+        {
+          "rgb": [
+            82,
+            75,
+            31
+          ],
+          "fraction": 0.0858
+        },
+        {
+          "rgb": [
+            207,
+            212,
+            119
+          ],
+          "fraction": 0.078
+        },
+        {
+          "rgb": [
+            223,
+            214,
+            114
+          ],
+          "fraction": 0.0758
+        },
+        {
+          "rgb": [
+            148,
+            196,
+            189
+          ],
+          "fraction": 0.0724
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 200,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 108.03,
+      "fraction_spread_gt_70": 0.8095,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0421,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.04,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            64,
+            1,
+            106
+          ],
+          "fraction": 0.1257
+        },
+        {
+          "rgb": [
+            2,
+            83,
+            58
+          ],
+          "fraction": 0.1163
+        },
+        {
+          "rgb": [
+            52,
+            4,
+            110
+          ],
+          "fraction": 0.1077
+        },
+        {
+          "rgb": [
+            203,
+            26,
+            206
+          ],
+          "fraction": 0.1009
+        },
+        {
+          "rgb": [
+            5,
+            82,
+            60
+          ],
+          "fraction": 0.0985
+        },
+        {
+          "rgb": [
+            24,
+            44,
+            89
+          ],
+          "fraction": 0.0869
+        },
+        {
+          "rgb": [
+            130,
+            239,
+            82
+          ],
+          "fraction": 0.0846
+        },
+        {
+          "rgb": [
+            66,
+            143,
+            109
+          ],
+          "fraction": 0.0747
+        },
+        {
+          "rgb": [
+            37,
+            24,
+            99
+          ],
+          "fraction": 0.074
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 230,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 104.22,
+      "fraction_spread_gt_70": 0.9792,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0147,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0243,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            2,
+            29,
+            74
+          ],
+          "fraction": 0.3874
+        },
+        {
+          "rgb": [
+            9,
+            132,
+            112
+          ],
+          "fraction": 0.2079
+        },
+        {
+          "rgb": [
+            2,
+            38,
+            98
+          ],
+          "fraction": 0.1137
+        },
+        {
+          "rgb": [
+            7,
+            134,
+            112
+          ],
+          "fraction": 0.0787
+        },
+        {
+          "rgb": [
+            18,
+            102,
+            114
+          ],
+          "fraction": 0.0773
+        },
+        {
+          "rgb": [
+            79,
+            189,
+            82
+          ],
+          "fraction": 0.0675
+        },
+        {
+          "rgb": [
+            2,
+            29,
+            76
+          ],
+          "fraction": 0.0218
+        },
+        {
+          "rgb": [
+            1,
+            29,
+            73
+          ],
+          "fraction": 0.0123
+        },
+        {
+          "rgb": [
+            37,
+            33,
+            96
+          ],
+          "fraction": 0.0118
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 296,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 144.96,
+      "fraction_spread_gt_70": 0.9631,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0349,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0525,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            47,
+            195,
+            75
+          ],
+          "fraction": 0.2035
+        },
+        {
+          "rgb": [
+            77,
+            220,
+            217
+          ],
+          "fraction": 0.162
+        },
+        {
+          "rgb": [
+            11,
+            127,
+            64
+          ],
+          "fraction": 0.153
+        },
+        {
+          "rgb": [
+            13,
+            156,
+            81
+          ],
+          "fraction": 0.111
+        },
+        {
+          "rgb": [
+            90,
+            235,
+            221
+          ],
+          "fraction": 0.1055
+        },
+        {
+          "rgb": [
+            87,
+            212,
+            91
+          ],
+          "fraction": 0.0941
+        },
+        {
+          "rgb": [
+            214,
+            236,
+            109
+          ],
+          "fraction": 0.0817
+        },
+        {
+          "rgb": [
+            109,
+            234,
+            126
+          ],
+          "fraction": 0.0475
+        },
+        {
+          "rgb": [
+            108,
+            77,
+            95
+          ],
+          "fraction": 0.0209
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 387,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 77.69,
+      "fraction_spread_gt_70": 0.5758,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0077,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0276,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            20,
+            15,
+            125
+          ],
+          "fraction": 0.1397
+        },
+        {
+          "rgb": [
+            37,
+            61,
+            83
+          ],
+          "fraction": 0.1178
+        },
+        {
+          "rgb": [
+            2,
+            0,
+            104
+          ],
+          "fraction": 0.1134
+        },
+        {
+          "rgb": [
+            7,
+            1,
+            42
+          ],
+          "fraction": 0.0922
+        },
+        {
+          "rgb": [
+            55,
+            65,
+            95
+          ],
+          "fraction": 0.0854
+        },
+        {
+          "rgb": [
+            1,
+            0,
+            55
+          ],
+          "fraction": 0.0811
+        },
+        {
+          "rgb": [
+            72,
+            180,
+            172
+          ],
+          "fraction": 0.0799
+        },
+        {
+          "rgb": [
+            62,
+            82,
+            118
+          ],
+          "fraction": 0.0774
+        },
+        {
+          "rgb": [
+            34,
+            11,
+            80
+          ],
+          "fraction": 0.0706
+        }
+      ]
+    },
+    {
+      "film": "NUCLEAR",
+      "group": "physical_and_data_worlds",
+      "time_s": 440,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 113.06,
+      "fraction_spread_gt_70": 0.8017,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0337,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0378,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            94,
+            86,
+            223
+          ],
+          "fraction": 0.1718
+        },
+        {
+          "rgb": [
+            44,
+            45,
+            189
+          ],
+          "fraction": 0.1306
+        },
+        {
+          "rgb": [
+            47,
+            28,
+            158
+          ],
+          "fraction": 0.1192
+        },
+        {
+          "rgb": [
+            247,
+            238,
+            223
+          ],
+          "fraction": 0.1171
+        },
+        {
+          "rgb": [
+            27,
+            14,
+            84
+          ],
+          "fraction": 0.1165
+        },
+        {
+          "rgb": [
+            152,
+            198,
+            242
+          ],
+          "fraction": 0.0808
+        },
+        {
+          "rgb": [
+            108,
+            156,
+            233
+          ],
+          "fraction": 0.0664
+        },
+        {
+          "rgb": [
+            52,
+            107,
+            200
+          ],
+          "fraction": 0.0635
+        },
+        {
+          "rgb": [
+            110,
+            113,
+            231
+          ],
+          "fraction": 0.0588
+        }
+      ]
+    },
+    {
+      "film": "BRAIN",
+      "group": "perception_and_character_worlds",
+      "time_s": 2,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 114.59,
+      "fraction_spread_gt_70": 0.7541,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0413,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.061,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            8,
+            91,
+            183
+          ],
+          "fraction": 0.1467
+        },
+        {
+          "rgb": [
+            239,
+            168,
+            208
+          ],
+          "fraction": 0.1277
+        },
+        {
+          "rgb": [
+            173,
+            228,
+            241
+          ],
+          "fraction": 0.1262
+        },
+        {
+          "rgb": [
+            252,
+            238,
+            254
+          ],
+          "fraction": 0.1239
+        },
+        {
+          "rgb": [
+            3,
+            41,
+            118
+          ],
+          "fraction": 0.0922
+        },
+        {
+          "rgb": [
+            235,
+            98,
+            121
+          ],
+          "fraction": 0.086
+        },
+        {
+          "rgb": [
+            9,
+            119,
+            192
+          ],
+          "fraction": 0.0739
+        },
+        {
+          "rgb": [
+            49,
+            2,
+            118
+          ],
+          "fraction": 0.0675
+        },
+        {
+          "rgb": [
+            172,
+            5,
+            88
+          ],
+          "fraction": 0.0619
+        }
+      ]
+    },
+    {
+      "film": "BRAIN",
+      "group": "perception_and_character_worlds",
+      "time_s": 20,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 64.7,
+      "fraction_spread_gt_70": 0.2178,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.008,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0097,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            33,
+            5,
+            63
+          ],
+          "fraction": 0.1405
+        },
+        {
+          "rgb": [
+            26,
+            1,
+            54
+          ],
+          "fraction": 0.137
+        },
+        {
+          "rgb": [
+            18,
+            0,
+            44
+          ],
+          "fraction": 0.1111
+        },
+        {
+          "rgb": [
+            36,
+            5,
+            67
+          ],
+          "fraction": 0.1094
+        },
+        {
+          "rgb": [
+            16,
+            0,
+            39
+          ],
+          "fraction": 0.1022
+        },
+        {
+          "rgb": [
+            64,
+            13,
+            116
+          ],
+          "fraction": 0.1003
+        },
+        {
+          "rgb": [
+            22,
+            1,
+            49
+          ],
+          "fraction": 0.0895
+        },
+        {
+          "rgb": [
+            49,
+            8,
+            89
+          ],
+          "fraction": 0.0736
+        },
+        {
+          "rgb": [
+            200,
+            147,
+            181
+          ],
+          "fraction": 0.0668
+        }
+      ]
+    },
+    {
+      "film": "BRAIN",
+      "group": "perception_and_character_worlds",
+      "time_s": 60,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 138.39,
+      "fraction_spread_gt_70": 0.9788,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0473,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0521,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            248,
+            166,
+            248
+          ],
+          "fraction": 0.1891
+        },
+        {
+          "rgb": [
+            212,
+            60,
+            104
+          ],
+          "fraction": 0.1752
+        },
+        {
+          "rgb": [
+            145,
+            151,
+            235
+          ],
+          "fraction": 0.1509
+        },
+        {
+          "rgb": [
+            250,
+            229,
+            101
+          ],
+          "fraction": 0.1178
+        },
+        {
+          "rgb": [
+            243,
+            171,
+            83
+          ],
+          "fraction": 0.1175
+        },
+        {
+          "rgb": [
+            122,
+            11,
+            110
+          ],
+          "fraction": 0.0775
+        },
+        {
+          "rgb": [
+            231,
+            105,
+            141
+          ],
+          "fraction": 0.0736
+        },
+        {
+          "rgb": [
+            159,
+            66,
+            150
+          ],
+          "fraction": 0.0358
+        },
+        {
+          "rgb": [
+            251,
+            196,
+            91
+          ],
+          "fraction": 0.0215
+        }
+      ]
+    },
+    {
+      "film": "BRAIN",
+      "group": "perception_and_character_worlds",
+      "time_s": 210,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 157.33,
+      "fraction_spread_gt_70": 0.9098,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0168,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0325,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            91,
+            255,
+            252
+          ],
+          "fraction": 0.5955
+        },
+        {
+          "rgb": [
+            127,
+            236,
+            5
+          ],
+          "fraction": 0.1357
+        },
+        {
+          "rgb": [
+            230,
+            252,
+            229
+          ],
+          "fraction": 0.086
+        },
+        {
+          "rgb": [
+            149,
+            77,
+            136
+          ],
+          "fraction": 0.0681
+        },
+        {
+          "rgb": [
+            91,
+            255,
+            254
+          ],
+          "fraction": 0.0325
+        },
+        {
+          "rgb": [
+            91,
+            255,
+            250
+          ],
+          "fraction": 0.0267
+        },
+        {
+          "rgb": [
+            127,
+            236,
+            2
+          ],
+          "fraction": 0.0236
+        },
+        {
+          "rgb": [
+            90,
+            255,
+            252
+          ],
+          "fraction": 0.0116
+        },
+        {
+          "rgb": [
+            179,
+            255,
+            250
+          ],
+          "fraction": 0.0097
+        }
+      ]
+    },
+    {
+      "film": "BRAIN",
+      "group": "perception_and_character_worlds",
+      "time_s": 316,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 59.43,
+      "fraction_spread_gt_70": 0.288,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0036,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0023,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            2,
+            1,
+            35
+          ],
+          "fraction": 0.3602
+        },
+        {
+          "rgb": [
+            2,
+            33,
+            108
+          ],
+          "fraction": 0.1393
+        },
+        {
+          "rgb": [
+            2,
+            4,
+            45
+          ],
+          "fraction": 0.0902
+        },
+        {
+          "rgb": [
+            1,
+            12,
+            64
+          ],
+          "fraction": 0.0885
+        },
+        {
+          "rgb": [
+            2,
+            1,
+            42
+          ],
+          "fraction": 0.0863
+        },
+        {
+          "rgb": [
+            3,
+            23,
+            84
+          ],
+          "fraction": 0.0582
+        },
+        {
+          "rgb": [
+            2,
+            15,
+            67
+          ],
+          "fraction": 0.0474
+        },
+        {
+          "rgb": [
+            4,
+            24,
+            85
+          ],
+          "fraction": 0.043
+        },
+        {
+          "rgb": [
+            29,
+            37,
+            137
+          ],
+          "fraction": 0.0348
+        }
+      ]
+    },
+    {
+      "film": "BRAIN",
+      "group": "perception_and_character_worlds",
+      "time_s": 480,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 151.46,
+      "fraction_spread_gt_70": 0.9142,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0144,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0141,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            252,
+            235,
+            95
+          ],
+          "fraction": 0.5705
+        },
+        {
+          "rgb": [
+            109,
+            42,
+            246
+          ],
+          "fraction": 0.1115
+        },
+        {
+          "rgb": [
+            254,
+            251,
+            229
+          ],
+          "fraction": 0.0813
+        },
+        {
+          "rgb": [
+            245,
+            197,
+            19
+          ],
+          "fraction": 0.067
+        },
+        {
+          "rgb": [
+            31,
+            46,
+            134
+          ],
+          "fraction": 0.0625
+        },
+        {
+          "rgb": [
+            197,
+            38,
+            175
+          ],
+          "fraction": 0.0432
+        },
+        {
+          "rgb": [
+            221,
+            242,
+            194
+          ],
+          "fraction": 0.0245
+        },
+        {
+          "rgb": [
+            252,
+            235,
+            93
+          ],
+          "fraction": 0.0134
+        },
+        {
+          "rgb": [
+            252,
+            236,
+            95
+          ],
+          "fraction": 0.0096
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 20,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 81.98,
+      "fraction_spread_gt_70": 0.4896,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0399,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0441,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            13,
+            0,
+            43
+          ],
+          "fraction": 0.2493
+        },
+        {
+          "rgb": [
+            10,
+            0,
+            84
+          ],
+          "fraction": 0.1043
+        },
+        {
+          "rgb": [
+            10,
+            0,
+            56
+          ],
+          "fraction": 0.0899
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            44
+          ],
+          "fraction": 0.085
+        },
+        {
+          "rgb": [
+            78,
+            1,
+            116
+          ],
+          "fraction": 0.0751
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            71
+          ],
+          "fraction": 0.0735
+        },
+        {
+          "rgb": [
+            99,
+            135,
+            189
+          ],
+          "fraction": 0.0696
+        },
+        {
+          "rgb": [
+            25,
+            0,
+            78
+          ],
+          "fraction": 0.0689
+        },
+        {
+          "rgb": [
+            144,
+            222,
+            219
+          ],
+          "fraction": 0.0653
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 104,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 68.35,
+      "fraction_spread_gt_70": 0.3869,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0099,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.015,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            19,
+            0,
+            105
+          ],
+          "fraction": 0.1471
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            44
+          ],
+          "fraction": 0.128
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            43
+          ],
+          "fraction": 0.1245
+        },
+        {
+          "rgb": [
+            15,
+            0,
+            60
+          ],
+          "fraction": 0.1234
+        },
+        {
+          "rgb": [
+            12,
+            0,
+            51
+          ],
+          "fraction": 0.1082
+        },
+        {
+          "rgb": [
+            19,
+            1,
+            83
+          ],
+          "fraction": 0.0994
+        },
+        {
+          "rgb": [
+            16,
+            0,
+            77
+          ],
+          "fraction": 0.0843
+        },
+        {
+          "rgb": [
+            14,
+            1,
+            56
+          ],
+          "fraction": 0.0648
+        },
+        {
+          "rgb": [
+            29,
+            6,
+            81
+          ],
+          "fraction": 0.0556
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 210,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 68.06,
+      "fraction_spread_gt_70": 0.399,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0212,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0236,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            13,
+            0,
+            43
+          ],
+          "fraction": 0.1671
+        },
+        {
+          "rgb": [
+            239,
+            198,
+            229
+          ],
+          "fraction": 0.1497
+        },
+        {
+          "rgb": [
+            10,
+            0,
+            89
+          ],
+          "fraction": 0.1385
+        },
+        {
+          "rgb": [
+            13,
+            0,
+            44
+          ],
+          "fraction": 0.1269
+        },
+        {
+          "rgb": [
+            163,
+            119,
+            204
+          ],
+          "fraction": 0.1055
+        },
+        {
+          "rgb": [
+            10,
+            0,
+            53
+          ],
+          "fraction": 0.0991
+        },
+        {
+          "rgb": [
+            181,
+            180,
+            232
+          ],
+          "fraction": 0.0597
+        },
+        {
+          "rgb": [
+            64,
+            27,
+            121
+          ],
+          "fraction": 0.0532
+        },
+        {
+          "rgb": [
+            11,
+            0,
+            72
+          ],
+          "fraction": 0.0444
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 407,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 50.96,
+      "fraction_spread_gt_70": 0.216,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0128,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0136,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            254,
+            254,
+            254
+          ],
+          "fraction": 0.3925
+        },
+        {
+          "rgb": [
+            220,
+            178,
+            168
+          ],
+          "fraction": 0.146
+        },
+        {
+          "rgb": [
+            57,
+            204,
+            169
+          ],
+          "fraction": 0.111
+        },
+        {
+          "rgb": [
+            247,
+            221,
+            219
+          ],
+          "fraction": 0.1072
+        },
+        {
+          "rgb": [
+            198,
+            83,
+            132
+          ],
+          "fraction": 0.1002
+        },
+        {
+          "rgb": [
+            240,
+            242,
+            238
+          ],
+          "fraction": 0.0486
+        },
+        {
+          "rgb": [
+            254,
+            248,
+            248
+          ],
+          "fraction": 0.0319
+        },
+        {
+          "rgb": [
+            242,
+            208,
+            160
+          ],
+          "fraction": 0.0316
+        },
+        {
+          "rgb": [
+            254,
+            254,
+            252
+          ],
+          "fraction": 0.0136
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 450,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 36.33,
+      "fraction_spread_gt_70": 0.0837,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.057,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0226,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            0,
+            10,
+            22
+          ],
+          "fraction": 0.6771
+        },
+        {
+          "rgb": [
+            0,
+            9,
+            25
+          ],
+          "fraction": 0.0739
+        },
+        {
+          "rgb": [
+            248,
+            210,
+            90
+          ],
+          "fraction": 0.0551
+        },
+        {
+          "rgb": [
+            94,
+            199,
+            161
+          ],
+          "fraction": 0.0306
+        },
+        {
+          "rgb": [
+            8,
+            15,
+            32
+          ],
+          "fraction": 0.029
+        },
+        {
+          "rgb": [
+            0,
+            10,
+            20
+          ],
+          "fraction": 0.0289
+        },
+        {
+          "rgb": [
+            0,
+            6,
+            19
+          ],
+          "fraction": 0.028
+        },
+        {
+          "rgb": [
+            0,
+            7,
+            26
+          ],
+          "fraction": 0.0236
+        },
+        {
+          "rgb": [
+            0,
+            10,
+            24
+          ],
+          "fraction": 0.02
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 560,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 58.92,
+      "fraction_spread_gt_70": 0.2102,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0111,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0088,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            4,
+            1,
+            48
+          ],
+          "fraction": 0.5714
+        },
+        {
+          "rgb": [
+            24,
+            51,
+            121
+          ],
+          "fraction": 0.0795
+        },
+        {
+          "rgb": [
+            21,
+            24,
+            93
+          ],
+          "fraction": 0.067
+        },
+        {
+          "rgb": [
+            6,
+            0,
+            50
+          ],
+          "fraction": 0.0626
+        },
+        {
+          "rgb": [
+            36,
+            85,
+            143
+          ],
+          "fraction": 0.0605
+        },
+        {
+          "rgb": [
+            3,
+            0,
+            48
+          ],
+          "fraction": 0.0511
+        },
+        {
+          "rgb": [
+            5,
+            12,
+            70
+          ],
+          "fraction": 0.0454
+        },
+        {
+          "rgb": [
+            6,
+            1,
+            54
+          ],
+          "fraction": 0.0314
+        },
+        {
+          "rgb": [
+            2,
+            1,
+            51
+          ],
+          "fraction": 0.0092
+        }
+      ]
+    },
+    {
+      "film": "SOLAR",
+      "group": "cosmos_abstraction_and_scale",
+      "time_s": 690,
+      "source_dimensions": [
+        1920,
+        1080
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 95.29,
+      "fraction_spread_gt_70": 0.612,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0756,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0563,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            219,
+            223,
+            215
+          ],
+          "fraction": 0.1434
+        },
+        {
+          "rgb": [
+            18,
+            10,
+            30
+          ],
+          "fraction": 0.1418
+        },
+        {
+          "rgb": [
+            21,
+            62,
+            102
+          ],
+          "fraction": 0.1131
+        },
+        {
+          "rgb": [
+            251,
+            231,
+            109
+          ],
+          "fraction": 0.1014
+        },
+        {
+          "rgb": [
+            202,
+            117,
+            135
+          ],
+          "fraction": 0.0932
+        },
+        {
+          "rgb": [
+            217,
+            114,
+            203
+          ],
+          "fraction": 0.0878
+        },
+        {
+          "rgb": [
+            78,
+            141,
+            185
+          ],
+          "fraction": 0.081
+        },
+        {
+          "rgb": [
+            108,
+            16,
+            117
+          ],
+          "fraction": 0.0719
+        },
+        {
+          "rgb": [
+            193,
+            87,
+            130
+          ],
+          "fraction": 0.0541
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 13.9,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 100.22,
+      "fraction_spread_gt_70": 0.7573,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0067,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0072,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            6,
+            25,
+            91
+          ],
+          "fraction": 0.2571
+        },
+        {
+          "rgb": [
+            183,
+            0,
+            52
+          ],
+          "fraction": 0.172
+        },
+        {
+          "rgb": [
+            5,
+            14,
+            56
+          ],
+          "fraction": 0.1102
+        },
+        {
+          "rgb": [
+            35,
+            2,
+            34
+          ],
+          "fraction": 0.1091
+        },
+        {
+          "rgb": [
+            18,
+            19,
+            94
+          ],
+          "fraction": 0.1052
+        },
+        {
+          "rgb": [
+            19,
+            30,
+            92
+          ],
+          "fraction": 0.0818
+        },
+        {
+          "rgb": [
+            80,
+            1,
+            54
+          ],
+          "fraction": 0.0573
+        },
+        {
+          "rgb": [
+            68,
+            64,
+            123
+          ],
+          "fraction": 0.037
+        },
+        {
+          "rgb": [
+            210,
+            0,
+            110
+          ],
+          "fraction": 0.0274
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 14.5,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 98.73,
+      "fraction_spread_gt_70": 0.6436,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0097,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0123,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            31,
+            44,
+            108
+          ],
+          "fraction": 0.2456
+        },
+        {
+          "rgb": [
+            183,
+            0,
+            52
+          ],
+          "fraction": 0.1857
+        },
+        {
+          "rgb": [
+            4,
+            12,
+            49
+          ],
+          "fraction": 0.1173
+        },
+        {
+          "rgb": [
+            59,
+            0,
+            24
+          ],
+          "fraction": 0.1015
+        },
+        {
+          "rgb": [
+            86,
+            0,
+            32
+          ],
+          "fraction": 0.0961
+        },
+        {
+          "rgb": [
+            39,
+            0,
+            14
+          ],
+          "fraction": 0.0828
+        },
+        {
+          "rgb": [
+            130,
+            0,
+            62
+          ],
+          "fraction": 0.0632
+        },
+        {
+          "rgb": [
+            196,
+            0,
+            44
+          ],
+          "fraction": 0.0429
+        },
+        {
+          "rgb": [
+            103,
+            91,
+            114
+          ],
+          "fraction": 0.0219
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 15.2,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 100.5,
+      "fraction_spread_gt_70": 0.8043,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0206,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0219,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            20,
+            125,
+            127
+          ],
+          "fraction": 0.1908
+        },
+        {
+          "rgb": [
+            29,
+            44,
+            109
+          ],
+          "fraction": 0.1825
+        },
+        {
+          "rgb": [
+            7,
+            70,
+            116
+          ],
+          "fraction": 0.1706
+        },
+        {
+          "rgb": [
+            18,
+            24,
+            75
+          ],
+          "fraction": 0.1289
+        },
+        {
+          "rgb": [
+            99,
+            38,
+            64
+          ],
+          "fraction": 0.1062
+        },
+        {
+          "rgb": [
+            98,
+            222,
+            207
+          ],
+          "fraction": 0.0882
+        },
+        {
+          "rgb": [
+            19,
+            48,
+            99
+          ],
+          "fraction": 0.0379
+        },
+        {
+          "rgb": [
+            18,
+            22,
+            77
+          ],
+          "fraction": 0.0229
+        },
+        {
+          "rgb": [
+            26,
+            173,
+            134
+          ],
+          "fraction": 0.022
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 15.9,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 123.01,
+      "fraction_spread_gt_70": 0.9378,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0275,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0263,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            80,
+            227,
+            221
+          ],
+          "fraction": 0.1964
+        },
+        {
+          "rgb": [
+            179,
+            71,
+            52
+          ],
+          "fraction": 0.1907
+        },
+        {
+          "rgb": [
+            9,
+            132,
+            124
+          ],
+          "fraction": 0.1711
+        },
+        {
+          "rgb": [
+            24,
+            55,
+            103
+          ],
+          "fraction": 0.1297
+        },
+        {
+          "rgb": [
+            110,
+            16,
+            53
+          ],
+          "fraction": 0.1107
+        },
+        {
+          "rgb": [
+            149,
+            40,
+            31
+          ],
+          "fraction": 0.1009
+        },
+        {
+          "rgb": [
+            97,
+            163,
+            128
+          ],
+          "fraction": 0.0301
+        },
+        {
+          "rgb": [
+            123,
+            230,
+            222
+          ],
+          "fraction": 0.0213
+        },
+        {
+          "rgb": [
+            81,
+            224,
+            220
+          ],
+          "fraction": 0.0198
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 16.9,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 107.53,
+      "fraction_spread_gt_70": 0.9787,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0192,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0229,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            73,
+            114,
+            196
+          ],
+          "fraction": 0.1978
+        },
+        {
+          "rgb": [
+            45,
+            83,
+            156
+          ],
+          "fraction": 0.173
+        },
+        {
+          "rgb": [
+            77,
+            180,
+            216
+          ],
+          "fraction": 0.1387
+        },
+        {
+          "rgb": [
+            35,
+            0,
+            78
+          ],
+          "fraction": 0.1268
+        },
+        {
+          "rgb": [
+            78,
+            53,
+            143
+          ],
+          "fraction": 0.1054
+        },
+        {
+          "rgb": [
+            30,
+            44,
+            112
+          ],
+          "fraction": 0.0744
+        },
+        {
+          "rgb": [
+            44,
+            43,
+            117
+          ],
+          "fraction": 0.0666
+        },
+        {
+          "rgb": [
+            62,
+            91,
+            168
+          ],
+          "fraction": 0.0639
+        },
+        {
+          "rgb": [
+            87,
+            105,
+            184
+          ],
+          "fraction": 0.0231
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 17.5,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 87.0,
+      "fraction_spread_gt_70": 0.9652,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0189,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0246,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            29,
+            44,
+            109
+          ],
+          "fraction": 0.2343
+        },
+        {
+          "rgb": [
+            36,
+            2,
+            80
+          ],
+          "fraction": 0.2007
+        },
+        {
+          "rgb": [
+            53,
+            63,
+            135
+          ],
+          "fraction": 0.1858
+        },
+        {
+          "rgb": [
+            77,
+            116,
+            170
+          ],
+          "fraction": 0.0994
+        },
+        {
+          "rgb": [
+            54,
+            21,
+            99
+          ],
+          "fraction": 0.0707
+        },
+        {
+          "rgb": [
+            52,
+            47,
+            120
+          ],
+          "fraction": 0.0642
+        },
+        {
+          "rgb": [
+            77,
+            31,
+            118
+          ],
+          "fraction": 0.0599
+        },
+        {
+          "rgb": [
+            29,
+            44,
+            112
+          ],
+          "fraction": 0.0307
+        },
+        {
+          "rgb": [
+            28,
+            47,
+            114
+          ],
+          "fraction": 0.019
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 18.3,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 106.37,
+      "fraction_spread_gt_70": 0.856,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0214,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0249,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            89,
+            27,
+            132
+          ],
+          "fraction": 0.1771
+        },
+        {
+          "rgb": [
+            237,
+            204,
+            31
+          ],
+          "fraction": 0.1339
+        },
+        {
+          "rgb": [
+            36,
+            50,
+            119
+          ],
+          "fraction": 0.1198
+        },
+        {
+          "rgb": [
+            5,
+            5,
+            46
+          ],
+          "fraction": 0.0914
+        },
+        {
+          "rgb": [
+            49,
+            12,
+            84
+          ],
+          "fraction": 0.0839
+        },
+        {
+          "rgb": [
+            222,
+            137,
+            64
+          ],
+          "fraction": 0.0834
+        },
+        {
+          "rgb": [
+            49,
+            59,
+            136
+          ],
+          "fraction": 0.0655
+        },
+        {
+          "rgb": [
+            32,
+            1,
+            75
+          ],
+          "fraction": 0.0597
+        },
+        {
+          "rgb": [
+            69,
+            22,
+            107
+          ],
+          "fraction": 0.0577
+        }
+      ]
+    },
+    {
+      "film": "VOLCANO",
+      "group": "material_bridge_worlds",
+      "time_s": 19.3,
+      "source_dimensions": [
+        1280,
+        720
+      ],
+      "measured_dimensions": [
+        960,
+        540
+      ],
+      "mean_channel_spread": 54.07,
+      "fraction_spread_gt_70": 0.1714,
+      "fraction_horizontal_neighbor_rgb_mae_gt_20": 0.0114,
+      "fraction_vertical_neighbor_rgb_mae_gt_20": 0.0126,
+      "top_median_cut_colors": [
+        {
+          "rgb": [
+            1,
+            5,
+            42
+          ],
+          "fraction": 0.6839
+        },
+        {
+          "rgb": [
+            2,
+            10,
+            53
+          ],
+          "fraction": 0.0717
+        },
+        {
+          "rgb": [
+            3,
+            19,
+            73
+          ],
+          "fraction": 0.0711
+        },
+        {
+          "rgb": [
+            40,
+            126,
+            202
+          ],
+          "fraction": 0.049
+        },
+        {
+          "rgb": [
+            11,
+            42,
+            117
+          ],
+          "fraction": 0.0476
+        },
+        {
+          "rgb": [
+            150,
+            213,
+            183
+          ],
+          "fraction": 0.0345
+        },
+        {
+          "rgb": [
+            1,
+            5,
+            44
+          ],
+          "fraction": 0.0137
+        },
+        {
+          "rgb": [
+            5,
+            28,
+            92
+          ],
+          "fraction": 0.0117
+        },
+        {
+          "rgb": [
+            1,
+            5,
+            40
+          ],
+          "fraction": 0.0078
+        }
+      ]
+    }
+  ]
+}

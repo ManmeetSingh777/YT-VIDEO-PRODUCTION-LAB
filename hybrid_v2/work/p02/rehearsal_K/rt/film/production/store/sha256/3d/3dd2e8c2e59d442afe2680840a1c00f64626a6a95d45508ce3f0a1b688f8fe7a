@@ -1,0 +1,81 @@
+{
+ "generated_at": "2026-11-22T14:20:14.388Z",
+ "jobs": [
+  {
+   "asset": "pilot_master",
+   "role": "MASTER",
+   "status": "APPROVED"
+  },
+  {
+   "asset": "rt_world_far",
+   "role": "MASTER",
+   "status": "APPROVED"
+  },
+  {
+   "asset": "pilot_body",
+   "role": "DERIVED",
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "edit_reference": {
+    "file": "assets/art/pilot_master.png",
+    "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+    "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+   }
+  },
+  {
+   "asset": "pilot_upper_arm",
+   "role": "DERIVED",
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "edit_reference": {
+    "file": "assets/art/pilot_master.png",
+    "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+    "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+   }
+  },
+  {
+   "asset": "pilot_forearm",
+   "role": "DERIVED",
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "edit_reference": {
+    "file": "assets/art/pilot_master.png",
+    "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+    "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+   }
+  },
+  {
+   "asset": "pilot_underpaint",
+   "role": "DERIVED",
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "edit_reference": {
+    "file": "assets/art/pilot_master.png",
+    "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+    "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+   }
+  },
+  {
+   "asset": "pilot_hand_open",
+   "role": "DERIVED",
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "edit_reference": {
+    "file": "assets/art/pilot_master.png",
+    "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+    "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+   }
+  },
+  {
+   "asset": "pilot_hand_grip",
+   "role": "DERIVED",
+   "derived_from": "pilot_master",
+   "status": "READY_FOR_SOURCE_ATTACHED_EDIT",
+   "edit_reference": {
+    "file": "assets/art/pilot_master.png",
+    "sha256": "1cb95f56537ebdebf5f83c17f3c36870faeec393e4399b5fa926fa0ca76dc10f",
+    "approval_receipt": "asset__pilot_master__f9a98fa188a8__mwrxbw8n237145"
+   }
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "qa": "",
+ "scenes": [
+  {
+   "scene": "sc01",
+   "used_events": [
+    "walk_start",
+    "arrive",
+    "grip",
+    "lift",
+    "unfold",
+    "light_turn"
+   ],
+   "contract_events": [
+    "walk_start",
+    "arrive",
+    "grip",
+    "lift",
+    "unfold",
+    "light_turn"
+   ],
+   "applied_lessons": []
+  },
+  {
+   "scene": "sc02",
+   "used_events": [
+    "push",
+    "through"
+   ],
+   "contract_events": [
+    "push",
+    "through"
+   ],
+   "applied_lessons": []
+  }
+ ],
+ "lessons_available": [],
+ "problems": []
+}

@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122124740-a1cf91:62",
+ "sequence": 62,
+ "prev_event_sha256": "a6a19312b6e0cd315b3316f997b64c6583fdbfc3c4c7b31bf1bd28dc186be50b",
+ "film_id": "film",
+ "run_id": "DIAG-20261122124740-a1cf91",
+ "stage_id": "S04_ART_DEMAND",
+ "attempt_id": "Amwru0wyd",
+ "operation_id": null,
+ "task_id": "demand_pilot_hand_grip",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "898b8e334d7a8599e43af3afbb2a6936c8b5322653ba8fba68187bd1e00c9a33",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122124740-a1cf91:61"
+ ],
+ "wall_time_utc": "2026-11-22T12:47:43.774Z",
+ "elapsed_ms": 0,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "supplied_by_plan",
+  "pass": true,
+  "measurement": "pilot_rig grip binds pilot_hand_open frames [[100,600]]"
+ },
+ "lock_generation": 62,
+ "event_sha256": "62655e28a58c660f50ad8f24e76e2247a952b199de78be7f3229e323101d9fea"
+}

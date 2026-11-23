@@ -1,0 +1,102 @@
+{
+ "job_id": "ARTJOB_PART_OR_STATE_pilot_upper_arm_07dce89c",
+ "status": "COMPILED_NOT_PROVIDER_READY",
+ "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+ "prompt_characters": 27519,
+ "source_image_inputs": [
+  {
+   "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\BRAIN_0386_runner_human.jpg",
+   "sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+   "width": 1920,
+   "height": 1080,
+   "role": "STYLE_ONLY: full-body gesture read through torso tilt, tapering trouser masses and small hands"
+  },
+  {
+   "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\NUCLEAR_0083_farm_humans.jpg",
+   "sha256": "b4374bfce3dd2d0f358c69f1882704a37438959e9c9792688b6419b4ae0bf730",
+   "width": 1920,
+   "height": 1080,
+   "role": "STYLE_ONLY: mid-distance actors with dark-mark eyes, rolled sleeve cuffs and hand-to-surface contact"
+  },
+  {
+   "path": "E:\\MOTION_NATIVE_STUDIO_V1\\reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\MEMORIES_0753_clinic_humans.jpg",
+   "sha256": "493f97772748cc311ecf82958083e77f9320efb5816d1f30f6d543f5824cf47a",
+   "width": 1920,
+   "height": 1080,
+   "role": "STYLE_ONLY: grip topology on a held object (fingers in front, thumb behind) and owned cheek/ear colour patches"
+  }
+ ],
+ "provider_tool": "image_gen.imagegen",
+ "provider_request_submitted": false,
+ "first_pass_output_observed": false,
+ "repaired_output_observed": false,
+ "compiled_method_ids": [
+  "F01",
+  "F02",
+  "F03",
+  "F04",
+  "F05",
+  "F06",
+  "F14",
+  "F30",
+  "F33",
+  "F51",
+  "F52",
+  "F53",
+  "F58",
+  "F59",
+  "F61",
+  "F62",
+  "F64",
+  "F65",
+  "F66",
+  "F67"
+ ],
+ "applied_repair_rule_ids": [],
+ "repair_memory_applied": true,
+ "note": "The model/tool must actually receive this exact prompt and image list; compilation cannot prove that happened.",
+ "stages": [
+  {
+   "index": 1,
+   "phase": "STRUCTURE",
+   "mode": "EDIT_APPROVED_MASTER",
+   "methods": [
+    "F01",
+    "F05",
+    "F06",
+    "F59",
+    "F65",
+    "F66"
+   ],
+   "predecessor_sha256": "f9e53d2189d24a32e754e02b33dc75f9b52b41c5e00dc8db0db2ff7238e68481",
+   "prompt_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "characters": 27519
+  },
+  {
+   "index": 2,
+   "phase": "SURFACE",
+   "mode": "EDIT_APPROVED_MASTER",
+   "methods": [
+    "F62"
+   ],
+   "predecessor_sha256": "5a3687ef7f07612a4b00f9ca7205662b89458d758047c8c379d02c75166072f3",
+   "prompt_sha256": "b85df3146b32a573cb24ee225f0542717f6c35af707ef3c798c536438bce610a",
+   "characters": 13251
+  },
+  {
+   "index": 3,
+   "phase": "STATE",
+   "mode": "EDIT_APPROVED_MASTER",
+   "methods": [
+    "F14",
+    "F30",
+    "F67"
+   ],
+   "predecessor_sha256": "b85df3146b32a573cb24ee225f0542717f6c35af707ef3c798c536438bce610a",
+   "prompt_sha256": "438787cb32aa3eacc09d7d3d6bc2aa58bb04bd60f6d77416b1bb6f0db68ec2bf",
+   "characters": 17521
+  }
+ ],
+ "contract_brief_sha256": "f9e53d2189d24a32e754e02b33dc75f9b52b41c5e00dc8db0db2ff7238e68481",
+ "skill_complete_compile_sha256": "f4241380fd699e2645bef6187a088fbd081c77638736a80952922e1ef7d9c3e2"
+}

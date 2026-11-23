@@ -1,0 +1,40 @@
+{
+ "frame": 3600,
+ "segment": {
+  "frames": [
+   3600,
+   4200
+  ],
+  "shot": "rt_world_shot",
+  "actions": [],
+  "rig_states": {},
+  "assets": [],
+  "camera_track": "cam_world",
+  "world": "rt_world_w",
+  "effects": [],
+  "motion_blur": false,
+  "static_hold": true,
+  "chunk": [
+   3600,
+   4200
+  ]
+ },
+ "assets": [],
+ "story": "APPROVED",
+ "direction": "APPROVED",
+ "stage_handoffs": {
+  "S00_IDEA": {
+   "status": "COMMITTED",
+   "handoff": "5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67ec54df4e1b0"
+  },
+  "S01_STORY": {
+   "status": "COMMITTED",
+   "handoff": "f876a96f2e77832743bb92c102111e5bfae92715d3d8dd0406ad069d147fae81"
+  },
+  "S02_EXPERIENCE": {
+   "status": "BLOCKED",
+   "handoff": null
+  }
+ },
+ "blockers": []
+}

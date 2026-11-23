@@ -1,0 +1,36 @@
+{
+ "schema_version": 1,
+ "event_id": "LEGACY-20261122142022:20",
+ "sequence": 20,
+ "prev_event_sha256": "2797994233fc59ed9c824a94fc4980d0c2e834f38fe7447b4d84e0a7dce2e1dd",
+ "film_id": "film",
+ "run_id": "LEGACY-20261122142022",
+ "stage_id": null,
+ "attempt_id": null,
+ "operation_id": null,
+ "task_id": null,
+ "actor_kind": "LEGACY_IMPORT",
+ "producer_source_sha256": null,
+ "input_refs": [],
+ "output_refs": [
+  {
+   "sha256": "1eb00812146bddcba97e9b68e8c7a228d82ce0e786a63462ef81f3121c084422",
+   "bytes": 2846,
+   "source": "reviews/asset__portal_aperture__7532a919d328__mwrxc2kp2c89c9.json"
+  }
+ ],
+ "status_before": null,
+ "status_after": "LEGACY_UNVERIFIED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "LEGACY-20261122142022:19"
+ ],
+ "wall_time_utc": "2026-11-22T14:20:23.311Z",
+ "elapsed_ms": null,
+ "event_type": "IMPORTED_LEGACY_UNVERIFIED",
+ "provenance": "UNAUTHENTICATED_PRE_LEDGER_RECORD",
+ "lock_generation": 20,
+ "event_sha256": "79d3e3c0be63585dde81f2ac39c47a5b31bfc970d693a292620c3963967577fa"
+}

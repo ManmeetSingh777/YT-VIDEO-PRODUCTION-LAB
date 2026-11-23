@@ -1,0 +1,119 @@
+{
+ "artjob_id": "ARTJOB_MASTER_pilot_master_a4b23a0d",
+ "note": "machine rig/motion contract: kept by the bridge, NOT sent to the artist (the artist receives motion only as requirements)",
+ "motion_context": {
+  "identity_id": "pilot",
+  "canonical_parent_asset": "pilot_master",
+  "shot_ids": [
+   "rt_shot"
+  ],
+  "frame_ranges": [
+   [
+    0,
+    600
+   ]
+  ],
+  "view_id": "front",
+  "pose_id": null,
+  "expression_id": null,
+  "required_continuity_landmarks": [
+   "head_top",
+   "neck",
+   "pelvis",
+   "shoulder_r",
+   "upper_arm_mid",
+   "elbow_r",
+   "forearm_mid",
+   "wrist_r",
+   "knuckle_r",
+   "thumb_r"
+  ],
+  "required_joint_pivots": [
+   {
+    "rig": "pilot_rig",
+    "joint": "pelvis",
+    "rest_xy": [
+     150,
+     300
+    ]
+   },
+   {
+    "rig": "pilot_rig",
+    "joint": "shoulder_r",
+    "rest_xy": [
+     195,
+     135
+    ]
+   },
+   {
+    "rig": "pilot_rig",
+    "joint": "elbow_r",
+    "rest_xy": [
+     215,
+     215
+    ]
+   },
+   {
+    "rig": "pilot_rig",
+    "joint": "wrist_r",
+    "rest_xy": [
+     225,
+     295
+    ]
+   }
+  ],
+  "required_sockets": [
+   {
+    "socket": "pilot_grip",
+    "joint": "wrist_r",
+    "local_xy": [
+     6,
+     30
+    ]
+   }
+  ],
+  "contact_type": null,
+  "alpha_requirement": "STRAIGHT",
+  "hidden_surfaces_to_paint": [],
+  "near_far_order": [],
+  "camera_footprint": null,
+  "oversized_paint_rect": null,
+  "lighting_validity": null,
+  "target_motion_mode": "ARTICULATED",
+  "predecessor_state_id": null,
+  "successor_state_id": [
+   "pilot_body",
+   "pilot_upper_arm",
+   "pilot_forearm",
+   "pilot_underpaint",
+   "pilot_hand_open",
+   "pilot_hand_grip"
+  ],
+  "why_this_drawing_is_needed": "canonical identity. Required by: "
+ },
+ "null_reasons": {
+  "pose_id": "not bound to a pose state",
+  "expression_id": "not an expression state",
+  "contact_type": "no contact in the action graph touches this state's joint",
+  "hidden_surfaces_to_paint": "no hidden surface declared",
+  "near_far_order": "no occlusion constraint involves this state",
+  "camera_footprint": "not a world/camera-revealed plate",
+  "oversized_paint_rect": "no overscan declared for this state",
+  "lighting_validity": "no authored material/light planes are bound to this state in the action graph",
+  "predecessor_state_id": "canonical master: no predecessor"
+ },
+ "registration_contract": {
+  "asset_kind": "MASTER",
+  "pivot_landmark_id": null,
+  "planned_pivot_xy": null,
+  "joint_id": null,
+  "alpha_mode": "STRAIGHT",
+  "view_id": "front",
+  "depth_band": "FOCAL",
+  "landmark_frame": "identity canonical landmarks (measured on delivered pixels at ingest-master)"
+ },
+ "medium": {
+  "medium": "RASTER_MASTER_THEN_SOURCE_ATTACHED_EDITS",
+  "why": "identity is locked from one approved master; derived states are edits of it"
+ }
+}

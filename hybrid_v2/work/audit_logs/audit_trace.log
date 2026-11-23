@@ -1,0 +1,4 @@
+trace: 9 pattern hits (3 LIVE), closure 29 modules, 9 receipt writers, 3 producers without production call site → hybrid_v2/evidence/system_correction/INDEPENDENT_TRACE.json
+ LIVE NULL_CONTRACT_PATH engine/art_bridge/art_requests.mjs:141 export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null, contract = null, film = null
+ LIVE EXPORT_EXISTENCE_AS_PROOF engine/art_bridge/method_trace.mjs:35 try { const m = await import(url.pathToFileURL(file)); return typeof m[exp] === "function" ? { ok: true } : { 
+ LIVE BROAD_CATCH_SWALLOW engine/film/segment_render.mjs:36 const abort = (e) => { done.catch(() => {}); try { ff.stdin.destroy(); } catch {} ff.kill("SIGKILL"); try { fs

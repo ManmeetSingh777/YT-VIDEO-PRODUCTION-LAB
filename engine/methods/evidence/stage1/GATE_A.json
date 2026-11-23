@@ -1,0 +1,53 @@
+{
+ "ran": "2026-11-21T17:37:00.969Z",
+ "results": [
+  {
+   "id": "A1 forged mint / naked path cannot reach renderer",
+   "before": "mint('F99','totallyInvented',{d}) reached compose(): mint only checked a non-empty string + 'M' prefix",
+   "after": "F99 emit refused: \"emitRegion(F99): no live registered producer call — regions cannot be minted outside a catalogued producer\" | naked object refused: \"compose(x): 1 element(s) were not emitted by a registered producer call (e.g. {\"\" | unknown producer refused: \"registerProducer: \"x.totallyInvented\" is not a catalogued producer (bi\" | registered contour composes: true",
+   "pass": true
+  },
+  {
+   "id": "A2 impossible contrast refused; edge relation creates owned boundary geometry",
+   "before": "solvePalette returned pass:false yet roles were accepted by assertSolved; 'edge' channel reported success with no geometry",
+   "after": "impossible contrast throws: \"F61 PaletteUnsatisfied: a/b luminance 1.16 < 25\" | edge without geometry throws: \"F61: edge relation panel/body has no region geometry bound — an edge contrast ca\" | edge regions 1, changed px 639, derived adjacency [[\"body\",\"panel\"]]",
+   "pass": true
+  },
+  {
+   "id": "A3 zero-perturbation proof cannot pass; validation-only read is not consumption",
+   "before": "F49/F50 PASSed with perturb=[]; need() reads counted as 'consumed'",
+   "after": "empty-perturb geometry proof pass=false (no causal perturbation — a proof without one cannot pass; no perturbation changed emitted regions with confined pixels) | evidence proof with no accept/refusal pass=false (evidence gate needs ≥1 accepted real record and ≥1 refusal)",
+   "pass": true
+  },
+  {
+   "id": "A4a F14 state routing tested on its own table",
+   "before": "F14's only causal test perturbed the BODY producer, not the CHANGE table",
+   "after": "soft_swell→ownsNewDrawing true; minor_rigid→false; material_light with geometry change refused: true; soft_swell without redraw refused: true",
+   "pass": true
+  },
+  {
+   "id": "A4b F49/F50 produce behavioural records (accept + refuse), not refusal-only passes",
+   "before": "F49/F50 PASS rested on refusals with zero causal tests",
+   "after": "F49 valid job compiles: true; broken endpoint refused: true | F50 PASS without file refused: true; with a real file but no independent look test → qualified=false, missing=5",
+   "pass": true
+  },
+  {
+   "id": "A4c F53 causal path changes visible emphasis",
+   "before": "viewer_first_point/causal_path validated then echoed; budgets ignored them",
+   "after": "path=A → rowA 10/rowB 2; path=B → rowA 2/rowB 10; rendered px changed 64; T1 core kept 1/1",
+   "pass": true
+  },
+  {
+   "id": "A5 F80 bindings must match executed producer receipts; hashes alone ≠ visual application",
+   "before": "{producer,param} strings passed although code never read those values; witness hash treated as applied source",
+   "after": "fabricated binding refused: \"F80: decision \"x\" claims contour.constructSilhouette read \"neverReadField\" but no executed\" | real binding → callId 1; status without viewed observations = EVIDENCE_NOT_VIEWED",
+   "pass": true
+  },
+  {
+   "id": "A6 failed topology / palette / contact / underpaint cannot fall through",
+   "before": "assemble returned pass:false, weightFailure was a data note, ownLayers returned pass:false — rendering continued",
+   "after": "detached joint throws: true | uncovered underpaint throws: \"F79: underpaint/overscan/occluder coverage failed (uncovered 256 cells, overscan\" | unsolved hue relation throws: true",
+   "pass": true
+  }
+ ]
+}

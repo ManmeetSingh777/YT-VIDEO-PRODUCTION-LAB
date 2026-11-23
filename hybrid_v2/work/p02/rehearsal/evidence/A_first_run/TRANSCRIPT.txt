@@ -1,0 +1,30 @@
+[build] rehearsal film via the real intake API → hybrid_v2\work\p02\rehearsal\rt\film
+[preflight] [["S00_IDEA","READY"],["S01_STORY","READY"],["S02_EXPERIENCE","BLOCKED_HUMAN"],["S03_TIMING_MOTION","READY"],["S04_ART_DEMAND","READY"],["S05_ART_PRODUCTION","READY"],["S06_REGISTRATION_RIG","READY"],["S07_NEUTRINO_RENDER","BLOCKED_UPSTREAM"],["S08_QA_REPAIR","BLOCKED_UPSTREAM"],["S09_FILM_AUDIO_FINAL","BLOCKED_HUMAN"]]
+[start] DIAG-20261122115303-c3d250 → [{"stage":"S00_IDEA","status":"COMMITTED"},{"stage":"S01_STORY","status":"COMMITTED"},{"stage":"S02_EXPERIENCE","status":"BLOCKED"}]
+[status]
+run DIAG-20261122115303-c3d250 events 25 verified 4/6 (66.7%) failed 1 blocked 1
+  S00_IDEA               COMMITTED    1/1 failed 0 blocked 0
+  S01_STORY              COMMITTED    2/2 failed 0 blocked 0
+  S02_EXPERIENCE         BLOCKED      1/3 failed 1 blocked 1
+  S03_TIMING_MOTION      NOT_STARTED  0/0 failed 0 blocked 0
+  S04_ART_DEMAND         NOT_STARTED  0/0 failed 0 blocked 0
+  S05_ART_PRODUCTION     NOT_STARTED  0/0 failed 0 blocked 0
+  S06_REGISTRATION_RIG   NOT_STARTED  0/0 failed 0 blocked 0
+  S07_NEUTRINO_RENDER    NOT_STARTED  0/0 failed 0 blocked 0
+  S08_QA_REPAIR          NOT_STARTED  0/0 failed 0 blocked 0
+  S09_FILM_AUDIO_FINAL   NOT_STARTED  0/0 failed 0 blocked 0
+  next: resolve attention_rt_world_shot
+[why FAIL-S02_EXPERIENCE-attention_rt_world_shot-7fcc8e] first violated invariant: every attention target has a consuming track
+    observed: primary_focus "cam_world" has no consuming track in [3600,7200)
+    root producer: engine/story/experience.mjs#compileAttention owner EXPERIENCE_DIRECTOR class DIRECTION_OR_ATTENTION
+    blast radius: ["direction_approval","S03_TIMING_MOTION","S04_ART_DEMAND","S05_ART_PRODUCTION","S06_REGISTRATION_RIG","S07_NEUTRINO_RENDER","S08_QA_REPAIR","S09_FILM_AUDIO_FINAL"]
+    resume from S02_EXPERIENCE retry_safe false
+[trace 0] {"frame":0,"segment":{"frames":[0,100],"shot":"rt_shot","actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"open","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a","delivered":true},{"
+[trace 100] {"frame":100,"segment":{"frames":[100,600],"shot":"rt_shot","actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a","delivered":true
+[trace 450] {"frame":450,"segment":{"frames":[100,600],"shot":"rt_shot","actions":["pilot_close_hand"],"rig_states":{"pilot_rig":{"pose":"grip","view":null,"contacts":[]}},"assets":[{"id":"pilot_body","sha256":"69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c","delivered":true},{"id":"pilot_underpaint","sha256":"8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a","delivered":true
+[trace 3599] {"frame":3599,"segment":{"frames":[3000,3600],"shot":"rt_shot","actions":[],"rig_states":{},"assets":[],"camera_track":null,"world":null,"effects":[],"motion_blur":false,"static_hold":true,"chunk":[3000,3600]},"assets":[],"story":"APPROVED","direction":"APPROVED","stage_handoffs":{"S00_IDEA":{"status":"COMMITTED","handoff":"5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67ec54df4e1b0"},"S01_ST
+[trace 3600] {"frame":3600,"segment":{"frames":[3600,4200],"shot":"rt_world_shot","actions":[],"rig_states":{},"assets":[],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"assets":[],"story":"APPROVED","direction":"APPROVED","stage_handoffs":{"S00_IDEA":{"status":"COMMITTED","handoff":"5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67
+[trace 3900] {"frame":3900,"segment":{"frames":[3600,4200],"shot":"rt_world_shot","actions":[],"rig_states":{},"assets":[],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[3600,4200]},"assets":[],"story":"APPROVED","direction":"APPROVED","stage_handoffs":{"S00_IDEA":{"status":"COMMITTED","handoff":"5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67
+[trace 7199] {"frame":7199,"segment":{"frames":[6600,7200],"shot":"rt_world_shot","actions":[],"rig_states":{},"assets":[],"camera_track":"cam_world","world":"rt_world_w","effects":[],"motion_blur":false,"static_hold":true,"chunk":[6600,7200]},"assets":[],"story":"APPROVED","direction":"APPROVED","stage_handoffs":{"S00_IDEA":{"status":"COMMITTED","handoff":"5d84c3f77120af5eda494765be8e42a138086e18c6da5ed2bcb67
+[verify] chain ok=true events=25 head=c9902c3e6c2be4df69e3da99842fb9d3aabeb547120bb6d335b5e7e052d1c4d9 handoffs=S00_IDEA:true,S01_STORY:true
+[done] A_first_run in 3 s; run DIAG-20261122115303-c3d250

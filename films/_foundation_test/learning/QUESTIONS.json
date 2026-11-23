@@ -1,0 +1,373 @@
+{
+ "questions": [
+  {
+   "id": "Q01",
+   "family": "D9",
+   "class": "VIEWER_PROOF",
+   "C": 2,
+   "G": 2,
+   "R": 3,
+   "U": 2,
+   "observed": "walk 1.2â€“5.0s: trouser fill #262150 vs floor/wainscot ~#2a2048 (near-equal value) â€” legs vanish, boots read as floating; planted steps unreadable",
+   "question": "When a full-body actor's lower limbs are a dark material on a dark support, what owns their readable silhouette in the source: a value step of the garment material against its support, an owned edge/rim, or local light?",
+   "evidence": [
+    {
+     "png": "qa/d2/crop_003.000.png",
+     "sha256": "6ebc8c012517f6b2f2e218cf9db926a80b6fb42d39c32c25e6d99c281e86da28"
+    }
+   ],
+   "status": "OUTPUT_DEMONSTRATED",
+   "witnesses": [
+    {
+     "confirm": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\BRAIN_0386_runner_human.jpg",
+     "confirm_sha256": "ae19d44f57d5736f7d70347c52156b092f74afeebf509894f80b678f67f2914b",
+     "counter": "reference\\construct-kurzgesagt-art\\assets\\conditional_native_anchors\\SOLAR_04897_suited_figures.jpg",
+     "counter_sha256": "348a5dcd8e1bf7099158945971f4a7c4eebc94b7f6b7f89be0f88dad5ce4e077",
+     "observed": "light support (runner, also NUCLEAR_0083 farm): trousers ARE the darkest mass, near/far legs split by two darks, light ankle band separates shoe. Dark support (SOLAR suited figures, maroon interior): figure masses are raised ABOVE the environment value; darkest role belongs to the environment; near masses lighter than far. No outlines in either.",
+     "at": "2026-11-21T13:20:35.875Z"
+    }
+   ],
+   "producer": {
+    "if": "the actor's support/environment value is dark (night interior, space)",
+    "then": "raise each garment limb material until its contrast against the support role â‰¥ threshold; far limb keeps a lower threshold so near/far stay separated; environment keeps the darkest role",
+    "falsifier": "a dark-support source where dark garment limbs read clearly with no value step and no owned rim",
+    "counterexample": "light support (BRAIN_0386): dark trousers are correct; do NOT lighten them",
+    "op": "engine/lib/style.mjs#separate: new op; cast/keeper.mjs#limbSupportContrast: legs/sleeves pass through separate(material, support, ctx.param)",
+    "at": "2026-11-21T13:20:35.973Z"
+   },
+   "before": [
+    {
+     "png": "learning/evidence/Q01/before/t002.600.png",
+     "sha256": "5a4bb36bf1c9ef3526278b0adf6285adb80c6d95340d65819850ad606c585aef",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    },
+    {
+     "png": "learning/evidence/Q01/before/t003.400.png",
+     "sha256": "c2c7897ca5d26978e9cbcae9ed7b62ba5ca4eb7e0a3ef3b6ae1c62359dab6b8f",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    },
+    {
+     "png": "learning/evidence/Q01/before/t004.200.png",
+     "sha256": "8d63c0a3abb9a0c6d261b61e4b994d9a97240c95723860fb6778152fea88a14a",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q01/after/t002.600.png",
+     "sha256": "31197fada2ef681605572f6bc030688bd2309588d5c8bf4c2547bc4a3eb16c0a",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    },
+    {
+     "png": "learning/evidence/Q01/after/t003.400.png",
+     "sha256": "ad2cc33010c77260cf91a810b433f6bf99e249e9ac9a85f1c050e0174a9f34c1",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    },
+    {
+     "png": "learning/evidence/Q01/after/t004.200.png",
+     "sha256": "4a9bd862aecc6c36aa5ec9e45727ceb7df6944247247d9399a9627f5d2b81231",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    }
+   ],
+   "history": [
+    {
+     "at": "2026-11-21T13:19:52.969Z",
+     "to": "QUESTION_OPEN"
+    },
+    {
+     "at": "2026-11-21T13:20:35.876Z",
+     "to": "CONTRADICTION_SEARCHED"
+    },
+    {
+     "at": "2026-11-21T13:20:35.974Z",
+     "to": "PRODUCER_SPECIFIED"
+    },
+    {
+     "at": "2026-11-21T13:26:20.188Z",
+     "to": "OUTPUT_DEMONSTRATED"
+    }
+   ],
+   "priority": 27,
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q01/before/t002.600.png",
+     "after": "learning/evidence/Q01/after/t002.600.png",
+     "sheet": "learning/evidence/Q01/compare_0.png",
+     "metrics": {
+      "mean_abs": 1.23,
+      "changed_px_gt24": 1.553,
+      "psnr": 31.37
+     }
+    },
+    {
+     "before": "learning/evidence/Q01/before/t003.400.png",
+     "after": "learning/evidence/Q01/after/t003.400.png",
+     "sheet": "learning/evidence/Q01/compare_1.png",
+     "metrics": {
+      "mean_abs": 1.137,
+      "changed_px_gt24": 1.436,
+      "psnr": 32.49
+     }
+    },
+    {
+     "before": "learning/evidence/Q01/before/t004.200.png",
+     "after": "learning/evidence/Q01/after/t004.200.png",
+     "sheet": "learning/evidence/Q01/compare_2.png",
+     "metrics": {
+      "mean_abs": 1.321,
+      "changed_px_gt24": 1.697,
+      "psnr": 31.79
+     }
+    }
+   ],
+   "verdict": "improved",
+   "note": "near trouser now reads against floor/wainscot; legs connect hem to planted boots (with Q03)",
+   "lesson": {
+    "file": "E:\\MOTION_NATIVE_STUDIO_V1\\learning\\REPAIR_MEMORY.json",
+    "rule_id": "_foundation_test:Q01"
+   }
+  },
+  {
+   "id": "Q02",
+   "family": "A2",
+   "class": "CAMERA_AND_PACE",
+   "C": 3,
+   "G": 2,
+   "R": 2,
+   "U": 1,
+   "observed": "liftâ†’unfold 9.4â€“15s: hand target RAISE (1162,420) is beyond reach; arm folds over the head and the hanging star (radius 66, +70 below the grip) covers the face during the delighted reaction",
+   "question": "When an actor holds a luminous prop at the moment of their reaction, how is the prop positioned relative to the face so both the object's change and the face's response stay legible: offset to a separate region, or overlapping?",
+   "evidence": [
+    {
+     "png": "qa/d2/crop_012.000.png",
+     "sha256": "866a9ac6bc85820178c49d03eea5b83c7aba00a35b8b171e279bf189e5ceabb0"
+    }
+   ],
+   "status": "OUTPUT_DEMONSTRATED",
+   "witnesses": [
+    {
+     "confirm": "reference\\construct-kurzgesagt-art\\assets\\character_native_anchors\\BRAIN_0157_couch_human.jpg",
+     "confirm_sha256": "c0578fb5d8bd5f8d97215b95a833a0ad20b650f8cd3d500c3855783df1236deb",
+     "counter": "reference\\construct-kurzgesagt-art\\assets\\question_native_witnesses\\NUCLEAR_0145_lab_procedural_people.jpg",
+     "counter_sha256": "955c27cb5cae54685bc0978e01b68344d07e93fede6e26f7bde66b3e80d9e4b3",
+     "observed": "couch (light, relaxed): held prop raised ABOVE the face in its own region, face fully readable. lab (dark, attentive): object of attention sits in a separate lower region, both faces turned/gazing down to it; prop silhouette never overlaps a face plane; gaze line links them.",
+     "at": "2026-11-21T13:20:54.878Z"
+    }
+   ],
+   "producer": {
+    "if": "a held prop's change and the holder's reaction are read together",
+    "then": "place the prop's silhouette in a separate region beside/below the face with a clear gap, and aim head+pupils at it (gaze links the two); never route the prop across the face plane",
+    "falsifier": "source reaction shot where the changing prop deliberately covers the face (e.g. a mask/reveal gag)",
+    "counterexample": "a deliberate concealment beat (prop hides face on purpose)",
+    "op": "films/_foundation_test/scenes/room_common.mjs#RAISE: targets moved to a forward presentation region; gaze poses aimed at the star",
+    "at": "2026-11-21T13:20:54.972Z"
+   },
+   "before": [
+    {
+     "png": "learning/evidence/Q02/before/t011.600.png",
+     "sha256": "419d68e7274bdb9fa19ee5333e64475c384bf192cfa04c7ee8114d4830a355ef",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    },
+    {
+     "png": "learning/evidence/Q02/before/t012.600.png",
+     "sha256": "2d5d1d4d3964d7cea19be0d6542fff01cc16ae29c2347afdf9a64953141ea36a",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    },
+    {
+     "png": "learning/evidence/Q02/before/t014.200.png",
+     "sha256": "93498128675334a0a644ec96d29cc89d5fac257db35e70e3c72c91223e13cae9",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q02/after/t011.600.png",
+     "sha256": "4ceccc7bc9c44c7ba8ff394d9c88d07b32647f3e9e2c7f71cc44b681f403e88d",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    },
+    {
+     "png": "learning/evidence/Q02/after/t012.600.png",
+     "sha256": "c065c25cc135ac929e6c797f7479dffa4609a9a77d118050a52ffe8d438ca4d4",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    },
+    {
+     "png": "learning/evidence/Q02/after/t014.200.png",
+     "sha256": "e3199e2be0270d25909a3542e9f3290499f5e045f91936f4ad9319f15d14582c",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    }
+   ],
+   "history": [
+    {
+     "at": "2026-11-21T13:19:53.062Z",
+     "to": "QUESTION_OPEN"
+    },
+    {
+     "at": "2026-11-21T13:20:36.078Z",
+     "to": "CONTRADICTION_SEARCHED"
+    },
+    {
+     "at": "2026-11-21T13:20:54.879Z",
+     "to": "CONTRADICTION_SEARCHED"
+    },
+    {
+     "at": "2026-11-21T13:20:54.973Z",
+     "to": "PRODUCER_SPECIFIED"
+    },
+    {
+     "at": "2026-11-21T13:26:16.123Z",
+     "to": "OUTPUT_DEMONSTRATED"
+    }
+   ],
+   "priority": 26,
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q02/before/t011.600.png",
+     "after": "learning/evidence/Q02/after/t011.600.png",
+     "sheet": "learning/evidence/Q02/compare_0.png",
+     "metrics": {
+      "mean_abs": 15.2,
+      "changed_px_gt24": 26.392,
+      "psnr": 19.03
+     }
+    },
+    {
+     "before": "learning/evidence/Q02/before/t012.600.png",
+     "after": "learning/evidence/Q02/after/t012.600.png",
+     "sheet": "learning/evidence/Q02/compare_1.png",
+     "metrics": {
+      "mean_abs": 15.409,
+      "changed_px_gt24": 27.022,
+      "psnr": 18.81
+     }
+    },
+    {
+     "before": "learning/evidence/Q02/before/t014.200.png",
+     "after": "learning/evidence/Q02/after/t014.200.png",
+     "sheet": "learning/evidence/Q02/compare_2.png",
+     "metrics": {
+      "mean_abs": 15.583,
+      "changed_px_gt24": 26.704,
+      "psnr": 18.64
+     }
+    }
+   ],
+   "verdict": "improved",
+   "note": "face + mouth fully visible during delighted reaction; star in separate forward region; pupils aimed at star",
+   "lesson": {
+    "file": "E:\\MOTION_NATIVE_STUDIO_V1\\learning\\REPAIR_MEMORY.json",
+    "rule_id": "_foundation_test:Q02"
+   }
+  },
+  {
+   "id": "Q03",
+   "family": "F11",
+   "class": "RENDERER",
+   "C": 3,
+   "G": 3,
+   "R": 3,
+   "U": 0,
+   "observed": "measured at 12.6s: upperF −97.1° (correct), foreF −99.3° (should be ≈0, arm nearly straight toward an out-of-reach target); same −90° error on IK shins during the walk (boots splay ahead of the hem)",
+   "question": "Does the two-bone solver express the lower bone's angle in the upper bone's local frame (subtracting the upper bone's world angle AND adding back its rest direction), so the drawn joint chain ends on the target?",
+   "evidence": [
+    {
+     "png": "learning/evidence/Q02/after/t012.600.png",
+     "sha256": "166599112e0713c0d091d9882eb105ceb62fcb5b0effdf0c8600770a3310e4ef"
+    }
+   ],
+   "status": "OUTPUT_DEMONSTRATED",
+   "witnesses": [],
+   "producer": {
+    "if": "a chain is solved by ik2",
+    "then": "r_b = θ2 − θ1 + β1 − β2 (lower bone angle relative to the upper bone's rotated frame)",
+    "falsifier": "after the fix, the measured grip point differs from the clamped target by > 2 px",
+    "op": "engine/runtime/mn.js#ik2: lower-bone angle frame correction",
+    "no_source_reason": "pure runtime math fault; verified numerically in the debug harness",
+    "at": "2026-11-21T13:24:01.888Z"
+   },
+   "before": [
+    {
+     "png": "learning/evidence/Q03/before/t003.400.png",
+     "sha256": "c2c7897ca5d26978e9cbcae9ed7b62ba5ca4eb7e0a3ef3b6ae1c62359dab6b8f",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    },
+    {
+     "png": "learning/evidence/Q03/before/t012.600.png",
+     "sha256": "2d5d1d4d3964d7cea19be0d6542fff01cc16ae29c2347afdf9a64953141ea36a",
+     "video": "qa/before_Q.mp4",
+     "video_sha256": "ce0c2782a0184f78ee3a3a7a5798aa1ee53fb63900fc2cec250d7e3db8058787"
+    }
+   ],
+   "after": [
+    {
+     "png": "learning/evidence/Q03/after/t003.400.png",
+     "sha256": "ad2cc33010c77260cf91a810b433f6bf99e249e9ac9a85f1c050e0174a9f34c1",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    },
+    {
+     "png": "learning/evidence/Q03/after/t012.600.png",
+     "sha256": "c065c25cc135ac929e6c797f7479dffa4609a9a77d118050a52ffe8d438ca4d4",
+     "video": "qa/after_Q3.mp4",
+     "video_sha256": "c353832963525041e7f5404f021296fca5fcd1c34c1a4c7979f01e6090c3e5ba"
+    }
+   ],
+   "history": [
+    {
+     "at": "2026-11-21T13:24:01.759Z",
+     "to": "QUESTION_OPEN"
+    },
+    {
+     "at": "2026-11-21T13:24:01.889Z",
+     "to": "PRODUCER_SPECIFIED"
+    },
+    {
+     "at": "2026-11-21T13:26:11.883Z",
+     "to": "OUTPUT_DEMONSTRATED"
+    },
+    {
+     "at": "2026-11-21T13:26:20.563Z",
+     "to": "OUTPUT_DEMONSTRATED",
+     "note": "engine fault; fix is permanent runtime code, not a style lesson"
+    }
+   ],
+   "priority": 30,
+   "comparisons": [
+    {
+     "before": "learning/evidence/Q03/before/t003.400.png",
+     "after": "learning/evidence/Q03/after/t003.400.png",
+     "sheet": "learning/evidence/Q03/compare_0.png",
+     "metrics": {
+      "mean_abs": 1.381,
+      "changed_px_gt24": 1.507,
+      "psnr": 32.2
+     }
+    },
+    {
+     "before": "learning/evidence/Q03/before/t012.600.png",
+     "after": "learning/evidence/Q03/after/t012.600.png",
+     "sheet": "learning/evidence/Q03/compare_1.png",
+     "metrics": {
+      "mean_abs": 15.305,
+      "changed_px_gt24": 26.294,
+      "psnr": 19.17
+     }
+    }
+   ],
+   "verdict": "improved",
+   "note": "IK frame fix: grip lands within 0.7px of the handle at grip; shins no longer splay; measured in debug harness"
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "receipt_id": "edge__pilot_rig__open__grip__35282a86ee9f__mwrxc2vb4d1e78",
+ "scope": "edge",
+ "record_id": "pilot_rig::open::grip",
+ "verdict": "APPROVED",
+ "reviewer": "p02-rehearsal-simulated-reviewer",
+ "reviewer_kind": "TEST_TRUSTED",
+ "attestation": {
+  "method": "TEST_TRUST",
+  "note": "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)"
+ },
+ "notes": "",
+ "scope_note": "DIAGNOSTIC rehearsal only",
+ "evidence": [],
+ "bundle_sha256": "35282a86ee9ff2b4fd8b2033c35e02e2d343746890d7ffcd69a21c47131f854a",
+ "bundle": {
+  "content": {
+   "from": "open",
+   "landmark_ids": [
+    "wrist_r"
+   ],
+   "mask_or_occluder_id": null,
+   "max_transition_frames": 0,
+   "mode": "REGISTERED_SWAP",
+   "to": "grip"
+  },
+  "from": {
+   "bound_asset_hashes": {
+    "pilot_body": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+    "pilot_forearm": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+    "pilot_hand_open": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+    "pilot_underpaint": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+    "pilot_upper_arm": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0"
+   },
+   "content": {
+    "asset_bindings": {},
+    "contact_set": [],
+    "id": "open",
+    "landmark_correspondence": [
+     "wrist_r",
+     "knuckle_r"
+    ],
+    "required_underpaint": [],
+    "view_facing": "front"
+   },
+   "id": "pilot_rig::open",
+   "scope": "state"
+  },
+  "id": "pilot_rig::open::grip",
+  "scope": "edge",
+  "to": {
+   "bound_asset_hashes": {
+    "pilot_body": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+    "pilot_forearm": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+    "pilot_hand_open": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+    "pilot_underpaint": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+    "pilot_upper_arm": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0"
+   },
+   "content": {
+    "asset_bindings": {
+     "pilot_hand_open": "pilot_hand_grip"
+    },
+    "contact_set": [],
+    "id": "grip",
+    "landmark_correspondence": [
+     "wrist_r",
+     "knuckle_r"
+    ],
+    "required_underpaint": [],
+    "view_facing": "front"
+   },
+   "id": "pilot_rig::grip",
+   "scope": "state"
+  }
+ },
+ "reviewed_at": "2026-11-22T14:20:22.535Z",
+ "tested_revision": "b511e9333df61459082cb82ab90c73c400787b5f"
+}

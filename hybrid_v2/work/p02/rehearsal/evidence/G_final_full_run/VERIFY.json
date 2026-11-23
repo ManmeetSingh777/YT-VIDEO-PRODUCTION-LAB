@@ -1,0 +1,39 @@
+{
+ "chain": {
+  "ok": true,
+  "events": 195,
+  "head_sha256": "0f6ced5a59ded662bc7be7cb240f8a446630c11e3da20da154d8c1ddaa667822",
+  "problems": []
+ },
+ "handoffs": [
+  {
+   "stage": "S00_IDEA",
+   "ok": true
+  },
+  {
+   "stage": "S01_STORY",
+   "ok": true
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "ok": true
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "ok": true
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "ok": true
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "ok": true
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "ok": true
+  }
+ ],
+ "ok": true
+}

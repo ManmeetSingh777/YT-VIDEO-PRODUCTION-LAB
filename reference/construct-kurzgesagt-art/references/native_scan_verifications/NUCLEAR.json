@@ -1,0 +1,33 @@
+{
+  "film_id": "NUCLEAR",
+  "source": "source_originals/How Nuclear Flies Protect You from Flesh-Eating Parasites - Kurzgesagt \u2013 In a Nutshell (1080p).mp4",
+  "source_sha256": "20fa7a2c9131f7ba0464f7c7af4aa2286ded24f9607b55d4f88b2fda99271fb4",
+  "decoded_frames": 40782,
+  "frame_dimensions": [
+    1920,
+    1080
+  ],
+  "source_native_pixel_domain": true,
+  "downscale": null,
+  "signalstats_pixel_features": [
+    "YMIN",
+    "YLOW",
+    "YAVG",
+    "YHIGH",
+    "YMAX",
+    "UMIN",
+    "UAVG",
+    "VMIN",
+    "VAVG",
+    "SATAVG",
+    "YDIF",
+    "UDIF",
+    "VDIF",
+    "HUEAVG"
+  ],
+  "native_temporal_feature": "lavfi.scd.score and lavfi.scd.mafd per frame",
+  "metadata_sha256": "45ba7e99dca248f8b937fb78efb5b3e16ec7ad4c407cf713c4b0da7a305d5097",
+  "seconds": 914.1,
+  "evidence_scope": "Every full-raster frame technically analyzed and temporal signals stored. Not semantic full-frame visual comprehension, reconstruction, or a complete source transfer qualification.",
+  "status": "VERIFIED_NATIVE_PIXEL_PASS"
+}

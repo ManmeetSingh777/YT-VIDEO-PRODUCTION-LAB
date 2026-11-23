@@ -1,0 +1,34 @@
+{
+ "schema_version": 1,
+ "event_id": "DIAG-20261122142022-e1cc63:211",
+ "sequence": 211,
+ "prev_event_sha256": "4d0965cb950c5cc0bbcdb470c7d811ccdcbbf1db258981071197333e490ebc67",
+ "film_id": "film",
+ "run_id": "DIAG-20261122142022-e1cc63",
+ "stage_id": "S09_FILM_AUDIO_FINAL",
+ "attempt_id": "Amwryca8g",
+ "operation_id": null,
+ "task_id": "final_media",
+ "actor_kind": "ENGINE",
+ "producer_source_sha256": "a70810872d95eda3a5562bfc7061e41060eac62d489922afab91eb24ad32be8e",
+ "input_refs": [],
+ "output_refs": [],
+ "status_before": null,
+ "status_after": "COMPLETED",
+ "gate_evidence_refs": [],
+ "blocked_on": [],
+ "failure_id": null,
+ "parent_event_ids": [
+  "DIAG-20261122142022-e1cc63:210"
+ ],
+ "wall_time_utc": "2026-11-22T14:48:40.717Z",
+ "elapsed_ms": 7928,
+ "event_type": "TASK_COMPLETED",
+ "verification": {
+  "method": "ffprobe of the published MP4",
+  "pass": true,
+  "measurement": "{\"codec\":\"h264\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":7200,\"video_duration\":120,\"audio_duration\":120}"
+ },
+ "lock_generation": 211,
+ "event_sha256": "140e06fb87c76a774e44b2a75c57cc35af7f11f6615b79323065697a45d6390d"
+}

@@ -1,0 +1,603 @@
+{
+ "total": 7200,
+ "segments": [
+  {
+   "frames": [
+    0,
+    100
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [
+    "pilot_close_hand"
+   ],
+   "rig_states": {
+    "pilot_rig": {
+     "pose": "open",
+     "view": null,
+     "contacts": []
+    }
+   },
+   "assets": [
+    {
+     "id": "pilot_body",
+     "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+     "delivered": true
+    },
+    {
+     "id": "pilot_underpaint",
+     "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+     "delivered": true
+    },
+    {
+     "id": "pilot_upper_arm",
+     "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+     "delivered": true
+    },
+    {
+     "id": "pilot_forearm",
+     "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+     "delivered": true
+    },
+    {
+     "id": "pilot_hand_open",
+     "sha256": "0f76b59d688cece18a3a5e5527088d9ca1458c30088ba5dcefc75d95ae799430",
+     "delivered": true
+    },
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    0,
+    600
+   ]
+  },
+  {
+   "frames": [
+    100,
+    420
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [
+    "pilot_close_hand"
+   ],
+   "rig_states": {
+    "pilot_rig": {
+     "pose": "grip",
+     "view": null,
+     "contacts": []
+    }
+   },
+   "assets": [
+    {
+     "id": "pilot_body",
+     "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+     "delivered": true
+    },
+    {
+     "id": "pilot_underpaint",
+     "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+     "delivered": true
+    },
+    {
+     "id": "pilot_upper_arm",
+     "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+     "delivered": true
+    },
+    {
+     "id": "pilot_forearm",
+     "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+     "delivered": true
+    },
+    {
+     "id": "pilot_hand_grip",
+     "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+     "delivered": true
+    },
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    0,
+    600
+   ]
+  },
+  {
+   "frames": [
+    420,
+    480
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [
+    "pilot_close_hand"
+   ],
+   "rig_states": {
+    "pilot_rig": {
+     "pose": "grip",
+     "view": null,
+     "contacts": []
+    }
+   },
+   "assets": [
+    {
+     "id": "pilot_body",
+     "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+     "delivered": true
+    },
+    {
+     "id": "pilot_underpaint",
+     "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+     "delivered": true
+    },
+    {
+     "id": "pilot_upper_arm",
+     "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+     "delivered": true
+    },
+    {
+     "id": "pilot_forearm",
+     "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+     "delivered": true
+    },
+    {
+     "id": "pilot_hand_grip",
+     "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+     "delivered": true
+    },
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": true,
+   "static_hold": false,
+   "chunk": [
+    0,
+    600
+   ]
+  },
+  {
+   "frames": [
+    480,
+    600
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [
+    "pilot_close_hand"
+   ],
+   "rig_states": {
+    "pilot_rig": {
+     "pose": "grip",
+     "view": null,
+     "contacts": []
+    }
+   },
+   "assets": [
+    {
+     "id": "pilot_body",
+     "sha256": "69659a64aec96fcc0d72880baade6edeb3dbfe8d09542672468acb95e610620c",
+     "delivered": true
+    },
+    {
+     "id": "pilot_underpaint",
+     "sha256": "8d7054ec51aa0119ad77e20a36fe75aa85a93b7d9246554b002769675f4a666a",
+     "delivered": true
+    },
+    {
+     "id": "pilot_upper_arm",
+     "sha256": "86081e50df1503c603342aee75e75b40cc664bc6b6da7f0df8666d7cb67e96a0",
+     "delivered": true
+    },
+    {
+     "id": "pilot_forearm",
+     "sha256": "eba01d5189b7aebebb10d93c0fc05b46aa609b1c9a0e375b7bc45579034ef885",
+     "delivered": true
+    },
+    {
+     "id": "pilot_hand_grip",
+     "sha256": "e6d9a98e56ab8712623f9af18423f15be36bda14ad0e4d15a899bd3ead543ded",
+     "delivered": true
+    },
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    0,
+    600
+   ]
+  },
+  {
+   "frames": [
+    600,
+    1200
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [
+    "dust"
+   ],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    600,
+    1200
+   ]
+  },
+  {
+   "frames": [
+    1200,
+    1800
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [
+    "dust"
+   ],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    1200,
+    1800
+   ]
+  },
+  {
+   "frames": [
+    1800,
+    2400
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [
+    "dust"
+   ],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    1800,
+    2400
+   ]
+  },
+  {
+   "frames": [
+    2400,
+    3000
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    2400,
+    3000
+   ]
+  },
+  {
+   "frames": [
+    3000,
+    3600
+   ],
+   "shot": "rt_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_char",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    3000,
+    3600
+   ]
+  },
+  {
+   "frames": [
+    3600,
+    3700
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    3600,
+    4200
+   ]
+  },
+  {
+   "frames": [
+    3700,
+    3900
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": true,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": false,
+   "chunk": [
+    3600,
+    4200
+   ]
+  },
+  {
+   "frames": [
+    3900,
+    4200
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    3600,
+    4200
+   ]
+  },
+  {
+   "frames": [
+    4200,
+    4800
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    4200,
+    4800
+   ]
+  },
+  {
+   "frames": [
+    4800,
+    5400
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    4800,
+    5400
+   ]
+  },
+  {
+   "frames": [
+    5400,
+    6000
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    5400,
+    6000
+   ]
+  },
+  {
+   "frames": [
+    6000,
+    6600
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    6000,
+    6600
+   ]
+  },
+  {
+   "frames": [
+    6600,
+    7200
+   ],
+   "shot": "rt_world_shot",
+   "camera_moving": false,
+   "actions": [],
+   "rig_states": {},
+   "assets": [
+    {
+     "id": "rt_world_far",
+     "sha256": "895949b5d78219dd31e177a7c9ce56d57fda85c3107026b96bb922e9238c1357",
+     "delivered": true,
+     "role": "world rt_world_w FAR"
+    }
+   ],
+   "camera_track": "cam_world",
+   "world": "rt_world_w",
+   "effects": [],
+   "motion_blur": false,
+   "static_hold": true,
+   "chunk": [
+    6600,
+    7200
+   ]
+  }
+ ],
+ "manifest_sha256": "17325a024be55cca12a9ddda4e3188ef020a02881257ce894ddad6676b061d12"
+}

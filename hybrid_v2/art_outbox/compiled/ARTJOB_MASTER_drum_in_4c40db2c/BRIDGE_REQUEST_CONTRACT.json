@@ -1,0 +1,23 @@
+{
+ "artjob_id": "ARTJOB_MASTER_drum_in_4c40db2c",
+ "gate": {
+  "pass": false,
+  "status": "NOT_EVALUATED",
+  "failures": [],
+  "design_approval": {
+   "status": "NOT_EVALUATED"
+  }
+ },
+ "overrides": [
+  {
+   "field": "transparent_background",
+   "skill_value": false,
+   "contract_value": false,
+   "source": "motion_context.alpha_requirement=OPAQUE"
+  }
+ ],
+ "method_delivery": null,
+ "motion_requirements_delivered_as_requirements": null,
+ "machine_motion_context_file": null,
+ "request_sha256": "fe079f4fe6afac299c98f3fe7bf15e9689062bc3746185afed23df1953d1bce4"
+}
