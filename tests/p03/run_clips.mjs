@@ -47,12 +47,14 @@ if (ONLY.has("negatives")) {
     ["missing_blink", plan, [[26, 40]], swapHide("nova_rig--nova_eye_open", "nova_eye_open"), "nova_pull_lever:nova_rig:nova_eye_open", "DISCRETE_STATE_NOT_RENDERED"],
     ["missing_deformation", plan, [[280, 310]], noDeform, "lumen_watch:lumen_rig:lumen_body", "DEFORMATION_NOT_RENDERED"],
     ["missing_object_reaction", plan, [[110, 150]], freezeAt(110, "lever_rig--"), "nova_pull_lever:lever_rig", "OWNER_MOTION_RENDERED"],
+    ["frozen_character_under_blur_and_camera", { ...plan, motion_blur: [{ frames: [80, 110], shutter: 0.5, samples: 4 }] }, [[80, 104]], freezeAt(80, "nova_rig--"), "nova_pull_lever:nova_rig", "OWNER_MOTION_RENDERED"],
+    ["wrong_hand_closure", plan, [[100, 112]], (rows, f, prefix) => rows.map((r) => (r[0] === `${prefix}nova_rig--nova_hand_open--nova_hand_grip` ? [r[0], r[1], 0, r[3], r[4]] : r[0] === `${prefix}nova_rig--nova_hand_open--nova_hand_open` ? [r[0], r[1], 1, r[3], r[4]] : r)), "nova_pull_lever:nova_rig:nova_hand_open", "FRAME_DIVERGES_FROM_STATE"],
   ];
   for (const [name, pl, ranges, perturb, expectRecord, expectInv] of N) {
     const rcN = await clip(`neg_${name}`, pl, ranges, { mp4: false, perturb }), gN = ownerAttributionGate({ ...ownersOf(rcN), doc: gateDoc(rcN) });
     const rcC = await clip(`ctl_${name}`, pl, ranges, { mp4: false }), gC = ownerAttributionGate({ ...ownersOf(rcC), doc: gateDoc(rcC) }); // counterfactual control: same frames, unperturbed
-    const hit = gN.failures.filter((x) => x.record_id === expectRecord && x.failed_invariant === expectInv);
-    summary.negatives[name] = { frames: ranges, perturbed_gate_ok: gN.ok, expected: { record_id: expectRecord, failed_invariant: expectInv }, detected: hit.length > 0, perturbed_failures: gN.failures.slice(0, 12), control_gate_ok: gC.ok, control_failures: gC.failures.slice(0, 6) };
+    const diverged = rcN.chunks.flatMap((c) => c.defects || []).filter((d) => d.kind === "FRAME_DIVERGES_FROM_STATE").map((d) => d.frame), hit = expectInv === "FRAME_DIVERGES_FROM_STATE" ? diverged.length ? [{ record_id: expectRecord, failed_invariant: expectInv }] : [] : gN.failures.filter((x) => x.record_id === expectRecord && x.failed_invariant === expectInv);
+    summary.negatives[name] = { frames: ranges, perturbed_gate_ok: gN.ok, diverging_frames: diverged.slice(0, 6), expected: { record_id: expectRecord, failed_invariant: expectInv }, detected: hit.length > 0, perturbed_failures: gN.failures.slice(0, 12), control_gate_ok: gC.ok, control_failures: gC.failures.slice(0, 6) };
     fs.writeFileSync(path.join(OUT, "NEGATIVES.json"), JSON.stringify(summary.negatives, null, 1)); console.log("negative", name, "detected:", hit.length > 0, "control ok:", gC.ok);
   }
 }

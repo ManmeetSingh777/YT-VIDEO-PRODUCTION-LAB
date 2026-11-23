@@ -109,7 +109,9 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
           o.ref_rigid = await capture(iso.map((r) => (triIds.has(r[0]) ? [r[0], r[1], 0, r[3], r[4]] : bases.has(r[0]) ? [r[0], r[1], 1, r[3], r[4]] : d0.has(r[0]) ? [r[0], r[1], r[2], r[3], { d: d0.get(r[0]) }] : r))); } }
       return out; };
     const ownersOf = async () => attributionOf(shown || rows);
-    if (!b) { const rgb = await shoot(page), owners = await ownersOf(); return { rgb, state_sha: visibleStateSha(rows), owners }; }
+    // P04 §7.6: the frame ON SCREEN must equal the frame re-applied from its compiled state rows; a baked/rendered divergence is a defect, not an assumption
+    const divergence = async (rgb) => { if (!attribution || b) return null; await page.evaluate((r, tag) => { ARTB.applyRows(r, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, rows.map((r) => [r[0], r[1], r[2], r[3], r[4]]), f); return sha(await shoot(page)) === sha(rgb) ? null : { kind: "FRAME_DIVERGES_FROM_STATE", reason: "the rendered frame differs from the frame re-applied from its compiled state rows (baked/render path did not reproduce the expected state)" }; };
+    if (!b) { const rgb = await shoot(page), div = await divergence(rgb), owners = await ownersOf(); return { rgb, state_sha: visibleStateSha(rows), owners, divergence: div }; }
     // shutter: N sub-frame composites of the same scene at f + k·shutter/N, averaged per channel (a real compositor consumer, not a ghost layer)
     const times = shutterSamples((t) => t, f, { shutter: b.shutter, samples: b.samples }), acc = new Uint32Array(width * height * 3), all = [];
     for (const t of times) { const r = scene.frameState(t, { subframe: true }).rows; all.push(r); await page.evaluate((rows, tag) => { ARTB.applyRows(rows, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, r, f); const s = await shoot(page); for (let i = 0; i < s.length; i++) acc[i] += s[i]; }

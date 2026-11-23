@@ -8,7 +8,7 @@ export function directedPlan(doc, { only = null } = {}) {
   const targets = V.map(([x, y], i) => (i < 3 ? [x + (x - (bx + bw / 2)) * 0.04, y - bh * 0.05] : i < 6 ? [x + (x - (bx + bw / 2)) * 0.06, y] : [x, y])); // inhale: the back rises and the belly widens; the base (contact with ground) stays
   const floorY = 520 + (nova.joints.find((j) => j.id === "ankle_l").rest_xy[1] - nova.joints.find((j) => j.id === "pelvis").rest_xy[1]) + 8;
   const plan = { id: "p03_directed",
-    tracks: { nova_rig: { root: { x: [[0, 0], [90, 0], [150, -19, "sine.inOut"], [200, -19], [235, -4, "sine.inOut"]], y: [[0, 0], [50, 0], [80, 12, "sine.inOut"], [200, 12], [235, 0, "sine.inOut"]] }, joints: { head: [[0, 0], [120, -4, "sine.inOut"], [220, 0, "sine.inOut"]] } },
+    tracks: { nova_rig: { root: { x: [[0, 0], [90, 0], [150, -19, "sine.inOut"], [200, -19], [235, -4, "sine.inOut"]], y: [[0, 0], [50, 0], [80, 12, "sine.inOut"], [200, 12], [236, 5, "sine.inOut"]] }, joints: { head: [[0, 0], [120, -4, "sine.inOut"], [220, 0, "sine.inOut"]] } },
       lumen_rig: { joints: { neck1: [[240, 0], [330, 18, "sine.inOut"], [420, 12, "sine.inOut"]], head: [[240, 0], [330, -10, "sine.inOut"], [460, -6, "sine.inOut"]], tail1: [[240, 0], [300, 14, "sine.inOut"], [360, -10, "sine.inOut"], [420, 8, "sine.inOut"], [479, 0, "sine.inOut"]] } } },
     // primary phrase (layer 2): torso anticipation → pull → follow-through → settle, with the camera sharing the phrase boundaries
     phrases: [{ id: "pull_phrase", start_frame: 50, phases: [{ phase: "ANTICIPATION", frames: 15 }, { phase: "ACTION", frames: 40 }, { phase: "FOLLOW_THROUGH", frames: 30 }, { phase: "SETTLE", frames: 40 }],
