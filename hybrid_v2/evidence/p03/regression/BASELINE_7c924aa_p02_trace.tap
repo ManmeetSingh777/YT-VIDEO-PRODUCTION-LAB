@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: P02-R13 every committed stage hands off a typed, re-verifiable packet; a forged or missing packet blocks the next stage
+ok 1 - P02-R13 every committed stage hands off a typed, re-verifiable packet; a forged or missing packet blocks the next stage
+  ---
+  duration_ms: 1005854.4559
+  type: 'test'
+  ...
+# Subtest: P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families
+not ok 2 - P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families
+  ---
+  duration_ms: 552.2839
+  type: 'test'
+  location: 'C:\\YT_PUBLISH\\baseline_7c924aa\\tests\\p02\\p02_trace.test.mjs:28:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    ["asset rt_world_far: no design for master rt_world_far"]
+    + actual - expected
+    
+    + [
+    +   'asset rt_world_far: no design for master rt_world_far'
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: 'asset rt_world_far: no design for master rt_world_far'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/YT_PUBLISH/baseline_7c924aa/tests/p02/p02_trace.test.mjs:30:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P02-R08 every input category changes the revision (code, audio, art, skill/style, story, direction, contracts, approvals, canvas); logs/QA/render do not
+ok 3 - P02-R08 every input category changes the revision (code, audio, art, skill/style, story, direction, contracts, approvals, canvas); logs/QA/render do not
+  ---
+  duration_ms: 1777.8624
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 2
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1008424.4009
+exit 1

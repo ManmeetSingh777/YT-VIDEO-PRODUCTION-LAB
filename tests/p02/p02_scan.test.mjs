@@ -12,17 +12,17 @@ const index = { total, segments: [{ frames: [0, 300], shot: "a", actions: ["swin
 async function film(tag, args = {}, t = total) { const F = path.join(W, tag); fs.rmSync(F, { recursive: true, force: true }); fs.mkdirSync(F, { recursive: true }); await SR.renderFilm({ film: F, revision: { digest: tag }, ...size, total: t, chunkSize: 300, rendererArgs: args, outName: "f.mp4" }); return F; }
 
 test("P02-R06 positive: moving interval changes pixels; a static hold may repeat pixels without failing", async () => {
-  const F = await film("ok", { frozenFrom: null }), r = coverageGate({ FILM: F, index, doc }); assert.equal(r.ok, true, JSON.stringify(r.failures)); assert.equal(r.frames_hashed, total);
+  const F = await film("ok", { frozenFrom: null }), r = coverageGate({ FILM: F, index, doc, requireOwnerAttribution: false }); assert.equal(r.ok, true, JSON.stringify(r.failures)); assert.equal(r.frames_hashed, total); assert.equal(r.owner_attribution_absent, true, "P03: the diagnostic flat renderer records no per-owner attribution and the gate says so"); assert.equal(coverageGate({ FILM: F, index, doc }).ok, false, "P03: with attribution required (production / Chrome) its absence fails");
   // the diagnostic renderer's held frames (frozenFrom inside a declared static hold) — the expected state also holds there → allowed
-  const H = await film("hold", { frozenFrom: 450, holdState: true }); const rh = coverageGate({ FILM: H, index, doc });
+  const H = await film("hold", { frozenFrom: 450, holdState: true }); const rh = coverageGate({ FILM: H, index, doc, requireOwnerAttribution: false });
   assert.ok(!rh.failures.some((f) => f.code === "INERT_ACTION_INTERVAL" && f.frame_ranges[0][0] === 300), "a declared static hold is not a frozen action");
 });
 test("P02-R06 negatives: frozen moving interval, missing frames/state, uncovered edge, broken boundary", async () => {
-  const Z = await film("frozen", { frozenFrom: 120 }), rz = coverageGate({ FILM: Z, index, doc });
+  const Z = await film("frozen", { frozenFrom: 120 }), rz = coverageGate({ FILM: Z, index, doc, requireOwnerAttribution: false });
   assert.ok(rz.failures.some((f) => f.code === "FROZEN_FRAME"), "expected state changes while pixels repeat → FROZEN_FRAME"); assert.equal(rz.ok, false);
-  const S = await film("short", {}, 450), rs = coverageGate({ FILM: S, index, doc }); assert.ok(rs.failures.some((f) => f.code === "COVERAGE_GAP" && /no rendered hash/.test(f.reason)));
+  const S = await film("short", {}, 450), rs = coverageGate({ FILM: S, index, doc, requireOwnerAttribution: false }); assert.ok(rs.failures.some((f) => f.code === "COVERAGE_GAP" && /no rendered hash/.test(f.reason)));
   const doc2 = { ...doc, actions: [...doc.actions, { id: "late_grip", shot_id: "b", frame_range: [700, 720], actors: [], pose_events: [], view_events: [], contact_events: [] }] }; assert.ok(coverageGate({ FILM: (await film("ok2")), index, doc: doc2 }).failures.some((f) => f.record_id === "late_grip"), "an action outside the rendered film is uncovered");
   const edge = Buffer.alloc(160 * 90 * 3, 40); for (let y = 0; y < 90; y++) { const i = (y * 160) * 3; edge[i] = 255; edge[i + 1] = 0; edge[i + 2] = 255; } assert.equal(SR.frameDefects(edge, size).kind, "UNCOVERED_EDGE");
-  const full = path.join(W, "ok2"), tdoc = { ...doc, transitions: [{ from_shot: "a", to_shot: "b", frame_range: [590, 610] }] }, rt = coverageGate({ FILM: full, index, doc: tdoc });
-  assert.ok(rt.failures.some((f) => f.record_id === "a->b" && f.code === "COVERAGE_GAP"), "a transition interval that leaves the rendered film is broken"); assert.equal(coverageGate({ FILM: full, index, doc: { ...doc, transitions: [{ from_shot: "a", to_shot: "b", frame_range: [290, 310] }] } }).ok, true, "a rendered transition interval passes");
+  const full = path.join(W, "ok2"), tdoc = { ...doc, transitions: [{ from_shot: "a", to_shot: "b", frame_range: [590, 610] }] }, rt = coverageGate({ FILM: full, index, doc: tdoc, requireOwnerAttribution: false });
+  assert.ok(rt.failures.some((f) => f.record_id === "a->b" && f.code === "COVERAGE_GAP"), "a transition interval that leaves the rendered film is broken"); assert.equal(coverageGate({ FILM: full, index, doc: { ...doc, transitions: [{ from_shot: "a", to_shot: "b", frame_range: [290, 310] }] }, requireOwnerAttribution: false }).ok, true, "a rendered transition interval passes");
 });

@@ -15,6 +15,10 @@ import { err } from "./errors.mjs";
 import { I, mul, chain, T, S as Sc, R, apply, applyVec, angleOf, scaleOf, dist, deg, wrap180, finite } from "./math2d.mjs";
 import { solveTwoBonePosition } from "./constraints.mjs";
 import { validateStateEdge } from "./state_router.mjs";
+import { validateChannels, channelEvents, channelStatesAt, resolveBindings } from "./state_channels.mjs";
+import { layerPhrases, compileActing } from "./acting.mjs";
+import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHinge, comX } from "./execution.mjs";
+import { balance } from "./contact_solver.mjs";
 
 const EASES = {
   linear: (p) => p, none: (p) => p,
@@ -46,7 +50,15 @@ const ROUTED = ["RIGID", "ARTICULATED", "REGISTERED_CELS", "REGISTERED_MORPH", "
 
 /** compileMotionTracks(actions, shots, {doc, plan}) → frozen compiled plan or throws an aggregated BridgeError list (.errors) */
 export function compileMotionTracks(actions, shots, ctx) {
-  const { doc, plan = {} } = ctx, errors = [], total = doc.stage.total_frames;
+  const { doc } = ctx, errors = [], total = doc.stage.total_frames;
+  // layers 2–3 (P03 A+D, see acting.mjs): compiled PHRASES become primary tracks, ACTING modifies them (lag/anticipation/settle) and adds
+  // additive life, follow-through springs, gaze aim and channel swap events (blink, speech). Done BEFORE validation, so every compiled key
+  // is checked and owned exactly like an authored one; an unexecutable phrase/acting block is a structured error, never dropped.
+  const L1 = layerPhrases(doc, ctx.plan || {}), L2 = compileActing(doc, L1.plan, { actions }); errors.push(...L1.errors, ...L2.errors);
+  // a deformation map / morph that does not name its rig+slot is resolved from the registered asset's placement (unique or refused) — never skipped
+  const placeOf = (aid) => doc.rigs.flatMap((r) => r.render_parts.filter((p) => p.asset_id === aid || [...r.pose_states, ...r.view_states, ...(r.state_channels || []).flatMap((c) => c.states)].some((s) => s.asset_bindings?.[p.asset_id] === aid)).map((p) => ({ rig: r.id, slot: p.asset_id })));
+  const resolveSlot = (id, m, aid) => { if (m.rig && m.slot) return m; const c = placeOf(aid); if (c.length !== 1) { errors.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: `${aid} is placed in ${c.length} rig slots; the deformation must name its rig and slot` })); return m; } return { ...m, ...c[0] }; };
+  const plan = { ...L2.plan, ...(L2.plan.deform_maps ? { deform_maps: Object.fromEntries(Object.entries(L2.plan.deform_maps).map(([id, m]) => [id, resolveSlot(id, m, m.asset)])) } : {}), ...(L2.plan.morphs ? { morphs: Object.fromEntries(Object.entries(L2.plan.morphs).map(([id, m]) => [id, resolveSlot(id, m, m.from)])) } : {}) }, layerReport = { phrases: L1.report, acting: L2.report, suppressed_by_contact: [] };
   const assets = new Map(doc.assets.map((a) => [a.id, a])), rigs = new Map();
   for (const r of doc.rigs) {
     const joints = new Map(r.joints.map((j) => [j.id, j])), order = [], seen = new Set();
@@ -67,6 +79,13 @@ export function compileMotionTracks(actions, shots, ctx) {
   for (const s of plan.secondary || []) { if (!rigs.get(s.rig)?.joints.has(s.joint)) errors.push(err("UNKNOWN_REFERENCE", { record_id: s.id, reason: "secondary joint unknown" })); else own(`${s.rig}.${s.joint}`, `secondary:${s.id}`); }
   for (const [aid, p] of Object.entries(plan.procedural || {})) if (p.type === "GEAR_TRAIN") for (const fo of p.followers) own(`${fo.rig}.${fo.joint}`, `procedural:${aid}`);
   for (const [cid, c] of Object.entries(plan.cameras || {})) for (const [p, keys] of Object.entries(c)) safe(() => checkKeys(keys, `camera ${cid}.${p}`));
+  // execution systems (P03 E/F): deformation maps, vector morphs, mechanism reactions, support/balance — validated like tracks
+  for (const [id, m] of Object.entries(plan.deform_maps || {})) { errors.push(...validateDeformBinding(id, m, assets.get(m.asset))); if (m.weight) safe(() => checkKeys(m.weight, `deform ${id}.weight`)); }
+  for (const [id, m] of Object.entries(plan.morphs || {})) { errors.push(...validateMorphBinding(id, m, assets.get(m.from), assets.get(m.to))); if (m.weight) safe(() => checkKeys(m.weight, `morph ${id}.weight`)); }
+  for (const rx of plan.reactions || []) { if (rx.type !== "HINGE_FOLLOW") { errors.push(err("REACTION_UNSATISFIABLE", { record_id: rx.id, reason: `reaction type ${rx.type} has no executor` })); continue; }
+    const R1 = rigs.get(rx.rig), R2 = rigs.get(rx.driver?.rig); if (!R1?.joints.has(rx.joint) || !R1.socketById.has(rx.handle_socket) || !R2?.joints.has(rx.driver.joint)) { errors.push(err("UNKNOWN_REFERENCE", { record_id: rx.id, reason: "reaction names an unknown rig/joint/socket" })); continue; } own(`${rx.rig}.${rx.joint}`, `reaction:${rx.id}`); }
+  for (const [rid, sp] of Object.entries(plan.support || {})) { const R_ = rigs.get(rid); if (!R_ || !(sp.feet || []).every((s) => R_.socketById.has(s)) || !Object.keys(sp.mass || {}).every((j) => R_.joints.has(j))) errors.push(err("UNKNOWN_REFERENCE", { record_id: `support:${rid}`, reason: "support model names an unknown rig/foot socket/mass joint" })); }
+  for (const key of Object.keys(plan.__additive || {})) { const by = owner.get(key); if (by && by !== "track") errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: key, reason: `additive acting on ${key}, which is owned by ${by} (its value is not an editable track)` })); }
 
   // route every action exactly once
   const routes = new Map();
@@ -84,6 +103,8 @@ export function compileMotionTracks(actions, shots, ctx) {
   // every view switch must travel an approved registered edge (state_router is the consumer, not a duplicate check)
   for (const a of actions) for (const ve of a.view_events) { const owner = a.actors.map((x) => rigs.get(x.rig_id)).find((R_) => R_ && [...R_.rec.pose_states, ...R_.rec.view_states].some((s) => s.id === ve.to_state)); if (!owner) continue;
     safe(() => validateStateEdge(ve.from_state, ve.to_state, owner.rec, assets, doc.identities.find((i) => i.id === owner.rec.identity_id), { requireApproval: ctx.requireApproval ?? true })); }
+  // explicit art-state channels (P03 B): validated ownership + every state event (directed or compiled acting) resolved to an approved state
+  const chanEvents = new Map(); for (const [rid, R_] of rigs) { for (const e of validateChannels(R_.rec, { assets })) errors.push(e); const ce = channelEvents(R_.rec, actions, plan.__acting_events || []); errors.push(...ce.errors); chanEvents.set(rid, ce.events); }
   // contacts → constraint jobs
   const contacts = [];
   for (const a of actions) for (const c of a.contact_events) {
@@ -96,25 +117,28 @@ export function compileMotionTracks(actions, shots, ctx) {
     contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig });
   }
   const contactDriven = new Set(contacts.map((k) => k.rig));
+  // precedence report: contact IK (layer 4) owns its chain joints while a contact is locked; acting on those joints is overridden there, never silently
+  for (const k of contacts) for (const j of k.chain) if ((plan.__acting_report?.[k.rig]?.lagged || {})[j] !== undefined || (plan.__additive || {})[`${k.rig}.${j}`]) layerReport.suppressed_by_contact.push({ action: k.action.id, rig: k.rig, joint: j, frames: [k.c.start_frame, k.c.end_frame] });
   for (const k of contacts) if (k.tgtRig && contactDriven.has(k.tgtRig)) errors.push(err("UNSUPPORTED_STATE_EDGE", { record_id: k.action.id, reason: `contact target rig ${k.tgtRig} is itself contact-driven (chained contacts are not supported)` }));
 
   // shots
   const shotAt = new Int32Array(total).fill(-1); shots.forEach((s, i) => { for (let f = Math.max(0, s.start_frame); f < Math.min(total, s.end_frame); f++) if (shotAt[f] < 0) shotAt[f] = i; });
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {} };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
   // root + joint values from tracks (+ gear followers + baked secondary)
-  const rawJoint = (rid, j, f) => { const k = plan.tracks?.[rid]?.joints?.[j]; return k ? ev(k, f) : 0; };
+  const additive = plan.__additive || {}, addAt = (key, f) => { let s = 0; for (const a of additive[key] || []) s += a.amp * Math.sin((2 * Math.PI * (f + a.phase)) / a.period); return s; };
+  const rawJoint = (rid, j, f) => { const k = plan.tracks?.[rid]?.joints?.[j]; return (k ? ev(k, f) : 0) + addAt(`${rid}.${j}`, f); };
   const gearOf = new Map(); for (const p of Object.values(plan.procedural || {})) if (p.type === "GEAR_TRAIN") for (const fo of p.followers) gearOf.set(`${fo.rig}.${fo.joint}`, { driver: p.driver, ratio: -fo.teeth_driver / fo.teeth_follower, phase: fo.phase_deg || 0 });
   C.jointValue = (rid, j, f) => {
     const g = gearOf.get(`${rid}.${j}`); if (g) return rawJoint(g.driver.rig, g.driver.joint, f) * g.ratio + g.phase;
     const b = C.secondaryBaked[`${rid}.${j}`]; if (b) return b[f];
     return rawJoint(rid, j, f);
   };
-  C.evalPrimary = (f, shot) => {
+  const evalBase = (f, shot) => {
     const out = {};
     for (const [rid, R_] of rigs) {
       const pl = placement(rid, shot); if (!pl) continue;
@@ -125,6 +149,34 @@ export function compileMotionTracks(actions, shots, ctx) {
     }
     return out;
   };
+  C.evalPrimary = (f, shot) => {
+    const out = evalBase(f, shot);
+    // mechanism reactions (P03 F, layer 2 consequence): the reacting joint is SOLVED from the driver's pose, so the object moves because the character pulls
+    for (const r of C.reactionsAt(f, shot, out)) if (out[r.rig]) out[r.rig].theta[r.joint] = r.angle;
+    // gaze (acting layer): the head/eye joint turns toward its target by a bounded, gain-scaled ADDITIVE rotation (the art is rotated, never warped)
+    for (const [key, g] of Object.entries(plan.__gaze || {})) {
+      const [rid, j] = key.split("."), s = out[rid]; if (!s || (g.frames && (f < g.frames[0] || f >= g.frames[1]))) continue;
+      let tgt = g.target?.world_xy || null; if (g.target?.rig) { const o = out[g.target.rig]; if (!o) continue; tgt = socketWorld(g.target.rig, fk(g.target.rig, o), g.target.socket); }
+      if (!tgt) continue; const M = fk(rid, s), p = apply(M[j], rigs.get(rid).joints.get(j).rest_xy), cur = angleOf(M[j]) + (g.forward_deg || 0);
+      const d = wrap180(deg(Math.atan2(tgt[1] - p[1], tgt[0] - p[0])) - cur), m = g.max_deg ?? 20; s.theta[j] += (g.gain ?? 1) * Math.max(-m, Math.min(m, d));
+    }
+    return out;
+  };
+  /** HINGE_FOLLOW: in [frames) the handle keeps the distance d0 it had to the driver joint at the first frame; afterwards it holds (or returns via its track) */
+  C.reactionsAt = (f, shot, base = null) => {
+    const out = [];
+    for (const rx of plan.reactions || []) { const [a, b] = rx.frames; if (f < a || (f >= b && !rx.hold_after)) continue; const fe = Math.min(f, b - 1), cur = fe === f && base ? base : evalBase(fe, shot), first = evalBase(a, shot);
+      if (!cur[rx.rig] || !cur[rx.driver.rig]) continue; const R1 = rigs.get(rx.rig), J = R1.joints.get(rx.joint), lim = J.rotation_limits_deg;
+      const at = (st) => { const M = fk(rx.rig, st[rx.rig]), Mp = J.parent_id ? M[J.parent_id] : M[rx.joint]; return { pivot: apply(Mp, J.rest_xy), handle: socketWorld(rx.rig, M, rx.handle_socket), theta: st[rx.rig].theta[rx.joint], driver: apply(fk(rx.driver.rig, st[rx.driver.rig])[rx.driver.joint], rigs.get(rx.driver.rig).joints.get(rx.driver.joint).rest_xy) }; };
+      const A0 = at(first), d0 = Math.hypot(A0.handle[0] - A0.driver[0], A0.handle[1] - A0.driver[1]), A1 = at(cur), s = solveHinge({ pivot: A1.pivot, handle: A1.handle, theta: A1.theta, driver: A1.driver, d0, limits: lim });
+      out.push({ id: rx.id, rig: rx.rig, joint: rx.joint, angle: s.angle, residual_px: s.residual, ok: s.ok && s.residual <= (rx.allowed_error_px ?? 1), d0, frame_evaluated: fe }); }
+    return out;
+  };
+  C.deformsAt = (f) => { const out = []; for (const [id, m] of Object.entries(plan.deform_maps || {})) { const a = actions.find((x) => x.id === id); if (a && (f < a.frame_range[0] || f >= a.frame_range[1] || C.shotAt(f)?.id !== a.shot_id)) continue; const w = ev(m.weight, f); if (Math.abs(w) < 1e-9) continue; out.push({ id, rig: m.rig, asset_id: m.asset, ...deformAt(m, w, { frame: f, id }) }); } return out; };
+  C.morphsAt = (f) => { const out = []; for (const [id, m] of Object.entries(plan.morphs || {})) { const a = actions.find((x) => x.id === id); if (a && (f < a.frame_range[0] || f >= a.frame_range[1] || C.shotAt(f)?.id !== a.shot_id)) continue; const w = Math.max(0, Math.min(1, ev(m.weight, f))); out.push({ id, rig: m.rig, slot: m.slot, from: m.from, to: m.to, weight: w, d: morphAt(assets.get(m.from), assets.get(m.to), w) }); } return out; };
+  C.supportAt = (f, M) => { const out = [], failures = []; for (const [rid, sp] of Object.entries(plan.support || {})) { if (!M[rid]) continue; const R_ = rigs.get(rid), held = C.contactsAt(f).filter((k) => k.locked && k.rig === rid && (sp.grip_support || []).includes(k.c.source_socket)).map((k) => k.c.source_socket), feet = [...sp.feet, ...held].map((s) => socketWorld(rid, M[rid], s)[0]), lo = Math.min(...feet) - (sp.margin_px ?? 0), hi = Math.max(...feet) + (sp.margin_px ?? 0), cx = comX(M[rid], R_.rec, sp.mass);
+      const b = balance({ segments: [{ mass: 1, x: cx }], support_x: [lo, hi], family: sp.family || "ACTING_HUMAN", style_rationale: sp.style_rationale || null }); out.push({ rig: rid, com_x: cx, support_x: [lo, hi], ok: b.ok, held_support: held });
+      if (!b.ok) failures.push(err("BALANCE_FAILED", { record_id: rid, frame_range: [f, f + 1], reason: b.reason, details: { com_x: cx, support_x: [lo, hi] } })); } return { support: out, failures }; };
   /** FK in canonical character coords: M_root = T(x,y)·R(rot)·S(scale)·T(-rest_root); M_j = M_parent · T(r_j)·R(θ_j)·T(-r_j) */
   const fk = (rid, st) => {
     const R_ = rigs.get(rid), r0 = R_.root.rest_xy, M = {};
@@ -199,13 +251,14 @@ export function compileMotionTracks(actions, shots, ctx) {
     const shot = C.shotAt(f), out = {};
     for (const rid of Object.keys(constrained.state)) {
       const R_ = rigs.get(rid), all = [...R_.rec.pose_states, ...R_.rec.view_states];
-      let pose = R_.rec.pose_states[0]?.id ?? null, view = null, expr = null;
+      let pose = R_.rec.pose_states[0]?.id ?? null, view = null;
       for (const a of actions) if (a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid) && a.frame_range[0] <= f) {
         for (const e of a.pose_events) if (e.frame <= f && all.some((s) => s.id === e.state_id)) pose = e.state_id;
         for (const e of a.view_events) if (e.frame <= f) view = e.to_state;
       }
-      const ps = all.find((s) => s.id === pose), vs = view ? all.find((s) => s.id === view) : null;
-      out[rid] = { pose, view, expression: expr, bindings: { ...(ps?.asset_bindings || {}), ...(vs?.asset_bindings || {}) }, hidden: new Set() };
+      // expression / eyes / mouth / hand / clothing / lighting / occlusion come from their OWN channels (never from the pose id)
+      const r = resolveBindings(R_.rec, pose, view, channelStatesAt(R_.rec, chanEvents.get(rid) || [], f, shot?.id));
+      out[rid] = { pose, view, expression: r.expression, eyes: r.eyes, mouth: r.mouth, channels: r.channels, bindings: r.bindings, hidden: new Set() };
     }
     return out;
   };
@@ -290,6 +343,10 @@ export function stateAtFrame(compiled, f, { subframe = false } = {}) {
   const cels = compiled.celsAt(fi), procedural = compiled.proceduralAt(fi);
   const secondary = compiled.evalBakedSecondary(fi);
   const failures = [...constrained.failures];
+  // P03 E/F: deformation, vector morph, mechanism reaction residuals and support are part of the frame state (and its failures)
+  const deforms = compiled.deformsAt(fi), morphs = compiled.morphsAt(fi), reactions = compiled.reactionsAt(f, shot), support = compiled.supportAt(fi, matrices);
+  for (const d of deforms) failures.push(...d.failures); failures.push(...support.failures);
+  for (const r of reactions) if (!r.ok) failures.push(err("REACTION_UNSATISFIABLE", { record_id: r.id, frame_range: [fi, fi + 1], reason: `mechanism cannot follow the pull within its approved hinge range (residual ${r.residual_px.toFixed(2)}px)`, details: r }));
   for (const p of passes) if (!finite(p.matrix)) failures.push(err("RENDER_CAPTURE_FAILURE", { record_id: p.pass_id, frame_range: [f, f + 1], reason: "non-finite matrix" }));
-  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(fi) });
+  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(fi), deforms, morphs, reactions, support: support.support });
 }

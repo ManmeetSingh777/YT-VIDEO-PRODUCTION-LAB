@@ -1,0 +1,209 @@
+{
+ "note": "DIAGNOSTIC test signals (synthesised); proves timing/mix mechanics only, not sound design",
+ "fps": 60,
+ "total_frames": 480,
+ "mix": {
+  "file": "hybrid_v2\\evidence\\p03\\audio\\p03_mix.wav",
+  "sha256": "4d58db013ddf73f783f06cf2136309368dbbe352b965638a60add12e29bc062f",
+  "music_stem_ducked": "hybrid_v2\\evidence\\p03\\audio\\p03_mix.music_stem_ducked.wav",
+  "duration_s": 8,
+  "rate": 48000,
+  "buses": {
+   "narration": {
+    "file": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB\\hybrid_v2\\work\\p03\\audio\\narration_TEST_TONES.wav",
+    "sha256": "ecd13b20c405a8d8d172db56940b38423a2e74edc8e77130403c7fa54196d46b",
+    "gain_db": 0,
+    "at_frame": 0
+   },
+   "music": {
+    "file": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB\\hybrid_v2\\work\\p03\\audio\\music_TEST_BED.wav",
+    "sha256": "4e4ee05fc871c84945103e7a4d9947025f31f44e37f35287b033674f3e508283",
+    "gain_db": -6,
+    "ducked_by": "narration",
+    "duck": {
+     "threshold": 0.03,
+     "ratio": 8,
+     "attack": 5,
+     "release": 250
+    }
+   },
+   "sfx": [
+    {
+     "id": "grip_clunk",
+     "frame": 70,
+     "file": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB\\hybrid_v2\\work\\p03\\audio\\sfx_TEST_CLICK.wav",
+     "sha256": "06ecc76cd8029b9b9752773eabb465c9ee8e515fe2e5df62d285715fe8dd4c9a",
+     "gain_db": 0
+    },
+    {
+     "id": "release_click",
+     "frame": 200,
+     "file": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB\\hybrid_v2\\work\\p03\\audio\\sfx_TEST_CLICK.wav",
+     "sha256": "06ecc76cd8029b9b9752773eabb465c9ee8e515fe2e5df62d285715fe8dd4c9a",
+     "gain_db": -3
+    }
+   ]
+  },
+  "loudness_pass1": {
+   "input_i": "-15.08",
+   "input_tp": "-1.97",
+   "input_lra": "16.40",
+   "input_thresh": "-31.95",
+   "output_i": "-17.99",
+   "output_tp": "-1.50",
+   "output_lra": "9.70",
+   "output_thresh": "-29.13",
+   "normalization_type": "dynamic",
+   "target_offset": "1.99"
+  },
+  "loudness_target": {
+   "target_lufs": -16,
+   "true_peak": -1.5,
+   "lra": 11
+  }
+ },
+ "verify": {
+  "ok": true,
+  "failures": [],
+  "onsets_detected": 4,
+  "cues": [
+   {
+    "id": "grip_clunk",
+    "kind": "SFX",
+    "t": 1.1666666666666667,
+    "frame": 70,
+    "measured_s": 1.167021,
+    "offset_ms": 0.354,
+    "ok": true
+   },
+   {
+    "id": "release_click",
+    "kind": "SFX",
+    "t": 3.3333333333333335,
+    "frame": 200,
+    "measured_s": 3.333354,
+    "offset_ms": 0.021,
+    "ok": true
+   },
+   {
+    "id": "word0:pull",
+    "kind": "WORD",
+    "t": 0.5,
+    "frame": 30,
+    "measured_s": 0.500125,
+    "offset_ms": 0.125,
+    "ok": true
+   },
+   {
+    "id": "word1:together",
+    "kind": "WORD",
+    "t": 1,
+    "frame": 60,
+    "measured_s": 1.000021,
+    "offset_ms": 0.021,
+    "ok": true
+   }
+  ],
+  "integrated_lufs": -16.2,
+  "duck": {
+   "stem_rms_db_under_narration": -50.96,
+   "stem_rms_db_reference": -35.63,
+   "depth_db": 15.33
+  },
+  "mix_sha256": "4d58db013ddf73f783f06cf2136309368dbbe352b965638a60add12e29bc062f",
+  "method": "onsets detected from decoded mix PCM (1 ms RMS envelope + sample refinement); EBU R128 integrated loudness via ffmpeg ebur128"
+ },
+ "mouth_sync": [
+  {
+   "word": "pull",
+   "word_frame": 30,
+   "measured_audio_frame": 30,
+   "first_mouth_open_frame": 30,
+   "ok": true
+  },
+  {
+   "word": "together",
+   "word_frame": 60,
+   "measured_audio_frame": 60,
+   "first_mouth_open_frame": 60,
+   "ok": true
+  }
+ ],
+ "negative_late_sfx": {
+  "detected": true,
+  "failures": [
+   {
+    "code": "AUDIO_SYNC_MISMATCH",
+    "file": null,
+    "record_id": "grip_clunk",
+    "shot_id": null,
+    "frame_range": [
+     70,
+     71
+    ],
+    "dependency": null,
+    "suggested_producer": null,
+    "human_readable_reason": "measured onset 1217.02 ms vs frame 70 (1166.67 ms): 50.35 ms > 4 ms",
+    "producer": "engine/film/audio_mix.mjs#verifyAudioSync",
+    "failed_invariant": null,
+    "dependency_ids": [],
+    "required_art_or_operation": [],
+    "repair_owner": null,
+    "resume_at": null,
+    "input_revision_hashes": {},
+    "diagnostic_evidence": [],
+    "severity": "BLOCKING",
+    "frame_ranges": [
+     [
+      70,
+      71
+     ]
+    ]
+   }
+  ],
+  "cues": [
+   {
+    "id": "grip_clunk",
+    "kind": "SFX",
+    "t": 1.1666666666666667,
+    "frame": 70,
+    "measured_s": 1.217021,
+    "offset_ms": 50.354,
+    "ok": false
+   },
+   {
+    "id": "release_click",
+    "kind": "SFX",
+    "t": 3.3333333333333335,
+    "frame": 200,
+    "measured_s": 3.333354,
+    "offset_ms": 0.021,
+    "ok": true
+   },
+   {
+    "id": "word0:pull",
+    "kind": "WORD",
+    "t": 0.5,
+    "frame": 30,
+    "measured_s": 0.500125,
+    "offset_ms": 0.125,
+    "ok": true
+   },
+   {
+    "id": "word1:together",
+    "kind": "WORD",
+    "t": 1,
+    "frame": 60,
+    "measured_s": 1.000021,
+    "offset_ms": 0.021,
+    "ok": true
+   }
+  ]
+ },
+ "av_mux": {
+  "file": "hybrid_v2\\evidence\\p03\\audio\\p03_directed_with_audio.mp4",
+  "sha256": "4b414ba6d1898f35d93187802c0cde8565325274acd20a892c7e8f85ba291637",
+  "video_s": 8,
+  "audio_s": 8
+ }
+}

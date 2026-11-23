@@ -47,6 +47,7 @@ export async function loadManifest(projectRoot, manifestPath, options = {}) {
     if (sha(abs) !== a.sha256) E("ASSET_HASH_MISMATCH", { record_id: a.id, reason: "file bytes do not match the recorded sha256 (any pixel edit invalidates dependent reviews)" });
     if (options.production && a.provenance_class === "DIAGNOSTIC_FIXTURE") E("UNQUALIFIED_STYLE_ASSET", { record_id: a.id, reason: "diagnostic fixture art cannot enter a production manifest" });
     if (a.approved_review_id === null) E("UNAPPROVED_ART", { record_id: a.id, reason: "asset has no approved review" });
+    if (a.kind === "VECTOR_PATH") { const { parseSvgPaths } = await import("./art_intake.mjs"), got = parseSvgPaths(fs.readFileSync(abs, "utf8")); if (JSON.stringify(got.map((q) => [q.d, q.fill])) !== JSON.stringify((a.vector_paths || []).map((q) => [q.d, q.fill]))) E("ASSET_HASH_MISMATCH", { record_id: a.id, reason: "recorded vector_paths do not equal the approved SVG file's paths" }); }
     if (/\.png$/i.test(a.file)) {
       let p; try { p = readPNG(abs); } catch (e) { E(e.code || "IMAGE_DIMENSION_MISMATCH", { record_id: a.id, reason: e.message }); continue; }
       decoded.set(a.id, p);

@@ -1,0 +1,373 @@
+{
+ "film": "hybrid_v2\\work\\p03\\subjects\\film",
+ "started_at": "2026-11-23T14:28:48.098Z",
+ "clips": {
+  "p03_directed": {
+   "mp4": "hybrid_v2\\evidence\\p03\\clips\\p03_directed.mp4",
+   "seconds": 517.486,
+   "defects": [],
+   "owner_gate": {
+    "ok": true,
+    "failures": [],
+    "units": [
+     {
+      "action": "nova_pull_lever",
+      "unit": "nova_rig",
+      "frames": [
+       0,
+       240
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 0,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "nova_pull_lever",
+      "unit": "nova_rig:nova_eye_open",
+      "frames": [
+       0,
+       240
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 4,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "nova_pull_lever",
+      "unit": "nova_rig:nova_mouth_rest",
+      "frames": [
+       0,
+       240
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 11,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "nova_pull_lever",
+      "unit": "nova_rig:nova_hand_open",
+      "frames": [
+       0,
+       240
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 2,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "nova_pull_lever",
+      "unit": "nova_rig:nova_brow_neutral",
+      "frames": [
+       0,
+       240
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 0,
+      "swaps_not_rendered": [],
+      "deform_frames": 169,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "nova_pull_lever",
+      "unit": "lever_rig",
+      "frames": [
+       0,
+       240
+      ],
+      "distinct_states": 130,
+      "distinct_pixels": 130,
+      "discrete_swaps": 0,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "lumen_watch",
+      "unit": "lumen_rig",
+      "frames": [
+       240,
+       480
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 0,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "lumen_watch",
+      "unit": "lumen_rig:lumen_eye_open",
+      "frames": [
+       240,
+       480
+      ],
+      "distinct_states": 240,
+      "distinct_pixels": 240,
+      "discrete_swaps": 4,
+      "swaps_not_rendered": [],
+      "deform_frames": 0,
+      "deform_frames_equal_to_rigid": 0
+     },
+     {
+      "action": "lumen_watch",
+      "unit": "lumen_rig:lumen_body",
+      "frames": [
+       240,
+       480
+      ],
+      "distinct_states": 180,
+      "distinct_pixels": 180,
+      "discrete_swaps": 4,
+      "swaps_not_rendered": [],
+      "deform_frames": 237,
+      "deform_frames_equal_to_rigid": 0
+     }
+    ]
+   }
+  },
+  "p03_bare_before": {
+   "mp4": "hybrid_v2\\evidence\\p03\\clips\\p03_bare_before.mp4",
+   "seconds": 82.72,
+   "note": "direction keys only (no phrases/acting/reaction/support/grip/shadow/morph/deform): the BEFORE of every capability"
+  }
+ },
+ "negatives": {
+  "frozen_character_particles_move": {
+   "frames": [
+    [
+     80,
+     120
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig",
+    "failed_invariant": "OWNER_MOTION_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_eye_open changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       84,
+       85
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest swaps its approved drawing at frame 84 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       96,
+       97
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest swaps its approved drawing at frame 96 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_hand_open changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_brow_neutral",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_brow_neutral changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_grip_transition": {
+   "frames": [
+    [
+     64,
+     76
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+    "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+     "frame_ranges": [
+      [
+       70,
+       71
+      ]
+     ],
+     "reason": "nova_rig:nova_hand_open swaps its approved drawing at frame 70 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_blink": {
+   "frames": [
+    [
+     26,
+     40
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+    "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+     "frame_ranges": [
+      [
+       30,
+       31
+      ]
+     ],
+     "reason": "nova_rig:nova_eye_open swaps its approved drawing at frame 30 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_deformation": {
+   "frames": [
+    [
+     280,
+     310
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "expected": {
+    "record_id": "lumen_watch:lumen_rig:lumen_body",
+    "failed_invariant": "DEFORMATION_NOT_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "lumen_watch:lumen_rig:lumen_body",
+     "frame_ranges": [
+      [
+       280,
+       310
+      ]
+     ],
+     "reason": "lumen_rig:lumen_body: 30/30 frames with an active deformation/morph render identical to the rigid drawing",
+     "failed_invariant": "DEFORMATION_NOT_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_object_reaction": {
+   "frames": [
+    [
+     110,
+     150
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "expected": {
+    "record_id": "nova_pull_lever:lever_rig",
+    "failed_invariant": "OWNER_MOTION_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:lever_rig",
+     "frame_ranges": [
+      [
+       110,
+       150
+      ]
+     ],
+     "reason": "lever_rig changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  }
+ },
+ "finished_at": "2026-11-23T14:44:22.867Z"
+}

@@ -25,6 +25,7 @@ import { gateForJob, requireApprovedContract, scopeBundle } from "./art_contract
 import { readCurrent, verifyGeneration } from "./outbox_store.mjs";
 import { prepareRequest, recordOutcome, sealResult, loadResult, selectCandidate, loadSelection, capabilityStatus } from "./candidate_store.mjs";
 import { dependencyDigest } from "./art_requests.mjs";
+import { channelEvents } from "./state_channels.mjs";
 import { compileMotionTracks } from "./temporal.mjs";
 
 const MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json", PLAN = "handoff/ART_DEPENDENCY_PLAN.json";
@@ -219,7 +220,8 @@ function fitRig({ FILM, doc, plan, identity: I, measured, anchors, asset, receip
 const motionPlansFor = (FILM) => { const H = path.join(FILM, "handoff"), out = []; for (const x of fs.readdirSync(H)) { const m = x.match(/^MOTION_PLAN(?:_(.+))?\.json$/); if (m) out.push({ shot: m[1] || null, file: x, plan: readJ(path.join(H, x)) }); } return out; };
 function feasibilityFor(FILM, doc, identityId, motionPlan) {
   const rigs = new Set(doc.rigs.filter((r) => r.identity_id === identityId).map((r) => r.id)), failures = [], checked = [];
-  const acts = doc.actions.filter((a) => a.actors.some((x) => rigs.has(x.rig_id)) && a.contact_events?.length);
+  // P03 repair C: EVERY action the identity performs (contact AND non-contact acting: poses, views, expressions, gaze, support, phrases)
+  const acts = doc.actions.filter((a) => a.actors.some((x) => rigs.has(x.rig_id)));
   for (const sh of doc.shots.filter((s) => acts.some((a) => a.shot_id === s.id))) {
     const plans = motionPlan ? [{ shot: sh.id, file: "(supplied restaging plan)", plan: motionPlan }] : motionPlansFor(FILM).filter((p) => !p.shot || p.shot === sh.id);
     for (const mp of plans) {
@@ -231,10 +233,14 @@ function feasibilityFor(FILM, doc, identityId, motionPlan) {
       for (const a of acts.filter((x) => x.shot_id === sh.id)) for (const x of a.actors.filter((y) => rigs.has(y.rig_id))) { const rr = doc.rigs.find((r) => r.id === x.rig_id), ids = new Set([...rr.pose_states, ...rr.view_states].map((q) => q.id));
         for (const e of [...a.pose_events.map((q) => ({ frame: q.frame, to: q.state_id })), ...a.view_events.map((v) => ({ frame: v.frame, to: v.to_state, from: v.from_state, view: true }))]) {
           if (!ids.has(e.to)) { if (!doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === e.to))) failures.push({ code: e.view ? "UNSUPPORTED_VIEW" : "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `state ${e.to} is not in rig ${rr.id}` }); continue; }
-          if (e.view && !rr.allowed_state_edges.some((g) => g.from === e.from && g.to === e.to)) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `no allowed edge ${e.from}→${e.to}` }); } }
+          if (e.view && !rr.allowed_state_edges.some((g) => g.from === e.from && g.to === e.to)) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `no allowed edge ${e.from}→${e.to}` }); }
+        // a POSE change is a state edge too: it must travel an approved edge of this rig (same rule state_router applies to views)
+        let cur = rr.pose_states[0]?.id ?? null; for (const e of [...a.pose_events].filter((q) => ids.has(q.state_id)).sort((p, q) => p.frame - q.frame)) { if (e.state_id !== cur && !rr.allowed_state_edges.some((g) => (g.from === cur && g.to === e.state_id) || (g.from === e.state_id && g.to === cur && g.reversible))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `pose change ${cur}→${e.state_id} has no approved state edge in ${rr.id}` }); cur = e.state_id; }
+        // explicit channel events (expression / eyes / mouth / hand / clothing ...) must name approved channel states
+        for (const ce of channelEvents(rr, [a]).errors) failures.push({ code: ce.code, record_id: a.id, shot: sh.id, frame_range: ce.frame_range, reason: ce.human_readable_reason || ce.message }); }
       const bad = {}; for (const f of frames) { const r = C.solveConstraints(f, C.evalPrimary(f, sh), C.contactsAt(f)); for (const e of r.failures) { const k = `${e.code}|${e.record_id}`; (bad[k] ||= { code: e.code, record_id: e.record_id, shot: sh.id, plan: mp.file, frames: [], reason: e.human_readable_reason || e.message }).frames.push(f); } }
       for (const b of Object.values(bad)) { const { frames: fr, ...rest } = b; failures.push({ ...rest, frame_range: [Math.min(...fr), Math.max(...fr) + 1], frame_count: fr.length }); }
-      checked.push({ shot: sh.id, plan: mp.file, contact_frames: frames.size });
+      checked.push({ shot: sh.id, plan: mp.file, actions: acts.filter((x) => x.shot_id === sh.id).map((x) => x.id), contact_frames: frames.size, frames_checked: frames.size });
     }
   }
   return { status: failures.length ? "INFEASIBLE_REQUIRES_RESTAGING_OR_NEW_POSE_ART" : "FEASIBLE", failures, checked, remedy: failures.length ? "approved restaging of the action (placement/timing/targets) or new pose art; never distort the approved proportions" : null };
@@ -304,6 +310,39 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   return { status: "REGISTERED_PENDING_REVIEW", asset, kind: p.kind, receipt: rec, crop_to_canonical: geom.crop_to_canonical_matrix, canonical_rect: geom.canonical_rect };
 }
 
+/** P03 E: ingest an approved VECTOR_PATH drawing (SVG of absolute-command <path> elements, e.g. a provider/GPT vector export). Registration is a
+ *  least-squares similarity from ≥3 reviewed landmarks onto the approved master's canonical landmarks (residual-checked, never forced); the
+ *  registered paths are written in CANONICAL coordinates to an approved SVG whose bytes are hashed, and recorded on the asset (vector_paths). */
+export function parseSvgPaths(text) { const out = []; for (const m of String(text).matchAll(/<path\b([^>]*)\/?>/g)) { const at = (n) => (m[1].match(new RegExp(`\\s${n}="([^"]*)"`)) || [])[1]; const d = at("d"); if (!d) continue; out.push({ d: d.trim(), fill: at("fill") || "none", ...(at("stroke") ? { stroke: at("stroke"), stroke_width: +(at("stroke-width") || 1) } : {}) }); } return out; }
+function fitSimilarity(src, dst) { const n = src.length, ms = [0, 1].map((k) => src.reduce((s, p) => s + p[k], 0) / n), md = [0, 1].map((k) => dst.reduce((s, p) => s + p[k], 0) / n); let a = 0, b = 0, ss = 0;
+  for (let i = 0; i < n; i++) { const x = src[i][0] - ms[0], y = src[i][1] - ms[1], u = dst[i][0] - md[0], v = dst[i][1] - md[1]; a += x * u + y * v; b += x * v - y * u; ss += x * x + y * y; }
+  const c = a / ss, s = b / ss; return [c, s, -s, c, md[0] - c * ms[0] + s * ms[1], md[1] - s * ms[0] - c * ms[1]]; }
+export async function ingestVectorPart({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, outbox = undefined }) {
+  if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
+  const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
+  const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset);
+  if (!p || !p.derived_from || p.kind !== "VECTOR_PATH") throw new Error(`${asset} is not a planned derived VECTOR_PATH state`);
+  const ma = masterApproved(doc, FILM, p.derived_from); if (!ma.ok) throw new Error(`refused: ${ma.reason}; derived art is registered only against an approved master`);
+  const { parsePath } = await import("./deform.mjs"), paths = parseSvgPaths(fs.readFileSync(file, "utf8")); if (!paths.length) throw err("MISSING_ART_ASSET", { record_id: asset, reason: "delivered SVG contains no <path d> elements" });
+  for (const q of paths) parsePath(q.d); // absolute M/L/C/Q/Z only (relative commands are refused, not guessed)
+  const lm = sidecar(landmarks), ident = ma.identity, names = Object.keys(lm.landmarks).filter((k) => k in ident.landmarks);
+  if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `vector registration needs ≥3 reviewed landmarks shared with identity ${ident.id} (got ${names.length})` });
+  if (!names.includes(p.pivot_landmark_id)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
+  const Tm = fitSimilarity(names.map((k) => lm.landmarks[k]), names.map((k) => ident.landmarks[k])), ap = (q) => [Tm[0] * q[0] + Tm[2] * q[1] + Tm[4], Tm[1] * q[0] + Tm[3] * q[1] + Tm[5]];
+  const residual = Math.max(...names.map((k) => { const q = ap(lm.landmarks[k]); return Math.hypot(q[0] - ident.landmarks[k][0], q[1] - ident.landmarks[k][1]); }));
+  if (residual > maxResidualPx) { log(FILM, { op: "ingest-vector", asset, status: "REGISTRATION_FAILED", max_residual: residual }); return { status: "REGISTRATION_FAILED", failures: [{ code: "REGISTRATION_RESIDUAL", reason: `landmark residual ${residual.toFixed(3)} > ${maxResidualPx}` }] }; }
+  const num = (v) => +v.toFixed(3), canon = paths.map((q) => ({ ...q, d: parsePath(q.d).map((s) => s.cmds.map((c) => `${c.c}${c.pts.map((pt) => ap(pt).map(num).join(" ")).join(" ")}`).join(" ") + (s.closed ? " Z" : "")).join(" ") }));
+  const pts = canon.flatMap((q) => parsePath(q.d).flatMap((s) => s.cmds.flatMap((c) => c.pts))), x0 = Math.min(...pts.map((q) => q[0])), y0 = Math.min(...pts.map((q) => q[1])), x1 = Math.max(...pts.map((q) => q[0])), y1 = Math.max(...pts.map((q) => q[1]));
+  const pivot = ident.landmarks[p.pivot_landmark_id]; if (pivot[0] < x0 || pivot[0] > x1 || pivot[1] < y0 || pivot[1] > y1) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `pivot ${p.pivot_landmark_id} lies outside the delivered vector drawing` });
+  const W = Math.max(1, Math.ceil(x1 - x0)), H = Math.max(1, Math.ceil(y1 - y0)), dest = path.join(FILM, "assets", "art", `${asset}.svg`); fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, `<svg xmlns="http://www.w3.org/2000/svg" data-registered="canonical" viewBox="${num(x0)} ${num(y0)} ${W} ${H}">${canon.map((q) => `<path d="${q.d}" fill="${q.fill}"${q.stroke ? ` stroke="${q.stroke}" stroke-width="${q.stroke_width}"` : ""}/>`).join("")}</svg>\n`);
+  fs.mkdirSync(path.join(FILM, "registration", asset), { recursive: true }); fs.copyFileSync(landmarks, path.join(FILM, "registration", asset, "LANDMARK_SIDECAR.json"));
+  const sideFile = path.join(FILM, "registration", asset, "LANDMARK_SIDECAR.json"), rec = { asset, status: "PENDING_REVIEW", method: "VECTOR_LANDMARK_SIMILARITY", source_sha256: fsha(file), approved_sha256: fsha(dest), source_to_canonical: Tm, max_residual_px: residual, tolerance_px: maxResidualPx, landmark_sidecar: { reviewed_by: lm.reviewed_by, sha256: fsha(sideFile), landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, failures: [], at: new Date().toISOString() }; writeJ(path.join(FILM, "registration", asset, `${asset}__REGISTRATION_RECEIPT.json`), rec);
+  const measured = Object.fromEntries(names.map((k) => [k, ap(lm.landmarks[k])])), fields = { file: path.relative(FILM, dest).split(path.sep).join("/"), sha256: fsha(dest), width_px: W, height_px: H, canonical_rect: [num(x0), num(y0), W, H], source_pixel_crop: [0, 0, W, H], crop_to_canonical_matrix: [1, 0, 0, 1, num(x0), num(y0)], pivot_xy: pivot, pivot_landmark_id: p.pivot_landmark_id, landmarks: measured };
+  const a = assetRecord(doc, p, fields, provenance, `vecreg_${asset}`, lineage); a.vector_paths = canon; a.motion_modes_allowed = [...new Set([...a.motion_modes_allowed, "REGISTERED_MORPH"])];
+  doc.assets = doc.assets.filter((x) => x.id !== asset).concat(a); saveDoc(FILM, doc); log(FILM, { op: "ingest-vector", asset, sha256: fields.sha256, max_residual: residual, paths: canon.length });
+  return { status: "REGISTERED_PENDING_REVIEW", asset, kind: "VECTOR_PATH", receipt: rec };
+}
 export async function reviewPart({ film, asset, reviewer, verdict, notes = "", scope_note = "", human = false, attestation = null }) {
   const FILM = path.resolve(film), doc = loadDoc(FILM), a = doc.assets.find((x) => x.id === asset); if (!a) throw new Error(`asset ${asset} not ingested`);
   const p = loadPlan(FILM).assets.find((x) => x.asset_id === asset); if (p?.derived_from) { const ma = masterApproved(doc, FILM, p.derived_from); if (!ma.ok) throw new Error(`refused: ${ma.reason}`); }
@@ -314,8 +353,11 @@ export async function reviewPart({ film, asset, reviewer, verdict, notes = "", s
   return { verdict, reviewer_kind: r.reviewer_kind, receipt: r.receipt_id };
 }
 export async function approveState({ film, rig, state, reviewer, verdict, notes = "", scope_note = "", human = false, attestation = null }) {
-  const FILM = path.resolve(film), doc = loadDoc(FILM), R = doc.rigs.find((x) => x.id === rig), s = R && [...R.pose_states, ...R.view_states].find((x) => x.id === state); if (!s) throw new Error(`unknown state ${rig}.${state}`);
-  const visible = [...new Set(R.render_parts.map((p) => s.asset_bindings[p.asset_id] ?? p.asset_id))]; // every asset this state shows, defaults included
+  const FILM = path.resolve(film), doc = loadDoc(FILM), R = doc.rigs.find((x) => x.id === rig), s0 = R && [...R.pose_states, ...R.view_states].find((x) => x.id === state);
+  // P03 B: a channel state is addressed "<channel>.<state>"; it is approved against exactly the drawings it shows in its OWN slots
+  const [chId, chSt] = state.includes(".") ? state.split(".") : [null, null], ch = !s0 && chId ? (R?.state_channels || []).find((c) => c.id === chId) : null, s = s0 || ch?.states.find((x) => x.id === chSt);
+  if (!s) throw new Error(`unknown state ${rig}.${state}`);
+  const visible = ch ? [...new Set(ch.slots.map((slot) => s.asset_bindings[slot] ?? slot))] : [...new Set(R.render_parts.map((p) => s.asset_bindings[p.asset_id] ?? p.asset_id))]; // every asset this state shows, defaults included
   for (const aid of visible) { const a = doc.assets.find((x) => x.id === aid); const v = a && verifyApproval(doc, FILM, "asset", aid, a.approved_review_id); if (!v?.ok) throw new Error(`refused: bound asset ${aid} is not approved (${v?.status || "absent"})`); }
   const att = await attestationFor(doc, FILM, "state", `${rig}::${state}`, { human, reviewer, attestation });
   const r = writeReceipt(FILM, doc, { scope: "state", id: `${rig}::${state}`, reviewer, verdict, notes, scope_note, revision: revision(), attestation: att }); s.approved_review_id = pointer(verdict, r); saveDoc(FILM, doc);

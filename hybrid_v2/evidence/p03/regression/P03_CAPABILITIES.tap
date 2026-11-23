@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: B1 expression/eyes/mouth come from their OWN channels, independent of the pose id
+ok 1 - B1 expression/eyes/mouth come from their OWN channels, independent of the pose id
+  ---
+  duration_ms: 8.2581
+  type: 'test'
+  ...
+# Subtest: B2 negatives: a missing channel drawing is MISSING_ART_ASSET; two channels owning one slot is STATE_CHANNEL_CONFLICT
+ok 2 - B2 negatives: a missing channel drawing is MISSING_ART_ASSET; two channels owning one slot is STATE_CHANNEL_CONFLICT
+  ---
+  duration_ms: 0.8339
+  type: 'test'
+  ...
+# Subtest: C1 negative regression: a NON-CONTACT action with an invalid state change is INFEASIBLE (feasibility covers every action)
+ok 3 - C1 negative regression: a NON-CONTACT action with an invalid state change is INFEASIBLE (feasibility covers every action)
+  ---
+  duration_ms: 439.7209
+  type: 'test'
+  ...
+# Subtest: A1 acting: lag follows topology depth, breath is additive rotation only (no scale), and matrices differ from the bare plan
+ok 4 - A1 acting: lag follows topology depth, breath is additive rotation only (no scale), and matrices differ from the bare plan
+  ---
+  duration_ms: 7.8428
+  type: 'test'
+  ...
+# Subtest: A2 negatives: acting naming a joint the rig lacks is ACTING_UNEXECUTABLE; a blink needing an unapproved state is MISSING_ART_ASSET; amplitude past the joint limit refuses
+ok 5 - A2 negatives: acting naming a joint the rig lacks is ACTING_UNEXECUTABLE; a blink needing an unapproved state is MISSING_ART_ASSET; amplitude past the joint limit refuses
+  ---
+  duration_ms: 3.5218
+  type: 'test'
+  ...
+# Subtest: D1 a phrase is primary motion: editing it changes the compiled matrices of the character and the camera
+ok 6 - D1 a phrase is primary motion: editing it changes the compiled matrices of the character and the camera
+  ---
+  duration_ms: 23.7188
+  type: 'test'
+  ...
+# Subtest: D2 negatives: an unresolvable phrase owner returns PHRASE_UNEXECUTABLE; a phrase and an authored track on one owner is INVALID_TRANSFORM_OWNER
+ok 7 - D2 negatives: an unresolvable phrase owner returns PHRASE_UNEXECUTABLE; a phrase and an authored track on one owner is INVALID_TRANSFORM_OWNER
+  ---
+  duration_ms: 2.5915
+  type: 'test'
+  ...
+# Subtest: D3 precedence is reported: contact IK owns its chain joints; acting there is listed as suppressed_by_contact (never silently erased)
+ok 8 - D3 precedence is reported: contact IK owns its chain joints; acting there is listed as suppressed_by_contact (never silently erased)
+  ---
+  duration_ms: 2.5029
+  type: 'test'
+  ...
+# Subtest: E1 raster mesh deformation: start = identity, middle = half, end = targets; the deformed copy replaces the rigid pass in the scene rows
+ok 9 - E1 raster mesh deformation: start = identity, middle = half, end = targets; the deformed copy replaces the rigid pass in the scene rows
+  ---
+  duration_ms: 2.9474
+  type: 'test'
+  ...
+# Subtest: E2 negatives: inverted triangles, a mesh leaving the approved pixels, and incompatible vector topology are refused
+ok 10 - E2 negatives: inverted triangles, a mesh leaving the approved pixels, and incompatible vector topology are refused
+  ---
+  duration_ms: 6.5263
+  type: 'test'
+  ...
+# Subtest: E3 vector morph: approved homologous paths interpolate (middle = midpoint of control points) and are written as the path d each frame
+ok 11 - E3 vector morph: approved homologous paths interpolate (middle = midpoint of control points) and are written as the path d each frame
+  ---
+  duration_ms: 7.0626
+  type: 'test'
+  ...
+# Subtest: F1 grip: position + orientation + closure + near/far are checked on every hold frame; a reversed palm and a lost near/far order fail
+ok 12 - F1 grip: position + orientation + closure + near/far are checked on every hold frame; a reversed palm and a lost near/far order fail
+  ---
+  duration_ms: 46.1556
+  type: 'test'
+  ...
+# Subtest: F2 planted feet and weight transfer: soles stay on their targets for every frame; the centre of mass moves before the lever does
+ok 13 - F2 planted feet and weight transfer: soles stay on their targets for every frame; the centre of mass moves before the lever does
+  ---
+  duration_ms: 242.2365
+  type: 'test'
+  ...
+# Subtest: F3 object reaction is causal: the lever follows the pull (zero residual) and is static without the reaction contract
+ok 14 - F3 object reaction is causal: the lever follows the pull (zero residual) and is static without the reaction contract
+  ---
+  duration_ms: 16.0922
+  type: 'test'
+  ...
+# Subtest: F4 dynamic cast shadow: emitted from the approved occluder drawing, moves with it, keeps floor contact, material treatment applied
+ok 15 - F4 dynamic cast shadow: emitted from the approved occluder drawing, moves with it, keeps floor contact, material treatment applied
+  ---
+  duration_ms: 9.3742
+  type: 'test'
+  ...
+# Subtest: F5 connected follow-through: hair and tail are baked springs driven by head / tail motion (non-zero lag after the driver moves)
+ok 16 - F5 connected follow-through: hair and tail are baked springs driven by head / tail motion (non-zero lag after the driver moves)
+  ---
+  duration_ms: 0.2175
+  type: 'test'
+  ...
+# Subtest: G1 owner gate: frozen owner, unrendered discrete swap and deformation equal to rigid are each reported; a healthy owner passes
+ok 17 - G1 owner gate: frozen owner, unrendered discrete swap and deformation equal to rigid are each reported; a healthy owner passes
+  ---
+  duration_ms: 0.9006
+  type: 'test'
+  ...
+# Subtest: H1 audio buses: frame-addressed SFX and narration onsets measured from the mix within 4 ms; ducking and loudness measured; a late SFX is caught
+ok 18 - H1 audio buses: frame-addressed SFX and narration onsets measured from the mix within 4 ms; ducking and loudness measured; a late SFX is caught
+  ---
+  duration_ms: 2349.6116
+  type: 'test'
+  ...
+# Subtest: I1 stage ledger derives and runs a task per new capability (layers, deformation, morph, reaction, support) from the film's own plan
+ok 19 - I1 stage ledger derives and runs a task per new capability (layers, deformation, morph, reaction, support) from the film's own plan
+  ---
+  duration_ms: 1072.4678
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 40455.1243

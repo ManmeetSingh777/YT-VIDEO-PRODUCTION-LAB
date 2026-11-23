@@ -1,0 +1,315 @@
+{
+ "acting": {
+  "nova_rig": {
+   "lagged": {
+    "head": 6,
+    "chest": 3
+   },
+   "anticipations": 2,
+   "settles": 2,
+   "additive": [
+    {
+     "joint": "chest",
+     "amp": 0.8,
+     "period": 200
+    }
+   ],
+   "follow": [
+    "hair"
+   ],
+   "blinks": 2,
+   "speech_swaps": 4,
+   "gaze": "head"
+  },
+  "lumen_rig": {
+   "lagged": {
+    "neck1": 4,
+    "head": 12,
+    "tail1": 4
+   },
+   "anticipations": 0,
+   "settles": 0,
+   "additive": [
+    {
+     "joint": "body",
+     "amp": 1.5,
+     "period": 160
+    }
+   ],
+   "follow": [
+    "tail2"
+   ],
+   "blinks": 58,
+   "speech_swaps": 0,
+   "gaze": "head"
+  }
+ },
+ "phrases": [
+  {
+   "phrase": "pull_phrase",
+   "owner": "nova_rig.chest",
+   "keys": 4
+  },
+  {
+   "phrase": "pull_phrase",
+   "owner": "cam_a.zoom",
+   "keys": 3
+  }
+ ],
+ "suppressed_by_contact": [],
+ "channel_events": [
+  [
+   "nova_rig",
+   [
+    "30:eyes=closed(acting:blink)",
+    "30:mouth=open(acting:speech:pull)",
+    "37:eyes=open(acting:blink)",
+    "40:mouth=rest(nova_pull_lever)",
+    "44:mouth=mid(acting:speech:pull)",
+    "54:mouth=rest(acting:speech:pull)",
+    "60:mouth=open(acting:speech:together)",
+    "67:mouth=mid(acting:speech:together)",
+    "72:mouth=open(acting:speech:together)",
+    "79:mouth=mid(acting:speech:together)",
+    "84:mouth=open(acting:speech:together)",
+    "91:mouth=mid(acting:speech:together)",
+    "96:mouth=rest(acting:speech:together)",
+    "180:eyes=closed(acting:blink)",
+    "187:eyes=open(acting:blink)"
+   ]
+  ],
+  [
+   "lumen_rig",
+   [
+    "260:eye=closed(acting:blink)",
+    "268:eye=open(acting:blink)",
+    "380:eye=closed(acting:blink)",
+    "388:eye=open(acting:blink)"
+   ]
+  ],
+  [
+   "lever_rig",
+   []
+  ]
+ ],
+ "contact": {
+  "grip_max_error_px": 0.0004998699239464741,
+  "plant_max_error_px": 3.2155493553843715e-13,
+  "grip_morphology": {
+   "frames": 130,
+   "ok": 130,
+   "palm_minus_handle_facing_max_deg": 3.8921856670663146
+  },
+  "com_first_moves_frame": 58,
+  "lever_first_moves_frame": 73,
+  "min_support_margin_px": 2.902264737625842,
+  "reaction_max_residual_px": 1.5631940186722204e-13,
+  "lever_angle_range_deg": [
+   -4.767409445979094,
+   1.307196211342989
+  ],
+  "lever_angle_range_bare_deg": [
+   0,
+   0
+  ]
+ },
+ "follow": {
+  "nova_rig.hair": 6.395,
+  "lumen_rig.tail2": 4.723
+ },
+ "deform": [
+  {
+   "frame": 240,
+   "weight": 0
+  },
+  {
+   "frame": 255,
+   "weight": 0.1464466094067262
+  },
+  {
+   "frame": 270,
+   "weight": 0.49999999999999994
+  },
+  {
+   "frame": 285,
+   "weight": 0.8535533905932737
+  },
+  {
+   "frame": 300,
+   "weight": 1
+  }
+ ],
+ "morph": [
+  {
+   "frame": 0,
+   "weight": 0
+  },
+  {
+   "frame": 60,
+   "weight": 0
+  },
+  {
+   "frame": 75,
+   "weight": 0.49999999999999994
+  },
+  {
+   "frame": 90,
+   "weight": 1
+  },
+  {
+   "frame": 200,
+   "weight": 1
+  },
+  {
+   "frame": 215,
+   "weight": 0.5
+  },
+  {
+   "frame": 230,
+   "weight": 0
+  }
+ ],
+ "head_lag": {
+  "nova": {
+   "lag_frames": {
+    "head": 6,
+    "chest": 3
+   }
+  },
+  "lumen": {
+   "lag_frames": {
+    "neck1": 4,
+    "head": 12,
+    "tail1": 4
+   }
+  }
+ },
+ "owner_units": [
+  {
+   "action": "nova_pull_lever",
+   "unit": "nova_rig",
+   "frames": [
+    0,
+    240
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "nova_pull_lever",
+   "unit": "nova_rig:nova_eye_open",
+   "frames": [
+    0,
+    240
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "nova_pull_lever",
+   "unit": "nova_rig:nova_mouth_rest",
+   "frames": [
+    0,
+    240
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 11,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "nova_pull_lever",
+   "unit": "nova_rig:nova_hand_open",
+   "frames": [
+    0,
+    240
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 2,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "nova_pull_lever",
+   "unit": "nova_rig:nova_brow_neutral",
+   "frames": [
+    0,
+    240
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 169,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "nova_pull_lever",
+   "unit": "lever_rig",
+   "frames": [
+    0,
+    240
+   ],
+   "distinct_states": 130,
+   "distinct_pixels": 130,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "lumen_watch",
+   "unit": "lumen_rig",
+   "frames": [
+    240,
+    480
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "lumen_watch",
+   "unit": "lumen_rig:lumen_eye_open",
+   "frames": [
+    240,
+    480
+   ],
+   "distinct_states": 240,
+   "distinct_pixels": 240,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "lumen_watch",
+   "unit": "lumen_rig:lumen_body",
+   "frames": [
+    240,
+    480
+   ],
+   "distinct_states": 180,
+   "distinct_pixels": 180,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 237,
+   "deform_frames_equal_to_rigid": 0
+  }
+ ]
+}

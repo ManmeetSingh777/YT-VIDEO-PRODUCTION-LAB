@@ -1,0 +1,157 @@
+{
+ "film": "hybrid_v2\\work\\p03\\subjects\\film",
+ "note": "tasks derived from the film's own contracts; DIAGNOSTIC fixture",
+ "tasks": [
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task_id": "motion_layers",
+   "producer": "engine/art_bridge/temporal.mjs#compileMotionTracks + acting.mjs#layerPhrases/compileActing",
+   "invariants": [
+    "every phrase/acting/execution block compiles or names its missing capability"
+   ],
+   "verification": "compile succeeds; layer report recorded",
+   "deps": [
+    "tiling"
+   ],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "{\"phrases\":2,\"acting\":{\"nova_rig\":{\"lagged\":2,\"anticipations\":2,\"settles\":2,\"blinks\":2,\"speech_swaps\":4,\"follow\":[\"hair\"],\"gaze\":\"head\"},\"lumen_rig\":{\"lagged\":3,\"anticipations\":0,\"settles\":0,\"blinks\":58,\"speech_swaps\":0,\"follow\":[\"tail2\"],\"gaze\":\"head\"}},\"suppressed_by_contact\":0}",
+   "files": [],
+   "ms": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task_id": "deform_lumen_watch",
+   "producer": "engine/art_bridge/execution.mjs#deformAt (temporal.deformsAt)",
+   "invariants": [
+    "no triangle inverts/collapses on any rendered frame",
+    "mesh inside approved pixels"
+   ],
+   "verification": "every active frame evaluated",
+   "deps": [
+    "motion_layers"
+   ],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "237 active frames verified; worst residual 0.0000",
+   "files": [],
+   "ms": 376
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task_id": "morph_nova_pull_lever",
+   "producer": "engine/art_bridge/execution.mjs#morphAt (temporal.morphsAt)",
+   "invariants": [
+    "homologous topology",
+    "weight in [0,1]"
+   ],
+   "verification": "every active frame evaluated",
+   "deps": [
+    "motion_layers"
+   ],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "240 active frames verified; worst residual 0.0000",
+   "files": [],
+   "ms": 277
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task_id": "reaction_lever_follow",
+   "producer": "engine/art_bridge/execution.mjs#solveHinge (temporal.reactionsAt)",
+   "invariants": [
+    "the mechanism follows the pull within its approved hinge range",
+    "residual ≤ 1px"
+   ],
+   "verification": "every reaction frame solved",
+   "deps": [
+    "motion_layers"
+   ],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "130 active frames verified; worst residual 0.0000",
+   "files": [],
+   "ms": 162
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task_id": "support_nova_rig",
+   "producer": "engine/art_bridge/contact_solver.mjs#balance (temporal.supportAt)",
+   "invariants": [
+    "COM inside feet (+ held grips) on every frame of the rig's actions"
+   ],
+   "verification": "every frame evaluated",
+   "deps": [
+    "motion_layers"
+   ],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "240 active frames verified; worst residual 0.0000",
+   "files": [],
+   "ms": 238
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task_id": "audio_mix",
+   "producer": "engine/film/audio_mix.mjs#mixBuses",
+   "invariants": [
+    "frame-addressed SFX",
+    "music ducked under narration",
+    "two-pass loudness"
+   ],
+   "verification": "mix written; buses hashed",
+   "deps": [],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "mix 197b2086c428; 2 sfx; loudness pass-1 -21.75 LUFS",
+   "files": [
+    "hybrid_v2\\work\\p03\\subjects\\film\\render\\audio\\FILM_MIX.wav",
+    "hybrid_v2\\work\\p03\\subjects\\film\\render\\audio\\FILM_MIX.wav.json"
+   ],
+   "ms": 817
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task_id": "av_sync",
+   "producer": "engine/film/audio_mix.mjs#verifyAudioSync",
+   "invariants": [
+    "every SFX/word onset within 4 ms of its frame",
+    "ducking ≥ declared depth",
+    "loudness on target"
+   ],
+   "verification": "measured from the decoded mix",
+   "deps": [
+    "audio_mix"
+   ],
+   "pass": true,
+   "failure_class": null,
+   "measurement": "4 cues; worst 0.35 ms; -16.2 LUFS; duck 15.75 dB",
+   "files": [
+    "hybrid_v2\\work\\p03\\subjects\\film\\render\\audio\\FILM_MIX.wav.SYNC.json"
+   ],
+   "ms": 296
+  }
+ ],
+ "counterfactual_reaction_tolerance": [
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task_id": "reaction_lever_follow",
+   "producer": "engine/art_bridge/execution.mjs#solveHinge (temporal.reactionsAt)",
+   "invariants": [
+    "the mechanism follows the pull within its approved hinge range",
+    "residual ≤ -1px"
+   ],
+   "verification": "every reaction frame solved",
+   "deps": [
+    "motion_layers"
+   ],
+   "pass": false,
+   "failure_class": "MOTION_OR_CAMERA",
+   "measurement": "f70 REACTION_UNSATISFIABLE: mechanism cannot follow the pull within its approved hinge range (residual 0.00px); f71 REACTION_UNSATISFIABLE: mechanism cannot follow the pull within its approved hinge range (residual 0.00px); f72 REACTION_UNSATISFIABLE: mechanism cannot follow the pull within its approved hinge range (residual 0.00px); f73 REACTION_UNSATISFIABLE: mechanism cannot follow the pull within its approved hinge range (residual 0.00px)",
+   "files": [],
+   "ms": 133
+  }
+ ],
+ "all_pass": true,
+ "counterfactual_fails": true
+}

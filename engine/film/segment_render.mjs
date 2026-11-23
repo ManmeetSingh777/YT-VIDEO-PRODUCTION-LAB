@@ -37,7 +37,7 @@ export function frameDefects(b, { width = null, height = null } = {}) {
 /** renderChunk(session, [s,e], {write, onFrame, retries, crashAt}) — async, one frame in memory at a time; frozen-motion detection:
  *  if the scene's expected state changed (state_sha differs) but the pixels did not, the renderer dropped motion (FROZEN_FRAME). */
 export async function renderChunk(session, [s, e], { write = null, retries = 1, crashAt = null, prev = null } = {}) {
-  const hashes = [], defects = [], stateHashes = []; let lastRgb = prev?.rgb_sha ?? null, lastState = prev?.state_sha ?? null;
+  const hashes = [], defects = [], stateHashes = [], owners = {}; let lastRgb = prev?.rgb_sha ?? null, lastState = prev?.state_sha ?? null;
   for (let f = s; f < e; f++) {
     let out = null;
     for (let a = 0; a <= retries; a++) { try { if (crashAt && crashAt.frame === f && crashAt.attempts-- > 0) throw Object.assign(new Error(`injected crash at frame ${f}`), { transient: !!crashAt.transient }); out = await session.renderFrame(f); break; }
@@ -46,9 +46,10 @@ export async function renderChunk(session, [s, e], { write = null, retries = 1, 
     const h = sha(out.rgb), d = frameDefects(out.rgb, session); if (d) defects.push({ frame: f, ...d });
     if (lastState !== null && out.state_sha !== lastState && h === lastRgb) defects.push({ frame: f, kind: "FROZEN_FRAME", reason: "expected scene state changed but the rendered pixels are identical to the previous frame" });
     hashes.push(h); stateHashes.push(out.state_sha); lastRgb = h; lastState = out.state_sha;
+    for (const [u, o] of Object.entries(out.owners || {})) { const t = (owners[u] ||= {}); for (const [k2, v] of Object.entries(o)) (t[k2] ||= new Array(e - s).fill(null))[f - s] = v; } // P03 G: isolated owner pixels, expected state, drawing set, counterfactual refs
     if (write) await write(out.rgb); // the buffer reference is dropped after this iteration
   }
-  return { frames: [s, e], hashes, state_hashes: stateHashes, chunk_sha256: sha(hashes.join("")), defects, last: { rgb_sha: lastRgb, state_sha: lastState } };
+  return { frames: [s, e], hashes, state_hashes: stateHashes, owners, chunk_sha256: sha(hashes.join("")), defects, last: { rgb_sha: lastRgb, state_sha: lastState } };
 }
 /** remove a partial segment after its writer exited (Windows may hold the handle briefly; a lingering partial must never mask the typed failure) */
 function rmRetry(f) { for (let i = 0; i < 20; i++) { try { fs.rmSync(f, { force: true }); return; } catch (x) { if (x.code !== "EBUSY" && x.code !== "EPERM") throw x; Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 50); } } }
@@ -80,7 +81,7 @@ export async function renderFilm({ film, revision, renderer = "diagnostic_flat",
       let r; try { r = await renderChunk(session, ch, { write: (b) => { if (inject.failEncodeChunk === ch[0]) { enc.kill(); inject.failEncodeChunk = null; } return enc.write(b); }, crashAt: inject.crashAt, prev }); enc.ff.stdin.end(); await enc.done; }
       catch (e) { enc.kill(); await enc.exited; rmRetry(tmp); throw e.code ? e : err("RENDER_CAPTURE_FAILURE", { frame_range: ch, reason: e.message, producer: "engine/film/segment_render.mjs#renderFilm", resume_at: `CHUNK_${ch[0]}` }); } finally { live.delete(enc); }
       const p = probeMp4(tmp); if (p.frames !== ch[1] - ch[0] || p.width !== width || p.height !== height || p.r_frame_rate !== `${fps}/1`) { fs.rmSync(tmp, { force: true }); throw err("RENDER_CAPTURE_FAILURE", { frame_range: ch, reason: `segment probe ${JSON.stringify(p)} does not match ${ch[1] - ch[0]} frames ${width}x${height}@${fps}` }); }
-      fs.renameSync(tmp, mkv); const rc = { key_sha256: keySha, key, frames: ch, hashes: r.hashes, state_hashes: r.state_hashes, chunk_sha256: r.chunk_sha256, defects: r.defects, mkv: path.relative(FILM, mkv).split(path.sep).join("/"), mkv_sha256: fsha(mkv), probe: p, last: r.last, rss_bytes: process.memoryUsage().rss };
+      fs.renameSync(tmp, mkv); const rc = { key_sha256: keySha, key, frames: ch, hashes: r.hashes, state_hashes: r.state_hashes, owners: r.owners, chunk_sha256: r.chunk_sha256, defects: r.defects, mkv: path.relative(FILM, mkv).split(path.sep).join("/"), mkv_sha256: fsha(mkv), probe: p, last: r.last, rss_bytes: process.memoryUsage().rss };
       writeAtomic(rcF, JSON.stringify(rc, null, 1)); receipts.push(rc); prev = r.last; mem.push({ chunk: ch, node_rss: process.memoryUsage().rss, heap: process.memoryUsage().heapUsed }); onChunk?.(rc);
     }
   } finally { for (const e of live) e.kill(); await session.close(); }

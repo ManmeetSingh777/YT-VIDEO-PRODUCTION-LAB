@@ -1,0 +1,96 @@
+{
+ "repo": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB",
+ "head": "7c924aa3376f02f51058bf175c90eb9459d340dc",
+ "probes": {
+  "B": {
+   "title": "expression is derived from the pose-state id (no independent expression ownership)",
+   "reproduced": false,
+   "observed": {
+    "pose": "grip",
+    "expression": null
+   }
+  },
+  "C": {
+   "title": "feasibility skips non-contact actions (an invalid pose change in a non-contact action is not detected)",
+   "reproduced": false,
+   "observed": {
+    "status": "INFEASIBLE_REQUIRES_RESTAGING_OR_NEW_POSE_ART",
+    "checked": [
+     {
+      "shot": "rt_shot",
+      "plan": "MOTION_PLAN.json",
+      "actions": [
+       "pilot_close_hand"
+      ],
+      "contact_frames": 600,
+      "frames_checked": 600
+     }
+    ],
+    "failures": 1
+   }
+  },
+  "A": {
+   "title": "acting intentions (breath / blink / successive-breaking lag) have no consumer in the motion compiler",
+   "reproduced": false,
+   "observed": "identical matrices with and without an acting block"
+  },
+  "D": {
+   "title": "motion phrases do not reach rendered motion (plan.phrases is ignored by compileMotionTracks)",
+   "reproduced": false,
+   "observed": "identical matrices with and without the phrase"
+  },
+  "E": {
+   "title": "an approved EXPLICIT_DEFORM map changes no rendered contour (no deformation consumer in the render path)",
+   "reproduced": false,
+   "observed": "same rows and no mesh-triangle passes with an approved deform map"
+  },
+  "F": {
+   "title": "cast shadows, grip morphology and balance are not consumed by scene execution",
+   "reproduced": false,
+   "observed": {
+    "shadow_pass_emitted": false,
+    "render_path_calls": [
+     "gripMorphology(",
+     "balance(",
+     "castShadow("
+    ]
+   }
+  },
+  "G": {
+   "title": "the coverage gate passes a frozen character while particles keep the full frame changing",
+   "reproduced": false,
+   "observed": {
+    "ok": false,
+    "failures": [
+     "INERT_ACTION_OWNER"
+    ]
+   }
+  },
+  "H": {
+   "title": "no narration/SFX/music buses, ducking or loudness stage (one supplied audio file is muxed)",
+   "reproduced": false,
+   "observed": {
+    "audio_mix_module": true
+   }
+  },
+  "A2": {
+   "title": "blink / mouth states cannot be expressed (no explicit art-state channels in the rig contract)",
+   "reproduced": false,
+   "observed": {
+    "rig_properties": [
+     "id",
+     "identity_id",
+     "root_part",
+     "joints",
+     "render_parts",
+     "sockets",
+     "pose_states",
+     "view_states",
+     "constraints",
+     "state_channels",
+     "allowed_state_edges"
+    ]
+   }
+  }
+ }
+}

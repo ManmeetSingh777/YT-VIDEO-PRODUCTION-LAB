@@ -8,10 +8,10 @@
     var ids = baked.ids, frames = baked.frames, fps = baked.fps, first = baked.first_frame;
     S.at(function (t) {
       lastT = t;
-      if (override) { for (var j = 0; j < override.length; j++) { var o = override[j]; S.set(o[0], "a:transform", o[1]); S.set(o[0], "vis", o[2] === 1); S.set(o[0], "o", o[3]); } window.__artbFrame = overrideTag; return; }
+      if (override) { for (var j = 0; j < override.length; j++) { var o = override[j]; S.set(o[0], "a:transform", o[1]); S.set(o[0], "vis", o[2] === 1); S.set(o[0], "o", o[3]); if (o[4]) for (var ka in o[4]) S.set(o[0], "a:" + ka, o[4][ka]); } window.__artbFrame = overrideTag; return; }
       var f = Math.round(t * fps) - first; if (f < 0) f = 0; if (f >= frames.length) f = frames.length - 1;
       var row = frames[f];
-      for (var i = 0; i < ids.length; i++) { var r = row[i]; S.set(ids[i], "a:transform", r[0]); S.set(ids[i], "vis", r[1] === 1); S.set(ids[i], "o", r[2]); }
+      for (var i = 0; i < ids.length; i++) { var r = row[i]; S.set(ids[i], "a:transform", r[0]); S.set(ids[i], "vis", r[1] === 1); S.set(ids[i], "o", r[2]); if (r[3]) for (var k in r[3]) S.set(ids[i], "a:" + k, r[3][k]); } /* P03 E: optional attribute map (vector morph path d) */
       window.__artbFrame = f + first;
     });
   }

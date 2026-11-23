@@ -21,7 +21,7 @@ export function bundleFor(doc, scope, id, root = null) {
   const assets = new Map(doc.assets.map((a) => [a.id, a]));
   if (scope === "asset") {
     const a = assets.get(id); if (!a) return null;
-    const placements = doc.rigs.flatMap((r) => r.render_parts.filter((p) => p.asset_id === id || [...r.pose_states, ...r.view_states].some((s) => s.asset_bindings[p.asset_id] === id)).map((p) => { const j = r.joints.find((x) => x.id === p.joint_id); return { rig: r.id, slot: p.asset_id, joint: p.joint_id, joint_rest: j?.rest_xy, parent: j?.parent_id, local: p.local_to_joint_matrix }; }));
+    const placements = doc.rigs.flatMap((r) => r.render_parts.filter((p) => p.asset_id === id || [...r.pose_states, ...r.view_states, ...(r.state_channels || []).flatMap((c) => c.states)].some((s) => s.asset_bindings[p.asset_id] === id)).map((p) => { const j = r.joints.find((x) => x.id === p.joint_id); return { rig: r.id, slot: p.asset_id, joint: p.joint_id, joint_rest: j?.rest_xy, parent: j?.parent_id, local: p.local_to_joint_matrix }; }));
     const ident = doc.identities.find((i) => i.id === a.identity_id);
     return canon({ scope, id, content: strip(a, "approved_review_id", "shot_usage"), identity_master_sha256: a.kind === "MASTER" ? null : ident?.master_sha256 ?? null, identity_landmarks: a.kind === "MASTER" ? null : ident?.landmarks ?? null, placements, registration_receipt_sha256: registrationReceiptDigest(root, a) });
   }
@@ -30,8 +30,10 @@ export function bundleFor(doc, scope, id, root = null) {
     return canon({ scope, id, content: strip(i, "approved_review_id", "required_shot_ids"), master: m ? strip(m, "approved_review_id", "shot_usage") : null, master_registration_receipt_sha256: m ? registrationReceiptDigest(root, m) : null });
   }
   if (scope === "state") {
-    const [rid, sid] = id.split("::"), r = doc.rigs.find((x) => x.id === rid), s = r && [...r.pose_states, ...r.view_states].find((x) => x.id === sid); if (!s) return null;
-    const visible = Object.fromEntries(r.render_parts.map((p) => [p.asset_id, s.asset_bindings[p.asset_id] ?? p.asset_id]));
+    const [rid, sid] = id.split("::"), r = doc.rigs.find((x) => x.id === rid), s0 = r && [...r.pose_states, ...r.view_states].find((x) => x.id === sid);
+    // P03 B: channel states ("<channel>.<state>") are bundled over the drawings of their OWN slots
+    const [cid, cst] = !s0 && sid?.includes(".") ? sid.split(".") : [null, null], ch = cid ? (r?.state_channels || []).find((c) => c.id === cid) : null, s = s0 || ch?.states.find((x) => x.id === cst); if (!s) return null;
+    const visible = Object.fromEntries((ch ? ch.slots : r.render_parts.map((p) => p.asset_id)).map((slot) => [slot, s.asset_bindings[slot] ?? slot]));
     return canon({ scope, id, content: strip(s, "approved_review_id"), bound_asset_hashes: Object.fromEntries(Object.entries(visible).map(([slot, aid]) => [slot, assets.get(aid)?.sha256 ?? null])) });
   }
   if (scope === "edge") {

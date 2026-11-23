@@ -9,6 +9,7 @@ const merge = (spans) => { const s = spans.map((x) => [...x]).sort((a, b) => a[0
 export function deriveArtDemands({ doc, plan, motionPlans = {} }) {
   const planned = new Set(plan.assets.map((a) => a.asset_id)), dem = new Map(), add = (id, o) => { const d = dem.get(id) || { asset: id, why: new Set(), frames: [], representation: o.representation, consumers: new Set() }; d.why.add(o.why); d.frames.push(o.frames); d.consumers.add(o.consumer); dem.set(id, d); };
   for (const x of stateIntervals(doc)) {
+    for (const [slot, asset] of Object.entries(x.repertoire || {})) add(asset, { why: `${x.rig} state-channel repertoire ${slot} (P03 B: blink/speech/expression drawings)`, frames: x.interval, representation: "REGISTERED_CELS", consumer: `${x.action}@${x.shot}` });
     for (const [slot, asset] of Object.entries(x.bindings)) add(asset, { why: `${x.rig} ${x.pose}${x.view ? "/" + x.view : ""} binds ${slot}`, frames: x.interval, representation: x.mode === "ARTICULATED" ? "ARTICULATED" : x.mode, consumer: `${x.action}@${x.shot}` });
     // a closure contact is supplied only when the state active during it is NOT the rig's rest state and binds planned art (a drawn closure)
     const rig = doc.rigs.find((r) => r.id === x.rig), closureArt = x.pose && x.pose !== rig?.pose_states[0]?.id ? Object.entries(x.bindings).filter(([slot, a]) => a !== slot).map(([, a]) => a) : [];

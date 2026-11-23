@@ -1,0 +1,232 @@
+[
+ {
+  "injection": "s00_no_intent",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-film_intent-5a5682",
+   "stage": "S00_IDEA",
+   "task": "film_intent",
+   "class": "MISSING_AUTHORITY",
+   "invariant": "objectives, audience, length and constraints are stated by a human",
+   "observed": "FILM_INTENT.json absent"
+  },
+  "why": {
+   "invariant": "objectives, audience, length and constraints are stated by a human",
+   "observed": "FILM_INTENT.json absent",
+   "producer": "story/FILM_INTENT.json (human-supplied)",
+   "owner": "HUMAN_OPERATOR",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s01_no_story_approval",
+  "first_failure": {
+   "failure_id": "FAIL-S01_STORY-story_approval-7ca8ad",
+   "stage": "S01_STORY",
+   "task": "story_approval",
+   "class": "EXTERNAL_HUMAN_REQUIRED",
+   "invariant": "independent human approval of the exact story bundle",
+   "observed": "NO_RECEIPT"
+  },
+  "why": {
+   "invariant": "independent human approval of the exact story bundle",
+   "observed": "NO_RECEIPT",
+   "producer": "engine/art_bridge/art_contract.mjs#scopeApprovalStatus(story)",
+   "owner": "INDEPENDENT_HUMAN_REVIEWER",
+   "blast_radius": [
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S01_STORY"
+  }
+ },
+ {
+  "injection": "s02_inert_attention",
+  "first_failure": {
+   "failure_id": "FAIL-S02_EXPERIENCE-attention_rt_shot-16ce0b",
+   "stage": "S02_EXPERIENCE",
+   "task": "attention_rt_shot",
+   "class": "DIRECTION_OR_ATTENTION",
+   "invariant": "every attention target has a consuming track",
+   "observed": "primary_focus \"nobody\" has no consuming track in [0,3600)"
+  },
+  "why": {
+   "invariant": "every attention target has a consuming track",
+   "observed": "primary_focus \"nobody\" has no consuming track in [0,3600)",
+   "producer": "engine/story/experience.mjs#compileAttention",
+   "owner": "EXPERIENCE_DIRECTOR",
+   "blast_radius": [
+    "direction_approval",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S02_EXPERIENCE"
+  }
+ },
+ {
+  "injection": "s03_no_narration",
+  "first_failure": {
+   "failure_id": "FAIL-S03_TIMING_MOTION-narration_timeline-2de491",
+   "stage": "S03_TIMING_MOTION",
+   "task": "narration_timeline",
+   "class": "AUDIO_ALIGNMENT",
+   "invariant": "critical cues anchored to a measured forced alignment",
+   "observed": "no narration timeline"
+  },
+  "why": {
+   "invariant": "critical cues anchored to a measured forced alignment",
+   "observed": "no narration timeline",
+   "producer": "engine/story/narration.mjs#validateNarrationTimeline",
+   "owner": "NARRATION_RECORDING + ALIGNER",
+   "blast_radius": [
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S03_TIMING_MOTION"
+  }
+ },
+ {
+  "injection": "s04_absent_art",
+  "first_failure": {
+   "failure_id": "FAIL-S04_ART_DEMAND-demand_pilot_hand_grip-1c3bdd",
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_pilot_hand_grip",
+   "class": "MISSING_ART_STATE",
+   "invariant": "every visible state has an explicit dependency",
+   "observed": "pilot_rig grip binds pilot_hand_open frames [[100,600]]"
+  },
+  "why": {
+   "invariant": "every visible state has an explicit dependency",
+   "observed": "pilot_rig grip binds pilot_hand_open frames [[100,600]]",
+   "producer": "engine/art_bridge/art_demand.mjs#deriveArtDemands",
+   "owner": "ART_DEMAND / GPT_ART_PRODUCTION",
+   "blast_radius": [
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S04_ART_DEMAND"
+  }
+ },
+ {
+  "injection": "s05_bytes",
+  "first_failure": {
+   "failure_id": "FAIL-S05_ART_PRODUCTION-asset_pilot_forearm-4749d2",
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_pilot_forearm",
+   "class": "ART_STYLE_OR_DESIGN",
+   "invariant": "bytes match the manifest hash; provenance is honest; approval verifies (HUMAN in production)",
+   "observed": "asset bytes differ from manifest"
+  },
+  "why": {
+   "invariant": "bytes match the manifest hash; provenance is honest; approval verifies (HUMAN in production)",
+   "observed": "asset bytes differ from manifest",
+   "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+   "owner": "ART_DIRECTOR",
+   "blast_radius": [
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S05_ART_PRODUCTION"
+  }
+ },
+ {
+  "injection": "s06_registration",
+  "first_failure": {
+   "failure_id": "FAIL-S05_ART_PRODUCTION-asset_pilot_forearm-614b7d",
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_pilot_forearm",
+   "class": "REGISTRATION_OR_RIG",
+   "invariant": "bytes match the manifest hash; provenance is honest; approval verifies (HUMAN in production)",
+   "observed": "registration evidence no longer verifies (invalid), so the approval bound to it is stale"
+  },
+  "why": {
+   "invariant": "bytes match the manifest hash; provenance is honest; approval verifies (HUMAN in production)",
+   "observed": "registration evidence no longer verifies (invalid), so the approval bound to it is stale",
+   "producer": "engine/art_bridge/art_intake.mjs#ingestMaster|ingestPart",
+   "owner": "REGISTRATION_PRODUCER",
+   "blast_radius": [
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S05_ART_PRODUCTION"
+  }
+ },
+ {
+  "injection": "s06_edge_revoked",
+  "first_failure": {
+   "failure_id": "FAIL-S06_REGISTRATION_RIG-states_edges-9dbe23",
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "states_edges",
+   "class": "EXTERNAL_HUMAN_REQUIRED",
+   "invariant": "no failing/unreviewed state or edge",
+   "observed": "edge pilot_rig::open::grip UNREVIEWED"
+  },
+  "why": {
+   "invariant": "no failing/unreviewed state or edge",
+   "observed": "edge pilot_rig::open::grip UNREVIEWED",
+   "producer": "engine/art_bridge/approvals.mjs#verifyAllApprovals",
+   "owner": "INDEPENDENT_HUMAN_REVIEWER",
+   "blast_radius": [
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S06_REGISTRATION_RIG"
+  }
+ },
+ {
+  "injection": "s07_crash",
+  "first_failure": {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_1200-dace6e",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_0_1200",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "RENDER_CAPTURE_FAILURE: frame 700: injected crash at frame 700"
+  },
+  "why": {
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "RENDER_CAPTURE_FAILURE: frame 700: injected crash at frame 700",
+   "producer": "engine/film/segment_render.mjs#renderFilm (diagnostic_flat)",
+   "owner": "RENDER_PRODUCER",
+   "blast_radius": [
+    "assemble",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S07_NEUTRINO_RENDER"
+  }
+ }
+]

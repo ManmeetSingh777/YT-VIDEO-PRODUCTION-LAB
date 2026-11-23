@@ -19,7 +19,7 @@ export function buildComposition(outDir, { id, scene, frameRange, fps = 60, regi
   for (const [src, dst] of [["engine/runtime/gsap.min.js", "gsap.min.js"], ["engine/runtime/nu.js", "nu.js"], ["engine/art_bridge/runtime/bridge_rt.js", "bridge_rt.js"]]) fs.copyFileSync(path.join(REPO, src), path.join(outDir, "rt", dst));
   const [f0, f1] = frameRange, frames = [];
   let ids = null; const failures = [];
-  for (let f = f0; f < f1; f++) { const fs_ = scene.frameState(f); if (!ids) ids = fs_.rows.map((r) => r[0]); if (fs_.rows.length !== ids.length || fs_.rows.some((r, i) => r[0] !== ids[i])) throw err("UNDETERMINISTIC_FRAME", { frame_range: [f, f + 1], reason: "runtime element set changed between frames" }); frames.push(fs_.rows.map((r) => [r[1], r[2], r[3]])); failures.push(...fs_.state.failures.map((e) => (e.toJSON ? e.toJSON() : e))); }
+  for (let f = f0; f < f1; f++) { const fs_ = scene.frameState(f); if (!ids) ids = fs_.rows.map((r) => r[0]); if (fs_.rows.length !== ids.length || fs_.rows.some((r, i) => r[0] !== ids[i])) throw err("UNDETERMINISTIC_FRAME", { frame_range: [f, f + 1], reason: "runtime element set changed between frames" }); frames.push(fs_.rows.map((r) => (r[4] ? [r[1], r[2], r[3], r[4]] : [r[1], r[2], r[3]]))); failures.push(...fs_.state.failures.map((e) => (e.toJSON ? e.toJSON() : e))); }
   const urls = [...new Set([...scene.svg.matchAll(/href="(assets\/[^"]+)"/g)].map((m) => m[1]))];
   const baked = { ids, fps, first_frame: f0, frames };
   const dur = (f1 - f0) / fps; // the timeline spans absolute frames [0, f1); bind clamps below f0

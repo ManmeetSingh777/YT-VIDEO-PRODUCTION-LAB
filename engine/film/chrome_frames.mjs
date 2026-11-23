@@ -35,14 +35,29 @@ export function withEffects(scene, effects, registry, shotId, prefix) {
 }
 
 /** createChromeFrameSession({film, manifest, planFile, seed, fps, width, height, runType}) → {renderFrame(f) → {rgb, state_sha}, close(), info} */
-export async function createChromeFrameSession({ film, manifest = MF, planFile, seed = 1, fps = 60, width = 1920, height = 1080, runType = "PRODUCTION", workDir = null }) {
+/** P03 G: attribution units of a shot — every placed rig, plus the slots that carry declared discrete or deformable change (state channels,
+ *  posed slots, deform maps, morphs, grip hands). Each unit is captured ISOLATED (all other elements hidden, cameras kept) so a frozen owner
+ *  cannot hide behind other motion in the frame. Element membership is by runtime id: `<rig>--<slot>--<asset>` (+ `--tri*`, `-path*`). */
+export function attributionUnits(doc, plan, scene, prefix, shot) {
+  const ids = scene.runtimeIds, rigs = doc.rigs.filter((r) => ids.some((i) => i.startsWith(`${prefix}${r.id}--`))), units = [];
+  for (const r of rigs) { units.push({ id: r.id, rig: r.id, kind: "RIG", match: `${prefix}${r.id}--` });
+    const slots = new Set([...(r.state_channels || []).flatMap((c) => c.slots), ...[...r.pose_states, ...r.view_states].flatMap((s) => Object.keys(s.asset_bindings || {})),
+      ...Object.values(plan.deform_maps || {}).filter((m) => m.rig === r.id).map((m) => m.slot), ...Object.values(plan.morphs || {}).filter((m) => m.rig === r.id).map((m) => m.slot)]);
+    for (const s of slots) units.push({ id: `${r.id}:${s}`, rig: r.id, slot: s, kind: "SLOT", match: `${prefix}${r.id}--${s}--` }); }
+  return units.filter((u) => ids.some((i) => i.startsWith(u.match)));
+}
+export async function createChromeFrameSession({ film, manifest = MF, planFile, seed = 1, fps = 60, width = 1920, height = 1080, runType = "PRODUCTION", workDir = null, attribution = true, diagnosticPerturb = null }) {
+  if (diagnosticPerturb && runType === "PRODUCTION") throw err("RENDER_CAPTURE_FAILURE", { reason: "diagnostic perturbation is refused in a PRODUCTION session", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
   const FILM = path.resolve(film), reg = await createAssetRegistry(FILM, manifest, { production: runType === "PRODUCTION" }), doc = reg.doc, plan = JSON.parse(fs.readFileSync(planFile, "utf8"));
   if (doc.stage.width !== width || doc.stage.height !== height || doc.stage.fps !== fps) throw err("RENDER_CAPTURE_FAILURE", { reason: `film stage ${doc.stage.width}x${doc.stage.height}@${doc.stage.fps} ≠ requested ${width}x${height}@${fps}`, producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
   // every asset the film binds must exist with the EXACT bytes the manifest declares (no filename trust)
   for (const a of doc.assets) { const f = path.join(FILM, a.file); if (!fs.existsSync(f)) throw err("MISSING_ART_ASSET", { record_id: a.id, reason: `asset file ${a.file} missing` }); if (fsha(f) !== a.sha256) throw err("ASSET_HASH_MISMATCH", { record_id: a.id, reason: "asset bytes differ from the manifest hash", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" }); }
-  const codeKey = sha(JSON.stringify(["engine/art_bridge/scene_graph.mjs", "engine/art_bridge/temporal.mjs", "engine/art_bridge/render.mjs", "engine/art_bridge/runtime/bridge_rt.js", "engine/runtime/nu.js", "engine/runtime/gsap.min.js", "engine/film/chrome_frames.mjs", "engine/art_bridge/motion_systems.mjs"].map((r) => [r, fsha(path.join(REPO, r))])));
+  // P03 repair: the composition cache is keyed by EVERY module the bake can depend on (all of engine/art_bridge + the runtime), not a hand-kept
+  // list — a fixed list missed execution.mjs/acting.mjs/state_channels.mjs, so an engine change silently reused stale baked frames
+  const bakeSources = [...fs.readdirSync(path.join(REPO, "engine", "art_bridge")).filter((f) => f.endsWith(".mjs")).map((f) => `engine/art_bridge/${f}`), "engine/art_bridge/runtime/bridge_rt.js", "engine/runtime/nu.js", "engine/runtime/gsap.min.js", "engine/film/chrome_frames.mjs"].sort();
+  const codeKey = sha(JSON.stringify(bakeSources.map((r) => [r, fsha(path.join(REPO, r))])));
   const C = compileMotionTracks(doc.actions, doc.shots, { doc, plan }), dir = workDir || path.join(FILM, "render", "compositions", sha(JSON.stringify({ m: fsha(path.join(FILM, manifest)), p: fsha(planFile), seed })).slice(0, 16));
-  const shots = doc.shots.map((s, k) => { const prefix = `s${k}-`, scene = withEffects(composeShot(s, reg, C, { prefix }), plan.effects, reg, s.id, prefix); return { shot: s, scene, prefix }; });
+  const shots = doc.shots.map((s, k) => { const prefix = `s${k}-`, scene = withEffects(composeShot(s, reg, C, { prefix }), plan.effects, reg, s.id, prefix); return { shot: s, scene, prefix, units: attributionUnits(doc, plan, scene, prefix, s) }; });
   const blur = plan.motion_blur || [], puppeteer = await loadPuppeteer();
   const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ["--force-color-profile=srgb", "--disable-gpu", "--disable-lcd-text", "--font-render-hinting=none", "--hide-scrollbars", "--deterministic-mode", "--disable-background-timer-throttling"] });
   const pages = new Map(), failures = []; let closed = false;
@@ -50,7 +65,7 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     if (pages.has(k)) return pages.get(k);
     for (const [kk, p] of pages) if (kk !== k) { await p.page.close(); await p.server.close(); pages.delete(kk); } // at most one live composition page: bounded memory
     // composition cache keyed by CONTENT (manifest, plan, seed, effects and the producing code); a stale or partial bake is rebuilt
-    const { shot, scene } = shots[k], cdir = path.join(dir, shot.id), keyF = path.join(cdir, ".KEY"), key = sha(JSON.stringify({ codeKey, shot: shot.id, svg: sha(scene.svg) }));
+    const { shot, scene } = shots[k], cdir = path.join(dir, shot.id), keyF = path.join(cdir, ".KEY"), key = sha(JSON.stringify({ codeKey, shot: shot.id, svg: sha(scene.svg), plan: fsha(planFile), manifest: fsha(path.join(FILM, manifest)), seed })); // P03: the baked rows depend on the plan + manifest, not only on the SVG
     const comp = fs.existsSync(keyF) && fs.readFileSync(keyF, "utf8") === key && fs.existsSync(path.join(cdir, "index.html")) ? { dir: cdir, reused: true } : (() => { fs.rmSync(keyF, { force: true }); const c = buildComposition(cdir, { id: `${shot.id}`, scene, frameRange: [shot.start_frame, shot.end_frame], registry: reg, fps }); fs.writeFileSync(keyF, key); return c; })();
     const server = await serve(comp.dir, FILM), page = await browser.newPage();
     page.on("pageerror", (e) => failures.push(`JS exception: ${e.message}`)); page.on("requestfailed", (r) => failures.push(`request failed ${r.url()}`)); page.on("response", (r) => { if (r.status() >= 400) failures.push(`HTTP ${r.status()} ${r.url()}`); });
@@ -69,7 +84,27 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     if (got !== f) throw err("UNDETERMINISTIC_FRAME", { frame_range: [f, f + 1], reason: `runtime evaluated ${got} for requested ${f}` });
     if (failures.length) throw err("RENDER_CAPTURE_FAILURE", { frame_range: [f, f + 1], reason: failures.join("; ") });
     const rows = scene.frameState(f).rows, b = blur.find((x) => f >= x.frames[0] && f < x.frames[1]);
-    if (!b) return { rgb: await shoot(page), state_sha: visibleStateSha(rows) };
+    // DIAGNOSTIC perturbation (negative proofs only): the EXPECTED state stays the true rows; only the pixels are perturbed
+    const shown = diagnosticPerturb ? diagnosticPerturb(rows, f, shots[k].prefix) : null;
+    if (shown) await page.evaluate((r, tag) => { ARTB.applyRows(r, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, shown.map((r) => [r[0], r[1], r[2], r[3], r[4]]), f);
+    // isolated capture per unit + COUNTERFACTUAL references: ref_swap = this frame drawn with the PREVIOUS frame's drawing set (a discrete swap
+    // that did not reach the pixels equals it), ref_rigid = this frame drawn without the active deformation/morph (a dropped deformation equals it)
+    const capture = async (r) => { await page.evaluate((x, tag) => { ARTB.applyRows(x, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, r, f); return sha(await shoot(page)); };
+    const deformables = scene.deformables || { tris: [], morphs: [] }; let prevRows = null; const prev = () => (prevRows ??= f > shot.start_frame ? scene.frameState(f - 1).rows : null);
+    const visSet = (rs) => sha(JSON.stringify(rs.filter((r) => r[2] === 1).map((r) => r[0])));
+    // isolation uses the shot's FIXED reference camera (its first frame): camera moves are attributed to the camera, never to an owner
+    const camPre = `${shots[k].prefix}cam-`, camRef = (shots[k].camRef ??= new Map(scene.frameState(shot.start_frame).rows.filter((r) => r[0].startsWith(camPre)).map((r) => [r[0], r])));
+    const attributionOf = async (base) => { if (!attribution) return {}; const out = {}; for (const u of shots[k].units) { const mineOnly = (r) => r[0].startsWith(u.match), own = (r) => mineOnly(r) || r[0].startsWith(camPre), iso = base.map((r) => (r[0].startsWith(camPre) ? camRef.get(r[0]) || r : mineOnly(r) ? r : [r[0], r[1], 0, r[3], r[4]])), mine = rows.filter(mineOnly);
+        const o = (out[u.id] = { px: await capture(iso), state: visibleStateSha(mine), visible_set: visSet(mine), ref_swap: null, ref_rigid: null });
+        if (u.kind !== "SLOT") continue;
+        const pr = prev(), pmine = pr ? pr.filter(mineOnly) : null;
+        if (pmine && visSet(pmine) !== o.visible_set) { const pv = new Map(pmine.map((r) => [r[0], r])); o.ref_swap = await capture(iso.map((r) => (mineOnly(r) && pv.has(r[0]) ? [r[0], r[1], pv.get(r[0])[2], pv.get(r[0])[3], r[4]] : r))); }
+        const tris = deformables.tris.filter((t) => t.id.startsWith(u.match) && rows.find((r) => r[0] === t.id)?.[2] === 1), morphs = deformables.morphs.filter((m) => m.id.startsWith(u.match));
+        const morphOn = morphs.some((m) => rows.find((r) => r[0] === m.id)?.[4]?.d !== m.d0);
+        if (tris.length || morphOn) { const triIds = new Set(tris.map((t) => t.id)), bases = new Set(tris.map((t) => t.base)), d0 = new Map(morphs.map((m) => [m.id, m.d0]));
+          o.ref_rigid = await capture(iso.map((r) => (triIds.has(r[0]) ? [r[0], r[1], 0, r[3], r[4]] : bases.has(r[0]) ? [r[0], r[1], 1, r[3], r[4]] : d0.has(r[0]) ? [r[0], r[1], r[2], r[3], { d: d0.get(r[0]) }] : r))); } }
+      return out; };
+    if (!b) { const rgb = await shoot(page), owners = await attributionOf(shown || rows); return { rgb, state_sha: visibleStateSha(rows), owners }; }
     // shutter: N sub-frame composites of the same scene at f + k·shutter/N, averaged per channel (a real compositor consumer, not a ghost layer)
     const times = shutterSamples((t) => t, f, { shutter: b.shutter, samples: b.samples }), acc = new Uint32Array(width * height * 3), all = [];
     for (const t of times) { const r = scene.frameState(t, { subframe: true }).rows; all.push(r); await page.evaluate((rows, tag) => { ARTB.applyRows(rows, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, r, f); const s = await shoot(page); for (let i = 0; i < s.length; i++) acc[i] += s[i]; }

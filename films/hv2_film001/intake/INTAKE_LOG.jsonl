@@ -56,3 +56,5 @@
 {"at":"2026-11-22T14:21:34.706Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
 {"at":"2026-11-22T16:18:31.394Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
 {"at":"2026-11-22T16:18:33.030Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
+{"at":"2026-11-23T12:43:50.571Z","op":"resume-dependent-jobs","counts":{"WAITING_FOR_GPT_ART":6,"WAITING_ON_MASTER_APPROVAL":68}}
+{"at":"2026-11-23T12:43:54.237Z","op":"submit-refused","job":"ARTJOB_MASTER_ines_master_211539ad","code":"STORY_APPROVAL_REQUIRED"}
