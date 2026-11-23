@@ -310,6 +310,297 @@ For each job, include: master lineage, target role, connected actions/frame span
 **Stage 3 passes when all expected artwork needs are enumerated and the technically supported pre-art plan has been approved. It does not imply the actual images already exist.**
 
 
+
+---
+
+## 5. STAGE 4 — GPT actually creates and human approves the artwork
+
+**Where work happens:** manually in a **new ChatGPT conversation** with the authentic current installed F01–F80 skill; not inside Claude Code unless a specific explicitly approved image provider is actually available. An ArtJob prompt is **not** an illustration.
+
+### 5.1 Import the complete, sealed art request
+
+Each new ChatGPT art chat must start from the real job package, not recollections:
+1. Verify job version, exact approved script/direction revision, art identity, approved master/predecessor, and source skill version/hash. If the instruction package references another project or stale art ancestry, refuse it.
+2. Read the applicable construction-method source files, not just a list of F-numbers. Inspect supplied native style-only witness images and unlike visual contrasts.
+3. Attach the canonical master or approved predecessor for derivatives. **A text claim such as "keep the same character" without the actual master image is not sufficient evidence of identity control.**
+4. Read the exact action, view, material, expression, contact, hidden surface, camera and alpha requirements, including expected rendered state and frame ranges.
+5. Verify that the job describes an original subject with the intended whole visual language; source works control **style construction**, not copying the source films' people, environments or compositions.
+6. Before generation, check that the requested output can realistically be represented by one image, transparent part, coherent cel sheet, vector path or an ordered image-edit sequence. Do not demand that one static PNG independently provides two contradictory viewpoints.
+7. If vital source witnesses, identity images or authoring decisions are absent, stop at **ART_JOB_INPUT_MISSING** with a list of exact files or decisions.
+
+### 5.2 Actual production sequence
+
+1. Generate canonical identity masters or world masters first. Inspect whole look: silhouette, face/anatomy, materials, shading, edge consistency, composition, hierarchy and detail distribution.
+2. Approve the canonical master **before** using it as the parent of dependent edits. Reject weak art; do not force a mediocre master to become the entire film's visual identity.
+3. Create derived transparent parts, hidden surfaces, masks, occluders, alternate body views, state cels, expressions, gaze/eyelids, hand closure and all other required art using **source-attached edit operations** that preserve the canonical design.
+4. For different poses, ensure the illustrated limb and fabric contours are visually acceptable *in that particular pose*. Merely rotating a straight arm PNG must not be called a convincing bent elbow.
+5. Preserve front/rear finger ordering around props; close/open hand states need actual painted contact surfaces. Transparent underpaint must cover newly exposed seams.
+6. Create backgrounds in sufficient **painted** width/height for every approved camera position and zoom; no blurred enlargement or blank corners when the camera moves.
+7. For environment and mechanism parts, maintain physical connectivity and correct material/edge/palette roles; no generic substitute symbols.
+8. Where an artwork state is returned by the engine as missing, generate the **specific dependent state** needed; preserve previously approved ancestors rather than restarting all art or introducing a new unrelated identity.
+9. Keep the real original generated PNGs unmodified on import, alongside hashes and provenance. Any cropping/resampling in registration creates a new derived artifact with its own provenance.
+10. Submit candidates for **visual** review at full target scale and at cropped high-resolution detail; look for anatomy, identity, underpaint, cutout seams, alpha fringing, perspective, readable layering and output correctness.
+11. Select/approve only genuine images via authorized review. A model saying "looks good" is not a human production signature.
+
+### 5.3 Image-specific gates
+
+| What to check | Actual failure to detect |
+|---|---|
+| File existence, PNG decode, width, height, alpha | A prompt/opaque screenshot falsely passed as a transparent part |
+| Master identity and ancestry | New face/hair/costume when the same character was requested |
+| Silhouette, face, hand anatomy | Good master but malformed profile, rubber hose, oversimplified grip |
+| Alpha and hidden regions | White matte, black fringe, hole under a rotating elbow |
+| Part separability and masks | Image is one flattened character despite articulation requirements |
+| Contact and near/far layers | Fingers cannot wrap around a handle |
+| Material, palette, lighting | Edits change the art style or cast incompatible shadows |
+| Camera requirements | World becomes empty beyond a move or upscaled at zoom |
+| F01–F80 operative fidelity | Required source method was mentioned but not implemented in the image |
+| Fit to required action | Parts/states cannot perform the directed action without distorted anatomy |
+
+**Important:** GPT image generation can create beautiful pictures, but may not return perfectly aligned transparent component layers or independent editable artwork on the first attempt. The system must detect this before animation. A composite full-character image never counts as enough for jointed action by itself.
+
+### 5.4 Exact import handoff
+
+Existing code already includes **engine/tools/art_outbox.mjs** commands **export-gpt-job**, **import-gpt-candidates**, **select-candidate**, **ingest-master**, **ingest-part**, **review-master**, **review-part**, and related state approvals. The GPT handoff is implemented in **engine/art_bridge/gpt_handoff.mjs**; Claude must prove the entire actual path works for real images, not only isolated synthetic ones.
+
+Expected path:
+- approved design + art-motion contract → exact immutable GPT job export (with witnesses/master/predecessor)
+- real GPT generation → unmodified image + operator-attested origin
+- verified import and SHA → candidate selection
+- independent whole-look review
+- registration and full geometry check
+- exact hash-scoped human approval for masters, parts, states and transitions.
+
+Origin claims from a manual ChatGPT session are **operator-attested**, not magically cryptographically provider-verified. A valid imported image is not automatically approved, and a valid artistic image is not automatically motion-ready.
+
+**Stage 4 exit:** real approved image files for every required art state, exact lineage, no unknown required drawing and the full technical image intake completed. If any real art is missing, the correct status is **BLOCKED_ON_GPT_ARTWORK** with actionable ArtJobs.
+
+---
+
+## 6. STAGE 5 — Claude fits the animation system to the approved images
+
+**Input:** approved actual image bytes + exact part/state inventory + the approved full directional/physical action graph. Never start from synthetic default skeleton dimensions as if they were the design.
+
+### 6.1 Canonical registration of each part
+
+1. Decode source PNG/SVG using approved parsing; reject missing bytes, bad dimensions, non-finite or invalid geometry and fake alpha.
+2. Record real raw-pixel bounding box, partial-alpha edges and required crop. Preserve the original file and hash; cropped/registered derivatives get new hashes.
+3. Gather **reviewed** source-image landmark coordinates and matching canonical-master landmark coordinates, with coordinate-space identifiers. Never guess a joint from only the part name.
+4. Choose an allowed **similarity** or **affine** source→canonical transform. Similarity needs at least two noncoincident correspondences; affine needs at least three non-collinear correspondences.
+5. Reject degenerate, numerically unstable, mirrored, unexpectedly skewed or disallowed scale transforms. An affine best fit is not permission to deform the artwork's identity.
+6. Compute per-landmark residuals and actual transform inverse; fail when above specified acceptance limits.
+7. Compute the crop-local origin/transform and pivot. Confirm the intended painted joint area, attachment zone and acceptable seam coverage.
+8. Recompose each registered part over the canonical approved master at rest. Save **rest overlay + difference** and inspect edges, colors, holes, underpaint and double-painted components.
+9. Verify mask/occluder ownership, parent-child draw order, local-to-world transform and inherited opacity; parent rotation must carry the correct child pixels and sockets.
+10. Validate hidden surfaces across the motion's exposed area, not only at the canonical rest pose.
+
+Existing producer: **engine/art_bridge/registration.mjs**; it already has landmark transform and overlay mechanisms. Those are necessary but not sufficient proof of animated anatomical quality.
+
+### 6.2 Fit a real art-first rig
+
+- The approved art establishes root, body segments, joint pivots, visual attachment contours and hand/foot contact patches. Do not retrofit a generic 2D stick person into every silhouette.
+- Fit each limb chain using its actual measured interfaces and validate lengths, possible bend branches, approved degrees of freedom and state-specific pivot movement.
+- Keep rotation/deformation limits justified by actual image behavior. A painted three-quarter hand is not freely rotatable through all viewpoints.
+- Distinguish a **rig joint** from a **painted contour**: valid joint coordinates do not prove a realistic elbow or hand silhouette.
+- Map rendered part IDs, state-channel binding and near/far paint passes. A pose ID must not automatically determine eyelid/mouth/hand state.
+- For physically linked props, define both the **actor socket** and the **prop socket**, their 2D bases/orientation and which world owner drives the object. Never animate them as unrelated authored curves during an intended physical contact.
+- For cels, record exact shared anchors and allowed transitions; for deformations, approved mesh/path topology and target contours; for worlds, authored depth planes and camera-safe coverage.
+
+### 6.3 Check **every required frame** after fitting
+
+For EACH action and frame in its actual film interval, evaluate the **complete** planned state:
+
+1. Primary directed keys / motion phrases; correct interpolation/velocity.
+2. Acting/secondary additions, precedence and joint limits.
+3. Pose, view, expression, eyes, mouth, HAND, lighting and occlusion states.
+4. Art-state transitions and valid predecessor/successor drawing.
+5. FK/IK, correct bend branch, joint lengths, active contact target/orientation and residual.
+6. Support/plant, COM or appropriate stylized support, balance and foot-ground relation.
+7. Actual grip art state, palm position/orientation, finger/handle overlap and near/far painted order.
+8. Prop reaction, force-trigger connection, hinge geometry, allowed mechanism state.
+9. Deformation/morphology topology, alpha, seams, no collapse or inverted mesh triangle.
+10. World/camera coverage and transition state availability; source density at zoom.
+11. Active visual owner and expected observable motion consequence.
+12. Any exceptions or missing plan/asset. **One exception is a failed frame, never a frame silently omitted from a measurement.**
+
+Evaluate the entire sequence with boundaries and frame-subframe transitions where motion blur changes sampling. Verify the scene's *visual shape* across extreme frames, not just a list of residual numbers.
+
+**Important bug-class guard:** zero matching motion plans or zero evaluated required frames can never return FEASIBLE. A "no errors because nothing ran" report is an invalid pass.
+
+### 6.4 Resolving impossible motion
+
+Apply this order, preserving creative authority:
+
+- **Engine defect:** fix general math, coordinate ownership, state routing or solver first; protect with adversarial regression and unrelated-subject proof.
+- **Bad measurement/part:** ask for a correctly registered existing image or reviewed landmark correction; do not regenerate artwork without cause.
+- **Missing art state:** generate the exact additional approved view/pose/hand/underpaint or cel through the Stage 4 GPT route.
+- **Actually impossible planned geometry:** give GPT a typed constraint and bounded staging/timing alternatives, explain how they change audience impact, obtain approval and recompile.
+- **Unsupported class:** no generic downgrade; report precise missing producer and block.
+- Invalidate changed dependent hashes/receipts; keep unrelated approved assets and previous evidence.
+
+### 6.5 Stage 5 exit
+
+**POSTART_MOTION_FEASIBLE** requires all applicable frames evaluated, explicit all-action coverage, supported art-state transitions, approved geometry/deform authority, no unsatisfied contacts, correct camera footprint and independently inspectable geometric/visual overlays. The status does **not** yet prove dynamic beauty or a final rendered film.
+
+---
+
+## 7. STAGE 6 — Neutrino performs actual expressive motion on approved pixels
+
+### 7.1 Functional benchmark
+
+The original Neutrino project in **reference/neutrino_2m_SOURCE_PACKAGE/** contains real acting routines: authored poses, joint lag, breath, blink, facial/mouth changes, hair/prop follow-through and camera-controlled scenes. Its working character geometry was code-generated and visually limited. **Reuse the behavioral principles, not the original drawing or subject-specific bone labels.**
+
+Current pipeline components include **engine/runtime/nu.js**, **engine/art_bridge/temporal.mjs**, **engine/art_bridge/acting.mjs**, **engine/art_bridge/state_channels.mjs**, **engine/art_bridge/execution.mjs**, **engine/art_bridge/scene_graph.mjs**, **engine/art_bridge/render.mjs**, **engine/art_bridge/runtime/bridge_rt.js**. Their presence is not proof each actually affects painted production frames. Prove the path from approved art bytes through browser pixels.
+
+### 7.2 Per-frame evaluation order, once and deterministically
+
+For a requested frame **f** (or valid shutter subframe), the production engine must:
+
+1. Verify film/shot/action, revision, source artwork and approvals.
+2. Determine exactly one active shot/world/camera and all required actors/props/effects.
+3. Resolve canonical state timeline and action phases at f; never reset a held state merely because a new action starts.
+4. Evaluate primary directed keys and compiled movement phrases; confirm they actually drive the intended owner.
+5. Add conditional acting: anticipation, breathing, gaze, delayed joints, relevant expressions, settling, secondary accessories; do not overwrite a more important directed gesture.
+6. Resolve contacts, active grip and releases; apply IK/physical limits and support to the **same underlying local joint transforms**.
+7. Propagate physically connected object reactions using the intended driver, hinge/constraint and actual state. Handle mechanism-specific motion through a qualified reusable operation.
+8. Resolve painted state cels (pose, view, face, hand, etc.), transformations, masks, deformation/morph and lighting/shadow passes.
+9. Calculate world/rigger hierarchy and camera once, preserving transform ownership. Validate all needed world art is present.
+10. Build the actual SVG/DOM/image render passes from the **approved raster/vector source art**. Never inject generic circles, tubes or stock facial geometry to fill missing production art.
+11. Apply the Neutrino timeline/row state at f in a live Chrome composition; wait for image decode. Render in a deterministic order regardless of requested frame seek order.
+12. Collect actual frame RGB24 and independent per-owner evidence (including blur when used). Fail if render mismatches, owner disappears, image is swapped, unexpected pixels appear or the intended visual action never happens.
+
+**Precedence rule:** Director-approved primary motion is highest creative intent; optional acting may enrich it; physical constraints must preserve legal contact/support and must either satisfy the intent or produce a typed unsatisfiable failure. Never silently erase required acting.
+
+### 7.3 What "expressive animation" specifically requires
+
+| Discipline | Required observable behavior |
+|---|---|
+| Timing | Intentional preparation, anticipation, acceleration, hold, overshoot/recovery when applicable; not arbitrary linear movement |
+| Pose | Clear readable silhouette and acting; approved alternate view for large turns |
+| Anatomy | No impossible elbow/knee bend, shoulder disconnect, limb extension or wrong-side grip |
+| Weight | Feet/ground remain coherent; hips/torso/support move before consequential force |
+| Contact | Painted palm and fingers meet/hold/release the prop; hand and prop move together only during the intended interval |
+| Mechanism | Linked parts move because of their designated driver; final mechanical state visibly reached |
+| Face | Eyelid, gaze, brows and mouth use approved artwork states, preserving head identity |
+| Follow-through | Hair, sleeve, tail and loose props lag/settle in a manner justified by the subject and design |
+| Deformation | Actual painted contour deforms legally; approved cels replace states unsuited to mesh bending |
+| Staging | Concurrent motion doesn't hide primary visual information; controlled recognition holds |
+| Camera | Purposeful framing; no unsupported pseudo-3D projection, crop, head cutoff or empty uncovered plate |
+| Sound-ready timing | Actions and audio cues share exact frame clock; enough time to see a reveal or read text |
+| Continuity | No pose/prop/face/world teleport at cut or state boundary without an explicit transition |
+
+### 7.4 Specific hard cases and required failures
+
+**GRIP / RELEASE**
+- A locked GRIP must have a real contact contract; absence is an error.
+- Resolve the **HAND state**, not the body pose, for an approved painted closure drawing.
+- Verify the actual palm basis, target socket, contact patch, finger overlap and near/far prop order.
+- Approach → contact → grip → applied motion → release → separation must have logically distinct phases.
+- If body pose says GRIP but hand stays open, the real visual check must fail.
+- A release requires end of possession plus the correct hand and object behavior, not simply that the contact interval ends.
+
+**JOINT, SUPPORT AND FORCE**
+- Contact target residual includes position and orientation; source/target basis must be from real measured art.
+- Joint limits/length/bend branch cannot be violated, even by acting additions.
+- Ground/foot support cannot teleport during reach; body weight must transfer where the animation claims force.
+- A prop must visibly respond according to the commanded action; nonzero tiny movement is not sufficient for an OPEN/PULL event.
+- A mechanism's linkage has a typed driver and end-state test, not independent animation that coincidentally appears synchronized.
+
+**FACIAL AND CHANNEL STATES**
+- Body pose/view/expression/EYES/MOUTH/HAND/CLOTHING/LIGHTING/OCCLUSION remain independent.
+- Directed state change outranks optional generated blink/acting; equal-priority contradictions fail.
+- Eye/viseme imagery is required to physically exist and be approved.
+- Speech events use actual sound/phoneme timing where available; a text-vowel approximation is not evidence of precise lip sync.
+- All state transitions preserve head/face identity and correct exposure across cuts.
+
+**MORPH AND DEFORMATION**
+- Vector morphs have homologous approved paths and actual per-frame path-attribute updates.
+- Raster deformations have nonoverlapping topology covering actual painted regions; summed triangle area alone is insufficient.
+- No flipped triangle, inverted seam, uncontrolled elastic stretch, alpha tear or paint loss at intermediate frames.
+- Mesh or path approval binds exact source art, vertices/paths, target, limits and geometry revision.
+
+**CAMERA, EFFECTS, SHADOW, TRANSITIONS**
+- Camera's purpose and accessible world representation are approved before movement.
+- Source planes are truly available at required scale/overscan; unseen world is not manufactured by the camera.
+- Particle effects actually change rendered pixels and remain visible despite CSS/inline display ownership.
+- Character shadow/grounding agrees with approved materials and feet when required.
+- Every transition has complete OUT/MIDDLE/IN art and consistent shared anchors, or is an explicitly motivated cut.
+
+### 7.5 Real rendering path and proof
+
+Required path: approved art hash → imported registered part → compiled motion → calculated transforms and state bindings → **actual nu.js seek / row application** → Chrome composition → decoded frame → approved visible pixels → action-specific QA. A transform table with no consumer is not animation.
+
+Required negative controls:
+- freeze actor but leave particles moving;
+- freeze prop but move character;
+- switch hand closed→open during a grip;
+- remove actual blink cel or view art;
+- invert deformation/omit an alpha region;
+- change camera to expose unpainted world;
+- alter motion phrase without changing rendered owner.
+
+Each must be caught by the **appropriate** action-specific verifier. Whole-frame hashes alone fail this requirement.
+
+### 7.6 Stage 6 exit
+
+**MOTION_EXECUTION_QUALIFIED** on the actual approved artwork requires a real continuous rendered segment with correct registered art, validated movement, state continuity, action consequences, contacts, composition and per-owner evidence. A simple synthetic diagnostic shows renderer mechanics only; it cannot certify the target art's beauty or the actual GPT-art-to-motion connection.
+
+---
+
+## 8. STAGE 7 — produce, inspect and approve the exact finished film
+
+### 8.1 Production rendering and reproducibility
+
+1. Validate correct creative/engine approvals and all stage dependencies before any expensive render.
+2. Freeze revision across all code, script, director, art/design, real image bytes, rig, motion plans, masks, transitions, fonts, witnesses, audio and approvals.
+3. Pin Node, browser/Chrome, FFmpeg versions, capture viewport, color settings, seed and deterministic rendering conditions.
+4. Render actual frames 0..N−1 in the authoritative clock with *no gaps, duplicates or mixed source versions*. Use 1080p RGB24 and correct image decoding; PNG bytes are not raw RGB bytes.
+5. Stream frames to encoder with backpressure; never hold the full 600/7200 uncompressed RGB frames in RAM. A 1920×1080 8-bit RGB frame is **6,220,800 bytes** before additional surfaces/overhead.
+6. Produce independently verifiable lossless FFV1 segments or equally evidenced deterministic intermediates. Every complete segment has range, revision, frame hashes and probe receipt.
+7. On crash/restart, reuse only *verified fully complete* matching segments. Partial segments are not success and cannot be appended as if complete.
+8. Assemble video essence from the correct segments. Probe actual dimensions, 60/1 frame rate, decoded frame count and duration.
+9. The renderer's own success receipt cannot be used to bypass frame- or owner-specific motion QA.
+10. Ensure every recorded output actually corresponds to the frozen source revision; a changed file/approval invalidates downstream evidence.
+
+### 8.2 Audio is not simply "attach narration.wav"
+
+- Create/obtain genuine narration recording and its measured word/phoneme alignment. If the needed voice recording is missing, report **AUDIO_INPUT_MISSING** rather than inventing timings.
+- Compile independent narration, SFX and music buses using the approved direction; include intentional silence and transitions.
+- Verify each causal SFX actually belongs to the required action, not just that some unrelated sound appeared nearby.
+- Align narration words and visual proof/reveal frames; preserve timing on shot boundaries.
+- Set meaningful gain envelopes, ducking and loudness according to the approved target; reject clipping, wrong track or silent required cues.
+- Produce final mixed audio and bind its SHA to the source narration/SFX/music stems and exact timeline.
+- **Mux the VERIFIED final mix with the VERIFIED video essence.** Do not publish an old silent or earlier-mix MP4 if S09 audio is created after S07 video.
+- Decode the final MP4 audio stream, inspect timing after AAC/container offset and verify narration intelligibility, cue identity, loudness, sync and film duration.
+- Human listens to the actual final MP4, not only the separate WAV file.
+
+### 8.3 Three layers of final review
+
+**A. Automatic technical review**
+- Frame count, dimensions, rate, gaps/duplicates, source hashes, alpha/art owner presence, camera coverage, pixel corruption, allowed transforms, sound stream and loudness.
+- Every required state transition and every action's expected visible result must be attributed to its actual subject.
+- Render error, thrown exception, missing owner sample, untested frame and failed QA are failures.
+
+**B. Critical artistic/motion review**
+- Native-resolution film and difficult frame sequences inspected for genuinely professional illustration, clear explanatory mechanisms, emotional pacing, expressive acting, anatomical believability, silhouette, clean transitions, stylized lighting, lack of generic filler, legibility and coherent sound.
+- A robot can measure an image change; that does not establish the art is beautiful. The reviewer may reject a technically clean but weak film.
+
+**C. Authorized final approval**
+- Review the exact mixed, muxed final MP4 and its revision.
+- A hash-scoped HUMAN receipt points at that precise output and may be invalidated if anything changes.
+- Never approve from a synthetic diagnostic flag, arbitrary JSON "PASS" or self-signed machine receipt.
+
+### 8.4 Final deliverables
+
+- **FINAL_APPROVED_VIDEO.mp4** (only if all final gates pass);
+- exact project source/manifest, direction and approved artwork dependencies;
+- source/renders/audio hashes, frame-source map, action-to-pixel evidence;
+- approved output and signed review; failures and deferred defects;
+- reproducible commands and recovery state.
+
+If review fails, preserve previous evidence and re-enter at the **earliest incorrect producer** (story, direction, art, registration, motion, sound or QA). Re-run only logically affected stages plus all dependent evidence. Do not camouflage defects with overlays or unsupported camera movements.
+
+
 ---
 
 ## Appendix A — original published source snapshot information (preserved)
