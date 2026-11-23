@@ -11,6 +11,8 @@
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import { execFileSync } from "node:child_process";
 import * as L from "../production/ledger.mjs";
 import * as S from "../production/stages.mjs";
+import { createHash } from "node:crypto";
+const require_sha = (t) => createHash("sha256").update(t).digest("hex");
 const a = process.argv.slice(2), get = (k, d = null) => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : d; }, has = (k) => a.includes(k), json = has("--json");
 const out = (o, text) => console.log(json ? JSON.stringify(o, null, 1) : text);
 export function latestRun(FILM) { const d = path.join(path.resolve(FILM), "production", "runs"); return fs.existsSync(d) ? fs.readdirSync(d).filter((x) => !x.startsWith("LEGACY-") && fs.existsSync(path.join(d, x, "RUN_MANIFEST.json"))).map((x) => [x, JSON.parse(fs.readFileSync(path.join(d, x, "RUN_MANIFEST.json"), "utf8")).created_utc]).sort((a, b) => (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : a[0] < b[0] ? -1 : 1)).at(-1)?.[0] ?? null : null; }
@@ -20,7 +22,10 @@ export function statusTable(FILM, runId) {
 }
 const fmt = (t) => [`run ${t.run_id}  events ${t.events}  head ${String(t.chain_head).slice(0, 12)}  verified ${t.tasks.completed}/${t.tasks.total} (${t.tasks.percent_verified}%)  failed ${t.tasks.failed}  blocked ${t.tasks.blocked}`,
   ...t.stages.map((r) => `${r.stage.padEnd(22)} ${r.status.padEnd(12)} tasks ${String(r.verified).padStart(4)}/${String(r.tasks).padEnd(4)} failed ${r.failed} blocked ${r.blocked}`), `next: ${t.next_operation}`, ...t.failures.slice(0, 5).map((f) => `FAILURE ${f.failure_id} [${f.class}] ${f.task}: ${String(f.observed).slice(0, 140)}`)].join("\n");
+/** the renderer's plan is the canonical production plan (P04 §7.2): deterministic resolution, refusal on conflict/absence — never undefined */
+export function resolveRenderPlan(FILM, { motionPlan = null } = {}) { const { compileProductionPlan: cp } = S; const r = cp(FILM, { explicit: motionPlan }); if (r.errors?.length) throw Object.assign(new Error(r.errors.map((e) => `${e.code}: ${e.reason || e.human_readable_reason}`).join("; ")), { code: r.errors[0].code }); return r; }
 export async function start(FILM, { diagnostic = false, until = null, runId = null, ...opts } = {}) {
+  if ((opts.renderer || "art_bridge_chrome_frames") === "art_bridge_chrome_frames" && !opts.rendererArgs?.planFile) { const rp = resolveRenderPlan(FILM, { motionPlan: opts.motionPlan }); const cf = materializePlan(FILM, rp); opts = { ...opts, motionPlan: opts.motionPlan || rp.file, rendererArgs: { ...(opts.rendererArgs || {}), planFile: cf, runType: diagnostic ? "DIAGNOSTIC" : "PRODUCTION" } }; }
   const id = runId || L.createRun(FILM, { runType: diagnostic ? "DIAGNOSTIC" : "PRODUCTION", manifest: { renderer: opts.renderer || "art_bridge_chrome_frames" } });
   // F085: pre-ledger history is migrated into the separate LEGACY stream and only LINKED (never trusted) from the new run
   const lg = L.importLegacy(FILM), lh = L.verifyChain(FILM, lg.run_id); L.appendEvent(FILM, id, { event_type: "LEGACY_STREAM_LINKED", status_after: "LINKED_UNVERIFIED", input_refs: [{ legacy_run_id: lg.run_id, head_sha256: lh.head_sha256, events: lh.events, imported_now: lg.imported }] });
@@ -34,10 +39,18 @@ export function why(FILM, id, failureId) {
   return { first_violated_invariant: r.expected_invariant, observed: r.observed_measurement, stage: r.stage_id, task: r.task_id, root_producer: r.root_producer_or_UNKNOWN, failure_class: r.failure_class, repair_owner: r.repair_owner, blast_radius: r.invalidated_downstream_nodes, frames: r.frame_ranges, evidence_event: ev.event_id, resume_from: r.resume_from_stage, retry_safe: r.retry_safe_boolean, external_spend_risk: r.external_spend_risk, next_operation: st.next_operation };
 }
 export function verifyRun(FILM, id) { const c = L.verifyChain(FILM, id), st = c.ok ? L.replay(FILM, id) : null, handoffs = st ? Object.entries(st.stages).filter(([, v]) => v.status === "COMMITTED").map(([k]) => ({ stage: k, ...S.verifyHandoff(FILM, id, k) })).map(({ handoff, ...x }) => x) : []; return { chain: c, handoffs, ok: c.ok && handoffs.every((h) => h.ok) }; }
+/** preflight — pure planning/readiness probes only. Tasks flagged side_effect (audio mix, mux, sync, anything that writes) are NEVER executed here;
+ *  the film tree is byte-identical before and after. */
+/** the compiled plan (approved phrases merged) is written ONCE, content-addressed, under the film's production store — never into handoff/ */
+export function materializePlan(FILM, rp) { const F = path.resolve(FILM), txt = JSON.stringify(rp.plan), sha = L.sha256 ? L.sha256(txt) : require_sha(txt); const dir = path.join(F, "production", "compiled_plans"); fs.mkdirSync(dir, { recursive: true }); const f = path.join(dir, `MOTION_PLAN_${sha.slice(0, 16)}.json`); if (!fs.existsSync(f)) fs.writeFileSync(f, txt); return f; }
 export async function preflight(FILM) {
   const ctx = S.loadContext(FILM), rows = [];
-  for (const s of S.STAGES) { if (s === "S07_NEUTRINO_RENDER" || s === "S08_QA_REPAIR") { rows.push({ stage: s, status: rows.some((r) => r.status !== "READY") ? "BLOCKED_UPSTREAM" : "READY", tasks: S.deriveTasks(s, { ...ctx, runId: "PREFLIGHT" }).length }); continue; }
-    const tasks = S.deriveTasks(s, { ...ctx, runId: "PREFLIGHT" }), res = []; for (const t of tasks) { if (t.group === "render") continue; let r; try { r = await t.run(); } catch (e) { r = { pass: false, measurement: e.message }; } res.push({ task: t.task_id, pass: r.pass === true, category: r.category || t.category, measurement: r.measurement }); }
+  for (const s of S.STAGES) { if (s === "S07_NEUTRINO_RENDER") { // the renderer needs a resolvable plan before it may start
+      const planErr = ctx.planSource?.errors?.length ? ctx.planSource.errors.map((e) => `${e.code}: ${e.reason || e.human_readable_reason}`).join("; ") : null;
+      if (planErr) { rows.push({ stage: s, status: "BLOCKED_SOFTWARE", tasks: 0, failing: [{ task: "motion_plan", measurement: planErr }] }); continue; } }
+    if (s === "S07_NEUTRINO_RENDER" || s === "S08_QA_REPAIR") { rows.push({ stage: s, status: rows.some((r) => r.status !== "READY") ? "BLOCKED_UPSTREAM" : "READY", tasks: S.deriveTasks(s, { ...ctx, runId: "PREFLIGHT" }).length }); continue; }
+    const tasks = S.deriveTasks(s, { ...ctx, runId: "PREFLIGHT" }), res = []; for (const t of tasks) { if (t.group === "render") continue; if (t.side_effect) { res.push({ task: t.task_id, pass: true, not_executed: true, category: t.category, measurement: "NOT EXECUTED IN PREFLIGHT (side-effecting task)" }); continue; } let r; try { r = await t.run(); } catch (e) { r = { pass: false, measurement: e.message }; } res.push({ task: t.task_id, pass: r.pass === true, category: r.category || t.category, measurement: r.measurement }); }
+    const unmet = S.stageObligations(s, ctx).filter((o) => !tasks.some((t) => o.task.test(t.task_id))); if (unmet.length) res.push({ task: "stage_obligations", pass: false, category: "UNKNOWN_ROOT_CAUSE", measurement: `EMPTY_STAGE_OBLIGATION: ${unmet.map((u) => u.id).join(", ")}` });
     const bad = res.filter((r) => !r.pass), cat = bad.map((b) => b.category || "SOFTWARE"); rows.push({ stage: s, status: !bad.length ? "READY" : cat.includes("EXTERNAL_HUMAN_REQUIRED") || cat.includes("MISSING_AUTHORITY") || cat.includes("DIRECTION_OR_ATTENTION") ? "BLOCKED_HUMAN" : cat.includes("AUDIO_ALIGNMENT") ? "BLOCKED_AUDIO" : cat.some((c) => /ART/.test(c || "")) ? "BLOCKED_ART" : cat.includes("STORY_FACT_OR_MECHANISM") ? "BLOCKED_CLAIM" : "BLOCKED_SOFTWARE", tasks: tasks.length, failing: bad.slice(0, 8) }); }
   return { film: path.basename(path.resolve(FILM)), run_type: ctx.runType, ready_for_production: rows.every((r) => r.status === "READY") && ctx.runType === "PRODUCTION", rows };
 }

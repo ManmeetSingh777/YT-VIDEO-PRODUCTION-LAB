@@ -9,7 +9,7 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
 process.env.ART_BRIDGE_TEST_TRUST = "1";
 const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const OUT = path.resolve(arg("--out", path.join(REPO, "hybrid_v2", "evidence", "p03", "clips"))), ONLY = new Set(arg("--only", "directed,bare,negatives").split(","));
-const { runSubjects } = await import("./subjects_fixture.mjs"), P = await import("./p03_plans.mjs");
+const { runSubjects, approveDeforms } = await import("./subjects_fixture.mjs"), P = await import("./p03_plans.mjs");
 const { createChromeFrameSession } = await import("../../engine/film/chrome_frames.mjs"), { renderChunk } = await import("../../engine/film/segment_render.mjs"), { ownerAttributionGate } = await import("../../engine/film/coverage_gate.mjs"), { writeRGBA } = await import("../../engine/art_bridge/png.mjs");
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), fsha = (f) => sha(fs.readFileSync(f));
 fs.mkdirSync(OUT, { recursive: true });
@@ -31,7 +31,7 @@ const ownersOf = (rc) => { const o = {}; let first = Infinity; for (const c of r
 const gateDoc = (rc) => { const [s, e] = [Math.min(...rc.ranges.map((r) => r[0])), Math.max(...rc.ranges.map((r) => r[1]))]; return { ...doc, actions: doc.actions.map((a) => ({ ...a, frame_range: [Math.max(a.frame_range[0], s), Math.min(a.frame_range[1], e)] })).filter((a) => a.frame_range[1] > a.frame_range[0]) }; };
 const prevSummary = fs.existsSync(path.join(OUT, "CLIPS_SUMMARY.json")) ? JSON.parse(fs.readFileSync(path.join(OUT, "CLIPS_SUMMARY.json"), "utf8")) : null;
 const summary = { film: path.relative(REPO, FILM), started_at: new Date().toISOString(), clips: { ...(prevSummary?.clips || {}) }, negatives: { ...(prevSummary?.negatives || {}) } }; // a partial re-run (--only) keeps the other recorded results
-const plan = P.directedPlan(doc), bare = P.barePlan(doc), PNGS = [0, 30, 33, 60, 70, 100, 150, 199, 215, 240, 262, 300, 330, 380, 420, 479];
+const plan = await approveDeforms(FILM, P.directedPlan(doc)), bare = P.barePlan(doc), PNGS = [0, 30, 33, 60, 70, 100, 150, 199, 215, 240, 262, 300, 330, 380, 420, 479];
 if (ONLY.has("directed")) { const rc = await clip("p03_directed", plan, [[0, 240], [240, 480]], { pngs: PNGS }), g = ownerAttributionGate({ ...ownersOf(rc), doc: gateDoc(rc) }); summary.clips.p03_directed = { mp4: rc.mp4, seconds: rc.seconds, defects: rc.chunks.flatMap((c) => c.defects), owner_gate: { ok: g.ok, failures: g.failures, units: g.units } }; fs.writeFileSync(path.join(OUT, "CLIPS_SUMMARY.json"), JSON.stringify(summary, null, 1)); console.log("directed", g.ok, rc.seconds); }
 if (ONLY.has("bare")) { const rc = await clip("p03_bare_before", bare, [[0, 240], [240, 480]], { pngs: PNGS, attribution: false }); summary.clips.p03_bare_before = { mp4: rc.mp4, seconds: rc.seconds, note: "direction keys only (no phrases/acting/reaction/support/grip/shadow/morph/deform): the BEFORE of every capability" }; fs.writeFileSync(path.join(OUT, "CLIPS_SUMMARY.json"), JSON.stringify(summary, null, 1)); console.log("bare", rc.seconds); }
 if (ONLY.has("negatives")) {

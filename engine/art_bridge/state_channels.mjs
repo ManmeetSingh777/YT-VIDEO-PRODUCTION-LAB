@@ -5,6 +5,8 @@
 // events (blink, speech). Every change must resolve an approved drawing; a missing drawing is MISSING_ART_ASSET (→ ArtJob), an unknown state
 // or channel is UNSUPPORTED_STATE_EDGE, and two channels claiming one slot is STATE_CHANNEL_CONFLICT. Nothing silently reuses a pose.
 import { err } from "./errors.mjs";
+import { resolveConflicts, priorityOf, rigPoseTimeline, poseAt, buildRigTimeline } from "./state_timeline.mjs";
+export { rigPoseTimeline, poseAt, buildRigTimeline };
 export const CHANNEL_KINDS = ["EXPRESSION", "EYES", "MOUTH", "HAND", "CLOTHING", "LIGHTING", "OCCLUSION"];
 // precedence when building the final slot→drawing map: pose < view < channels (channels own their slots exclusively)
 export function validateChannels(rig, { assets = null } = {}) {
@@ -29,14 +31,18 @@ export function channelEvents(rig, actions, extra = []) {
     if (e.frame < a.frame_range[0] || e.frame >= a.frame_range[1]) { errs.push(err("INVALID_FRAME_RANGE", { record_id: a.id, frame_range: [e.frame, e.frame + 1], reason: "state event outside its action" })); continue; }
     out.push({ frame: e.frame, channel: e.channel, state: e.state, source: a.id, shot: a.shot_id }); }
   for (const e of extra) if (e.rig === rig.id) { const ch = chans.get(e.channel); if (!ch || !ch.states.some((s) => s.id === e.state)) errs.push(err("UNSUPPORTED_STATE_EDGE", { record_id: `${rig.id}.${e.channel}`, frame_range: [e.frame, e.frame + 1], reason: `compiled acting event needs state ${e.state} of channel ${e.channel}` })); else out.push({ ...e, source: e.source || "acting" }); }
-  out.sort((p, q) => p.frame - q.frame || (p.source === "acting") - (q.source === "acting")); return { events: out, errors: errs };
+  // P04 §5.1: explicit numeric priority; equal-priority contradictions fail (STATE_CONFLICT); order of the input never matters
+  const prio = out.map((e) => ({ ...e, priority: e.priority ?? priorityOf(e.source) })), r = resolveConflicts(prio, (e) => e.channel, { rig: rig.id });
+  errs.push(...r.errors); return { events: r.events.sort((p, q) => p.frame - q.frame || (p.priority ?? 0) - (q.priority ?? 0)), errors: errs }; // evaluation order: last (highest priority) wins a frame
 }
-/** channel states at frame f (events of the current shot only); directed action events win over compiled acting events at the same frame */
-export function channelStatesAt(rig, events, f, shotId = null) { const st = Object.fromEntries((rig.state_channels || []).map((c) => [c.id, c.default ?? c.states[0].id])); for (const e of events) { if (e.frame > f) break; if (shotId && e.shot && e.shot !== shotId) continue; st[e.channel] = e.state; } return st; }
+/** channel states at frame f — the rig's WHOLE-FILM history (P04 §3.1: a state persists across actions and shots unless a contract resets it);
+ *  `shotId` is kept for signature compatibility and no longer filters the history */
+export function channelStatesAt(rig, events, f, _shotId = null) { const st = Object.fromEntries((rig.state_channels || []).map((c) => [c.id, c.default ?? c.states[0].id])); for (const e of events) { if (e.frame > f) break; st[e.channel] = e.state; } return st; }
 /** final slot→drawing bindings: pose < view < channels; plus the resolved expression/eyes/mouth state ids (independent of the pose id) */
 export function resolveBindings(rig, pose, view, chStates) {
   const all = [...rig.pose_states, ...rig.view_states], ps = all.find((s) => s.id === pose), vs = view ? all.find((s) => s.id === view) : null, b = { ...(ps?.asset_bindings || {}), ...(vs?.asset_bindings || {}) }, byKind = {};
-  for (const ch of rig.state_channels || []) { const s = ch.states.find((x) => x.id === chStates[ch.id]); Object.assign(b, s?.asset_bindings || {}); (byKind[ch.kind] ||= {})[ch.id] = s?.id ?? null; }
+  for (const ch of rig.state_channels || []) { const s = ch.states.find((x) => x.id === (chStates[ch.id] ?? ch.default ?? ch.states[0].id)); for (const slot of ch.slots || []) delete b[slot]; // a channel owns its slots exclusively: a pose/view drawing never leaks into them (absent binding = the slot's own drawing)
+    Object.assign(b, s?.asset_bindings || {}); (byKind[ch.kind] ||= {})[ch.id] = s?.id ?? null; }
   const first = (k) => (byKind[k] ? Object.values(byKind[k])[0] : null);
   return { bindings: b, channels: { ...chStates }, expression: first("EXPRESSION"), eyes: first("EYES"), mouth: first("MOUTH"), hand: byKind.HAND || {}, clothing: byKind.CLOTHING || {}, lighting: byKind.LIGHTING || {}, occlusion: byKind.OCCLUSION || {} };
 }

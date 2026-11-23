@@ -13,6 +13,11 @@ export function triAffine(s, d) {
   const a = ux * ia + vx * ic, c = ux * ib + vx * id, b = uy * ia + vy * ic, dd = uy * ib + vy * id;
   return [a, b, c, dd, d[0][0] - a * x0 - c * y0, d[0][1] - b * x0 - dd * y0];
 }
+const triArea = (t) => ((t[1][0] - t[0][0]) * (t[2][1] - t[0][1]) - (t[2][0] - t[0][0]) * (t[1][1] - t[0][1])) / 2;
+const ccw = (t) => (triArea(t) < 0 ? [t[0], t[2], t[1]] : t);
+const polyArea = (p) => Math.abs(p.reduce((s, q, i) => { const r = p[(i + 1) % p.length]; return s + q[0] * r[1] - r[0] * q[1]; }, 0) / 2);
+/** Sutherland–Hodgman clip of a convex polygon by a CCW triangle */
+function clipConvex(poly, tri) { let out = poly; for (let i = 0; i < 3 && out.length; i++) { const a = tri[i], b = tri[(i + 1) % 3], inside = (p) => (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]) >= -1e-9, next = []; for (let k = 0; k < out.length; k++) { const p = out[k], q = out[(k + 1) % out.length], ip = inside(p), iq = inside(q), X = () => { const d1 = (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]), d2 = (b[0] - a[0]) * (q[1] - a[1]) - (b[1] - a[1]) * (q[0] - a[0]), t = d1 / (d1 - d2); return [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t]; }; if (ip) next.push(p); if (ip !== iq) next.push(X()); } out = next; } return out; }
 const signedArea = (P, [i, j, k]) => ((P[j][0] - P[i][0]) * (P[k][1] - P[i][1]) - (P[k][0] - P[i][0]) * (P[j][1] - P[i][1])) / 2;
 /** validate a deformation map against its asset at compile time (mesh must cover approved pixels only) */
 export function validateDeformBinding(id, map, asset) {
@@ -20,9 +25,16 @@ export function validateDeformBinding(id, map, asset) {
   if (!asset) { out.push(err("MISSING_ART_ASSET", { record_id: id, reason: `deform map names asset ${map.asset}, which is not registered` })); return out; }
   const [rx, ry, rw, rh] = asset.canonical_rect, inside = (p) => p[0] >= rx - 1e-6 && p[1] >= ry - 1e-6 && p[0] <= rx + rw + 1e-6 && p[1] <= ry + rh + 1e-6;
   if (!(map.vertices || []).every(inside)) out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: `mesh vertices leave the approved canonical rect of ${asset.id}: a deformation may only move approved pixels` }));
-  // the mesh must cover EVERY approved pixel of the drawing: pixels outside the triangles would be silently dropped by the clipped passes
-  const triA = (map.triangles || []).reduce((s, T) => s + Math.abs(signedArea(map.vertices, T)), 0);
-  if (Math.abs(triA - rw * rh) > 0.005 * rw * rh) out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: `mesh covers ${(100 * triA / (rw * rh)).toFixed(1)}% of ${asset.id}'s approved canonical rect; approved pixels outside the mesh would be dropped (the mesh must tile the whole drawing)` }));
+  // P04 §5.5: geometric coverage of the WHOLE approved drawing — real tiling of the rect by non-overlapping triangles (a duplicate/overlapping
+  // triangle whose SUMMED area happens to match is refused), connected as one mesh, every vertex inside the rect
+  const tv = (T) => T.map((q) => map.vertices[q]), P = (map.triangles || []).map(tv);
+  if (P.length && P.every((t) => t.every(Boolean))) {
+    const keyOf = (T) => [...T].sort((x, y) => x - y).join(","), seen = new Set(); for (const T of map.triangles) { const k = keyOf(T); if (seen.has(k)) out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: `duplicate triangle ${T}: a duplicated triangle double-covers pixels and its summed area must never stand in for coverage` })); seen.add(k); }
+    for (let i = 0; i < P.length; i++) for (let j = i + 1; j < P.length; j++) { const ov = polyArea(clipConvex(ccw(P[i]), ccw(P[j]))); if (ov > 1e-3 * Math.abs(triArea(P[i])) + 1e-6) { out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: `triangles ${i} and ${j} overlap by ${ov.toFixed(2)} canonical px²: overlapping triangles paint the same approved pixels twice` })); break; } }
+    const cover = P.reduce((s, t) => s + Math.abs(triArea(t)), 0), rectA = rw * rh; if (Math.abs(cover - rectA) > 0.005 * rectA) out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: `triangles cover ${(100 * cover / rectA).toFixed(1)}% of ${asset.id}'s approved canonical rect; approved pixels outside the mesh would be dropped` }));
+    // connectivity: one component through shared vertices
+    const par = [...map.triangles.keys()], find = (x) => (par[x] === x ? x : (par[x] = find(par[x]))), byV = new Map(); map.triangles.forEach((T, i) => T.forEach((v) => { if (byV.has(v)) par[find(i)] = find(byV.get(v)); else byV.set(v, i); })); if (new Set(par.map((_, i) => find(i))).size > 1) out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: "mesh is not connected (separate pieces would tear the drawing)" }));
+  }
   if (!Array.isArray(map.weight) || !map.weight.length) out.push(err("DEFORM_RENDER_FAILURE", { record_id: id, reason: "deform map needs a weight track (KEYS)" }));
   return out;
 }

@@ -11,6 +11,7 @@ import { compileMotionTracks } from "../art_bridge/temporal.mjs";
 import { composeShot } from "../art_bridge/scene_graph.mjs";
 import { buildComposition, serve, loadPuppeteer, CHROME } from "../art_bridge/render.mjs";
 import { decodePNG } from "../art_bridge/png.mjs";
+import { verifyDeformApproval } from "../art_bridge/approvals.mjs";
 import { seededParticles, shutterSamples } from "../art_bridge/motion_systems.mjs";
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), fsha = (f) => sha(fs.readFileSync(f)), REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
 const MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json";
@@ -48,6 +49,7 @@ export function attributionUnits(doc, plan, scene, prefix, shot) {
 }
 export async function createChromeFrameSession({ film, manifest = MF, planFile, seed = 1, fps = 60, width = 1920, height = 1080, runType = "PRODUCTION", workDir = null, attribution = true, diagnosticPerturb = null }) {
   if (diagnosticPerturb && runType === "PRODUCTION") throw err("RENDER_CAPTURE_FAILURE", { reason: "diagnostic perturbation is refused in a PRODUCTION session", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
+  if (!planFile || !fs.existsSync(planFile)) throw err("PLAN_MISSING", { record_id: planFile ?? null, reason: planFile ? `motion plan file ${planFile} does not exist` : "the Chrome renderer was started without a motion plan (resolve the production plan before rendering)", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
   const FILM = path.resolve(film), reg = await createAssetRegistry(FILM, manifest, { production: runType === "PRODUCTION" }), doc = reg.doc, plan = JSON.parse(fs.readFileSync(planFile, "utf8"));
   if (doc.stage.width !== width || doc.stage.height !== height || doc.stage.fps !== fps) throw err("RENDER_CAPTURE_FAILURE", { reason: `film stage ${doc.stage.width}x${doc.stage.height}@${doc.stage.fps} ≠ requested ${width}x${height}@${fps}`, producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
   // every asset the film binds must exist with the EXACT bytes the manifest declares (no filename trust)
@@ -56,6 +58,8 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
   // list — a fixed list missed execution.mjs/acting.mjs/state_channels.mjs, so an engine change silently reused stale baked frames
   const bakeSources = [...fs.readdirSync(path.join(REPO, "engine", "art_bridge")).filter((f) => f.endsWith(".mjs")).map((f) => `engine/art_bridge/${f}`), "engine/art_bridge/runtime/bridge_rt.js", "engine/runtime/nu.js", "engine/runtime/gsap.min.js", "engine/film/chrome_frames.mjs"].sort();
   const codeKey = sha(JSON.stringify(bakeSources.map((r) => [r, fsha(path.join(REPO, r))])));
+  // P04 §5.5: a deformation map renders only under a verified hash-scoped approval (PRODUCTION requires a HUMAN signature; DIAGNOSTIC a TEST_TRUST receipt)
+  for (const [id, m] of Object.entries(plan.deform_maps || {})) { const va = verifyDeformApproval(doc, FILM, id, m, { requireHuman: runType === "PRODUCTION" }); if (!va.ok) throw err("DEFORM_APPROVAL_MISSING", { record_id: id, reason: `deformation map ${id} has no verified approval: ${va.status} (${va.reason})`, producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" }); }
   const C = compileMotionTracks(doc.actions, doc.shots, { doc, plan }), dir = workDir || path.join(FILM, "render", "compositions", sha(JSON.stringify({ m: fsha(path.join(FILM, manifest)), p: fsha(planFile), seed })).slice(0, 16));
   const shots = doc.shots.map((s, k) => { const prefix = `s${k}-`, scene = withEffects(composeShot(s, reg, C, { prefix }), plan.effects, reg, s.id, prefix); return { shot: s, scene, prefix, units: attributionUnits(doc, plan, scene, prefix, s) }; });
   const blur = plan.motion_blur || [], puppeteer = await loadPuppeteer();
@@ -104,12 +108,16 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
         if (tris.length || morphOn) { const triIds = new Set(tris.map((t) => t.id)), bases = new Set(tris.map((t) => t.base)), d0 = new Map(morphs.map((m) => [m.id, m.d0]));
           o.ref_rigid = await capture(iso.map((r) => (triIds.has(r[0]) ? [r[0], r[1], 0, r[3], r[4]] : bases.has(r[0]) ? [r[0], r[1], 1, r[3], r[4]] : d0.has(r[0]) ? [r[0], r[1], r[2], r[3], { d: d0.get(r[0]) }] : r))); } }
       return out; };
-    if (!b) { const rgb = await shoot(page), owners = await attributionOf(shown || rows); return { rgb, state_sha: visibleStateSha(rows), owners }; }
+    const ownersOf = async () => attributionOf(shown || rows);
+    if (!b) { const rgb = await shoot(page), owners = await ownersOf(); return { rgb, state_sha: visibleStateSha(rows), owners }; }
     // shutter: N sub-frame composites of the same scene at f + k·shutter/N, averaged per channel (a real compositor consumer, not a ghost layer)
     const times = shutterSamples((t) => t, f, { shutter: b.shutter, samples: b.samples }), acc = new Uint32Array(width * height * 3), all = [];
     for (const t of times) { const r = scene.frameState(t, { subframe: true }).rows; all.push(r); await page.evaluate((rows, tag) => { ARTB.applyRows(rows, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, r, f); const s = await shoot(page); for (let i = 0; i < s.length; i++) acc[i] += s[i]; }
     const rgb = Buffer.allocUnsafe(acc.length); for (let i = 0; i < acc.length; i++) rgb[i] = Math.round(acc[i] / times.length);
-    return { rgb, state_sha: visibleStateSha(all.flat()), blur: { shutter: b.shutter, samples: times.length } };
+    // P04 §7.5: motion-blurred frames carry the same per-owner evidence (captured at the frame's integer state; the composite is the shutter average)
+    if (attribution) { await page.evaluate((id, f, fps) => { window.__timelines[id].seek(f / fps, false); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); }, shot.id, f, fps); }
+    const owners = await ownersOf();
+    return { rgb, state_sha: visibleStateSha(all.flat()), owners, blur: { shutter: b.shutter, samples: times.length } };
   }
   const browserVersion = await browser.version();
   return { renderFrame, width, height, info: { renderer: "art_bridge_chrome_frames", browser: browserVersion, chrome_path: CHROME, nu_js_sha256: fsha(path.join(path.dirname(url.fileURLToPath(import.meta.url)), "..", "runtime", "nu.js")), run_type: runType, shots: shots.map((s) => s.shot.id), browser_pid: browser.process()?.pid ?? null },

@@ -3,9 +3,10 @@
 // contracts as LABELLED diagnostic stand-ins: film intent, shot score with attention paths, typed semantic actions, measured-alignment test
 // fixture with a synthetic tone, a seeded particle effect (sprite = a registered asset) and a shutter-blur interval. Every file says
 // DIAGNOSTIC; none of it is target art, story or narration, and none of it can cross the production preflight.
-import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto"; import { execFileSync } from "node:child_process";
+import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto"; import { execFileSync } from "node:child_process";
 import { runRoundTrip } from "../art_bridge/roundtrip_fixture.mjs";
 const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex"), J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), W = (f, o) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(o, null, 1)); };
+const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
 const MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json", TT = { method: "TEST_TRUST", note: "P02 rehearsal DIAGNOSTIC stand-in for an independent human (namespace only)" }, op = { reviewer: "p02-rehearsal-simulated-reviewer", scope_note: "DIAGNOSTIC rehearsal only" };
 export async function buildRehearsalFilm(dir) {
   const prev = process.env.ART_BRIDGE_TEST_TRUST; process.env.ART_BRIDGE_TEST_TRUST = "1";
@@ -31,6 +32,9 @@ export async function buildRehearsalFilm(dir) {
     W(path.join(A, "narration_timeline_TEST.json"), { provenance: "TEST_FIXTURE", script_sha256: fsha(path.join(A, "script_TEST.txt")), audio_sha256: fsha(path.join(A, "narration_TEST_TONE.wav")), alignment: { method: "FORCED_ALIGNMENT", tool: "fixture-aligner", tool_version: "0", confidence: 1, output_file: "audio/alignment_output_TEST.json", output_sha256: fsha(path.join(A, "alignment_output_TEST.json")), words: [{ w: "diagnostic", start_s: 1.0, end_s: 1.5 }, { w: "tone", start_s: 61.0, end_s: 61.4 }] }, cues: [{ id: "world_reveal", word_index: 1, critical: true }] });
     const d = J(path.join(film, MF)); d.audio.narration_file = "audio/narration_TEST_TONE.wav"; d.audio.narration_timeline_file = "audio/narration_timeline_TEST.json"; d.audio.script_file = "audio/script_TEST.txt"; fs.writeFileSync(path.join(film, MF), JSON.stringify(d, null, 1));
     await (await import("./portal_fixture.mjs")).addPortal(film, { review: false }); // continuous portal rt_shot→rt_world_shot through the real intake
+    // P02-R14 (P04 §7.9): the fixture's world master needs its own design record, exactly as a production world does. Borrowed from the film's real
+    // world design (interior-world method decisions with their F-source clauses) and labelled DIAGNOSTIC; the trace is never weakened.
+    { const wd = J(path.join(REPO, "films", "hv2_film001", "art_designs", "laundromat_far.design.json")); wd.job_id = "rt_world_far"; wd.diagnostic_borrowed_for_trace_only = true; W(path.join(film, "art_designs", "rt_world_far.design.json"), wd); }
     await reapproveDiagnostic(film);
     fs.writeFileSync(path.join(film, "REHEARSAL_LABEL.txt"), "DIAGNOSTIC PRODUCTION REHEARSAL FILM — fixture rasters, simulated reviewer (TEST_TRUST, namespace-only), synthetic tone. NOT a film, NOT target art, NOT approved by any human.\n");
     return { ...rt, film, plan: planF, audio: path.join(A, "narration_TEST_TONE.wav") };

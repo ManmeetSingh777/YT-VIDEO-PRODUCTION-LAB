@@ -42,6 +42,23 @@ export function layerPhrases(doc, plan) {
   }
   return { plan: out, errors, report };
 }
+/** P04 §5.2: strict acting-parameter limits, checked BEFORE any frame is compiled (a zero/NaN period must fail at once, never hang a loop) */
+const num = (v) => typeof v === "number" && Number.isFinite(v);
+export function validateActingParams(rid, A, total) {
+  const bad = (what, why) => err("ACTING_INVALID", { record_id: `${rid}.${what}`, reason: why, producer: "engine/art_bridge/acting.mjs#validateActingParams" }), out = [];
+  const pos = (o, k, what, int = false) => { const v = o?.[k]; if (v === undefined) return; if (v === null) { out.push(bad(what, `${k} is null (a NaN/Infinity lost its value)`)); return; } if (!num(v) || v <= 0 || (int && !Number.isInteger(v))) out.push(bad(what, `${k}=${JSON.stringify(v)} must be a finite ${int ? "integer " : ""}number > 0`)); };
+  const fin = (o, k, what) => { const v = o?.[k]; if (v !== undefined && (v === null || !num(v))) out.push(bad(what, `${k}=${JSON.stringify(v)} must be a finite number`)); };
+  const inFilm = (o, k, what) => { const v = o?.[k]; if (v !== undefined && (v === null || !num(v) || v < 0 || v > total)) out.push(bad(what, `${k}=${JSON.stringify(v)} outside the film [0,${total}]`)); };
+  if (A.lag) { fin(A.lag, "frames_per_depth", "lag"); if (num(A.lag?.frames_per_depth) && (A.lag.frames_per_depth < 0 || A.lag.frames_per_depth > 30)) out.push(bad("lag", "frames_per_depth must lie in [0,30]")); }
+  if (A.anticipation) { pos(A.anticipation, "frames", "anticipation", true); fin(A.anticipation, "ratio", "anticipation"); fin(A.anticipation, "min_delta_deg", "anticipation"); if (num(A.anticipation.ratio) && (A.anticipation.ratio < 0 || A.anticipation.ratio > 1)) out.push(bad("anticipation", "ratio must lie in [0,1]")); }
+  if (A.settle) { pos(A.settle, "frames", "settle", true); fin(A.settle, "overshoot_ratio", "settle"); if (num(A.settle.overshoot_ratio) && (A.settle.overshoot_ratio < 0 || A.settle.overshoot_ratio > 0.5)) out.push(bad("settle", "overshoot_ratio must lie in [0,0.5]")); }
+  for (const b of [A.breath, ...(A.sway || [])].filter(Boolean)) { pos(b, "period_frames", `breath/sway.${b.joint}`); fin(b, "amplitude_deg", `breath/sway.${b.joint}`); if (num(b.amplitude_deg) && b.amplitude_deg < 0) out.push(bad(`breath/sway.${b.joint}`, "amplitude_deg must be ≥ 0")); }
+  for (const fo of A.follow || []) { pos(fo, "stiffness", `follow.${fo.joint}`); if (num(fo.damping) && fo.damping < 0) out.push(bad(`follow.${fo.joint}`, "damping must be ≥ 0")); fin(fo, "gain", `follow.${fo.joint}`); fin(fo, "damping", `follow.${fo.joint}`); if (fo.joint === fo.driver_joint) out.push(bad(`follow.${fo.joint}`, "a joint cannot drive its own follow-through")); }
+  if (A.gaze) { fin(A.gaze, "gain", "gaze"); pos(A.gaze, "max_deg", "gaze"); const fr = A.gaze.frames; if (fr) for (const v of fr) if (!num(v) || v < 0 || v > total) out.push(bad("gaze", `frames ${JSON.stringify(fr)} outside the film`)); }
+  if (A.blink) { pos(A.blink, "period_frames", "blink", true); pos(A.blink, "duration_frames", "blink", true); inFilm(A.blink, "phase_frames", "blink"); if (num(A.blink.period_frames) && num(A.blink.duration_frames) && A.blink.duration_frames >= A.blink.period_frames) out.push(bad("blink", "duration_frames must be shorter than period_frames")); }
+  if (A.speech) for (const w of A.speech.words || []) { if (!num(w.start_s) || !num(w.end_s) || w.start_s < 0 || w.end_s <= w.start_s) out.push(bad("speech", `word ${JSON.stringify(w.w)} has no valid [start_s,end_s)`)); }
+  return out;
+}
 const depthOf = (rig) => { const byId = new Map(rig.joints.map((j) => [j.id, j])), d = {}; for (const j of rig.joints) { let n = 0, p = j.parent_id; while (p) { n++; p = byId.get(p)?.parent_id; } d[j.id] = n; } return d; };
 const syllables = (w) => Math.max(1, (String(w).toLowerCase().match(/[aeiouy]+/g) || []).length);
 /** compileActing(doc, plan, {fps}) → { plan (with acting applied), events (channel swaps), additive, report, errors } */
@@ -50,6 +67,7 @@ export function compileActing(doc, plan, { fps = doc.stage?.fps || 60, actions =
   const out = clone(plan), errors = [], events = [], additive = {}, report = {}, total = doc.stage.total_frames;
   for (const [rid, A] of Object.entries(plan.acting || {})) {
     const rig = doc.rigs.find((r) => r.id === rid); if (!rig) { errors.push(err("ACTING_UNEXECUTABLE", { record_id: rid, reason: "acting block for an unknown rig" })); continue; }
+    const pe = validateActingParams(rid, A, total); if (pe.length) { errors.push(...pe); continue; }
     const J = new Map(rig.joints.map((j) => [j.id, j])), depth = depthOf(rig), rep = (report[rid] = { lagged: {}, anticipations: 0, settles: 0, additive: [], follow: [], blinks: 0, speech_swaps: 0, gaze: null }), tr = ((out.tracks ||= {})[rid] ||= {}), joints = (tr.joints ||= {});
     const needJoint = (j, what) => { if (!J.has(j)) { errors.push(err("ACTING_UNEXECUTABLE", { record_id: `${rid}.${j}`, reason: `${what} names joint ${j}, which rig ${rid} does not have (the approved art/rig must provide it)` })); return false; } return true; };
     for (const [j, keys] of Object.entries(joints)) {

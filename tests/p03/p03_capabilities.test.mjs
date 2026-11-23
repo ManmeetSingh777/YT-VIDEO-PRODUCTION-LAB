@@ -4,19 +4,19 @@
 import test from "node:test"; import assert from "node:assert/strict"; import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import { execFileSync } from "node:child_process";
 process.env.ART_BRIDGE_TEST_TRUST = "1";
 const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), W = path.join(REPO, "hybrid_v2", "work", "p03", "test_subjects"), MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json";
-const { runSubjects } = await import("./subjects_fixture.mjs"), P = await import("./p03_plans.mjs");
+const { runSubjects, approveDeforms } = await import("./subjects_fixture.mjs"), P = await import("./p03_plans.mjs");
 const { compileMotionTracks, stateAtFrame } = await import("../../engine/art_bridge/temporal.mjs"), { createAssetRegistry } = await import("../../engine/art_bridge/asset_registry.mjs"), { composeShot } = await import("../../engine/art_bridge/scene_graph.mjs");
 const SC = await import("../../engine/art_bridge/state_channels.mjs"), { checkRigFeasibility } = await import("../../engine/art_bridge/art_intake.mjs"), { ownerAttributionGate } = await import("../../engine/film/coverage_gate.mjs"), A = await import("../../engine/film/audio_mix.mjs");
 const { scaleOf, angleOf } = await import("../../engine/art_bridge/math2d.mjs");
 const rt = await runSubjects(W), FILM = rt.film, reg = await createAssetRegistry(FILM, MF, {}), doc = reg.doc, clone = (o) => JSON.parse(JSON.stringify(o));
 const compile = (plan, d = doc) => compileMotionTracks(d.actions, d.shots, { doc: d, plan, requireApproval: false });
 const codes = (fn) => { try { fn(); return []; } catch (e) { return (e.errors || [e]).map((x) => x.code); } };
-const plan = P.directedPlan(doc), bare = P.barePlan(doc), C = compile(plan), C0 = compile(bare);
+const plan = await approveDeforms(FILM, P.directedPlan(doc)), bare = P.barePlan(doc), C = compile(plan), C0 = compile(bare);
 const scA = composeShot(doc.shots[0], reg, C, { prefix: "a-" }), scB = composeShot(doc.shots[1], reg, C, { prefix: "b-" });
 
 /* ---------------- B: explicit state channels ---------------- */
 test("B1 expression/eyes/mouth come from their OWN channels, independent of the pose id", () => {
-  const rig = doc.rigs.find((r) => r.id === "nova_rig"), r = SC.resolveBindings(rig, "grip", null, { eyes: "closed", mouth: "open" });
+  const rig = doc.rigs.find((r) => r.id === "nova_rig"), r = SC.resolveBindings(rig, "grip", null, { eyes: "closed", mouth: "open", hand_r: "grip" });
   assert.equal(r.eyes, "closed"); assert.equal(r.mouth, "open"); assert.equal(r.bindings.nova_eye_open, "nova_eye_closed"); assert.equal(r.bindings.nova_hand_open, "nova_hand_grip");
   const s = stateAtFrame(C, 32); assert.equal(s.artStates.nova_rig.pose, "open"); assert.equal(s.artStates.nova_rig.eyes, "closed", "the compiled blink swaps the eyes at frame 30..36 while the pose stays");
 });
@@ -95,8 +95,8 @@ test("F3 object reaction is causal: the lever follows the pull (zero residual) a
   const p1 = clone(plan); p1.reactions[0].driver.joint = "pelvis"; p1.reactions[0].frames = [70, 200]; const s = stateAtFrame(compile(p1), 150); assert.ok(s.reactions.length === 1); // a different driver changes the outcome
 });
 test("F4 dynamic cast shadow: emitted from the approved occluder drawing, moves with it, keeps floor contact, material treatment applied", () => {
-  const r0 = scA.frameState(0).rows.find((r) => r[0] === "a-shadow--nova_floor--nova_torso"), r1 = scA.frameState(150).rows.find((r) => r[0] === "a-shadow--nova_floor--nova_torso");
-  assert.ok(r0 && r1); assert.notEqual(r0[1], r1[1]); assert.equal(r0[3], 0.4, "floor material opacity"); assert.ok(scA.svg.includes('filter id="a-shadowf-nova_floor"'));
+  const r0 = scA.frameState(0).rows.find((r) => r[0] === "a-shadow--nova_floor_nova_torso--nova_torso"), r1 = scA.frameState(150).rows.find((r) => r[0] === "a-shadow--nova_floor_nova_torso--nova_torso"); // P04: grounded shadow set (torso + legs)
+  assert.ok(r0 && r1); assert.notEqual(r0[1], r1[1]); assert.equal(r0[3], 0.4, "floor material opacity"); assert.ok(scA.svg.includes('filter id="a-shadowf-nova_floor_nova_torso"')); assert.ok(!scA.frameState(150).state.failures.some((x) => x.code === "SHADOW_RELATION_MISSING"), "P04: grounded shadow set reaches the planted feet"); { const p9 = clone(plan); p9.shadows = p9.shadows.filter((s) => s.id === "nova_floor_nova_torso"); assert.ok(composeShot(doc.shots[0], reg, compile(p9), { prefix: "ns-" }).frameState(150).state.failures.some((x) => x.code === "SHADOW_RELATION_MISSING"), "P04: a torso-only shadow does not reach the feet and is refused"); }
   assert.ok(scA.frameState(150).execution.shadows[0].footprint_x[1] > scA.frameState(150).execution.shadows[0].footprint_x[0]);
 });
 test("F5 connected follow-through: hair and tail are baked springs driven by head / tail motion (non-zero lag after the driver moves)", () => {

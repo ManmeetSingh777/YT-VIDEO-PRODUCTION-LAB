@@ -15,7 +15,7 @@ import { missingArtJobs, completeMotionContext, routeMedium, assertMediumContrac
 import { stateIntervals } from "./asset_state.mjs";
 import { solveTransform, registerPart } from "./registration.mjs";
 import { readPNG } from "./png.mjs";
-import { writeReceipt, verifyApproval, attestHuman, bundleFor, bundleHash, testTrust } from "./approvals.mjs";
+import { writeReceipt, verifyApproval, attestHuman, bundleFor, bundleHash, testTrust, deformBundle } from "./approvals.mjs";
 import { cropToCanonical, geometryFields } from "./asset_geometry.mjs";
 import { verifyRegistrationReceipt } from "./registration_evidence.mjs";
 import { mul, inv } from "./math2d.mjs";
@@ -26,7 +26,8 @@ import { readCurrent, verifyGeneration } from "./outbox_store.mjs";
 import { prepareRequest, recordOutcome, sealResult, loadResult, selectCandidate, loadSelection, capabilityStatus } from "./candidate_store.mjs";
 import { dependencyDigest } from "./art_requests.mjs";
 import { channelEvents } from "./state_channels.mjs";
-import { compileMotionTracks } from "./temporal.mjs";
+import { compileMotionTracks, stateAtFrame } from "./temporal.mjs";
+import { rigPoseTimeline } from "./state_timeline.mjs";
 
 const MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json", PLAN = "handoff/ART_DEPENDENCY_PLAN.json";
 const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex"), hsha = (o) => crypto.createHash("sha256").update(JSON.stringify(o)).digest("hex");
@@ -218,31 +219,39 @@ function fitRig({ FILM, doc, plan, identity: I, measured, anchors, asset, receip
   return fit;
 }
 const motionPlansFor = (FILM) => { const H = path.join(FILM, "handoff"), out = []; for (const x of fs.readdirSync(H)) { const m = x.match(/^MOTION_PLAN(?:_(.+))?\.json$/); if (m) out.push({ shot: m[1] || null, file: x, plan: readJ(path.join(H, x)) }); } return out; };
+// P04 §4.1–4.2: feasibility is EXECUTED, never inferred. Every action of the identity (contact or not) is evaluated through the COMPLETE planned
+// pipeline (stateAtFrame: primary tracks, acting, phrases, contacts, channels, deformation, morphs, reactions, support, paint passes) on EVERY
+// frame; exceptions are recorded per frame, never skipped. Zero evaluations can never be FEASIBLE: no applicable action -> NOT_APPLICABLE,
+// applicable actions without a matching motion plan / no evaluated frame -> FEASIBILITY_NOT_EVALUATED (a failing status).
 function feasibilityFor(FILM, doc, identityId, motionPlan) {
-  const rigs = new Set(doc.rigs.filter((r) => r.identity_id === identityId).map((r) => r.id)), failures = [], checked = [];
-  // P03 repair C: EVERY action the identity performs (contact AND non-contact acting: poses, views, expressions, gaze, support, phrases)
+  const rigs = new Set(doc.rigs.filter((r) => r.identity_id === identityId).map((r) => r.id)), failures = [], checked = [], notEvaluated = [];
   const acts = doc.actions.filter((a) => a.actors.some((x) => rigs.has(x.rig_id)));
+  if (!rigs.size) return { status: "NOT_APPLICABLE", reason: "the identity has no rig", failures: [], checked: [], remedy: null };
+  if (!acts.length) return { status: "NOT_APPLICABLE", reason: "no action of the film uses this identity's rig (applicable actions 0; nothing to evaluate)", failures: [], checked: [], remedy: null };
+  for (const rid of rigs) { const rr = doc.rigs.find((r) => r.id === rid), tl = rigPoseTimeline(rr, doc.actions); for (const e of tl.errors) failures.push({ code: e.code, record_id: rr.id, shot: null, plan: null, frame_range: e.frame_range, reason: e.human_readable_reason });
+    const ids = new Set([...rr.pose_states, ...rr.view_states].map((q) => q.id)), hist = (tl.pose || []).slice().sort((x, y) => x.frame - y.frame); let cur = rr.pose_states[0]?.id ?? null;
+    for (const e of hist) { if (e.state !== cur && !rr.allowed_state_edges.some((g) => (g.from === cur && g.to === e.state) || (g.from === e.state && g.to === cur && g.reversible))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: e.source, shot: e.shot, frame_range: [e.frame, e.frame + 1], reason: `pose change ${cur} -> ${e.state} (film history) has no approved state edge in ${rr.id}` }); cur = e.state; }
+    for (const a of acts) if (a.actors.some((x) => x.rig_id === rid)) {
+      for (const e of a.pose_events || []) if (!ids.has(e.state_id) && !doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === e.state_id))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: a.shot_id, frame_range: [e.frame, e.frame + 1], reason: `state ${e.state_id} is not in rig ${rr.id}` });
+      for (const v of a.view_events || []) { if (!ids.has(v.to_state) && !doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === v.to_state))) failures.push({ code: "UNSUPPORTED_VIEW", record_id: a.id, shot: a.shot_id, frame_range: [v.frame, v.frame + 1], reason: `view state ${v.to_state} is not in rig ${rr.id}` }); else if (!rr.allowed_state_edges.some((g) => g.from === v.from_state && g.to === v.to_state)) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: a.shot_id, frame_range: [v.frame, v.frame + 1], reason: `no allowed edge ${v.from_state} -> ${v.to_state}` }); } }
+    for (const ce of channelEvents(rr, doc.actions).errors) failures.push({ code: ce.code, record_id: rr.id, shot: null, frame_range: ce.frame_range, reason: ce.human_readable_reason || ce.message }); }
+  const rigRev = crypto.createHash("sha256").update(JSON.stringify(doc.rigs.filter((r) => rigs.has(r.id)))).digest("hex");
   for (const sh of doc.shots.filter((s) => acts.some((a) => a.shot_id === s.id))) {
-    const plans = motionPlan ? [{ shot: sh.id, file: "(supplied restaging plan)", plan: motionPlan }] : motionPlansFor(FILM).filter((p) => !p.shot || p.shot === sh.id);
+    const plans = motionPlan ? [{ shot: sh.id, file: "(supplied restaging plan)", plan: motionPlan }] : motionPlansFor(FILM).filter((p) => !p.shot || p.shot === sh.id), ids = acts.filter((x) => x.shot_id === sh.id).map((x) => x.id);
+    if (!plans.length) { notEvaluated.push({ shot: sh.id, actions: ids, reason: "no motion plan matches this shot: nothing was executed" }); continue; }
     for (const mp of plans) {
-      const shotActs = doc.actions.filter((a) => a.shot_id === sh.id); let C;
-      try { C = compileMotionTracks(shotActs, doc.shots, { doc, plan: mp.plan, requireApproval: false }); } catch (e) { failures.push({ code: "MOTION_COMPILE_FAILED", shot: sh.id, plan: mp.file, reason: String(e.message).slice(0, 300) }); continue; }
-      // directive M10 / F053: EVERY frame of every action the identity performs (not contact snapshots) — the approach and release frames,
-      // view/expression changes and the whole movement phrase are re-solved on the fitted rig; state/view events must be legal edges
-      const frames = new Set(); for (const a of acts.filter((x) => x.shot_id === sh.id)) for (let f = Math.max(a.frame_range[0], sh.start_frame); f < Math.min(a.frame_range[1], sh.end_frame); f++) frames.add(f);
-      for (const a of acts.filter((x) => x.shot_id === sh.id)) for (const x of a.actors.filter((y) => rigs.has(y.rig_id))) { const rr = doc.rigs.find((r) => r.id === x.rig_id), ids = new Set([...rr.pose_states, ...rr.view_states].map((q) => q.id));
-        for (const e of [...a.pose_events.map((q) => ({ frame: q.frame, to: q.state_id })), ...a.view_events.map((v) => ({ frame: v.frame, to: v.to_state, from: v.from_state, view: true }))]) {
-          if (!ids.has(e.to)) { if (!doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === e.to))) failures.push({ code: e.view ? "UNSUPPORTED_VIEW" : "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `state ${e.to} is not in rig ${rr.id}` }); continue; }
-          if (e.view && !rr.allowed_state_edges.some((g) => g.from === e.from && g.to === e.to)) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `no allowed edge ${e.from}→${e.to}` }); }
-        // a POSE change is a state edge too: it must travel an approved edge of this rig (same rule state_router applies to views)
-        let cur = rr.pose_states[0]?.id ?? null; for (const e of [...a.pose_events].filter((q) => ids.has(q.state_id)).sort((p, q) => p.frame - q.frame)) { if (e.state_id !== cur && !rr.allowed_state_edges.some((g) => (g.from === cur && g.to === e.state_id) || (g.from === e.state_id && g.to === cur && g.reversible))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: sh.id, frame_range: [e.frame, e.frame + 1], reason: `pose change ${cur}→${e.state_id} has no approved state edge in ${rr.id}` }); cur = e.state_id; }
-        // explicit channel events (expression / eyes / mouth / hand / clothing ...) must name approved channel states
-        for (const ce of channelEvents(rr, [a]).errors) failures.push({ code: ce.code, record_id: a.id, shot: sh.id, frame_range: ce.frame_range, reason: ce.human_readable_reason || ce.message }); }
-      const bad = {}; for (const f of frames) { const r = C.solveConstraints(f, C.evalPrimary(f, sh), C.contactsAt(f)); for (const e of r.failures) { const k = `${e.code}|${e.record_id}`; (bad[k] ||= { code: e.code, record_id: e.record_id, shot: sh.id, plan: mp.file, frames: [], reason: e.human_readable_reason || e.message }).frames.push(f); } }
+      let C; try { C = compileMotionTracks(doc.actions, doc.shots, { doc, plan: mp.plan, requireApproval: false }); } catch (e) { failures.push({ code: "MOTION_COMPILE_FAILED", shot: sh.id, plan: mp.file, reason: String(e.message).slice(0, 300), errors: (e.errors || []).slice(0, 8).map((x) => `${x.code} ${x.record_id}`) }); continue; }
+      const wanted = new Set(); for (const a of acts.filter((x) => x.shot_id === sh.id)) for (let f = Math.max(a.frame_range[0], sh.start_frame); f < Math.min(a.frame_range[1], sh.end_frame); f++) wanted.add(f);
+      const bad = {}; let ev = 0; const contactsChecked = new Set();
+      for (const f of [...wanted].sort((x, y) => x - y)) { let st; try { st = stateAtFrame(C, f); } catch (e) { const code = e.code || "EXCEPTION"; (bad[`FRAME_EVALUATION_FAILED|${code}`] ||= { code: "FRAME_EVALUATION_FAILED", record_id: code, shot: sh.id, plan: mp.file, frames: [], reason: `${code}: ${e.human_readable_reason || e.message}`.slice(0, 300) }).frames.push(f); continue; }
+        ev++; for (const c of st.contacts) contactsChecked.add(`${c.action}:${c.socket}`); for (const e of st.failures) { const k = `${e.code}|${e.record_id}`; (bad[k] ||= { code: e.code, record_id: e.record_id, shot: sh.id, plan: mp.file, frames: [], reason: e.human_readable_reason || e.message }).frames.push(f); } }
       for (const b of Object.values(bad)) { const { frames: fr, ...rest } = b; failures.push({ ...rest, frame_range: [Math.min(...fr), Math.max(...fr) + 1], frame_count: fr.length }); }
-      checked.push({ shot: sh.id, plan: mp.file, actions: acts.filter((x) => x.shot_id === sh.id).map((x) => x.id), contact_frames: frames.size, frames_checked: frames.size });
+      if (ev !== wanted.size) failures.push({ code: "FRAME_EVALUATION_FAILED", record_id: null, shot: sh.id, plan: mp.file, reason: `${wanted.size - ev} of ${wanted.size} required frames could not be evaluated` });
+      checked.push({ shot: sh.id, plan: mp.file, plan_sha256: mp.plan ? crypto.createHash("sha256").update(JSON.stringify(mp.plan)).digest("hex") : null, rig_revision_sha256: rigRev, actions: ids, frames_expected: wanted.size, frames_evaluated: ev, contacts_checked: [...contactsChecked], contact_frames: wanted.size, frames_checked: ev });
     }
   }
+  const evaluated = checked.reduce((n, c) => n + c.frames_evaluated, 0), expected = checked.reduce((n, c) => n + c.frames_expected, 0);
+  if (notEvaluated.length || !checked.length || !expected || evaluated === 0) return { status: "FEASIBILITY_NOT_EVALUATED", failures: [...failures, ...notEvaluated.map((n) => ({ code: "FEASIBILITY_NOT_EVALUATED", record_id: identityId, shot: n.shot, reason: `${n.reason} (actions ${n.actions})` }))], checked, not_evaluated: notEvaluated, remedy: "supply the motion plan(s) that own these actions; feasibility is a demonstrated result, never an absence of failures" };
   return { status: failures.length ? "INFEASIBLE_REQUIRES_RESTAGING_OR_NEW_POSE_ART" : "FEASIBLE", failures, checked, remedy: failures.length ? "approved restaging of the action (placement/timing/targets) or new pose art; never distort the approved proportions" : null };
 }
 /** checkRigFeasibility({film, identity, motionPlan?}) — re-solve every contact frame of the identity's actions on the CURRENT (fitted) rig */
@@ -363,6 +372,12 @@ export async function approveState({ film, rig, state, reviewer, verdict, notes 
   const r = writeReceipt(FILM, doc, { scope: "state", id: `${rig}::${state}`, reviewer, verdict, notes, scope_note, revision: revision(), attestation: att }); s.approved_review_id = pointer(verdict, r); saveDoc(FILM, doc);
   log(FILM, { op: "approve-state", rig, state, verdict, reviewer, reviewer_kind: r.reviewer_kind }); return { verdict, reviewer_kind: r.reviewer_kind, receipt: r.receipt_id };
 }
+/** P04 §5.5: approve a deformation map (hash-scoped over geometry + targets + the exact approved asset bytes). Returns the receipt id the plan must carry. */
+export async function approveDeform({ film, id, map, reviewer, verdict, notes = "", scope_note = "", attestation = null, human = false }) {
+  const FILM = path.resolve(film), doc = loadDoc(FILM), bundle = deformBundle(doc, id, map); if (!bundle.asset_sha256) throw new Error(`deform ${id} names asset ${map.asset}, which is not registered`);
+  const att = attestation || (human ? await attestHuman({ reviewer, bundle_sha256: bundleHash(bundle) }) : null), r = writeReceipt(FILM, doc, { scope: "deform", id, reviewer, verdict, notes, scope_note, attestation: att, bundle });
+  log(FILM, { op: "approve-deform", id, asset: map.asset, verdict, reviewer, reviewer_kind: r.reviewer_kind }); return { verdict, reviewer_kind: r.reviewer_kind, receipt: r.receipt_id };
+}
 export async function approveStateEdge({ film, rig, from, to, reviewer, verdict, notes = "", scope_note = "", evidence = [], human = false, attestation = null }) {
   const FILM = path.resolve(film), doc = loadDoc(FILM), R = doc.rigs.find((x) => x.id === rig), e = R?.allowed_state_edges.find((x) => x.from === from && x.to === to); if (!e) throw new Error(`unknown edge ${rig} ${from}->${to}`);
   for (const sid of [from, to]) { const s = [...R.pose_states, ...R.view_states].find((x) => x.id === sid); const v = verifyApproval(doc, FILM, "state", `${rig}::${sid}`, s.approved_review_id); if (!v.ok) throw new Error(`refused: state ${sid} not approved (${v.status})`); }
@@ -380,7 +395,7 @@ export async function resumeDependentJobs({ film }) {
     const ma = masterApproved(doc, FILM, p.derived_from), a = doc.assets.find((x) => x.id === p.asset_id), va = a ? verifyApproval(doc, FILM, "asset", a.id, a.approved_review_id) : null;
     // contract THEN: a fitted rig must make the planned action feasible before any dependent is manufactured (re-solved live, never cached across calls)
     const fitF = path.join(FILM, "registration", p.derived_from, "RIG_FIT_RECEIPT.json"), fitFeas = fs.existsSync(fitF) ? (feasCache[p.derived_from] ||= feasibilityFor(FILM, doc, readJ(fitF).identity, null)) : null;
-    if (fitFeas && fitFeas.status !== "FEASIBLE") { out.push({ asset: p.asset_id, role: "DERIVED", derived_from: p.derived_from, status: "BLOCKED_RIG_FIT_INFEASIBLE", reason: fitFeas.remedy, failures: fitFeas.failures.map((x) => `${x.code} ${x.record_id} [${x.frame_range}]`), edit_reference: null }); continue; }
+    if (fitFeas && !["FEASIBLE", "NOT_APPLICABLE"].includes(fitFeas.status)) { out.push({ asset: p.asset_id, role: "DERIVED", derived_from: p.derived_from, status: fitFeas.status === "FEASIBILITY_NOT_EVALUATED" ? "BLOCKED_FEASIBILITY_NOT_EVALUATED" : "BLOCKED_RIG_FIT_INFEASIBLE", reason: fitFeas.remedy, failures: fitFeas.failures.map((x) => `${x.code} ${x.record_id} [${x.frame_range}]`), edit_reference: null }); continue; }
     const status = !ma.ok ? (a ? "INVALIDATED_MASTER_NOT_APPROVED" : "WAITING_ON_MASTER_APPROVAL") : !a ? "READY_FOR_SOURCE_ATTACHED_EDIT" : va.ok ? "APPROVED" : va.status === "STALE_RECEIPT" ? "STALE_REMANUFACTURE_OR_REREVIEW" : "REGISTERED_PENDING_REVIEW";
     out.push({ asset: p.asset_id, role: "DERIVED", derived_from: p.derived_from, status, edit_reference: ma.ok ? { file: ma.master.file, sha256: ma.master.sha256, approval_receipt: ma.master.approved_review_id } : null });
   }

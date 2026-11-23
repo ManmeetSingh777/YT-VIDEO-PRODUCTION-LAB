@@ -4,18 +4,19 @@
 // errors that art_requests.missingArtJobs turns into exact ArtJobs.
 import { err } from "./errors.mjs";
 import { channelEvents, channelStatesAt, resolveBindings } from "./state_channels.mjs";
+import { rigPoseTimeline, poseAt } from "./state_timeline.mjs"; // P04 §3.1: ONE persistent history per rig (no per-action resets)
 
 export function assetStateCoverage(doc) {
   const assets = new Map(doc.assets.map((a) => [a.id, a])), rigs = new Map(doc.rigs.map((r) => [r.id, r])), cells = [], errors = [];
   for (const a of doc.actions) for (const actor of a.actors) {
     const r = rigs.get(actor.rig_id); if (!r) continue;
     const states = new Map([...r.pose_states, ...r.view_states].map((s) => [s.id, s]));
-    const chEv = channelEvents(r, [a]).events; // explicit channel events of THIS action for THIS rig (P03 B)
+    const chEv = channelEvents(r, doc.actions).events, ptl = rigPoseTimeline(r, doc.actions); // the rig's WHOLE-FILM channel and pose/view history (persistent)
     const cuts = [...new Set([a.frame_range[0], ...a.pose_events.map((e) => e.frame), ...a.view_events.map((e) => e.frame), ...a.contact_events.flatMap((c) => [c.start_frame, c.end_frame]), ...chEv.map((e) => e.frame), a.frame_range[1]])].filter((f) => f >= a.frame_range[0] && f <= a.frame_range[1]).sort((p, q) => p - q);
     for (let i = 0; i + 1 < cuts.length; i++) {
       const f = cuts[i], g = cuts[i + 1]; if (f === g) continue;
       const own = (sid) => states.has(sid); // an action can carry several actors' events: only this rig's states apply to this rig
-      let pose = r.pose_states[0]?.id ?? null, view = null; for (const e of a.pose_events) if (e.frame <= f && own(e.state_id)) pose = e.state_id; for (const e of a.view_events) if (e.frame <= f && own(e.to_state)) view = e.to_state;
+      const { pose, view } = poseAt(r, ptl, f); // persists from earlier actions; resets only on an explicit contract reset
       const ps = states.get(pose), vs = view ? states.get(view) : null, facing = vs?.view_facing || ps?.view_facing || "front";
       const rb = resolveBindings(r, pose, view, channelStatesAt(r, chEv, f)), bind = rb.bindings, contacts = a.contact_events.filter((c) => c.start_frame <= f && f < c.end_frame);
       const cell = { shot: a.shot_id, action: a.id, actor: r.id, interval: [f, g], view: facing, pose, expression: rb.expression, eyes: rb.eyes, mouth: rb.mouth, channels: rb.channels, light: [], near_far: [], camera_footprint: doc.shots.find((s) => s.id === a.shot_id)?.camera_track_id ? "VALIDATED_BY_SCENE_GRAPH" : "STATIC", parts: {}, missing: [] };
@@ -48,11 +49,11 @@ export function stateIntervals(doc) {
   for (const a of doc.actions) for (const actor of a.actors) {
     const r = rigs.get(actor.rig_id); if (!r) continue;
     const states = new Map([...r.pose_states, ...r.view_states].map((s) => [s.id, s])), own = (sid) => states.has(sid);
-    const chEv = channelEvents(r, [a]).events;
+    const chEv = channelEvents(r, doc.actions).events, ptl = rigPoseTimeline(r, doc.actions);
     const cuts = [...new Set([a.frame_range[0], ...a.pose_events.filter((e) => own(e.state_id)).map((e) => e.frame), ...a.view_events.filter((e) => own(e.to_state)).map((e) => e.frame), ...chEv.map((e) => e.frame), a.frame_range[1]])].filter((f) => f >= a.frame_range[0] && f <= a.frame_range[1]).sort((p, q) => p - q);
     for (let i = 0; i + 1 < cuts.length; i++) {
       const f = cuts[i], g = cuts[i + 1]; if (f === g) continue;
-      let pose = r.pose_states[0]?.id ?? null, view = null; for (const e of a.pose_events) if (e.frame <= f && own(e.state_id)) pose = e.state_id; for (const e of a.view_events) if (e.frame <= f && own(e.to_state)) view = e.to_state;
+      const { pose, view } = poseAt(r, ptl, f); // persists from earlier actions; resets only on an explicit contract reset
       const ps = states.get(pose), vs = view ? states.get(view) : null, rb = resolveBindings(r, pose, view, channelStatesAt(r, chEv, f)), bind = rb.bindings;
       const bindings = Object.fromEntries(r.render_parts.map((p) => [p.asset_id, bind[p.asset_id] ?? p.asset_id]));
       const contacts = a.contact_events.filter((c) => c.start_frame < g && f < c.end_frame).map((c) => ({ ...c, source_rig: r.sockets.some((s) => s.id === c.source_socket) ? r.id : null, target_rig: r.sockets.some((s) => s.id === c.target_socket) ? r.id : null }));

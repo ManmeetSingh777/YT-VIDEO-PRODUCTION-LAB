@@ -20,9 +20,9 @@ export function directedPlan(doc, { only = null } = {}) {
     reaches: { "nova_pull_lever:nova_grip": { approach: [30, 70], release: [200, 232], orient: "RELATIVE" } },
     reactions: [{ id: "lever_follow", type: "HINGE_FOLLOW", rig: "lever_rig", joint: "arm", handle_socket: "lever_handle", driver: { rig: "nova_rig", joint: "shoulder_r" }, frames: [70, 200], hold_after: true, allowed_error_px: 1 }],
     support: { nova_rig: { feet: ["nova_sole_l", "nova_sole_r"], mass: { pelvis: 3, chest: 3, head: 1.5 }, margin_px: 8, grip_support: ["nova_grip"] } },
-    grips: { "nova_pull_lever:nova_grip": { palm_basis_deg: 194, handle_basis_deg: 0, closure_state: "grip", near_far: "HAND_IN_FRONT", tol_deg: 30 } },
+    grips: { "nova_pull_lever:nova_grip": { hand_channel: "hand_r", palm_basis_deg: 194, handle_basis_deg: 0, closure_state: "grip", near_far: "HAND_IN_FRONT", tol_deg: 30, prop_relation: "REACTION" } },
     paint_order: [{ above: "nova_hand_open", below: "lever_arm" }, { above: "nova_forearm", below: "lever_arm" }],
-    shadows: [{ id: "nova_floor", occluder: { rig: "nova_rig", slot: "nova_torso" }, receiver: { id: "floor", plane_y: floorY, material: "floor", foreshorten: 0.22 }, light: { direction: [0.7, 1], state: "key_left" } }],
+    shadows: ["nova_torso", "nova_thigh_l", "nova_shin_l", "nova_thigh_r", "nova_shin_r"].map((slot) => ({ id: `nova_floor_${slot}`, ground_contact: true, occluder: { rig: "nova_rig", slot }, receiver: { id: "floor", plane_y: floorY, material: "floor", foreshorten: 0.22 }, light: { direction: [0.7, 1], state: "key_left" } })),
     morphs: { nova_pull_lever: { rig: "nova_rig", slot: "nova_brow_neutral", from: "nova_brow_neutral", to: "nova_brow_raised", weight: [[0, 0], [60, 0], [90, 1, "sine.inOut"], [200, 1], [230, 0, "sine.inOut"]] } },
     deform_maps: { lumen_watch: { rig: "lumen_rig", slot: "lumen_body", asset: "lumen_body", approved_receipt: "DIAGNOSTIC_MESH_TEST_TRUST", vertices: V, triangles: Tri, targets, weight: [[240, 0], [300, 1, "sine.inOut"], [360, 0, "sine.inOut"], [420, 1, "sine.inOut"], [479, 0, "sine.inOut"]] } },
     cameras: { cam_a: { x: [[0, 640]], y: [[0, 430]] }, cam_b: { x: [[240, 560]], y: [[240, 520]], zoom: [[240, 1.6]] } } };

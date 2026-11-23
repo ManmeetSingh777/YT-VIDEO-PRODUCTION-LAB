@@ -105,6 +105,11 @@ export function verifyAllApprovals(doc, root, opts = {}) {
   const results = [], v = (scope, id, ptr) => results.push({ scope, record_id: id, ...verifyApproval(doc, root, scope, id, ptr, opts) });
   for (const i of doc.identities) v("identity", i.id, i.approved_review_id);
   for (const a of doc.assets) v("asset", a.id, a.approved_review_id);
-  for (const r of doc.rigs) { for (const s of [...r.pose_states, ...r.view_states]) v("state", `${r.id}::${s.id}`, s.approved_review_id); for (const e of r.allowed_state_edges) v("edge", `${r.id}::${e.from}::${e.to}`, e.approved_assembly_review_id); }
+  // P04 §6.1: independent channel states (expression/eyes/mouth/hand/clothing/lighting/occlusion) carry authority too — every reachable state is enumerated
+  for (const r of doc.rigs) { for (const s of [...r.pose_states, ...r.view_states]) v("state", `${r.id}::${s.id}`, s.approved_review_id); for (const c of r.state_channels || []) for (const s of c.states) v("state", `${r.id}::${c.id}.${s.id}`, s.approved_review_id); for (const e of r.allowed_state_edges) v("edge", `${r.id}::${e.from}::${e.to}`, e.approved_assembly_review_id); }
   return { results, failures: results.filter((r) => !r.ok && r.status !== "UNREVIEWED"), unreviewed: results.filter((r) => r.status === "UNREVIEWED"), verified: results.filter((r) => r.ok) };
 }
+
+/** P04 §5.5: hash-scoped approval of a deformation map — geometry, targets, seam and the EXACT approved pixels it moves. Changing any of these stales it. */
+export const deformBundle = (doc, id, m) => ({ scope: "deform", id, rig: m.rig ?? null, slot: m.slot ?? null, asset: m.asset, asset_sha256: doc.assets.find((a) => a.id === m.asset)?.sha256 ?? null, vertices: m.vertices, triangles: m.triangles, targets: m.targets, seam_px: m.seam_px ?? null, approved_target_note: m.target_note ?? null });
+export const verifyDeformApproval = (doc, root, id, m, opts = {}) => verifyApproval(doc, root, "deform", id, m.approved_receipt, { ...opts, bundle: deformBundle(doc, id, m) });

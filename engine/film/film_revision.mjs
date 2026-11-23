@@ -16,8 +16,10 @@ export function codeClosure() {
     ...["SKILL.md"].map((f) => path.join(REPO, "reference", "construct-kurzgesagt-art", f)).filter((f) => fs.existsSync(f)), ...walk(path.join(REPO, "reference", "construct-kurzgesagt-art", "scripts"), (p) => p.endsWith(".py")), ...walk(path.join(REPO, "reference", "construct-kurzgesagt-art", "references"), () => true)];
   return files.map((f) => [relR(f), fsha(f)]);
 }
-let codeCache = null; // per-process memo keyed by mtimes (the closure is re-hashed whenever any file changes)
-function cachedCode() { const stamp = sha(walk(path.join(REPO, "engine"), () => true, (p) => /node_modules/.test(p)).map((f) => [f, fs.statSync(f).mtimeMs, fs.statSync(f).size]).concat(walk(path.join(REPO, "reference", "construct-kurzgesagt-art"), () => true).map((f) => [f, fs.statSync(f).mtimeMs]))); if (!codeCache || codeCache.stamp !== stamp) codeCache = { stamp, files: codeClosure() }; return codeCache.files; }
+// P04 §7.8: the code closure is CONTENT-hashed on every call — a file rewritten with the same size and mtime must change the digest. The walk is
+// memoised only within one synchronous call chain (a per-call cache keyed by a content digest, never by filesystem timestamps).
+let codeCache = null;
+function cachedCode() { return codeClosure(); }
 /** DOWNSTREAM review scopes review a revision (their bundle binds the revision digest); hashing them INTO the revision would make every such
  *  review stale itself (cycle). Upstream approvals (story, direction, design, identity, asset, state, edge, ...) are inputs and are hashed. */
 export const DOWNSTREAM_REVIEW_SCOPES = ["shot_review", "unlike_transfer", "film"];

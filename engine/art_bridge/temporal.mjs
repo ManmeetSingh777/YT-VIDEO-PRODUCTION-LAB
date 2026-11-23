@@ -16,6 +16,7 @@ import { I, mul, chain, T, S as Sc, R, apply, applyVec, angleOf, scaleOf, dist, 
 import { solveTwoBonePosition } from "./constraints.mjs";
 import { validateStateEdge } from "./state_router.mjs";
 import { validateChannels, channelEvents, channelStatesAt, resolveBindings } from "./state_channels.mjs";
+import { rigPoseTimeline, poseAt } from "./state_timeline.mjs";
 import { layerPhrases, compileActing } from "./acting.mjs";
 import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHinge, comX } from "./execution.mjs";
 import { balance } from "./contact_solver.mjs";
@@ -104,7 +105,9 @@ export function compileMotionTracks(actions, shots, ctx) {
   for (const a of actions) for (const ve of a.view_events) { const owner = a.actors.map((x) => rigs.get(x.rig_id)).find((R_) => R_ && [...R_.rec.pose_states, ...R_.rec.view_states].some((s) => s.id === ve.to_state)); if (!owner) continue;
     safe(() => validateStateEdge(ve.from_state, ve.to_state, owner.rec, assets, doc.identities.find((i) => i.id === owner.rec.identity_id), { requireApproval: ctx.requireApproval ?? true })); }
   // explicit art-state channels (P03 B): validated ownership + every state event (directed or compiled acting) resolved to an approved state
-  const chanEvents = new Map(); for (const [rid, R_] of rigs) { for (const e of validateChannels(R_.rec, { assets })) errors.push(e); const ce = channelEvents(R_.rec, actions, plan.__acting_events || []); errors.push(...ce.errors); chanEvents.set(rid, ce.events); }
+  const chanEvents = new Map(); for (const [rid, R_] of rigs) { for (const e of validateChannels(R_.rec, { assets })) errors.push(e); const ce = channelEvents(R_.rec, doc.actions, plan.__acting_events || []); errors.push(...ce.errors); chanEvents.set(rid, ce.events); }
+  // P04 §3.1: one whole-film pose/view history per rig (persistent across actions and shots; STATE_CONFLICT refuses order-dependent contradictions)
+  const poseTl = new Map(); for (const [rid, R_] of rigs) { const tl = rigPoseTimeline(R_.rec, doc.actions); errors.push(...tl.errors); poseTl.set(rid, tl); }
   // contacts → constraint jobs
   const contacts = [];
   for (const a of actions) for (const c of a.contact_events) {
@@ -125,7 +128,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   const shotAt = new Int32Array(total).fill(-1); shots.forEach((s, i) => { for (let f = Math.max(0, s.start_frame); f < Math.min(total, s.end_frame); f++) if (shotAt[f] < 0) shotAt[f] = i; });
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
@@ -250,12 +253,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   C.resolveApprovedArtStates = (f, constrained) => {
     const shot = C.shotAt(f), out = {};
     for (const rid of Object.keys(constrained.state)) {
-      const R_ = rigs.get(rid), all = [...R_.rec.pose_states, ...R_.rec.view_states];
-      let pose = R_.rec.pose_states[0]?.id ?? null, view = null;
-      for (const a of actions) if (a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid) && a.frame_range[0] <= f) {
-        for (const e of a.pose_events) if (e.frame <= f && all.some((s) => s.id === e.state_id)) pose = e.state_id;
-        for (const e of a.view_events) if (e.frame <= f) view = e.to_state;
-      }
+      const R_ = rigs.get(rid), { pose, view } = poseAt(R_.rec, poseTl.get(rid), f); // the rig's single persistent history (P04 §3.1)
       // expression / eyes / mouth / hand / clothing / lighting / occlusion come from their OWN channels (never from the pose id)
       const r = resolveBindings(R_.rec, pose, view, channelStatesAt(R_.rec, chanEvents.get(rid) || [], f, shot?.id));
       out[rid] = { pose, view, expression: r.expression, eyes: r.eyes, mouth: r.mouth, channels: r.channels, bindings: r.bindings, hidden: new Set() };

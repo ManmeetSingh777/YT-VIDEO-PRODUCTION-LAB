@@ -1,0 +1,143 @@
+{
+ "repo": "C:\\YT_PUBLISH\\baseline_900a6b1",
+ "head": "900a6b14e2dfeeb2d59ec87a0e84e71ce45e1835",
+ "probes": {
+  "C1": {
+   "title": "CONTACT_END passes on any CONTACT event (the contact never ends)",
+   "reproduced": true,
+   "observed": {
+    "sub": "RELEASE",
+    "need": "CONTACT_END",
+    "status": "COVERED",
+    "events": [
+     {
+      "kind": "CONTACT",
+      "frames": [
+       10,
+       100
+      ],
+      "source": "hand",
+      "target": "handle"
+     }
+    ]
+   }
+  },
+  "C2": {
+   "title": "TARGET_STATE_CHANGE passes on an unrelated STATE event of another object",
+   "reproduced": true,
+   "observed": {
+    "sub": "MOVE/TRANSFORM",
+    "need": "TARGET_STATE_CHANGE",
+    "status": "COVERED",
+    "events": [
+     {
+      "kind": "STATE",
+      "frames": [
+       50,
+       51
+      ]
+     }
+    ]
+   }
+  },
+  "C3": {
+   "title": "an unrecognised semantic verb class is tolerated (must be refused, never ignored)",
+   "reproduced": false,
+   "observed": [
+    "UNCOMPILED_SEMANTIC_ACTION: verb class JUGGLE not in the action ontology (register it with an executable consumer)"
+   ]
+  },
+  "D1": {
+   "title": "compileAttention accepts a decision whose consumer track never performs the directed effect",
+   "reproduced": true,
+   "observed": []
+  },
+  "S1": {
+   "title": "state history resets to defaults at each action boundary (grip persistence lost between consecutive actions)",
+   "reproduced": true,
+   "observed": {
+    "pose_at_start_of_second": "open",
+    "expected": "grip"
+   }
+  },
+  "S2": {
+   "title": "equal-frame channel events resolve by array order, not priority (director event vs compiled acting)",
+   "reproduced": true,
+   "observed": {
+    "forward": "open",
+    "reversed": "open"
+   }
+  },
+  "A1": {
+   "title": "zero-period acting hangs the compiler or is accepted",
+   "reproduced": true,
+   "observed": {
+    "timed_out": true,
+    "stdout": "",
+    "stderr": ""
+   }
+  },
+  "G1": {
+   "title": "a locked GRIP without a grip contract renders unchecked",
+   "reproduced": true,
+   "observed": []
+  },
+  "G2": {
+   "title": "grip closure is read from the body pose instead of the HAND channel (body says grip, hand is open)",
+   "reproduced": true,
+   "observed": {
+    "action": "nova_pull_lever",
+    "socket": "nova_grip",
+    "checked": true,
+    "ok": true,
+    "palm_deg": 177.6440636292895,
+    "handle_deg": -2.4047429984793336,
+    "hand_layer": 21,
+    "prop_layer": 18,
+    "closure": "grip"
+   }
+  },
+  "M1": {
+   "title": "duplicate mesh triangles whose summed area equals the drawing pass the coverage check",
+   "reproduced": true,
+   "observed": []
+  },
+  "V1": {
+   "title": "verifyAllApprovals does not enumerate channel states",
+   "reproduced": true,
+   "observed": [
+    "state:nova_rig::open",
+    "state:nova_rig::grip",
+    "edge:nova_rig::open::grip"
+   ]
+  },
+  "F1": {
+   "title": "feasibility returns FEASIBLE with zero matching motion plans (nothing was executed)",
+   "reproduced": true,
+   "observed": {
+    "status": "FEASIBLE",
+    "checked": []
+   }
+  },
+  "R1": {
+   "title": "preflight executes side-effecting stage tasks (the film tree changes)",
+   "reproduced": true,
+   "observed": [
+    "render\\audio\\FILM_MIX.wav.premix.wav"
+   ]
+  },
+  "R2": {
+   "title": "film revision reuses a cached code digest when size+mtime are unchanged",
+   "reproduced": true,
+   "observed": {
+    "digest_unchanged": true,
+    "size_unchanged": true
+   }
+  },
+  "R3": {
+   "title": "S03 capability scan swallows frame-evaluation exceptions",
+   "reproduced": true,
+   "observed": "source pattern of scan()"
+  }
+ }
+}
