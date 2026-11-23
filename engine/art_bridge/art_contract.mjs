@@ -271,7 +271,7 @@ export function gateForJob({ film, doc = null, job, masterJob = null }) {
 }
 
 /* story / direction approvals — bound to the CONTENT of the story and direction files; never inferred from doc.status, filenames, env or flags */
-const FILES = { story: ["direction/EXPERIENCE_DIRECTOR_PROPOSAL.md", "story/STORY_CONTRACT.json"], direction: ["direction/SHOT_SCORE_60FPS.json", "story/ACTION_COVERAGE.json", "story/EXPERIENCE_CONTRACT.json", "handoff/ART_AND_MOTION_MANIFEST_V2.json#actions,shots,transitions"] };
+const FILES = { story: ["direction/EXPERIENCE_DIRECTOR_PROPOSAL.md", "story/STORY_CONTRACT.json"], direction: ["direction/SHOT_SCORE_60FPS.json", "story/ACTION_COVERAGE.json", "story/EXPERIENCE_CONTRACT.json", "direction/DIRECTION_DECISIONS.json", "story/SEMANTIC_ACTIONS.json", "story/ACTION_PHRASES.json", "handoff/ART_AND_MOTION_MANIFEST_V2.json#actions,shots,transitions"] };
 export function scopeBundle(FILM, scope) {
   const files = {};
   for (const spec of FILES[scope]) { const [rel, keys] = spec.split("#"), fp = path.join(FILM, rel); if (!fs.existsSync(fp)) { files[rel] = null; continue; }

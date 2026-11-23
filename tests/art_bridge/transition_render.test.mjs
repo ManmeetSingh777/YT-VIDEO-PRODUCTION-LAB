@@ -52,7 +52,7 @@ test("M15 a missing state is a typed MISSING_ART_ASSET demand with frames — ne
     actions: [{ id: "a", shot_id: "s", mode: "ARTICULATED", frame_range: [0, 100], actors: [{ rig_id: "rx" }], pose_events: [{ frame: 0, state_id: "open" }, { frame: 40, state_id: "grip" }], view_events: [], contact_events: [{ start_frame: 40, end_frame: 80, source_socket: "grip_r", target_socket: "cup", contact_type: "GRIP" }] }], shots: [{ id: "s", start_frame: 0, end_frame: 100 }], transitions: [], worlds: [] };
   const r = deriveArtDemands({ doc, plan: { assets: [{ asset_id: "x_hand" }] } });
   const grip = r.missing.find((m) => m.record_id === "x_hand_grip"); assert.ok(grip, JSON.stringify(r.missing)); assert.deepEqual(grip.frame_ranges, [[40, 100]]);
-  assert.ok(r.missing.some((m) => /GRIP_hand_state/.test(m.record_id) && m.frame_ranges[0][0] === 40));
+  assert.ok(r.missing.some((m) => /HAND_channel/.test(m.record_id) && m.frame_ranges[0][0] === 40), "P04 §3.2: the closure demand comes from a missing HAND channel, never from a body pose");
 });
 
 test("M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge", async () => {

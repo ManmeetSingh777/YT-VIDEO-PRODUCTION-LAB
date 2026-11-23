@@ -36,9 +36,9 @@ test("P02-RP1 attention owners include cameras/worlds/effects: reproduce, negati
 test("P02-RP2 pose/state owner resolved from the manifest, never from a scene name: reproduce, negative, unlike transfer", () => {
   const shot = (pose, rig) => ({ events: [{ pose, frame: 10, ...(rig ? { rig } : {}) }] });
   // reproduce: the old adapter typed any "door_*" pose as STATE of a literal washer_rig, even in a film without such a rig
-  assert.deepEqual(eventsFromShotScore(shot("door_open"), actor)[0], { kind: "POSE", frame: 10, state: "door_open", rig: null }, "no rig declares door_open here");
+  assert.deepEqual((({ from_state, ...x }) => x)(eventsFromShotScore(shot("door_open"), actor)[0]), { kind: "POSE", frame: 10, state: "door_open", rig: null }, "no rig declares door_open here"); // P04 §2.3: events carry from_state (the previous state, null when unknown)
   const ev = eventsFromShotScore(shot("lid_down"), machine)[0]; assert.equal(ev.kind, "STATE"); assert.equal(ev.rig, "press_rig", "a MACHINE rig's state → object STATE");
-  assert.deepEqual(eventsFromShotScore(shot("wave"), machine)[0], { kind: "POSE", frame: 10, state: "wave", rig: "hero_rig" }, "a CHARACTER pose stays a POSE (unlike family)");
+  assert.deepEqual((({ from_state, ...x }) => x)(eventsFromShotScore(shot("wave"), machine)[0]), { kind: "POSE", frame: 10, state: "wave", rig: "hero_rig" }, "a CHARACTER pose stays a POSE (unlike family)");
   assert.equal(eventsFromShotScore(shot("anything", "press_rig"), machine)[0].rig, "press_rig", "an explicit rig wins");
   const src = fs.readFileSync(path.join(REPO, "engine", "story", "action_coverage.mjs"), "utf8").split("\n").filter((l) => !l.trim().startsWith("//")).join("\n");
   assert.ok(!/washer_rig|door_\||drum_/.test(src), "no scene-specific identifiers in the producer");

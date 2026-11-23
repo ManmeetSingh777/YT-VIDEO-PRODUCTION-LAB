@@ -10,6 +10,7 @@ import { compileActionCoverage, eventsFromShotScore } from "../story/action_cove
 import { checkContinuity } from "../story/continuity.mjs";
 import { compileAttention } from "../story/experience.mjs";
 import { deriveArtDemands } from "../art_bridge/art_demand.mjs";
+import { compileProductionPlan } from "../story/motion_plan_source.mjs";
 import { validateTransformOwnership, compilePhrase, castShadow, validatePortal } from "../art_bridge/motion_systems.mjs";
 import { routeBeatMedia } from "../art_bridge/source_method_causality.mjs";
 import { gripMorphology, solveContact, balance } from "../art_bridge/contact_solver.mjs";
@@ -37,8 +38,9 @@ export function compileFilmContracts({ film }) {
   S.transform_ownership = doc.rigs.map((r) => ({ rig: r.id, ...validateTransformOwnership([{ id: `cam`, owner: "camera" }, { id: `${r.id}__root`, owner: "rig_root", parent: "cam" }, ...r.joints.map((j) => ({ id: `${r.id}.${j.id}`, owner: "joint", parent: j.parent_id ? `${r.id}.${j.parent_id}` : `${r.id}__root` }))]) }));
   S.tiling = checkTiling(doc.shots, doc.transitions, doc.stage?.total_frames ?? 7200);
   // typed direction inputs consumed when authored (absent → reported as missing, never invented)
-  const phrases = opt(path.join(FILM, "story", "ACTION_PHRASES.json")), beats = opt(path.join(FILM, "story", "BEAT_MEDIA.json"));
+  let planIssue = null, phrases = opt(path.join(FILM, "story", "ACTION_PHRASES.json")); if (phrases) { try { const pp = compileProductionPlan(FILM); planIssue = (pp.errors || []).map((e) => `${e.code}: ${e.human_readable_reason ?? e.message}`); phrases = pp.plan?.phrases ?? phrases; } catch (e) { planIssue = [`${e.code}: ${e.human_readable_reason ?? e.message}`]; } } /* P04 §2.4: the phrases reported here are the phrases the production plan renders */ const beats = opt(path.join(FILM, "story", "BEAT_MEDIA.json"));
   S.action_phrases = phrases ? phrases.map((ph) => ({ id: ph.id, ...compilePhrase(ph) })) : { missing: "story/ACTION_PHRASES.json (ActionPhrase per movement: owners, phases) not authored" };
+  S.phrase_plan_issues = planIssue ?? [];
   S.beat_media = beats ? routeBeatMedia(beats) : { missing: "story/BEAT_MEDIA.json (typed beats with content kinds) not authored" };
   S.cast_shadows = (doc.lighting?.cast_shadows || []).map((c) => { try { return { id: c.id, ...castShadow(c) }; } catch (e) { return { id: c.id, error: e.code, reason: e.human_readable_reason }; } });
   // contacts that declare morphology/support are checked as grips and as supported reaches (closest feasible returned, never clamped)

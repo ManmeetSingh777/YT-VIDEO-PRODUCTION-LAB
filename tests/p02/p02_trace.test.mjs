@@ -26,7 +26,7 @@ test("P02-R13 every committed stage hands off a typed, re-verifiable packet; a f
   fs.rmSync(obj); try { const r = await S.runStage(F, RUN, "S09_FILM_AUDIO_FINAL", {}); assert.equal(r.status, "BLOCKED"); assert.match(r.reason, /missing/); } finally { fs.writeFileSync(obj, orig); }
 });
 test("P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families", () => {
-  const ch = S.traceFrame(F, RUN, 450), wd = S.traceFrame(F, RUN, 3900);
+  const ch = S.traceFrame(F, RUN, 450), wd = S.traceFrame(F, RUN, 3850); // half-open [start,end) intervals: the world push-in is [3700,3900); 3900 is the first static frame after it
   assert.deepEqual(ch.blockers, [], JSON.stringify(ch.blockers)); assert.deepEqual(wd.blockers, [], JSON.stringify(wd.blockers));
   assert.ok(ch.output.frame_rgb_sha256 && ch.output.segment_sha256 && ch.output.mp4_sha256); assert.equal(ch.shot.id, "rt_shot"); assert.ok(ch.shot.semantic_actions.some((a) => a.verb === "REACH"));
   assert.ok(ch.assets.some((a) => a.asset === "pilot_forearm" && a.bytes_match && a.approval.status === "VERIFIED" && a.registration.ok && a.design.decisions.every((d) => d.f_source_sha256)));

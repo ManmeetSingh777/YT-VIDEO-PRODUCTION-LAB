@@ -111,21 +111,10 @@
     {
      "sub": "RELEASE",
      "need": "CONTACT_END",
-     "status": "COVERED",
-     "events": [
-      {
-       "kind": "CONTACT",
-       "frames": [
-        1050,
-        1260
-       ],
-       "source": "ines_grip_r",
-       "target": "washer_handle"
-      }
-     ]
+     "status": "MISSING"
     }
    ],
-   "complete": true
+   "complete": false
   },
   {
    "action": "s02_open_door",
@@ -159,18 +148,7 @@
     {
      "sub": "RELEASE",
      "need": "CONTACT_END",
-     "status": "COVERED",
-     "events": [
-      {
-       "kind": "CONTACT",
-       "frames": [
-        1050,
-        1260
-       ],
-       "source": "ines_grip_r",
-       "target": "washer_handle"
-      }
-     ]
+     "status": "MISSING"
     }
    ],
    "complete": false
@@ -203,15 +181,6 @@
      "need": "CONTACT_END",
      "status": "COVERED",
      "events": [
-      {
-       "kind": "CONTACT",
-       "frames": [
-        900,
-        1920
-       ],
-       "source": "ines_sole_l",
-       "target": "floor_l"
-      },
       {
        "kind": "CONTACT",
        "frames": [
@@ -307,18 +276,7 @@
     {
      "sub": "RELEASE",
      "need": "CONTACT_END",
-     "status": "COVERED",
-     "events": [
-      {
-       "kind": "CONTACT",
-       "frames": [
-        1470,
-        1560
-       ],
-       "source": "ines_pinch_r",
-       "target": "washer_coin_slot"
-      }
-     ]
+     "status": "MISSING"
     }
    ],
    "complete": false
@@ -368,6 +326,23 @@
   },
   {
    "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "s02_grip_handle",
+   "frame_ranges": [
+    [
+     1050,
+     1260
+    ]
+   ],
+   "reason": "GRIP.RELEASE has no executable CONTACT_END event for washer_handle in [1050,1260)",
+   "dependency_ids": [
+    "washer_handle"
+   ],
+   "required_art_or_operation": [
+    "CONTACT_END event"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
    "record_id": "s02_open_door",
    "frame_ranges": [
     [
@@ -381,6 +356,23 @@
    ],
    "required_art_or_operation": [
     "washer_handle state change track"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "s02_open_door",
+   "frame_ranges": [
+    [
+     1050,
+     1260
+    ]
+   ],
+   "reason": "OPEN_APERTURE.RELEASE has no executable CONTACT_END event for washer_handle in [1050,1260)",
+   "dependency_ids": [
+    "washer_handle"
+   ],
+   "required_art_or_operation": [
+    "CONTACT_END event"
    ]
   },
   {
@@ -466,6 +458,23 @@
    ],
    "required_art_or_operation": [
     "washer_coin_slot trajectory through the aperture with near/far occlusion art (rim occluder)"
+   ]
+  },
+  {
+   "code": "UNCOMPILED_SEMANTIC_ACTION",
+   "record_id": "s02_pinch_insert",
+   "frame_ranges": [
+    [
+     1410,
+     1590
+    ]
+   ],
+   "reason": "INSERT_TOKEN.RELEASE has no executable CONTACT_END event for washer_coin_slot in [1410,1590)",
+   "dependency_ids": [
+    "washer_coin_slot"
+   ],
+   "required_art_or_operation": [
+    "CONTACT_END event"
    ]
   },
   {

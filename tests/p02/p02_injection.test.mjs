@@ -45,7 +45,7 @@ test("P02-R23 S08 final MP4 replaced after the render", async () => {
 });
 test("P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied", async () => {
   const F = await copy("s09_audio"), r = await P.start(F, { diagnostic: true, ...opts(F, { audio: null }) }), st = P.statusTable(F, r.run_id);
-  const f0 = st.failures[0]; assert.equal(f0.stage, "S09_FILM_AUDIO_FINAL", JSON.stringify(st.failures)); assert.equal(f0.task, "final_media"); assert.equal(f0.class, "AUDIO_ALIGNMENT"); assert.match(f0.observed, /no audio stream/);
+  const f0 = st.failures[0]; assert.equal(f0.stage, "S09_FILM_AUDIO_FINAL", JSON.stringify(st.failures)); assert.ok(["audio_mix", "final_media"].includes(f0.task), `P04 §7.7: the FIRST audio failure is now reported earlier (audio declared but no buses): ${f0.task}`); assert.equal(f0.class, "AUDIO_ALIGNMENT"); assert.match(f0.observed, /no audio stream|audio_buses|nothing to mix/);
   const rv = st.failures.find((f) => f.task === "film_review") || null; const s9 = st.stages.find((s) => s.stage === "S09_FILM_AUDIO_FINAL"); assert.notEqual(s9.status, "COMMITTED");
   summary.push({ injection: "s09_audio", first_failure: f0, film_review: rv }); fs.writeFileSync(path.join(W, "INJECTION_SUMMARY.json"), JSON.stringify(summary, null, 1));
 });

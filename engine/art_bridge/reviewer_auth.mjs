@@ -28,10 +28,12 @@ export function verifyEnvelope(env, { root, scope, recordId, bundleSha, filmId =
   if (!env?.signature || !env.reviewer_id) return { ok: false, reason: "unsigned envelope" };
   const A = loadAnchors(root), prod = A.production.find((k) => k.id === env.reviewer_id), diag = A.diagnostic.find((k) => k.id === env.reviewer_id), key = prod || diag;
   if (!key) return { ok: false, reason: A.production_source ? `reviewer ${env.reviewer_id} is not a trust anchor` : "AWAITING_INDEPENDENT_HUMAN_APPROVAL: no reviewer trust anchors provisioned outside the repository" };
+  if (key.revoked_utc) return { ok: false, reason: `reviewer key ${env.reviewer_id} was revoked (${key.revoked_utc})` };
   let sigOk = false; try { sigOk = crypto.verify(null, envelopeBytes(env), crypto.createPublicKey(key.public_key_pem), Buffer.from(env.signature, "base64")); } catch { sigOk = false; }
   if (!sigOk) return { ok: false, reason: "signature does not verify for the claimed reviewer" };
   if (env.scope !== scope || env.record_id !== recordId) return { ok: false, reason: `envelope scope ${env.scope}/${env.record_id} ≠ ${scope}/${recordId}` };
   if (env.bundle_sha256 !== bundleSha) return { ok: false, reason: "envelope signs a different (stale) review bundle" };
+  if (env.film_id && root && env.film_id !== path.basename(path.resolve(root))) return { ok: false, reason: `envelope belongs to film ${env.film_id}, not ${path.basename(path.resolve(root))}` };
   if (filmId && env.film_id !== filmId) return { ok: false, reason: "envelope belongs to another film" };
   if (!env.nonce || !env.expires_utc || Date.parse(env.expires_utc) < now) return { ok: false, reason: "envelope expired or lacks nonce/expiry" };
   return { ok: true, kind: prod ? "HUMAN" : "DIAGNOSTIC_SIGNED", reviewer: env.reviewer_id };

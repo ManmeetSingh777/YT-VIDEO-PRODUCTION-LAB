@@ -1,23 +1,262 @@
 [
  {
-  "injection": "s08_mp4",
+  "injection": "s00_no_intent",
   "first_failure": {
-   "stage": "S08_QA_REPAIR",
-   "task": "(handoff gate)",
-   "class": "QA_EVIDENCE_INVALID",
-   "observed": "S07_NEUTRINO_RENDER: output render/film.mp4: named file bytes differ from the recorded hash"
+   "failure_id": "FAIL-S00_IDEA-undefined-388ffe",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
   }
  },
  {
-  "injection": "s09_audio",
+  "injection": "s01_no_story_approval",
   "first_failure": {
-   "failure_id": "FAIL-S09_FILM_AUDIO_FINAL-final_media-aca325",
-   "stage": "S09_FILM_AUDIO_FINAL",
-   "task": "final_media",
-   "class": "AUDIO_ALIGNMENT",
-   "invariant": "ffprobe of the published MP4",
-   "observed": "no audio stream"
+   "failure_id": "FAIL-S00_IDEA-undefined-ede902",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
   },
-  "film_review": null
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s02_inert_attention",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-133fed",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s03_no_narration",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-cabbb3",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s04_absent_art",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-6bde36",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s05_bytes",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-1ed282",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s06_registration",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-56da5b",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s06_edge_revoked",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-694c99",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s07_crash",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-cfb5d6",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
+ },
+ {
+  "injection": "s07_frozen",
+  "first_failure": {
+   "failure_id": "FAIL-S00_IDEA-undefined-bc7167",
+   "stage": "S00_IDEA",
+   "class": "UNKNOWN_ROOT_CAUSE",
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)"
+  },
+  "why": {
+   "observed": "required output without a producing task: feasibility_complete_pilot (identity pilot acts in the film)",
+   "producer": "UNKNOWN",
+   "owner": "UNKNOWN",
+   "blast_radius": [
+    "S01_STORY",
+    "S02_EXPERIENCE",
+    "S03_TIMING_MOTION",
+    "S04_ART_DEMAND",
+    "S05_ART_PRODUCTION",
+    "S06_REGISTRATION_RIG",
+    "S07_NEUTRINO_RENDER",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "resume_from": "S00_IDEA"
+  }
  }
 ]

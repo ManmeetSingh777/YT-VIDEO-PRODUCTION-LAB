@@ -33,7 +33,7 @@ export const CONSUMERS = {
   /** attention owners S02 binds per shot */
   attention(FILM) { const ctx = loadContext(FILM), tr = attentionTracks(ctx); return (ctx.score?.shots || []).map((sh) => { const r = compileAttention((sh.attention_path || []).map((el, i) => ({ id: `${sh.shot}.a${i}`, frames: sh.frames, primary_focus: el })), tr); return [sh.shot, r.attention_beats.map((b) => b.owners), r.errors.map((e) => e.code)]; }); },
   /** the art demand set S04 derives */
-  art_demand(FILM) { const ctx = loadContext(FILM), d = deriveArtDemands({ doc: ctx.doc, plan: ctx.plan, motionPlans: Object.fromEntries(Object.entries(ctx.motionPlans).filter(([k]) => k !== "_film")) }); return d.demands.map((x) => [x.asset, x.frames, x.supplied_by_plan]); },
+  art_demand(FILM) { const ctx = loadContext(FILM), d = deriveArtDemands({ doc: ctx.doc, plan: ctx.plan, motionPlans: ctx.motionPlans }); return d.demands.map((x) => [x.asset, x.frames, x.supplied_by_plan]); },
 };
 /** differential({FILM, workDir, decision, mutate, consumer, args}) → {live, base_sha, perturbed_sha} ; throws INERT_CONTROL when nothing changed */
 export async function differential({ FILM, workDir, decision, mutate, consumer, args = {}, throwOnInert = true }) {

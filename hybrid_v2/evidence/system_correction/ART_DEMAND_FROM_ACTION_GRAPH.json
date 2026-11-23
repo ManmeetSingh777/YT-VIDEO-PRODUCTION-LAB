@@ -37,17 +37,12 @@
     [
      0,
      1590
-    ],
-    [
-     6240,
-     7200
     ]
    ],
    "representation": "CAMERA_WORLD",
    "consumers": [
     "S01_sock_tumble@S01",
-    "S02_operate_washer@S02",
-    "S07_return@S07"
+    "S02_operate_washer@S02"
    ],
    "supplied_by_plan": true
   },
@@ -691,9 +686,9 @@
    "supplied_by_plan": true
   },
   {
-   "asset": "ines_grip_r::GRIP_hand_state",
+   "asset": "ines_grip_r::HAND_channel",
    "why": [
-    "GRIP contact ines_grip_r→washer_handle needs a closure drawing"
+    "GRIP contact ines_grip_r→washer_handle needs a HAND closure drawing (channel undeclared, state grip): rig ines_rig declares no unambiguous HAND channel"
    ],
    "frames": [
     [
@@ -714,8 +709,7 @@
   {
    "asset": "ines_hand_r_far_pinch",
    "why": [
-    "ines_rig hand_pinch binds ines_hand_r_far_fingers",
-    "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing"
+    "ines_rig hand_pinch binds ines_hand_r_far_fingers"
    ],
    "frames": [
     [
@@ -725,8 +719,7 @@
    ],
    "representation": "ARTICULATED",
    "consumers": [
-    "S02_operate_washer@S02",
-    "S02_operate_washer"
+    "S02_operate_washer@S02"
    ],
    "supplied_by_plan": true
   },
@@ -746,6 +739,23 @@
     "S02_operate_washer@S02"
    ],
    "supplied_by_plan": true
+  },
+  {
+   "asset": "ines_pinch_r::HAND_channel",
+   "why": [
+    "FOLLOW contact ines_pinch_r→washer_coin_slot needs a HAND closure drawing (channel undeclared, state follow): rig ines_rig declares no unambiguous HAND channel"
+   ],
+   "frames": [
+    [
+     1470,
+     1560
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "S02_operate_washer"
+   ],
+   "supplied_by_plan": false
   },
   {
    "asset": "ines_face_eyes_curious",
@@ -941,8 +951,7 @@
   {
    "asset": "washer_door_ring_half",
    "why": [
-    "washer_rig door_half binds washer_door_ring",
-    "GRIP contact ines_grip_r→washer_handle needs a closure drawing"
+    "washer_rig door_half binds washer_door_ring"
    ],
    "frames": [
     [
@@ -956,8 +965,7 @@
    ],
    "representation": "ARTICULATED",
    "consumers": [
-    "S02_operate_washer@S02",
-    "S02_operate_washer"
+    "S02_operate_washer@S02"
    ],
    "supplied_by_plan": true
   },
@@ -985,8 +993,7 @@
   {
    "asset": "washer_door_ring_open",
    "why": [
-    "washer_rig door_open binds washer_door_ring",
-    "GRIP contact ines_grip_r→washer_handle needs a closure drawing"
+    "washer_rig door_open binds washer_door_ring"
    ],
    "frames": [
     [
@@ -996,8 +1003,7 @@
    ],
    "representation": "ARTICULATED",
    "consumers": [
-    "S02_operate_washer@S02",
-    "S02_operate_washer"
+    "S02_operate_washer@S02"
    ],
    "supplied_by_plan": true
   },
@@ -1019,23 +1025,6 @@
    "supplied_by_plan": true
   },
   {
-   "asset": "ines_pinch_r::FOLLOW_hand_state",
-   "why": [
-    "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing"
-   ],
-   "frames": [
-    [
-     1470,
-     1560
-    ]
-   ],
-   "representation": "REGISTERED_CELS",
-   "consumers": [
-    "S02_operate_washer"
-   ],
-   "supplied_by_plan": false
-  },
-  {
    "asset": "washer_laundry_load_tumbling",
    "why": [
     "washer_rig running binds washer_laundry_load"
@@ -1044,11 +1033,16 @@
     [
      1590,
      1920
+    ],
+    [
+     6240,
+     7200
     ]
    ],
    "representation": "ARTICULATED",
    "consumers": [
-    "S02_operate_washer@S02"
+    "S02_operate_washer@S02",
+    "S07_return@S07"
    ],
    "supplied_by_plan": true
   },
@@ -1089,17 +1083,19 @@
   {
    "asset": "drum_in",
    "why": [
-    "continuous transition S02->S03 needs its IN plate"
+    "continuous transition S02->S03 needs its IN plate",
+    "shot S03 shows world w_drum (FAR)"
    ],
    "frames": [
     [
      1800,
-     1920
+     3000
     ]
    ],
    "representation": "TRANSITION",
    "consumers": [
-    "transitions.mjs#compileTransition"
+    "transitions.mjs#compileTransition",
+    "scene_graph.mjs#composeShot"
    ],
    "supplied_by_plan": true
   },
@@ -1157,17 +1153,19 @@
   {
    "asset": "ledger_master",
    "why": [
-    "continuous transition S03->S04 needs its IN plate"
+    "continuous transition S03->S04 needs its IN plate",
+    "shot S04 shows world w_ledger (FAR)"
    ],
    "frames": [
     [
      2880,
-     3000
+     4080
     ]
    ],
    "representation": "TRANSITION",
    "consumers": [
-    "transitions.mjs#compileTransition"
+    "transitions.mjs#compileTransition",
+    "scene_graph.mjs#composeShot"
    ],
    "supplied_by_plan": true
   },
@@ -1189,27 +1187,167 @@
    "supplied_by_plan": true
   },
   {
-   "asset": "w_laundromat",
+   "asset": "laundromat_far",
    "why": [
-    "camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at ≥2.145 px/unit"
+    "shot S01 shows world w_laundromat (FAR)",
+    "shot S02 shows world w_laundromat (FAR); camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at >=2.191 px/unit",
+    "shot S06 shows world w_laundromat (FAR)",
+    "shot S07 shows world w_laundromat (FAR)"
    ],
    "frames": [
     [
-     900,
+     0,
      1920
+    ],
+    [
+     5160,
+     7200
     ]
    ],
    "representation": "CAMERA_WORLD",
    "consumers": [
     "scene_graph.mjs#composeShot"
    ],
-   "supplied_by_plan": false
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "laundromat_mid_machines",
+   "why": [
+    "shot S01 shows world w_laundromat (MID)",
+    "shot S02 shows world w_laundromat (MID); camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at >=2.191 px/unit",
+    "shot S06 shows world w_laundromat (MID)",
+    "shot S07 shows world w_laundromat (MID)"
+   ],
+   "frames": [
+    [
+     0,
+     1920
+    ],
+    [
+     5160,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "laundromat_fg_counter",
+   "why": [
+    "shot S01 shows world w_laundromat (FOREGROUND)",
+    "shot S02 shows world w_laundromat (FOREGROUND); camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at >=2.191 px/unit",
+    "shot S06 shows world w_laundromat (FOREGROUND)",
+    "shot S07 shows world w_laundromat (FOREGROUND)"
+   ],
+   "frames": [
+    [
+     0,
+     1920
+    ],
+    [
+     5160,
+     7200
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "drum_paddles",
+   "why": [
+    "shot S03 shows world w_drum (MID)"
+   ],
+   "frames": [
+    [
+     1920,
+     3000
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "street_far",
+   "why": [
+    "shot S05 shows world w_street (FAR)"
+   ],
+   "frames": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "street_mid_shops",
+   "why": [
+    "shot S05 shows world w_street (MID)"
+   ],
+   "frames": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "laundromat_window_interior",
+   "why": [
+    "shot S05 shows world w_street (MID)"
+   ],
+   "frames": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
+  },
+  {
+   "asset": "street_fg_lamp",
+   "why": [
+    "shot S05 shows world w_street (FOREGROUND)"
+   ],
+   "frames": [
+    [
+     4080,
+     5160
+    ]
+   ],
+   "representation": "CAMERA_WORLD",
+   "consumers": [
+    "scene_graph.mjs#composeShot"
+   ],
+   "supplied_by_plan": true
   }
  ],
  "missing": [
   {
    "code": "MISSING_ART_ASSET",
-   "record_id": "ines_grip_r::GRIP_hand_state",
+   "record_id": "ines_grip_r::HAND_channel",
    "frame_ranges": [
     [
      1050,
@@ -1220,37 +1358,23 @@
      1392
     ]
    ],
-   "reason": "GRIP contact ines_grip_r→washer_handle needs a closure drawing",
+   "reason": "GRIP contact ines_grip_r→washer_handle needs a HAND closure drawing (channel undeclared, state grip): rig ines_rig declares no unambiguous HAND channel",
    "required_art_or_operation": [
-    "source-attached REGISTERED_CELS drawing for ines_grip_r::GRIP_hand_state"
+    "source-attached REGISTERED_CELS drawing for ines_grip_r::HAND_channel"
    ]
   },
   {
    "code": "MISSING_ART_ASSET",
-   "record_id": "ines_pinch_r::FOLLOW_hand_state",
+   "record_id": "ines_pinch_r::HAND_channel",
    "frame_ranges": [
     [
      1470,
      1560
     ]
    ],
-   "reason": "FOLLOW contact ines_pinch_r→washer_coin_slot needs a closure drawing",
+   "reason": "FOLLOW contact ines_pinch_r→washer_coin_slot needs a HAND closure drawing (channel undeclared, state follow): rig ines_rig declares no unambiguous HAND channel",
    "required_art_or_operation": [
-    "source-attached REGISTERED_CELS drawing for ines_pinch_r::FOLLOW_hand_state"
-   ]
-  },
-  {
-   "code": "MISSING_ART_ASSET",
-   "record_id": "w_laundromat",
-   "frame_ranges": [
-    [
-     900,
-     1920
-    ]
-   ],
-   "reason": "camera cam_S02 needs coverage [-76.8,-43.2,2073.6,1166.4] at ≥2.145 px/unit",
-   "required_art_or_operation": [
-    "source-attached CAMERA_WORLD drawing for w_laundromat"
+    "source-attached REGISTERED_CELS drawing for ines_pinch_r::HAND_channel"
    ]
   }
  ]

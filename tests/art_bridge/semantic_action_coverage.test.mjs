@@ -35,7 +35,7 @@ test("T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fa
 test("T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler", () => {
   const sci = A.compileActionCoverage({ actions: [{ id: "t", verb_class: "LOAD_CONTAINER", actor: "sci", recipient: "vessel", carried_object: "vial", frames: [0, 90] }], initial_possession: { vial: "sci" }, events: [{ kind: "CONTACT", contact_type: "GRIP", frames: [0, 50], source: "tweezers", target: "vial" }, { kind: "TRAJECTORY", frames: [10, 50], object: "vial", through: "vessel_neck" }, { kind: "STATE", frame: 52, object: "vial", state: "CONTAINED" }, { kind: "POSE", frame: 70 }] });
   assert.equal(sci.complete, true, JSON.stringify(sci.errors));
-  const oct = A.compileActionCoverage({ actions: [{ id: "r", verb_class: "GRIP", actor: "octo", object: "shell", frames: [0, 80], sockets: { grip: "arm1_tip" } }], events: [{ kind: "CONTACT", contact_type: "GRIP", frames: [0, 60], source: "arm1_tip", target: "shell" }, { kind: "POSE", frame: 0 }] });
+  const oct = A.compileActionCoverage({ actions: [{ id: "r", verb_class: "GRIP", actor: "octo", object: "shell", frames: [0, 80], sockets: { grip: "arm1_tip" } }], events: [{ kind: "CONTACT", contact_type: "GRIP", frames: [0, 60], source: "arm1_tip", target: "shell" }, { kind: "POSE", frame: 0 }, { kind: "POSE", frame: 62 }] }); // P04 §2.3: the contact must END (60 < 80) AND a release follows it; the previous fixture had no release evidence
   assert.equal(oct.complete, true, JSON.stringify(oct.errors));
 });
 

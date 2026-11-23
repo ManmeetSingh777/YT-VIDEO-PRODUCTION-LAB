@@ -20,7 +20,7 @@ const chars = rigs.filter((r) => ident(r)?.kind === "CHARACTER"), machines = rig
 const channelOf = (r, kind) => (r.state_channels || []).find((c) => c.kind === kind);
 // suggestion only (director/art director confirms): slots whose asset ids name the feature — a NAME-BASED hint, never an inference the engine uses
 const slotHint = (r, word) => r.render_parts.map((p) => p.asset_id).filter((s) => s.includes(word));
-const demand = deriveArtDemands({ doc, plan, motionPlans: Object.fromEntries(Object.entries(mps).filter(([k]) => k !== "_film")) }), inWin = demand.demands.filter((x) => x.frames.some(ov)), byId = new Map(plan.assets.map((p) => [p.asset_id, p]));
+const demand = deriveArtDemands({ doc, plan, motionPlans: mps }), inWin = demand.demands.filter((x) => x.frames.some(ov)), byId = new Map(plan.assets.map((p) => [p.asset_id, p]));
 const need = new Set(inWin.filter((x) => byId.has(x.asset)).map((x) => x.asset)); for (const id of [...need]) { let p = byId.get(id); while (p?.derived_from && byId.has(p.derived_from)) { need.add(p.derived_from); p = byId.get(p.derived_from); } }
 const delivered = (id) => { const x = doc.assets.find((q) => q.id === id); return x ? x.provenance_class : null; }, gptArt = [...need].filter((id) => ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF"].includes(delivered(id)));
 const audio = doc.audio || {};
