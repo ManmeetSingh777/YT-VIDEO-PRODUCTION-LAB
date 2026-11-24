@@ -5,6 +5,7 @@
 // A pass means STRUCTURAL_VALID only: not truth, taste, feasibility, approval or art.
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
 import { validate as jsonSchema } from "../art_bridge/jsonschema.mjs";
+import { validateStoryContract } from "./mechanism.mjs";
 const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
 export const PACKET_SCHEMAS = Object.freeze({ "1.0.0": path.join(REPO, "docs", "gpt-creative-control", "creative_packet.schema.json"), "1.1.0": path.join(REPO, "schemas", "creative_packet_v1_1.schema.json") });
 const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), sha = (b) => crypto.createHash("sha256").update(b).digest("hex");
@@ -24,6 +25,9 @@ export function validatePacket(p) {
   const by = (g) => new Map(p[g].map((x) => [x.id, x])), shots = by("shots"), arts = by("art_requirements"), acts = by("actions"), decs = by("decisions"), cues = by("audio_cues");
   // story
   for (const m of p.story.mechanisms) { if (m.epistemic_status === "SOURCED" && !m.source_refs?.length) err("CLAIM_SOURCE_REQUIRED", m.id, "a SOURCED claim has no references"); if (m.epistemic_status === "UNVERIFIED") err("CLAIM_TRUTH_UNVERIFIED", m.id, "an UNVERIFIED claim cannot be rendered as settled: source it, state it as HYPOTHESIS/METAPHOR, or remove it"); }
+  const blank = (t) => typeof t !== "string" || t.trim().length < 8 || /^(n\/?a|tbd|todo|none)/i.test(t.trim()); if (blank(p.story.audience_question) || blank(p.story.central_insight) || p.story.audience_question.trim() === p.story.central_insight.trim()) err("CREATIVE_REVIEW_REQUIRED", "story", "the viewer's question and the insight that resolves it must both be stated, and differ");
+  if (v11) for (const m of p.story.mechanisms) if (blank(m.visual_mechanism) || (m.epistemic_status === "SOURCED" && !p.story.contract.claims.some((c) => c.claim_id === m.id || c.mechanism_id === m.id) && !p.story.contract.mechanisms.some((x) => x.mechanism_id === m.id))) err("MECHANISM_UNEXPLAINED", m.id, "a claim presented as established needs its visible mechanism and a typed claim or mechanism record in story.contract");
+  if (v11) { for (const [k, t] of [["audience", p.intent.audience], ["topic", p.intent.topic]]) if (blank(t)) err("STORY_CONTRACT_INCOMPLETE", `intent.${k}`, `"${t}" does not say it`); for (const x of validateStoryContract(p.story.contract).failures) err({ FACT_CHECK_REQUIRED: "CLAIM_TRUTH_UNVERIFIED", SCHEMA_VIOLATION: "STORY_CONTRACT_INCOMPLETE", OBSTACLE_UNRESOLVED: "STORY_CONTRACT_INCOMPLETE" }[x.code] ?? "MECHANISM_UNEXPLAINED", x.record_id ?? "story.contract", x.reason); }
   const narr = new Set(); for (const n of p.story.narration) { if (narr.has(n.id)) err("DUPLICATE_NARRATION", n.id, "duplicate narration id"); narr.add(n.id); interval(n.id, n.frames); }
   // shots tile the film exactly once
   let at = 0; for (const s of [...p.shots].sort((a, b) => a.frames[0] - b.frames[0])) { interval(s.id, s.frames); if (s.frames[0] !== at) err("SHOT_TILING", s.id, `expected start ${at}, got ${s.frames[0]}`); at = Math.max(at, s.frames[1]); } if (at !== total) err("SHOT_TILING", "film", `shots end at ${at}, the film needs ${total}`);

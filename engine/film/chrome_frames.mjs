@@ -51,6 +51,16 @@ export function attributionUnits(doc, plan, scene, prefix, shot) {
   const tr = (doc.transitions || []).filter((t) => t.mode === "CONTINUOUS" && [t.from_shot, t.to_shot].includes(shot.id)).map((t) => `${t.from_shot}->${t.to_shot}`).map((id) => ({ id, kind: "TRANSITION", match: `${prefix}trans--${id.replace(/[^A-Za-z0-9_-]/g, "_")}--` }));
   return [...units.filter((u) => ids.some((i) => i.startsWith(u.match))), ...fx, ...tr, ...cam];
 }
+/** P05: the fixed camera of isolated captures. The first frame's camera alone can look away from an owner that a moving camera shows later, so every
+ *  band is framed on the union of all its views in the shot (a static camera stays exactly itself). Whatever the viewer can see in any frame is in it. */
+export function overviewCamera(scene, shot, camPre, width, height) {
+  const rowsAt = (f) => scene.frameState(f).rows.filter((r) => r[0].startsWith(camPre)), parse = (t) => { const m = /^matrix\(([^)]*)\)$/.exec(String(t).trim()); return m ? m[1].split(/[ ,]+/).map(Number) : Array.isArray(t) ? t : null; };
+  const out = new Map(rowsAt(shot.start_frame).map((r) => [r[0], r])), boxes = new Map(), frames = []; for (let f = shot.start_frame; f < shot.end_frame; f += 5) frames.push(f); frames.push(shot.end_frame - 1);
+  const mul = (A, B) => [A[0] * B[0] + A[2] * B[1], A[1] * B[0] + A[3] * B[1], A[0] * B[2] + A[2] * B[3], A[1] * B[2] + A[3] * B[3], A[0] * B[4] + A[2] * B[5] + A[4], A[1] * B[4] + A[3] * B[5] + A[5]], inv = (A) => { const d = A[0] * A[3] - A[1] * A[2]; return [A[3] / d, -A[1] / d, -A[2] / d, A[0] / d, (A[2] * A[5] - A[3] * A[4]) / d, (A[1] * A[4] - A[0] * A[5]) / d]; };
+  for (const f of frames) for (const r of rowsAt(f)) { const M = parse(r[1]), Q = parse(out.get(r[0])?.[1]); if (!M || !Q) continue; const V = mul(Q, inv(M)), b = boxes.get(r[0]) ?? [0, 0, width, height]; for (const [x, y] of [[0, 0], [width, 0], [0, height], [width, height]]) { const px = V[0] * x + V[2] * y + V[4], py = V[1] * x + V[3] * y + V[5]; b[0] = Math.min(b[0], px); b[1] = Math.min(b[1], py); b[2] = Math.max(b[2], px); b[3] = Math.max(b[3], py); } boxes.set(r[0], b); }
+  for (const [id, b] of boxes) { const s = Math.min(1, width / (b[2] - b[0]), height / (b[3] - b[1])); if (s > 0.9999) continue; const r = out.get(id), M = mul([s, 0, 0, s, -b[0] * s, -b[1] * s], parse(r[1])); out.set(id, [r[0], `matrix(${M.map((v) => +v.toFixed(6)).join(" ")})`, ...r.slice(2)]); }
+  return out;
+}
 export async function createChromeFrameSession({ film, manifest = MF, planFile, seed = 1, fps = 60, width = 1920, height = 1080, runType = "PRODUCTION", workDir = null, attribution = true, diagnosticPerturb = null }) {
   if (diagnosticPerturb && runType === "PRODUCTION") throw err("RENDER_CAPTURE_FAILURE", { reason: "diagnostic perturbation is refused in a PRODUCTION session", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
   if (!planFile || !fs.existsSync(planFile)) throw err("PLAN_MISSING", { record_id: planFile ?? null, reason: planFile ? `motion plan file ${planFile} does not exist` : "the Chrome renderer was started without a motion plan (resolve the production plan before rendering)", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
@@ -77,7 +87,7 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     const comp = fs.existsSync(keyF) && fs.readFileSync(keyF, "utf8") === key && fs.existsSync(path.join(cdir, "index.html")) ? { dir: cdir, reused: true } : (() => { fs.rmSync(keyF, { force: true }); const c = buildComposition(cdir, { id: `${shot.id}`, scene, frameRange: [shot.start_frame, shot.end_frame], registry: reg, fps }); fs.writeFileSync(keyF, key); return c; })();
     const server = await serve(comp.dir, FILM), page = await browser.newPage();
     page.on("pageerror", (e) => failures.push(`JS exception: ${e.message}`)); page.on("requestfailed", (r) => failures.push(`request failed ${r.url()}`)); page.on("response", (r) => { if (r.status() >= 400) failures.push(`HTTP ${r.status()} ${r.url()}`); });
-    await page.setViewport({ width, height, deviceScaleFactor: 1 }); await page.goto(server.url, { waitUntil: "load" });
+    await page.setViewport({ width, height, deviceScaleFactor: 1 }); await page.goto(server.url, { waitUntil: "load" }); await page.addStyleTag({ content: `[data-artb-isolate] [id^="${shots[k].prefix}world--"]{visibility:hidden !important}` }); // P05: painted world planes are static (no runtime row): an isolated owner must not be hidden behind a near plane
     const pre = await page.evaluate(() => window.__artbReady); const bad = pre.filter((p) => !p.ok); if (bad.length || failures.length) throw err("MISSING_ART_ASSET", { reason: `composition ${shot.id}: ${[...bad.map((b) => `decode failed ${b.u}`), ...failures].join("; ")}`, producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
     const entry = { page, server, comp }; pages.set(k, entry); return entry;
   };
@@ -97,22 +107,24 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     if (shown) await page.evaluate((r, tag) => { ARTB.applyRows(r, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, shown.map((r) => [r[0], r[1], r[2], r[3], r[4]]), f);
     // isolated capture per unit + COUNTERFACTUAL references: ref_swap = this frame drawn with the PREVIOUS frame's drawing set (a discrete swap
     // that did not reach the pixels equals it), ref_rigid = this frame drawn without the active deformation/morph (a dropped deformation equals it)
-    const capture = async (r) => { await page.evaluate((x, tag) => { ARTB.applyRows(x, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, r, f); return sha(await shoot(page)); };
+    const capture = async (r, isolate = false) => { await page.evaluate((x, tag, iso) => { document.documentElement.toggleAttribute("data-artb-isolate", iso); ARTB.applyRows(x, tag); return new Promise((ok) => requestAnimationFrame(() => requestAnimationFrame(ok))); }, r, f, isolate); const h = sha(await shoot(page)); if (isolate) await page.evaluate(() => document.documentElement.removeAttribute("data-artb-isolate")); return h; };
     const deformables = scene.deformables || { tris: [], morphs: [] }; let prevRows = null; const prev = () => (prevRows ??= f > shot.start_frame ? scene.frameState(f - 1).rows : null);
     const visSet = (rs) => sha(JSON.stringify(rs.filter((r) => r[2] === 1).map((r) => r[0])));
-    // isolation uses the shot's FIXED reference camera (its first frame): camera moves are attributed to the camera, never to an owner
-    const camPre = `${shots[k].prefix}cam-`, camRef = (shots[k].camRef ??= new Map(scene.frameState(shot.start_frame).rows.filter((r) => r[0].startsWith(camPre)).map((r) => [r[0], r])));
+    // isolation uses ONE fixed overview camera per shot: camera moves are attributed to the camera, never to an owner
+    const camPre = `${shots[k].prefix}cam-`, camRef = (shots[k].camRef ??= overviewCamera(scene, shot, camPre, width, height));
     const attributionOf = async (base) => { if (!attribution) return {}; const out = {}; for (const u of shots[k].units) {
         if (u.kind === "CAMERA") { const ref0 = (shots[k].refRows ??= scene.frameState(shot.start_frame).rows), cam = new Map(base.filter((r) => r[0].startsWith(camPre)).map((r) => [r[0], r])); out[u.id] = { px: await capture(ref0.map((r) => cam.get(r[0]) || r)), state: visibleStateSha(rows.filter((r) => r[0].startsWith(camPre))), visible_set: null, ref_swap: null, ref_rigid: null }; continue; } // only the camera moves in this capture
         const mineOnly = (r) => r[0].startsWith(u.match), own = (r) => mineOnly(r) || r[0].startsWith(camPre), iso = base.map((r) => (r[0].startsWith(camPre) ? camRef.get(r[0]) || r : mineOnly(r) ? r : [r[0], r[1], 0, r[3], r[4]])), mine = rows.filter(mineOnly);
-        const o = (out[u.id] = { px: await capture(iso), state: visibleStateSha(mine), visible_set: visSet(mine), ref_swap: null, ref_rigid: null });
+        const o = (out[u.id] = { px: await capture(iso, true), state: visibleStateSha(mine), visible_set: visSet(mine), ref_swap: null, ref_rigid: null, seen: null });
+        // P05: moving in isolation is not enough: is the owner visible to the VIEWER in this frame's composite? (the frame with the owner removed must differ)
+        if (["RIG", "PROCEDURAL", "EFFECT"].includes(u.kind) && ((f - shot.start_frame) % 10 === 0 || f === shot.end_frame - 1)) o.seen = mine.some((r) => r[2] === 1) ? (await capture(base)) !== (await capture(base.map((r) => (mineOnly(r) ? [r[0], r[1], 0, r[3], r[4]] : r)))) : false;
         if (u.kind !== "SLOT") continue;
         const pr = prev(), pmine = pr ? pr.filter(mineOnly) : null;
-        if (pmine && visSet(pmine) !== o.visible_set) { const pv = new Map(pmine.map((r) => [r[0], r])); o.ref_swap = await capture(iso.map((r) => (mineOnly(r) && pv.has(r[0]) ? [r[0], r[1], pv.get(r[0])[2], pv.get(r[0])[3], r[4]] : r))); }
+        if (pmine && visSet(pmine) !== o.visible_set) { const pv = new Map(pmine.map((r) => [r[0], r])); o.ref_swap = await capture(iso.map((r) => (mineOnly(r) && pv.has(r[0]) ? [r[0], r[1], pv.get(r[0])[2], pv.get(r[0])[3], r[4]] : r)), true); }
         const tris = deformables.tris.filter((t) => t.id.startsWith(u.match) && rows.find((r) => r[0] === t.id)?.[2] === 1), morphs = deformables.morphs.filter((m) => m.id.startsWith(u.match));
         const morphOn = morphs.some((m) => rows.find((r) => r[0] === m.id)?.[4]?.d !== m.d0);
         if (tris.length || morphOn) { const triIds = new Set(tris.map((t) => t.id)), bases = new Set(tris.map((t) => t.base)), d0 = new Map(morphs.map((m) => [m.id, m.d0]));
-          o.ref_rigid = await capture(iso.map((r) => (triIds.has(r[0]) ? [r[0], r[1], 0, r[3], r[4]] : bases.has(r[0]) ? [r[0], r[1], 1, r[3], r[4]] : d0.has(r[0]) ? [r[0], r[1], r[2], r[3], { d: d0.get(r[0]) }] : r))); } }
+          o.ref_rigid = await capture(iso.map((r) => (triIds.has(r[0]) ? [r[0], r[1], 0, r[3], r[4]] : bases.has(r[0]) ? [r[0], r[1], 1, r[3], r[4]] : d0.has(r[0]) ? [r[0], r[1], r[2], r[3], { d: d0.get(r[0]) }] : r)), true); } }
       return out; };
     const ownersOf = async () => attributionOf(shown || rows);
     // P04 §7.6: the frame ON SCREEN must equal the frame re-applied from its compiled state rows; a baked/rendered divergence is a defect, not an assumption

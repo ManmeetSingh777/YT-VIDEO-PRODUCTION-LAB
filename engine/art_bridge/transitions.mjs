@@ -24,6 +24,11 @@ export function compileTransition(from, to, contract, { doc }) {
   const lm0 = plates[0].landmarks[lm], P = [(lm0[0] - B0[0]) * base, (lm0[1] - B0[1]) * base];
   // aperture ratio: inner plate scaled to cover the aperture of the plate that contains it
   const ratio = [0, 1].map((k) => { const m = masks[k] || masks[0], inner = plates[k + 1]; const Bm = bb(m), Bi = bb(inner); return Math.max(Bm[2] / Bi[2], Bm[3] / Bi[3]); });
+  // P05: the nest must really be a nest. Seen from the shared anchor, each inner plate (at its own scale) covers the whole aperture that shows it, and the
+  // last plate covers the screen when the push ends; otherwise the aperture would show whatever lies behind the transition.
+  const around = (b, q, s = 1) => [(b[0] - q[0]) * s, (b[1] - q[1]) * s, (b[0] + b[2] - q[0]) * s, (b[1] + b[3] - q[1]) * s], covers = (o, i) => o[0] <= i[0] + 1 && o[1] <= i[1] + 1 && o[2] >= i[2] - 1 && o[3] >= i[3] - 1;
+  [0, 1].forEach((k) => { const m = masks[k] || masks[0], ap = around(bb(m), plates[k].landmarks[lm]), inner = around(bb(plates[k + 1]), plates[k + 1].landmarks[lm], ratio[k]); if (!covers(inner, ap)) throw err("TRANSITION_GEOMETRY_INVALID", { record_id: id, frame_range: [f0, f1], dependency: m.id, reason: `the aperture ${m.id} [${ap.map(Math.round)}] around ${lm} is not covered by ${plates[k + 1].id} [${inner.map(Math.round)}]: what lies behind the transition would show through`, required_art_or_operation: [`redraw or re-register ${m.id} so its aperture is centred on ${lm}, or deliver a ${plates[k + 1].id} that covers it`] }); });
+  { const last = around(bb(plates[2]), plates[2].landmarks[lm], base), scr = [-P[0], -P[1], W - P[0], H - P[1]]; if (!covers(last, scr)) throw err("TRANSITION_GEOMETRY_INVALID", { record_id: id, frame_range: [f0, f1], dependency: plates[2].id, reason: `the final plate ${plates[2].id} does not cover the screen when the push ends` }); }
   const K = 1 / (ratio[0] * ratio[1]);
   const frameAt = (f) => {
     if (f < f0 || f >= f1) return null;
@@ -35,4 +40,11 @@ export function compileTransition(from, to, contract, { doc }) {
     return { p, stage, zoom: z, layers: layers.reverse(), anchor_screen: P, anchor_residuals_px: anchors.map((a) => Math.hypot(a[0] - P[0], a[1] - P[1])) };
   };
   return Object.freeze({ id, mode: "CONTINUOUS", frame_range: [f0, f1], invariant: contract.continuity_invariant, shared_landmark: lm, aperture_ratios: ratio, total_zoom: K, frameAt });
+}
+
+/** verifyTransitions({doc}) — every continuous transition on its registered plates: nest geometry, all three plates on every frame, anchor fixed to 0.5 px */
+export function verifyTransitions({ doc }) {
+  const failures = [], results = [], shot = (id) => doc.shots.find((s) => s.id === id);
+  for (const c of doc.transitions.filter((t) => t.mode === "CONTINUOUS")) { const id = `${c.from_shot}->${c.to_shot}`; try { const t = compileTransition(shot(c.from_shot), shot(c.to_shot), c, { doc }); let worst = 0, n = 0; for (let f = c.frame_range[0]; f < c.frame_range[1]; f++) { const s = t.frameAt(f); n++; worst = Math.max(worst, ...s.anchor_residuals_px); if (s.layers.length !== 3) failures.push({ code: "MISSING_TRANSITION_STATE", record_id: id, frame_range: [f, f + 1], reason: "a plate is missing" }); } if (worst > 0.5) failures.push({ code: "TRANSITION_GEOMETRY_INVALID", record_id: id, frame_range: c.frame_range, reason: `the shared anchor drifts ${worst.toFixed(2)} px` }); results.push({ transition: id, frames: n, anchor_drift_px: worst, aperture_ratios: t.aperture_ratios }); } catch (e) { failures.push({ code: e.code ?? "EXCEPTION", record_id: id, frame_range: c.frame_range, dependency: e.dependency ?? null, reason: e.human_readable_reason ?? e.message }); } }
+  return { ok: !failures.length, failures, results };
 }

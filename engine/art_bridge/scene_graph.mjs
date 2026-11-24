@@ -99,7 +99,7 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" id="${xml(P("stage"))}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs>${[...new Set(defs)].join("")}</defs>` +
     (background ? `<rect id="${xml(P("sentinel"))}" x="0" y="0" width="${W}" height="${H}" fill="${sentinel}"/>` : "") +
     BANDS.filter((b) => ordered[b].length).map((b) => `<g id="${xml(P(`cam-${b}`))}" data-band="${b}">${ordered[b].map((it) => it.markup).join("")}</g>`).join("") +
-    (screen.length ? `<g id="${xml(P("screen"))}">${screen.map((s) => s.markup).join("")}</g>` : "") + `</svg>`;
+    (screen.length ? `<g id="${xml(P("screen"))}">${[...screen].sort((x, y) => y.k - x.k).map((s) => s.markup).join("")}</g>` : "") + `</svg>`; // P05: IN is painted first, then MIDDLE, then OUT: each plate is seen only through the aperture of the plate in front of it
   const pivotOf = (aid) => assets.get(aid).pivot_xy;
 
   /** full runtime state for frame f: [[elementId, transform, visible, opacity]] for every runtime-owned element (+ the raw stateAtFrame) */
