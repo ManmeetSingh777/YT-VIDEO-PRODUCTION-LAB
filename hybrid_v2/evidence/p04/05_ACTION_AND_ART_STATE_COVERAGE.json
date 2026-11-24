@@ -1,0 +1,393 @@
+{
+ "generated_by": "tests/p04/build_coverage.mjs",
+ "film": "hybrid_v2\\work\\p04\\chain_film\\subjects\\film",
+ "note": "diagnostic fixture film; every list is computed",
+ "plan_errors": [],
+ "state_inventory": [
+  {
+   "rig": "nova_rig",
+   "identity": "nova",
+   "pose_states": [
+    {
+     "id": "open",
+     "bindings": {},
+     "approved": true
+    },
+    {
+     "id": "grip",
+     "bindings": {
+      "nova_hand_open": "nova_hand_grip"
+     },
+     "approved": true
+    }
+   ],
+   "view_states": [],
+   "channels": [
+    {
+     "id": "eyes",
+     "kind": "EYES",
+     "slots": [
+      "nova_eye_open"
+     ],
+     "default": "open",
+     "states": [
+      {
+       "id": "open",
+       "drawing": {},
+       "approved": true,
+       "missing_drawings": []
+      },
+      {
+       "id": "closed",
+       "drawing": {
+        "nova_eye_open": "nova_eye_closed"
+       },
+       "approved": true,
+       "missing_drawings": []
+      }
+     ]
+    },
+    {
+     "id": "mouth",
+     "kind": "MOUTH",
+     "slots": [
+      "nova_mouth_rest"
+     ],
+     "default": "rest",
+     "states": [
+      {
+       "id": "rest",
+       "drawing": {},
+       "approved": true,
+       "missing_drawings": []
+      },
+      {
+       "id": "open",
+       "drawing": {
+        "nova_mouth_rest": "nova_mouth_open"
+       },
+       "approved": true,
+       "missing_drawings": []
+      },
+      {
+       "id": "mid",
+       "drawing": {
+        "nova_mouth_rest": "nova_mouth_mid"
+       },
+       "approved": true,
+       "missing_drawings": []
+      }
+     ]
+    },
+    {
+     "id": "hand_r",
+     "kind": "HAND",
+     "slots": [
+      "nova_hand_open"
+     ],
+     "default": "open",
+     "states": [
+      {
+       "id": "open",
+       "drawing": {},
+       "approved": true,
+       "missing_drawings": []
+      },
+      {
+       "id": "grip",
+       "drawing": {
+        "nova_hand_open": "nova_hand_grip"
+       },
+       "approved": true,
+       "missing_drawings": []
+      }
+     ]
+    }
+   ],
+   "edges": [
+    "open->grip",
+    "grip->open"
+   ]
+  },
+  {
+   "rig": "lumen_rig",
+   "identity": "lumen",
+   "pose_states": [
+    {
+     "id": "idle",
+     "bindings": {},
+     "approved": true
+    }
+   ],
+   "view_states": [],
+   "channels": [
+    {
+     "id": "eye",
+     "kind": "EYES",
+     "slots": [
+      "lumen_eye_open"
+     ],
+     "default": "open",
+     "states": [
+      {
+       "id": "open",
+       "drawing": {},
+       "approved": true,
+       "missing_drawings": []
+      },
+      {
+       "id": "closed",
+       "drawing": {
+        "lumen_eye_open": "lumen_eye_closed"
+       },
+       "approved": true,
+       "missing_drawings": []
+      }
+     ]
+    }
+   ],
+   "edges": []
+  },
+  {
+   "rig": "lever_rig",
+   "identity": "lever",
+   "pose_states": [
+    {
+     "id": "rest",
+     "bindings": {},
+     "approved": true
+    }
+   ],
+   "view_states": [],
+   "channels": [],
+   "edges": []
+  }
+ ],
+ "state_intervals": [
+  {
+   "action": "nova_pull_lever",
+   "rig": "nova_rig",
+   "interval": [
+    0,
+    40
+   ],
+   "pose": "open",
+   "view": null,
+   "channels": {
+    "eyes": "open",
+    "mouth": "rest",
+    "hand_r": "open"
+   },
+   "facing": "front",
+   "contacts": [
+    "PLANT",
+    "PLANT"
+   ]
+  },
+  {
+   "action": "nova_pull_lever",
+   "rig": "nova_rig",
+   "interval": [
+    40,
+    70
+   ],
+   "pose": "open",
+   "view": null,
+   "channels": {
+    "eyes": "open",
+    "mouth": "rest",
+    "hand_r": "open"
+   },
+   "facing": "front",
+   "contacts": [
+    "PLANT",
+    "PLANT"
+   ]
+  },
+  {
+   "action": "nova_pull_lever",
+   "rig": "nova_rig",
+   "interval": [
+    70,
+    200
+   ],
+   "pose": "grip",
+   "view": null,
+   "channels": {
+    "eyes": "open",
+    "mouth": "rest",
+    "hand_r": "grip"
+   },
+   "facing": "front",
+   "contacts": [
+    "GRIP",
+    "PLANT",
+    "PLANT"
+   ]
+  },
+  {
+   "action": "nova_pull_lever",
+   "rig": "nova_rig",
+   "interval": [
+    200,
+    240
+   ],
+   "pose": "open",
+   "view": null,
+   "channels": {
+    "eyes": "open",
+    "mouth": "rest",
+    "hand_r": "open"
+   },
+   "facing": "front",
+   "contacts": [
+    "PLANT",
+    "PLANT"
+   ]
+  },
+  {
+   "action": "nova_pull_lever",
+   "rig": "lever_rig",
+   "interval": [
+    0,
+    240
+   ],
+   "pose": "rest",
+   "view": null,
+   "channels": {},
+   "facing": "front",
+   "contacts": [
+    "GRIP",
+    "PLANT",
+    "PLANT"
+   ]
+  },
+  {
+   "action": "lumen_watch",
+   "rig": "lumen_rig",
+   "interval": [
+    240,
+    7200
+   ],
+   "pose": "idle",
+   "view": null,
+   "channels": {
+    "eye": "open"
+   },
+   "facing": "front",
+   "contacts": []
+  }
+ ],
+ "coverage": {
+  "cells": 8,
+  "covered": 8,
+  "missing_cells": 0,
+  "missing_cells_by_need": []
+ },
+ "art_demand": {
+  "demands": 30,
+  "missing": []
+ },
+ "contacts": [
+  {
+   "action": "nova_pull_lever",
+   "type": "GRIP",
+   "frames": [
+    70,
+    200
+   ],
+   "source": "nova_grip",
+   "target": "lever_handle",
+   "grip_contract": true,
+   "closure_state": "grip"
+  }
+ ],
+ "semantic_consequences": {
+  "ok": true,
+  "results": [
+   {
+    "action": "pull",
+    "verb": "GRIP",
+    "ok": true,
+    "measure": "hand_closed_and_in_contact",
+    "held_frames": 130
+   },
+   {
+    "action": "stand_l",
+    "verb": "SUPPORT",
+    "ok": true,
+    "measure": "foot_planted"
+   },
+   {
+    "action": "stand_r",
+    "verb": "SUPPORT",
+    "ok": true,
+    "measure": "foot_planted"
+   },
+   {
+    "action": "watch",
+    "verb": "ATTEND",
+    "ok": true,
+    "measure": "gaze_or_head_turns",
+    "head_deg": 11.94
+   }
+  ],
+  "failures": [],
+  "unverified": []
+ },
+ "semantic_actions_typed": [
+  {
+   "action": "pull",
+   "verb_class": "GRIP",
+   "frames": [
+    60,
+    220
+   ],
+   "object": "lever_handle",
+   "target_state": null,
+   "measure": "hand_closed_and_in_contact"
+  },
+  {
+   "action": "stand_l",
+   "verb_class": "SUPPORT",
+   "frames": [
+    0,
+    240
+   ],
+   "object": null,
+   "target_state": null,
+   "measure": "foot_planted"
+  },
+  {
+   "action": "stand_r",
+   "verb_class": "SUPPORT",
+   "frames": [
+    0,
+    240
+   ],
+   "object": null,
+   "target_state": null,
+   "measure": "foot_planted"
+  },
+  {
+   "action": "watch",
+   "verb_class": "ATTEND",
+   "frames": [
+    240,
+    480
+   ],
+   "object": null,
+   "target_state": null,
+   "measure": "gaze_or_head_turns"
+  }
+ ],
+ "near_far": [
+  {
+   "contact": "nova_grip",
+   "near_layer": false,
+   "far_layer": false,
+   "single_layer_reason": "DIAGNOSTIC fist: one closed drawing seen from the back of the hand hides the far fingers"
+  }
+ ],
+ "unexplained_missing_cells": []
+}

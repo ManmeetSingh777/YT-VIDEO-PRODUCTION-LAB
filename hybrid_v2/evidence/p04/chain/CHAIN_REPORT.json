@@ -1,0 +1,311 @@
+{
+ "film": "hybrid_v2\\work\\p04\\chain_film\\subjects\\film",
+ "run_id": "DIAG-20261124000806-742e6f",
+ "seconds": 1256.076,
+ "results": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "BLOCKED"
+  }
+ ],
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 2,
+   "verified": 2,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 19,
+   "verified": 19,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 30,
+   "verified": 30,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 34,
+   "verified": 34,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 39,
+   "verified": 39,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "COMMITTED",
+   "tasks": 5,
+   "verified": 5,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "BLOCKED",
+   "tasks": 5,
+   "verified": 4,
+   "failed": 1,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "failures": [
+  {
+   "failure": "FAIL-S09_FILM_AUDIO_FINAL-film_review-6e0e6a",
+   "first_violated_invariant": "verified HUMAN film receipt over the current bundle",
+   "observed": "DIAGNOSTIC run: a film review can never be satisfied",
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "film_review",
+   "root_producer": "engine/film/final_review.mjs#reviewFinalFilm (independent human)",
+   "failure_class": "EXTERNAL_HUMAN_REQUIRED",
+   "repair_owner": "INDEPENDENT_HUMAN_REVIEWER",
+   "blast_radius": [],
+   "frames": [],
+   "evidence_event": "DIAG-20261124000806-742e6f:444",
+   "resume_from": "S09_FILM_AUDIO_FINAL",
+   "retry_safe": false,
+   "external_spend_risk": false,
+   "next_operation": "resolve film_review"
+  }
+ ],
+ "ledger_verification": {
+  "chain": {
+   "ok": true,
+   "events": 445,
+   "head_sha256": "14bb4aa7a99ce87625533844106f66607edf7ea679f8b195360dd244cc05b035",
+   "problems": []
+  },
+  "handoffs": [
+   {
+    "stage": "S00_IDEA",
+    "ok": true
+   },
+   {
+    "stage": "S01_STORY",
+    "ok": true
+   },
+   {
+    "stage": "S02_EXPERIENCE",
+    "ok": true
+   },
+   {
+    "stage": "S03_TIMING_MOTION",
+    "ok": true
+   },
+   {
+    "stage": "S04_ART_DEMAND",
+    "ok": true
+   },
+   {
+    "stage": "S05_ART_PRODUCTION",
+    "ok": true
+   },
+   {
+    "stage": "S06_REGISTRATION_RIG",
+    "ok": true
+   },
+   {
+    "stage": "S07_NEUTRINO_RENDER",
+    "ok": true
+   },
+   {
+    "stage": "S08_QA_REPAIR",
+    "ok": true
+   }
+  ],
+  "ok": true
+ },
+ "trace_frame_120": {
+  "frame": 120,
+  "shot": "p03_shot_a",
+  "blockers": []
+ },
+ "final_media": {
+  "out": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB\\hybrid_v2\\work\\p04\\chain_film\\subjects\\film\\render\\film_final.mp4",
+  "ok": true,
+  "failures": [],
+  "video_essence_sha256": "9c726d019ca203e602dc1e6e25b359840874c3f381864e16ca468f8569914a13",
+  "video_packets_sha256": "090d506c868e54ba34631af304f96ec5a9cb66e04636d04f17bee7eedc49b3a4",
+  "mix_sha256": "9588846c677c6fd70ea63f6b4257943180bc6937fb9651fa621254f7db91d4d6",
+  "stems": {
+   "narration": "03b0fed1a3e21acaccc31cd324dcd9f7352db4d97acbc9ea109f7196e013d8f3",
+   "sfx:grip_clunk": "8b42fc11d6506b315b343ab50dd1034fe530a4011a2d97234ec822c7b9d21835",
+   "sfx:release_click": "cf066f1d97d76ee654b658c7cf584d0f07e579fd31bacb14e35c56335714d109"
+  },
+  "final_sha256": "aeb14fb5902e9f1046f6212fa691f182e92e658a759d0b6b03b4b9adabce1d93",
+  "streams": {
+   "video_s": 8,
+   "audio_s": 8
+  },
+  "cue_verification": {
+   "ok": true,
+   "cues": [
+    {
+     "id": "grip_clunk",
+     "kind": "SFX",
+     "frame": 70,
+     "t": 1.1666666666666667,
+     "measured_s": 1.1666875,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    },
+    {
+     "id": "release_click",
+     "kind": "SFX",
+     "frame": 200,
+     "t": 3.3333333333333335,
+     "measured_s": 3.3333541666666666,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    },
+    {
+     "id": "word0:pull",
+     "kind": "WORD",
+     "w": "pull",
+     "t": 0.5,
+     "frame": 30,
+     "measured_s": 0.5000208333333334,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    },
+    {
+     "id": "word1:together",
+     "kind": "WORD",
+     "w": "together",
+     "t": 1,
+     "frame": 60,
+     "measured_s": 1.0000208333333334,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    }
+   ],
+   "duck": {
+    "stem_rms_db_under_narration": -50.96,
+    "stem_rms_db_reference": -35.21,
+    "depth_db": 15.75
+   },
+   "integrated_lufs": -16.2,
+   "stem_verified": true
+  },
+  "audible_in_final": [
+   {
+    "id": "word0:pull",
+    "t": 0.5,
+    "frame": 30,
+    "measured_s": 0.500125
+   },
+   {
+    "id": "word1:together",
+    "t": 1,
+    "frame": 60,
+    "measured_s": 1.0000416666666667
+   },
+   {
+    "id": "grip_clunk",
+    "t": 1.1666666666666667,
+    "frame": 70,
+    "measured_s": 1.1670208333333334
+   },
+   {
+    "id": "release_click",
+    "t": 3.3333333333333335,
+    "frame": 200,
+    "measured_s": 3.3333541666666666
+   }
+  ],
+  "render_receipt_mp4_sha256": "9c726d019ca203e602dc1e6e25b359840874c3f381864e16ca468f8569914a13",
+  "at": "2026-11-24T00:28:47.862Z"
+ },
+ "generated_at": "2026-11-24T00:29:02.492Z"
+}
