@@ -1,6 +1,6 @@
 {
  "repo": "C:\\YT_PUBLISH\\YT-VIDEO-PRODUCTION-LAB",
- "head": "900a6b14e2dfeeb2d59ec87a0e84e71ce45e1835",
+ "head": "377797c43c2b4915f0d29e365bf059bcb529413d",
  "probes": {
   "C1": {
    "title": "CONTACT_END passes on any CONTACT event (the contact never ends)",
@@ -76,8 +76,8 @@
     "ok": false,
     "palm_deg": 177.6440636292895,
     "handle_deg": -2.4047429984793336,
-    "hand_layer": 20,
-    "prop_layer": 18,
+    "hand_layer": 24,
+    "prop_layer": 22,
     "hand_channel": "hand_r",
     "closure": "open"
    }

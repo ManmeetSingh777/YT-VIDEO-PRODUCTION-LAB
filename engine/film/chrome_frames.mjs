@@ -45,7 +45,10 @@ export function attributionUnits(doc, plan, scene, prefix, shot) {
     const slots = new Set([...(r.state_channels || []).flatMap((c) => c.slots), ...[...r.pose_states, ...r.view_states].flatMap((s) => Object.keys(s.asset_bindings || {})),
       ...Object.values(plan.deform_maps || {}).filter((m) => m.rig === r.id).map((m) => m.slot), ...Object.values(plan.morphs || {}).filter((m) => m.rig === r.id).map((m) => m.slot)]);
     for (const s of slots) units.push({ id: `${r.id}:${s}`, rig: r.id, slot: s, kind: "SLOT", match: `${prefix}${r.id}--${s}--` }); }
-  return units.filter((u) => ids.some((i) => i.startsWith(u.match)));
+  // P04 §7.6: a procedural action, an effect and the camera are owners too — another owner's motion must never stand in for theirs
+  for (const id of Object.keys(plan.procedural || {})) units.push({ id, kind: "PROCEDURAL", match: `${prefix}${id}--sym` });
+  const fx = (plan.effects || []).filter((e) => e.shot === shot.id).map((e) => ({ id: e.id, kind: "EFFECT", match: `${prefix}fx-${e.id}-` })), cam = shot.camera_track_id && plan.cameras?.[shot.camera_track_id] ? [{ id: shot.camera_track_id, kind: "CAMERA", match: `${prefix}cam-` }] : [];
+  return [...units.filter((u) => ids.some((i) => i.startsWith(u.match))), ...fx, ...cam];
 }
 export async function createChromeFrameSession({ film, manifest = MF, planFile, seed = 1, fps = 60, width = 1920, height = 1080, runType = "PRODUCTION", workDir = null, attribution = true, diagnosticPerturb = null }) {
   if (diagnosticPerturb && runType === "PRODUCTION") throw err("RENDER_CAPTURE_FAILURE", { reason: "diagnostic perturbation is refused in a PRODUCTION session", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });
@@ -98,7 +101,9 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     const visSet = (rs) => sha(JSON.stringify(rs.filter((r) => r[2] === 1).map((r) => r[0])));
     // isolation uses the shot's FIXED reference camera (its first frame): camera moves are attributed to the camera, never to an owner
     const camPre = `${shots[k].prefix}cam-`, camRef = (shots[k].camRef ??= new Map(scene.frameState(shot.start_frame).rows.filter((r) => r[0].startsWith(camPre)).map((r) => [r[0], r])));
-    const attributionOf = async (base) => { if (!attribution) return {}; const out = {}; for (const u of shots[k].units) { const mineOnly = (r) => r[0].startsWith(u.match), own = (r) => mineOnly(r) || r[0].startsWith(camPre), iso = base.map((r) => (r[0].startsWith(camPre) ? camRef.get(r[0]) || r : mineOnly(r) ? r : [r[0], r[1], 0, r[3], r[4]])), mine = rows.filter(mineOnly);
+    const attributionOf = async (base) => { if (!attribution) return {}; const out = {}; for (const u of shots[k].units) {
+        if (u.kind === "CAMERA") { const ref0 = (shots[k].refRows ??= scene.frameState(shot.start_frame).rows), cam = new Map(base.filter((r) => r[0].startsWith(camPre)).map((r) => [r[0], r])); out[u.id] = { px: await capture(ref0.map((r) => cam.get(r[0]) || r)), state: visibleStateSha(rows.filter((r) => r[0].startsWith(camPre))), visible_set: null, ref_swap: null, ref_rigid: null }; continue; } // only the camera moves in this capture
+        const mineOnly = (r) => r[0].startsWith(u.match), own = (r) => mineOnly(r) || r[0].startsWith(camPre), iso = base.map((r) => (r[0].startsWith(camPre) ? camRef.get(r[0]) || r : mineOnly(r) ? r : [r[0], r[1], 0, r[3], r[4]])), mine = rows.filter(mineOnly);
         const o = (out[u.id] = { px: await capture(iso), state: visibleStateSha(mine), visible_set: visSet(mine), ref_swap: null, ref_rigid: null });
         if (u.kind !== "SLOT") continue;
         const pr = prev(), pmine = pr ? pr.filter(mineOnly) : null;

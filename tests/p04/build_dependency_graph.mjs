@@ -2,11 +2,11 @@
 // P04 02: the end-to-end dependency graph, generated from the REAL source: every edge names a producer function, the consumer module that calls it
 // and the exact line of the call; an edge whose call is not found in the source is reported as MISSING (never listed as if it existed).
 import fs from "node:fs"; import path from "node:path"; import url from "node:url";
-const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), OUT = path.resolve(REPO, process.argv[process.argv.indexOf("--out") + 1] || "hybrid_v2/evidence/p04/02_END_TO_END_DEPENDENCY_GRAPH.json");
+const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), OUT = path.resolve(REPO, process.argv.includes("--out") ? process.argv[process.argv.indexOf("--out") + 1] : "hybrid_v2/evidence/p04/02_END_TO_END_DEPENDENCY_GRAPH.json");
 const read = (f) => (fs.existsSync(path.join(REPO, f)) ? fs.readFileSync(path.join(REPO, f), "utf8").split(/\r?\n/) : null);
 const edge = (stage, producer, consumer, call, contract, evidence) => { const src = read(consumer), re = new RegExp(`\\b${call.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*\\(`), line = src ? src.findIndex((l) => re.test(l)) : -1, prodFile = producer.split("#")[0], prodSrc = read(prodFile), pname = producer.split("#")[1]; const defines = prodSrc ? prodSrc.findIndex((l) => new RegExp(`(export )?(async )?(function|const) ${pname}\\b|export \\{[^}]*\\b${pname}\\b`).test(l)) : -1; return { stage, producer, producer_defined_at: prodSrc && defines >= 0 ? `${prodFile}:${defines + 1}` : null, consumer, call, call_site: line >= 0 ? `${consumer}:${line + 1}` : null, data_contract: contract, evidence, status: defines >= 0 && line >= 0 ? "CONNECTED" : defines < 0 ? "PRODUCER_MISSING" : "CALL_NOT_FOUND" }; };
 const E = [
-  edge("S00 script/intent", "engine/story/authoring_handoff.mjs#exportAuthoringRequest", "tests/p04/p04_closure.test.mjs", "exportAuthoringRequest", "AUTHORING_MANIFEST.json (sealed request)", "P04-2.1"),
+  edge("S00 script/intent", "engine/story/authoring_handoff.mjs#exportAuthoringRequest", "engine/story/authoring_cli.mjs", "exportAuthoringRequest", "AUTHORING_MANIFEST.json (sealed request)", "P04-2.1"),
   edge("S01 story", "engine/story/mechanism.mjs#validateStoryContract", "engine/production/stages.mjs", "validateStoryContract", "STORY_CONTRACT.json → typed claims", "S01 task story_contract"),
   edge("S02 direction", "engine/story/experience.mjs#compileAttention", "engine/production/stages.mjs", "compileAttention", "SHOT_SCORE attention + requires", "S02 tasks attention_*"),
   edge("S03 actions", "engine/story/action_coverage.mjs#compileActionCoverage", "engine/production/stages.mjs", "compileActionCoverage", "SEMANTIC_ACTIONS.json + events", "S03 actions_* / verbs registry"),
@@ -20,7 +20,7 @@ const E = [
   edge("S03 semantic consequences", "engine/film/semantic_qa.mjs#verifySemanticConsequences", "engine/production/stages.mjs", "verifySemanticConsequences", "typed verbs → measured consequence", "P04-5.4"),
   edge("S03 IR", "engine/production/production_ir.mjs#verifyArrows", "engine/production/stages.mjs", "verifyArrows", "decision→requirement→art→registered→motion arrows", "P04-1"),
   edge("S04 art demand", "engine/art_bridge/art_demand.mjs#deriveArtDemands", "engine/production/stages.mjs", "deriveArtDemands", "visible state inventory (HAND channel closure)", "P04-3.2"),
-  edge("S05 art intake", "engine/art_bridge/art_intake.mjs#ingestPart", "tests/p03/subjects_fixture.mjs", "ingestPart", "registered part + receipt", "intake tests"),
+  edge("S05 art intake", "engine/art_bridge/art_intake.mjs#ingestPart", "engine/tools/art_outbox.mjs", "ingestPart", "registered part + receipt", "intake tests"),
   edge("S05 vector intake", "engine/art_bridge/art_intake.mjs#ingestVectorPart", "tests/p03/subjects_fixture.mjs", "ingestVectorPart", "VECTOR_PATH registration", "E3"),
   edge("S05 GPT handoff", "engine/art_bridge/gpt_handoff.mjs#exportGptJob", "engine/tools/art_outbox.mjs", "exportGptJob", "self-contained job bundle", "P02-R26"),
   edge("S06 registration", "engine/art_bridge/registration_evidence.mjs#verifyRegistrationReceipt", "engine/production/stages.mjs", "verifyRegistrationReceipt", "content-bound receipt", "registration_*"),
@@ -39,7 +39,16 @@ const E = [
   edge("S09 audio mix", "engine/film/audio_mix.mjs#mixBuses", "engine/production/stages.mjs", "mixBuses", "buses + stems", "P04-7.7"),
   edge("S09 sync", "engine/film/audio_mix.mjs#verifyAudioSync", "engine/production/stages.mjs", "verifyAudioSync", "per-stem cue verification", "P04-7.7"),
   edge("S09 publish", "engine/film/audio_mix.mjs#publishFinal", "engine/production/stages.mjs", "publishFinal", "video + verified mix → final MP4 + receipt", "P04-7.7"),
-  edge("S09 film review", "engine/tools/art_bridge_film_qa.mjs#filmBundle", "engine/tools/art_bridge_film_qa.mjs", "filmBundle", "film review bundle", "P02 film QA"),
+  edge("S09 film review", "engine/film/final_review.mjs#finalFilmApproval", "engine/production/stages.mjs", "finalFilmApproval", "exact published file → verified HUMAN decision", "P04-7.7b"),
+  edge("S00 authoring accept", "engine/story/authoring_handoff.mjs#compileAccepted", "engine/story/authoring_cli.mjs", "compileAccepted", "approved proposal → production inputs + lineage", "P04-2.1b"),
+  edge("S03 direction decisions", "engine/story/direction_consequence.mjs#verifyDirectionDecisions", "engine/production/stages.mjs", "verifyDirectionDecisions", "decision → measured consequence of its own owner", "P04-2.2a-d"),
+  edge("S03 narration relations", "engine/story/narration.mjs#verifyNarrationRelations", "engine/production/stages.mjs", "verifyNarrationRelations", "measured words ↔ director relation/hold", "P04-2.5"),
+  edge("S03 framing", "engine/art_bridge/framing.mjs#verifyFraming", "engine/production/stages.mjs", "verifyFraming", "every frame: crop and scale", "P04-5.7"),
+  edge("S06 contact patch", "engine/art_bridge/framing.mjs#verifyContactPatch", "engine/production/stages.mjs", "verifyContactPatch", "painted hand over painted prop", "P04-5.3b"),
+  edge("S08 decision pixels", "engine/story/direction_consequence.mjs#decisionRig", "engine/film/coverage_gate.mjs", "decisionRig", "decision → owner pixels", "P04-2.2d"),
+  edge("human review request", "engine/art_bridge/review_requests.mjs#exportReviewRequest", "engine/tools/review_sign.mjs", "exportReviewRequest", "unsigned request packet", "P04-6.2a"),
+  edge("human review import", "engine/art_bridge/review_requests.mjs#importSignedReview", "engine/tools/review_sign.mjs", "importSignedReview", "signed envelopes → receipts", "P04-6.2a/b"),
+  edge("human review authority", "engine/art_bridge/reviewer_auth.mjs#verifyEnvelope", "engine/art_bridge/approvals.mjs", "verifyEnvelope", "external trust anchor", "P02-R16"),
   edge("run control", "engine/tools/production_run.mjs#start", "tests/p04/run_chain.mjs", "PR.start", "ledger-run stages S00–S09", "chain"),
 ];
 const missing = E.filter((e) => e.status !== "CONNECTED"); fs.mkdirSync(path.dirname(OUT), { recursive: true }); fs.writeFileSync(OUT, JSON.stringify({ generated_by: "tests/p04/build_dependency_graph.mjs (each edge verified in source)", edges: E, connected: E.length - missing.length, not_connected: missing.map((m) => ({ stage: m.stage, producer: m.producer, consumer: m.consumer, status: m.status })) }, null, 1)); console.log(`edges ${E.length}, connected ${E.length - missing.length}, not connected:`, JSON.stringify(missing.map((m) => [m.producer, m.consumer, m.status])));

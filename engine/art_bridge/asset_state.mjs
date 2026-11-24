@@ -6,7 +6,7 @@ import { err } from "./errors.mjs";
 import { channelEvents, channelStatesAt, resolveBindings } from "./state_channels.mjs";
 import { rigPoseTimeline, poseAt } from "./state_timeline.mjs"; // P04 §3.1: ONE persistent history per rig (no per-action resets)
 
-export function assetStateCoverage(doc) {
+export function assetStateCoverage(doc, { plan = null } = {}) {
   const assets = new Map(doc.assets.map((a) => [a.id, a])), rigs = new Map(doc.rigs.map((r) => [r.id, r])), cells = [], errors = [];
   for (const a of doc.actions) for (const actor of a.actors) {
     const r = rigs.get(actor.rig_id); if (!r) continue;
@@ -33,7 +33,9 @@ export function assetStateCoverage(doc) {
         const sock = r.sockets.find((s) => s.id === c.source_socket), handParts = r.render_parts.filter((p) => p.joint_id === sock?.joint_id).map((p) => assets.get(bind[p.asset_id] ?? p.asset_id)).filter(Boolean);
         const above = handParts.some((h) => h.draw_order_constraints.some((d) => d.relation === "ABOVE" && !handParts.some((x) => x.id === d.asset_id))), below = handParts.some((h) => h.draw_order_constraints.some((d) => d.relation === "BELOW" && !handParts.some((x) => x.id === d.asset_id)));
         cell.near_far.push({ contact: c.source_socket, near_layer: above, far_layer: below });
-        if (!above || !below) cell.missing.push({ slot: `${c.source_socket}:near_far`, need: `${r.id}.${sock?.joint_id}.near_far_hand_layers`, why: "grip needs authored near-finger and far-finger/palm layers on opposite sides of the prop" });
+        // P04 §5.3: the grip contract decides the topology; a declared single layer carries its reason, declared finger layers are checked by slot
+        const gc = plan?.grips?.[`${a.id}:${c.source_socket}`] || plan?.grips?.[a.id], slots = new Set(r.render_parts.map((p) => p.asset_id)), layered = gc?.finger_layers && gc.finger_layers.near?.length && gc.finger_layers.far?.length && [...gc.finger_layers.near, ...gc.finger_layers.far].every((s) => slots.has(s)), single = gc && !gc.finger_layers && gc.near_far !== "WRAP" && gc.single_layer_reason; if (single) cell.near_far.at(-1).single_layer_reason = gc.single_layer_reason; if (layered) cell.near_far.at(-1).finger_layers = gc.finger_layers;
+        if (!layered && !single && (!above || !below)) cell.missing.push({ slot: `${c.source_socket}:near_far`, need: `${r.id}.${sock?.joint_id}.near_far_hand_layers`, why: "grip needs authored near-finger and far-finger/palm layers on opposite sides of the prop" });
       }
       cells.push(cell);
       for (const m of cell.missing) errors.push(err("MISSING_ART_ASSET", { record_id: m.need, dependency: m.need, shot_id: a.shot_id, frame_range: [f, g], suggested_producer: "GPT state manufacture (source-attached edit of the canonical master)", reason: `state cell ${a.id}/${r.id} [${f},${g}) ${m.why}`, details: { cell: { view: facing, pose, slot: m.slot } } }));
