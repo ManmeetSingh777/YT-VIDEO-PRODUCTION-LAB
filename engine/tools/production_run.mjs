@@ -24,15 +24,22 @@ const fmt = (t) => [`run ${t.run_id}  events ${t.events}  head ${String(t.chain_
   ...t.stages.map((r) => `${r.stage.padEnd(22)} ${r.status.padEnd(12)} tasks ${String(r.verified).padStart(4)}/${String(r.tasks).padEnd(4)} failed ${r.failed} blocked ${r.blocked}`), `next: ${t.next_operation}`, ...t.failures.slice(0, 5).map((f) => `FAILURE ${f.failure_id} [${f.class}] ${f.task}: ${String(f.observed).slice(0, 140)}`)].join("\n");
 /** the renderer's plan is the canonical production plan (P04 §7.2): deterministic resolution, refusal on conflict/absence — never undefined */
 export function resolveRenderPlan(FILM, { motionPlan = null } = {}) { const { compileProductionPlan: cp } = S; const r = cp(FILM, { explicit: motionPlan }); if (r.errors?.length) throw Object.assign(new Error(r.errors.map((e) => `${e.code}: ${e.reason || e.human_readable_reason}`).join("; ")), { code: r.errors[0].code }); return r; }
+/** P05: start AND resume resolve the renderer's plan the same way (a resumed run used to stop at PLAN_MISSING) */
+function renderOptions(FILM, opts, diagnostic) {
+  if ((opts.renderer || "art_bridge_chrome_frames") !== "art_bridge_chrome_frames" || opts.rendererArgs?.planFile) return opts;
+  const rp = resolveRenderPlan(FILM, { motionPlan: opts.motionPlan }), cf = materializePlan(FILM, rp); return { ...opts, motionPlan: opts.motionPlan || rp.file, rendererArgs: { ...(opts.rendererArgs || {}), planFile: cf, runType: diagnostic ? "DIAGNOSTIC" : "PRODUCTION" } };
+}
 export async function start(FILM, { diagnostic = false, until = null, runId = null, ...opts } = {}) {
-  if ((opts.renderer || "art_bridge_chrome_frames") === "art_bridge_chrome_frames" && !opts.rendererArgs?.planFile) { const rp = resolveRenderPlan(FILM, { motionPlan: opts.motionPlan }); const cf = materializePlan(FILM, rp); opts = { ...opts, motionPlan: opts.motionPlan || rp.file, rendererArgs: { ...(opts.rendererArgs || {}), planFile: cf, runType: diagnostic ? "DIAGNOSTIC" : "PRODUCTION" } }; }
-  const id = runId || L.createRun(FILM, { runType: diagnostic ? "DIAGNOSTIC" : "PRODUCTION", manifest: { renderer: opts.renderer || "art_bridge_chrome_frames" } });
+  const explicitPlan = opts.motionPlan ? path.resolve(opts.motionPlan) : null;
+  opts = renderOptions(FILM, opts, diagnostic);
+  const id = runId || L.createRun(FILM, { runType: diagnostic ? "DIAGNOSTIC" : "PRODUCTION", manifest: { renderer: opts.renderer || "art_bridge_chrome_frames", total: opts.total ?? null, chunk_size: opts.chunkSize ?? null, explicit_motion_plan: explicitPlan } });
   // F085: pre-ledger history is migrated into the separate LEGACY stream and only LINKED (never trusted) from the new run
   const lg = L.importLegacy(FILM), lh = L.verifyChain(FILM, lg.run_id); L.appendEvent(FILM, id, { event_type: "LEGACY_STREAM_LINKED", status_after: "LINKED_UNVERIFIED", input_refs: [{ legacy_run_id: lg.run_id, head_sha256: lh.head_sha256, events: lh.events, imported_now: lg.imported }] });
   return { run_id: id, results: await runFrom(FILM, id, 0, until, opts) };
 }
 async function runFrom(FILM, id, from, until, opts) { const res = []; for (const s of S.STAGES.slice(from)) { const r = await S.runStage(FILM, id, s, opts); res.push({ stage: s, status: r.status }); if (r.status !== "COMMITTED" || s === until) break; } return res; }
-export async function resume(FILM, id, opts = {}) { const st = L.replay(FILM, id); L.appendEvent(FILM, id, { event_type: "RUN_RESUMED", status_after: "RESUMED" }); const from = S.STAGES.findIndex((s) => st.stages[s]?.status !== "COMMITTED"); return from < 0 ? [] : runFrom(FILM, id, from, opts.until || null, opts); }
+/** resume continues THIS run: its run type, renderer, length, chunking and explicit plan come from its own manifest, never from today's defaults */
+export async function resume(FILM, id, opts = {}) { const st = L.replay(FILM, id), man = JSON.parse(fs.readFileSync(path.join(L.runDir(FILM, id), "RUN_MANIFEST.json"), "utf8")), m = man.manifest ?? man, given = Object.fromEntries(Object.entries(opts).filter(([, v]) => v !== undefined)); opts = { ...(m.renderer ? { renderer: m.renderer } : {}), ...(m.total ? { total: m.total } : {}), ...(m.chunk_size ? { chunkSize: m.chunk_size } : {}), ...(m.explicit_motion_plan ? { motionPlan: m.explicit_motion_plan } : {}), ...given }; opts = renderOptions(FILM, opts, (man.run_type ?? m.run_type) === "DIAGNOSTIC"); L.appendEvent(FILM, id, { event_type: "RUN_RESUMED", status_after: "RESUMED" }); const from = S.STAGES.findIndex((s) => st.stages[s]?.status !== "COMMITTED"); return from < 0 ? [] : runFrom(FILM, id, from, opts.until || null, opts); }
 export function why(FILM, id, failureId) {
   const f = path.join(L.runDir(FILM, id), "failures", `${failureId}.json`); if (!fs.existsSync(f)) throw new Error(`no failure ${failureId}`); const r = JSON.parse(fs.readFileSync(f, "utf8"));
   const st = L.replay(FILM, id), ev = L.readEvents(FILM, id).find((e) => e.failure_id === failureId); if (!ev) throw new Error("failure is not recorded in the verified ledger (forged record refused)");

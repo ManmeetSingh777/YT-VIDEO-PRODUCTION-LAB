@@ -79,7 +79,7 @@ export async function renderFilm({ film, revision, renderer = "diagnostic_flat",
   try {
     for (const ch of planChunks(total, chunkSize)) {
       const base = path.join(chunksDir, `chunk_${String(ch[0]).padStart(5, "0")}_${String(ch[1]).padStart(5, "0")}`), rcF = `${base}.json`, mkv = `${base}.mkv`;
-      if (fs.existsSync(rcF) && fs.existsSync(mkv)) { const rc = JSON.parse(fs.readFileSync(rcF, "utf8")); if (rc.key_sha256 === keySha && rc.mkv_sha256 === fsha(mkv)) { receipts.push({ ...rc, reused: true }); prev = rc.last; continue; } }
+      if (fs.existsSync(rcF) && fs.existsSync(mkv)) { const rc = JSON.parse(fs.readFileSync(rcF, "utf8")); if (rc.key_sha256 === keySha && rc.mkv_sha256 === fsha(mkv)) { const again = { ...rc, reused: true, probe: probeMp4(mkv) }; receipts.push(again); prev = rc.last; onChunk?.(again); continue; } } // P05: a reused chunk is reported like a rendered one (re-probed): a resumed stage could never commit
       for (const x of [mkv, rcF]) fs.rmSync(x, { force: true }); // an unverified or stale chunk is discarded and regenerated from its FIRST frame
       const tmp = `${base}.tmp-${process.pid}.mkv`, enc = encoder(tmp, { width, height, fps }); live.add(enc);
       let r; try { r = await renderChunk(session, ch, { write: (b) => { if (inject.failEncodeChunk === ch[0]) { enc.kill(); inject.failEncodeChunk = null; } return enc.write(b); }, crashAt: inject.crashAt, prev }); enc.ff.stdin.end(); await enc.done; }
