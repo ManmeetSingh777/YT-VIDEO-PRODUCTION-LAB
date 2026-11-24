@@ -1,0 +1,16 @@
+{
+ "packet_sha256": "4506f5e964fe274b37407535867b4ce13d0d1cf1b527ae0c79ace0db191c7d24",
+ "board": {
+  "STRUCTURAL_VALID": true,
+  "PREART_FEASIBLE": true,
+  "CREATIVE_HUMAN_APPROVED": "DIAGNOSTIC_ONLY (TEST_TRUSTED)",
+  "COMPILED_INPUTS_MATCH_PACKET": true,
+  "GENUINE_ART_APPROVED": "false: 0 drawings missing, 0 records not human-approved, diagnostic fixtures present",
+  "POST_ART_MOTION_FEASIBLE": true,
+  "FINAL_FILM_REVIEWED": false,
+  "ENGINEERING_QUALIFIED": "see the committed readiness report (a film status never proves the engine)"
+ },
+ "next": [
+  "NEEDS_FINAL_ARTISTIC_REVIEW (NOT_REVIEWABLE)"
+ ]
+}

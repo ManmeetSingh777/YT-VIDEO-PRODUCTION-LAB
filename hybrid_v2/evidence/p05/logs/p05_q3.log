@@ -1,0 +1,184 @@
+TAP version 13
+# Subtest: B1 expression/eyes/mouth come from their OWN channels, independent of the pose id
+ok 1 - B1 expression/eyes/mouth come from their OWN channels, independent of the pose id
+  ---
+  duration_ms: 10.395
+  type: 'test'
+  ...
+# Subtest: B2 negatives: a missing channel drawing is MISSING_ART_ASSET; two channels owning one slot is STATE_CHANNEL_CONFLICT
+ok 2 - B2 negatives: a missing channel drawing is MISSING_ART_ASSET; two channels owning one slot is STATE_CHANNEL_CONFLICT
+  ---
+  duration_ms: 0.8479
+  type: 'test'
+  ...
+# Subtest: C1 negative regression: a NON-CONTACT action with an invalid state change is INFEASIBLE (feasibility covers every action)
+ok 3 - C1 negative regression: a NON-CONTACT action with an invalid state change is INFEASIBLE (feasibility covers every action)
+  ---
+  duration_ms: 731.1541
+  type: 'test'
+  ...
+# Subtest: A1 acting: lag follows topology depth, breath is additive rotation only (no scale), and matrices differ from the bare plan
+ok 4 - A1 acting: lag follows topology depth, breath is additive rotation only (no scale), and matrices differ from the bare plan
+  ---
+  duration_ms: 10.0384
+  type: 'test'
+  ...
+# Subtest: A2 negatives: acting naming a joint the rig lacks is ACTING_UNEXECUTABLE; a blink needing an unapproved state is MISSING_ART_ASSET; amplitude past the joint limit refuses
+ok 5 - A2 negatives: acting naming a joint the rig lacks is ACTING_UNEXECUTABLE; a blink needing an unapproved state is MISSING_ART_ASSET; amplitude past the joint limit refuses
+  ---
+  duration_ms: 8.5399
+  type: 'test'
+  ...
+# Subtest: D1 a phrase is primary motion: editing it changes the compiled matrices of the character and the camera
+ok 6 - D1 a phrase is primary motion: editing it changes the compiled matrices of the character and the camera
+  ---
+  duration_ms: 35.192
+  type: 'test'
+  ...
+# Subtest: D2 negatives: an unresolvable phrase owner returns PHRASE_UNEXECUTABLE; a phrase and an authored track on one owner is INVALID_TRANSFORM_OWNER
+ok 7 - D2 negatives: an unresolvable phrase owner returns PHRASE_UNEXECUTABLE; a phrase and an authored track on one owner is INVALID_TRANSFORM_OWNER
+  ---
+  duration_ms: 6.025
+  type: 'test'
+  ...
+# Subtest: D3 precedence is reported: contact IK owns its chain joints; acting there is listed as suppressed_by_contact (never silently erased)
+ok 8 - D3 precedence is reported: contact IK owns its chain joints; acting there is listed as suppressed_by_contact (never silently erased)
+  ---
+  duration_ms: 4.4022
+  type: 'test'
+  ...
+# Subtest: E1 raster mesh deformation: start = identity, middle = half, end = targets; the deformed copy replaces the rigid pass in the scene rows
+ok 9 - E1 raster mesh deformation: start = identity, middle = half, end = targets; the deformed copy replaces the rigid pass in the scene rows
+  ---
+  duration_ms: 4.6197
+  type: 'test'
+  ...
+# Subtest: E2 negatives: inverted triangles, a mesh leaving the approved pixels, and incompatible vector topology are refused
+ok 10 - E2 negatives: inverted triangles, a mesh leaving the approved pixels, and incompatible vector topology are refused
+  ---
+  duration_ms: 12.6822
+  type: 'test'
+  ...
+# Subtest: E3 vector morph: approved homologous paths interpolate (middle = midpoint of control points) and are written as the path d each frame
+ok 11 - E3 vector morph: approved homologous paths interpolate (middle = midpoint of control points) and are written as the path d each frame
+  ---
+  duration_ms: 10.2478
+  type: 'test'
+  ...
+# Subtest: F1 grip: position + orientation + closure + near/far are checked on every hold frame; a reversed palm and a lost near/far order fail
+ok 12 - F1 grip: position + orientation + closure + near/far are checked on every hold frame; a reversed palm and a lost near/far order fail
+  ---
+  duration_ms: 72.2261
+  type: 'test'
+  ...
+# Subtest: F2 planted feet and weight transfer: soles stay on their targets for every frame; the centre of mass moves before the lever does
+ok 13 - F2 planted feet and weight transfer: soles stay on their targets for every frame; the centre of mass moves before the lever does
+  ---
+  duration_ms: 393.7655
+  type: 'test'
+  ...
+# Subtest: F3 object reaction is causal: the lever follows the pull (zero residual) and is static without the reaction contract
+ok 14 - F3 object reaction is causal: the lever follows the pull (zero residual) and is static without the reaction contract
+  ---
+  duration_ms: 26.1367
+  type: 'test'
+  ...
+# Subtest: F4 dynamic cast shadow: emitted from the approved occluder drawing, moves with it, keeps floor contact, material treatment applied
+ok 15 - F4 dynamic cast shadow: emitted from the approved occluder drawing, moves with it, keeps floor contact, material treatment applied
+  ---
+  duration_ms: 60.2336
+  type: 'test'
+  ...
+# Subtest: F5 connected follow-through: hair and tail are baked springs driven by head / tail motion (non-zero lag after the driver moves)
+ok 16 - F5 connected follow-through: hair and tail are baked springs driven by head / tail motion (non-zero lag after the driver moves)
+  ---
+  duration_ms: 0.6269
+  type: 'test'
+  ...
+# Subtest: G1 owner gate: frozen owner, unrendered discrete swap and deformation equal to rigid are each reported; a healthy owner passes
+ok 17 - G1 owner gate: frozen owner, unrendered discrete swap and deformation equal to rigid are each reported; a healthy owner passes
+  ---
+  duration_ms: 1.6197
+  type: 'test'
+  ...
+# Subtest: H1 audio buses: frame-addressed SFX and narration onsets measured from the mix within 4 ms; ducking and loudness measured; a late SFX is caught
+ok 18 - H1 audio buses: frame-addressed SFX and narration onsets measured from the mix within 4 ms; ducking and loudness measured; a late SFX is caught
+  ---
+  duration_ms: 3283.02
+  type: 'test'
+  ...
+# Subtest: I1 stage ledger derives and runs a task per new capability (layers, deformation, morph, reaction, support) from the film's own plan
+ok 19 - I1 stage ledger derives and runs a task per new capability (layers, deformation, morph, reaction, support) from the film's own plan
+  ---
+  duration_ms: 1812.2953
+  type: 'test'
+  ...
+# Subtest: P05-E1 post-art feasibility: every required frame of every family is evaluated on the measured art and passes; nothing evaluated is never a pass
+ok 20 - P05-E1 post-art feasibility: every required frame of every family is evaluated on the measured art and passes; nothing evaluated is never a pass
+  ---
+  duration_ms: 4810.0763
+  type: 'test'
+  ...
+# Subtest: P05-E2 post-art feedback names who must change what: impossible reach, out-of-support lean, missing drawing, inert decision, unowned obligation
+ok 21 - P05-E2 post-art feedback names who must change what: impossible reach, out-of-support lean, missing drawing, inert decision, unowned obligation
+  ---
+  duration_ms: 10975.7432
+  type: 'test'
+  ...
+# Subtest: P05-E3 the rig IS the delivered art: every joint and socket equals its measured landmark; a sidecar without a joint landmark, a mis-shaped plate, and a mirrored or stretched part are refused
+ok 22 - P05-E3 the rig IS the delivered art: every joint and socket equals its measured landmark; a sidecar without a joint landmark, a mis-shaped plate, and a mirrored or stretched part are refused
+  ---
+  duration_ms: 2080.952
+  type: 'test'
+  ...
+# Subtest: P05-E4 a linked output follows the SOLVED lever: the gear turns with the hand-driven lever; without the link, or with a frozen lever, its decision is inert
+ok 23 - P05-E4 a linked output follows the SOLVED lever: the gear turns with the hand-driven lever; without the link, or with a frozen lever, its decision is inert
+  ---
+  duration_ms: 1727.9362
+  type: 'test'
+  ...
+# Subtest: P05-E5 creative obligations: each directed element the plan drops or changes is MOTION_OBLIGATION_UNMET (an unrecorded voice: AUDIO_INPUT_MISSING); motion nobody directed is ORPHAN_MOTION_TRACK
+ok 24 - P05-E5 creative obligations: each directed element the plan drops or changes is MOTION_OBLIGATION_UNMET (an unrecorded voice: AUDIO_INPUT_MISSING); motion nobody directed is ORPHAN_MOTION_TRACK
+  ---
+  duration_ms: 7.2757
+  type: 'test'
+  ...
+# Subtest: P05-E6 shadows: one united shadow per caster, connected on every frame; leaving out the limbs between body and feet is discontinuous; per-piece opacity can no longer darken overlaps
+ok 25 - P05-E6 shadows: one united shadow per caster, connected on every frame; leaving out the limbs between body and feet is discontinuous; per-piece opacity can no longer darken overlaps
+  ---
+  duration_ms: 4268.9174
+  type: 'test'
+  ...
+# Subtest: P05-E7 stages: S00–S06 of the accepted packet film pass with real tasks; changing one approved direction value blocks them
+ok 26 - P05-E7 stages: S00–S06 of the accepted packet film pass with real tasks; changing one approved direction value blocks them
+  ---
+  duration_ms: 11128.1044
+  type: 'test'
+  ...
+# Subtest: P05-E8 changing one director input changes only its own owner's compiled motion (creature vs. human vs. machine vs. camera)
+ok 27 - P05-E8 changing one director input changes only its own owner's compiled motion (creature vs. human vs. machine vs. camera)
+  ---
+  duration_ms: 29.251
+  type: 'test'
+  ...
+# Subtest: P05-E9 a continuous transition is executed on both sides of the shot boundary with its anchor fixed; a world reveal moves the near plane across the subject
+ok 28 - P05-E9 a continuous transition is executed on both sides of the shot boundary with its anchor fixed; a world reveal moves the near plane across the subject
+  ---
+  duration_ms: 1707.4415
+  type: 'test'
+  ...
+# Subtest: P05-E10 statuses stay separate: diagnostic drawings, no run, no human and no recorded voice are each named; an unrecorded voice is AUDIO_INPUT_MISSING; a returned vector is ingested by the operator command
+ok 29 - P05-E10 statuses stay separate: diagnostic drawings, no run, no human and no recorded voice are each named; an unrecorded voice is AUDIO_INPUT_MISSING; a returned vector is ingested by the operator command
+  ---
+  duration_ms: 7862.1533
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 151855.1355

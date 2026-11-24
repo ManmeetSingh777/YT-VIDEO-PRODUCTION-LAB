@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+ok 1 - P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+  ---
+  duration_ms: 287.0003
+  type: 'test'
+  ...
+# Subtest: P0-1b Ines master context covers the S02 interval and the master's shots
+ok 2 - P0-1b Ines master context covers the S02 interval and the master's shots
+  ---
+  duration_ms: 258.8415
+  type: 'test'
+  ...
+# Subtest: P0-1c perturbing S02 grip timing changes only dependent job contexts
+ok 3 - P0-1c perturbing S02 grip timing changes only dependent job contexts
+  ---
+  duration_ms: 406.5692
+  type: 'test'
+  ...
+# Subtest: P0-2a all six canonical-master jobs route to the canonical master medium
+ok 4 - P0-2a all six canonical-master jobs route to the canonical master medium
+  ---
+  duration_ms: 246.4431
+  type: 'test'
+  ...
+# Subtest: P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+ok 5 - P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+  ---
+  duration_ms: 1.2961
+  type: 'test'
+  ...
+# Subtest: P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+ok 6 - P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+  ---
+  duration_ms: 1494.244
+  type: 'test'
+  ...
+# Subtest: P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+ok 7 - P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+  ---
+  duration_ms: 16829.4324
+  type: 'test'
+  ...
+# Subtest: P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+ok 8 - P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+  ---
+  duration_ms: 16367.3697
+  type: 'test'
+  ...
+# Subtest: P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+ok 9 - P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+  ---
+  duration_ms: 3617.3678
+  type: 'test'
+  ...
+# Subtest: P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+ok 10 - P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+  ---
+  duration_ms: 1526.7568
+  type: 'test'
+  ...
+# Subtest: T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)
+ok 11 - T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)
+  ---
+  duration_ms: 11.3598
+  type: 'test'
+  ...
+# Subtest: T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED
+ok 12 - T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED
+  ---
+  duration_ms: 8.2714
+  type: 'test'
+  ...
+# Subtest: T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check
+ok 13 - T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check
+  ---
+  duration_ms: 4.5496
+  type: 'test'
+  ...
+# Subtest: T06 changed script or audio invalidates word-linked frame anchors; estimated timing cannot anchor a critical cue
+ok 14 - T06 changed script or audio invalidates word-linked frame anchors; estimated timing cannot anchor a critical cue
+  ---
+  duration_ms: 16.0107
+  type: 'test'
+  ...
+# Subtest: T09 the timed animatic retains DIAGNOSTIC_ONLY provenance and cannot pass an art or film gate
+ok 15 - T09 the timed animatic retains DIAGNOSTIC_ONLY provenance and cannot pass an art or film gate
+  ---
+  duration_ms: 7.054
+  type: 'test'
+  ...
+# Subtest: P04-3.3 the demand closes over the PRODUCTION plan: acting states, morph ends, deformed drawings, symbols and every world plate, all planned
+ok 16 - P04-3.3 the demand closes over the PRODUCTION plan: acting states, morph ends, deformed drawings, symbols and every world plate, all planned
+  ---
+  duration_ms: 41.4766
+  type: 'test'
+  ...
+# Subtest: P04-3.3 a blink with no CLOSED_EYES drawing, a missing mouth shape, an unplanned morph end or world plate become demands before any render (unlike subjects)
+ok 17 - P04-3.3 a blink with no CLOSED_EYES drawing, a missing mouth shape, an unplanned morph end or world plate become demands before any render (unlike subjects)
+  ---
+  duration_ms: 57.4525
+  type: 'test'
+  ...
+# Subtest: P04-3.6 the GPT handoff is self-contained and portable: a relocated copy of the same project imports; a foreign project and a changed request refuse with the remedy; a missing witness blocks the export
+ok 18 - P04-3.6 the GPT handoff is self-contained and portable: a relocated copy of the same project imports; a foreign project and a changed request refuse with the remedy; a missing witness blocks the export
+  ---
+  duration_ms: 16022.6928
+  type: 'test'
+  ...
+# Subtest: P04-2.4c an approved phrase edit changes the REAL Chrome pixels of the intended owner and leaves unrelated owners and shots unchanged
+ok 19 - P04-2.4c an approved phrase edit changes the REAL Chrome pixels of the intended owner and leaves unrelated owners and shots unchanged
+  ---
+  duration_ms: 21163.4104
+  type: 'test'
+  ...
+# Subtest: P04-7.8b the composition cache never serves stale frames: same work dir, changed plan / poisoned bake with a stale key → rebuilt; unchanged inputs → reused
+ok 20 - P04-7.8b the composition cache never serves stale frames: same work dir, changed plan / poisoned bake with a stale key → rebuilt; unchanged inputs → reused
+  ---
+  duration_ms: 13824.4461
+  type: 'test'
+  ...
+# Subtest: P04-7.6b the renderer captures procedural actions, effects and the camera as separate owners (real Chrome)
+ok 21 - P04-7.6b the renderer captures procedural actions, effects and the camera as separate owners (real Chrome)
+  ---
+  duration_ms: 7792.2434
+  type: 'test'
+  ...
+# Subtest: P05-A1 draft v1.0.0 fixtures: valid/invalid behave as published; a v1.0.0 packet is never completed by guessing and cannot be imported
+ok 22 - P05-A1 draft v1.0.0 fixtures: valid/invalid behave as published; a v1.0.0 packet is never completed by guessing and cannot be imported
+  ---
+  duration_ms: 19.1531
+  type: 'test'
+  ...
+# Subtest: P05-A2 v1.1 fixture is structurally valid and supported in principle; nothing claims more
+ok 23 - P05-A2 v1.1 fixture is structurally valid and supported in principle; nothing claims more
+  ---
+  duration_ms: 39.6123
+  type: 'test'
+  ...
+# Subtest: P05-A3 mutations: each single omission or contradiction is refused with its own code
+ok 24 - P05-A3 mutations: each single omission or contradiction is refused with its own code
+  ---
+  duration_ms: 602.2534
+  type: 'test'
+  ...
+# Subtest: P05-B1 pre-art refusals are typed, carry a next step and never simplify: verb, contact, camera, operation, morph, cel, symbol, bend, view, object response, swap reason, witnesses
+ok 25 - P05-B1 pre-art refusals are typed, carry a next step and never simplify: verb, contact, camera, operation, morph, cel, symbol, bend, view, object response, swap reason, witnesses
+  ---
+  duration_ms: 129.7261
+  type: 'test'
+  ...
+# Subtest: P05-C1 lossless: every schema field has a stated destination, every record reaches a generated file, and every id maps to an origin
+ok 26 - P05-C1 lossless: every schema field has a stated destination, every record reaches a generated file, and every id maps to an origin
+  ---
+  duration_ms: 30.8035
+  type: 'test'
+  ...
+# Subtest: P05-C2 import: hashes, sizes and paths of source files are checked; the packet is immutable; accept needs a verified signature over the exact digest; a claimed approval is never trusted
+ok 27 - P05-C2 import: hashes, sizes and paths of source files are checked; the packet is immutable; accept needs a verified signature over the exact digest; a claimed approval is never trusted
+  ---
+  duration_ms: 741.8486
+  type: 'test'
+  ...
+# Subtest: P05-C3 an unimplementable requirement is refused at accept with typed feedback — not downgraded; a production film without a packet is blocked
+ok 28 - P05-C3 an unimplementable requirement is refused at accept with typed feedback — not downgraded; a production film without a packet is blocked
+  ---
+  duration_ms: 89.8185
+  type: 'test'
+  ...
+# Subtest: P05-C4 a revision invalidates only what changed, keeps unaffected records and preserves the previous packet
+ok 29 - P05-C4 a revision invalidates only what changed, keeps unaffected records and preserves the previous packet
+  ---
+  duration_ms: 266.0336
+  type: 'test'
+  ...
+# Subtest: P05-D1 art-first stage order: measured tasks and obligations leave S03 and are owned by S06; unmeasured rigs never move
+ok 30 - P05-D1 art-first stage order: measured tasks and obligations leave S03 and are owned by S06; unmeasured rigs never move
+  ---
+  duration_ms: 44.2573
+  type: 'test'
+  ...
+# Subtest: P05-D2 the packet alone demands every state it reaches before art (blink, speech, closure, plates); removing one drawing is a missing demand
+ok 31 - P05-D2 the packet alone demands every state it reaches before art (blink, speech, closure, plates); removing one drawing is a missing demand
+  ---
+  duration_ms: 38.9435
+  type: 'test'
+  ...
+# Subtest: P05-G1 film length is variable in schema and logic: 1, 600, 7200 and 216000 frames; 0, fractions and absurd lengths are refused; consumers use the film's own clock
+ok 32 - P05-G1 film length is variable in schema and logic: 1, 600, 7200 and 216000 frames; 0, fractions and absurd lengths are refused; consumers use the film's own clock
+  ---
+  duration_ms: 82.7999
+  type: 'test'
+  ...
+# Subtest: P05-H1 CLI: validate/preflight exit codes, import prints the signing step, feedback is machine readable, status never promotes; the published Python validator agrees with the engine on every mutation when jsonschema is installed
+ok 33 - P05-H1 CLI: validate/preflight exit codes, import prints the signing step, feedback is machine readable, status never promotes; the published Python validator agrees with the engine on every mutation when jsonschema is installed
+  ---
+  duration_ms: 309.346
+  type: 'test'
+  ...
+# Subtest: P05-K1 evidence builders write only under their own default output: every --out has a default inside hybrid_v2/evidence, never an argv fallback
+ok 34 - P05-K1 evidence builders write only under their own default output: every --out has a default inside hybrid_v2/evidence, never an argv fallback
+  ---
+  duration_ms: 4.2086
+  type: 'test'
+  ...
+# Subtest: P05-K2 the chunk key contains the rendering environment; another Node, Chrome or FFmpeg never shares segments
+ok 35 - P05-K2 the chunk key contains the rendering environment; another Node, Chrome or FFmpeg never shares segments
+  ---
+  duration_ms: 106.7222
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 115195.5321

@@ -1,0 +1,712 @@
+{
+ "ok": false,
+ "failures": [
+  {
+   "code": "DIRECTION_DECISION_INERT",
+   "record_id": "d_push",
+   "frame_ranges": [
+    [
+     480,
+     600
+    ]
+   ],
+   "reason": "decision d_push (CAMERA_MOVE by cam_c): its own isolated pixels show 1 distinct image(s)"
+  }
+ ],
+ "decision_pixels": [
+  {
+   "decision": "d_enter",
+   "operation": "MOVE",
+   "owner": "nova_rig",
+   "frames": [
+    0,
+    50
+   ],
+   "distinct_pixels": 50
+  },
+  {
+   "decision": "d_turn",
+   "operation": "STATE_CHANGE",
+   "owner": "nova_rig",
+   "frames": [
+    30,
+    40
+   ],
+   "distinct_pixels": 11
+  },
+  {
+   "decision": "d_brow",
+   "operation": "DEFORM",
+   "owner": "nova_rig:nova_brow_neutral",
+   "frames": [
+    60,
+    120
+   ],
+   "distinct_pixels": 60,
+   "deformed_frames": 59,
+   "equal_to_rigid": 0
+  },
+  {
+   "decision": "d_reach",
+   "operation": "ARTICULATE",
+   "owner": "nova_rig",
+   "frames": [
+    60,
+    100
+   ],
+   "distinct_pixels": 40
+  },
+  {
+   "decision": "d_close",
+   "operation": "STATE_CHANGE",
+   "owner": "nova_rig",
+   "frames": [
+    90,
+    110
+   ],
+   "distinct_pixels": 21
+  },
+  {
+   "decision": "d_hold",
+   "operation": "CONTACT",
+   "owner": "nova_rig",
+   "frames": [
+    100,
+    220
+   ],
+   "distinct_pixels": 121
+  },
+  {
+   "decision": "d_open",
+   "operation": "STATE_CHANGE",
+   "owner": "nova_rig",
+   "frames": [
+    215,
+    235
+   ],
+   "distinct_pixels": 21
+  },
+  {
+   "decision": "d_lever",
+   "operation": "REACT",
+   "owner": "lever_rig",
+   "frames": [
+    100,
+    220
+   ],
+   "distinct_pixels": 120
+  },
+  {
+   "decision": "d_gear",
+   "operation": "REACT",
+   "owner": "gear_rig",
+   "frames": [
+    100,
+    220
+   ],
+   "distinct_pixels": 120
+  },
+  {
+   "decision": "d_watch",
+   "operation": "ARTICULATE",
+   "owner": "lumen_rig",
+   "frames": [
+    270,
+    420
+   ],
+   "distinct_pixels": 150
+  },
+  {
+   "decision": "d_breathe",
+   "operation": "DEFORM",
+   "owner": "lumen_rig:lumen_body",
+   "frames": [
+    270,
+    420
+   ],
+   "distinct_pixels": 149,
+   "deformed_frames": 148,
+   "equal_to_rigid": 0
+  },
+  {
+   "decision": "d_reveal",
+   "operation": "CAMERA_MOVE",
+   "owner": "cam_b",
+   "frames": [
+    270,
+    400
+   ],
+   "distinct_pixels": 130
+  },
+  {
+   "decision": "d_portal",
+   "operation": "TRANSITION",
+   "owner": "sh_watch->sh_flow",
+   "frames": [
+    420,
+    450
+   ],
+   "distinct_pixels": 30
+  },
+  {
+   "decision": "d_flow",
+   "operation": "EFFECT",
+   "owner": "a_flow",
+   "frames": [
+    470,
+    600
+   ],
+   "distinct_pixels": 130
+  },
+  {
+   "decision": "d_push",
+   "operation": "CAMERA_MOVE",
+   "owner": "cam_c",
+   "frames": [
+    480,
+    600
+   ],
+   "distinct_pixels": 1
+  }
+ ],
+ "coverage": {
+  "action": [
+   {
+    "id": "a_enter",
+    "frames": [
+     0,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "a_pull",
+    "frames": [
+     50,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "a_watch",
+    "frames": [
+     270,
+     450
+    ],
+    "rendered": true
+   },
+   {
+    "id": "a_body",
+    "frames": [
+     270,
+     450
+    ],
+    "rendered": true
+   },
+   {
+    "id": "a_reveal",
+    "frames": [
+     270,
+     450
+    ],
+    "rendered": true
+   },
+   {
+    "id": "a_portal",
+    "frames": [
+     420,
+     450
+    ],
+    "rendered": true
+   },
+   {
+    "id": "a_flow",
+    "frames": [
+     450,
+     600
+    ],
+    "rendered": true
+   }
+  ],
+  "art_state": [
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     0,
+     34
+    ],
+    "rendered": true
+   },
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     34,
+     98
+    ],
+    "rendered": true
+   },
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     98,
+     220
+    ],
+    "rendered": true
+   },
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     220,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     50,
+     98
+    ],
+    "rendered": true
+   },
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     98,
+     220
+    ],
+    "rendered": true
+   },
+   {
+    "id": "nova_rig:open",
+    "frames": [
+     220,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "lever_rig:rest",
+    "frames": [
+     50,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "gear_rig:rest",
+    "frames": [
+     50,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "lumen_rig:idle",
+    "frames": [
+     270,
+     450
+    ],
+    "rendered": true
+   },
+   {
+    "id": "lumen_rig:idle",
+    "frames": [
+     270,
+     450
+    ],
+    "rendered": true
+   }
+  ],
+  "camera": [
+   {
+    "id": "cam_a",
+    "frames": [
+     0,
+     270
+    ],
+    "rendered": true
+   },
+   {
+    "id": "cam_b",
+    "frames": [
+     270,
+     450
+    ],
+    "rendered": true
+   },
+   {
+    "id": "cam_c",
+    "frames": [
+     450,
+     600
+    ],
+    "rendered": true
+   }
+  ],
+  "transition": [
+   {
+    "id": "sh_pull->sh_watch",
+    "frames": [
+     269,
+     271
+    ],
+    "rendered": true
+   },
+   {
+    "id": "sh_watch->sh_flow",
+    "frames": [
+     420,
+     480
+    ],
+    "rendered": true
+   }
+  ],
+  "shot_boundary": [
+   {
+    "id": "sh_watch",
+    "frames": [
+     269,
+     271
+    ],
+    "rendered": true
+   },
+   {
+    "id": "sh_flow",
+    "frames": [
+     449,
+     451
+    ],
+    "rendered": true
+   }
+  ],
+  "sound_cue": [
+   {
+    "id": "c_voice",
+    "frames": [
+     30,
+     31
+    ],
+    "rendered": true
+   }
+  ]
+ },
+ "owner_attribution": [
+  {
+   "action": "a_enter",
+   "unit": "nova_rig",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_enter",
+   "unit": "nova_rig:nova_eye_open",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_enter",
+   "unit": "nova_rig:nova_mouth_rest",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 10,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_enter",
+   "unit": "nova_rig:nova_hand_open",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 2,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_enter",
+   "unit": "nova_rig:nova_head",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 1,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_enter",
+   "unit": "nova_rig:nova_torso",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 1,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_enter",
+   "unit": "nova_rig:nova_brow_neutral",
+   "frames": [
+    0,
+    270
+   ],
+   "distinct_states": 270,
+   "distinct_pixels": 270,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 179,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig:nova_eye_open",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 2,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig:nova_mouth_rest",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 8,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig:nova_hand_open",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 2,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig:nova_head",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig:nova_torso",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "nova_rig:nova_brow_neutral",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 220,
+   "distinct_pixels": 220,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 179,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "lever_rig",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 120,
+   "distinct_pixels": 120,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_pull",
+   "unit": "gear_rig",
+   "frames": [
+    50,
+    270
+   ],
+   "distinct_states": 120,
+   "distinct_pixels": 120,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_watch",
+   "unit": "lumen_rig",
+   "frames": [
+    270,
+    450
+   ],
+   "distinct_states": 180,
+   "distinct_pixels": 180,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_watch",
+   "unit": "lumen_rig:lumen_eye_open",
+   "frames": [
+    270,
+    450
+   ],
+   "distinct_states": 180,
+   "distinct_pixels": 180,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_watch",
+   "unit": "lumen_rig:lumen_body",
+   "frames": [
+    270,
+    450
+   ],
+   "distinct_states": 179,
+   "distinct_pixels": 179,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 177,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_body",
+   "unit": "lumen_rig",
+   "frames": [
+    270,
+    450
+   ],
+   "distinct_states": 180,
+   "distinct_pixels": 180,
+   "discrete_swaps": 0,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_body",
+   "unit": "lumen_rig:lumen_eye_open",
+   "frames": [
+    270,
+    450
+   ],
+   "distinct_states": 180,
+   "distinct_pixels": 180,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 0,
+   "deform_frames_equal_to_rigid": 0
+  },
+  {
+   "action": "a_body",
+   "unit": "lumen_rig:lumen_body",
+   "frames": [
+    270,
+    450
+   ],
+   "distinct_states": 179,
+   "distinct_pixels": 179,
+   "discrete_swaps": 4,
+   "swaps_not_rendered": [],
+   "deform_frames": 177,
+   "deform_frames_equal_to_rigid": 0
+  }
+ ],
+ "owner_attribution_absent": false,
+ "owner_attribution_required": true,
+ "total_expected": 600,
+ "bounded_diagnostic": false,
+ "frames_hashed": 600,
+ "moving_intervals": 11,
+ "static_holds": 1,
+ "note": "mechanical coverage only; artistic review stays an independent human gate"
+}

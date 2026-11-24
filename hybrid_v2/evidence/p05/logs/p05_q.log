@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: P04-2.2a every direction decision is measured on its own owner — all four families pass
+ok 1 - P04-2.2a every direction decision is measured on its own owner — all four families pass
+  ---
+  duration_ms: 781.7379
+  type: 'test'
+  ...
+# Subtest: P04-2.2b causal mutations: removing ONE decision's consumer makes exactly that decision inert while unrelated tracks keep moving
+ok 2 - P04-2.2b causal mutations: removing ONE decision's consumer makes exactly that decision inert while unrelated tracks keep moving
+  ---
+  duration_ms: 2430.8154
+  type: 'test'
+  ...
+# Subtest: P04-2.2c refusals: unknown operation, missing owner, duplicate id, frames outside the film, HOLD without reason or with motion, wrong owner kind
+ok 3 - P04-2.2c refusals: unknown operation, missing owner, duplicate id, frames outside the film, HOLD without reason or with motion, wrong owner kind
+  ---
+  duration_ms: 420.1987
+  type: 'test'
+  ...
+# Subtest: P04-2.2d production stage: no DIRECTION_DECISIONS file fails in PRODUCTION, an inert one blocks S03, a decision nobody renders fails the pixel gate
+ok 4 - P04-2.2d production stage: no DIRECTION_DECISIONS file fails in PRODUCTION, an inert one blocks S03, a decision nobody renders fails the pixel gate
+  ---
+  duration_ms: 1576.1051
+  type: 'test'
+  ...
+# Subtest: P04-1b IR arrows are strict: a decision on a subject with no action/contact/camera/world/effect is named, the fixture's decisions all resolve
+ok 5 - P04-1b IR arrows are strict: a decision on a subject with no action/contact/camera/world/effect is named, the fixture's decisions all resolve
+  ---
+  duration_ms: 126.7524
+  type: 'test'
+  ...
+# Subtest: P04-2.5 measured narration owns time: the director's relation is verified, approximate word lists cannot override it, a hold cut short fails
+ok 6 - P04-2.5 measured narration owns time: the director's relation is verified, approximate word lists cannot override it, a hold cut short fails
+  ---
+  duration_ms: 3.9398
+  type: 'test'
+  ...
+# Subtest: P04-2.2e effect, deformation and camera decisions are judged on THEIR OWN isolated pixels: another moving owner never stands in
+ok 7 - P04-2.2e effect, deformation and camera decisions are judged on THEIR OWN isolated pixels: another moving owner never stands in
+  ---
+  duration_ms: 18.3041
+  type: 'test'
+  ...
+# Subtest: P04-5.7 framing: every frame of the path — a cropped attended subject, an unexplained crop and over-enlarged art are refused; a declared crop passes
+ok 8 - P04-5.7 framing: every frame of the path — a cropped attended subject, an unexplained crop and over-enlarged art are refused; a declared crop passes
+  ---
+  duration_ms: 1845.9323
+  type: 'test'
+  ...
+# Subtest: P04-5.7b a rotation-only camera is a MOVING interval (the trace index read a key that no camera has)
+ok 9 - P04-5.7b a rotation-only camera is a MOVING interval (the trace index read a key that no camera has)
+  ---
+  duration_ms: 442.9354
+  type: 'test'
+  ...
+# Subtest: P04-5.3b contact patch on approved pixels: held frames measured; a hand drawing that does not cover the handle fails although the coordinate matches
+ok 10 - P04-5.3b contact patch on approved pixels: held frames measured; a hand drawing that does not cover the handle fails although the coordinate matches
+  ---
+  duration_ms: 564.6974
+  type: 'test'
+  ...
+# Subtest: P04-5.3c finger topology: near drawings above the prop, far drawings below; an undeclared WRAP and an inverted finger layer fail
+ok 11 - P04-5.3c finger topology: near drawings above the prop, far drawings below; an undeclared WRAP and an inverted finger layer fail
+  ---
+  duration_ms: 881.9556
+  type: 'test'
+  ...
+# Subtest: P04-6.2a export → sign → import mints HUMAN receipts for parts, masters (two bundles), states, channel states, edges, deformations, story and direction
+ok 12 - P04-6.2a export → sign → import mints HUMAN receipts for parts, masters (two bundles), states, channel states, edges, deformations, story and direction
+  ---
+  duration_ms: 1090.6371
+  type: 'test'
+  ...
+# Subtest: P04-6.2b refusals: unsigned, forged, altered request, replay, wrong film, changed pixels, mixed verdicts, unknown reviewer, revoked key, rejected verdict clears approval
+ok 13 - P04-6.2b refusals: unsigned, forged, altered request, replay, wrong film, changed pixels, mixed verdicts, unknown reviewer, revoked key, rejected verdict clears approval
+  ---
+  duration_ms: 1746.7405
+  type: 'test'
+  ...
+# Subtest: P04-6.2c the offline signer refuses a key inside a repository and refuses to run without an interactive terminal (no automated signing)
+ok 14 - P04-6.2c the offline signer refuses a key inside a repository and refuses to run without an interactive terminal (no automated signing)
+  ---
+  duration_ms: 651.3995
+  type: 'test'
+  ...
+# Subtest: P04-7.7b final film authority: the S09 film review verifies a signed HUMAN decision over the exact published file, and any changed byte makes it stale
+ok 15 - P04-7.7b final film authority: the S09 film review verifies a signed HUMAN decision over the exact published file, and any changed byte makes it stale
+  ---
+  duration_ms: 649.7502
+  type: 'test'
+  ...
+# Subtest: P04-2.1b authoring proposal: export → import → signed approval → accept compiles with lineage; unapproved, altered and locally-confirmed proposals are refused; the CLI named in the instructions exists
+ok 16 - P04-2.1b authoring proposal: export → import → signed approval → accept compiles with lineage; unapproved, altered and locally-confirmed proposals are refused; the CLI named in the instructions exists
+  ---
+  duration_ms: 615.7891
+  type: 'test'
+  ...
+# Subtest: P04-2.4b direction approval covers decisions, semantic actions and phrases: editing an approved phrase file makes the direction approval stale
+ok 17 - P04-2.4b direction approval covers decisions, semantic actions and phrases: editing an approved phrase file makes the direction approval stale
+  ---
+  duration_ms: 518.2923
+  type: 'test'
+  ...
+# Subtest: P04-2.3 action coverage: CONTACT_END needs a real release; TARGET_STATE_CHANGE needs the correct target and the requested state; unknown verbs refused
+ok 18 - P04-2.3 action coverage: CONTACT_END needs a real release; TARGET_STATE_CHANGE needs the correct target and the requested state; unknown verbs refused
+  ---
+  duration_ms: 6.1371
+  type: 'test'
+  ...
+# Subtest: P04-2.2 direction: a decision needs the OPERATION and EFFECT it names; removing the consumer makes it inert (causal mutation)
+ok 19 - P04-2.2 direction: a decision needs the OPERATION and EFFECT it names; removing the consumer makes it inert (causal mutation)
+  ---
+  duration_ms: 1.047
+  type: 'test'
+  ...
+# Subtest: P04-2.4 phrases: the approved file compiles into the ONE production plan; a conflicting plan.phrases is a conflict; editing a phrase changes compiled tracks
+ok 20 - P04-2.4 phrases: the approved file compiles into the ONE production plan; a conflicting plan.phrases is a conflict; editing a phrase changes compiled tracks
+  ---
+  duration_ms: 732.9834
+  type: 'test'
+  ...
+# Subtest: P04-2.1 script handoff: exported request is sealed and self-contained; import refuses an altered manifest, a wrong revision and contradictory decisions; acceptance needs approval
+ok 21 - P04-2.1 script handoff: exported request is sealed and self-contained; import refuses an altered manifest, a wrong revision and contradictory decisions; acceptance needs approval
+  ---
+  duration_ms: 76.2083
+  type: 'test'
+  ...
+# Subtest: P04-3.1 one persistent state timeline: pose/view/channels carry across actions and shots; a declared reset and only a declared reset clears them
+ok 22 - P04-3.1 one persistent state timeline: pose/view/channels carry across actions and shots; a declared reset and only a declared reset clears them
+  ---
+  duration_ms: 0.8203
+  type: 'test'
+  ...
+# Subtest: P04-5.1 event priority is explicit and order-independent; equal-priority contradictions fail
+ok 23 - P04-5.1 event priority is explicit and order-independent; equal-priority contradictions fail
+  ---
+  duration_ms: 0.5358
+  type: 'test'
+  ...
+# Subtest: P04-5.2 acting limits: zero/NaN periods, out-of-film frames and self-driven springs are refused immediately (no hang)
+ok 24 - P04-5.2 acting limits: zero/NaN periods, out-of-film frames and self-driven springs are refused immediately (no hang)
+  ---
+  duration_ms: 7.824
+  type: 'test'
+  ...
+# Subtest: P04-5.3 grip: no contract = blocking; body GRIP with an OPEN hand fails; a closed hand with a valid contract is evaluated; fingers behind the prop fail; unrelated prop motion fails
+ok 25 - P04-5.3 grip: no contract = blocking; body GRIP with an OPEN hand fails; a closed hand with a valid contract is evaluated; fingers behind the prop fail; unrelated prop motion fails
+  ---
+  duration_ms: 167.5923
+  type: 'test'
+  ...
+# Subtest: P04-5.5 deformation: duplicate/overlapping triangles and partial coverage refused; a map renders only under a verified approval that binds geometry and pixels
+ok 26 - P04-5.5 deformation: duplicate/overlapping triangles and partial coverage refused; a map renders only under a verified approval that binds geometry and pixels
+  ---
+  duration_ms: 6.1655
+  type: 'test'
+  ...
+# Subtest: P04-6.1 global approvals enumerate every channel state
+ok 27 - P04-6.1 global approvals enumerate every channel state
+  ---
+  duration_ms: 170.4547
+  type: 'test'
+  ...
+# Subtest: P04-3.2 art demand: closure comes from the HAND channel — changing body pose does not satisfy it, changing the hand state changes the demanded drawing
+ok 28 - P04-3.2 art demand: closure comes from the HAND channel — changing body pose does not satisfy it, changing the hand state changes the demanded drawing
+  ---
+  duration_ms: 28.6998
+  type: 'test'
+  ...
+# Subtest: P04-4.1/4.2 feasibility: zero plans = NOT_EVALUATED; every frame evaluated; a per-frame exception and a failing state are failures; NOT_APPLICABLE is never feasible
+ok 29 - P04-4.1/4.2 feasibility: zero plans = NOT_EVALUATED; every frame evaluated; a per-frame exception and a failing state are failures; NOT_APPLICABLE is never feasible
+  ---
+  duration_ms: 1269.055
+  type: 'test'
+  ...
+# Subtest: P04-7.3 capability tasks record every evaluation exception (first, middle, last frame) instead of skipping it
+ok 30 - P04-7.3 capability tasks record every evaluation exception (first, middle, last frame) instead of skipping it
+  ---
+  duration_ms: 32.5879
+  type: 'test'
+  ...
+# Subtest: P04-7.1 preflight is read-only: the film tree is byte-identical before and after (audio tasks are not executed)
+ok 31 - P04-7.1 preflight is read-only: the film tree is byte-identical before and after (audio tasks are not executed)
+  ---
+  duration_ms: 18576.6253
+  type: 'test'
+  ...
+# Subtest: P04-7.2 plan resolution: no plan / conflicting film plans refuse before the renderer; the resolved plan is materialised outside handoff/
+ok 32 - P04-7.2 plan resolution: no plan / conflicting film plans refuse before the renderer; the resolved plan is materialised outside handoff/
+  ---
+  duration_ms: 8576.7366
+  type: 'test'
+  ...
+# Subtest: P04-7.4 stage obligations: a required capability with no producing task blocks (EMPTY_STAGE_OBLIGATION), never passes as 'nothing to do'
+ok 33 - P04-7.4 stage obligations: a required capability with no producing task blocks (EMPTY_STAGE_OBLIGATION), never passes as 'nothing to do'
+  ---
+  duration_ms: 29.3623
+  type: 'test'
+  ...
+# Subtest: P04-7.8 revision hashes content, not timestamps: rewriting a producer with the same size and mtime changes the digest
+ok 34 - P04-7.8 revision hashes content, not timestamps: rewriting a producer with the same size and mtime changes the digest
+  ---
+  duration_ms: 654.4474
+  type: 'test'
+  ...
+# Subtest: P04-7.7 audio publication: per-stem cue verification (late cue, missing word, wrong bus) fails; the published MP4 carries the verified audio and a bound receipt
+ok 35 - P04-7.7 audio publication: per-stem cue verification (late cue, missing word, wrong bus) fails; the published MP4 carries the verified audio and a bound receipt
+  ---
+  duration_ms: 9677.9886
+  type: 'test'
+  ...
+# Subtest: P04-7.5 the owner gate requires captured samples for every acting owner (no skipping of single frames) and reports blurred frames' owners
+ok 36 - P04-7.5 the owner gate requires captured samples for every acting owner (no skipping of single frames) and reports blurred frames' owners
+  ---
+  duration_ms: 1.1402
+  type: 'test'
+  ...
+# Subtest: P04-2.2/5.4/7.6 measured semantic consequences: OPEN/GRIP/PLANT/MECHANISM verified from executed motion; a trivial mechanism change or an unsupported verb is not a pass
+ok 37 - P04-2.2/5.4/7.6 measured semantic consequences: OPEN/GRIP/PLANT/MECHANISM verified from executed motion; a trivial mechanism change or an unsupported verb is not a pass
+  ---
+  duration_ms: 377.5195
+  type: 'test'
+  ...
+# Subtest: P04-1 production IR: decisions, actions, art, registered art, motion and their arrows resolve on the fixture; a missing arrow is named
+ok 38 - P04-1 production IR: decisions, actions, art, registered art, motion and their arrows resolve on the fixture; a missing arrow is named
+  ---
+  duration_ms: 34.7452
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 92578.0064

@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: P05-R1 an interrupted run resumes from its verified chunks with its own plan, length and chunking (found when the computer slept during a render)
+ok 1 - P05-R1 an interrupted run resumes from its verified chunks with its own plan, length and chunking (found when the computer slept during a render)
+  ---
+  duration_ms: 280301.1394
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 390021.8009

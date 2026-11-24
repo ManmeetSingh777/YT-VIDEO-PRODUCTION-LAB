@@ -1,0 +1,87 @@
+TAP version 13
+# Subtest: P05-E1 post-art feasibility: every required frame of every family is evaluated on the measured art and passes; nothing evaluated is never a pass
+ok 1 - P05-E1 post-art feasibility: every required frame of every family is evaluated on the measured art and passes; nothing evaluated is never a pass
+  ---
+  duration_ms: 4821.3968
+  type: 'test'
+  ...
+# Subtest: P05-E2 post-art feedback names who must change what: impossible reach, out-of-support lean, missing drawing, inert decision, unowned obligation
+ok 2 - P05-E2 post-art feedback names who must change what: impossible reach, out-of-support lean, missing drawing, inert decision, unowned obligation
+  ---
+  duration_ms: 11089.8184
+  type: 'test'
+  ...
+# Subtest: P05-E3 the rig IS the delivered art: every joint and socket equals its measured landmark; a sidecar without a joint landmark, a mis-shaped plate, and a mirrored or stretched part are refused
+ok 3 - P05-E3 the rig IS the delivered art: every joint and socket equals its measured landmark; a sidecar without a joint landmark, a mis-shaped plate, and a mirrored or stretched part are refused
+  ---
+  duration_ms: 1732.6582
+  type: 'test'
+  ...
+# Subtest: P05-E4 a linked output follows the SOLVED lever: the gear turns with the hand-driven lever; without the link, or with a frozen lever, its decision is inert
+ok 4 - P05-E4 a linked output follows the SOLVED lever: the gear turns with the hand-driven lever; without the link, or with a frozen lever, its decision is inert
+  ---
+  duration_ms: 1652.6198
+  type: 'test'
+  ...
+# Subtest: P05-E5 creative obligations: each directed element the plan drops or changes is MOTION_OBLIGATION_UNMET; motion nobody directed is ORPHAN_MOTION_TRACK
+not ok 5 - P05-E5 creative obligations: each directed element the plan drops or changes is MOTION_OBLIGATION_UNMET; motion nobody directed is ORPHAN_MOTION_TRACK
+  ---
+  duration_ms: 8.8871
+  type: 'test'
+  location: 'C:\\YT_PUBLISH\\p04_final_checkout\\tests\\p05\\p05_film.test.mjs:29:1'
+  failureType: 'testCodeFailure'
+  error: 'MOTION_OBLIGATION_UNMET:c_voice in AUDIO_INPUT_MISSING:c_voice'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    has (file:///C:/YT_PUBLISH/p04_final_checkout/tests/p05/p05_film.test.mjs:30:131)
+    TestContext.<anonymous> (file:///C:/YT_PUBLISH/p04_final_checkout/tests/p05/p05_film.test.mjs:31:996)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: P05-E6 shadows: one united shadow per caster, connected on every frame; leaving out the limbs between body and feet is discontinuous; per-piece opacity can no longer darken overlaps
+ok 6 - P05-E6 shadows: one united shadow per caster, connected on every frame; leaving out the limbs between body and feet is discontinuous; per-piece opacity can no longer darken overlaps
+  ---
+  duration_ms: 3443.553
+  type: 'test'
+  ...
+# Subtest: P05-E7 stages: S00–S06 of the accepted packet film pass with real tasks; changing one approved direction value blocks them
+ok 7 - P05-E7 stages: S00–S06 of the accepted packet film pass with real tasks; changing one approved direction value blocks them
+  ---
+  duration_ms: 10765.2865
+  type: 'test'
+  ...
+# Subtest: P05-E8 changing one director input changes only its own owner's compiled motion (creature vs. human vs. machine vs. camera)
+ok 8 - P05-E8 changing one director input changes only its own owner's compiled motion (creature vs. human vs. machine vs. camera)
+  ---
+  duration_ms: 31.7908
+  type: 'test'
+  ...
+# Subtest: P05-E9 a continuous transition is executed on both sides of the shot boundary with its anchor fixed; a world reveal moves the near plane across the subject
+ok 9 - P05-E9 a continuous transition is executed on both sides of the shot boundary with its anchor fixed; a world reveal moves the near plane across the subject
+  ---
+  duration_ms: 1646.6711
+  type: 'test'
+  ...
+# Subtest: P05-E10 statuses stay separate: diagnostic drawings, no run, no human and no recorded voice are each named; an unrecorded voice is AUDIO_INPUT_MISSING; a returned vector is ingested by the operator command
+ok 10 - P05-E10 statuses stay separate: diagnostic drawings, no run, no human and no recorded voice are each named; an unrecorded voice is AUDIO_INPUT_MISSING; a returned vector is ingested by the operator command
+  ---
+  duration_ms: 7896.6863
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 147884.786

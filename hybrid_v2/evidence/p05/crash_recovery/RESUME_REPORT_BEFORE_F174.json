@@ -1,0 +1,273 @@
+{
+ "cause": "the computer slept 10:16-14:11 and Chrome was gone on wake (unplanned)",
+ "run_id": "DIAG-20261124042015-3cf5c2",
+ "before": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 4,
+   "verified": 4,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 7,
+   "verified": 7,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 43,
+   "verified": 43,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 48,
+   "verified": 48,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 73,
+   "verified": 73,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "BLOCKED",
+   "tasks": 5,
+   "verified": 2,
+   "failed": 1,
+   "blocked": 2,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "recorded_failures": [
+  {
+   "first_violated_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "RENDER_CAPTURE_FAILURE: frame 388: Protocol error (Runtime.callFunctionOn): Target closed",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_300_450",
+   "root_producer": "engine/film/segment_render.mjs#renderFilm (art_bridge_chrome_frames)",
+   "failure_class": "RENDER_OR_MEMORY",
+   "repair_owner": "RENDER_PRODUCER",
+   "blast_radius": [
+    "assemble",
+    "S08_QA_REPAIR",
+    "S09_FILM_AUDIO_FINAL"
+   ],
+   "frames": [
+    [
+     388,
+     389
+    ]
+   ],
+   "evidence_event": "DIAG-20261124042015-3cf5c2:565",
+   "resume_from": "S07_NEUTRINO_RENDER",
+   "retry_safe": true,
+   "external_spend_risk": false,
+   "next_operation": "resolve chunk_300_450"
+  }
+ ],
+ "after": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 4,
+   "verified": 4,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 7,
+   "verified": 7,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 43,
+   "verified": 43,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 48,
+   "verified": 48,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 73,
+   "verified": 73,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "BLOCKED",
+   "tasks": 5,
+   "verified": 0,
+   "failed": 1,
+   "blocked": 4,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "NOT_STARTED",
+   "tasks": 0,
+   "verified": 0,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "after_failures": [
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_300_450-f0a6fb",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_300_450",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "RENDER_CAPTURE_FAILURE: frame 388: Protocol error (Runtime.callFunctionOn): Target closed"
+  },
+  {
+   "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_150-2cb149",
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_0_150",
+   "class": "RENDER_OR_MEMORY",
+   "invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+   "observed": "PLAN_MISSING: the Chrome renderer was started without a motion plan (resolve the production plan before rendering)"
+  }
+ ],
+ "resume_error": null,
+ "ledger_verification": {
+  "chain": {
+   "ok": true,
+   "events": 582,
+   "head_sha256": "6fc5393bbe200a973382bcb7cac915facf98c1a700e72bc3c5edfd2042b0de9a",
+   "problems": []
+  },
+  "handoffs": [
+   {
+    "stage": "S00_IDEA",
+    "ok": true
+   },
+   {
+    "stage": "S01_STORY",
+    "ok": true
+   },
+   {
+    "stage": "S02_EXPERIENCE",
+    "ok": true
+   },
+   {
+    "stage": "S03_TIMING_MOTION",
+    "ok": true
+   },
+   {
+    "stage": "S04_ART_DEMAND",
+    "ok": true
+   },
+   {
+    "stage": "S05_ART_PRODUCTION",
+    "ok": true
+   },
+   {
+    "stage": "S06_REGISTRATION_RIG",
+    "ok": true
+   }
+  ],
+  "ok": true
+ }
+}

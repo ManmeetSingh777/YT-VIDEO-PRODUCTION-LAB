@@ -1,0 +1,12 @@
+S00_IDEA COMMITTED 1/1 failed 0
+S01_STORY COMMITTED 3/3 failed 0
+S02_EXPERIENCE COMMITTED 4/4 failed 0
+S03_TIMING_MOTION COMMITTED 7/7 failed 0
+S04_ART_DEMAND COMMITTED 43/43 failed 0
+S05_ART_PRODUCTION COMMITTED 48/48 failed 0
+S06_REGISTRATION_RIG COMMITTED 73/73 failed 0
+S07_NEUTRINO_RENDER BLOCKED 0/5 failed 1
+S08_QA_REPAIR NOT_STARTED 0/0 failed 0
+S09_FILM_AUDIO_FINAL NOT_STARTED 0/0 failed 0
+null [{"failure_id":"FAIL-S07_NEUTRINO_RENDER-chunk_300_450-f0a6fb","stage":"S07_NEUTRINO_RENDER","task":"chunk_300_450","class":"RENDER_OR_MEMORY","invariant":"exact frame count, 1920x1080, 60/1; no defect; absolute seeking","observed":"RENDER_CAPTURE_FAILURE: frame 388: Protocol error (Runtime.callFunctionOn): Target closed"},{"failure_id":"FAIL-S07_NEUTRINO_RENDER-chunk_0_150-2cb149","stage":"S07_NEUTRINO_RENDER","task":"chunk_0_150","class":"RENDER_OR_MEMORY","invariant":"exact frame count, 1920x1080, 60/1; no defect; absolute seeking","observed":"PLAN_MISSING: the Chrome renderer was started without a motion plan (resolve the production plan before rendering)"}] ledger true
+exit 0
