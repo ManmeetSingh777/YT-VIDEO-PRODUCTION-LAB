@@ -48,7 +48,9 @@ const MEASURE = {
     return n ? ok({ locked_frames: n }) : no(`no contact of ${op.owner}${op.target ? ` with ${op.target}` : ""} is locked within tolerance in the interval`);
   },
   REACT: ({ rig, S, op, plan }) => {
-    const rx = (plan.reactions || []).filter((x) => x.rig === rig.id); if (!rx.length) return no(`no reaction drives ${rig.id}`);
+    const rx = (plan.reactions || []).filter((x) => x.rig === rig.id), linked = Object.values(plan.procedural || {}).filter((q) => q.type === "GEAR_TRAIN").flatMap((q) => q.followers).filter((x) => x.rig === rig.id);
+    if (!rx.length && linked.length) { let b = 0; for (const l of linked) { const par = rig.joints.find((x) => x.id === l.joint)?.parent_id, a = S.map((s) => deg(s.matrices[rig.id][l.joint]) - (par ? deg(s.matrices[rig.id][par]) : 0)); b = Math.max(b, ...a.map((x) => Math.abs(wrap(x - a[0])))); } const min = op.min_deg ?? 3; return b >= min ? ok({ linked_rotation_deg: round(b) }) : no(`linked output ${rig.id} turns ${round(b)} deg (< ${min} deg)`, { linked_rotation_deg: round(b) }); }
+    if (!rx.length) return no(`no reaction or linkage drives ${rig.id}`);
     let best = 0; for (const x of rx) { const a = S.map((s) => s.reactions.find((y) => y.id === x.id)?.angle).filter((y) => y !== undefined); if (a.length) best = Math.max(best, Math.max(...a) - Math.min(...a)); }
     const min = op.min_deg ?? 3; return best >= min ? ok({ rotation_deg: round(best) }) : no(`mechanism ${rig.id} reacts by ${round(best)} deg (< ${min} deg)`);
   },

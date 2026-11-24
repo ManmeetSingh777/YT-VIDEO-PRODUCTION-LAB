@@ -33,6 +33,8 @@ export function solveTransform(src, dst, mode = "SIMILARITY") {
   const [a, c, e] = solve(bx), [b, d, f] = solve(by);
   return [a, b, c, d, e, f];
 }
+/** P05 (README 6.1): a registration transform may place a drawing, never change it — no mirror image, no stretch or skew beyond 10% */
+export function assertDrawingPreserved([a, b, c, d], record_id = null) { const det = a * d - b * c, p1 = a * a + b * b + c * c + d * d, q1 = Math.sqrt(Math.max(0, p1 * p1 - 4 * det * det)), s1 = Math.sqrt((p1 + q1) / 2), s2 = Math.sqrt(Math.max(0, (p1 - q1) / 2)); if (det <= 0) throw err("UNREGISTERED_PIVOT", { record_id, reason: "the landmarks map the drawing onto its mirror image: a mirrored drawing is a different drawing" }); if (!(s2 > 0) || s1 / s2 > 1.1) throw err("UNREGISTERED_PIVOT", { record_id, reason: `the landmarks would stretch or skew the drawing (axis ratio ${(s1 / (s2 || 1e-9)).toFixed(3)} > 1.1): a best fit is not permission to deform the artwork` }); return true; }
 const ap = (M, p) => [M[0] * p[0] + M[2] * p[1] + M[4], M[1] * p[0] + M[3] * p[1] + M[5]];
 const inv = (M) => { const d = M[0] * M[3] - M[1] * M[2]; if (Math.abs(d) < 1e-12) throw err("DEGENERATE_IK", { reason: "non-invertible registration" }); return [M[3] / d, -M[1] / d, -M[2] / d, M[0] / d, (M[2] * M[5] - M[3] * M[4]) / d, (M[1] * M[4] - M[0] * M[5]) / d]; };
 function sample(png, x, y) { // bilinear, straight alpha → premultiplied average

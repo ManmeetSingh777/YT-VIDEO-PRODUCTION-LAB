@@ -91,5 +91,5 @@ export function eventsFromShotScore(shot, doc = null) {
   const kindOf = (r) => { const idk = r && doc?.identities?.find((i) => i.id === r.identity_id)?.kind; return idk && idk !== "CHARACTER" ? "STATE" : "POSE"; };
   const lastState = {};
   return (shot.events || []).map((e) => e.contact ? { kind: "CONTACT", contact_type: e.contact, frames: e.frames, source: e.source, target: e.target } : e.pose ? (() => { const r = owner(e.pose, e.rig); const from = r ? lastState[r.id] ?? (r.pose_states || [])[0]?.id ?? null : null; if (r) lastState[r.id] = e.pose; return { kind: kindOf(r), frame: e.frame, state: e.pose, rig: r?.id ?? null, from_state: from }; })()
-    : e.view ? { kind: "VIEW", frame: e.frame, state: e.view } : e.action ? { kind: "ACTION", frames: e.frames, mode: e.mode, object: e.action, goal: e.goal } : { kind: "OTHER", ...e });
+    : e.gaze ? { kind: "GAZE", frames: e.frames, rig: e.gaze, state: "gaze" } : e.view ? { kind: "VIEW", frame: e.frame, state: e.view } : e.action ? { kind: "ACTION", frames: e.frames, mode: e.mode, object: e.action, goal: e.goal } : { kind: "OTHER", ...e });
 }

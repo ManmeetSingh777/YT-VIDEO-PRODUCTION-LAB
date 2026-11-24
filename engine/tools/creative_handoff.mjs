@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+// Operator CLI of the GPT creative packet (integration directive A, B). It authors nothing and approves nothing.
+//   validate        --packet FILE                         structure + cross-references
+//   preflight       --packet FILE [--film DIR]            support in principle before any artwork (capability ledger + typed feedback); writes nothing
+//   import          --film DIR --packet FILE [--sources DIR]   immutable import of the packet and its source files (hash-checked)
+//   accept          --film DIR --packet-digest SHA        compile production inputs; only under a verified signed receipt (review_sign.mjs --scope creative_packet)
+//   post-art        --film DIR                            every required frame on the measured approved art; writes nothing
+//   export-feedback --film DIR [--packet FILE] --out FILE typed feedback for GPT (pre-art if art is missing, post-art when it exists)
+//   status          --film DIR                            computed status board + next permitted operation
+import fs from "node:fs"; import path from "node:path"; import url from "node:url";
+import { validatePacket } from "../story/creative_packet.mjs"; import { creativePreflight } from "../story/creative_preflight.mjs"; import { importPacket, acceptPacket, packetApproval, currentPacket, loadPacket } from "../story/creative_adapter.mjs"; import { postArtFeasibility, statusBoard } from "../production/post_art_feedback.mjs";
+const J = (f) => JSON.parse(fs.readFileSync(f, "utf8"));
+export async function main(a = process.argv.slice(2), out = console.log) {
+  const get = (k) => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : null; }, need = (...ks) => { const m = ks.filter((k) => !get(k)); if (m.length) throw new Error(`missing ${m.join(", ")}`); }, show = (o) => out(JSON.stringify(o, null, 1)), cmd = a[0];
+  if (cmd === "validate") { need("--packet"); const r = validatePacket(J(get("--packet"))); show(r); return r.status === "STRUCTURAL_VALID" ? 0 : 1; }
+  if (cmd === "preflight") { need("--packet"); const p = J(get("--packet")), film = get("--film"); let ap = null; if (film) { const { packetDigest } = await import("../story/creative_packet.mjs"); ap = packetApproval(film, packetDigest(p)); } const r = creativePreflight(p, { film, approval: ap }); show(r); return r.preart_feasible ? 0 : 1; }
+  if (cmd === "import") { need("--film", "--packet"); const r = importPacket({ film: get("--film"), packetFile: get("--packet"), sourceDir: get("--sources") }); show({ packet_sha256: r.packet_sha256, dir: r.dir, status: r.record.status, next: `node engine/tools/review_sign.mjs request --film ${get("--film")} --scope creative_packet --id ${r.packet_sha256}` }); return 0; }
+  if (cmd === "accept") { need("--film", "--packet-digest"); const r = acceptPacket({ film: get("--film"), packet: get("--packet-digest") }); show({ packet_sha256: r.packet_sha256, files: r.files, stale: r.stale }); return 0; }
+  if (cmd === "post-art") { need("--film"); const r = await postArtFeasibility({ film: get("--film") }); show(r); return r.status === "POST_ART_MOTION_FEASIBLE" ? 0 : 1; }
+  if (cmd === "export-feedback") { need("--film", "--out"); const F = path.resolve(get("--film")), cur = currentPacket(F), doc = fs.existsSync(path.join(F, "handoff", "ART_AND_MOTION_MANIFEST_V2.json")) ? J(path.join(F, "handoff", "ART_AND_MOTION_MANIFEST_V2.json")) : null; let r; if (get("--packet")) r = { kind: "CREATIVE_PREFLIGHT", ...creativePreflight(J(get("--packet")), { film: F }) }; else if (!cur) throw new Error("no accepted packet: pass --packet"); else if (!doc?.assets?.length) r = { kind: "CREATIVE_PREFLIGHT", ...creativePreflight(loadPacket(F, cur.packet_sha256).packet, { film: F, approval: packetApproval(F, cur.packet_sha256) }) }; else r = { kind: "POST_ART_FEASIBILITY", ...(await postArtFeasibility({ film: F })) }; fs.mkdirSync(path.dirname(path.resolve(get("--out"))), { recursive: true }); fs.writeFileSync(get("--out"), JSON.stringify({ kind: r.kind, status: r.status, packet_sha256: r.packet_sha256, feedback: r.feedback, instruction: "Return a new packet revision (or the requested artwork). Approved decisions not named here stay unchanged." }, null, 1)); show({ kind: r.kind, status: r.status, records: r.feedback.length, out: get("--out") }); return 0; }
+  if (cmd === "status") { need("--film"); show(await statusBoard({ film: get("--film") })); return 0; }
+  out("usage: creative_handoff.mjs validate|preflight|import|accept|post-art|export-feedback|status (see the header of this file)"); return 2;
+}
+if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(process.argv[1])).href) { try { process.exit(await main()); } catch (e) { console.error(JSON.stringify({ code: e.code || "ERROR", reason: e.human_readable_reason || e.message, feedback: e.feedback?.slice(0, 20), failures: e.failures?.slice(0, 20) }, null, 1)); process.exit(1); } }

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate GPT's creative packet structurally and across connected film obligations.
-Requires: pip install jsonschema>=4.18
+Requires: pip install jsonschema>=4.18. Validates the v1.0.0 draft; the executable v1.1.0 packet is validated by
+node engine/tools/creative_handoff.mjs validate (schemas/creative_packet_v1_1.schema.json).
 Exit 0 means STRUCTURALLY_VALID_PENDING_REVIEW, never an approved film.
 """
 import argparse, json, math, pathlib, sys
@@ -29,7 +30,8 @@ def validate(packet):
             ids[x["id"]]=group
     for m in packet["story"]["mechanisms"]:
         if m["epistemic_status"]=="SOURCED" and not m.get("source_refs"):
-            err("MISSING_CLAIM_SOURCE",m["id"],"SOURCED claim has no references")
+            err("CLAIM_SOURCE_REQUIRED",m["id"],"SOURCED claim has no references")
+        if m["epistemic_status"]=="UNVERIFIED": err("CLAIM_TRUTH_UNVERIFIED",m["id"],"an UNVERIFIED claim cannot be rendered as settled")
     narr=set()
     for n in packet["story"]["narration"]:
         if n["id"] in narr: err("DUPLICATE_NARRATION",n["id"],"duplicate narration ID")
@@ -55,6 +57,7 @@ def validate(packet):
                 err("DIRECTION_CONSUMER_MISSING",d["id"],f"{c} is not an action/audio cue")
             else:
                 owner=actionby.get(c) or cueby.get(c)
+                if c in actionby and d["id"] not in actionby[c]["direction_ids"]: err("DIRECTION_LINK_ASYMMETRIC",c,f"action does not list its decision {d['id']}")
                 if owner["frames"][1]<=d["frames"][0] or owner["frames"][0]>=d["frames"][1]:
                     err("DIRECTION_CONSUMER_INERT",d["id"],f"{c} does not overlap direction frame window")
     for a in packet["actions"]:
@@ -69,15 +72,19 @@ def validate(packet):
         if cur!=a["frames"][1]: err("ACTION_PHASE_GAP_OR_OVERLAP",a["id"],f"phases end {cur}, action ends {a['frames'][1]}")
         for ref in a["art_ids"]:
             if ref not in artby:err("MISSING_ART_REQUIREMENT",a["id"],f"art {ref}")
+            elif a["id"] not in artby[ref]["required_by"]:err("ART_USAGE_LINK_ASYMMETRIC",ref,f"does not list its consumer {a['id']}")
         for ref in a["direction_ids"]:
             if ref not in decby:err("DIRECTION_REF_MISSING",a["id"],ref)
             elif a["id"] not in decby[ref]["consumer_ids"]:err("DIRECTION_LINK_ASYMMETRIC",a["id"],f"{ref} does not consume {a['id']}")
         for c in a.get("contact_events",[]):
             interval(a["id"]+":contact",c["frames"],a["frames"])
+            if c["type"] in ("GRIP","PINCH") and not any(artby.get(x,{}).get("state",{}).get("hand") for x in a["art_ids"]): err("HAND_CLOSURE_ART_MISSING",a["id"],"a grip needs artwork with an explicit hand state")
             if c["release_required"] and c["frames"][1]>=a["frames"][1]:
                 err("CONTACT_RELEASE_UNPROVEN",a["id"],"contact ends at action endpoint; no remaining action window for release proof; use a separate related release action if appropriate")
         if not a["visible_result"].strip():err("MISSING_VISUAL_CONSEQUENCE",a["id"],"no visible result")
     for art in packet["art_requirements"]:
+        if not art.get("master_id") and art["kind"] in ("PART","CEL","UNDERPAINT","VECTOR_PATH","MATERIAL_PLANE"):err("MISSING_MASTER",art["id"],"a derived drawing must name its approved master")
+        if art.get("master_id") in artby and artby[art["master_id"]]["kind"]!="MASTER":err("MISSING_MASTER",art["id"],"the named master is not a MASTER")
         if art["kind"]!="MASTER" and art.get("master_id") and art["master_id"] not in artby:err("MISSING_MASTER",art["id"],art["master_id"])
         for ref in art["required_by"]:
             if ref not in actionby and ref not in shotby:

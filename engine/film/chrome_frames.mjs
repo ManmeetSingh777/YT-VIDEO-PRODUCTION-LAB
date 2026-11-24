@@ -48,7 +48,8 @@ export function attributionUnits(doc, plan, scene, prefix, shot) {
   // P04 §7.6: a procedural action, an effect and the camera are owners too — another owner's motion must never stand in for theirs
   for (const id of Object.keys(plan.procedural || {})) units.push({ id, kind: "PROCEDURAL", match: `${prefix}${id}--sym` });
   const fx = (plan.effects || []).filter((e) => e.shot === shot.id).map((e) => ({ id: e.id, kind: "EFFECT", match: `${prefix}fx-${e.id}-` })), cam = shot.camera_track_id && plan.cameras?.[shot.camera_track_id] ? [{ id: shot.camera_track_id, kind: "CAMERA", match: `${prefix}cam-` }] : [];
-  return [...units.filter((u) => ids.some((i) => i.startsWith(u.match))), ...fx, ...cam];
+  const tr = (doc.transitions || []).filter((t) => t.mode === "CONTINUOUS" && [t.from_shot, t.to_shot].includes(shot.id)).map((t) => `${t.from_shot}->${t.to_shot}`).map((id) => ({ id, kind: "TRANSITION", match: `${prefix}trans--${id.replace(/[^A-Za-z0-9_-]/g, "_")}--` }));
+  return [...units.filter((u) => ids.some((i) => i.startsWith(u.match))), ...fx, ...tr, ...cam];
 }
 export async function createChromeFrameSession({ film, manifest = MF, planFile, seed = 1, fps = 60, width = 1920, height = 1080, runType = "PRODUCTION", workDir = null, attribution = true, diagnosticPerturb = null }) {
   if (diagnosticPerturb && runType === "PRODUCTION") throw err("RENDER_CAPTURE_FAILURE", { reason: "diagnostic perturbation is refused in a PRODUCTION session", producer: "engine/film/chrome_frames.mjs#createChromeFrameSession" });

@@ -127,9 +127,13 @@ export function compileMotionTracks(actions, shots, ctx) {
 
   // shots
   const shotAt = new Int32Array(total).fill(-1); shots.forEach((s, i) => { for (let f = Math.max(0, s.start_frame); f < Math.min(total, s.end_frame); f++) if (shotAt[f] < 0) shotAt[f] = i; });
+  // P05: before part artwork is delivered the PHYSICAL motion of the measured masters is still evaluated (so no part is paid for an impossible motion). Only
+  // errors caused by a drawing that does not exist yet are set aside, by name; every caller that renders or completes a stage compiles without this option.
+  const pendingArt = []; if (ctx.allowPendingArt) { const absent = (ids) => ids.filter((id) => id && !assets.has(id)), stateArt = (rid, sid) => { const r = rigs.get(rid)?.rec; return Object.values([...(r?.pose_states || []), ...(r?.view_states || [])].find((s) => s.id === sid)?.asset_bindings || {}); };
+    for (let i = errors.length - 1; i >= 0; i--) { const e = errors[i], act = actions.find((a) => a.id === e.record_id), edge = /^(.+?)\.(.+)->(.+)$/.exec(e.record_id || ""), ids = e.code === "MISSING_ART_ASSET" ? (act ? absent(act.required_assets) : absent([e.record_id])) : ["UNSUPPORTED_VIEW", "UNSUPPORTED_STATE_EDGE"].includes(e.code) && edge ? absent([...stateArt(edge[1], edge[2]), ...stateArt(edge[1], edge[3])]) : ["INVALID_MORPH_TOPOLOGY", "INVALID_DEFORM_MAP", "DEFORM_RENDER_FAILURE"].includes(e.code) && act ? absent(act.required_assets) : []; if (ids.length) { pendingArt.push(...ids); errors.splice(i, 1); } } }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)] };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
@@ -157,6 +161,8 @@ export function compileMotionTracks(actions, shots, ctx) {
     const out = evalBase(f, shot);
     // mechanism reactions (P03 F, layer 2 consequence): the reacting joint is SOLVED from the driver's pose, so the object moves because the character pulls
     for (const r of C.reactionsAt(f, shot, out)) if (out[r.rig]) out[r.rig].theta[r.joint] = r.angle;
+    // P05: a linked output follows its driver's SOLVED angle (a lever moved by a hand drives its gear; a follower may drive the next one)
+    for (let n = 0; n < gearOf.size; n++) { let changed = false; for (const [k, g] of gearOf) { const [rid, j] = [k.slice(0, k.lastIndexOf(".")), k.slice(k.lastIndexOf(".") + 1)], d = out[g.driver.rig]?.theta?.[g.driver.joint]; if (d === undefined || !out[rid]) continue; const v = d * g.ratio + g.phase; if (out[rid].theta[j] !== v) { out[rid].theta[j] = v; changed = true; } } if (!changed) break; }
     // gaze (acting layer): the head/eye joint turns toward its target by a bounded, gain-scaled ADDITIVE rotation (the art is rotated, never warped)
     for (const [key, g] of Object.entries(plan.__gaze || {})) {
       const [rid, j] = key.split("."), s = out[rid]; if (!s || (g.frames && (f < g.frames[0] || f >= g.frames[1]))) continue;

@@ -63,15 +63,17 @@ export function probeMp4(file) {
   const vs = v.streams.find((s) => s.codec_type === "video"), as = v.streams.find((s) => s.codec_type === "audio");
   return { codec: vs?.codec_name, width: vs?.width, height: vs?.height, r_frame_rate: vs?.r_frame_rate, frames: +vs?.nb_read_frames, video_duration: +(vs?.duration ?? v.format.duration), audio_duration: as ? +(as.duration ?? v.format.duration) : null };
 }
+let FF = null; export function renderEnvironment(session) { if (FF === null) try { FF = execFileSync("ffmpeg", ["-version"], { encoding: "utf8" }).split(/\r?\n/)[0].trim(); } catch { FF = "unavailable"; } return { node: process.version, platform: `${process.platform}-${process.arch}`, ffmpeg: FF, browser: session?.info?.browser ?? null }; }
 const writeAtomic = (f, data) => { const t = `${f}.tmp-${process.pid}-${crypto.randomBytes(3).toString("hex")}`; fs.writeFileSync(t, data); fs.renameSync(t, f); };
 /** renderFilm — chunked capture → verified FFV1 segments → final MP4 → completion receipt. inject: {crashAt:{frame,attempts,transient}, failEncodeChunk, failAssemble} for crash tests */
 export async function renderFilm({ film, revision, renderer = "diagnostic_flat", rendererArgs = {}, total = undefined, fps = 60, chunkSize = 600, width = 1920, height = 1080, audio = null, outName = "film.mp4", seed = 1, inject = {}, onChunk = null }) {
   const FILM = path.resolve(film); if (total === undefined) { const mf = path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"); total = fs.existsSync(mf) ? JSON.parse(fs.readFileSync(mf, "utf8")).stage?.total_frames : undefined; } // the film's own clock; there is no default length
   if (!Number.isInteger(total) || total < 1) throw err("INVALID_FRAME_RANGE", { reason: `the film length is unknown (${total}): nothing is rendered` });
   const R = RENDERERS[renderer]; if (!R) throw err("RENDER_RECEIPT_INVALID", { reason: `renderer ${renderer} is not registered` });
-  const dir = path.join(FILM, "render"), key = { revision: revision.digest, renderer, renderer_source_sha256: rendererSourceSha(renderer), seed, width, height, fps, renderer_args: rendererArgs, plan_sha256: rendererArgs.planFile && fs.existsSync(rendererArgs.planFile) ? fsha(rendererArgs.planFile) : null }, keySha = sha(JSON.stringify(key)), chunksDir = path.join(dir, "chunks", keySha.slice(0, 16));
-  fs.mkdirSync(chunksDir, { recursive: true });
   const session = await openSession(renderer, { ...rendererArgs, film: FILM, seed, fps, width, height });
+  // P05 (README 8.1): a chunk rendered by another Node, Chrome or FFmpeg is never reused as if it were this environment's output
+  const dir = path.join(FILM, "render"), key = { environment: renderEnvironment(session), revision: revision.digest, renderer, renderer_source_sha256: rendererSourceSha(renderer), seed, width, height, fps, renderer_args: rendererArgs, plan_sha256: rendererArgs.planFile && fs.existsSync(rendererArgs.planFile) ? fsha(rendererArgs.planFile) : null }, keySha = sha(JSON.stringify(key)), chunksDir = path.join(dir, "chunks", keySha.slice(0, 16));
+  fs.mkdirSync(chunksDir, { recursive: true });
   if (session.width !== width || session.height !== height) { await session.close(); throw err("IMAGE_DIMENSION_MISMATCH", { reason: `renderer session ${session.width}x${session.height} ≠ film ${width}x${height}` }); }
   const receipts = [], mem = [], live = new Set(); let prev = null;
   try {

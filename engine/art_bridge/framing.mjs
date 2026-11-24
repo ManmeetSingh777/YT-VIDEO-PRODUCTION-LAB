@@ -53,4 +53,17 @@ export function verifyContactPatch({ film, compiled: C, doc, plan = {}, total = 
   }
   return { ok: failures.length === 0, failures, results };
 }
+/** P05 — a grounded character's shadow casters must form one connected silhouette in the approved pixels on every frame: a missing thigh would leave a torso
+ *  patch floating away from the feet. The projection is affine, so connection of the painted casters IS connection of their shadow. */
+export function verifyShadowContinuity({ film, compiled: C, doc, plan = {}, total = null, cell = 4, bridge = 2, minCells = 12 }) {
+  const assets = new Map(doc.assets.map((a) => [a.id, a])), png = new Map(), failures = [], results = [], groups = new Map(); for (const s of (plan.shadows || []).filter((x) => x.ground_contact)) { const k = `${s.occluder.rig}|${s.receiver.id}`; groups.set(k, [...(groups.get(k) || []), s.occluder.slot]); }
+  const rasterOf = (a) => { if (!png.has(a.id)) png.set(a.id, readPNG(path.join(path.resolve(film), a.file))); return png.get(a.id); };
+  for (const [k, slots] of groups) { const rig = k.split("|")[0], acts = doc.actions.filter((a) => a.actors.some((x) => x.rig_id === rig)); if (!acts.length) continue; const f0 = Math.min(...acts.map((a) => a.frame_range[0])), f1 = Math.min(total ?? Infinity, Math.max(...acts.map((a) => a.frame_range[1]))); let worst = null, n = 0;
+    for (let f = f0; f < f1; f++) { let st; try { st = stateAtFrame(C, f); } catch (e) { failures.push(err("FRAME_EVALUATION_FAILED", { record_id: rig, frame_range: [f, f + 1], reason: e.human_readable_reason || e.message })); continue; } const grid = new Set();
+      for (const p of st.passes) { if (p.rig !== rig || !p.visible || !slots.includes(p.slot)) continue; const a = assets.get(p.asset_id); if (a.kind === "VECTOR_PATH") continue; const q = canonicalQuad(a).map((c) => apply(p.matrix, c)), xs = q.map((v) => v[0]), ys = q.map((v) => v[1]), Mi = inv(p.matrix), im = rasterOf(a), [sx, sy, sw, sh] = a.source_pixel_crop; for (let y = Math.floor(Math.min(...ys) / cell); y <= Math.max(...ys) / cell; y++) for (let x = Math.floor(Math.min(...xs) / cell); x <= Math.max(...xs) / cell; x++) { const u = canonicalToCrop(a, apply(Mi, [(x + 0.5) * cell, (y + 0.5) * cell])); if (u[0] < 0 || u[1] < 0 || u[0] >= sw || u[1] >= sh) continue; if (im.rgba[(Math.floor(sy + u[1]) * im.width + Math.floor(sx + u[0])) * 4 + 3] >= 128) grid.add(`${x},${y}`); } }
+      if (!grid.size) continue; n++; const left = new Set(grid), comps = []; while (left.size) { const s0 = left.values().next().value, stack = [s0]; left.delete(s0); let size = 0; while (stack.length) { const [x, y] = stack.pop().split(",").map(Number); size++; for (let dy = -bridge; dy <= bridge; dy++) for (let dx = -bridge; dx <= bridge; dx++) { const t = `${x + dx},${y + dy}`; if (left.has(t)) { left.delete(t); stack.push(t); } } } if (size >= minCells) comps.push(size); }
+      if (comps.length > 1 && (!worst || comps.length > worst.pieces)) worst = { frame: f, pieces: comps.length }; }
+    results.push({ rig, frames: n, casters: slots.length, worst }); if (worst) failures.push(err("SHADOW_DISCONTINUOUS", { record_id: rig, frame_range: [worst.frame, worst.frame + 1], reason: `the shadow of ${rig} falls into ${worst.pieces} separate pieces (frame ${worst.frame}): a drawing that connects the body to the planted feet does not cast` })); }
+  return { ok: failures.length === 0, failures, results };
+}
 void fs;

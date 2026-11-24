@@ -687,7 +687,8 @@
       ],
       "properties": {
        "owner": {
-        "$ref": "#/$defs/id"
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,95}(->[A-Za-z][A-Za-z0-9_.-]{0,95})?$"
        },
        "operation": {
         "$ref": "#/$defs/text"

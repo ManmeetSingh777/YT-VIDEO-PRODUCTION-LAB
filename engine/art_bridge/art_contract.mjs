@@ -94,7 +94,7 @@ export function validateMolecular(design, job) {
 /** largest on-screen height the identity reaches while its actions are on screen (authoring resolution must not be smaller) */
 export function requiredFigureHeightPx({ job, doc, motionPlans = {} }) {
   const mf = motionFacts({ job, doc }), L = Object.values(mf.identity?.landmarks || {}); if (!L.length) return null;
-  const ys = L.map((p) => p[1]), h = (Math.max(...ys) - Math.min(...ys)) * 1.12; let best = 0;
+  const ys = L.map((p) => p[1]), h = mf.identity.geometry_status === "UNMEASURED" ? mf.identity.on_stage_height_px ?? 0 : (Math.max(...ys) - Math.min(...ys)) * 1.12; let best = 0; // P05: before measurement the directed on-stage height is the requirement
   for (const a of doc.actions) for (const act of a.actors) { if (!mf.rigs.some((r) => r.id === act.rig_id)) continue; const shot = doc.shots.find((s) => s.id === a.shot_id), cam = motionPlans[shot.id]?.cameras?.[shot.camera_track_id]?.zoom, z = cam ? Math.max(...cam.filter((k) => k[0] >= a.frame_range[0] && k[0] < a.frame_range[1] - 120).map((k) => k[1]), cam[0][1]) : 1; best = Math.max(best, h * (act.root_scale ?? 1) * z); }
   return Math.ceil(best);
 }
