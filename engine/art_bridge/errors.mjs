@@ -21,6 +21,8 @@ export const CODES = Object.freeze([
   "PROVENANCE_COUNTERFEIT", "INERT_CONTROL", "FROZEN_FRAME", "INERT_ACTION_INTERVAL", "COVERAGE_GAP", "RUN_NOT_AUTHORIZED", "LEDGER_CHAIN_BROKEN", "EXTERNAL_OUTCOME_UNKNOWN", "CAPABILITY_UNVERIFIED", "LEASE_LOST",
   // P04 universal pipeline closure
   "STATE_CONFLICT", "ACTING_INVALID", "PLAN_AMBIGUOUS", "PLAN_MISSING", "EMPTY_STAGE_OBLIGATION", "FRAME_EVALUATION_FAILED", "FEASIBILITY_NOT_EVALUATED", "UNSUPPORTED_SEMANTIC_ACTION", "GRIP_CONTRACT_MISSING", "IR_ARROW_MISSING", "DEFORM_APPROVAL_MISSING", "PREFLIGHT_MUTATION", "AUDIO_STREAM_MISSING", "CUE_STEM_MISMATCH", "STORY_HANDOFF_INVALID", "SEMANTIC_CONSEQUENCE_UNMET", "SUBJECT_CROPPED", "RENDER_SCALE_EXCEEDED",
+  // P05 creative packet integration
+  "UNIMPLEMENTABLE_CREATIVE_REQUIREMENT", "MOTION_OBLIGATION_UNMET", "ORPHAN_MOTION_TRACK", "GEOMETRY_UNMEASURED", "AUDIO_INPUT_MISSING", "ART_JOB_INPUT_MISSING", "SHADOW_DISCONTINUOUS", "COLLISION_UNRESOLVED",
 ]);
 /** directive N2: every refusal carries the same machine-readable fields (producer, invariant, owner, resume point, revisions, evidence) */
 const N2 = ["producer", "failed_invariant", "dependency_ids", "required_art_or_operation", "repair_owner", "resume_at", "input_revision_hashes", "diagnostic_evidence", "severity", "frame_ranges"];

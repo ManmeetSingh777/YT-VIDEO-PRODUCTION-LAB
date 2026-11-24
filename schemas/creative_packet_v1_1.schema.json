@@ -1,0 +1,2128 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://motion-native.local/schemas/creative_packet_v1_1.schema.json",
+ "title": "Motion Native GPT creative packet v1.1 (executable superset of the v1.0.0 draft)",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "version",
+  "film_id",
+  "stage",
+  "source",
+  "intent",
+  "story",
+  "identities",
+  "worlds",
+  "shots",
+  "decisions",
+  "actions",
+  "transitions",
+  "art_requirements",
+  "audio_cues",
+  "approval"
+ ],
+ "properties": {
+  "version": {
+   "const": "1.1.0"
+  },
+  "film_id": {
+   "$ref": "#/$defs/id"
+  },
+  "stage": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "width",
+    "height",
+    "fps",
+    "total_frames"
+   ],
+   "properties": {
+    "width": {
+     "const": 1920
+    },
+    "height": {
+     "const": 1080
+    },
+    "fps": {
+     "const": 60
+    },
+    "total_frames": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 216000
+    }
+   }
+  },
+  "source": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "script_file",
+    "script_sha256",
+    "direction_spec",
+    "direction_spec_sha256",
+    "art_skill",
+    "art_skill_sha256",
+    "source_witness_manifest",
+    "documents"
+   ],
+   "properties": {
+    "script_file": {
+     "$ref": "#/$defs/text"
+    },
+    "script_sha256": {
+     "$ref": "#/$defs/sha"
+    },
+    "direction_spec": {
+     "$ref": "#/$defs/text"
+    },
+    "direction_spec_sha256": {
+     "$ref": "#/$defs/sha"
+    },
+    "art_skill": {
+     "const": "construct-kurzgesagt-art"
+    },
+    "art_skill_sha256": {
+     "$ref": "#/$defs/sha"
+    },
+    "source_witness_manifest": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "documents": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "role",
+       "file",
+       "sha256"
+      ],
+      "properties": {
+       "role": {
+        "$ref": "#/$defs/text"
+       },
+       "file": {
+        "$ref": "#/$defs/text"
+       },
+       "sha256": {
+        "$ref": "#/$defs/sha"
+       }
+      }
+     }
+    }
+   }
+  },
+  "intent": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "topic",
+    "audience",
+    "objectives",
+    "quality_bar",
+    "constraints",
+    "provenance",
+    "decision_maker",
+    "source_policy"
+   ],
+   "properties": {
+    "topic": {
+     "$ref": "#/$defs/text"
+    },
+    "audience": {
+     "$ref": "#/$defs/text"
+    },
+    "objectives": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/text"
+     },
+     "minItems": 1
+    },
+    "quality_bar": {
+     "$ref": "#/$defs/text"
+    },
+    "constraints": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/text"
+     }
+    },
+    "provenance": {
+     "$ref": "#/$defs/text"
+    },
+    "decision_maker": {
+     "$ref": "#/$defs/text"
+    },
+    "source_policy": {
+     "$ref": "#/$defs/text"
+    }
+   }
+  },
+  "story": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "audience_question",
+    "central_insight",
+    "mechanisms",
+    "narration",
+    "contract"
+   ],
+   "properties": {
+    "audience_question": {
+     "$ref": "#/$defs/text"
+    },
+    "central_insight": {
+     "$ref": "#/$defs/text"
+    },
+    "mechanisms": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "claim",
+       "epistemic_status",
+       "visual_mechanism"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "claim": {
+        "$ref": "#/$defs/text"
+       },
+       "epistemic_status": {
+        "enum": [
+         "SOURCED",
+         "HYPOTHESIS",
+         "METAPHOR",
+         "UNVERIFIED"
+        ]
+       },
+       "visual_mechanism": {
+        "$ref": "#/$defs/text"
+       },
+       "source_refs": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/text"
+        }
+       }
+      }
+     },
+     "minItems": 1
+    },
+    "narration": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "text",
+       "frames",
+       "claim_ids"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "text": {
+        "$ref": "#/$defs/text"
+       },
+       "frames": {
+        "$ref": "#/$defs/frames"
+       },
+       "claim_ids": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/id"
+        }
+       }
+      }
+     },
+     "minItems": 1
+    },
+    "contract": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "claims",
+      "mechanisms",
+      "obstacles"
+     ],
+     "properties": {
+      "claims": {
+       "type": "array",
+       "items": {
+        "type": "object"
+       }
+      },
+      "mechanisms": {
+       "type": "array",
+       "items": {
+        "type": "object"
+       }
+      },
+      "obstacles": {
+       "type": "array",
+       "items": {
+        "type": "object"
+       }
+      }
+     }
+    }
+   }
+  },
+  "identities": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "kind",
+     "master_art",
+     "views",
+     "method_ids",
+     "palette_roles",
+     "on_stage_height_px",
+     "rig",
+     "acting"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "kind": {
+      "enum": [
+       "CHARACTER",
+       "PROP",
+       "MACHINE",
+       "WORLD",
+       "DIAGRAM",
+       "EFFECT"
+      ]
+     },
+     "master_art": {
+      "$ref": "#/$defs/id"
+     },
+     "views": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      },
+      "minItems": 1
+     },
+     "method_ids": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^F(0[1-9]|[1-7][0-9]|80)$"
+      },
+      "minItems": 1
+     },
+     "palette_roles": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "string"
+      }
+     },
+     "on_stage_height_px": {
+      "anyOf": [
+       {
+        "type": "number",
+        "exclusiveMinimum": 0
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "rig": {
+      "anyOf": [
+       {
+        "type": "null"
+       },
+       {
+        "$ref": "#/$defs/rig"
+       }
+      ]
+     },
+     "acting": {
+      "anyOf": [
+       {
+        "type": "null"
+       },
+       {
+        "$ref": "#/$defs/acting"
+       }
+      ]
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "worlds": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "identity",
+     "planes",
+     "coverage_purpose"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "identity": {
+      "$ref": "#/$defs/id"
+     },
+     "planes": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "art_id",
+        "band"
+       ],
+       "properties": {
+        "art_id": {
+         "$ref": "#/$defs/id"
+        },
+        "band": {
+         "enum": [
+          "FAR",
+          "MID",
+          "FOCAL",
+          "NEAR",
+          "FOREGROUND"
+         ]
+        }
+       }
+      },
+      "minItems": 1
+     },
+     "coverage_purpose": {
+      "$ref": "#/$defs/text"
+     }
+    }
+   }
+  },
+  "shots": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "frames",
+     "world_id",
+     "opening_state",
+     "ending_state",
+     "content_kinds",
+     "attention",
+     "camera",
+     "entry_states",
+     "exit_states",
+     "hold_purpose",
+     "contract"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "frames": {
+      "$ref": "#/$defs/frames"
+     },
+     "world_id": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "opening_state": {
+      "$ref": "#/$defs/text"
+     },
+     "ending_state": {
+      "$ref": "#/$defs/text"
+     },
+     "content_kinds": {
+      "type": "array",
+      "items": {
+       "enum": [
+        "physical_action",
+        "spatial_layout",
+        "data_relation",
+        "quantity_change",
+        "inner_state",
+        "scale_jump",
+        "screen_content",
+        "comparison",
+        "world_within_world"
+       ]
+      },
+      "minItems": 1
+     },
+     "attention": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "frames",
+        "target"
+       ],
+       "properties": {
+        "frames": {
+         "$ref": "#/$defs/frames"
+        },
+        "target": {
+         "$ref": "#/$defs/id"
+        }
+       }
+      },
+      "minItems": 1
+     },
+     "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "track_id",
+       "moves"
+      ],
+      "properties": {
+       "track_id": {
+        "anyOf": [
+         {
+          "$ref": "#/$defs/id"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "moves": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "frames",
+          "operation",
+          "purpose"
+         ],
+         "properties": {
+          "frames": {
+           "$ref": "#/$defs/frames"
+          },
+          "operation": {
+           "enum": [
+            "STATIC",
+            "PAN",
+            "PUSH",
+            "PULL",
+            "ROTATE",
+            "FOLLOW",
+            "ORBIT",
+            "DOLLY_3D"
+           ]
+          },
+          "purpose": {
+           "$ref": "#/$defs/text"
+          }
+         }
+        },
+        "minItems": 1
+       }
+      }
+     },
+     "entry_states": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/carried"
+      }
+     },
+     "exit_states": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/carried"
+      }
+     },
+     "hold_purpose": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "narrative_purpose",
+       "viewer_experience",
+       "starting_image",
+       "main_action",
+       "secondary_choreography",
+       "character_acting",
+       "camera_choreography",
+       "transformation_choreography",
+       "attention_path",
+       "narration_and_sound",
+       "exit_and_handoff",
+       "failure_conditions"
+      ],
+      "properties": {
+       "narrative_purpose": {
+        "$ref": "#/$defs/text"
+       },
+       "viewer_experience": {
+        "$ref": "#/$defs/text"
+       },
+       "starting_image": {
+        "$ref": "#/$defs/text"
+       },
+       "main_action": {
+        "$ref": "#/$defs/text"
+       },
+       "secondary_choreography": {
+        "$ref": "#/$defs/text"
+       },
+       "character_acting": {
+        "$ref": "#/$defs/text"
+       },
+       "camera_choreography": {
+        "$ref": "#/$defs/text"
+       },
+       "transformation_choreography": {
+        "$ref": "#/$defs/text"
+       },
+       "attention_path": {
+        "$ref": "#/$defs/text"
+       },
+       "narration_and_sound": {
+        "$ref": "#/$defs/text"
+       },
+       "exit_and_handoff": {
+        "$ref": "#/$defs/text"
+       },
+       "failure_conditions": {
+        "$ref": "#/$defs/text"
+       }
+      }
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "decisions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "shot_id",
+     "frames",
+     "script_span",
+     "viewer_effect",
+     "intent",
+     "intended_experience",
+     "consumer_ids",
+     "operation",
+     "art_capabilities",
+     "audio_consequence"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "shot_id": {
+      "$ref": "#/$defs/id"
+     },
+     "frames": {
+      "$ref": "#/$defs/frames"
+     },
+     "script_span": {
+      "$ref": "#/$defs/text"
+     },
+     "viewer_effect": {
+      "$ref": "#/$defs/text"
+     },
+     "intent": {
+      "$ref": "#/$defs/text"
+     },
+     "intended_experience": {
+      "$ref": "#/$defs/text"
+     },
+     "consumer_ids": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      },
+      "minItems": 1
+     },
+     "operation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "owner",
+       "operation"
+      ],
+      "properties": {
+       "owner": {
+        "$ref": "#/$defs/id"
+       },
+       "operation": {
+        "$ref": "#/$defs/text"
+       },
+       "joint": {
+        "$ref": "#/$defs/id"
+       },
+       "channel": {
+        "$ref": "#/$defs/id"
+       },
+       "state": {
+        "$ref": "#/$defs/id"
+       },
+       "target": {
+        "$ref": "#/$defs/id"
+       },
+       "min_px": {
+        "type": "number"
+       },
+       "min_deg": {
+        "type": "number"
+       },
+       "reason": {
+        "$ref": "#/$defs/text"
+       }
+      }
+     },
+     "art_capabilities": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "audio_consequence": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "actions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "shot_id",
+     "owner",
+     "target",
+     "frames",
+     "mode",
+     "verb_class",
+     "no_verb_reason",
+     "intent",
+     "phases",
+     "precondition",
+     "postcondition",
+     "visible_result",
+     "target_state",
+     "min_angle_deg",
+     "art_ids",
+     "direction_ids",
+     "staging",
+     "contact_events",
+     "pose_events",
+     "view_events",
+     "state_events",
+     "secondary_purpose"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "shot_id": {
+      "$ref": "#/$defs/id"
+     },
+     "owner": {
+      "$ref": "#/$defs/id"
+     },
+     "target": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "frames": {
+      "$ref": "#/$defs/frames"
+     },
+     "mode": {
+      "enum": [
+       "RIGID",
+       "ARTICULATED",
+       "REGISTERED_CELS",
+       "REGISTERED_MORPH",
+       "EXPLICIT_DEFORM",
+       "PROCEDURAL",
+       "CAMERA_WORLD",
+       "TRANSITION"
+      ]
+     },
+     "verb_class": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "no_verb_reason": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "intent": {
+      "$ref": "#/$defs/text"
+     },
+     "phases": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "frames",
+        "state"
+       ],
+       "properties": {
+        "name": {
+         "$ref": "#/$defs/text"
+        },
+        "frames": {
+         "$ref": "#/$defs/frames"
+        },
+        "state": {
+         "$ref": "#/$defs/text"
+        }
+       }
+      },
+      "minItems": 1
+     },
+     "precondition": {
+      "$ref": "#/$defs/text"
+     },
+     "postcondition": {
+      "$ref": "#/$defs/text"
+     },
+     "visible_result": {
+      "$ref": "#/$defs/text"
+     },
+     "target_state": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "min_angle_deg": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "art_ids": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      },
+      "minItems": 1
+     },
+     "direction_ids": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      },
+      "minItems": 1
+     },
+     "staging": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "rig",
+        "root_xy",
+        "scale"
+       ],
+       "properties": {
+        "rig": {
+         "$ref": "#/$defs/id"
+        },
+        "root_xy": {
+         "type": "array",
+         "minItems": 2,
+         "maxItems": 2,
+         "items": {
+          "type": "number"
+         }
+        },
+        "scale": {
+         "type": "number",
+         "exclusiveMinimum": 0
+        }
+       }
+      }
+     },
+     "contact_events": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/contact"
+      }
+     },
+     "pose_events": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "frame",
+        "state",
+        "rig",
+        "transition"
+       ],
+       "properties": {
+        "frame": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "state": {
+         "$ref": "#/$defs/id"
+        },
+        "rig": {
+         "$ref": "#/$defs/id"
+        },
+        "transition": {
+         "$ref": "#/$defs/policy"
+        }
+       }
+      }
+     },
+     "view_events": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "frame",
+        "from",
+        "to",
+        "rig",
+        "transition"
+       ],
+       "properties": {
+        "frame": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "from": {
+         "$ref": "#/$defs/id"
+        },
+        "to": {
+         "$ref": "#/$defs/id"
+        },
+        "rig": {
+         "$ref": "#/$defs/id"
+        },
+        "transition": {
+         "$ref": "#/$defs/policy"
+        }
+       }
+      }
+     },
+     "state_events": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "frame",
+        "channel",
+        "state",
+        "rig",
+        "transition"
+       ],
+       "properties": {
+        "frame": {
+         "type": "integer",
+         "minimum": 0
+        },
+        "channel": {
+         "$ref": "#/$defs/id"
+        },
+        "state": {
+         "$ref": "#/$defs/id"
+        },
+        "rig": {
+         "$ref": "#/$defs/id"
+        },
+        "transition": {
+         "$ref": "#/$defs/policy"
+        }
+       }
+      }
+     },
+     "secondary_purpose": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "transitions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "from_shot",
+     "to_shot",
+     "mode",
+     "frames",
+     "reason",
+     "continuity_invariant",
+     "out",
+     "middle",
+     "in",
+     "masks",
+     "shared_landmarks"
+    ],
+    "properties": {
+     "from_shot": {
+      "$ref": "#/$defs/id"
+     },
+     "to_shot": {
+      "$ref": "#/$defs/id"
+     },
+     "mode": {
+      "enum": [
+       "CUT",
+       "CONTINUOUS"
+      ]
+     },
+     "frames": {
+      "$ref": "#/$defs/frames"
+     },
+     "reason": {
+      "$ref": "#/$defs/text"
+     },
+     "continuity_invariant": {
+      "$ref": "#/$defs/text"
+     },
+     "out": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "middle": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "in": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "masks": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "shared_landmarks": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     }
+    }
+   }
+  },
+  "phrases": {
+   "type": "array",
+   "items": {
+    "type": "object"
+   }
+  },
+  "art_requirements": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "identity",
+     "kind",
+     "medium",
+     "master_id",
+     "purpose",
+     "state",
+     "required_by",
+     "required_parts",
+     "landmarks",
+     "construction",
+     "review_checks",
+     "alpha_mode",
+     "depth_band",
+     "method_ids",
+     "joint",
+     "pivot_landmark",
+     "hidden_surfaces",
+     "underpaint",
+     "no_underpaint_reason",
+     "draw_order",
+     "overscan_required",
+     "overscan_rect"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "identity": {
+      "$ref": "#/$defs/id"
+     },
+     "kind": {
+      "enum": [
+       "MASTER",
+       "PART",
+       "CEL",
+       "CLEAN_PLATE",
+       "UNDERPAINT",
+       "OCCLUDER",
+       "MASK",
+       "WORLD_PLANE",
+       "SYMBOL",
+       "VECTOR_PATH",
+       "TYPE",
+       "MATERIAL_PLANE",
+       "EFFECT_STATE",
+       "TRANSITION_PLATE"
+      ]
+     },
+     "medium": {
+      "enum": [
+       "RASTER",
+       "VECTOR"
+      ]
+     },
+     "master_id": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "purpose": {
+      "$ref": "#/$defs/text"
+     },
+     "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "view",
+       "pose",
+       "expression",
+       "eyes",
+       "mouth",
+       "hand",
+       "lighting",
+       "occlusion"
+      ],
+      "properties": {
+       "view": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "pose": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "expression": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "eyes": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "mouth": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "hand": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "lighting": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "occlusion": {
+        "type": [
+         "string",
+         "null"
+        ]
+       }
+      }
+     },
+     "required_by": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      },
+      "minItems": 1
+     },
+     "required_parts": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "landmarks": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "construction": {
+      "$ref": "#/$defs/text"
+     },
+     "review_checks": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/text"
+      },
+      "minItems": 1
+     },
+     "alpha_mode": {
+      "enum": [
+       "OPAQUE",
+       "STRAIGHT",
+       "PREMULTIPLIED",
+       "BINARY_MASK"
+      ]
+     },
+     "depth_band": {
+      "enum": [
+       "FAR",
+       "MID",
+       "FOCAL",
+       "NEAR",
+       "FOREGROUND",
+       "SCREEN"
+      ]
+     },
+     "method_ids": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^F(0[1-9]|[1-7][0-9]|80)$"
+      }
+     },
+     "joint": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "pivot_landmark": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "hidden_surfaces": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "underpaint": {
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/$defs/id"
+      }
+     },
+     "no_underpaint_reason": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "draw_order": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "relation",
+        "art_id"
+       ],
+       "properties": {
+        "relation": {
+         "enum": [
+          "ABOVE",
+          "BELOW"
+         ]
+        },
+        "art_id": {
+         "$ref": "#/$defs/id"
+        }
+       }
+      }
+     },
+     "overscan_required": {
+      "type": "boolean"
+     },
+     "overscan_rect": {
+      "anyOf": [
+       {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+         "type": "number"
+        }
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "audio_cues": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "kind",
+     "frames",
+     "intent",
+     "related_action",
+     "source_file",
+     "gain_db",
+     "narration_line",
+     "relation",
+     "event",
+     "word_index",
+     "max_frames",
+     "hold_frames"
+    ],
+    "properties": {
+     "id": {
+      "$ref": "#/$defs/id"
+     },
+     "kind": {
+      "enum": [
+       "NARRATION",
+       "SFX",
+       "MUSIC",
+       "SILENCE"
+      ]
+     },
+     "frames": {
+      "$ref": "#/$defs/frames"
+     },
+     "intent": {
+      "$ref": "#/$defs/text"
+     },
+     "related_action": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "source_file": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "gain_db": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "narration_line": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "relation": {
+      "anyOf": [
+       {
+        "enum": [
+         "PRECEDES",
+         "LANDS_ON",
+         "FOLLOWS"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "event": {
+      "anyOf": [
+       {
+        "$ref": "#/$defs/id"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "word_index": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "minimum": 0
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "max_frames": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "minimum": 0
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "hold_frames": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "minimum": 0
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    }
+   },
+   "minItems": 1
+  },
+  "approval": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "status",
+    "receipt"
+   ],
+   "properties": {
+    "status": {
+     "enum": [
+      "DRAFT",
+      "CREATIVE_REVIEW_REQUIRED",
+      "CREATIVE_APPROVED"
+     ]
+    },
+    "receipt": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   }
+  }
+ },
+ "$defs": {
+  "id": {
+   "type": "string",
+   "pattern": "^[A-Za-z][A-Za-z0-9_.-]{0,95}$"
+  },
+  "text": {
+   "type": "string",
+   "minLength": 1
+  },
+  "sha": {
+   "type": "string",
+   "pattern": "^[a-f0-9]{64}$"
+  },
+  "frames": {
+   "type": "array",
+   "minItems": 2,
+   "maxItems": 2,
+   "items": {
+    "type": "integer",
+    "minimum": 0
+   }
+  },
+  "carried": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "owner",
+    "channel",
+    "state"
+   ],
+   "properties": {
+    "owner": {
+     "$ref": "#/$defs/id"
+    },
+    "channel": {
+     "$ref": "#/$defs/id"
+    },
+    "state": {
+     "$ref": "#/$defs/id"
+    }
+   }
+  },
+  "policy": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "policy",
+    "reason",
+    "intermediate_states"
+   ],
+   "properties": {
+    "policy": {
+     "enum": [
+      "SWAP",
+      "INTERMEDIATE"
+     ]
+    },
+    "reason": {
+     "$ref": "#/$defs/text"
+    },
+    "intermediate_states": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/id"
+     }
+    }
+   }
+  },
+  "rig": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "root",
+    "joints",
+    "parts",
+    "sockets",
+    "ik",
+    "channels",
+    "poses",
+    "views",
+    "edges"
+   ],
+   "properties": {
+    "id": {
+     "$ref": "#/$defs/id"
+    },
+    "root": {
+     "$ref": "#/$defs/id"
+    },
+    "joints": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "parent",
+       "landmark",
+       "limits_deg"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "parent": {
+        "anyOf": [
+         {
+          "$ref": "#/$defs/id"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "landmark": {
+        "$ref": "#/$defs/id"
+       },
+       "limits_deg": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+         "type": "number"
+        }
+       }
+      }
+     },
+     "minItems": 1
+    },
+    "parts": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "art_id",
+       "joint"
+      ],
+      "properties": {
+       "art_id": {
+        "$ref": "#/$defs/id"
+       },
+       "joint": {
+        "$ref": "#/$defs/id"
+       }
+      }
+     },
+     "minItems": 1
+    },
+    "sockets": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "joint",
+       "landmark",
+       "role"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "joint": {
+        "$ref": "#/$defs/id"
+       },
+       "landmark": {
+        "$ref": "#/$defs/id"
+       },
+       "role": {
+        "$ref": "#/$defs/text"
+       }
+      }
+     }
+    },
+    "ik": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "chain",
+       "bend_sign"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "chain": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+         "$ref": "#/$defs/id"
+        }
+       },
+       "bend_sign": {
+        "enum": [
+         1,
+         -1
+        ]
+       }
+      }
+     }
+    },
+    "channels": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "kind",
+       "slots",
+       "default",
+       "states"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "kind": {
+        "enum": [
+         "EXPRESSION",
+         "EYES",
+         "MOUTH",
+         "HAND",
+         "CLOTHING",
+         "LIGHTING",
+         "OCCLUSION"
+        ]
+       },
+       "slots": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/id"
+        },
+        "minItems": 1
+       },
+       "default": {
+        "$ref": "#/$defs/id"
+       },
+       "states": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "additionalProperties": false,
+         "required": [
+          "id",
+          "bindings"
+         ],
+         "properties": {
+          "id": {
+           "$ref": "#/$defs/id"
+          },
+          "bindings": {
+           "type": "object",
+           "additionalProperties": {
+            "$ref": "#/$defs/id"
+           }
+          }
+         }
+        },
+        "minItems": 1
+       }
+      }
+     }
+    },
+    "poses": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "bindings",
+       "landmarks"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "bindings": {
+        "type": "object",
+        "additionalProperties": {
+         "$ref": "#/$defs/id"
+        }
+       },
+       "landmarks": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/id"
+        }
+       }
+      }
+     },
+     "minItems": 1
+    },
+    "views": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "facing",
+       "bindings",
+       "landmarks"
+      ],
+      "properties": {
+       "id": {
+        "$ref": "#/$defs/id"
+       },
+       "facing": {
+        "$ref": "#/$defs/id"
+       },
+       "bindings": {
+        "type": "object",
+        "additionalProperties": {
+         "$ref": "#/$defs/id"
+        }
+       },
+       "landmarks": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/id"
+        }
+       }
+      }
+     }
+    },
+    "edges": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "from",
+       "to",
+       "mode",
+       "landmarks",
+       "max_transition_frames",
+       "occluder"
+      ],
+      "properties": {
+       "from": {
+        "$ref": "#/$defs/id"
+       },
+       "to": {
+        "$ref": "#/$defs/id"
+       },
+       "mode": {
+        "enum": [
+         "RIGID_CONTINUOUS",
+         "CEL_SEQUENCE",
+         "MATCHED_VECTOR_MORPH",
+         "REGISTERED_SWAP",
+         "EXPLICIT_DEFORM"
+        ]
+       },
+       "landmarks": {
+        "type": "array",
+        "items": {
+         "$ref": "#/$defs/id"
+        },
+        "minItems": 1
+       },
+       "max_transition_frames": {
+        "type": "integer",
+        "minimum": 0
+       },
+       "occluder": {
+        "anyOf": [
+         {
+          "$ref": "#/$defs/id"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "acting": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "intent"
+   ],
+   "properties": {
+    "intent": {
+     "$ref": "#/$defs/text"
+    },
+    "blink": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "channel",
+      "open",
+      "closed"
+     ],
+     "properties": {
+      "channel": {
+       "$ref": "#/$defs/id"
+      },
+      "open": {
+       "$ref": "#/$defs/id"
+      },
+      "closed": {
+       "$ref": "#/$defs/id"
+      }
+     }
+    },
+    "speech": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "channel",
+      "rest",
+      "open",
+      "mid"
+     ],
+     "properties": {
+      "channel": {
+       "$ref": "#/$defs/id"
+      },
+      "rest": {
+       "$ref": "#/$defs/id"
+      },
+      "open": {
+       "$ref": "#/$defs/id"
+      },
+      "mid": {
+       "$ref": "#/$defs/id"
+      }
+     }
+    },
+    "breath": {
+     "type": "boolean"
+    },
+    "gaze": {
+     "type": "boolean"
+    },
+    "follow": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/id"
+     }
+    },
+    "lag": {
+     "type": "boolean"
+    }
+   }
+  },
+  "contact": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "type",
+    "source_socket",
+    "target_socket",
+    "target_world",
+    "frames",
+    "release_required",
+    "near_far",
+    "topology",
+    "topology_reason",
+    "finger_layers",
+    "closure_channel",
+    "closure_state",
+    "palm_landmarks",
+    "handle_landmarks"
+   ],
+   "properties": {
+    "type": {
+     "enum": [
+      "GRIP",
+      "PLANT",
+      "SUPPORT",
+      "HINGE",
+      "SLIDE",
+      "COLLISION",
+      "FOLLOW",
+      "PINCH"
+     ]
+    },
+    "source_socket": {
+     "$ref": "#/$defs/id"
+    },
+    "target_socket": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/id"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "target_world": {
+     "type": "boolean"
+    },
+    "frames": {
+     "$ref": "#/$defs/frames"
+    },
+    "release_required": {
+     "type": "boolean"
+    },
+    "near_far": {
+     "$ref": "#/$defs/text"
+    },
+    "topology": {
+     "anyOf": [
+      {
+       "enum": [
+        "WRAP",
+        "SINGLE_LAYER"
+       ]
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "topology_reason": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "finger_layers": {
+     "anyOf": [
+      {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "near",
+        "far"
+       ],
+       "properties": {
+        "near": {
+         "type": "array",
+         "items": {
+          "$ref": "#/$defs/id"
+         },
+         "minItems": 1
+        },
+        "far": {
+         "type": "array",
+         "items": {
+          "$ref": "#/$defs/id"
+         },
+         "minItems": 1
+        }
+       }
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "closure_channel": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/id"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "closure_state": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/id"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "palm_landmarks": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/id"
+     }
+    },
+    "handle_landmarks": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/id"
+     }
+    }
+   }
+  }
+ }
+}

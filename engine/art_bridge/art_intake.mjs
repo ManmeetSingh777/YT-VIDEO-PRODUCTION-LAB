@@ -80,8 +80,8 @@ export async function planJobs({ film, manifest = MF }) {
       identity_id: p.identity_id, canonical_parent_asset: I?.canonical_asset_id, shot_ids: [...r.shots].sort(), frame_ranges,
       view_id: p.view_id ?? ([...r.facings][0] || null), pose_id: p.pose_id ?? ([...r.poses].join("|") || null), expression_id: p.expression_id,
       required_continuity_landmarks: isMaster ? Object.keys(I?.landmarks || {}) : [p.pivot_landmark_id].filter(Boolean),
-      required_joint_pivots: isMaster ? (doc.rigs.filter((x) => x.identity_id === p.identity_id).flatMap((x) => x.joints.map((j) => ({ rig: x.id, joint: j.id, rest_xy: j.rest_xy })))) : p.joint_id ? [{ rig: r.rig, joint: p.joint_id, rest_xy: rig?.joints.find((j) => j.id === p.joint_id)?.rest_xy ?? p.pivot_xy }] : [],
-      required_sockets: isMaster ? doc.rigs.filter((x) => x.identity_id === p.identity_id).flatMap((x) => x.sockets.map((s) => ({ socket: s.id, joint: s.joint_id, local_xy: s.local_xy }))) : r.contacts.map((c) => ({ socket: c.socket, role: c.role, contact_type: c.contact_type, frames: c.frames, allowed_error_px: c.allowed_error_px })),
+      required_joint_pivots: isMaster ? (doc.rigs.filter((x) => x.identity_id === p.identity_id).flatMap((x) => x.joints.map((j) => ({ rig: x.id, joint: j.id, ...(j.landmark_id ? { landmark: j.landmark_id } : {}), rest_xy: x.geometry_status === "UNMEASURED" ? null : j.rest_xy })))) : p.joint_id ? [{ rig: r.rig, joint: p.joint_id, rest_xy: rig?.geometry_status === "UNMEASURED" ? null : rig?.joints.find((j) => j.id === p.joint_id)?.rest_xy ?? p.pivot_xy }] : [],
+      required_sockets: isMaster ? doc.rigs.filter((x) => x.identity_id === p.identity_id).flatMap((x) => x.sockets.map((s) => ({ socket: s.id, joint: s.joint_id, ...(s.landmark_id ? { landmark: s.landmark_id } : {}), local_xy: x.geometry_status === "UNMEASURED" ? null : s.local_xy }))) : r.contacts.map((c) => ({ socket: c.socket, role: c.role, contact_type: c.contact_type, frames: c.frames, allowed_error_px: c.allowed_error_px })),
       contact_type: [...new Set(r.contacts.map((c) => c.contact_type))].join("|") || null, alpha_requirement: p.alpha_mode, hidden_surfaces_to_paint: p.hidden_surfaces,
       near_far_order: p.draw_order?.length ? p.draw_order : r.contacts.map((c) => c.near_far).filter(Boolean),
       camera_footprint: world ? { camera_tracks: [...r.cameras], world_camera_footprint: world.camera_footprint, world_overscan_rect: world.overscan_rect, depth_band: p.depth_band } : null,
@@ -158,6 +158,13 @@ export function validatePlanContract(doc, plan) {
   return errs;
 }
 
+/** the canonical frame a delivered drawing defines by itself */
+function measuredFrame(reg, png, asset) {
+  if (reg.mode === "COVERAGE_RECT") { const [x, y, w, h] = reg.rect, sx = w / png.width, sy = h / png.height; if (Math.abs(sx / sy - 1) > 0.005) throw err("IMAGE_DIMENSION_MISMATCH", { record_id: asset, reason: `the delivered plate is ${png.width}x${png.height}; its directed coverage ${w}x${h} has another aspect ratio and is never stretched` }); return [sx, 0, 0, sx, x, y]; }
+  let y0 = Infinity, y1 = -1; for (let y = 0; y < png.height; y++) for (let x = 0; x < png.width; x++) if (png.rgba[(y * png.width + x) * 4 + 3] > 8) { if (y < y0) y0 = y; y1 = y; break; }
+  if (y1 < 0) throw err("ALPHA_INVALID", { record_id: asset, reason: "the delivered drawing has no painted pixel" });
+  const s = reg.on_stage_height_px ? reg.on_stage_height_px / (y1 - y0 + 1) : 1; return [s, 0, 0, s, 0, 0];
+}
 export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
   const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
@@ -168,15 +175,19 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `master registration needs ≥3 reviewed landmarks shared with identity ${I.id} (got ${names.length})` });
   // Contract E (FIT_RIG): the APPROVED ART determines the rig. Only the declared frame anchors define the canonical frame; every other landmark
   // is MEASURED from the art and the rig is fitted to it (pixels never move). Without FIT_RIG the legacy mode fits all landmarks to the plan.
-  const fitMode = p.registration?.mode === "FIT_RIG", anchors = fitMode ? (p.registration.frame_anchors || []).filter((k) => names.includes(k)) : names;
-  if (fitMode && anchors.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `FIT_RIG needs >=3 reviewed frame anchors (${(p.registration.frame_anchors || []).join(", ")}); got ${anchors.length}` });
-  const T = solveTransform(anchors.map((k) => lm.landmarks[k]), anchors.map((k) => I.landmarks[k]), mode), ap = (q) => [T[0] * q[0] + T[2] * q[1] + T[4], T[1] * q[0] + T[3] * q[1] + T[5]];
+  // P05: MEASURE_FRAME — the approved pixels ARE the canonical frame (uniformly scaled so the painted subject has its directed on-stage height);
+  // COVERAGE_RECT — a world/transition plate covers exactly its directed area. No provisional geometry exists in either mode.
+  const measureMode = ["MEASURE_FRAME", "COVERAGE_RECT"].includes(p.registration?.mode), rigOf = doc.rigs.find((r) => r.identity_id === I.id);
+  if (measureMode && rigOf) { const need = [...new Set([...rigOf.joints.map((j) => j.landmark_id ?? j.id), ...rigOf.sockets.map((s) => s.landmark_id).filter(Boolean)])], absent = need.filter((k) => !names.includes(k)); if (absent.length) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `the reviewed landmarks do not contain ${absent.join(", ")}: those joints/sockets cannot be measured from this artwork` }); }
+  const fitMode = p.registration?.mode === "FIT_RIG" || measureMode, anchors = measureMode ? [] : fitMode ? (p.registration.frame_anchors || []).filter((k) => names.includes(k)) : names;
+  if (fitMode && !measureMode && anchors.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `FIT_RIG needs >=3 reviewed frame anchors (${(p.registration.frame_anchors || []).join(", ")}); got ${anchors.length}` });
+  const T = measureMode ? measuredFrame(p.registration, png, asset) : solveTransform(anchors.map((k) => lm.landmarks[k]), anchors.map((k) => I.landmarks[k]), mode), ap = (q) => [T[0] * q[0] + T[2] * q[1] + T[4], T[1] * q[0] + T[3] * q[1] + T[5]];
   const planned = { ...I.landmarks }, target = (k) => (fitMode && !anchors.includes(k) ? ap(lm.landmarks[k]) : I.landmarks[k]); // measured landmarks are their own target (residual 0 by definition)
   const residuals = names.map((k) => ({ landmark: k, role: anchors.includes(k) ? "FRAME_ANCHOR" : "MEASURED", residual_canonical_px: Math.hypot(ap(lm.landmarks[k])[0] - target(k)[0], ap(lm.landmarks[k])[1] - target(k)[1]) })), maxRes = Math.max(...residuals.map((r) => r.residual_canonical_px));
   const geom = geometryFields(T, [0, 0, png.width, png.height], png.width, png.height); // B1: canonical rect = occupied bbox of the transformed raster
   const regDir = path.join(FILM, "registration", asset); fs.mkdirSync(regDir, { recursive: true });
   const receipt = { asset, identity: I.id, status: maxRes <= maxResidualPx ? "REGISTERED_PENDING_REVIEW" : "REGISTRATION_FAILED", raster_to_canonical: T, scale: Math.sqrt(Math.abs(T[0] * T[3] - T[1] * T[2])), rotation_deg: (Math.atan2(T[1], T[0]) * 180) / Math.PI, residuals, max_residual_px: maxRes, tolerance_px: maxResidualPx,
-    registration_mode: fitMode ? "FIT_RIG" : mode, frame_anchors: anchors, provisional_deviation: fitMode ? names.filter((k) => !anchors.includes(k)).map((k) => ({ landmark: k, provisional: planned[k], measured: ap(lm.landmarks[k]), deviation_canonical_px: Math.hypot(ap(lm.landmarks[k])[0] - planned[k][0], ap(lm.landmarks[k])[1] - planned[k][1]) })) : null,
+    registration_mode: measureMode ? p.registration.mode : fitMode ? "FIT_RIG" : mode, frame_anchors: anchors, provisional_deviation: fitMode && !measureMode ? names.filter((k) => !anchors.includes(k)).map((k) => ({ landmark: k, provisional: planned[k], measured: ap(lm.landmarks[k]), deviation_canonical_px: Math.hypot(ap(lm.landmarks[k])[0] - planned[k][0], ap(lm.landmarks[k])[1] - planned[k][1]) })) : null,
     accepted_geometry: geom, landmark_sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, source: { file: path.basename(file), sha256: fsha(file), width: png.width, height: png.height, alpha: png.alpha }, planned_alpha_mode: p.alpha_mode, provenance };
   const attempt = path.join(regDir, `attempt_${fsha(file).slice(0, 12)}`); writeJ(path.join(attempt, "MASTER_REGISTRATION_RECEIPT.json"), receipt);
   if (receipt.status !== "REGISTERED_PENDING_REVIEW") { log(FILM, { op: "ingest-master", asset, status: receipt.status, max_residual_px: maxRes }); return receipt; }
@@ -184,9 +195,9 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   fs.copyFileSync(landmarks, path.join(regDir, "LANDMARK_SIDECAR.json")); // the reviewed correspondences, hash-bound in the receipt
   const dest = path.join(FILM, "assets", "art", `${asset}.png`); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.copyFileSync(file, dest);
   const measured = Object.fromEntries(names.map((k) => [k, ap(lm.landmarks[k])]));
-  if (fitMode) { const fit = fitRig({ FILM, doc, plan, identity: I, measured, anchors, asset, receipt }); receipt.rig_fit = { receipt: `registration/${asset}/RIG_FIT_RECEIPT.json`, feasibility: fit.feasibility.status };
+  if (fitMode && (!measureMode || rigOf || Object.keys(I.landmarks).length)) { const fit = fitRig({ FILM, doc, plan, identity: I, measured, anchors, asset, receipt }); receipt.rig_fit = { receipt: `registration/${asset}/RIG_FIT_RECEIPT.json`, feasibility: fit.feasibility.status };
     writeJ(path.join(regDir, "MASTER_REGISTRATION_RECEIPT.json"), receipt); writeJ(path.join(attempt, "MASTER_REGISTRATION_RECEIPT.json"), receipt); }
-  const rootJ = doc.rigs.find((r) => r.identity_id === I.id)?.root_part, pivotId = names.includes(rootJ) ? rootJ : names[0];
+  const rootR = doc.rigs.find((r) => r.identity_id === I.id), rootJ = rootR ? rootR.joints.find((j) => j.id === rootR.root_part)?.landmark_id ?? rootR.root_part : null, pivotId = names.includes(rootJ) ? rootJ : names[0];
   const fields = { file: path.relative(FILM, dest).split(path.sep).join("/"), sha256: fsha(dest), ...geom, pivot_xy: measured[pivotId], pivot_landmark_id: pivotId, landmarks: measured };
   const rec = assetRecord(doc, { ...p, kind: ["WORLD_PLANE", "TRANSITION_PLATE", "MASK"].includes(p.kind) ? p.kind : "MASTER" }, fields, provenance, `masterreg_${asset}`, lineage);
   doc.assets = doc.assets.filter((a) => a.id !== asset).concat(rec); I.master_sha256 = fields.sha256; I.approved_review_id = null; // new pixels always need a new review
@@ -203,7 +214,9 @@ export function fitInterfacesToMeasured(rigs, I, measured, anchors) {
   const joints = [], limb_changes = [];
   for (const [k, v] of Object.entries(measured)) if (!anchors.includes(k)) I.landmarks[k] = v;
   for (const rig of rigs) { const before = Object.fromEntries(rig.joints.map((j) => [j.id, j.rest_xy]));
-    for (const j of rig.joints) if (j.id in measured && !anchors.includes(j.id)) { joints.push({ rig: rig.id, joint: j.id, before: j.rest_xy, after: measured[j.id] }); j.rest_xy = measured[j.id]; }
+    for (const j of rig.joints) { const k = j.landmark_id ?? j.id; if (k in measured && !anchors.includes(k)) { joints.push({ rig: rig.id, joint: j.id, landmark: k, before: j.rest_xy, after: measured[k] }); j.rest_xy = measured[k]; } }
+    for (const s of rig.sockets || []) if (s.landmark_id && s.landmark_id in measured) { const j = rig.joints.find((x) => x.id === s.joint_id); s.local_xy = [measured[s.landmark_id][0] - j.rest_xy[0], measured[s.landmark_id][1] - j.rest_xy[1]]; }
+    if (rig.geometry_source === "MEASURED_FROM_ART" && rig.joints.every((j) => (j.landmark_id ?? j.id) in measured) && (rig.sockets || []).every((s) => !s.landmark_id || s.landmark_id in measured)) rig.geometry_status = "MEASURED";
     const after = Object.fromEntries(rig.joints.map((j) => [j.id, j.rest_xy])), Lb = (m, j) => { const P = rig.joints.find((x) => x.id === j)?.parent_id; return P && m[P] && m[j] ? Math.hypot(m[j][0] - m[P][0], m[j][1] - m[P][1]) : null; };
     limb_changes.push(...rig.joints.filter((j) => j.parent_id).map((j) => ({ rig: rig.id, bone: `${j.parent_id}->${j.id}`, provisional_length: Lb(before, j.id), fitted_length: Lb(after, j.id) })).filter((x) => x.provisional_length).map((x) => ({ ...x, ratio: x.fitted_length / x.provisional_length }))); }
   return { joints, limb_changes };
@@ -212,7 +225,8 @@ function fitRig({ FILM, doc, plan, identity: I, measured, anchors, asset, receip
   const rig = doc.rigs.find((r) => r.identity_id === I.id), { joints, limb_changes } = fitInterfacesToMeasured(doc.rigs.filter((r) => r.identity_id === I.id), I, measured, anchors);
   const pivots = []; for (const a of plan.assets.filter((x) => x.identity_id === I.id && x.pivot_landmark_id && x.pivot_landmark_id in measured && !anchors.includes(x.pivot_landmark_id))) { pivots.push({ asset: a.asset_id, before: a.pivot_xy, after: measured[a.pivot_landmark_id] }); a.pivot_xy = measured[a.pivot_landmark_id]; }
   writeJ(path.join(FILM, PLAN), plan);
-  const feasibility = feasibilityFor(FILM, doc, I.id, null);
+  if (I.geometry_status === "UNMEASURED" && Object.keys(I.landmarks).every((k) => k in measured)) I.geometry_status = "MEASURED";
+  const feasibility = doc.rigs.some((r) => r.geometry_status === "UNMEASURED") ? { status: "FEASIBILITY_NOT_EVALUATED", reason: "other rigs of the film are still unmeasured", failures: [], checked: [] } : feasibilityFor(FILM, doc, I.id, null);
   const fit = { asset, identity: I.id, rig: rig?.id || null, pixels_changed: false, master_sha256: receipt.source.sha256, frame_anchors: anchors, joints, limb_changes, planned_pivots_updated: pivots, feasibility,
     rule: "the approved art determines the rig; if the planned action is infeasible the action is RESTAGED (approved) or new pose art is requested; proportions are never distorted", at: new Date().toISOString() };
   writeJ(path.join(FILM, "registration", asset, "RIG_FIT_RECEIPT.json"), fit); log(FILM, { op: "fit-rig", asset, joints: joints.length, feasibility: feasibility.status });
@@ -226,6 +240,7 @@ const motionPlansFor = (FILM) => { const H = path.join(FILM, "handoff"), out = [
 function feasibilityFor(FILM, doc, identityId, motionPlan) {
   const rigs = new Set(doc.rigs.filter((r) => r.identity_id === identityId).map((r) => r.id)), failures = [], checked = [], notEvaluated = [];
   const acts = doc.actions.filter((a) => a.actors.some((x) => rigs.has(x.rig_id)));
+  { const un = doc.rigs.filter((r) => r.geometry_status === "UNMEASURED" && (rigs.has(r.id) || acts.some((a) => a.actors.some((x) => x.rig_id === r.id)))); if (un.length && acts.length) return { status: "FEASIBILITY_NOT_EVALUATED", reason: `geometry not measured from approved art yet: ${un.map((r) => r.id).join(", ")}`, failures: un.map((r) => ({ code: "GEOMETRY_UNMEASURED", record_id: r.id, reason: "no approved artwork has been measured for this rig" })), checked: [], remedy: "ingest and approve the master artwork; its measured landmarks become the rig" }; }
   if (!rigs.size) return { status: "NOT_APPLICABLE", reason: "the identity has no rig", failures: [], checked: [], remedy: null };
   if (!acts.length) return { status: "NOT_APPLICABLE", reason: "no action of the film uses this identity's rig (applicable actions 0; nothing to evaluate)", failures: [], checked: [], remedy: null };
   for (const rid of rigs) { const rr = doc.rigs.find((r) => r.id === rid), tl = rigPoseTimeline(rr, doc.actions); for (const e of tl.errors) failures.push({ code: e.code, record_id: rr.id, shot: null, plan: null, frame_range: e.frame_range, reason: e.human_readable_reason });

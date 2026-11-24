@@ -52,6 +52,7 @@ const ROUTED = ["RIGID", "ARTICULATED", "REGISTERED_CELS", "REGISTERED_MORPH", "
 /** compileMotionTracks(actions, shots, {doc, plan}) → frozen compiled plan or throws an aggregated BridgeError list (.errors) */
 export function compileMotionTracks(actions, shots, ctx) {
   const { doc } = ctx, errors = [], total = doc.stage.total_frames;
+  { const un = (doc.rigs || []).filter((r) => r.geometry_status === "UNMEASURED" && actions.some((a) => a.actors.some((x) => x.rig_id === r.id))); if (un.length) throw Object.assign(err("GEOMETRY_UNMEASURED", { record_id: un[0].id, reason: `motion cannot be computed before the artwork is measured: ${un.map((r) => r.id).join(", ")}` }), { errors: un.map((r) => err("GEOMETRY_UNMEASURED", { record_id: r.id, reason: "rig geometry is unmeasured" })) }); }
   // layers 2–3 (P03 A+D, see acting.mjs): compiled PHRASES become primary tracks, ACTING modifies them (lag/anticipation/settle) and adds
   // additive life, follow-through springs, gaze aim and channel swap events (blink, speech). Done BEFORE validation, so every compiled key
   // is checked and owned exactly like an authored one; an unexecutable phrase/acting block is a structured error, never dropped.
@@ -116,7 +117,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     const sock = R_.socketById.get(c.source_socket), ikc = R_.rec.constraints.find((k) => k.type === "TWO_BONE_IK" && k.chain[2] === sock.joint_id);
     if (!ikc) { errors.push(err("UNREACHABLE_IK", { record_id: a.id, reason: `no TWO_BONE_IK chain ends at ${sock.joint_id}` })); continue; }
     const tgtRig = socketOwner.get(c.target_socket) || null;
-    if (!tgtRig && !c.target_world_xy) { errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
+    if (!tgtRig && !c.target_world_xy && !["PLANT", "SUPPORT"].includes(c.contact_type)) { /* P05: a plant with no fixed point holds the place where the sole is when the contact starts (measured, never invented) */ errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
     contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig });
   }
   const contactDriven = new Set(contacts.map((k) => k.rig));
@@ -208,13 +209,14 @@ export function compileMotionTracks(actions, shots, ctx) {
     }
     return out;
   };
+  const holds = new Map(), worldHold = (k) => { const id = `${k.action.id}:${k.c.source_socket}:${k.c.start_frame}`; if (!holds.has(id)) { const f0 = k.c.start_frame, prim = C.evalPrimary(f0, C.shotAt(f0)), s0 = prim[k.rig]; holds.set(id, s0 ? socketWorld(k.rig, fk(k.rig, s0), k.c.source_socket) : null); } return holds.get(id); };
   /** pose intent → contact graph → constrained solution. Failures are structured, never clamped. */
   C.solveConstraints = (f, primary, active) => {
     const st = JSON.parse(JSON.stringify(primary)), failures = [], solved = [], M = {}, ikSolved = new Set();
     for (const rid of Object.keys(st)) if (!contactDriven.has(rid)) M[rid] = fk(rid, st[rid]);
     for (const k of active) {
       const s = st[k.rig]; if (!s) { failures.push(err("UNKNOWN_REFERENCE", { record_id: k.action.id, frame_range: [f, f + 1], reason: `rig ${k.rig} not placed in shot` })); continue; }
-      let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_world_xy;
+      let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_world_xy ?? worldHold(k);
       if (!target) { failures.push(err("CONTACT_DRIFT", { record_id: k.action.id, frame_range: [f, f + 1], reason: `target rig ${k.tgtRig} not placed` })); continue; }
       const R_ = rigs.get(k.rig), [js, je, jw] = k.chain, rs = R_.joints.get(js).rest_xy, re = R_.joints.get(je).rest_xy, rw = R_.joints.get(jw).rest_xy;
       const M0 = fk(k.rig, s), sc = scaleOf(M0[js]), phiW = angleOf(M0[jw]), parentM = R_.joints.get(js).parent_id ? M0[R_.joints.get(js).parent_id] : chain(T(s.root.x, s.root.y), R(s.root.rot), Sc(s.root.scale), T(-R_.root.rest_xy[0], -R_.root.rest_xy[1]));

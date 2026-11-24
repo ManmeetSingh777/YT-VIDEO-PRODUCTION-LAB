@@ -1,0 +1,697 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://motion-native.example/creative_packet_v1.schema.json",
+  "title": "Motion Native GPT creative handoff v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "film_id",
+    "stage",
+    "source",
+    "story",
+    "shots",
+    "decisions",
+    "actions",
+    "art_requirements",
+    "audio_cues",
+    "approval"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0.0"
+    },
+    "film_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "fps",
+        "total_frames"
+      ],
+      "properties": {
+        "width": {
+          "const": 1920
+        },
+        "height": {
+          "const": 1080
+        },
+        "fps": {
+          "const": 60
+        },
+        "total_frames": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "script_file",
+        "script_sha256",
+        "direction_spec",
+        "art_skill"
+      ],
+      "properties": {
+        "script_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "script_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "direction_spec": {
+          "type": "string",
+          "minLength": 1
+        },
+        "art_skill": {
+          "const": "construct-kurzgesagt-art"
+        },
+        "source_witness_manifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "story": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audience_question",
+        "central_insight",
+        "mechanisms",
+        "narration"
+      ],
+      "properties": {
+        "audience_question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "central_insight": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mechanisms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "claim",
+              "epistemic_status",
+              "visual_mechanism"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+              },
+              "claim": {
+                "type": "string",
+                "minLength": 1
+              },
+              "epistemic_status": {
+                "enum": [
+                  "SOURCED",
+                  "HYPOTHESIS",
+                  "METAPHOR",
+                  "UNVERIFIED"
+                ]
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "visual_mechanism": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "narration": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "text",
+              "frames"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "frames": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            }
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "frames",
+          "world_id",
+          "opening_state",
+          "ending_state",
+          "attention_target",
+          "camera_purpose"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "frames": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "world_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "opening_state": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ending_state": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attention_target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "camera_purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "transition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "shot_id",
+          "frames",
+          "viewer_effect",
+          "intent",
+          "consumer_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "shot_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "frames": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "viewer_effect": {
+            "type": "string",
+            "minLength": 1
+          },
+          "intent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "consumer_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+            },
+            "minItems": 1
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "shot_id",
+          "owner",
+          "frames",
+          "mode",
+          "intent",
+          "phases",
+          "precondition",
+          "postcondition",
+          "visible_result",
+          "art_ids",
+          "direction_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "shot_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "owner": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "frames": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "mode": {
+            "enum": [
+              "RIGID",
+              "ARTICULATED",
+              "REGISTERED_CELS",
+              "REGISTERED_MORPH",
+              "EXPLICIT_DEFORM",
+              "PROCEDURAL",
+              "CAMERA_WORLD",
+              "TRANSITION"
+            ]
+          },
+          "intent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "frames",
+                "state"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frames": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "state": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "precondition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "postcondition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "visible_result": {
+            "type": "string",
+            "minLength": 1
+          },
+          "art_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+            },
+            "minItems": 1
+          },
+          "direction_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+            },
+            "minItems": 1
+          },
+          "contact_events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "type",
+                "source_socket",
+                "target_socket",
+                "frames",
+                "release_required"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "GRIP",
+                    "PLANT",
+                    "SUPPORT",
+                    "HINGE",
+                    "SLIDE",
+                    "COLLISION",
+                    "FOLLOW",
+                    "PINCH"
+                  ]
+                },
+                "source_socket": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+                },
+                "target_socket": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+                },
+                "frames": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "release_required": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "art_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "identity",
+          "kind",
+          "purpose",
+          "state",
+          "required_by",
+          "required_parts",
+          "landmarks",
+          "construction",
+          "review_checks"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "identity": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "kind": {
+            "enum": [
+              "MASTER",
+              "PART",
+              "CEL",
+              "CLEAN_PLATE",
+              "UNDERPAINT",
+              "OCCLUDER",
+              "MASK",
+              "WORLD_PLANE",
+              "SYMBOL",
+              "VECTOR_PATH",
+              "TYPE",
+              "MATERIAL_PLANE",
+              "EFFECT_STATE",
+              "TRANSITION_PLATE"
+            ]
+          },
+          "master_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "view",
+              "pose",
+              "expression",
+              "eyes",
+              "mouth",
+              "hand",
+              "lighting",
+              "occlusion"
+            ],
+            "properties": {
+              "view": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pose": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "expression": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "eyes": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mouth": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "hand": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lighting": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "occlusion": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "required_by": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+            },
+            "minItems": 1
+          },
+          "required_parts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+            }
+          },
+          "landmarks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+            }
+          },
+          "construction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_checks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "alpha_required": {
+            "type": "boolean"
+          },
+          "overscan_required": {
+            "type": "boolean"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "audio_cues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "frames",
+          "intent"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_.:-]*$"
+          },
+          "kind": {
+            "enum": [
+              "NARRATION",
+              "SFX",
+              "MUSIC",
+              "SILENCE"
+            ]
+          },
+          "frames": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "intent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "related_action": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "receipt"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "DRAFT",
+            "CREATIVE_REVIEW_REQUIRED",
+            "CREATIVE_APPROVED"
+          ]
+        },
+        "receipt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

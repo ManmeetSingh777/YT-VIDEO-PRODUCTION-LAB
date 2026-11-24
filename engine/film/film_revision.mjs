@@ -51,7 +51,9 @@ export function buildFilmRevision(FILM, { manifest = "handoff/ART_AND_MOTION_MAN
 /** the dependency report (what is hashed, what is excluded and why) */
 export function revisionDependencies(FILM) { const r = buildFilmRevision(FILM); return { film: path.basename(path.resolve(FILM)), digest: r.digest, scopes: r.scopes, integrity: r.integrity, code_files: codeClosure().map(([f, h]) => ({ file: f, sha256: h })), excluded_by_rule: EXCLUDED }; }
 /** checkTiling(shots, transitions, total) — shot intervals tile [0,total) exactly; transitions sit on a shot boundary and own no extra frames */
-export function checkTiling(shots, transitions = [], total = 7200) {
+export function checkTiling(shots, transitions, total) {
+  if (!Number.isInteger(total) || total < 1) return { ok: false, failures: [{ code: "FRAME_TILING_GAP", record_id: "film", reason: `the film length must be a positive whole number of frames (got ${total})` }] };
+  transitions = transitions || [];
   const f = [], s = [...shots].sort((a, b) => a.start_frame - b.start_frame); let cur = 0;
   for (const x of s) { if (!Number.isInteger(x.start_frame) || !Number.isInteger(x.end_frame)) f.push({ code: "FRAME_TILING_GAP", record_id: x.id, reason: "non-integer frame bounds" });
     if (x.start_frame > cur) f.push({ code: "FRAME_TILING_GAP", record_id: x.id, frame_ranges: [[cur, x.start_frame]], reason: `frames ${cur}..${x.start_frame - 1} owned by no shot` });

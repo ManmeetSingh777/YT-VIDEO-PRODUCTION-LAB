@@ -36,7 +36,7 @@ export function compileFilmContracts({ film }) {
   // art demand from the action graph, transform ownership of every rig, exact tiling
   S.art_demand = deriveArtDemands({ doc, plan, motionPlans });
   S.transform_ownership = doc.rigs.map((r) => ({ rig: r.id, ...validateTransformOwnership([{ id: `cam`, owner: "camera" }, { id: `${r.id}__root`, owner: "rig_root", parent: "cam" }, ...r.joints.map((j) => ({ id: `${r.id}.${j.id}`, owner: "joint", parent: j.parent_id ? `${r.id}.${j.parent_id}` : `${r.id}__root` }))]) }));
-  S.tiling = checkTiling(doc.shots, doc.transitions, doc.stage?.total_frames ?? 7200);
+  S.tiling = checkTiling(doc.shots, doc.transitions, doc.stage?.total_frames);
   // typed direction inputs consumed when authored (absent → reported as missing, never invented)
   let planIssue = null, phrases = opt(path.join(FILM, "story", "ACTION_PHRASES.json")); if (phrases) { try { const pp = compileProductionPlan(FILM); planIssue = (pp.errors || []).map((e) => `${e.code}: ${e.human_readable_reason ?? e.message}`); phrases = pp.plan?.phrases ?? phrases; } catch (e) { planIssue = [`${e.code}: ${e.human_readable_reason ?? e.message}`]; } } /* P04 §2.4: the phrases reported here are the phrases the production plan renders */ const beats = opt(path.join(FILM, "story", "BEAT_MEDIA.json"));
   S.action_phrases = phrases ? phrases.map((ph) => ({ id: ph.id, ...compilePhrase(ph) })) : { missing: "story/ACTION_PHRASES.json (ActionPhrase per movement: owners, phases) not authored" };

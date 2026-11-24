@@ -42,7 +42,7 @@ test("T06 changed script or audio invalidates word-linked frame anchors; estimat
 });
 
 test("T09 the timed animatic retains DIAGNOSTIC_ONLY provenance and cannot pass an art or film gate", () => {
-  const a = N.timedAnimatic([{ id: "b1", frames: [0, 900] }, { id: "b2", frames: [900, 7200] }]); assert.equal(a.provenance, "DIAGNOSTIC_ONLY"); assert.equal(a.fits, true);
-  assert.throws(() => N.assertNotDiagnostic(a), (e) => e.code === "QA_LAYER_FAILED"); assert.equal(N.timedAnimatic([{ id: "x", frames: [0, 7300] }]).fits, false);
+  const a = N.timedAnimatic([{ id: "b1", frames: [0, 900] }, { id: "b2", frames: [900, 7200] }], 7200); assert.equal(a.provenance, "DIAGNOSTIC_ONLY"); assert.equal(a.fits, true);
+  assert.throws(() => N.assertNotDiagnostic(a), (e) => e.code === "QA_LAYER_FAILED"); assert.equal(N.timedAnimatic([{ id: "x", frames: [0, 7300] }], 7200).fits, false);
   fs.mkdirSync(EV, { recursive: true }); fs.writeFileSync(path.join(EV, "CAUSAL_MECHANISM_PROOFS.json"), JSON.stringify({ generated_by: "tests/art_bridge/story_mechanism_truth.test.mjs", proofs: { T01_correct: Mx.runCounterfactuals(shop("rent")), T01_inverted: Mx.runCounterfactuals(shop("rent*min(n,1)")) }, note: "fixtures prove the evaluator; the film's own claims are not authored/verified (FACT_CHECK_REQUIRED)" }, null, 1));
 });

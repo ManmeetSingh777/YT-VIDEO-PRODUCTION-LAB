@@ -65,8 +65,10 @@ export function probeMp4(file) {
 }
 const writeAtomic = (f, data) => { const t = `${f}.tmp-${process.pid}-${crypto.randomBytes(3).toString("hex")}`; fs.writeFileSync(t, data); fs.renameSync(t, f); };
 /** renderFilm — chunked capture → verified FFV1 segments → final MP4 → completion receipt. inject: {crashAt:{frame,attempts,transient}, failEncodeChunk, failAssemble} for crash tests */
-export async function renderFilm({ film, revision, renderer = "diagnostic_flat", rendererArgs = {}, total = 7200, fps = 60, chunkSize = 600, width = 1920, height = 1080, audio = null, outName = "film.mp4", seed = 1, inject = {}, onChunk = null }) {
-  const FILM = path.resolve(film), R = RENDERERS[renderer]; if (!R) throw err("RENDER_RECEIPT_INVALID", { reason: `renderer ${renderer} is not registered` });
+export async function renderFilm({ film, revision, renderer = "diagnostic_flat", rendererArgs = {}, total = undefined, fps = 60, chunkSize = 600, width = 1920, height = 1080, audio = null, outName = "film.mp4", seed = 1, inject = {}, onChunk = null }) {
+  const FILM = path.resolve(film); if (total === undefined) { const mf = path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"); total = fs.existsSync(mf) ? JSON.parse(fs.readFileSync(mf, "utf8")).stage?.total_frames : undefined; } // the film's own clock; there is no default length
+  if (!Number.isInteger(total) || total < 1) throw err("INVALID_FRAME_RANGE", { reason: `the film length is unknown (${total}): nothing is rendered` });
+  const R = RENDERERS[renderer]; if (!R) throw err("RENDER_RECEIPT_INVALID", { reason: `renderer ${renderer} is not registered` });
   const dir = path.join(FILM, "render"), key = { revision: revision.digest, renderer, renderer_source_sha256: rendererSourceSha(renderer), seed, width, height, fps, renderer_args: rendererArgs, plan_sha256: rendererArgs.planFile && fs.existsSync(rendererArgs.planFile) ? fsha(rendererArgs.planFile) : null }, keySha = sha(JSON.stringify(key)), chunksDir = path.join(dir, "chunks", keySha.slice(0, 16));
   fs.mkdirSync(chunksDir, { recursive: true });
   const session = await openSession(renderer, { ...rendererArgs, film: FILM, seed, fps, width, height });

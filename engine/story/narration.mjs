@@ -37,7 +37,8 @@ export function verifyNarrationRelations({ timeline, decisions = [], doc, plan =
   return { ok: errors.length === 0, errors, relations: out };
 }
 /** timedAnimatic(beats) — DIAGNOSTIC_ONLY timing proof (shapes stand in for art); its provenance can never pass an art or film gate */
-export function timedAnimatic(beats, totalFrames = 7200) {
+export function timedAnimatic(beats, totalFrames) {
+  if (!Number.isInteger(totalFrames) || totalFrames < 1) throw err("INVALID_FRAME_RANGE", { reason: `an animatic needs the film length in frames (got ${totalFrames})` });
   const frames = beats.reduce((m, b) => Math.max(m, b.frames[1]), 0), errors = frames > totalFrames ? [{ code: "FRAME_TILING_GAP", reason: `beats need ${frames} frames > ${totalFrames}` }] : [];
   return { provenance: "DIAGNOSTIC_ONLY", watermark: "DIAGNOSTIC ANIMATIC — NOT FILM ART", beats: beats.map((b) => ({ id: b.id, frames: b.frames, shape: "diagnostic box", speech: b.speech || null })), fits: errors.length === 0, errors };
 }

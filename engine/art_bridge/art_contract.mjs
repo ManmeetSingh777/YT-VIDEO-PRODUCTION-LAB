@@ -11,6 +11,7 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
 import { err } from "./errors.mjs";
 import { stateIntervals } from "./asset_state.mjs";
 import { verifyApproval, bundleHash, writeReceipt, attestHuman, testTrust } from "./approvals.mjs";
+import { verifyCompiled } from "../story/creative_adapter.mjs";
 import { FAMILIES, resolveFamily, subjectFacts } from "./art_families.mjs";
 import { applicability, operativeSha, RULES } from "./method_applicability.mjs";
 import { validateRegions, witnessPath } from "./witness_regions.mjs";
@@ -278,8 +279,10 @@ export function scopeBundle(FILM, scope) {
     if (keys) { const j = readJ(fp); files[spec] = bundleHash(Object.fromEntries(keys.split(",").map((k) => [k, j[k]]))); } else files[rel] = crypto.createHash("sha256").update(fs.readFileSync(fp)).digest("hex"); }
   return { scope, id: path.basename(FILM), files };
 }
+/** P05: one human decision over the exact creative packet covers the story and direction it compiles to — only while every compiled input still equals it */
+const packetAuthority = (FILM) => (fs.existsSync(path.join(FILM, "creative", "CURRENT.json")) ? verifyCompiled(FILM) : null);
 const ptrFile = (FILM, scope) => path.join(FILM, "approvals", `${scope.toUpperCase()}.POINTER.json`);
-export function scopeApprovalStatus(FILM, doc, scope) { const pf = ptrFile(FILM, scope), ptr = fs.existsSync(pf) ? readJ(pf).receipt_id : null; const v = verifyApproval(doc, FILM, scope, path.basename(FILM), ptr, { requireHuman: true, bundle: scopeBundle(FILM, scope) }); return { ok: v.ok, status: v.ok ? "APPROVED" : ptr ? v.status : "NO_RECEIPT", reason: v.ok ? null : ptr ? v.reason : `no human ${scope} approval receipt`, reviewer_kind: v.reviewer_kind || null, receipt: ptr }; }
+export function scopeApprovalStatus(FILM, doc, scope) { const cv = packetAuthority(FILM); if (cv?.ok) return { ok: true, status: "APPROVED", reason: null, reviewer_kind: cv.reviewer_kind, receipt: cv.receipt, via: `creative_packet ${cv.packet_sha256.slice(0, 16)}` }; const pf = ptrFile(FILM, scope), ptr = fs.existsSync(pf) ? readJ(pf).receipt_id : null; const v = verifyApproval(doc, FILM, scope, path.basename(FILM), ptr, { requireHuman: true, bundle: scopeBundle(FILM, scope) }); return { ok: v.ok, status: v.ok ? "APPROVED" : ptr ? v.status : "NO_RECEIPT", reason: v.ok ? null : ptr ? v.reason : `no human ${scope} approval receipt`, reviewer_kind: v.reviewer_kind || null, receipt: ptr }; }
 /** approveScope({film, scope:"story"|"direction", ...}) — a human decision over the exact story/direction content (TTY attestation for HUMAN) */
 export async function approveScope({ film, scope, reviewer, verdict, notes = "", human = false, attestation = null }) {
   if (!FILES[scope]) throw new Error(`unknown approval scope ${scope}`);

@@ -10,6 +10,8 @@
 import { err } from "../art_bridge/errors.mjs";
 import { stateAtFrame } from "../art_bridge/temporal.mjs";
 import { CONSEQUENCES, ONTOLOGY } from "../story/action_coverage.mjs";
+/** measures with an executor below (a verb whose measure is not here cannot be proven and is refused before artwork) */
+export const EXECUTED_MEASURES = Object.freeze(["hand_closed_and_in_contact", "object_state_reached", "end_effector_approaches", "foot_planted", "mechanism_moves", "gaze_or_head_turns"]);
 const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 const rigOf = (doc, ref) => doc.rigs.find((r) => r.id === ref || r.identity_id === ref) || null;
 const handChannel = (doc, rig) => (rig?.state_channels || []).find((c) => c.kind === "HAND") || null;

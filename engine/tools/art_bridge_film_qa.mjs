@@ -3,11 +3,11 @@
 //   record-render --film DIR --mp4 FILE [--source ART_BRIDGE_CAPTURE|TEST_SYNTHETIC] [--frames-manifest JSON]  → render/FILM_RENDER_RECEIPT.json
 //   check  --film DIR [--manifest REL]                       → qa/film/FILM_QA_RESULT.json (exit 0 only on production pass)
 //   review --film DIR --reviewer NAME --verdict APPROVED|REJECTED [--human]   → hash-scoped FILM receipt (only after every automated gate passes)
-// Gates: coverage (all shots tile frames 0–7199 at 60 fps) · manifest_production (human-attested, non-stale approvals; no diagnostic art) ·
+// Gates: coverage (all shots tile the film's own [0,total_frames) at 60 fps) · manifest_production (human-attested, non-stale approvals; no diagnostic art) ·
 // registration_evidence (every asset's registration receipt verified by content) · shots_qa (per-shot QA results exist, pass their
 // mechanical/registration/review gates, and were produced on the CURRENT asset hashes) · transitions (every continuous transition compiles
 // with anchor residual < 1e-6 on every frame) · audio (recorded narration + measured word alignment) · render (receipt bound to the
-// manifest; MP4 hash, 1920×1080, 60/1 fps, exactly 7200 frames, 120 s, audio stream present) · human_film_review (FILM receipt over all of
+// manifest; MP4 hash, 1920×1080, 60/1 fps, exactly total_frames frames, total_frames/60 s, audio stream present) · human_film_review (FILM receipt over all of
 // the above, re-hashed on every run). TEST_TRUST (ART_BRIDGE_TEST_TRUST=1) may waive provenance/attestation/synthetic render for tests only,
 // and the verdict then says PRODUCTION_PASS_UNDER_TEST_TRUST — never PRODUCTION_PASS.
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto"; import { execFileSync } from "node:child_process";
@@ -40,10 +40,10 @@ export function recordFilmRender({ film, mp4, source = "ART_BRIDGE_CAPTURE", fra
 
 async function gatesFor(FILM, manifest, check, doc) {
   const revision = buildFilmRevision(FILM, { manifest });
-  const g = {}, why = {}, trust = testTrust(FILM);
+  const g = {}, why = {}, trust = testTrust(FILM), TF = doc.stage.total_frames; // the film's own length (variable)
   // 1 coverage
   const cov = check.coverage, gaps = check.errors.filter((e) => e.code === "SHOT_COVERAGE_GAP");
-  g.coverage = doc.stage.fps === 60 && doc.stage.total_frames === 7200 && cov?.framesCovered === 7200 && gaps.length === 0; why.coverage = { fps: doc.stage.fps, total_frames: doc.stage.total_frames, frames_covered: cov?.framesCovered, gaps: gaps.map((e) => e.frame_range) };
+  g.coverage = doc.stage.fps === 60 && Number.isInteger(doc.stage.total_frames) && doc.stage.total_frames > 0 && cov?.framesCovered === doc.stage.total_frames && gaps.length === 0; why.coverage = { fps: doc.stage.fps, total_frames: doc.stage.total_frames, frames_covered: cov?.framesCovered, gaps: gaps.map((e) => e.frame_range) };
   // 2 manifest in production mode (human approvals, no diagnostic art unless TEST_TRUST waives provenance)
   const prodErr = check.errors.filter((e) => !(trust && e.code === "UNQUALIFIED_STYLE_ASSET"));
   g.manifest_production = prodErr.length === 0; why.manifest_production = { errors: prodErr.slice(0, 20).map((e) => `${e.code} ${e.record_id}: ${e.human_readable_reason}`), provenance_waived_under_test_trust: trust && check.errors.some((e) => e.code === "UNQUALIFIED_STYLE_ASSET") };
@@ -65,12 +65,12 @@ async function gatesFor(FILM, manifest, check, doc) {
     if (!outF || !fs.existsSync(outF) || fsha(outF) !== nt.alignment?.output_sha256) nv.errors.push({ code: "NARRATION_NOT_MEASURED", reason: "the aligner output file is missing or does not match its recorded hash" }); }
   g.audio = !!(nf && fs.existsSync(nf) && nv && nv.errors.length === 0); why.audio = { narration: nf && fs.existsSync(nf) ? path.relative(FILM, nf) : null, timeline: ntf && fs.existsSync(ntf) ? path.relative(FILM, ntf) : null, errors: nv ? nv.errors : ["no narration timeline (recorded audio + measured alignment)"] };
   // 7 render (directive J1/J3/P06): ONLY the render-completion receipt written by renderFilm on THIS revision; sampled frames must re-render
-  //   identically; the MP4 must be 1920x1080, 60/1 fps, 7200 frames, 120 s with an audio stream
+  //   identically; the MP4 must be 1920x1080, 60/1 fps, the film's total_frames and duration, with an audio stream
   const vr = await verifyRenderReceipt(FILM, revision), rr = vr.receipt || null, rwhy = [...vr.reasons], rp = rr?.probe || null;
-  if (rp) { if (rp.width !== 1920 || rp.height !== 1080) rwhy.push(`size ${rp.width}x${rp.height}`); if (rp.r_frame_rate !== "60/1") rwhy.push(`fps ${rp.r_frame_rate}`); if (rp.frames !== 7200) rwhy.push(`frames ${rp.frames} != 7200`);
-    if (Math.abs(rp.video_duration - 120) > 1 / 60 + 1e-6) rwhy.push(`duration ${rp.video_duration}`); if (rp.audio_duration === null) rwhy.push("no audio stream"); else if (Math.abs(rp.audio_duration - 120) > 0.05) rwhy.push(`audio duration ${rp.audio_duration}`); }
+  if (rp) { if (rp.width !== 1920 || rp.height !== 1080) rwhy.push(`size ${rp.width}x${rp.height}`); if (rp.r_frame_rate !== "60/1") rwhy.push(`fps ${rp.r_frame_rate}`); if (rp.frames !== TF) rwhy.push(`frames ${rp.frames} != ${TF}`);
+    if (Math.abs(rp.video_duration - TF / 60) > 1 / 60 + 1e-6) rwhy.push(`duration ${rp.video_duration}`); if (rp.audio_duration === null) rwhy.push("no audio stream"); else if (Math.abs(rp.audio_duration - TF / 60) > 0.05) rwhy.push(`audio duration ${rp.audio_duration}`); }
   if (rr && !trust) { try { assertNotDiagnostic({ provenance: rr.renderer_provenance }); } catch (e) { rwhy.push(`renderer provenance ${rr.renderer_provenance} cannot qualify a film (${e.code})`); } if (rr.renderer_provenance !== "ART_BRIDGE_CAPTURE" && rr.renderer_provenance !== "DIAGNOSTIC_ONLY") rwhy.push(`renderer provenance ${rr.renderer_provenance} cannot qualify a film`); }
-  const tiling = checkTiling(doc.shots, doc.transitions, 7200); if (!tiling.ok) { g.coverage = false; why.coverage = { ...why.coverage, tiling: tiling.failures }; }
+  const tiling = checkTiling(doc.shots, doc.transitions, TF); if (!tiling.ok) { g.coverage = false; why.coverage = { ...why.coverage, tiling: tiling.failures }; }
   // unlike transfer: at least two passages from different families qualified by the same producers (real provider art unless test trust)
   // F078: the unlike-transfer JSON is an index; each passage must resolve a verified provider→asset→registration→approval→review chain
   const ut = verifyUnlikeTransfer(FILM, doc, revision.digest, process.env.ART_BRIDGE_OUTBOX || null); g.unlike_transfer = ut.ok; why.unlike_transfer = ut.ok ? ut.passages : ut.why;
