@@ -18,6 +18,7 @@ import { validateStateEdge } from "./state_router.mjs";
 import { validateChannels, channelEvents, channelStatesAt, resolveBindings } from "./state_channels.mjs";
 import { rigPoseTimeline, poseAt } from "./state_timeline.mjs";
 import { layerPhrases, compileActing } from "./acting.mjs";
+import { compileModelBars } from "../decoder/model_bar.mjs";
 import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHinge, comX } from "./execution.mjs";
 import { balance } from "./contact_solver.mjs";
 
@@ -80,6 +81,8 @@ export function compileMotionTracks(actions, shots, ctx) {
   }
   for (const s of plan.secondary || []) { if (!rigs.get(s.rig)?.joints.has(s.joint)) errors.push(err("UNKNOWN_REFERENCE", { record_id: s.id, reason: "secondary joint unknown" })); else own(`${s.rig}.${s.joint}`, `secondary:${s.id}`); }
   for (const [aid, p] of Object.entries(plan.procedural || {})) if (p.type === "GEAR_TRAIN") for (const fo of p.followers) own(`${fo.rig}.${fo.joint}`, `procedural:${aid}`);
+  // Better One TBO-G15: MODEL_BAR symbols are driven ONLY by the approved model card (plan.models); validated and evaluated here, once
+  const modelBars = compileModelBars(plan, { actions, assets, errors, ev });
   for (const [cid, c] of Object.entries(plan.cameras || {})) for (const [p, keys] of Object.entries(c)) safe(() => checkKeys(keys, `camera ${cid}.${p}`));
   // execution systems (P03 E/F): deformation maps, vector morphs, mechanism reactions, support/balance — validated like tracks
   for (const [id, m] of Object.entries(plan.deform_maps || {})) { errors.push(...validateDeformBinding(id, m, assets.get(m.asset))); if (m.weight) safe(() => checkKeys(m.weight, `deform ${id}.weight`)); }
@@ -133,7 +136,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     for (let i = errors.length - 1; i >= 0; i--) { const e = errors[i], act = actions.find((a) => a.id === e.record_id), edge = /^(.+?)\.(.+)->(.+)$/.exec(e.record_id || ""), ids = e.code === "MISSING_ART_ASSET" ? (act ? absent(act.required_assets) : absent([e.record_id])) : ["UNSUPPORTED_VIEW", "UNSUPPORTED_STATE_EDGE"].includes(e.code) && edge ? absent([...stateArt(edge[1], edge[2]), ...stateArt(edge[1], edge[3])]) : ["INVALID_MORPH_TOPOLOGY", "INVALID_DEFORM_MAP", "DEFORM_RENDER_FAILURE"].includes(e.code) && act ? absent(act.required_assets) : []; if (ids.length) { pendingArt.push(...ids); errors.splice(i, 1); } } }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)] };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
@@ -319,6 +322,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   C.proceduralAt = (f) => {
     const out = [];
     for (const [aid, p] of Object.entries(plan.procedural || {})) {
+      if (p.type === "MODEL_BAR") { const a = actions.find((x) => x.id === aid); if (!a || f < a.frame_range[0] || f >= a.frame_range[1]) continue; const b = modelBars.at(aid, f); if (b) out.push(b); continue; }
       if (p.type !== "FLOW_PATH") continue; const a = actions.find((x) => x.id === aid); if (!a || f < a.frame_range[0] || f >= a.frame_range[1]) continue;
       const segs = []; let L = 0; for (let i = 1; i < p.path.length; i++) { const l = dist(p.path[i - 1], p.path[i]); segs.push([L, l, p.path[i - 1], p.path[i]]); L += l; }
       const count = Math.max(0, Math.round(ev(p.count, f))), head = (f - a.frame_range[0]) * p.speed_px_per_frame, sym = assets.get(p.symbol_asset), [px, py] = sym.pivot_xy;

@@ -23,6 +23,8 @@ export const CODES = Object.freeze([
   "STATE_CONFLICT", "ACTING_INVALID", "PLAN_AMBIGUOUS", "PLAN_MISSING", "EMPTY_STAGE_OBLIGATION", "FRAME_EVALUATION_FAILED", "FEASIBILITY_NOT_EVALUATED", "UNSUPPORTED_SEMANTIC_ACTION", "GRIP_CONTRACT_MISSING", "IR_ARROW_MISSING", "DEFORM_APPROVAL_MISSING", "PREFLIGHT_MUTATION", "AUDIO_STREAM_MISSING", "CUE_STEM_MISMATCH", "STORY_HANDOFF_INVALID", "SEMANTIC_CONSEQUENCE_UNMET", "SUBJECT_CROPPED", "RENDER_SCALE_EXCEEDED",
   // P05 creative packet integration
   "UNIMPLEMENTABLE_CREATIVE_REQUIREMENT", "MOTION_OBLIGATION_UNMET", "ORPHAN_MOTION_TRACK", "GEOMETRY_UNMEASURED", "AUDIO_INPUT_MISSING", "ART_JOB_INPUT_MISSING", "SHADOW_DISCONTINUOUS", "TRANSITION_GEOMETRY_INVALID",
+  // Better One first film: model-driven decoder, Blender host passes, production quality-gate registry
+  "DECODER_MODEL_INVALID", "MODEL_CONSTRAINT_VIOLATED", "DECODER_INERT_OR_MISLEADING", "HOST_3D_ASSET_PENDING", "HOST_INTEGRATION_INVALID", "QUALITY_GATE_UNPROVEN",
 ]);
 /** directive N2: every refusal carries the same machine-readable fields (producer, invariant, owner, resume point, revisions, evidence) */
 const N2 = ["producer", "failed_invariant", "dependency_ids", "required_art_or_operation", "repair_owner", "resume_at", "input_revision_hashes", "diagnostic_evidence", "severity", "frame_ranges"];
