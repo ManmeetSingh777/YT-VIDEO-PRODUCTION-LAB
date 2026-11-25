@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "E01_CREATIVE_RECOVERY_V1",
+  "episode_id": "E01",
+  "stage": "STORY_AND_DIRECTION",
+  "approval_status": "OPENING_V0_4_PROPOSED",
+  "sources": [
+    {
+      "path": "docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md",
+      "role": "Mandatory permanent process and production gates"
+    },
+    {
+      "path": "docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md",
+      "role": "Complete channel editorial authority"
+    },
+    {
+      "path": "docs/the-better-one/episodes/E01/EPISODE_STATE.json",
+      "role": "Latest known episode decisions, blockers, frame ranges"
+    },
+    {
+      "path": "docs/the-better-one/episodes/E01/E01_OPENING_V0_4_PROPOSED.md",
+      "role": "Latest 32.5s opening and provisional 13s extract, NOT director locked"
+    },
+    {
+      "path": "inputs/EXPERIENCE_DIRECTOR_V1.md",
+      "role": "Full 12-part director construction and acceptance standard"
+    },
+    {
+      "path": "docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md",
+      "role": "Creative vs engine vs art operating architecture"
+    },
+    {
+      "path": "docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md",
+      "role": "Critical visual motion and integration failure requirements"
+    },
+    {
+      "path": "docs/the-better-one/E01_MIA_EDITORIAL_STARTER.md",
+      "role": "Earlier primary-source research seeds; NOT full latest V0.3 M01 model"
+    }
+  ],
+  "missing_source_warning": "The complete E01 financial Model and Evidence V0.3 + Value Blueprint V0.3 are not published on this branch; retrieve them from the user's saved creative ZIP before asserting complete model proof."
+}
