@@ -1,5 +1,8 @@
 # CURRENT HANDOFF — THE BETTER ONE / MIA FIRST FILM
-**Updated:** 25 November 2026. This replaces the obsolete P02 root handoff, archived at `docs/history/LEGACY_P02_HANDOFF.md`. No automatic production/human approval is implied.
+
+> **CURRENT OPERATING OVERRIDE — E01 V0.4 PROPOSED:** Read docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md and docs/the-better-one/episodes/E01/EPISODE_STATE.json before older P05 history below. The 32.5s opening in docs/the-better-one/episodes/E01/E01_OPENING_V0_4_PROPOSED.md is NOT yet human-approved. First actual-film qualification is 13s absolute [180,960), clip-local [0,780); its required f180 pre-roll state comes from the complete opening. The E01 8–10s references below are obsolete examples. P06 may have unpushed local engine changes and running regression; do not assume this public branch contains tested final P06 code. Do not merge/reset while the regression runs. The complete process and repeatable session-packs are documented in SESSION_RECOVERY_AND_HANDOFF_V1.md.
+
+**Historical section updated:** 25 November 2026. This replaces the obsolete P02 root handoff, archived at `docs/history/LEGACY_P02_HANDOFF.md`. No automatic production/human approval is implied.
 
 ## 1. One source of truth
 
