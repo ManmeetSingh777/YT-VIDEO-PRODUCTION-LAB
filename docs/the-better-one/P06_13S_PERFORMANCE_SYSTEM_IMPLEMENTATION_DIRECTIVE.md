@@ -14,6 +14,8 @@
 
 ## 1. Non-negotiable engineering invariant and API shape
 
+**Normative machine-readable draft schema:** `docs/the-better-one/PERFORMANCE_COMMAND_SCHEMA_V1.json` (JSON Schema 2020-12, 14 verb types). First run it under an actual validator; its draft correctness is not established by this document. Wire cross-reference, frame-boundary, capability and rendering rules in actual code rather than treating structural JSON validation as proof of performance.
+
 Introduce a *pure*, versioned semantic performance adapter (suggested module \`engine/art_bridge/performance_commands.mjs\`; check existing code before creating). It consumes a **PerformanceCommand[]** attached to the APPROVED direction action and produces the existing plan surfaces; it is NOT a second parallel timeline or new Neutrino runtime.
 
 Canonical command record (fields are required unless named optional):
