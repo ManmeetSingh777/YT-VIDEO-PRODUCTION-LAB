@@ -15,6 +15,7 @@ Read in full:
 2. `docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md` — 1394 lines, user-supplied editorial Bible.
 3. `docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md`.
 4. `docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md`.
+4a. `docs/the-better-one/P06_13S_PERFORMANCE_SYSTEM_IMPLEMENTATION_DIRECTIVE.md` — mandatory current one-run execution standard for reusable actor commands and 13s integration.
 5. `inputs/EXPERIENCE_DIRECTOR_V1.md`, `inputs/MOTION_NATIVE_HYBRID_V2_COMPLETE_IMPLEMENTATION_SPEC.md`.
 6. `hybrid_v2/evidence/p05/P05_STATUS.md` and real P05 source/tests.
 7. `docs/gpt-creative-control/OPERATOR_WORKFLOW.md`, executable `schemas/creative_packet_v1_1.schema.json`.
