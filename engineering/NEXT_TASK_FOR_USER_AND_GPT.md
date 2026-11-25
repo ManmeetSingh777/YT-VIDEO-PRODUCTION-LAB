@@ -12,6 +12,11 @@ Return **one folder** containing:
    - the host shot(s);
    - every spoken line with speaker, plus `limited_mouth_approved` or a request for phoneme mouths.
 4. The **three chosen real intervals** (shot ids + absolute frames) for S-A Mia acting, S-B host breach and S-C decoder.
+5. **P06:** `PERFORMANCE_COMMANDS.json` (PerformanceCommand packet v1.0.0, one record per directed beat of the 13 s scene) and Mia's
+   `PERFORMANCE_PROFILES.json` (timing, gaze, rigid-turn limit, reaction map, idle, limited-mouth choice), both for the user to approve. Formats, phase
+   vocabularies and rules: `engineering/p06/MIA_13S_ART_AND_PERFORMANCE_HANDOFF.md` §3–§5. Then run
+   `node engine/tools/creative_handoff.mjs performance-closure --film <F> --commands PERFORMANCE_COMMANDS.json --profiles PERFORMANCE_PROFILES.json --run-type PRODUCTION`.
+   It lists the exact drawings to commission, and refusals to fix before any art is made.
 
 Tell GPT about these limits *before* it directs. They are refused today; each needs either different direction or engineering work first:
 - `CARRY` (walking while holding a plate/ticket);

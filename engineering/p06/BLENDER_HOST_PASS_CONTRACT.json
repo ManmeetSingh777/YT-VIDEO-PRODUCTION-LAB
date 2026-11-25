@@ -1,0 +1,101 @@
+{
+ "contract": "BLENDER_HOST_PASS_CONTRACT",
+ "version": "1.1.0",
+ "adapter": [
+  "engine/host3d/blender_host_passes.py",
+  "engine/host3d/host_pass.mjs#renderHostPasses/compileHostPasses/verifyHostComposite",
+  "engine/art_bridge/scene_graph.mjs#composeShot (plan.host_passes)"
+ ],
+ "inputs": {
+  "film_sha": "source SHA of the film revision",
+  "shot_id": "string",
+  "film_frames": "[f0,f1) absolute film frames",
+  "blender_frame_offset": "integer: blender_frame = film_frame - offset",
+  "blend_sha256": "sha256 of the approved .blend (APPROVED_HOST)",
+  "host_mesh_sha256": "content hash of the rest mesh/rig as rendered (PASSES.json)",
+  "rig_action_sha256": "hash of the evaluated per-frame performance as rendered",
+  "blender_version": "recorded",
+  "fps": 60,
+  "camera": {
+   "type": "ORTHO (adapter v1)",
+   "location": "[x,y,z]",
+   "rotation_euler_deg": "[x,y,z]",
+   "ortho_scale": "number"
+  },
+  "resolution": "[1920,1080]",
+  "ground": {
+   "z": "world ground height"
+  },
+  "calibration_landmarks": "≥2 reviewed floor landmarks of the approved WORLD_PLANE {world, plate_px}",
+  "contact_points": "[{id, object (Blender empty)}]",
+  "band": "FAR|MID|FOCAL|NEAR|FOREGROUND",
+  "foreground_occluder_ids": "approved assets nearer than the host band",
+  "lighting_profile": "approved key-light direction/colour (human-reviewed; not yet machine-checked)",
+  "sound_cue_ids": "audio cues the host performance is timed to",
+  "provenance": "APPROVED_HOST | DIAGNOSTIC_FIXTURE",
+  "approval_receipt_id": "signed host approval"
+ },
+ "outputs": {
+  "host_rgba": "host_NNNNNN.png, straight alpha, transparent background",
+  "shadow_rgba": "shadow_NNNNNN.png, shadow-catcher ground, host invisible to camera",
+  "PASSES.json": "camera_used.matrix_world, per-frame film/blender frame map, sha256 per pass, contact world+px, fps, alpha_mode, host_mesh_sha256, rig_action_sha256, blender_version",
+  "depth_or_matte": "NOT YET PRODUCED (add an object-ID matte only when an approved shot needs inter-penetrating occlusion)"
+ },
+ "rejections": [
+  [
+   "HOST_PROVENANCE_DECLARED / HOST_ASSET_APPROVED",
+   "diagnostic stand-in in PRODUCTION, unapproved host, missing .blend sha/receipt"
+  ],
+  [
+   "HOST_CAMERA_MATCHED",
+   "Blender camera ≠ contract (1e-4), contact projection disagreement > 0.5 px, 2D camera moving while a host pass is visible"
+  ],
+  [
+   "HOST_WORLD_CALIBRATED",
+   "painted floor landmarks off by > 2 px, fewer than 2 landmarks"
+  ],
+  [
+   "HOST_FRAMES_COMPLETE / HOST_FRAME_MAP_EXACT",
+   "missing / out-of-interval / mis-mapped frames"
+  ],
+  [
+   "HOST_PASS_PRESENT / STALE_DEPENDENCY",
+   "missing pass, changed pass bytes"
+  ],
+  [
+   "HOST_FPS_60",
+   "passes not rendered at the film clock"
+  ],
+  [
+   "HOST_ALPHA_STRAIGHT",
+   "premultiplied or unrecorded alpha"
+  ],
+  [
+   "HOST_SOURCE_CURRENT",
+   "mesh/rig or performance changed without a re-render"
+  ],
+  [
+   "HOST_PASS_TRANSPARENT",
+   "a pass with its own background (pasted rectangle)"
+  ],
+  [
+   "HOST_OCCLUDER_ORDER",
+   "a 'foreground' occluder not in front of the host band"
+  ],
+  [
+   "HOST_CONTACT_ON_GROUND",
+   "floating or sunk contact"
+  ],
+  [
+   "HOST_OCCLUDED_BY_FOREGROUND / HOST_SHADOW_COMPOSITED (pixels)",
+   "composited frame shows the host through the counter, or no shadow"
+  ]
+ ],
+ "tests": [
+  "TBO-G14 host pass (real Blender 5.1 Cycles + Chrome; DIAGNOSTIC capsule)"
+ ],
+ "status": {
+  "technical_adapter": "VERIFIED_CODE on a DIAGNOSTIC capsule (not a host design)",
+  "production_host": "HOST_3D_ASSET_PENDING: approved original host concept → Blender master (mesh, armature, face controls, performance) by a human modeller/rigger"
+ }
+}

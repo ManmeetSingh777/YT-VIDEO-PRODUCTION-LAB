@@ -1,0 +1,1151 @@
+{
+ "diagnostic": true,
+ "note": "DIAGNOSTIC example on the P03 subjects (flat stand-in rasters, TEST_TRUST profiles, tone-burst cue); not E01 direction",
+ "packet": {
+  "schema_version": "1.0.0",
+  "film_id": "p03_subjects",
+  "fps": 60,
+  "total_frames": 7200,
+  "characters": [
+   {
+    "actor_rig_id": "nova_rig",
+    "master_sha": "10b655bca143804f4edec4643f45974386c2ade6a1d62f2dfe64705fcc2ec5a4",
+    "topology_kind": "BIPED",
+    "character_profile_id": "nova_perf",
+    "approved_state_channels": [
+     "eyes",
+     "mouth",
+     "hand_r",
+     "brows"
+    ],
+    "approved_motion_routes": [
+     "PART_RIG_2D",
+     "RIGID_2D",
+     "APPROVED_CELS"
+    ],
+    "role_map": {
+     "gaze_joint": "head",
+     "head_joint": "head",
+     "chest_joint": "chest",
+     "eyes_channel": "eyes",
+     "eyes_open_state": "open",
+     "eyes_closed_state": "closed",
+     "mouth_channel": "mouth",
+     "mouth_rest_state": "rest",
+     "mouth_open_state": "open",
+     "mouth_mid_state": "mid",
+     "expression_channel": "brows",
+     "hand.r.socket": "nova_grip",
+     "hand.r.channel": "hand_r",
+     "hand.r.open_state": "open",
+     "hand.r.closed_state": "grip",
+     "hand.r.point_state": "point_standin",
+     "hand.r.aim_joint": "shoulder_r",
+     "foot.l.socket": "nova_sole_l",
+     "foot.r.socket": "nova_sole_r"
+    }
+   },
+   {
+    "actor_rig_id": "lumen_rig",
+    "master_sha": "735e8690d0c6bf808f06f8c7842b0070d5fed60d3be7d947b03a6fd3d5767c5a",
+    "topology_kind": "NONHUMAN",
+    "character_profile_id": "lumen_perf",
+    "approved_state_channels": [
+     "eye"
+    ],
+    "approved_motion_routes": [
+     "PART_RIG_2D",
+     "APPROVED_CELS"
+    ],
+    "role_map": {
+     "gaze_joint": "head",
+     "head_joint": "neck2",
+     "body_joint": "body",
+     "eyes_channel": "eye",
+     "eyes_open_state": "open",
+     "eyes_closed_state": "closed"
+    }
+   }
+  ],
+  "commands": [
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_idle",
+    "verb": "idle",
+    "frames": [
+     0,
+     30
+    ],
+    "intent": "settled, waiting",
+    "phases": [
+     {
+      "id": "still",
+      "frames": [
+       0,
+       30
+      ],
+      "goal": "stand still and breathe",
+      "expected_owner_effect": "chest breathes, feet planted, root still"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "LegalIdleHold",
+      "owner_id": "nova_rig",
+      "frames": [
+       0,
+       30
+      ],
+      "test_id": "P06-N-IDLE",
+      "human_quality_check": "native-resolution playback: LegalIdleHold reads as intended on nova_rig"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_look",
+    "verb": "look_at",
+    "frames": [
+     10,
+     60
+    ],
+    "target": {
+     "kind": "WORLD_POINT",
+     "xy": [
+      800,
+      400
+     ],
+     "space": "WORLD_CSS_PX"
+    },
+    "intent": "notices something to the right",
+    "phases": [
+     {
+      "id": "acquire",
+      "frames": [
+       10,
+       25
+      ],
+      "goal": "turn head to the point",
+      "expected_owner_effect": "head aims at the point"
+     },
+     {
+      "id": "hold",
+      "frames": [
+       25,
+       50
+      ],
+      "goal": "keep looking",
+      "expected_owner_effect": "aim held"
+     },
+     {
+      "id": "return",
+      "frames": [
+       50,
+       60
+      ],
+      "goal": "release",
+      "expected_owner_effect": "head returns"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "GazeTowardTarget",
+      "owner_id": "nova_rig.head",
+      "frames": [
+       25,
+       50
+      ],
+      "test_id": "P06-N-LOOK",
+      "human_quality_check": "native-resolution playback: GazeTowardTarget reads as intended on nova_rig.head",
+      "minimum": 3,
+      "units": "deg"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {
+      "eyes": "open"
+     },
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {
+      "eyes": "open"
+     },
+     "possession": {}
+    },
+    "required_art_refs": [
+     "nova_eye_closed",
+     "nova_eye_open"
+    ],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_blink",
+    "verb": "blink",
+    "frames": [
+     40,
+     48
+    ],
+    "intent": "a natural blink while looking",
+    "phases": [
+     {
+      "id": "closed",
+      "frames": [
+       40,
+       47
+      ],
+      "goal": "eyes closed",
+      "expected_owner_effect": "closed-eye drawing"
+     },
+     {
+      "id": "reopen",
+      "frames": [
+       47,
+       48
+      ],
+      "goal": "eyes open again",
+      "expected_owner_effect": "open-eye drawing"
+     }
+    ],
+    "motion_routes": [
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "EyeStateTransition",
+      "owner_id": "nova_rig.eyes",
+      "frames": [
+       40,
+       48
+      ],
+      "test_id": "P06-N-BLINK",
+      "human_quality_check": "native-resolution playback: EyeStateTransition reads as intended on nova_rig.eyes"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_reach",
+    "verb": "reach",
+    "frames": [
+     30,
+     70
+    ],
+    "target": {
+     "kind": "RIG_SOCKET",
+     "rig_id": "lever_rig",
+     "socket_id": "lever_handle"
+    },
+    "intent": "hesitant reach for the lever",
+    "phases": [
+     {
+      "id": "anticipation",
+      "frames": [
+       30,
+       40
+      ],
+      "goal": "small lean back",
+      "expected_owner_effect": "chest leans before the arm moves"
+     },
+     {
+      "id": "approach",
+      "frames": [
+       40,
+       70
+      ],
+      "goal": "hand travels to the handle",
+      "expected_owner_effect": "palm closes on the handle"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "ContactApproach",
+      "owner_id": "nova_rig.nova_grip",
+      "frames": [
+       40,
+       70
+      ],
+      "test_id": "P06-N-REACH",
+      "human_quality_check": "native-resolution playback: ContactApproach reads as intended on nova_rig.nova_grip",
+      "minimum": 5,
+      "units": "px"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {
+      "hand_r": "grip"
+     },
+     "possession": {
+      "lever": "nova_rig#r"
+     }
+    },
+    "required_art_refs": [
+     "nova_hand_grip",
+     "nova_hand_open"
+    ],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_grip",
+    "verb": "grip",
+    "frames": [
+     70,
+     90
+    ],
+    "target": {
+     "kind": "RIG_SOCKET",
+     "rig_id": "lever_rig",
+     "socket_id": "lever_handle"
+    },
+    "intent": "takes hold firmly",
+    "phases": [
+     {
+      "id": "close",
+      "frames": [
+       70,
+       80
+      ],
+      "goal": "fingers close",
+      "expected_owner_effect": "closed hand on the handle"
+     },
+     {
+      "id": "hold",
+      "frames": [
+       80,
+       90
+      ],
+      "goal": "settle the grip",
+      "expected_owner_effect": "held"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D",
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "PaintedGripMaintained",
+      "owner_id": "nova_rig.nova_grip",
+      "frames": [
+       70,
+       90
+      ],
+      "test_id": "P06-N-GRIP",
+      "human_quality_check": "native-resolution playback: PaintedGripMaintained reads as intended on nova_rig.nova_grip"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {
+      "hand_r": "grip"
+     },
+     "possession": {
+      "lever": "nova_rig#r"
+     }
+    },
+    "required_poststate": {
+     "channel_states": {
+      "hand_r": "grip"
+     },
+     "possession": {
+      "lever": "nova_rig#r"
+     }
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_hold",
+    "verb": "hold",
+    "frames": [
+     90,
+     190
+    ],
+    "intent": "keeps holding while speaking",
+    "phases": [
+     {
+      "id": "hold",
+      "frames": [
+       90,
+       190
+      ],
+      "goal": "hold the handle",
+      "expected_owner_effect": "grip persists every frame"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "PoseContactHold",
+      "owner_id": "nova_rig.nova_grip",
+      "frames": [
+       90,
+       190
+      ],
+      "test_id": "P06-N-HOLD",
+      "human_quality_check": "native-resolution playback: PoseContactHold reads as intended on nova_rig.nova_grip"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {
+      "mouth": "rest"
+     },
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {
+      "mouth": "rest"
+     },
+     "possession": {}
+    },
+    "required_art_refs": [
+     "nova_mouth_open",
+     "nova_mouth_mid",
+     "nova_mouth_rest"
+    ],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_speak",
+    "verb": "speak",
+    "frames": [
+     100,
+     170
+    ],
+    "target": {
+     "kind": "AUDIO_CUE",
+     "cue_id": "cue_n1"
+    },
+    "intent": "two words to the creature",
+    "phases": [
+     {
+      "id": "line",
+      "frames": [
+       100,
+       170
+      ],
+      "goal": "say the line",
+      "expected_owner_effect": "mouth opens on each measured word"
+     }
+    ],
+    "motion_routes": [
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "SpeechAudioVisualSync",
+      "owner_id": "nova_rig.mouth",
+      "frames": [
+       100,
+       170
+      ],
+      "test_id": "P06-N-SPEAK",
+      "human_quality_check": "native-resolution playback: SpeechAudioVisualSync reads as intended on nova_rig.mouth"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {
+      "hand_r": "grip"
+     },
+     "possession": {
+      "lever": "nova_rig#r"
+     }
+    },
+    "required_poststate": {
+     "channel_states": {
+      "hand_r": "open"
+     },
+     "possession": {
+      "lever": null
+     }
+    },
+    "required_art_refs": [
+     "nova_hand_open"
+    ],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_release",
+    "verb": "release",
+    "frames": [
+     190,
+     220
+    ],
+    "target": {
+     "kind": "RIG_SOCKET",
+     "rig_id": "lever_rig",
+     "socket_id": "lever_handle"
+    },
+    "intent": "lets go",
+    "phases": [
+     {
+      "id": "open",
+      "frames": [
+       190,
+       200
+      ],
+      "goal": "hand opens",
+      "expected_owner_effect": "open hand"
+     },
+     {
+      "id": "retract",
+      "frames": [
+       200,
+       220
+      ],
+      "goal": "hand returns",
+      "expected_owner_effect": "hand leaves the handle"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D",
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "ReleaseAndSeparation",
+      "owner_id": "nova_rig.nova_grip",
+      "frames": [
+       190,
+       220
+      ],
+      "test_id": "P06-N-RELEASE",
+      "human_quality_check": "native-resolution playback: ReleaseAndSeparation reads as intended on nova_rig.nova_grip",
+      "minimum": 5,
+      "units": "px"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [
+     "nova_brow_raised"
+    ],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_react",
+    "verb": "react",
+    "frames": [
+     222,
+     238
+    ],
+    "intent": "startled by the lever",
+    "phases": [
+     {
+      "id": "delay",
+      "frames": [
+       222,
+       224
+      ],
+      "goal": "beat",
+      "expected_owner_effect": "nothing yet"
+     },
+     {
+      "id": "anticipation",
+      "frames": [
+       224,
+       228
+      ],
+      "goal": "tiny lean in",
+      "expected_owner_effect": "chest leans in"
+     },
+     {
+      "id": "peak",
+      "frames": [
+       228,
+       234
+      ],
+      "goal": "startle",
+      "expected_owner_effect": "brows up, chest back"
+     },
+     {
+      "id": "recover",
+      "frames": [
+       234,
+       238
+      ],
+      "goal": "recover",
+      "expected_owner_effect": "returns"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D",
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "PurposefulEmotionRendered",
+      "owner_id": "nova_rig.brows",
+      "frames": [
+       228,
+       234
+      ],
+      "test_id": "P06-N-REACT",
+      "human_quality_check": "native-resolution playback: PurposefulEmotionRendered reads as intended on nova_rig.brows"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {
+      "brows": "neutral"
+     },
+     "possession": {}
+    },
+    "required_art_refs": [
+     "nova_brow_neutral"
+    ],
+    "actor_rig_id": "nova_rig",
+    "character_profile_id": "nova_perf",
+    "action_id": "nova_pull_lever",
+    "id": "n_calm",
+    "verb": "change_expression",
+    "frames": [
+     238,
+     240
+    ],
+    "intent": "settles back to neutral",
+    "phases": [
+     {
+      "id": "change",
+      "frames": [
+       238,
+       240
+      ],
+      "goal": "brows relax",
+      "expected_owner_effect": "neutral brows"
+     }
+    ],
+    "motion_routes": [
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "ExpressionStateReached",
+      "owner_id": "nova_rig.brows",
+      "frames": [
+       238,
+       240
+      ],
+      "test_id": "P06-N-EXPR",
+      "human_quality_check": "native-resolution playback: ExpressionStateReached reads as intended on nova_rig.brows"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "lumen_rig",
+    "character_profile_id": "lumen_perf",
+    "action_id": "lumen_watch",
+    "id": "l_idle",
+    "verb": "idle",
+    "frames": [
+     240,
+     300
+    ],
+    "intent": "creature rests",
+    "phases": [
+     {
+      "id": "still",
+      "frames": [
+       240,
+       300
+      ],
+      "goal": "breathe",
+      "expected_owner_effect": "body breathes"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "LegalIdleHold",
+      "owner_id": "lumen_rig",
+      "frames": [
+       240,
+       300
+      ],
+      "test_id": "P06-L-IDLE",
+      "human_quality_check": "native-resolution playback: LegalIdleHold reads as intended on lumen_rig"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "lumen_rig",
+    "character_profile_id": "lumen_perf",
+    "action_id": "lumen_watch",
+    "id": "l_look",
+    "verb": "look_at",
+    "frames": [
+     300,
+     360
+    ],
+    "target": {
+     "kind": "WORLD_POINT",
+     "xy": [
+      760,
+      540
+     ],
+     "space": "WORLD_CSS_PX"
+    },
+    "intent": "curious look toward the floor",
+    "phases": [
+     {
+      "id": "acquire",
+      "frames": [
+       300,
+       315
+      ],
+      "goal": "snap toward the spot",
+      "expected_owner_effect": "head aims"
+     },
+     {
+      "id": "hold",
+      "frames": [
+       315,
+       350
+      ],
+      "goal": "study it",
+      "expected_owner_effect": "aim held"
+     },
+     {
+      "id": "return",
+      "frames": [
+       350,
+       360
+      ],
+      "goal": "release",
+      "expected_owner_effect": "head returns"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "GazeTowardTarget",
+      "owner_id": "lumen_rig.head",
+      "frames": [
+       315,
+       350
+      ],
+      "test_id": "P06-L-LOOK",
+      "human_quality_check": "native-resolution playback: GazeTowardTarget reads as intended on lumen_rig.head",
+      "minimum": 3,
+      "units": "deg"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {
+      "eye": "open"
+     },
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {
+      "eye": "open"
+     },
+     "possession": {}
+    },
+    "required_art_refs": [
+     "lumen_eye_closed",
+     "lumen_eye_open"
+    ],
+    "actor_rig_id": "lumen_rig",
+    "character_profile_id": "lumen_perf",
+    "action_id": "lumen_watch",
+    "id": "l_blink",
+    "verb": "blink",
+    "frames": [
+     330,
+     340
+    ],
+    "intent": "slow blink",
+    "phases": [
+     {
+      "id": "closed",
+      "frames": [
+       330,
+       338
+      ],
+      "goal": "eye closed",
+      "expected_owner_effect": "closed eye"
+     },
+     {
+      "id": "reopen",
+      "frames": [
+       338,
+       340
+      ],
+      "goal": "eye open again",
+      "expected_owner_effect": "open eye"
+     }
+    ],
+    "motion_routes": [
+     "APPROVED_CELS"
+    ],
+    "expected_effects": [
+     {
+      "kind": "EyeStateTransition",
+      "owner_id": "lumen_rig.eye",
+      "frames": [
+       330,
+       340
+      ],
+      "test_id": "P06-L-BLINK",
+      "human_quality_check": "native-resolution playback: EyeStateTransition reads as intended on lumen_rig.eye"
+     }
+    ]
+   },
+   {
+    "direction_decision_ids": [
+     "dd_p06_diag_1"
+    ],
+    "override_policy": "DIRECTOR_PRIORITY_STRICT",
+    "source_digest": "cb585b1ce6791a87a49aad26cbd392733410518dd283dd38cbe3acdc2f1483d5",
+    "required_prestate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_poststate": {
+     "channel_states": {},
+     "possession": {}
+    },
+    "required_art_refs": [],
+    "actor_rig_id": "lumen_rig",
+    "character_profile_id": "lumen_perf",
+    "action_id": "lumen_watch",
+    "id": "l_turn",
+    "verb": "turn_head",
+    "frames": [
+     380,
+     420
+    ],
+    "target": {
+     "kind": "WORLD_POINT",
+     "xy": [
+      800,
+      500
+     ],
+     "space": "WORLD_CSS_PX"
+    },
+    "intent": "turns its neck toward a sound",
+    "phases": [
+     {
+      "id": "turn",
+      "frames": [
+       380,
+       395
+      ],
+      "goal": "turn",
+      "expected_owner_effect": "neck turns"
+     },
+     {
+      "id": "hold",
+      "frames": [
+       395,
+       410
+      ],
+      "goal": "listen",
+      "expected_owner_effect": "held"
+     },
+     {
+      "id": "return",
+      "frames": [
+       410,
+       420
+      ],
+      "goal": "back",
+      "expected_owner_effect": "returns"
+     }
+    ],
+    "motion_routes": [
+     "PART_RIG_2D"
+    ],
+    "expected_effects": [
+     {
+      "kind": "GazeTowardTarget",
+      "owner_id": "lumen_rig.neck2",
+      "frames": [
+       395,
+       410
+      ],
+      "test_id": "P06-L-TURN",
+      "human_quality_check": "native-resolution playback: GazeTowardTarget reads as intended on lumen_rig.neck2",
+      "minimum": 3,
+      "units": "deg"
+     }
+    ]
+   }
+  ]
+ },
+ "profiles": {
+  "nova_perf": {
+   "id": "nova_perf",
+   "version": "1.0.0",
+   "actor_rig_id": "nova_rig",
+   "approval": {
+    "status": "DIAGNOSTIC_TEST_TRUST",
+    "note": "P06 diagnostic profile, not a Director-approved personality"
+   },
+   "timing": {
+    "reaction_delay_frames": 4,
+    "anticipation_fraction": 0.25,
+    "acquire_ease": "sine.inOut",
+    "release_ease": "sine.inOut",
+    "ease_vocabulary": [
+     "sine.inOut",
+     "power2.out"
+    ]
+   },
+   "gaze": {
+    "max_deg": 20,
+    "forward_deg": 0,
+    "tolerance_deg": 3
+   },
+   "head": {
+    "max_rigid_turn_deg": 15
+   },
+   "anticipation": {
+    "reach": {
+     "joint_role": "chest_joint",
+     "delta_deg": 4
+    }
+   },
+   "reactions": {
+    "startled by the lever": {
+     "expression_state": "surprised",
+     "body_role": "chest_joint",
+     "peak_deg": -8,
+     "anticipation_deg": 3
+    },
+    "quietly pleased": {
+     "expression_state": "neutral",
+     "body_role": "chest_joint",
+     "peak_deg": 3
+    }
+   },
+   "idle": {
+    "joint_role": "chest_joint",
+    "amplitude_deg": 0.8,
+    "period_frames": 120
+   },
+   "speech": {
+    "limited_mouth_approved": true
+   },
+   "contact": {
+    "allowed_error_px": 1.5,
+    "near_far": "HAND_IN_FRONT",
+    "single_layer_reason": "DIAGNOSTIC fist: one closed drawing seen from the back of the hand hides the far fingers",
+    "prop_relation": "HELD"
+   }
+  },
+  "lumen_perf": {
+   "id": "lumen_perf",
+   "version": "1.0.0",
+   "actor_rig_id": "lumen_rig",
+   "approval": {
+    "status": "DIAGNOSTIC_TEST_TRUST",
+    "note": "P06 diagnostic profile"
+   },
+   "timing": {
+    "reaction_delay_frames": 10,
+    "anticipation_fraction": 0.1,
+    "acquire_ease": "power2.out",
+    "release_ease": "sine.inOut"
+   },
+   "gaze": {
+    "max_deg": 30,
+    "forward_deg": 0,
+    "tolerance_deg": 3
+   },
+   "head": {
+    "max_rigid_turn_deg": 25
+   },
+   "idle": {
+    "joint_role": "body_joint",
+    "amplitude_deg": 1.5,
+    "period_frames": 160
+   },
+   "speech": {
+    "limited_mouth_approved": false
+   }
+  }
+ },
+ "audio_cues": {
+  "cue_n1": {
+   "cue_id": "cue_n1",
+   "start_frame": 100,
+   "audio_file": "hybrid_v2/work/p06/evidence_subjects/audio/cue_n1_diagnostic_tones.wav",
+   "audio_sha256": "aea1f68a7e35aee7d14bc81f6dd89233d24daeae02a05653c3f44c3c042577b6",
+   "alignment_source": "MEASURED",
+   "alignment_method": "5 ms RMS energy envelope of the decoded DIAGNOSTIC tone-burst signal (not a voice)",
+   "words": [
+    {
+     "w": "hello",
+     "start_s": 0.15,
+     "end_s": 0.45
+    },
+    {
+     "w": "lumen",
+     "start_s": 0.6,
+     "end_s": 1
+    }
+   ]
+  }
+ }
+}

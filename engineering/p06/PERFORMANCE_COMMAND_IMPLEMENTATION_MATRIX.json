@@ -1,0 +1,694 @@
+{
+ "adapter_version": "1.0.0",
+ "schema_file": "schemas/performance_command_v1.schema.json",
+ "schema_sha256": "e909d4d92d73ff9857c0d71b09867ee6b26a464b947b959370c9a11db4af18c7",
+ "source_sha": "b2c6931a628f68773349dc2565d7aae5530ad41d",
+ "effect_executors": [
+  "GazeTowardTarget",
+  "EyeStateTransition",
+  "ApprovedViewTransition",
+  "SpeechAudioVisualSync",
+  "ContactApproach",
+  "PaintedGripMaintained",
+  "ReleaseAndSeparation",
+  "PlantedFootStable",
+  "PurposefulEmotionRendered",
+  "ExpressionStateReached",
+  "ApprovedPointerAligned",
+  "LegalIdleHold",
+  "ApprovedBodyTurn",
+  "PoseContactHold"
+ ],
+ "commands": [
+  {
+   "verb": "look_at",
+   "status": "VERIFIED_CODE_TWO_UNLIKE_RIGS",
+   "phases": [
+    "acquire",
+    "hold",
+    "return"
+   ],
+   "required_phases": [
+    "acquire"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "RIGID_2D"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "GazeTowardTarget"
+   ],
+   "producer": "aim layer plan.__gaze (weighted, limit-bounded)",
+   "runtime_consumer": "temporal.mjs#evalPrimary",
+   "plan_fields": [
+    "plan.__gaze[rig.joint][] (weight, max_deg, forward_deg, frames)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [
+    {
+     "test": "P06-R1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "unlike_rig_transfer": [
+    "nova_rig",
+    "lumen_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "gaze deleted + camera rotated → FAIL; head drawing centroid moves on screen"
+  },
+  {
+   "verb": "blink",
+   "status": "VERIFIED_CODE_TWO_UNLIKE_RIGS",
+   "phases": [
+    "closed",
+    "reopen"
+   ],
+   "required_phases": [
+    "closed",
+    "reopen"
+   ],
+   "legal_routes": [
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "EyeStateTransition"
+   ],
+   "producer": "EYES channel swap events",
+   "runtime_consumer": "state_channels.mjs#channelEvents → resolveBindings",
+   "plan_fields": [
+    "plan.__acting_events (EYES)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [
+    {
+     "test": "P06-R1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "unlike_rig_transfer": [
+    "nova_rig",
+    "lumen_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "closed-eye events deleted → FAIL and no closed eye on screen; isolated single-owner blink passes"
+  },
+  {
+   "verb": "turn_head",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "turn",
+    "hold",
+    "return"
+   ],
+   "required_phases": [
+    "turn"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "RIGID_2D",
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "ApprovedViewTransition",
+    "GazeTowardTarget"
+   ],
+   "producer": "rigid head aim within the approved rigid-turn limit, or an approved view-cel edge",
+   "runtime_consumer": "temporal.mjs#evalPrimary / state_router.mjs#validateStateEdge",
+   "plan_fields": [
+    "plan.__gaze[rig.joint][]",
+    "action.view_events[] (view-cel route)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    },
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "lumen_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "rigid route proven on the creature's neck; a view change on a rigid route is refused; beyond the approved rigid limit FAILS naming the view-cel remedy; the view-cel route needs approved view cels (none in any fixture)"
+  },
+  {
+   "verb": "speak",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "line"
+   ],
+   "required_phases": [
+    "line"
+   ],
+   "legal_routes": [
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "SpeechAudioVisualSync"
+   ],
+   "producer": "measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync)",
+   "runtime_consumer": "state_channels.mjs#channelEvents",
+   "plan_fields": [
+    "plan.__acting_events (MOUTH rest/mid/open)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    },
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [
+    {
+     "test": "P06-R1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "LIMITED rest/mid/open from MEASURED word times only; misplaced line FAILS; estimated alignment / no audio / unapproved limited mouth refused; lumen has no mouth (refused)"
+  },
+  {
+   "verb": "reach",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "anticipation",
+    "approach"
+   ],
+   "required_phases": [
+    "approach"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "ContactApproach"
+   ],
+   "producer": "contact approach ramp (plan.reaches) into the following grip/point contact, two-bone IK",
+   "runtime_consumer": "temporal.mjs#contactsAt/solveConstraints",
+   "plan_fields": [
+    "plan.reaches[action:socket@start].approach",
+    "plan.tracks (profile anticipation)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "unreachable target fails the reach and the grip is never claimed; limbless creature refused"
+  },
+  {
+   "verb": "grip",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "close",
+    "hold"
+   ],
+   "required_phases": [
+    "close"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "PaintedGripMaintained"
+   ],
+   "producer": "locked GRIP contact until the matching release + HAND closure state + plan.grips",
+   "runtime_consumer": "temporal.mjs#solveConstraints, art_demand.mjs",
+   "plan_fields": [
+    "action.contact_events[] GRIP (until release)",
+    "plan.grips[action:socket]",
+    "plan.__acting_events (HAND closed)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    },
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [
+    {
+     "test": "P06-R1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "one open-hand frame in the hold FAILS; closed-hand drawing on screen; producer deleted → open hand on screen"
+  },
+  {
+   "verb": "release",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "open",
+    "retract"
+   ],
+   "required_phases": [
+    "open"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "ReleaseAndSeparation"
+   ],
+   "producer": "contact end + HAND open state + release ramp",
+   "runtime_consumer": "temporal.mjs#contactsAt",
+   "plan_fields": [
+    "contact end",
+    "plan.reaches[..].release",
+    "plan.__acting_events (HAND open)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "contact kept past release (prop stuck) FAILS"
+  },
+  {
+   "verb": "walk",
+   "status": "REFUSED_BEFORE_ART_OR_NOT_PROVEN",
+   "phases": [
+    "start",
+    "cycle",
+    "stop"
+   ],
+   "required_phases": [
+    "cycle"
+   ],
+   "legal_routes": [
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {
+    "PART_RIG_2D": "articulated walk (alternating plant IK with swing-foot arcs and hip weight shift) has no producer yet"
+   },
+   "mandatory_effect": [
+    "PlantedFootStable"
+   ],
+   "producer": "approved gait cel cycle anchored on the planted landmark (plan.cels)",
+   "runtime_consumer": "temporal.mjs#celsAt",
+   "plan_fields": [
+    "plan.cels[action] (APPROVED_CELS)"
+   ],
+   "positive_tests": [],
+   "negative_tests": [
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    },
+    {
+     "test": "P06-S2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "PART_RIG_2D walk refused (MISSING producer: articulated plant IK + swing arcs); APPROVED_CELS gait wired to temporal.celsAt but NOT PROVEN (no approved gait cels); non-biped refused"
+  },
+  {
+   "verb": "react",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "delay",
+    "anticipation",
+    "peak",
+    "recover"
+   ],
+   "required_phases": [
+    "peak"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "PurposefulEmotionRendered"
+   ],
+   "producer": "approved profile reaction map: expression swap + body beat with anticipation/recovery",
+   "runtime_consumer": "channelEvents + temporal.mjs#rawJoint",
+   "plan_fields": [
+    "plan.__acting_events (EXPRESSION)",
+    "plan.tracks[rig].joints[body]"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    },
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "swapped intent with unchanged expression pixels FAILS; an intent not in the approved profile is refused (needs approval)"
+  },
+  {
+   "verb": "change_expression",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "change",
+    "hold"
+   ],
+   "required_phases": [
+    "change"
+   ],
+   "legal_routes": [
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "ExpressionStateReached"
+   ],
+   "producer": "EXPRESSION channel swap",
+   "runtime_consumer": "state_channels.mjs#channelEvents",
+   "plan_fields": [
+    "plan.__acting_events (EXPRESSION)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N2",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "missing expression cel refused + ArtJob demand"
+  },
+  {
+   "verb": "point",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "raise",
+    "hold",
+    "lower"
+   ],
+   "required_phases": [
+    "raise"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "ApprovedPointerAligned"
+   ],
+   "producer": "arm aim (aim joint → target) + HAND point state",
+   "runtime_consumer": "temporal.mjs#evalPrimary + channelEvents",
+   "plan_fields": [
+    "plan.__gaze[rig.aim_joint][] (arm aim)",
+    "plan.__acting_events (HAND point)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-P1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-P1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "proved with a labelled STAND-IN pose cel (the approved fist drawing), mechanics only; reversed aim FAILS"
+  },
+  {
+   "verb": "idle",
+   "status": "VERIFIED_CODE_TWO_UNLIKE_RIGS",
+   "phases": [
+    "still"
+   ],
+   "required_phases": [
+    "still"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "RIGID_2D",
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "LegalIdleHold"
+   ],
+   "producer": "declared stillness + optional approved windowed breathing",
+   "runtime_consumer": "temporal.mjs#addAt",
+   "plan_fields": [
+    "plan.__additive[rig.joint][] (windowed)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig",
+    "lumen_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "breathing beyond the approved amplitude FAILS"
+  },
+  {
+   "verb": "turn_body",
+   "status": "REFUSED_BEFORE_ART_OR_NOT_PROVEN",
+   "phases": [
+    "turn",
+    "settle"
+   ],
+   "required_phases": [
+    "turn"
+   ],
+   "legal_routes": [
+    "APPROVED_CELS"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "ApprovedBodyTurn"
+   ],
+   "producer": "approved body view edge + plants on the support sockets",
+   "runtime_consumer": "state_router.mjs + temporal.mjs#solveConstraints",
+   "plan_fields": [
+    "action.view_events[]",
+    "action.contact_events[] PLANT (support sockets)"
+   ],
+   "positive_tests": [],
+   "negative_tests": [
+    {
+     "test": "P06-S2",
+     "ran": true,
+     "ok": true
+    },
+    {
+     "test": "P06-A1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "refused before art without approved body view cels; emits the exact view ArtJob; never mirrors a drawing"
+  },
+  {
+   "verb": "hold",
+   "status": "VERIFIED_CODE_ONE_RIG",
+   "phases": [
+    "hold"
+   ],
+   "required_phases": [
+    "hold"
+   ],
+   "legal_routes": [
+    "PART_RIG_2D",
+    "RIGID_2D",
+    "APPROVED_CELS",
+    "APPROVED_DEFORM"
+   ],
+   "refused_routes": {},
+   "mandatory_effect": [
+    "PoseContactHold"
+   ],
+   "producer": "no new motion; asserts persistence of listed states, pose, view and possession",
+   "runtime_consumer": "performance_qa.mjs",
+   "plan_fields": [
+    "none (persistence asserted by performance_qa)"
+   ],
+   "positive_tests": [
+    {
+     "test": "P06-Q1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "negative_tests": [
+    {
+     "test": "P06-N1",
+     "ran": true,
+     "ok": true
+    }
+   ],
+   "pixel_tests": [],
+   "unlike_rig_transfer": [
+    "nova_rig"
+   ],
+   "real_art_transfer": "NOT_RUN (no approved GPT art yet)",
+   "note": "a broken middle frame FAILS the hold"
+  }
+ ]
+}

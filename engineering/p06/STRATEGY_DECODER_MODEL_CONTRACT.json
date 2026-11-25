@@ -1,0 +1,48 @@
+{
+ "contract": "STRATEGY_DECODER_MODEL_CONTRACT",
+ "version": "1.1.0",
+ "code": [
+  "engine/decoder/model_card.mjs",
+  "engine/decoder/model_bar.mjs",
+  "engine/decoder/decoder_qa.mjs",
+  "engine/story/hybrid_contract.mjs (decoders[])",
+  "engine/art_bridge/temporal.mjs#proceduralAt (MODEL_BAR)"
+ ],
+ "model_card": {
+  "variables": "[{id, label, value, unit, provenance: FICTIONAL_WORLD|HYPOTHETICAL_PARAMETER|REAL_DOCUMENTED, claim_id (REAL_DOCUMENTED → sourced F claim), source, range}]",
+  "formulas": "[{id, expr (+ − × ÷ ( ) min max abs; no eval), unit (dimension-checked)}]",
+  "constraints": "[{id, expr, reason}] never clamped: MODEL_CONSTRAINT_VIOLATED",
+  "scenarios": "[{id, overrides (inputs only), status, claim?: {output, outcome: GAIN|LOSS|BREAKS_CONSTRAINT}}] (baseline required)",
+  "truth_mode": "M",
+  "outcome_classification": "DEMONSTRATED_IN_MODEL | PLAUSIBLE_EXTERNALLY | EVIDENCE_BACKED_EXTERNALLY | UNKNOWN",
+  "assumptions": "[text]",
+  "counterexamples": "[text] (≥1)"
+ },
+ "binding": "HYBRID_CONTRACT.decoders[] = {id, shot_id, action_id (PROCEDURAL), model_card, output, unit, symbol_art_id, scenario_keys [[frame, scenario, ease?]] (≥2 scenarios), baseline_xy, px_per_unit, displays [{value_ref, shown_provenance}]}",
+ "causality": "bar height = |value| × px_per_unit from a zero baseline, negative grows downward; the frame-addressed value comes from evaluateModel at each keyed scenario (transition frames report 'a→b'); a changed card is STALE until the decoder shot is re-approved",
+ "negatives_enforced": [
+  "value changed but graph frozen (pixels)",
+  "inverted sign (pixels)",
+  "truncated baseline / pivot off baseline / wrong unit / stale digest",
+  "model value labelled as documented fact",
+  "documented input without a sourced F claim",
+  "counterexample presented as success (SCENARIO_CLAIM_MATCHES_MODEL)",
+  "zero checked frames"
+ ],
+ "tests": [
+  "TBO-G15 (model, negatives, Chrome pixels)",
+  "P06 decoder (scenario claim audit)",
+  "HYBRID_CONTRACT preflight"
+ ],
+ "status": {
+  "mechanism": "VERIFIED_CODE on the Bible §8.6 TEACHING numbers (HYPOTHETICAL)",
+  "production": "NEEDS_EXTERNAL_ART + approved E01 model card (GPT/user) + decoder SYMBOL art"
+ },
+ "missing_producers": [
+  "animated numerals/labels (approved type art + counter operator)",
+  "model-driven flow counts",
+  "axis/scale furniture",
+  "multi-bar comparison layout",
+  "physical-metaphor consequence driven by a model output"
+ ]
+}

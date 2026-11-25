@@ -1,0 +1,394 @@
+{
+ "source_sha": "b2c6931a628f68773349dc2565d7aae5530ad41d",
+ "diagnostic": true,
+ "film": "hybrid_v2/work/p06/evidence_subjects/film",
+ "packet_sha256": "5e2d36401fbda4fc4218addeccf7fe128caa149c03747b7481474e7c2dae3d5e",
+ "schema_sha256": "e909d4d92d73ff9857c0d71b09867ee6b26a464b947b959370c9a11db4af18c7",
+ "adapter_version": "1.0.0",
+ "qa_ok": true,
+ "results": [
+  {
+   "command": "n_idle",
+   "verb": "idle",
+   "kind": "LegalIdleHold",
+   "test_id": "P06-N-IDLE",
+   "owner": "nova_rig",
+   "frames": [
+    0,
+    30
+   ],
+   "ok": true,
+   "frames_checked": 30,
+   "reason": null,
+   "measurement": {},
+   "human_review": {
+    "check": "native-resolution playback: LegalIdleHold reads as intended on nova_rig",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_look",
+   "verb": "look_at",
+   "kind": "GazeTowardTarget",
+   "test_id": "P06-N-LOOK",
+   "owner": "nova_rig.head",
+   "frames": [
+    25,
+    50
+   ],
+   "ok": true,
+   "frames_checked": 25,
+   "reason": null,
+   "measurement": {
+    "turn_deg": 10.23
+   },
+   "human_review": {
+    "check": "native-resolution playback: GazeTowardTarget reads as intended on nova_rig.head",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_reach",
+   "verb": "reach",
+   "kind": "ContactApproach",
+   "test_id": "P06-N-REACH",
+   "owner": "nova_rig.nova_grip",
+   "frames": [
+    40,
+    70
+   ],
+   "ok": true,
+   "frames_checked": 30,
+   "reason": null,
+   "measurement": {
+    "start_px": 137.34,
+    "contact_px": 0
+   },
+   "human_review": {
+    "check": "native-resolution playback: ContactApproach reads as intended on nova_rig.nova_grip",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_blink",
+   "verb": "blink",
+   "kind": "EyeStateTransition",
+   "test_id": "P06-N-BLINK",
+   "owner": "nova_rig.eyes",
+   "frames": [
+    40,
+    48
+   ],
+   "ok": true,
+   "frames_checked": 8,
+   "reason": null,
+   "measurement": {},
+   "human_review": {
+    "check": "native-resolution playback: EyeStateTransition reads as intended on nova_rig.eyes",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_grip",
+   "verb": "grip",
+   "kind": "PaintedGripMaintained",
+   "test_id": "P06-N-GRIP",
+   "owner": "nova_rig.nova_grip",
+   "frames": [
+    70,
+    90
+   ],
+   "ok": true,
+   "frames_checked": 20,
+   "reason": null,
+   "measurement": {
+    "held_frames": 20
+   },
+   "human_review": {
+    "check": "native-resolution playback: PaintedGripMaintained reads as intended on nova_rig.nova_grip",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_hold",
+   "verb": "hold",
+   "kind": "PoseContactHold",
+   "test_id": "P06-N-HOLD",
+   "owner": "nova_rig.nova_grip",
+   "frames": [
+    90,
+    190
+   ],
+   "ok": true,
+   "frames_checked": 100,
+   "reason": null,
+   "measurement": {},
+   "human_review": {
+    "check": "native-resolution playback: PoseContactHold reads as intended on nova_rig.nova_grip",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_speak",
+   "verb": "speak",
+   "kind": "SpeechAudioVisualSync",
+   "test_id": "P06-N-SPEAK",
+   "owner": "nova_rig.mouth",
+   "frames": [
+    100,
+    170
+   ],
+   "ok": true,
+   "frames_checked": 70,
+   "reason": null,
+   "measurement": {
+    "scheme": "LIMITED_REST_MID_OPEN",
+    "phoneme_accurate": false
+   },
+   "human_review": {
+    "check": "native-resolution playback: SpeechAudioVisualSync reads as intended on nova_rig.mouth",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_release",
+   "verb": "release",
+   "kind": "ReleaseAndSeparation",
+   "test_id": "P06-N-RELEASE",
+   "owner": "nova_rig.nova_grip",
+   "frames": [
+    190,
+    220
+   ],
+   "ok": true,
+   "frames_checked": 30,
+   "reason": null,
+   "measurement": {
+    "at_release_px": 0,
+    "after_px": 126.85
+   },
+   "human_review": {
+    "check": "native-resolution playback: ReleaseAndSeparation reads as intended on nova_rig.nova_grip",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_react",
+   "verb": "react",
+   "kind": "PurposefulEmotionRendered",
+   "test_id": "P06-N-REACT",
+   "owner": "nova_rig.brows",
+   "frames": [
+    228,
+    234
+   ],
+   "ok": true,
+   "frames_checked": 6,
+   "reason": null,
+   "measurement": {
+    "body_beat_deg": -7.26
+   },
+   "human_review": {
+    "check": "native-resolution playback: PurposefulEmotionRendered reads as intended on nova_rig.brows",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "n_calm",
+   "verb": "change_expression",
+   "kind": "ExpressionStateReached",
+   "test_id": "P06-N-EXPR",
+   "owner": "nova_rig.brows",
+   "frames": [
+    238,
+    240
+   ],
+   "ok": true,
+   "frames_checked": 2,
+   "reason": null,
+   "measurement": {},
+   "human_review": {
+    "check": "native-resolution playback: ExpressionStateReached reads as intended on nova_rig.brows",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "l_idle",
+   "verb": "idle",
+   "kind": "LegalIdleHold",
+   "test_id": "P06-L-IDLE",
+   "owner": "lumen_rig",
+   "frames": [
+    240,
+    300
+   ],
+   "ok": true,
+   "frames_checked": 60,
+   "reason": null,
+   "measurement": {},
+   "human_review": {
+    "check": "native-resolution playback: LegalIdleHold reads as intended on lumen_rig",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "l_look",
+   "verb": "look_at",
+   "kind": "GazeTowardTarget",
+   "test_id": "P06-L-LOOK",
+   "owner": "lumen_rig.head",
+   "frames": [
+    315,
+    350
+   ],
+   "ok": true,
+   "frames_checked": 35,
+   "reason": null,
+   "measurement": {
+    "turn_deg": 25.91
+   },
+   "human_review": {
+    "check": "native-resolution playback: GazeTowardTarget reads as intended on lumen_rig.head",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "l_blink",
+   "verb": "blink",
+   "kind": "EyeStateTransition",
+   "test_id": "P06-L-BLINK",
+   "owner": "lumen_rig.eye",
+   "frames": [
+    330,
+    340
+   ],
+   "ok": true,
+   "frames_checked": 9,
+   "reason": null,
+   "measurement": {},
+   "human_review": {
+    "check": "native-resolution playback: EyeStateTransition reads as intended on lumen_rig.eye",
+    "status": "NEEDS_HUMAN"
+   }
+  },
+  {
+   "command": "l_turn",
+   "verb": "turn_head",
+   "kind": "GazeTowardTarget",
+   "test_id": "P06-L-TURN",
+   "owner": "lumen_rig.neck2",
+   "frames": [
+    395,
+    410
+   ],
+   "ok": true,
+   "frames_checked": 15,
+   "reason": null,
+   "measurement": {
+    "turn_deg": 9.09
+   },
+   "human_review": {
+    "check": "native-resolution playback: GazeTowardTarget reads as intended on lumen_rig.neck2",
+    "status": "NEEDS_HUMAN"
+   }
+  }
+ ],
+ "failures": [],
+ "human_review_pending": [
+  {
+   "command": "n_idle",
+   "test_id": "P06-N-IDLE",
+   "check": "native-resolution playback: LegalIdleHold reads as intended on nova_rig"
+  },
+  {
+   "command": "n_look",
+   "test_id": "P06-N-LOOK",
+   "check": "native-resolution playback: GazeTowardTarget reads as intended on nova_rig.head"
+  },
+  {
+   "command": "n_reach",
+   "test_id": "P06-N-REACH",
+   "check": "native-resolution playback: ContactApproach reads as intended on nova_rig.nova_grip"
+  },
+  {
+   "command": "n_blink",
+   "test_id": "P06-N-BLINK",
+   "check": "native-resolution playback: EyeStateTransition reads as intended on nova_rig.eyes"
+  },
+  {
+   "command": "n_grip",
+   "test_id": "P06-N-GRIP",
+   "check": "native-resolution playback: PaintedGripMaintained reads as intended on nova_rig.nova_grip"
+  },
+  {
+   "command": "n_hold",
+   "test_id": "P06-N-HOLD",
+   "check": "native-resolution playback: PoseContactHold reads as intended on nova_rig.nova_grip"
+  },
+  {
+   "command": "n_speak",
+   "test_id": "P06-N-SPEAK",
+   "check": "native-resolution playback: SpeechAudioVisualSync reads as intended on nova_rig.mouth"
+  },
+  {
+   "command": "n_release",
+   "test_id": "P06-N-RELEASE",
+   "check": "native-resolution playback: ReleaseAndSeparation reads as intended on nova_rig.nova_grip"
+  },
+  {
+   "command": "n_react",
+   "test_id": "P06-N-REACT",
+   "check": "native-resolution playback: PurposefulEmotionRendered reads as intended on nova_rig.brows"
+  },
+  {
+   "command": "n_calm",
+   "test_id": "P06-N-EXPR",
+   "check": "native-resolution playback: ExpressionStateReached reads as intended on nova_rig.brows"
+  },
+  {
+   "command": "l_idle",
+   "test_id": "P06-L-IDLE",
+   "check": "native-resolution playback: LegalIdleHold reads as intended on lumen_rig"
+  },
+  {
+   "command": "l_look",
+   "test_id": "P06-L-LOOK",
+   "check": "native-resolution playback: GazeTowardTarget reads as intended on lumen_rig.head"
+  },
+  {
+   "command": "l_blink",
+   "test_id": "P06-L-BLINK",
+   "check": "native-resolution playback: EyeStateTransition reads as intended on lumen_rig.eye"
+  },
+  {
+   "command": "l_turn",
+   "test_id": "P06-L-TURN",
+   "check": "native-resolution playback: GazeTowardTarget reads as intended on lumen_rig.neck2"
+  }
+ ],
+ "chrome_pixel_evidence": {
+  "diagnostic": true,
+  "note": "DIAGNOSTIC fixture rasters; proves command→owner pixels mechanics only",
+  "head_centroid": {
+   "with_gaze": [
+    870.4344780454468,
+    379.32145908081327,
+    11706
+   ],
+   "gaze_deleted": [
+    862.9660127344691,
+    378.42144209258305,
+    11622
+   ]
+  },
+  "counts": {
+   "blink44": 76,
+   "grip85": 1000,
+   "grip130": 1000,
+   "mouth110": 185,
+   "neg_blink44": 0,
+   "neg_grip85": 8,
+   "lumen334": 310
+  }
+ }
+}

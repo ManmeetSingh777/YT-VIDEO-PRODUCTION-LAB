@@ -10,6 +10,8 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
 import { VERBS, ADAPTER_VERSION, SCHEMA_FILE } from "../art_bridge/performance_commands.mjs";
 import { EFFECT_EXECUTORS } from "../film/performance_qa.mjs";
 import { parseTap, evaluateQualityGates } from "../production/quality_gates.mjs";
+/* test-name prefix match: "<id>" followed by space, colon or end (fixed after the freeze: "A1 acting" vs "A1 acting: …") */
+const tmatch = (name, id) => name === id || name.startsWith(`${id} `) || name.startsWith(`${id}:`);
 const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".."), arg = (k, d = null) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
 /** test evidence per verb: TAP title prefixes + the command ids / assertions they carry (from tests/tbo/performance_commands.test.mjs) */
@@ -30,7 +32,7 @@ const EVIDENCE = {
   hold: { positive: ["P06-Q1"], negative: ["P06-N1"], pixels: [], transfer: ["nova_rig"], note: "a broken middle frame FAILS the hold" },
 };
 export function buildP06Evidence({ tapText, sourceSha, closure = null }) {
-  const tap = parseTap(tapText), st = (prefixes) => prefixes.map((p) => { const hits = [...tap].filter(([t]) => t.startsWith(`${p} `) || t === p); return { test: p, ran: hits.length > 0, ok: hits.length > 0 && hits.every(([, s]) => s === "ok") }; });
+  const tap = parseTap(tapText), st = (prefixes) => prefixes.map((p) => { const hits = [...tap].filter(([t]) => tmatch(t, p)); return { test: p, ran: hits.length > 0, ok: hits.length > 0 && hits.every(([, s]) => s === "ok") }; });
   const matrix = Object.entries(VERBS).map(([verb, V]) => { const E = EVIDENCE[verb], pos = st(E.positive), neg = st(E.negative), pix = st(E.pixels), allOk = [...pos, ...neg, ...pix].every((x) => x.ok);
     const status = !allOk ? "FAILED" : !pos.length ? "REFUSED_BEFORE_ART_OR_NOT_PROVEN" : E.transfer.length >= 2 ? "VERIFIED_CODE_TWO_UNLIKE_RIGS" : "VERIFIED_CODE_ONE_RIG";
     return { verb, status, phases: V.phases, required_phases: V.required, legal_routes: V.routes, refused_routes: V.refused_routes || {}, mandatory_effect: V.effects, producer: V.producer, runtime_consumer: V.consumer, plan_fields: planFields(verb), positive_tests: pos, negative_tests: neg, pixel_tests: pix, unlike_rig_transfer: E.transfer, real_art_transfer: "NOT_RUN (no approved GPT art yet)", note: E.note }; });
@@ -66,7 +68,7 @@ if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(proces
   const E = buildP06Evidence({ tapText, sourceSha: arg("--source-sha"), closure }); fs.mkdirSync(out, { recursive: true });
   const w = (n, o) => fs.writeFileSync(path.join(out, n), JSON.stringify(o, null, 1) + "\n");
   w("PERFORMANCE_COMMAND_IMPLEMENTATION_MATRIX.json", E.matrix); if (E.closure) w("ART_STATE_CLOSURE_AND_FIT.json", E.closure); w("BLENDER_HOST_PASS_CONTRACT.json", HOST_CONTRACT); w("STRATEGY_DECODER_MODEL_CONTRACT.json", DECODER_CONTRACT);
-  w("SIX_DEFECT_TRANSFER_MATRIX.json", { source_sha: arg("--source-sha"), defects: SIX_DEFECTS.map((d) => ({ ...d, test_results: d.tests.map((t) => ({ test: t, ok: [...parseTap(tapText)].some(([x, s]) => x.startsWith(`${t} `) && s === "ok") && ![...parseTap(tapText)].some(([x, s]) => x.startsWith(`${t} `) && s !== "ok") })) })) });
+  w("SIX_DEFECT_TRANSFER_MATRIX.json", { source_sha: arg("--source-sha"), defects: SIX_DEFECTS.map((d) => ({ ...d, test_results: d.tests.map((t) => ({ test: t, ok: [...parseTap(tapText)].some(([x, s]) => tmatch(x, t) && s === "ok") && ![...parseTap(tapText)].some(([x, s]) => tmatch(x, t) && s !== "ok") })) })) });
   w("TBO_20_GATE_RELEASE_REPORT.json", E.gates);
   console.log(JSON.stringify({ out: path.relative(REPO, out), verbs: Object.fromEntries(E.matrix.commands.map((c) => [c.verb, c.status])), gates: E.gates.p06_summary }, null, 1));
 }

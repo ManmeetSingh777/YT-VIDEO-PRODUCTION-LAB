@@ -1,0 +1,8 @@
+negative frozen_character_particles_move detected: true control ok: true
+negative missing_grip_transition detected: true control ok: true
+negative missing_blink detected: true control ok: true
+negative missing_deformation detected: true control ok: true
+negative missing_object_reaction detected: true control ok: true
+negative frozen_character_under_blur_and_camera detected: true control ok: true
+negative wrong_hand_closure detected: true control ok: true
+→ C:\Users\gmanm\TBO_P06_FINAL\p03_chrome_negatives

@@ -1,0 +1,690 @@
+{
+ "capability_profiles": {
+  "nova_rig": {
+   "rig_id": "nova_rig",
+   "identity_id": "nova",
+   "identity_master_sha": "10b655bca143804f4edec4643f45974386c2ade6a1d62f2dfe64705fcc2ec5a4",
+   "packet_master_sha": "10b655bca143804f4edec4643f45974386c2ade6a1d62f2dfe64705fcc2ec5a4",
+   "topology_kind": "BIPED",
+   "geometry_status": null,
+   "coordinate_spaces": [
+    "CANONICAL_2D (rig rest_xy)",
+    "WORLD_CSS_PX (placed root)"
+   ],
+   "root": "pelvis",
+   "measured_joint_chain_ids": [
+    [
+     "shoulder_r",
+     "elbow_r",
+     "wrist_r"
+    ],
+    [
+     "hip_l",
+     "knee_l",
+     "ankle_l"
+    ],
+    [
+     "hip_r",
+     "knee_r",
+     "ankle_r"
+    ]
+   ],
+   "legal_angles": {
+    "pelvis": [
+     -25,
+     25
+    ],
+    "chest": [
+     -25,
+     25
+    ],
+    "head": [
+     -35,
+     35
+    ],
+    "hair": [
+     -45,
+     45
+    ],
+    "shoulder_r": [
+     -170,
+     170
+    ],
+    "elbow_r": [
+     -150,
+     150
+    ],
+    "wrist_r": [
+     -70,
+     70
+    ],
+    "hip_l": [
+     -80,
+     80
+    ],
+    "knee_l": [
+     -130,
+     130
+    ],
+    "ankle_l": [
+     -50,
+     50
+    ],
+    "hip_r": [
+     -80,
+     80
+    ],
+    "knee_r": [
+     -130,
+     130
+    ],
+    "ankle_r": [
+     -50,
+     50
+    ]
+   },
+   "sockets": [
+    {
+     "id": "nova_grip",
+     "joint": "wrist_r",
+     "role": "palm grip centre",
+     "basis_angle_deg": null
+    },
+    {
+     "id": "nova_sole_l",
+     "joint": "ankle_l",
+     "role": "left sole plant",
+     "basis_angle_deg": null
+    },
+    {
+     "id": "nova_sole_r",
+     "joint": "ankle_r",
+     "role": "right sole plant",
+     "basis_angle_deg": null
+    }
+   ],
+   "state_channel_ids": [
+    "eyes",
+    "mouth",
+    "hand_r",
+    "brows"
+   ],
+   "approved_view_cels": [],
+   "approved_edges": [
+    "open->grip",
+    "grip->open"
+   ],
+   "hands": [
+    "r"
+   ],
+   "feet": [
+    "l",
+    "r"
+   ],
+   "roles": {
+    "gaze_joint": {
+     "kind": "JOINT",
+     "id": "head"
+    },
+    "head_joint": {
+     "kind": "JOINT",
+     "id": "head"
+    },
+    "chest_joint": {
+     "kind": "JOINT",
+     "id": "chest"
+    },
+    "eyes_channel": {
+     "kind": "CHANNEL",
+     "id": "eyes"
+    },
+    "eyes_open_state": {
+     "kind": "STATE",
+     "id": "open"
+    },
+    "eyes_closed_state": {
+     "kind": "STATE",
+     "id": "closed"
+    },
+    "mouth_channel": {
+     "kind": "CHANNEL",
+     "id": "mouth"
+    },
+    "mouth_rest_state": {
+     "kind": "STATE",
+     "id": "rest"
+    },
+    "mouth_open_state": {
+     "kind": "STATE",
+     "id": "open"
+    },
+    "mouth_mid_state": {
+     "kind": "STATE",
+     "id": "mid"
+    },
+    "expression_channel": {
+     "kind": "CHANNEL",
+     "id": "brows"
+    },
+    "hand.r.socket": {
+     "kind": "SOCKET",
+     "id": "nova_grip"
+    },
+    "hand.r.channel": {
+     "kind": "CHANNEL",
+     "id": "hand_r"
+    },
+    "hand.r.open_state": {
+     "kind": "STATE",
+     "id": "open"
+    },
+    "hand.r.closed_state": {
+     "kind": "STATE",
+     "id": "grip"
+    },
+    "hand.r.point_state": {
+     "kind": "STATE",
+     "id": "point_standin"
+    },
+    "hand.r.aim_joint": {
+     "kind": "JOINT",
+     "id": "shoulder_r"
+    },
+    "foot.l.socket": {
+     "kind": "SOCKET",
+     "id": "nova_sole_l"
+    },
+    "foot.r.socket": {
+     "kind": "SOCKET",
+     "id": "nova_sole_r"
+    }
+   },
+   "approved_motion_routes": [
+    "PART_RIG_2D",
+    "RIGID_2D",
+    "APPROVED_CELS"
+   ],
+   "supported_commands": [
+    "look_at",
+    "blink",
+    "turn_head",
+    "speak",
+    "reach",
+    "grip",
+    "release",
+    "walk",
+    "react",
+    "change_expression",
+    "point",
+    "idle",
+    "hold"
+   ],
+   "refused_commands": {
+    "turn_body": [
+     "approved body view cels with an approved view edge"
+    ]
+   },
+   "style_profile_id": "nova_perf",
+   "approved_art_sha": "10b655bca143804f4edec4643f45974386c2ade6a1d62f2dfe64705fcc2ec5a4"
+  },
+  "lumen_rig": {
+   "rig_id": "lumen_rig",
+   "identity_id": "lumen",
+   "identity_master_sha": "735e8690d0c6bf808f06f8c7842b0070d5fed60d3be7d947b03a6fd3d5767c5a",
+   "packet_master_sha": "735e8690d0c6bf808f06f8c7842b0070d5fed60d3be7d947b03a6fd3d5767c5a",
+   "topology_kind": "NONHUMAN",
+   "geometry_status": null,
+   "coordinate_spaces": [
+    "CANONICAL_2D (rig rest_xy)",
+    "WORLD_CSS_PX (placed root)"
+   ],
+   "root": "body",
+   "measured_joint_chain_ids": [],
+   "legal_angles": {
+    "body": [
+     -20,
+     20
+    ],
+    "neck1": [
+     -60,
+     60
+    ],
+    "neck2": [
+     -60,
+     60
+    ],
+    "head": [
+     -50,
+     50
+    ],
+    "tail1": [
+     -60,
+     60
+    ],
+    "tail2": [
+     -70,
+     70
+    ]
+   },
+   "sockets": [
+    {
+     "id": "lumen_eye",
+     "joint": "head",
+     "role": "eye centre (gaze origin)",
+     "basis_angle_deg": null
+    }
+   ],
+   "state_channel_ids": [
+    "eye"
+   ],
+   "approved_view_cels": [],
+   "approved_edges": [],
+   "hands": [],
+   "feet": [],
+   "roles": {
+    "gaze_joint": {
+     "kind": "JOINT",
+     "id": "head"
+    },
+    "head_joint": {
+     "kind": "JOINT",
+     "id": "neck2"
+    },
+    "body_joint": {
+     "kind": "JOINT",
+     "id": "body"
+    },
+    "eyes_channel": {
+     "kind": "CHANNEL",
+     "id": "eye"
+    },
+    "eyes_open_state": {
+     "kind": "STATE",
+     "id": "open"
+    },
+    "eyes_closed_state": {
+     "kind": "STATE",
+     "id": "closed"
+    }
+   },
+   "approved_motion_routes": [
+    "PART_RIG_2D",
+    "APPROVED_CELS"
+   ],
+   "supported_commands": [
+    "look_at",
+    "blink",
+    "turn_head",
+    "idle",
+    "hold"
+   ],
+   "refused_commands": {
+    "speak": [
+     "role mouth_channel",
+     "approved mouth rest drawing (role mouth_rest_state)",
+     "approved mouth open drawing (role mouth_open_state)"
+    ],
+    "reach": [
+     "a hand socket (role hand.<h>.socket) at the end of a TWO_BONE_IK chain"
+    ],
+    "grip": [
+     "a hand with socket + IK + HAND channel open/closed drawings (roles hand.<h>.*)"
+    ],
+    "release": [
+     "a hand with socket + IK + HAND open drawing"
+    ],
+    "walk": [
+     "legged locomotion for topology NONHUMAN (walk is defined for BIPED; other topologies need their own locomotion producer)"
+    ],
+    "react": [
+     "role expression_channel (approved expression cels)"
+    ],
+    "change_expression": [
+     "role expression_channel (approved expression cels)"
+    ],
+    "point": [
+     "a hand with an approved pointing drawing (hand.<h>.point_state) and an aim joint (hand.<h>.aim_joint)"
+    ],
+    "turn_body": [
+     "approved body view cels with an approved view edge"
+    ]
+   },
+   "style_profile_id": "lumen_perf",
+   "approved_art_sha": "735e8690d0c6bf808f06f8c7842b0070d5fed60d3be7d947b03a6fd3d5767c5a"
+  }
+ },
+ "art_demands": [
+  {
+   "asset": "nova_eye_closed",
+   "why": [
+    "blink n_blink: closed eyes (eyes.closed)"
+   ],
+   "frames": [
+    [
+     40,
+     48
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_blink"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_eye_open",
+   "why": [
+    "blink n_blink: open eyes (eyes.open shows the slot's own approved drawing)"
+   ],
+   "frames": [
+    [
+     40,
+     48
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_blink"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_hand_grip",
+   "why": [
+    "grip n_grip: closed hand (hand_r.grip)"
+   ],
+   "frames": [
+    [
+     70,
+     90
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_grip"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_hand_open",
+   "why": [
+    "grip n_grip: open hand (hand_r.open shows the slot's own approved drawing)",
+    "release n_release: open hand (hand_r.open shows the slot's own approved drawing)"
+   ],
+   "frames": [
+    [
+     70,
+     90
+    ],
+    [
+     190,
+     220
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_grip",
+    "n_release"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_mouth_rest",
+   "why": [
+    "speak n_speak: speaking mouth (mouth.rest shows the slot's own approved drawing)"
+   ],
+   "frames": [
+    [
+     100,
+     170
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_speak"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_mouth_open",
+   "why": [
+    "speak n_speak: speaking mouth (mouth.open)"
+   ],
+   "frames": [
+    [
+     100,
+     170
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_speak"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_mouth_mid",
+   "why": [
+    "speak n_speak: speaking mouth (mouth.mid)"
+   ],
+   "frames": [
+    [
+     100,
+     170
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_speak"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_brow_raised",
+   "why": [
+    "react n_react: reaction expression (brows.surprised)"
+   ],
+   "frames": [
+    [
+     222,
+     238
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_react"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "nova_brow_neutral",
+   "why": [
+    "change_expression n_calm: expression target (brows.neutral shows the slot's own approved drawing)"
+   ],
+   "frames": [
+    [
+     238,
+     240
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "n_calm"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "lumen_eye_closed",
+   "why": [
+    "blink l_blink: closed eyes (eye.closed)"
+   ],
+   "frames": [
+    [
+     330,
+     340
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "l_blink"
+   ],
+   "supplied": true
+  },
+  {
+   "asset": "lumen_eye_open",
+   "why": [
+    "blink l_blink: open eyes (eye.open shows the slot's own approved drawing)"
+   ],
+   "frames": [
+    [
+     330,
+     340
+    ]
+   ],
+   "representation": "REGISTERED_CELS",
+   "consumers": [
+    "state_channels.mjs#resolveBindings"
+   ],
+   "commands": [
+    "l_blink"
+   ],
+   "supplied": true
+  }
+ ],
+ "missing_art": [],
+ "per_command": [
+  {
+   "id": "n_idle",
+   "verb": "idle",
+   "rig": "nova_rig",
+   "art_closure": []
+  },
+  {
+   "id": "n_look",
+   "verb": "look_at",
+   "rig": "nova_rig",
+   "art_closure": []
+  },
+  {
+   "id": "n_reach",
+   "verb": "reach",
+   "rig": "nova_rig",
+   "art_closure": []
+  },
+  {
+   "id": "n_blink",
+   "verb": "blink",
+   "rig": "nova_rig",
+   "art_closure": [
+    "nova_eye_closed",
+    "nova_eye_open"
+   ]
+  },
+  {
+   "id": "n_grip",
+   "verb": "grip",
+   "rig": "nova_rig",
+   "art_closure": [
+    "nova_hand_grip",
+    "nova_hand_open"
+   ]
+  },
+  {
+   "id": "n_hold",
+   "verb": "hold",
+   "rig": "nova_rig",
+   "art_closure": []
+  },
+  {
+   "id": "n_speak",
+   "verb": "speak",
+   "rig": "nova_rig",
+   "art_closure": [
+    "nova_mouth_rest",
+    "nova_mouth_open",
+    "nova_mouth_mid"
+   ]
+  },
+  {
+   "id": "n_release",
+   "verb": "release",
+   "rig": "nova_rig",
+   "art_closure": [
+    "nova_hand_open"
+   ]
+  },
+  {
+   "id": "n_react",
+   "verb": "react",
+   "rig": "nova_rig",
+   "art_closure": [
+    "nova_brow_raised"
+   ]
+  },
+  {
+   "id": "n_calm",
+   "verb": "change_expression",
+   "rig": "nova_rig",
+   "art_closure": [
+    "nova_brow_neutral"
+   ]
+  },
+  {
+   "id": "l_idle",
+   "verb": "idle",
+   "rig": "lumen_rig",
+   "art_closure": []
+  },
+  {
+   "id": "l_look",
+   "verb": "look_at",
+   "rig": "lumen_rig",
+   "art_closure": []
+  },
+  {
+   "id": "l_blink",
+   "verb": "blink",
+   "rig": "lumen_rig",
+   "art_closure": [
+    "lumen_eye_closed",
+    "lumen_eye_open"
+   ]
+  },
+  {
+   "id": "l_turn",
+   "verb": "turn_head",
+   "rig": "lumen_rig",
+   "art_closure": []
+  }
+ ]
+}

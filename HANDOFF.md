@@ -1,13 +1,25 @@
 # CURRENT HANDOFF — THE BETTER ONE / MIA FIRST FILM
 **Updated:** 25 November 2026. This replaces the obsolete P02 root handoff, archived at `docs/history/LEGACY_P02_HANDOFF.md`. No automatic production/human approval is implied.
 
+## 0a. P06 reusable performance system (26 Nov 2026): read `engineering/p06/` first
+Frozen engineering source `b2c6931a628f68773349dc2565d7aae5530ad41d` (branch `production/better-one-first-film-engineering`). One comprehensive
+regression ran on it: `engineering/p06/FINAL_ENGINEERING_TAP.tap`, results in `engineering/p06/P06_FINAL_REPORT.md`.
+- **PerformanceCommand adapter** `engine/art_bridge/performance_commands.mjs`. It validates the packet against the P06 schema (byte copy in `schemas/`), derives each
+  rig's capability profile from the measured rig + reviewed role map, and compiles the 14 verbs into the EXISTING plan surfaces. It is called once,
+  inside `temporal.mjs#compileMotionTracks` (`plan.performance`), so it adds no second timeline. Refusals are typed with the P06 fields.
+- **Effect QA** `engine/film/performance_qa.mjs` measures every declared effect on its owner on every frame. Unverified kinds fail. It is a production stage task
+  (`performance_effects`). Pre-art closure: `creative_handoff.mjs performance-closure`, and the closure also feeds `art_demand.mjs`.
+- Blender host contract v1.1 (fps, straight alpha, mesh/performance hashes, transparent passes, occluder order) and a decoder scenario-claim audit.
+- Real-art handoff for the 13 s Mia scene: `engineering/p06/MIA_13S_ART_AND_PERFORMANCE_HANDOFF.md` + `13_SECOND_E01_ACCEPTANCE_PLAN.md` (an unfilled template; no story invented).
+- Not built: articulated walk on PART_RIG_2D, CARRY/LOAD/INSERT, phoneme visemes, orbit/3D dolly, perspective host camera. Accepted real seconds: **0**.
+
 ## 0. Engineering session 25–26 Nov 2026: read `engineering/` first
 Branch `production/better-one-first-film-engineering` (child of `6d91a60`; the engine there equals P05 code `9454646`). New and tested on DIAGNOSTIC fixtures:
 - **TBO-G15 decoder:** `engine/decoder/` (model card with units, provenance and constraints; `MODEL_BAR` operator inside the Neutrino/Chrome path; pixel QA).
 - **TBO-G14 Blender host adapter v1:** `engine/host3d/` (headless Blender 5.1 HOST+SHADOW passes; camera and painted-floor calibration; composited between 2D depth bands; counterfactual pixel QA). `HOST_3D_ASSET_PENDING` stands.
 - **`HYBRID_CONTRACT.json` v1.0.0**, companion to CREATIVE_PACKET 1.1.0, for claims, decoders, host shots and dialogue. Check it with `creative_handoff.mjs hybrid-preflight`.
 - **20-gate enforcer:** `engine/production/quality_gates.mjs` + `engine/tools/quality_gates.mjs`, which computes gate status from TAP; diagnostic evidence never reaches VERIFIED.
-- Status, matrix and requests: `engineering/CURRENT_SOURCE_STATUS.md`, `P05_FINAL_TEST_STATUS.md`, `ENGINE_CAPABILITY_AND_ART_DEMAND_MATRIX.json`, `QUALITY_GATES.json`,
+- Status, matrix and requests: `engineering/CURRENT_SOURCE_STATUS.md`, `regression_partial_2026-11-25/REGRESSION_STATUS.md` (both P05-era full runs were stopped: PARTIAL), `ENGINE_CAPABILITY_AND_ART_DEMAND_MATRIX.json`, `p06/TBO_20_GATE_RELEASE_REPORT.json`,
   `FIRST_REAL_SHOT_INTEGRATION_PLAN.md`, `BLENDER_HOST_PASS_CONTRACT.md`, `DECODER_MODEL_CONTRACT.md`, `REAL_FOOTAGE_LEDGER.csv`, `NEXT_TASK_FOR_USER_AND_GPT.md`.
 - Tests: `node --test tests/tbo/*.test.mjs`. Long regressions must run on a drive with ≥ 15 GB free (E: was full).
 - Accepted real E01 seconds: **0**. Waiting for: approved packet + hybrid contract, real F01–F80 art, recorded voice, Blender host.

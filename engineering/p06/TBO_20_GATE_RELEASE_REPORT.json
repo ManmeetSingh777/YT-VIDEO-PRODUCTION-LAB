@@ -1,0 +1,654 @@
+{
+ "registry_version": "1.0.0",
+ "source_sha": "b2c6931a628f68773349dc2565d7aae5530ad41d",
+ "implicit_pass": false,
+ "gates": [
+  {
+   "id": "TBO-G01",
+   "phase": "story_truth",
+   "owner": "GPT_EDITOR",
+   "failure_code": "CLAIM_TRUTH_UNVERIFIED",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/story/creative_packet.mjs#validatePacket (CLAIM_TRUTH_UNVERIFIED)",
+    "engine/story/mechanism.mjs#validateStoryContract",
+    "engine/story/hybrid_contract.mjs#hybridPreflight (claims F/R/M/H/X)"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs S01 story_contract"
+   ],
+   "mechanism_tests_passed": [
+    "T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED",
+    "HYBRID_CONTRACT negatives: each contradiction names its invariant and owner"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "GPT/user claim ledger, model card and payoff proof for E01",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G02",
+   "phase": "viewer_story",
+   "owner": "GPT_EDITOR",
+   "failure_code": "DIRECTOR_DECISION_MISSING",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": true,
+   "producers": [
+    "engine/story/creative_packet.mjs#validatePacket (12-part shot contract)"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs S01/S02 approvals"
+   ],
+   "mechanism_tests_passed": [
+    "P02-R23 S01 story approval withdrawn",
+    "P05-A3 mutations: each single omission or contradiction is refused with its own code"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "Value Blueprint, screenplay, audio-first animatic and human review",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART",
+    "NEEDS_HUMAN"
+   ]
+  },
+  {
+   "id": "TBO-G03",
+   "phase": "creative_runtime_mapping",
+   "owner": "ENGINE",
+   "failure_code": "DIRECTION_CONSUMER_INERT",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/story/direction_consequence.mjs",
+    "engine/story/creative_preflight.mjs#creativePreflight"
+   ],
+   "consumers": [
+    "engine/art_bridge/temporal.mjs#compileMotionTracks",
+    "engine/production/stages.mjs direction_decisions"
+   ],
+   "mechanism_tests_passed": [
+    "T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused",
+    "P04-2.2a every direction decision is measured on its own owner — all four families pass",
+    "P04-2.2b causal mutations: removing ONE decision's consumer makes exactly that decision inert while unrelated tracks keep moving",
+    "P04-2.2c refusals: unknown operation, missing owner, duplicate id, frames outside the film, HOLD without reason or with motion, wrong owner kind",
+    "P04-2.2d production stage: no DIRECTION_DECISIONS file fails in PRODUCTION, an inert one blocks S03, a decision nobody renders fails the pixel gate",
+    "P04-2.2e effect, deformation and camera decisions are judged on THEIR OWN isolated pixels: another moving owner never stands in",
+    "P04-2.2 direction: a decision needs the OPERATION and EFFECT it names; removing the consumer makes it inert (causal mutation)",
+    "P05-E5 creative obligations: each directed element the plan drops or changes is MOTION_OBLIGATION_UNMET (an unrecorded voice: AUDIO_INPUT_MISSING); motion nobody directed is ORPHAN_MOTION_TRACK",
+    "P05-B1 pre-art refusals are typed, carry a next step and never simplify: verb, contact, camera, operation, morph, cel, symbol, bend, view, object response, swap reason, witnesses",
+    "P06-C1 the same verbs compile onto each rig's OWN parts, states and profile, into the existing plan surfaces (no second timeline)"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved E01 CREATIVE_PACKET 1.1.0 + HYBRID_CONTRACT",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G04",
+   "phase": "preart_state_closure",
+   "owner": "ENGINE",
+   "failure_code": "MISSING_ART_REQUIREMENT",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/art_demand.mjs",
+    "engine/story/creative_preflight.mjs (MISSING_ART_REQUIREMENT)"
+   ],
+   "consumers": [
+    "engine/tools/art_outbox.mjs export"
+   ],
+   "mechanism_tests_passed": [
+    "H1 demands are derived from the real action graph (every bound state, contact closure, camera coverage) with frames — no fixed image count",
+    "M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art",
+    "P04-3.2 art demand: closure comes from the HAND channel — changing body pose does not satisfy it, changing the hand state changes the demanded drawing",
+    "P04-3.3 the demand closes over the PRODUCTION plan: acting states, morph ends, deformed drawings, symbols and every world plate, all planned",
+    "P04-3.3 a blink with no CLOSED_EYES drawing, a missing mouth shape, an unplanned morph end or world plate become demands before any render (unlike subjects)",
+    "P05-D2 the packet alone demands every state it reaches before art (blink, speech, closure, plates); removing one drawing is a missing demand",
+    "P06-A1 pre-art closure: the command demands reach the production art-demand pass with their consumers"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved E01 action graph",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G05",
+   "phase": "f_methods_image",
+   "owner": "GPT_ART_HUMAN",
+   "failure_code": "ART_METHOD_EVIDENCE_MISSING",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": true,
+   "producers": [
+    "engine/art_bridge/method_applicability.mjs",
+    "engine/art_bridge/source_method_causality.mjs",
+    "engine/art_bridge/gpt_handoff.mjs"
+   ],
+   "consumers": [
+    "engine/tools/art_outbox.mjs export-gpt-job"
+   ],
+   "mechanism_tests_passed": [
+    "A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED",
+    "S3C-1 method fidelity: the audited Ines brief (F64 bound as hand construction, F05/F52 mislabelled) is refused before compile",
+    "S3C-2 rig-forced generic geometry without source grounding is refused",
+    "S3C-3 absent (or placeholder) molecular_visual_decisions cannot pass",
+    "S3C-4 view agreement: the motion contract carries the rig's canonical view, and a design/motion view mismatch is refused",
+    "S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused",
+    "S3C-6 applicability: every method the subject family + motion contract makes applicable is bound faithfully (not all 80)",
+    "P02-R26 external ChatGPT handoff: exact request/skill/witness/master bytes exported; only a matching operator bundle imports, as OPERATOR-ATTESTED"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "real ChatGPT F01–F80 images with local witnesses + human method review",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART",
+    "NEEDS_HUMAN"
+   ]
+  },
+  {
+   "id": "TBO-G06",
+   "phase": "canonical_identity",
+   "owner": "GPT_ART_HUMAN",
+   "failure_code": "CHARACTER_IDENTITY_DRIFT",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": true,
+   "producers": [
+    "engine/art_bridge/art_intake.mjs ingest-master/ingest-part (identity hash)",
+    "engine/art_bridge/approvals.mjs"
+   ],
+   "consumers": [
+    "engine/art_bridge/asset_registry.mjs"
+   ],
+   "mechanism_tests_passed": [
+    "P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved",
+    "P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges",
+    "M06 a full turn needs registered view cels; rotating the front PNG is refused"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved Mia master + source-attached derived states",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART",
+    "NEEDS_HUMAN"
+   ]
+  },
+  {
+   "id": "TBO-G07",
+   "phase": "image_ingest",
+   "owner": "ENGINE",
+   "failure_code": "ART_ASSET_INVALID",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/art_intake.mjs (alpha/crop/hash/provenance)"
+   ],
+   "consumers": [
+    "engine/art_bridge/asset_registry.mjs#createAssetRegistry"
+   ],
+   "mechanism_tests_passed": [
+    "R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted",
+    "H1 planned alpha contract is enforced at intake (no silent rewrite)",
+    "hash mismatch / missing file / path escape"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "real GPT PNG/SVG bytes",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G08",
+   "phase": "registration",
+   "owner": "ENGINE",
+   "failure_code": "ART_RECOMPOSITION_FAILED",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/registration.mjs#registerPart",
+    "engine/art_bridge/registration_evidence.mjs"
+   ],
+   "consumers": [
+    "engine/art_bridge/scene_graph.mjs (rest recomposition)"
+   ],
+   "mechanism_tests_passed": [
+    "B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine",
+    "B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)",
+    "B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix",
+    "B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree",
+    "B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)",
+    "B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners",
+    "B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses",
+    "B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam",
+    "H2 registration receipt content is verified and bound into the approval",
+    "B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused",
+    "missing underpaint"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "reviewed landmark sidecars on real art",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G09",
+   "phase": "motion_feasibility",
+   "owner": "ENGINE",
+   "failure_code": "FRAME_NOT_EVALUATED",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/production/post_art_feedback.mjs#postArtFeasibility"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs S06 feasibility_*"
+   ],
+   "mechanism_tests_passed": [
+    "M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)",
+    "P04-4.1/4.2 feasibility: zero plans = NOT_EVALUATED; every frame evaluated; a per-frame exception and a failing state are failures; NOT_APPLICABLE is never feasible",
+    "P05-E1 post-art feasibility: every required frame of every family is evaluated on the measured art and passes; nothing evaluated is never a pass",
+    "P05-E2 post-art feedback names who must change what: impossible reach, out-of-support lean, missing drawing, inert decision, unowned obligation",
+    "P06-S2 capability profiles come from the measured rigs: an unlike biped and creature get different, reasoned command sets"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "measured real art",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G10",
+   "phase": "acting_motion",
+   "owner": "NEUTRINO",
+   "failure_code": "ACTING_INTENT_UNRENDERED",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/acting.mjs#compileActing",
+    "engine/art_bridge/temporal.mjs"
+   ],
+   "consumers": [
+    "engine/film/chrome_frames.mjs"
+   ],
+   "mechanism_tests_passed": [
+    "A1 acting: lag follows topology depth, breath is additive rotation only (no scale), and matrices differ from the bare plan",
+    "A2 negatives: acting naming a joint the rig lacks is ACTING_UNEXECUTABLE; a blink needing an unapproved state is MISSING_ART_ASSET; amplitude past the joint limit refuses",
+    "D1 a phrase is primary motion: editing it changes the compiled matrices of the character and the camera",
+    "D2 negatives: an unresolvable phrase owner returns PHRASE_UNEXECUTABLE; a phrase and an authored track on one owner is INVALID_TRANSFORM_OWNER",
+    "D3 precedence is reported: contact IK owns its chain joints; acting there is listed as suppressed_by_contact (never silently erased)",
+    "F5 connected follow-through: hair and tail are baked springs driven by head / tail motion (non-zero lag after the driver moves)",
+    "P06-Q1 every declared effect is met on its owner, on every frame, on both unlike rigs (positives)",
+    "P06-N1 negatives: deleting or corrupting each producer after compile fails the named owner effect",
+    "P06-R1 real Chrome pixels: each command changes its OWN drawing on screen; deleting the producer removes it"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "real art + human continuous-playback review",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G11",
+   "phase": "painted_grip_release",
+   "owner": "NEUTRINO",
+   "failure_code": "GRIP_VISUAL_FAILED",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/contact_solver.mjs#gripMorphology",
+    "engine/art_bridge/scene_graph.mjs (finger layers)"
+   ],
+   "consumers": [
+    "engine/film/semantic_qa.mjs hand_closed_and_in_contact"
+   ],
+   "mechanism_tests_passed": [
+    "M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error",
+    "grip and plant hold on every locked frame; no failures over the action",
+    "F1 grip: position + orientation + closure + near/far are checked on every hold frame; a reversed palm and a lost near/far order fail",
+    "P04-5.3b contact patch on approved pixels: held frames measured; a hand drawing that does not cover the handle fails although the coordinate matches",
+    "P04-5.3c finger topology: near drawings above the prop, far drawings below; an undeclared WRAP and an inverted finger layer fail",
+    "P04-5.3 grip: no contract = blocking; body GRIP with an OPEN hand fails; a closed hand with a valid contract is evaluated; fingers behind the prop fail; unrelated prop motion fails",
+    "P06-N1 negatives: deleting or corrupting each producer after compile fails the named owner effect",
+    "P06-R1 real Chrome pixels: each command changes its OWN drawing on screen; deleting the producer removes it"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved HAND drawings (open/closed, near/far fingers)",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G12",
+   "phase": "view_cel_deform",
+   "owner": "NEUTRINO",
+   "failure_code": "VIEW_OR_DEFORMATION_INVALID",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/state_router.mjs#validateStateEdge",
+    "engine/art_bridge/execution.mjs#deformAt/morphAt"
+   ],
+   "consumers": [
+    "engine/art_bridge/scene_graph.mjs"
+   ],
+   "mechanism_tests_passed": [
+    "M06 a full turn needs registered view cels; rotating the front PNG is refused",
+    "M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map",
+    "M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge",
+    "E1 raster mesh deformation: start = identity, middle = half, end = targets; the deformed copy replaces the rigid pass in the scene rows",
+    "E2 negatives: inverted triangles, a mesh leaving the approved pixels, and incompatible vector topology are refused",
+    "E3 vector morph: approved homologous paths interpolate (middle = midpoint of control points) and are written as the path d each frame",
+    "P04-5.5 deformation: duplicate/overlapping triangles and partial coverage refused; a map renders only under a verified approval that binds geometry and pixels",
+    "P06-N2 refusals BEFORE art: missing producers, cels, approvals, profiles and conflicts are typed with the P06 fields",
+    "P06-P1 point (stand-in pose cel) aims the arm at its target; a reversed aim fails"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved alternate views/cels/deform maps",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G13",
+   "phase": "camera_world",
+   "owner": "COMPOSITOR",
+   "failure_code": "UNCOVERED_WORLD",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/art_bridge/scene_graph.mjs#validateFootprint"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs framing"
+   ],
+   "mechanism_tests_passed": [
+    "B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree",
+    "camera footprint flags exact spans when the camera outruns painted plates",
+    "P04-5.7 framing: every frame of the path — a cropped attended subject, an unexplained crop and over-enlarged art are refused; a declared crop passes",
+    "P04-5.7b a rotation-only camera is a MOVING interval (the trace index read a key that no camera has)"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved restaurant world planes with overscan",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G14",
+   "phase": "host_3d",
+   "owner": "BLENDER_COMPOSITOR",
+   "failure_code": "HOST_INTEGRATION_INVALID",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": true,
+   "producers": [
+    "engine/host3d/blender_host_passes.py",
+    "engine/host3d/host_pass.mjs#compileHostPasses"
+   ],
+   "consumers": [
+    "engine/art_bridge/scene_graph.mjs#composeShot (host passes)",
+    "engine/host3d/host_pass.mjs#verifyHostComposite"
+   ],
+   "mechanism_tests_passed": [
+    "TBO-G14 host pass: Blender passes composited between 2D bands, verified on pixels; negatives caught"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "HOST_3D_ASSET_PENDING: approved original Blender host (mesh, rig, face keys, performance)",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART",
+    "NEEDS_HUMAN"
+   ]
+  },
+  {
+   "id": "TBO-G15",
+   "phase": "strategy_decoder",
+   "owner": "MODEL_COMPOSITOR",
+   "failure_code": "DECODER_INERT_OR_MISLEADING",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/decoder/model_card.mjs#evaluateModel",
+    "engine/decoder/model_bar.mjs#compileModelBars"
+   ],
+   "consumers": [
+    "engine/art_bridge/temporal.mjs proceduralAt",
+    "engine/decoder/decoder_qa.mjs#verifyModelBarFrames"
+   ],
+   "mechanism_tests_passed": [
+    "TBO-G15 model: Bible §8.6 arithmetic is recomputed from inputs, with units",
+    "P06 decoder: each scenario's stated outcome is recomputed; a counterexample shown as success is refused",
+    "TBO-G15 model negatives: unit error, capacity overflow, cycle, undocumented 'fact', inert override",
+    "TBO-G15 MODEL_BAR compile-time refusals: stale digest, unknown output, truncated baseline",
+    "TBO-G15 MODEL_BAR in real Chrome frames: pixels follow the model; a changed input moves them; a frozen graph is detected"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "approved E01 model card + decoder SYMBOL art",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G16",
+   "phase": "owner_attribution",
+   "owner": "RENDER_QA",
+   "failure_code": "REQUIRED_OWNER_MOTION_MISSING",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/film/coverage_gate.mjs",
+    "engine/film/chrome_frames.mjs (isolated owner capture)"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs S08 coverage_gate"
+   ],
+   "mechanism_tests_passed": [
+    "P02-R06 positive: moving interval changes pixels; a static hold may repeat pixels without failing",
+    "P02-R06 negatives: frozen moving interval, missing frames/state, uncovered edge, broken boundary",
+    "G1 owner gate: frozen owner, unrendered discrete swap and deformation equal to rigid are each reported; a healthy owner passes",
+    "P04-7.5 the owner gate requires captured samples for every acting owner (no skipping of single frames) and reports blurred frames' owners",
+    "P05-E12 an owner is captured isolated from painted near planes and framed on everything the moving camera shows; an owner the viewer never sees is refused even if it moves",
+    "P06-R1 real Chrome pixels: each command changes its OWN drawing on screen; deleting the producer removes it"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "real film frames",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G17",
+   "phase": "final_audio",
+   "owner": "AUDIO_MUX",
+   "failure_code": "FINAL_AUDIO_MISMATCH",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": false,
+   "producers": [
+    "engine/film/audio_mix.mjs#mixBuses/publishFinal"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs S09 audio_mix/final_mux"
+   ],
+   "mechanism_tests_passed": [
+    "P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification",
+    "H1 audio buses: frame-addressed SFX and narration onsets measured from the mix within 4 ms; ducking and loudness measured; a late SFX is caught",
+    "P04-7.7 audio publication: per-stem cue verification (late cue, missing word, wrong bus) fails; the published MP4 carries the verified audio and a bound receipt",
+    "P06-N2 refusals BEFORE art: missing producers, cels, approvals, profiles and conflicts are typed with the P06 fields"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "NEEDS_RECORDED_VOICE: recorded dialogue, aligned words, SFX, music",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART"
+   ]
+  },
+  {
+   "id": "TBO-G18",
+   "phase": "editorial_final",
+   "owner": "HUMAN",
+   "failure_code": "ARTISTIC_REVIEW_MISSING",
+   "status": "BLOCKED_EXTERNAL",
+   "human_required": true,
+   "producers": [
+    "engine/film/final_review.mjs",
+    "engine/art_bridge/reviewer_auth.mjs"
+   ],
+   "consumers": [
+    "engine/production/stages.mjs S09 film_review"
+   ],
+   "mechanism_tests_passed": [
+    "B3-2 automated gates pass; without a film review the verdict is FAIL",
+    "B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)",
+    "B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)",
+    "P02-R16 positive control: an envelope signed by an external trust anchor mints a HUMAN receipt that verifies",
+    "P02-R16 forgeries fail production: typed TTY, hand-written HUMAN receipt, replay, wrong scope, stale packet, expiry, revocation, in-repo key",
+    "P04-7.7b final film authority: the S09 film review verifies a signed HUMAN decision over the exact published file, and any changed byte makes it stale"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "human watch of the exact final MP4 with a signed receipt",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART",
+    "NEEDS_HUMAN"
+   ]
+  },
+  {
+   "id": "TBO-G19",
+   "phase": "source_revision",
+   "owner": "LEDGER",
+   "failure_code": "STALE_EVIDENCE_ACCEPTED",
+   "status": "NOT_TESTED",
+   "human_required": false,
+   "producers": [
+    "engine/film/film_revision.mjs",
+    "engine/production/ledger.mjs"
+   ],
+   "consumers": [
+    "engine/tools/production_run.mjs resume/verify"
+   ],
+   "mechanism_tests_passed": [
+    "P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render",
+    "P02-R15a tamper detection: altered, deleted, reordered, duplicated, cross-linked and truncated events all fail verify; replay refuses",
+    "P02-R15b crash leftovers (torn temp file) are ignored; a STATUS index edit or deletion never changes replayed authority",
+    "P02-R15c an event that merely CLAIMS completion (failed verification or unresolvable output) is never counted as verified",
+    "P02-R15d two concurrent OS processes appending to one run produce one gap-free verified chain (fenced lock)",
+    "P02-R08 every input category changes the revision (code, audio, art, skill/style, story, direction, contracts, approvals, canvas); logs/QA/render do not",
+    "P04-7.8 revision hashes content, not timestamps: rewriting a producer with the same size and mtime changes the digest",
+    "P04-7.8b the composition cache never serves stale frames: same work dir, changed plan / poisoned bake with a stale key → rebuilt; unchanged inputs → reused",
+    "P05-K2 the chunk key contains the rendering environment; another Node, Chrome or FFmpeg never shares segments"
+   ],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": null,
+   "verified_by": null,
+   "reasons": [
+    "mechanism tests pass, but no PRODUCTION evidence record exists for the real film"
+   ],
+   "p06_status": "VERIFIED_CODE",
+   "p06_release_blockers": []
+  },
+  {
+   "id": "TBO-G20",
+   "phase": "film_progress",
+   "owner": "FILM_LEDGER",
+   "failure_code": "DIAGNOSTIC_PROMOTED_TO_FILM",
+   "status": "NOT_TESTED",
+   "human_required": true,
+   "producers": [],
+   "consumers": [],
+   "mechanism_tests_passed": [],
+   "mechanism_tests_failed": [],
+   "diagnostic_only": true,
+   "external_dependency": "accepted real E01 8–10 s segments, 90–120 s hybrid proof and film ledger (no producer yet: REAL_FOOTAGE_LEDGER is manual)",
+   "verified_by": null,
+   "reasons": [],
+   "p06_status": "NEEDS_HUMAN",
+   "p06_release_blockers": [
+    "NEEDS_EXTERNAL_ART",
+    "NEEDS_HUMAN"
+   ]
+  }
+ ],
+ "summary": {
+  "NOT_TESTED": 2,
+  "BLOCKED_EXTERNAL": 18,
+  "FAILED": 0,
+  "VERIFIED_WITH_EVIDENCE": 0,
+  "NOT_APPLICABLE_WITH_EVIDENCE": 0
+ },
+ "p06_summary": {
+  "VERIFIED_CODE": 19,
+  "VERIFIED_REAL_ART": 0,
+  "NEEDS_EXTERNAL_ART": 0,
+  "NEEDS_HUMAN": 1,
+  "FAILED": 0,
+  "NOT_APPLICABLE_WITH_REASON": 0
+ }
+}

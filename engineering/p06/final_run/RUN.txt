@@ -1,0 +1,14 @@
+start=2026-11-25T21:18:35Z
+sha=b2c6931a628f68773349dc2565d7aae5530ad41d
+node=v22.20.0
+nu_js_sha256=773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be
+dirty:  M films/hv2_film001/intake/DEPENDENT_JOB_STATUS.json
+dirty:  M films/hv2_film001/intake/INTAKE_LOG.jsonl
+dirty:  M films/hv2_film001/story/FILM_CONTRACT_REPORT.json
+dirty:  M hybrid_v2/work/p02/injection/INJECTION_SUMMARY.json
+suite_exit=0 at=2026-11-25T22:52:36Z
+p03_chrome_negatives_exit=0 at=2026-11-25T23:07:47Z
+p05_render_negatives_exit=0 at=2026-11-25T23:18:01Z
+p05_chain_exit=0 at=2026-11-25T23:41:58Z
+p06_integration_exit=0 at=2026-11-25T23:42:33Z
+end=2026-11-25T23:42:33Z

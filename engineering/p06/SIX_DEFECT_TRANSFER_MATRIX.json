@@ -1,0 +1,189 @@
+{
+ "source_sha": "b2c6931a628f68773349dc2565d7aae5530ad41d",
+ "defects": [
+  {
+   "id": "C1",
+   "name": "mismatched parts",
+   "predicate": "source-attached parts reassemble the approved rest master (alpha edge, seam, bbox, identity hash)",
+   "producers": [
+    "art_intake.mjs ingest-master/ingest-part (identity hash, landmarks)",
+    "registration.mjs#registerPart",
+    "registration_evidence.mjs"
+   ],
+   "tests": [
+    "B1-a",
+    "B2-a",
+    "P0-3",
+    "M06"
+   ],
+   "status": "VERIFIED_CODE (diagnostic); real-art fit NEEDS_EXTERNAL_ART + human appearance review",
+   "test_results": [
+    {
+     "test": "B1-a",
+     "ok": true
+    },
+    {
+     "test": "B2-a",
+     "ok": true
+    },
+    {
+     "test": "P0-3",
+     "ok": true
+    },
+    {
+     "test": "M06",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "C2",
+   "name": "impossible drawing",
+   "predicate": "every command's art closure demanded BEFORE generation; post-art feasibility on every frame; missing state → exact ArtJob, never a stretched/rotated substitute",
+   "producers": [
+    "performance_commands.mjs (closure, refusals)",
+    "art_demand.mjs#deriveArtDemands",
+    "post_art_feedback.mjs#postArtFeasibility"
+   ],
+   "tests": [
+    "P06-A1",
+    "P06-N2",
+    "P06-S2",
+    "P04-4.1/4.2",
+    "P05-E1"
+   ],
+   "status": "VERIFIED_CODE (diagnostic); needs the real Mia packet + art",
+   "test_results": [
+    {
+     "test": "P06-A1",
+     "ok": true
+    },
+    {
+     "test": "P06-N2",
+     "ok": true
+    },
+    {
+     "test": "P06-S2",
+     "ok": true
+    },
+    {
+     "test": "P04-4.1/4.2",
+     "ok": true
+    },
+    {
+     "test": "P05-E1",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "C3",
+   "name": "lifeless motion",
+   "predicate": "director commands drive anticipation/approach/hold/reaction/recovery with the character profile, contacts never overwritten; human playback review",
+   "producers": [
+    "performance_commands.mjs",
+    "acting.mjs#compileActing",
+    "temporal.mjs aim/additive layers"
+   ],
+   "tests": [
+    "P06-Q1",
+    "P06-N1",
+    "A1 acting"
+   ],
+   "status": "MECHANISM VERIFIED_CODE; artistic quality NEEDS_HUMAN on the real 13 s scene (no metric can declare it alive)",
+   "test_results": [
+    {
+     "test": "P06-Q1",
+     "ok": true
+    },
+    {
+     "test": "P06-N1",
+     "ok": true
+    },
+    {
+     "test": "A1 acting",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "C4",
+   "name": "view identity drift",
+   "predicate": "view changes only through approved linked view cels/edges with shared landmarks; a flat drawing is never rotated past the approved rigid limit",
+   "producers": [
+    "performance_commands.mjs (VIEW_CHANGE_NEEDS_CEL, rigid limit)",
+    "state_router.mjs#validateStateEdge"
+   ],
+   "tests": [
+    "P06-N2",
+    "M06",
+    "M07"
+   ],
+   "status": "REFUSAL VERIFIED_CODE; positive view-cel turns NEED_EXTERNAL_ART (no approved view family exists) + human identity review",
+   "test_results": [
+    {
+     "test": "P06-N2",
+     "ok": true
+    },
+    {
+     "test": "M06",
+     "ok": true
+    },
+    {
+     "test": "M07",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "C5",
+   "name": "pasted 3D host",
+   "predicate": "approved Blender host; calibrated camera; straight-alpha transparent passes at 60 fps from the current mesh/performance; shadow + contact + foreground occlusion on composited pixels",
+   "producers": [
+    "blender_host_passes.py",
+    "host_pass.mjs",
+    "scene_graph.mjs host passes"
+   ],
+   "tests": [
+    "TBO-G14"
+   ],
+   "status": "TECHNICAL ADAPTER VERIFIED_CODE (diagnostic capsule); HOST_3D_ASSET_PENDING",
+   "test_results": [
+    {
+     "test": "TBO-G14",
+     "ok": true
+    }
+   ]
+  },
+  {
+   "id": "C6",
+   "name": "expensive repetition",
+   "predicate": "one command interpreter, closure planner, operators and profiles reused across unlike characters; per-character values only in approved profiles/role maps",
+   "producers": [
+    "performance_commands.mjs (role maps, capability profiles)",
+    "performance_qa.mjs"
+   ],
+   "tests": [
+    "P06-S2",
+    "P06-C1",
+    "P06-Q1"
+   ],
+   "status": "VERIFIED_CODE on two unlike diagnostic rigs (same verbs, different parts/limits/profiles); second real character NOT_RUN",
+   "tracking": "REAL_FOOTAGE_LEDGER.csv records human minutes, rerolls, accepted seconds",
+   "test_results": [
+    {
+     "test": "P06-S2",
+     "ok": true
+    },
+    {
+     "test": "P06-C1",
+     "ok": true
+    },
+    {
+     "test": "P06-Q1",
+     "ok": true
+    }
+   ]
+  }
+ ]
+}

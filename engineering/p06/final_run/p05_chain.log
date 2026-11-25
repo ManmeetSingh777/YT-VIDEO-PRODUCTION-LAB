@@ -1,0 +1,62 @@
+design nova APPROVED
+design lumen APPROVED
+design lever APPROVED
+design gear APPROVED
+handoff ARTJOB_MASTER_nova_master_99a7e955 (3 stage(s))
+master nova_master
+handoff ARTJOB_MASTER_lumen_master_02540fe5 (3 stage(s))
+master lumen_master
+master lever_master
+master gear_master
+master room_far
+master cave_far
+master cave_rock
+master chart_far
+master port_out
+master port_mid
+master port_in
+master port_mask
+master token
+handoff ARTJOB_PART_OR_STATE_nova_torso_43fcdd49 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_head_b4c4a504 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_hair_b601cab1 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5 (3 stage(s))
+handoff ARTJOB_UNDERPAINT_nova_underpaint_786724aa (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7 (3 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_tail2_160aef7d (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_tail1_7c16d015 (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_body_68d465ca (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_neck1_f0439327 (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_neck2_9f961a07 (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_head_7ff8de76 (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_eye_open_125e084c (2 stage(s))
+handoff ARTJOB_PART_OR_STATE_lumen_eye_closed_21d46f59 (2 stage(s))
+S00_IDEA COMMITTED 1/1 failed 0
+S01_STORY COMMITTED 3/3 failed 0
+S02_EXPERIENCE COMMITTED 4/4 failed 0
+S03_TIMING_MOTION COMMITTED 7/7 failed 0
+S04_ART_DEMAND COMMITTED 43/43 failed 0
+S05_ART_PRODUCTION COMMITTED 48/48 failed 0
+S06_REGISTRATION_RIG COMMITTED 73/73 failed 0
+S07_NEUTRINO_RENDER COMMITTED 5/5 failed 0
+S08_QA_REPAIR COMMITTED 3/3 failed 0
+S09_FILM_AUDIO_FINAL BLOCKED 4/5 failed 1
+WHY FAIL-S09_FILM_AUDIO_FINAL-film_review-2fed41 DIAGNOSTIC run: a film review can never be satisfied
+ledger true post-art POST_ART_MOTION_FEASIBLE frames 890 handoffs 91
