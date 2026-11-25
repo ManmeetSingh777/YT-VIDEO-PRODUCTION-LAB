@@ -2,7 +2,7 @@
 
 **Status:** 2026-11-25 production decision. **Authority:** latest user decisions in the uploaded YouTube Viral Playbook conversation supersede older Money Machines / one-style-only animation plans. This is an approved *direction of work*, not a fabricated approval of a specific script, illustration, model, paid provider call, or film. Every actual creative asset requires its normal real approval.
 
-**Production source baseline:** \`repair/p05-creative-packet-integration\` at evidence HEAD \`711ed0fe715d893a56e1aa8fcbed1c89fd702055\`; last actual code \`945464697dc680956bea670e543c8e0c7beebf1b\`. New implementation work should branch from this source on an isolated production branch. Do not use \`main\` as code baseline. P05 full regression and final chained proof are NOT complete. Its last code has zero qualified real GPT art or dialogue performance.
+**Production source baseline:** `repair/p05-creative-packet-integration` at evidence HEAD `711ed0fe715d893a56e1aa8fcbed1c89fd702055`; last actual code `945464697dc680956bea670e543c8e0c7beebf1b`. New implementation work should branch from this source on an isolated production branch. Do not use `main` as code baseline. P05 full regression and final chained proof are NOT complete. Its last code has zero qualified real GPT art or dialogue performance.
 
 **First feature:** *This Restaurant Is Packed. Why Is It Dying?* with Mia, working target 8–12 minutes (story may justify an 8–13-minute final). The duration is chosen by editorial pacing; do not silently stretch to 20 minutes. The final video is the deliverable, not a new universal animation system. Every 8–10-second iteration uses an actual frame interval from this feature and becomes accepted film footage.
 
@@ -22,7 +22,7 @@
 
 **Track 1 / Creative (GPT + human):** audience promise and packaging; credible source dossier; full Mia narrative; value blueprint; line/dialogue script; recorded scratch dialogue; scene-level Experience Director V1; all major shots, action phases, emotion, contact, continuity, camera, sound, editing and 2D/3D/graphics render routes; exact CREATIVE_PACKET v1.1.0. Engineering cannot invent the story.
 
-**Track 2 / Engineering (Claude + P05):** reconcile stale \`CLAUDE.md\` and \`HANDOFF.md\`; inspect P05 last code; run bounded final regression and prove clean on same frozen SHA; real packet importer/preflight; map first-feature action and art demands into supported producers; close only blockers required by real Mia shots; build host pass compositor; preserve Neutrino and current art-first registration.
+**Track 2 / Engineering (Claude + P05):** reconcile stale `CLAUDE.md` and `HANDOFF.md`; inspect P05 last code; run bounded final regression and prove clean on same frozen SHA; real packet importer/preflight; map first-feature action and art demands into supported producers; close only blockers required by real Mia shots; build host pass compositor; preserve Neutrino and current art-first registration.
 
 **Track 3 / Actual assets (GPT/art review + Blender/Claude):** approved Mia and other 2D masters, original F01–F80 construction, actual part/cel/face/mouth/underpaint states, real dialogue, one separately reviewed 3D host mesh/rig and a small reusable performance library, approved restaurant world and decoder visual library. Can begin identity/mood exploration in parallel, but **final generation/registration of dependent assets waits for the approved creative state requirements and pre-art feasibility**.
 
@@ -106,7 +106,7 @@ flowchart TD
 - https://motioncanvas.io/docs/quickstart/
 - https://www.remotion.dev/docs/video-and-audio
 
-**Higgsfield:** separate video-generation APIs, and an independent source-available code-based filmmaking engine \`higgsfield-ai/higgsfield-video-engineer\`; don't confuse this with a free programmable Seedance. Its internal film render path may supply ideas for GPU chunks/material previews but is not a drop-in replacement for P05 or the Blender host.
+**Higgsfield:** separate video-generation APIs, and an independent source-available code-based filmmaking engine `higgsfield-ai/higgsfield-video-engineer`; don't confuse this with a free programmable Seedance. Its internal film render path may supply ideas for GPU chunks/material previews but is not a drop-in replacement for P05 or the Blender host.
 - https://github.com/higgsfield-ai/higgsfield-video-engineer
 - https://open.higgsfield.ai/models/bytedance/seedance-2.5/image-to-video
 
@@ -173,7 +173,7 @@ Early source avenues for the Mia film: National Restaurant Association labor and
 - 8–12-minute full film act/scene sequence: Mia's life/restaurant, tangible crisis, past emotional stakes, host entrance, first failed move, decoding, real strategic trade-off, reversal, credible earned payoff.
 - First-pass screenplay/dialogue with actual voice intent and timed scratch read. Then Experience Director's 12-part shot contracts and full art/motion/3D/audio requirements.
 - Three alternatives for opening hook evaluated against story promise and emotional attachment; human selects the story and major directing decisions.
-- \`CREATIVE_PACKET.json\` v1.1.0 with all named external files and hashes. Validate and preflight on actual P05 interface. No synthetic prompt is treated as source evidence.
+- `CREATIVE_PACKET.json` v1.1.0 with all named external files and hashes. Validate and preflight on actual P05 interface. No synthetic prompt is treated as source evidence.
 
 ### Step 2 — Define the first *real* 8–10-second acceptance clip
 After the screenplay/director lock, take one contiguous actual film interval (ideally opening characters/physical contact/dialogue) and define its finished-frame appearance and audible script. DO NOT invent an unrelated test story to simplify the engine.
@@ -197,20 +197,20 @@ Keep a full episode shot registry with dependencies and progress. Produce in rev
 ## J. Source implementation priorities / immediate P05 work
 
 1. Checkout correct feature branch and HEAD; confirm all local uncommitted work/stashes; preserve snapshots, no force/reset/merge and no deleting evidence.
-2. \`HANDOFF.md\`, \`CLAUDE.md\` are stale P02 documentation. **Update them on a new isolated feature branch**, with exact P05 last source SHA, current external dependencies and this first film's creative priorities.
+2. `HANDOFF.md`, `CLAUDE.md` are stale P02 documentation. **Update them on a new isolated feature branch**, with exact P05 last source SHA, current external dependencies and this first film's creative priorities.
 3. Run final P05 tests on **frozen 9454646** code. The published P05 summary lists the exact regression/chain/negative commands. A local laptop sleeping invalidates the completion proof; set OS prevent sleep, maintain process log and resume verified chunks only. Don't use current new creative file drafts as an excuse to restart unrelated 7200-frame films.
 4. Inspect actual 1.1.0 schema and operator CLI, not the older v1 draft. Ensure the GPT authoring packet and its File/Source hashes compile all required creative consumers.
 5. Verify import with actual image bytes that passed outbox → registration → animation, and enforce not-just-diagnostic origin and no magical approval. Production real-art test comes with user-supplied images; do not fake it with fixtures.
-6. For real Mia shot demands: machine-generate capability matrix \`shot/action/required_state/needed_part/operation/current_producer/real proof/current status/owner\`. Read the actual semantic verb registry before claiming arbitrary movement supported. P05 has explicitly unsupported \`LOAD_CONTAINER\`, \`INSERT_TOKEN\`, \`CARRY\`, \`ORBIT\`, \`DOLLY_3D\`, and certain contacts; implement only operations needed for actual directed story, or refuse and request creative approval. Don't silently reword or drop action requirements.
+6. For real Mia shot demands: machine-generate capability matrix `shot/action/required_state/needed_part/operation/current_producer/real proof/current status/owner`. Read the actual semantic verb registry before claiming arbitrary movement supported. P05 has explicitly unsupported `LOAD_CONTAINER`, `INSERT_TOKEN`, `CARRY`, `ORBIT`, `DOLLY_3D`, and certain contacts; implement only operations needed for actual directed story, or refuse and request creative approval. Don't silently reword or drop action requirements.
 7. Fix any P05 regression failure with original failing reproduction, corrected consumer, negative and unrelated-fixture regression. Don't spend entire new account running a never-ending 90-minute pipeline if the failed cause is already isolated.
-8. Build a versioned Blender-host adapter: \`3d_host_scene + performance/action keys + world_to_camera calibration + render_pass_manifest + rgba/mattes + frame hashes\` → Neutrino/Chrome composite. Validate depth and contact, not just appearance of two layers.
+8. Build a versioned Blender-host adapter: `3d_host_scene + performance/action keys + world_to_camera calibration + render_pass_manifest + rgba/mattes + frame hashes` → Neutrino/Chrome composite. Validate depth and contact, not just appearance of two layers.
 9. Install no second full art-to-motion engine unless a real first film requirement demands it. Consider Moho/Cartoon Animator/Live2D/Spine as design references and possible professional fallback, not automatic baseline migration.
 10. Maintain separate technical gate and artistic gate. An engineering-ready diagnostic does not make the real film beautiful.
 
 ## K. Cost/throughput and stop/go rules
 
 - Source code and ordinary local rendering first; manual GPT images approved under human image-generation budget. No paid model/GPU call without one request-specific quote and explicit authorization.
-- Per film shot/segment, record \`sequence_id, absolute_frames, modality, approved_art_sha, rig_master_sha, source_sound, code_sha, render_device, render_seconds, retries, manual_minutes, provider_cost, pass/fail, visual_reviewer_notes, accepted_seconds\`.
+- Per film shot/segment, record `sequence_id, absolute_frames, modality, approved_art_sha, rig_master_sha, source_sound, code_sha, render_device, render_seconds, retries, manual_minutes, provider_cost, pass/fail, visual_reviewer_notes, accepted_seconds`.
 - Render diagnostic preview/proof at the narrowest *real shot* interval; use final native 1080p 60fps when publishing/qualifying quality. Reuse chunks only when code/art/plan/audio hashes match.
 - Compare GPU rental only if **verified local render time** and accepted-frame volume imply net savings after setup, file transfer, provider price and failures. Renting a GPU doesn't change paid Claude model limits or magically supply Seedance credits.
 - A special generated-video insert only after failed qualified animation route and approved price; reject it if identity, storytelling or art integration is weaker.
@@ -233,8 +233,8 @@ Keep a full episode shot registry with dependencies and progress. Produce in rev
 
 ## M. Next Claude account: immediate first actions
 
-1. \`git fetch --all\` and examine clean current branch \`repair/p05-creative-packet-integration\` SHA \`711ed0fe...\`; compare against \`9454646\` source (evidence-only one commit).
-2. Create/use the isolated \`production/better-one-mia-first-film\` branch. Read this file, uploaded first-film directive, actual P05 status, older P04/P05 reports, schema v1.1 and actual source; reconcile older \`HANDOFF.md\` and \`CLAUDE.md\`.
+1. `git fetch --all` and examine clean current branch `repair/p05-creative-packet-integration` SHA `711ed0fe...`; compare against `9454646` source (evidence-only one commit).
+2. Create/use the isolated `production/better-one-mia-first-film` branch. Read this file, uploaded first-film directive, actual P05 status, older P04/P05 reports, schema v1.1 and actual source; reconcile older `HANDOFF.md` and `CLAUDE.md`.
 3. In parallel: run/finish P05 frozen-sha code verification and begin the honest engineering capability/cost matrix against the NEW full Mia script as soon as GPT returns it.
 4. Inspect and verify art job/creative adapter stages; explicitly list how the manual real GPT art route will pass through the same P05 code.
 5. Build general compositing support needed for a real Blender host only once its actual shot requirements are approved; no unaudited speculative rewrite.
