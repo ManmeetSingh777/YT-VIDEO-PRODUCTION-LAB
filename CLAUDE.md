@@ -1,22 +1,22 @@
 # CLAUDE CODE — MANDATORY SESSION START: THE BETTER ONE
 
-**This is the CURRENT binding instruction set on the production branch.** The former P02 instructions were archived to \`docs/history/LEGACY_P02_CLAUDE.md\`. Do not follow the old P02-only stop point or assume the default \`main\` contains the latest production engine.
+**This is the CURRENT binding instruction set on the production branch.** The former P02 instructions were archived to `docs/history/LEGACY_P02_CLAUDE.md`. Do not follow the old P02-only stop point or assume the default `main` contains the latest production engine.
 
 ## 0. Do these FIRST on every new account/session
 
-1. \`git status --short --branch\`, \`git log -5 --oneline\`, \`git branch -vv\`, \`git remote -v\`. Preserve uncommitted work, untracked assets, local stashes and all evidence. Never run destructive reset/clean or force-push.
-2. Use **\`production/better-one-mia-first-film\`** as the current film-production branch. Its parent is P05 evidence HEAD \`711ed0fe715d893a56e1aa8fcbed1c89fd702055\` and last source-code baseline is \`945464697dc680956bea670e543c8e0c7beebf1b\`. Additional commits on the production branch add governing documentation. Inspect their diff, not just their labels.
+1. `git status --short --branch`, `git log -5 --oneline`, `git branch -vv`, `git remote -v`. Preserve uncommitted work, untracked assets, local stashes and all evidence. Never run destructive reset/clean or force-push.
+2. Use **`production/better-one-mia-first-film`** as the current film-production branch. Its parent is P05 evidence HEAD `711ed0fe715d893a56e1aa8fcbed1c89fd702055` and last source-code baseline is `945464697dc680956bea670e543c8e0c7beebf1b`. Additional commits on the production branch add governing documentation. Inspect their diff, not just their labels.
 3. Read these entire files IN ORDER:
-   - \`docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md\` — absolute editorial identity/value/truth/format/release authority.
-   - \`docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md\` — current film architecture and intended work.
-   - \`docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md\` — binding image/rig/motion/3D/decoder acceptance conditions.
-   - \`HANDOFF.md\` — exact code, tests, user approvals, blockers and next film operations.
-   - \`inputs/EXPERIENCE_DIRECTOR_V1.md\` — 12-part shot director contract.
-   - \`inputs/MOTION_NATIVE_HYBRID_V2_COMPLETE_IMPLEMENTATION_SPEC.md\` and P05 \`hybrid_v2/evidence/p05/P05_STATUS.md\`.
-   - \`docs/gpt-creative-control/OPERATOR_WORKFLOW.md\`, \`schemas/creative_packet_v1_1.schema.json\`, actual \`engine/tools/creative_handoff.mjs\` and current \`engine/tools/art_outbox.mjs\`.
+   - `docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md` — absolute editorial identity/value/truth/format/release authority.
+   - `docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md` — current film architecture and intended work.
+   - `docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md` — binding image/rig/motion/3D/decoder acceptance conditions.
+   - `HANDOFF.md` — exact code, tests, user approvals, blockers and next film operations.
+   - `inputs/EXPERIENCE_DIRECTOR_V1.md` — 12-part shot director contract.
+   - `inputs/MOTION_NATIVE_HYBRID_V2_COMPLETE_IMPLEMENTATION_SPEC.md` and P05 `hybrid_v2/evidence/p05/P05_STATUS.md`.
+   - `docs/gpt-creative-control/OPERATOR_WORKFLOW.md`, `schemas/creative_packet_v1_1.schema.json`, actual `engine/tools/creative_handoff.mjs` and current `engine/tools/art_outbox.mjs`.
    - Historical directives F001–F175 *as necessary for the affected producer*, not as a reason to rerun every old long film.
-4. Output a concise \`CURRENT_PRODUCTION_READINESS\` table from actual sources: feature, code producer, tested consumer, actual proof, blockers, next operation. Separate diagnostic proof from real GPT artwork and human review.
-5. Work on this film branch or a clearly named child branch; do not rewrite \`main\`, discard P05 work, replace Neutrino, or invent a second complete animation engine.
+4. Output a concise `CURRENT_PRODUCTION_READINESS` table from actual sources: feature, code producer, tested consumer, actual proof, blockers, next operation. Separate diagnostic proof from real GPT artwork and human review.
+5. Work on this film branch or a clearly named child branch; do not rewrite `main`, discard P05 work, replace Neutrino, or invent a second complete animation engine.
 
 ## 1. LOCKED CREATIVE/TECHNICAL OWNERSHIP
 
@@ -27,7 +27,7 @@
 
 ## 2. REAL ART TO BEAUTIFUL MOTION, NO SHORTCUTS
 
-**Registration alone is NOT animation.** Art needs consistent derivative states, hidden surfaces, controlled silhouette bends, actual grasping hand/fingers, acting, weight, look/head turns, facial expressions, secondary motion and natural timing. User has rejected static puppet performance, tube limbs, floating limbs, wrong-side hands, broken shadow, generic SVG replacement and unearned camera motion. The six repair classes and action-specific negatives are in \`ART_MOTION_AND_HYBRID_QUALITY_GATES.md\`. Follow them exactly.
+**Registration alone is NOT animation.** Art needs consistent derivative states, hidden surfaces, controlled silhouette bends, actual grasping hand/fingers, acting, weight, look/head turns, facial expressions, secondary motion and natural timing. User has rejected static puppet performance, tube limbs, floating limbs, wrong-side hands, broken shadow, generic SVG replacement and unearned camera motion. The six repair classes and action-specific negatives are in `ART_MOTION_AND_HYBRID_QUALITY_GATES.md`. Follow them exactly.
 
 **Each motion operation chooses** independent part rig, approved alternate cel, approved deform, semantic 2D diagram or actual Blender 3D mesh/rig. Unsupported action or missing art => typed refusal with exact required art job or engine producer; no scene-specific cheat.
 
@@ -39,7 +39,7 @@
 
 ## 3. TESTING AND ECONOMICS
 
-- P05 \`ENGINEERING_READY=NO\` at latest published source. Final full regression, S00–S09 diagnostic chain and Chrome negatives on source \`9454646\` were not completed. Run the appropriate **bounded, frozen-source** tests and make failures visible. Do not call an interrupted chain passed or waste time rerendering unrelated 7200-frame films.
+- P05 `ENGINEERING_READY=NO` at latest published source. Final full regression, S00–S09 diagnostic chain and Chrome negatives on source `9454646` were not completed. Run the appropriate **bounded, frozen-source** tests and make failures visible. Do not call an interrupted chain passed or waste time rerendering unrelated 7200-frame films.
 - Local nonpublic F01–F80 witness media are needed for full original art generation. Check availability and hashes without publishing licensed images.
 - Do not spend on Higgsfield/Seedance/GPU rental without requested per-shot quote + explicit approval. GPU render capacity does not change Claude hosted token costs. Existing Neutrino remains default; specialist/professional rigs only after a measured real-shot need.
 - Report accepted finished film seconds, real failures and earliest repaired producers, human minutes, render time and actual spend. A green test suite or impressive contact sheet ≠ progress toward a finished episode.
