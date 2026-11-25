@@ -8,7 +8,8 @@
 2. [First-film production master](docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md) — GPT/Claude, Neutrino, Blender 3D host, decoder, 8–10-second actual film iterations.
 3. [Art, motion, and hybrid quality gates](docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md) — six failure classes, all stages, negative proof, human visual standards.
 4. [Mia editorial starter](docs/the-better-one/E01_MIA_EDITORIAL_STARTER.md) — original research sources, illustrative economics and responsible drafting requirements.
-5. [New Claude account exact start prompt](docs/the-better-one/NEW_CLAUDE_ACCOUNT_START.md) — paste into a fresh Claude Code session.\n6. [Mandatory Claude session instructions](CLAUDE.md) and [current P05 handoff](HANDOFF.md) — **do not follow older P02 startup instructions**.
+5. [New Claude account exact start prompt](docs/the-better-one/NEW_CLAUDE_ACCOUNT_START.md) — paste into a fresh Claude Code session.
+6. [Mandatory Claude session instructions](CLAUDE.md) and [current P05 handoff](HANDOFF.md) — **do not follow older P02 startup instructions**.
 
 **Authority:** GPT + the user create and approve story, Experience Director V1, F01–F80 artwork and artistic choices. Claude Code executes registered art, rigging, character acting, actual Blender host, mathematically faithful motion graphics, audio and evidence. **No unapproved simplification, generic placeholder promoted to final art, or false PASS.** The first real qualification is an **8–10-second shot of the actual Mia film**, followed by a grounded host clip, a real decoder clip, a contiguous **90–120-second hybrid proof**, and the finished 8–12-minute pilot (longer only if earned). The original production system reference remains below for technical details.
 
