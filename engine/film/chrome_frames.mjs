@@ -98,7 +98,7 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     if (closed) throw err("RENDER_CAPTURE_FAILURE", { reason: "session closed" });
     const k = shotOf(f); if (k < 0) throw err("FRAME_TILING_GAP", { frame_range: [f, f + 1], reason: `no shot owns frame ${f}` });
     const { page } = await pageFor(k), { shot, scene } = shots[k];
-    const got = await page.evaluate((f, id, fps) => { window.__timelines[id].seek(f / fps, false); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(window.__artbFrame)))); }, f, shot.id, fps);
+    const got = await page.evaluate(async (f, id, fps) => { window.__timelines[id].seek(f / fps, false); await Promise.all([...document.querySelectorAll("image[data-seq]")].map((el) => { const im = new Image(); im.src = el.href.baseVal; return im.decode().catch(() => null); })); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(window.__artbFrame)))); }, f, shot.id, fps); // TBO-G14: decode per-frame host passes before capture
     if (got !== f) throw err("UNDETERMINISTIC_FRAME", { frame_range: [f, f + 1], reason: `runtime evaluated ${got} for requested ${f}` });
     if (failures.length) throw err("RENDER_CAPTURE_FAILURE", { frame_range: [f, f + 1], reason: failures.join("; ") });
     const rows = scene.frameState(f).rows, b = blur.find((x) => f >= x.frames[0] && f < x.frames[1]);

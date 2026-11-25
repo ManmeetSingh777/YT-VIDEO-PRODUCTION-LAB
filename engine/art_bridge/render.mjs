@@ -62,7 +62,7 @@ export async function capture(comp, assetRoot, frameList, outDir, { omitBackgrou
     const domOrder = await page.evaluate(() => [...document.querySelectorAll("g[data-asset]")].map((g) => g.id));
     fs.mkdirSync(outDir, { recursive: true });
     for (const f of frameList) {
-      const got = await page.evaluate((f, id, fps) => { window.__timelines[id].seek(f / fps, false); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(window.__artbFrame)))); }, f, id, fps);
+      const got = await page.evaluate(async (f, id, fps) => { window.__timelines[id].seek(f / fps, false); await Promise.all([...document.querySelectorAll("image[data-seq]")].map((el) => { const im = new Image(); im.src = el.href.baseVal; return im.decode().catch(() => null); })); return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(window.__artbFrame)))); }, f, id, fps); // TBO-G14: per-frame host pass images are decoded before the frame is captured
       if (got !== f) failures.push({ code: "UNDETERMINISTIC_FRAME", frame_range: [f, f + 1], human_readable_reason: `runtime evaluated frame ${got} for requested ${f}` });
       const file = path.join(outDir, `${prefix}${String(f).padStart(4, "0")}.png`);
       await page.screenshot({ path: file, type: "png", omitBackground, clip: { x: 0, y: 0, width: 1920, height: 1080 } });

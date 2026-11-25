@@ -63,6 +63,14 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   // cels and procedural symbols active in this shot
   for (const [aid, cel] of Object.entries(plan.cels || {})) { const a = doc.actions.find((x) => x.id === aid); if (a?.shot_id !== shot.id) continue; for (const e of [...new Set(cel.cycle.map((c) => c.asset_id))]) { const r = registry.get(e), id = `${aid}--cel--${e}`; bands[cel.band || "FOCAL"].push({ id, asset_id: e, slot: e, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); } }
   for (const [aid, p] of Object.entries(plan.procedural || {})) { if (p.type !== "FLOW_PATH" && p.type !== "MODEL_BAR") continue; const a = doc.actions.find((x) => x.id === aid); if (a?.shot_id !== shot.id) continue; const max = p.type === "MODEL_BAR" ? 1 : Math.max(...p.count.map((k) => k[1])), r = registry.get(p.symbol_asset); for (let i = 0; i < max; i++) { const id = `${aid}--sym${i}`; bands[p.band || "FOCAL"].push({ id, asset_id: p.symbol_asset, slot: p.symbol_asset, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); } }
+  // Better One TBO-G14: Blender host passes (engine/host3d/host_pass.mjs#compileHostPasses validated them). A SHADOW and a HOST <image> per
+  // host sit in a depth band, so painted 2D foreground bands/occluders cover them by the same paint order as everything else; their href is
+  // written every frame from the pass manifest (one Blender frame per film frame). Passes are rendered by the calibrated 3D camera, so the 2D
+  // band camera must stay at identity while a host pass is visible (camera-matched host moves are not implemented: typed failure, never a slide).
+  const hostPasses = [];
+  for (const [hid, hp] of Object.entries(plan.host_passes || {})) { if (hp.shot_id !== shot.id) continue; const band = hp.band || "FOCAL";
+    for (const kind of ["shadow", "host"]) { const id = `host--${hid}--${kind}`; (bands[band] || bands.FOCAL).push({ id, asset_id: null, slot: kind === "host" ? hid : `${hid}:shadow`, rig: kind === "host" ? hid : `${hid}:shadow`, after: kind === "host" ? `host--${hid}--shadow` : undefined,
+      markup: `<image id="${xml(P(id))}" data-asset="${xml(hid)}" data-seq="${kind}" href="${xml(hp.url_prefix + hp.first[kind])}" x="0" y="0" width="${hp.resolution[0]}" height="${hp.resolution[1]}" preserveAspectRatio="none"/>` }); runtimeIds.push(id); hostPasses.push({ id, hid, kind, hp, band }); } }
   // P03 E: approved raster mesh deformation = one clipped copy of the APPROVED drawing per mesh triangle, each moved by its own affine
   const triPasses = [];
   for (const [mid, m] of Object.entries(plan.deform_maps || {})) { if (!inThisShot(mid) || !rigIds.includes(m.rig)) continue; const base = rigPasses.find((q) => q.rig === m.rig && q.slot === m.slot && q.asset_id === m.asset); if (!base) throw err("DEFORM_RENDER_FAILURE", { record_id: mid, reason: `deform map targets ${m.rig}.${m.slot}=${m.asset}, which has no paint pass in shot ${shot.id}` });
@@ -148,6 +156,8 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
     for (const id of runtimeIds) if (id.includes("--cel--")) { const c = cels.get(id), aid = id.slice(id.indexOf("--cel--") + 7); rows.push([P(id), fmt(mul(c ? c.matrix : [1, 0, 0, 1, 0, 0], T(...pivotOf(aid)))), c ? 1 : 0, 1]); }
     const syms = new Map(st.procedural.map((s) => [s.pass_id, s]));
     for (const id of runtimeIds) if (id.includes("--sym")) { const s = syms.get(id), aid = s?.asset_id; rows.push([P(id), s ? fmt(mul(s.matrix, T(...pivotOf(aid)))) : "matrix(1 0 0 1 0 0)", s ? 1 : 0, 1]); }
+    for (const h of hostPasses) { const fr = inShot ? h.hp.frames[f] : null; rows.push([P(h.id), "matrix(1 0 0 1 0 0)", fr ? 1 : 0, 1, { href: h.hp.url_prefix + (fr ? fr[h.kind] : h.hp.first[h.kind]) }]);
+      if (fr && h.kind === "host") { const m = cameraMatrix(cam, h.band, plan.parallax, doc.stage); if ([m[0] - 1, m[1], m[2], m[3] - 1, m[4], m[5]].some((x) => Math.abs(x) > 1e-6)) st.failures.push(err("HOST_INTEGRATION_INVALID", { record_id: h.hid, shot_id: shot.id, frame_range: [f, f + 1], reason: `the 2D camera of band ${h.band} moves (${fmt(m)}) while Blender host pass ${h.hid} is visible: the pass was rendered for a static calibrated camera`, producer: "engine/art_bridge/scene_graph.mjs#frameState", details: { failed_invariant: "HOST_CAMERA_MATCHED" } })); } }
     const transitions = {};
     for (const s of screen) { const fr = s.tr.frameAt(f); transitions[s.tr.id] = fr; const L = fr?.layers.find((l) => l.asset_id === s.asset_id); rows.push([P(s.id), fmt(L ? mul(L.matrix, T(...pivotOf(s.asset_id))) : [1, 0, 0, 1, 0, 0]), L ? 1 : 0, 1]); }
     return { rows, state: st, transitions, execution };
