@@ -1,0 +1,466 @@
+{
+ "generated_from_source_sha": "f8ca5f4999862f1e9a962e92946298fe16eccfe8",
+ "generated_utc": "2026-11-25T18:55:56.597Z",
+ "rule": "SUPPORTED_DIAGNOSTIC_ONLY = producer + negative tests exist on diagnostic fixtures; NO row is READY for the film until it has animated approved real art with a human playback review",
+ "rows": [
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "RIGID",
+   "producer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "approved PART drawings with alpha",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "ARTICULATED",
+   "producer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "separately painted parts + hidden-surface underpaint for every bend > 45°, measured landmarks",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "REGISTERED_CELS",
+   "producer": "engine/art_bridge/state_router.mjs#validateStateEdge",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "every directed pose/view/expression/eyes/mouth/hand state as its own registered drawing",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "REGISTERED_MORPH",
+   "producer": "engine/art_bridge/execution.mjs#morphAt",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "two homologous approved VECTOR_PATH drawings",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "EXPLICIT_DEFORM",
+   "producer": "engine/art_bridge/execution.mjs#deformAt",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "approved deformation map (non-folding mesh) on the approved drawing",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "PROCEDURAL",
+   "producer": "engine/art_bridge/temporal.mjs#compileMotionTracks",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "approved SYMBOL drawings",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "CAMERA_WORLD",
+   "producer": "engine/art_bridge/scene_graph.mjs#composeShot",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "WORLD_PLANE drawings covering the whole camera footprint (overscan)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "MOTION_ROUTE",
+   "operation": "TRANSITION",
+   "producer": "engine/art_bridge/transitions.mjs#compileTransition",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot → engine/film/chrome_frames.mjs",
+   "art_state_need": "OUT/MIDDLE/IN plates + aperture mask sharing an anchor landmark",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "NONE (no approved GPT art has been animated)",
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "SUPPORT",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure foot_planted",
+   "art_state_need": "sole landmarks, planted foot drawings",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "REACH",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure end_effector_approaches",
+   "art_state_need": "per action",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "GRIP",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure hand_closed_and_in_contact",
+   "art_state_need": "open + closed HAND drawings, near/far finger layers, palm landmarks",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "OPEN_APERTURE",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure object_state_reached",
+   "art_state_need": "per action",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "LOAD_CONTAINER",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure object_contained",
+   "art_state_need": "per action",
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "executed visual measure \"object_contained\" (pixels must prove the result)",
+   "external_owner": "ENGINE (implement only if the approved script directs it)"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "PINCH",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure hand_closed_and_in_contact",
+   "art_state_need": "open + closed HAND drawings, near/far finger layers, palm landmarks",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "INSERT_TOKEN",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure object_contained",
+   "art_state_need": "per action",
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "executed visual measure \"object_contained\" (pixels must prove the result)",
+   "external_owner": "ENGINE (implement only if the approved script directs it)"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "MECHANISM_START",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure mechanism_moves",
+   "art_state_need": "per action",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "ATTEND",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure gaze_or_head_turns",
+   "art_state_need": "eye/pupil drawings, head views",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "SEMANTIC_VERB",
+   "operation": "CARRY",
+   "producer": "engine/story/action_coverage.mjs + engine/art_bridge/temporal.mjs",
+   "consumer": "engine/film/semantic_qa.mjs measure possession_with_actor",
+   "art_state_need": "per action",
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "executed visual measure \"possession_with_actor\" (pixels must prove the result)",
+   "external_owner": "ENGINE (implement only if the approved script directs it)"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "GRIP",
+   "producer": "engine/art_bridge/contact_solver.mjs",
+   "consumer": "engine/art_bridge/temporal.mjs (contact graph) → semantic_qa",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "PLANT",
+   "producer": "engine/art_bridge/contact_solver.mjs",
+   "consumer": "engine/art_bridge/temporal.mjs (contact graph) → semantic_qa",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "SUPPORT",
+   "producer": "engine/art_bridge/contact_solver.mjs",
+   "consumer": "engine/art_bridge/temporal.mjs (contact graph) → semantic_qa",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "FOLLOW",
+   "producer": "engine/art_bridge/contact_solver.mjs",
+   "consumer": "engine/art_bridge/temporal.mjs (contact graph) → semantic_qa",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "HINGE",
+   "producer": null,
+   "consumer": null,
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "HINGE contact solver (interpenetration/slide/hinge) — refused before art",
+   "external_owner": "ENGINE"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "SLIDE",
+   "producer": null,
+   "consumer": null,
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "SLIDE contact solver (interpenetration/slide/hinge) — refused before art",
+   "external_owner": "ENGINE"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "COLLISION",
+   "producer": null,
+   "consumer": null,
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "COLLISION contact solver (interpenetration/slide/hinge) — refused before art",
+   "external_owner": "ENGINE"
+  },
+  {
+   "class": "CONTACT",
+   "operation": "PINCH",
+   "producer": null,
+   "consumer": null,
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "PINCH contact solver (interpenetration/slide/hinge) — refused before art",
+   "note": "inconsistent registry: verb PINCH has an executed measure but contact type PINCH is refused; a pinch must currently be directed as GRIP",
+   "external_owner": "ENGINE"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "STATIC",
+   "producer": "engine/art_bridge/scene_graph.mjs#cameraMatrix",
+   "consumer": "scene_graph#validateFootprint (painted coverage)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN (world planes with overscan)"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "PAN",
+   "producer": "engine/art_bridge/scene_graph.mjs#cameraMatrix",
+   "consumer": "scene_graph#validateFootprint (painted coverage)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN (world planes with overscan)"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "PUSH",
+   "producer": "engine/art_bridge/scene_graph.mjs#cameraMatrix",
+   "consumer": "scene_graph#validateFootprint (painted coverage)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN (world planes with overscan)"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "PULL",
+   "producer": "engine/art_bridge/scene_graph.mjs#cameraMatrix",
+   "consumer": "scene_graph#validateFootprint (painted coverage)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN (world planes with overscan)"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "ROTATE",
+   "producer": "engine/art_bridge/scene_graph.mjs#cameraMatrix",
+   "consumer": "scene_graph#validateFootprint (painted coverage)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN (world planes with overscan)"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "FOLLOW",
+   "producer": "engine/art_bridge/scene_graph.mjs#cameraMatrix",
+   "consumer": "scene_graph#validateFootprint (painted coverage)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "missing_producer": null,
+   "external_owner": "GPT_ART_HUMAN (world planes with overscan)"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "ORBIT",
+   "producer": null,
+   "consumer": null,
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "real alternate views / 3D planes (never faked on a flat plate)",
+   "external_owner": "ENGINE or creative restaging"
+  },
+  {
+   "class": "CAMERA",
+   "operation": "DOLLY_3D",
+   "producer": null,
+   "consumer": null,
+   "status": "REFUSED_MISSING_PRODUCER",
+   "missing_producer": "real alternate views / 3D planes (never faked on a flat plate)",
+   "external_owner": "ENGINE or creative restaging"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "MOVE",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "ARTICULATE",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "STATE_CHANGE",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "CONTACT",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "REACT",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "CAMERA_MOVE",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "EFFECT",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "DEFORM",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "TRANSITION",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "DIRECTION_OPERATION",
+   "operation": "HOLD",
+   "producer": "engine/story/direction_consequence.mjs",
+   "consumer": "measured on its own owner's pixels (P04-2.2e)",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "external_owner": "GPT_EDITOR"
+  },
+  {
+   "class": "HYBRID",
+   "operation": "DECODER_MODEL_BAR",
+   "producer": "engine/decoder/model_bar.mjs#compileModelBars",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot (symbol pass)",
+   "qa": "engine/decoder/decoder_qa.mjs#verifyModelBarFrames",
+   "test": "tests/tbo/decoder_model.test.mjs",
+   "art_state_need": "approved SYMBOL drawing with alpha, pivot on its bottom edge",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "real_art_proof": "Bible §8.6 teaching model on a flat diagnostic bar (tests/tbo/decoder_model.test.mjs)",
+   "missing": "other model-driven graphics (counters/text, flows by model, chart axes/labels) need TYPE/SYMBOL art and their own operators — build per approved decoder shot",
+   "external_owner": "GPT_EDITOR (model card) + GPT_ART_HUMAN (symbols)"
+  },
+  {
+   "class": "HYBRID",
+   "operation": "BLENDER_HOST_PASS",
+   "producer": "engine/host3d/blender_host_passes.py + engine/host3d/host_pass.mjs#compileHostPasses",
+   "consumer": "engine/art_bridge/scene_graph.mjs#composeShot (host passes)",
+   "qa": "engine/host3d/host_pass.mjs#verifyHostComposite",
+   "test": "tests/tbo/host_pass.test.mjs",
+   "art_state_need": "approved Blender host master; reviewed floor landmarks on the restaurant WORLD_PLANE",
+   "status": "BLOCKED_EXTERNAL",
+   "blocker": "HOST_3D_ASSET_PENDING",
+   "real_art_proof": "diagnostic capsule only (tests/tbo/host_pass.test.mjs)",
+   "missing": "perspective camera; 2D camera move during a host pass; host hand contact with a 2D prop; depth-tested interpenetration",
+   "external_owner": "USER/GPT host concept → Blender modelling/rigging (human or contracted)"
+  },
+  {
+   "class": "HYBRID",
+   "operation": "DIALOGUE_LIPSYNC",
+   "producer": "measured word alignment (external recording + aligner)",
+   "consumer": "engine/art_bridge/acting.mjs#compileActing (speech channel)",
+   "qa": "engine/film/audio_mix.mjs#verifyAudioSync",
+   "test": "tests/p03 acting/speech tests",
+   "art_state_need": "mouth rest/mid/open drawings per speaking view",
+   "status": "SUPPORTED_DIAGNOSTIC_ONLY",
+   "limitation": "syllable-timed rest/mid/open swap; no phoneme visemes (needs explicit creative approval per line, or a new viseme producer)",
+   "blocker": "NEEDS_RECORDED_VOICE",
+   "external_owner": "USER (recorded voice) + aligner"
+  },
+  {
+   "class": "GATES",
+   "operation": "TBO 20-gate registry",
+   "producer": "engine/production/quality_gates.mjs#evaluateQualityGates",
+   "consumer": "engine/tools/quality_gates.mjs",
+   "status": "NOT_COMPUTED",
+   "gate_status": null
+  }
+ ],
+ "summary": {
+  "SUPPORTED_DIAGNOSTIC_ONLY": 37,
+  "REFUSED_MISSING_PRODUCER": 9,
+  "BLOCKED_EXTERNAL": 1,
+  "NOT_COMPUTED": 1
+ }
+}

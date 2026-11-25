@@ -1,0 +1,2 @@
+shot_id,absolute_frames,modality,approved_art_sha,rig_master_sha,source_sound,code_sha,render_device,render_seconds,retries,manual_minutes,provider_cost,editor_review,pass_fail,blockers,accepted_seconds
+NONE,,,,,,,,,,,0,,,"no E01 shot is approved yet: waiting for script/Experience Director lock, approved F01-F80 art, recorded voice and the approved Blender host",0
