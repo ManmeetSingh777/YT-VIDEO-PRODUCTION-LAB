@@ -26,6 +26,7 @@ If the branch isn't checked out and the worktree is clean, create a local tracki
 3. `docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md`.
 4. `docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md`.
 5. `docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md`.
+5a. `docs/the-better-one/P06_13S_PERFORMANCE_SYSTEM_IMPLEMENTATION_DIRECTIVE.md` — mandatory precise implementation order and real 13-second acceptance.
 6. `docs/the-better-one/E01_MIA_EDITORIAL_STARTER.md`.
 7. `inputs/EXPERIENCE_DIRECTOR_V1.md`, `inputs/MOTION_NATIVE_HYBRID_V2_COMPLETE_IMPLEMENTATION_SPEC.md`.
 8. `hybrid_v2/evidence/p05/P05_STATUS.md`, actual P05 source and tests, `schemas/creative_packet_v1_1.schema.json`, `docs/gpt-creative-control/OPERATOR_WORKFLOW.md`.
