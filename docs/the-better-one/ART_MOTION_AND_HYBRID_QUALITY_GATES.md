@@ -3,8 +3,8 @@
 
 ## Source authority and the main insight
 
-- **Creative source:** \`THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md\` (the complete user-supplied editorial Bible committed beside this document); later human-approved per-film decisions supersede earlier proposals. For the first film, Mia is the leading pilot candidate, not yet a research-validated viral winner or final approved title.
-- **Production blueprint:** \`FIRST_FILM_PRODUCTION_MASTER.md\`. **Real implementation:** P05 code inherited from commit \`945464697dc680956bea670e543c8e0c7beebf1b\`, not old P02 instructions or default main.
+- **Creative source:** `THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md` (the complete user-supplied editorial Bible committed beside this document); later human-approved per-film decisions supersede earlier proposals. For the first film, Mia is the leading pilot candidate, not yet a research-validated viral winner or final approved title.
+- **Production blueprint:** `FIRST_FILM_PRODUCTION_MASTER.md`. **Real implementation:** P05 code inherited from commit `945464697dc680956bea670e543c8e0c7beebf1b`, not old P02 instructions or default main.
 - **Director:** ChatGPT + human create idea, claim/model dossier, 12-part Experience Director V1 shot plan, actual action graph, art requirements and real F01–F80 images. Claude executes technically. It may return exact impossibility reports; never delete a creative action, simplify artwork, change the business model or self-approve.
 - **The most important truth:** REGISTRATION = mapping where approved pieces go. Registration does not produce attractive bent elbows, missing underpaint, believable gripping fingers, expression, acting, consistent multi-view faces, satisfying arcs or 3D grounding. We require **complete art-state construction → measured rig → actual motion/interaction → frame-visible consequence → human full-motion quality approval**.
 
@@ -61,7 +61,7 @@ The route is selected per *operation* using required visual appearance and edita
 
 ### 3.1 Direction before image generation
 Each selected actual Mia shot has:
-- \`shot_id, [start,end), story_claim_ids, audience_purpose, truth_mode (F/R/M/H/X), emotional_entry_exit, opening/closing image, action_owner\`.
+- `shot_id, [start,end), story_claim_ids, audience_purpose, truth_mode (F/R/M/H/X), emotional_entry_exit, opening/closing image, action_owner`.
 - Separate events for main/secondary choreography, frame-bounded anticipation/reach/contact/hold/release/reaction, gaze/expression, camera purpose and sound.
 - Actual mechanical object target and end state, not "animate something". If a character must hold a prop, identify the hand, prop, grip surface, release timing and what happens to possession afterward.
 - Each direction decision links to an engine operation, art state, camera, effect or audible cue. If the intended operation does not exist, typed refusal BEFORE creating expensive derivative artwork.
@@ -77,10 +77,10 @@ The engine must calculate **all potentially used states** over the approved acti
 - Actual narrative world objects and one-to-one sources for graphics, text and animated numbers.
 - F01–F80 applicable construction methods WITH actual skill references/witnesses; no hollow "F01–F80 applied" string.
 
-No fixed number of assets. A requirements graph, not 52 arbitrary images. The compiler must report any missing reachable state as \`MISSING_ART_REQUIREMENT\` before images.
+No fixed number of assets. A requirements graph, not 52 arbitrary images. The compiler must report any missing reachable state as `MISSING_ART_REQUIREMENT` before images.
 
 ### 3.3 Real image production
-- Verify the actual current installed \`construct-kurzgesagt-art\` skill, source witnesses and design methods exist in the new ChatGPT art conversation. GitHub's skill text is not proof that native witness images are in the session.
+- Verify the actual current installed `construct-kurzgesagt-art` skill, source witnesses and design methods exist in the new ChatGPT art conversation. GitHub's skill text is not proof that native witness images are in the session.
 - First approve the best original master art (whole look: silhouette, face, hands, paint edges/shading, sophisticated palettes, details and world coherence).
 - Create parts and derived state views through source-attached edits referencing approved masters. Do not generate independent "same Mia" pictures and hope they'll match.
 - Import real PNG/SVG bytes with alpha where needed, operator-attested provenance, exact file SHA/lineage, mask and landmark sidecars; reject fake transparency or missing hidden surfaces.
@@ -109,7 +109,7 @@ For EACH required action frame, evaluate the actual complete event:
 7. Cels and deformation (no inverted mesh, wrong alpha/hidden surface or impossible perspective).
 8. Camera/world footprint, exposure, transition and sound relationships.
 9. Final rendered artwork owner existence and expected visible effect.
-10. Every thrown frame and missing state recorded. 0 checked frames = \`NOT_EVALUATED\`, NEVER \`FEASIBLE\`.
+10. Every thrown frame and missing state recorded. 0 checked frames = `NOT_EVALUATED`, NEVER `FEASIBLE`.
 
 **Failure response hierarchy:** engine bug → repair general producer; incorrect landmark → reviewed correction; missing cel/view/underpaint → exact GPT ArtJob; physically impossible plan → bounded approved creative restaging; unsupported operation → block. Never invent generic art or quietly remove action.
 
@@ -137,10 +137,10 @@ Every negative identifies exact producer, film action/frame and repair class. No
 - Calibrate 3D world/camera to 2D shot camera (projection, scale, world origin, floor plane, gaze targets, depth/mask and shadows). Record precise world→screen transform.
 - Render frame-numbered RGBA plus required depth/object-ID and floor-contact/shadow mattes. Compositor uses these with actual painted foreground/near planes.
 - Test a real host walking, pausing, talking and interacting in the restaurant at 60fps; feet may not float, shadows and occlusion must fit, colors/edge language must be aesthetically cohesive.
-- Missing 3D asset → \`HOST_3D_ASSET_PENDING\`, never a secretly flattened stand-in. Optional 2.5D launch compromise only with explicit user approval.
+- Missing 3D asset → `HOST_3D_ASSET_PENDING`, never a secretly flattened stand-in. Optional 2.5D launch compromise only with explicit user approval.
 
 ## 6. Decoder must be a REAL model-driven animated system
-- Every displayed value carries unit, provenance \`DOCUMENTED / HYPOTHETICAL / MODEL_DERIVED\`, formula and scope.
+- Every displayed value carries unit, provenance `DOCUMENTED / HYPOTHETICAL / MODEL_DERIVED`, formula and scope.
 - Recompute when input levers change; update corresponding chart, bar, physical metaphor and actual scenario consequence.
 - Show constraint and counterexample. For Mia: revenue ≠ contribution ≠ profit; kitchen capacity limits output, overhead remains, price or waste changes can alter customer demand, quality and service.
 - Labels/counters not fake probabilities; no "93% chance" without calibrated credible method.
@@ -153,7 +153,7 @@ Every negative identifies exact producer, film action/frame and repair class. No
 - Real spoken dialogue, measured narration/voice timing, frame-tied SFX and mood music with correct artistic function; final audio mix must be present in verified final MP4, not in separate unused WAV.
 - Render in bounded chunks, recover from interruption, track frame/source hashes and owner/art-state attribution. No frame exception or empty evidence counted as passing.
 - Film reviewer must independently inspect native-resolution moving shots, emotional comprehension, humor, visual consistency, dynamics and entire final edit.
-- Log \`shot_id, absolute_frames, art_sha, rig_sha, code_sha, producer, renderer, real runtime, attempts, operator minutes, provider cost, accepted_seconds, review_notes\`.
+- Log `shot_id, absolute_frames, art_sha, rig_sha, code_sha, producer, renderer, real runtime, attempts, operator minutes, provider cost, accepted_seconds, review_notes`.
 - Never report an accepted clip because it is a clean technical MP4. Acceptance requires **human artistic approval** over exact final mixed video.
 
 ## 8. Actual first-film production and release milestones
