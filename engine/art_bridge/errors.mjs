@@ -25,6 +25,8 @@ export const CODES = Object.freeze([
   "UNIMPLEMENTABLE_CREATIVE_REQUIREMENT", "MOTION_OBLIGATION_UNMET", "ORPHAN_MOTION_TRACK", "GEOMETRY_UNMEASURED", "AUDIO_INPUT_MISSING", "ART_JOB_INPUT_MISSING", "SHADOW_DISCONTINUOUS", "TRANSITION_GEOMETRY_INVALID",
   // Better One first film: model-driven decoder, Blender host passes, production quality-gate registry
   "DECODER_MODEL_INVALID", "MODEL_CONSTRAINT_VIOLATED", "DECODER_INERT_OR_MISLEADING", "HOST_3D_ASSET_PENDING", "HOST_INTEGRATION_INVALID", "QUALITY_GATE_UNPROVEN",
+  // P06 reusable performance commands
+  "PERFORMANCE_COMMAND_INVALID", "PERFORMANCE_CAPABILITY_MISSING", "PERFORMANCE_PROFILE_INVALID", "PERFORMANCE_EFFECT_UNMET",
 ]);
 /** directive N2: every refusal carries the same machine-readable fields (producer, invariant, owner, resume point, revisions, evidence) */
 const N2 = ["producer", "failed_invariant", "dependency_ids", "required_art_or_operation", "repair_owner", "resume_at", "input_revision_hashes", "diagnostic_evidence", "severity", "frame_ranges"];

@@ -48,7 +48,7 @@ export function renderHostPasses({ contract, frames, outDir, blendFile = null, s
  *              resolution:[W,H], camera:{type, location, rotation_euler_deg, ortho_scale}, ground:{z}, host_object, contact_points:[{id, object}],
  *              calibration_landmarks:[{id, world:[x,y,z], plate_px:[x,y], plate_asset}], tolerance_px:{calibration, contact} }
  */
-export function compileHostPasses({ contract: c, passesDir, assetRoot, runType = "PRODUCTION", requireAllFrames = runType === "PRODUCTION" }) {
+export function compileHostPasses({ contract: c, passesDir, assetRoot, runType = "PRODUCTION", requireAllFrames = runType === "PRODUCTION", doc = null }) {
   const errors = [], push = (...a) => errors.push(E(...a)), tol = { calibration: 2, contact: 4, ...(c.tolerance_px || {}) };
   if (c.provenance !== "APPROVED_HOST" && c.provenance !== "DIAGNOSTIC_FIXTURE") push("HOST_3D_ASSET_PENDING", c.host_id, `host provenance ${c.provenance} is unknown`, "HOST_PROVENANCE_DECLARED");
   if (runType === "PRODUCTION" && c.provenance !== "APPROVED_HOST") push("HOST_3D_ASSET_PENDING", c.host_id, "a PRODUCTION film needs the approved Blender host (.blend master, rig, face controls, signed approval); a diagnostic stand-in is never composited into the film", "HOST_ASSET_APPROVED");
@@ -57,6 +57,13 @@ export function compileHostPasses({ contract: c, passesDir, assetRoot, runType =
   const P = JSON.parse(fs.readFileSync(pf, "utf8"));
   if (c.provenance === "APPROVED_HOST" && P.diagnostic_fixture) push("HOST_3D_ASSET_PENDING", c.host_id, "the passes were rendered from the diagnostic fixture, not the approved .blend", "HOST_ASSET_APPROVED");
   if (c.provenance === "APPROVED_HOST" && P.blend_file && fs.existsSync(P.blend_file) && fsha(P.blend_file) !== c.blend_sha256) push("STALE_DEPENDENCY", c.host_id, "the .blend that rendered the passes is not the approved master", "HOST_BLEND_CURRENT");
+  // P06 §5.1: one 60 fps film clock, straight alpha, and passes rendered from the CURRENT mesh/rig and performance (a changed mesh without a re-render is stale)
+  if (P.fps !== 60) push("HOST_INTEGRATION_INVALID", c.host_id, `passes were rendered at ${P.fps ?? "an unrecorded"} fps; the film clock is 60`, "HOST_FPS_60");
+  if (P.alpha_mode !== "STRAIGHT") push("HOST_INTEGRATION_INVALID", c.host_id, `pass alpha is ${P.alpha_mode ?? "unrecorded"}; the compositor composites STRAIGHT alpha (premultiplied edges would darken)`, "HOST_ALPHA_STRAIGHT");
+  for (const [k, what] of [["host_mesh_sha256", "mesh/rig"], ["rig_action_sha256", "performance"]]) { if (c[k] && P[k] !== c[k]) push("STALE_DEPENDENCY", c.host_id, `the passes were rendered from a different ${what} (${String(P[k]).slice(0, 12)}… ≠ contracted ${c[k].slice(0, 12)}…): re-render required`, "HOST_SOURCE_CURRENT");
+    if (c.provenance === "APPROVED_HOST" && !c[k]) push("HOST_3D_ASSET_PENDING", c.host_id, `an approved host contract names its ${k}`, "HOST_ASSET_APPROVED"); }
+  const BANDS = ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND"], hb = BANDS.indexOf(c.band || "FOCAL");
+  for (const id of c.foreground_occluder_ids || []) { const a = doc?.assets?.find((x) => x.id === id); if (!doc) { push("HOST_INTEGRATION_INVALID", c.host_id, "occluder order needs the film manifest", "HOST_OCCLUDER_ORDER"); break; } if (!a) push("MISSING_ART_ASSET", id, `foreground occluder ${id} is not an approved asset`, "HOST_OCCLUDER_ORDER"); else if (BANDS.indexOf(a.depth_band) <= hb) push("HOST_INTEGRATION_INVALID", `${c.host_id}.${id}`, `occluder ${id} is in ${a.depth_band}, not in front of the host band ${c.band || "FOCAL"}: it would be drawn behind the host`, "HOST_OCCLUDER_ORDER"); }
   // 1. the camera Blender used is the contracted camera (a shifted/rotated/rescaled camera is caught here)
   const cu = P.camera_used, { R, C } = cameraBasis(c.camera);
   if (cu.type !== c.camera.type || Math.abs(cu.ortho_scale - c.camera.ortho_scale) > 1e-6 || cu.resolution[0] !== c.resolution[0] || cu.resolution[1] !== c.resolution[1]) push("HOST_INTEGRATION_INVALID", c.host_id, `Blender rendered ${cu.type} scale ${cu.ortho_scale} at ${cu.resolution}; the contract is ${c.camera.type} ${c.camera.ortho_scale} at ${c.resolution}`, "HOST_CAMERA_MATCHED");
@@ -76,11 +83,16 @@ export function compileHostPasses({ contract: c, passesDir, assetRoot, runType =
       if (e > 0.5) push("HOST_INTEGRATION_INVALID", c.host_id, `Blender projects contact ${q.id} to ${q.px} but the calibrated camera gives ${mine}`, "HOST_CAMERA_MATCHED", { frame_range: [f, f + 1] });
       if (Math.abs(q.world[2] - c.ground.z) > 0.01) push("HOST_INTEGRATION_INVALID", `${c.host_id}.${q.id}`, `contact ${q.id} is ${(q.world[2] - c.ground.z).toFixed(3)} world units off the ground at film frame ${f} (floating or sunk)`, "HOST_CONTACT_ON_GROUND", { frame_range: [f, f + 1] }); }
     frames[f] = { host: r.host.file, shadow: r.shadow.file }; }
+  // P06 §5.1: a pass that carries its own background is a pasted rectangle: sampled host/shadow passes must be transparent around the subject
+  const keys = Object.keys(frames).map(Number).sort((a, b) => a - b), sample = [...new Set([keys[0], keys[Math.floor(keys.length / 2)], keys.at(-1)])].filter((x) => x !== undefined);
+  for (const f of sample) for (const k of ["host", "shadow"]) { const png = readPng(path.join(passesDir, frames[f][k])); let lo = 255, opaque = 0; for (let i = 3; i < png.rgba.length; i += 4) { lo = Math.min(lo, png.rgba[i]); if (png.rgba[i] > 200) opaque++; }
+    if (lo > 0) push("HOST_INTEGRATION_INVALID", c.host_id, `${k} pass of film frame ${f} has no transparent pixel (min alpha ${lo}): the render carries its own background and would paste a rectangle over the 2D world`, "HOST_PASS_TRANSPARENT", { frame_range: [f, f + 1] });
+    if (k === "host" && !opaque) push("HOST_INTEGRATION_INVALID", c.host_id, `host pass of film frame ${f} is empty`, "HOST_PASS_PRESENT", { frame_range: [f, f + 1] }); }
   const rel = path.relative(path.resolve(assetRoot), path.resolve(passesDir)).split(path.sep).join("/");
   if (rel.startsWith("..")) push("HOST_INTEGRATION_INVALID", c.host_id, "passes must live under the film asset root", "HOST_PASS_PRESENT");
   const first = frames[want[0]] || { host: P.frames[0]?.host.file, shadow: P.frames[0]?.shadow.file };
   const entry = { shot_id: c.shot_id, band: c.band || "FOCAL", resolution: c.resolution, url_prefix: `assets/${rel}/`, frames, first, passes_sha256: fsha(pf), provenance: c.provenance };
-  return { entry, errors, report: { host_id: c.host_id, provenance: c.provenance, blender_version: P.blender_version, camera_deviation: dev, calibration: calib, contacts, frames_checked: Object.keys(frames).length } };
+  return { entry, errors, report: { host_id: c.host_id, provenance: c.provenance, adapter_version: P.adapter_version ?? null, blender_version: P.blender_version, fps: P.fps, alpha_mode: P.alpha_mode, host_mesh_sha256: P.host_mesh_sha256, rig_action_sha256: P.rig_action_sha256, camera_deviation: dev, calibration: calib, contacts, frames_checked: Object.keys(frames).length } };
 }
 
 const px = (png, x, y) => { const i = (y * png.width + x) * 4; return png.rgba.subarray(i, i + 4); };

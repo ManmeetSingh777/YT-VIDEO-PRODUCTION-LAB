@@ -60,10 +60,29 @@ sc.render.film_transparent = True; sc.render.image_settings.file_format = "PNG";
 sc.view_settings.view_transform = "Standard"
 
 host_objs = [host] + list(host.children_recursive)
+sc.render.fps = int(req.get("fps", 60)); sc.render.fps_base = 1.0
+import hashlib
+def mesh_sha(objs):  # P06 §5.1: the REST geometry/rig that rendered the passes (a changed mesh without a re-render is STALE)
+    h = hashlib.sha256()
+    for o in sorted(objs, key=lambda x: x.name):
+        h.update(("%s|%s;" % (o.name, o.type)).encode())
+        if o.type == "MESH":
+            for v in o.data.vertices: h.update(("%.6f,%.6f,%.6f;" % tuple(v.co)).encode())
+            for p in o.data.polygons: h.update((",".join(str(i) for i in p.vertices) + ";").encode())
+        if o.type == "ARMATURE":
+            for b in o.data.bones: h.update(("%s<%s@%.6f,%.6f,%.6f;" % (b.name, b.parent.name if b.parent else "", *tuple(b.head_local))).encode())
+    return h.hexdigest()
+perf_h = hashlib.sha256()  # the PERFORMANCE as rendered: evaluated world matrices of every host object and pose bone, per rendered frame
+def perf_update():
+    for o in sorted(host_objs, key=lambda x: x.name):
+        perf_h.update((o.name + ":" + ",".join("%.6f" % v for r in o.matrix_world for v in r) + ";").encode())
+        if o.type == "ARMATURE" and o.pose:
+            for pb in o.pose.bones: perf_h.update((pb.name + ":" + ",".join("%.6f" % v for r in pb.matrix for v in r) + ";").encode())
+host_mesh_sha = mesh_sha(host_objs)
 contact_objs = [bpy.data.objects[p["object"]] for p in req["contact_points"]]
 rows = []
 for f in req["frames"]:
-    bf = f - req["blender_frame_offset"]; sc.frame_set(bf)
+    bf = f - req["blender_frame_offset"]; sc.frame_set(bf); perf_update()
     # HOST pass: ground not rendered
     ground.hide_render = True
     for o in host_objs: o.visible_camera = True
@@ -79,7 +98,8 @@ for f in req["frames"]:
         contacts.append({"id": p["id"], "world": [wp.x, wp.y, wp.z], "px": [v.x * W, (1 - v.y) * H]})
     rows.append({"film_frame": f, "blender_frame": bf, "host": {"file": os.path.basename(p_host), "sha256": sha(p_host)}, "shadow": {"file": os.path.basename(p_sh), "sha256": sha(p_sh)}, "contacts": contacts})
 
-json.dump({"blender_version": bpy.app.version_string, "blend_file": bpy.data.filepath or None, "diagnostic_fixture": bool(req.get("diagnostic_fixture")),
+json.dump({"adapter_version": "1.1.0", "blender_version": bpy.app.version_string, "blend_file": bpy.data.filepath or None, "diagnostic_fixture": bool(req.get("diagnostic_fixture")),
+           "fps": sc.render.fps / sc.render.fps_base, "alpha_mode": "STRAIGHT", "color_view_transform": sc.view_settings.view_transform, "host_mesh_sha256": host_mesh_sha, "rig_action_sha256": perf_h.hexdigest(), "pass_list": ["host_rgba", "shadow_catcher_rgba"],
            "camera_used": {"type": cam.data.type, "ortho_scale": cam.data.ortho_scale, "matrix_world": [list(r) for r in cam.matrix_world], "resolution": [W, H]},
            "frames": rows}, open(os.path.join(out, "PASSES.json"), "w", encoding="utf8"), indent=1)
 print("PASSES_WRITTEN", len(rows))

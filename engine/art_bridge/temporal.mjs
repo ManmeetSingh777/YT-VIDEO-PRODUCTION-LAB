@@ -19,6 +19,7 @@ import { validateChannels, channelEvents, channelStatesAt, resolveBindings } fro
 import { rigPoseTimeline, poseAt } from "./state_timeline.mjs";
 import { layerPhrases, compileActing } from "./acting.mjs";
 import { compileModelBars } from "../decoder/model_bar.mjs";
+import { compilePerformance } from "./performance_commands.mjs";
 import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHinge, comX } from "./execution.mjs";
 import { balance } from "./contact_solver.mjs";
 
@@ -52,7 +53,11 @@ const ROUTED = ["RIGID", "ARTICULATED", "REGISTERED_CELS", "REGISTERED_MORPH", "
 
 /** compileMotionTracks(actions, shots, {doc, plan}) → frozen compiled plan or throws an aggregated BridgeError list (.errors) */
 export function compileMotionTracks(actions, shots, ctx) {
-  const { doc } = ctx, errors = [], total = doc.stage.total_frames;
+  const errors = [];
+  // P06: approved PerformanceCommands compile ONCE, here, into the same plan/action surfaces every consumer below reads (no second timeline)
+  let perfReport = null; if (ctx.plan?.performance) { const Pc = compilePerformance(ctx.doc, ctx.plan, { runType: ctx.runType ?? "DIAGNOSTIC", decisions: ctx.directionDecisions ?? null, packetDigest: ctx.packetDigest ?? null, fps: ctx.doc.stage?.fps ?? 60 }); errors.push(...Pc.errors); perfReport = Pc.report;
+    if (Pc.report) { const byId = new Map(Pc.doc.actions.map((a) => [a.id, a])); actions = actions.map((a) => byId.get(a.id) || a); ctx = { ...ctx, doc: Pc.doc, plan: Pc.plan }; } }
+  const { doc } = ctx, total = doc.stage.total_frames;
   { const un = (doc.rigs || []).filter((r) => r.geometry_status === "UNMEASURED" && actions.some((a) => a.actors.some((x) => x.rig_id === r.id))); if (un.length) throw Object.assign(err("GEOMETRY_UNMEASURED", { record_id: un[0].id, reason: `motion cannot be computed before the artwork is measured: ${un.map((r) => r.id).join(", ")}` }), { errors: un.map((r) => err("GEOMETRY_UNMEASURED", { record_id: r.id, reason: "rig geometry is unmeasured" })) }); }
   // layers 2–3 (P03 A+D, see acting.mjs): compiled PHRASES become primary tracks, ACTING modifies them (lag/anticipation/settle) and adds
   // additive life, follow-through springs, gaze aim and channel swap events (blink, speech). Done BEFORE validation, so every compiled key
@@ -90,6 +95,8 @@ export function compileMotionTracks(actions, shots, ctx) {
   for (const rx of plan.reactions || []) { if (rx.type !== "HINGE_FOLLOW") { errors.push(err("REACTION_UNSATISFIABLE", { record_id: rx.id, reason: `reaction type ${rx.type} has no executor` })); continue; }
     const R1 = rigs.get(rx.rig), R2 = rigs.get(rx.driver?.rig); if (!R1?.joints.has(rx.joint) || !R1.socketById.has(rx.handle_socket) || !R2?.joints.has(rx.driver.joint)) { errors.push(err("UNKNOWN_REFERENCE", { record_id: rx.id, reason: "reaction names an unknown rig/joint/socket" })); continue; } own(`${rx.rig}.${rx.joint}`, `reaction:${rx.id}`); }
   for (const [rid, sp] of Object.entries(plan.support || {})) { const R_ = rigs.get(rid); if (!R_ || !(sp.feet || []).every((s) => R_.socketById.has(s)) || !Object.keys(sp.mass || {}).every((j) => R_.joints.has(j))) errors.push(err("UNKNOWN_REFERENCE", { record_id: `support:${rid}`, reason: "support model names an unknown rig/foot socket/mass joint" })); }
+  // P06: several aims may act on one joint only in disjoint windows (an aim without frames owns the whole film)
+  for (const [key, g0] of Object.entries(plan.__gaze || {})) { const L = [].concat(g0).map((g) => ({ fr: g.frames || [0, total], src: g.source || "acting:gaze" })); for (let i = 0; i < L.length; i++) for (let k = i + 1; k < L.length; k++) if (L[i].fr[0] < L[k].fr[1] && L[k].fr[0] < L[i].fr[1]) errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: key, frame_range: [Math.max(L[i].fr[0], L[k].fr[0]), Math.min(L[i].fr[1], L[k].fr[1])], reason: `${L[i].src} and ${L[k].src} both aim ${key}` })); }
   for (const key of Object.keys(plan.__additive || {})) { const by = owner.get(key); if (by && by !== "track") errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: key, reason: `additive acting on ${key}, which is owned by ${by} (its value is not an editable track)` })); }
 
   // route every action exactly once
@@ -136,12 +143,12 @@ export function compileMotionTracks(actions, shots, ctx) {
     for (let i = errors.length - 1; i >= 0; i--) { const e = errors[i], act = actions.find((a) => a.id === e.record_id), edge = /^(.+?)\.(.+)->(.+)$/.exec(e.record_id || ""), ids = e.code === "MISSING_ART_ASSET" ? (act ? absent(act.required_assets) : absent([e.record_id])) : ["UNSUPPORTED_VIEW", "UNSUPPORTED_STATE_EDGE"].includes(e.code) && edge ? absent([...stateArt(edge[1], edge[2]), ...stateArt(edge[1], edge[3])]) : ["INVALID_MORPH_TOPOLOGY", "INVALID_DEFORM_MAP", "DEFORM_RENDER_FAILURE"].includes(e.code) && act ? absent(act.required_assets) : []; if (ids.length) { pendingArt.push(...ids); errors.splice(i, 1); } } }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
   // root + joint values from tracks (+ gear followers + baked secondary)
-  const additive = plan.__additive || {}, addAt = (key, f) => { let s = 0; for (const a of additive[key] || []) s += a.amp * Math.sin((2 * Math.PI * (f + a.phase)) / a.period); return s; };
+  const additive = plan.__additive || {}, addAt = (key, f) => { let s = 0; for (const a of additive[key] || []) { let env = 1; if (a.frames) { if (f < a.frames[0] || f >= a.frames[1]) continue; const r = Math.max(1, Math.min(a.period / 4, (a.frames[1] - a.frames[0]) / 4)); env = Math.min(1, (f - a.frames[0]) / r, (a.frames[1] - f) / r); } s += env * a.amp * Math.sin((2 * Math.PI * (f + a.phase)) / a.period); } return s; }; // P06: a windowed additive (idle breathing) fades in/out inside its command
   const rawJoint = (rid, j, f) => { const k = plan.tracks?.[rid]?.joints?.[j]; return (k ? ev(k, f) : 0) + addAt(`${rid}.${j}`, f); };
   const gearOf = new Map(); for (const p of Object.values(plan.procedural || {})) if (p.type === "GEAR_TRAIN") for (const fo of p.followers) gearOf.set(`${fo.rig}.${fo.joint}`, { driver: p.driver, ratio: -fo.teeth_driver / fo.teeth_follower, phase: fo.phase_deg || 0 });
   C.jointValue = (rid, j, f) => {
@@ -167,11 +174,11 @@ export function compileMotionTracks(actions, shots, ctx) {
     // P05: a linked output follows its driver's SOLVED angle (a lever moved by a hand drives its gear; a follower may drive the next one)
     for (let n = 0; n < gearOf.size; n++) { let changed = false; for (const [k, g] of gearOf) { const [rid, j] = [k.slice(0, k.lastIndexOf(".")), k.slice(k.lastIndexOf(".") + 1)], d = out[g.driver.rig]?.theta?.[g.driver.joint]; if (d === undefined || !out[rid]) continue; const v = d * g.ratio + g.phase; if (out[rid].theta[j] !== v) { out[rid].theta[j] = v; changed = true; } } if (!changed) break; }
     // gaze (acting layer): the head/eye joint turns toward its target by a bounded, gain-scaled ADDITIVE rotation (the art is rotated, never warped)
-    for (const [key, g] of Object.entries(plan.__gaze || {})) {
-      const [rid, j] = key.split("."), s = out[rid]; if (!s || (g.frames && (f < g.frames[0] || f >= g.frames[1]))) continue;
+    for (const [key, g0] of Object.entries(plan.__gaze || {})) for (const g of [].concat(g0)) { // P06: one joint may carry several aims in disjoint windows, each with a weight ramp
+      const [rid, j] = key.split("."), s = out[rid]; if (!s || (g.frames && (f < g.frames[0] || f >= g.frames[1]))) continue; const wgt = g.weight ? ev(g.weight, f) : 1; if (!(wgt > 0)) continue;
       let tgt = g.target?.world_xy || null; if (g.target?.rig) { const o = out[g.target.rig]; if (!o) continue; tgt = socketWorld(g.target.rig, fk(g.target.rig, o), g.target.socket); }
       if (!tgt) continue; const M = fk(rid, s), p = apply(M[j], rigs.get(rid).joints.get(j).rest_xy), cur = angleOf(M[j]) + (g.forward_deg || 0);
-      const d = wrap180(deg(Math.atan2(tgt[1] - p[1], tgt[0] - p[0])) - cur), m = g.max_deg ?? 20; s.theta[j] += (g.gain ?? 1) * Math.max(-m, Math.min(m, d));
+      const d = wrap180(deg(Math.atan2(tgt[1] - p[1], tgt[0] - p[0])) - cur), m = g.max_deg ?? 20; s.theta[j] += wgt * (g.gain ?? 1) * Math.max(-m, Math.min(m, d));
     }
     return out;
   };

@@ -3,7 +3,7 @@
 // DIAGNOSTIC fixture — not Mia's approved economics, not approved art. The bar drawing is a flat diagnostic symbol, not GPT artwork.
 import test from "node:test"; import assert from "node:assert/strict";
 import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto";
-import { evaluateModel, validateModelCard, modelDigest, sensitivity, displayLabelAudit, parseUnit, unitString } from "../../engine/decoder/model_card.mjs";
+import { evaluateModel, validateModelCard, modelDigest, sensitivity, displayLabelAudit, parseUnit, unitString, scenarioClaimAudit } from "../../engine/decoder/model_card.mjs";
 import { verifyModelBarFrames } from "../../engine/decoder/decoder_qa.mjs";
 import { compileMotionTracks } from "../../engine/art_bridge/temporal.mjs";
 import { writeRGBA } from "../../engine/art_bridge/png.mjs";
@@ -19,6 +19,12 @@ test("TBO-G15 model: Bible §8.6 arithmetic is recomputed from inputs, with unit
   assert.equal(net("baseline").unit, "USD/day"); assert.equal(net("baseline").provenance, "MODEL_DERIVED");
   assert.deepEqual(net("better").assumption_inputs, ["capacity", "drink_margin", "drinks", "meals", "other_cost", "price", "var_cost"].filter((x) => x !== "capacity"));
   assert.equal(unitString(parseUnit("USD*meal^-1")), "USD/meal");
+});
+test("P06 decoder: each scenario's stated outcome is recomputed; a counterexample shown as success is refused", () => {
+  assert.deepEqual(scenarioClaimAudit(TEACHING_MODEL), [], "baseline/discount LOSS, better GAIN, discount+volume BREAKS_CONSTRAINT all match the model");
+  const fake = clone(TEACHING_MODEL); fake.scenarios.find((s) => s.id === "discount").claim.outcome = "GAIN";
+  const e = scenarioClaimAudit(fake); assert.equal(e.length, 1); assert.equal(e[0].code, "DECODER_INERT_OR_MISLEADING"); assert.match(e[0].human_readable_reason, /presented as GAIN but the model computes LOSS/);
+  const hide = clone(TEACHING_MODEL); hide.scenarios.find((s) => s.id === "discount_more_volume").claim.outcome = "GAIN"; assert.match(scenarioClaimAudit(hide)[0].human_readable_reason, /computes BREAKS_CONSTRAINT/, "hiding the capacity limit behind a 'success' label is refused");
 });
 test("TBO-G15 model negatives: unit error, capacity overflow, cycle, undocumented 'fact', inert override", () => {
   const units = clone(TEACHING_MODEL); units.formulas[3].expr = "meal_contribution + drink_contribution - price"; // USD/day - USD/meal

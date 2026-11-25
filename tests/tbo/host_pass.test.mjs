@@ -58,6 +58,19 @@ test("TBO-G14 host pass: Blender passes composited between 2D bands, verified on
   // NEGATIVE: contract camera shifted 0.1 world units (32 px) → Blender's camera and the painted floor landmarks no longer match
   const shifted = contract({ camera: { ...clone(CAMERA), location: [0.1, -10, 3.68] } }), sh = compileHostPasses({ contract: shifted, passesDir: passes, assetRoot: FIX, runType: "DIAGNOSTIC", requireAllFrames: false });
   assert.ok(sh.errors.some((e) => e.details?.failed_invariant === "HOST_CAMERA_MATCHED")); assert.ok(sh.errors.some((e) => e.details?.failed_invariant === "HOST_WORLD_CALIBRATED"));
+  // P06 §5.1 contract: one 60 fps clock, straight alpha, passes bound to the mesh/rig + performance that rendered them, transparent passes, occluder band order
+  const pj = path.join(passes, "PASSES.json"), P0 = fs.readFileSync(pj, "utf8"), Pj = JSON.parse(P0);
+  assert.equal(Pj.fps, 60); assert.equal(Pj.alpha_mode, "STRAIGHT"); assert.match(Pj.host_mesh_sha256, /^[a-f0-9]{64}$/); assert.match(Pj.rig_action_sha256, /^[a-f0-9]{64}$/);
+  const inv = (c, mut) => { if (mut) { const q = clone(Pj); mut(q); fs.writeFileSync(pj, JSON.stringify(q)); } try { return compileHostPasses({ contract: c, passesDir: passes, assetRoot: FIX, runType: "DIAGNOSTIC", requireAllFrames: false, doc: roomScene().M }).errors.map((e) => e.details?.failed_invariant); } finally { fs.writeFileSync(pj, P0); } };
+  const bound = { host_mesh_sha256: Pj.host_mesh_sha256, rig_action_sha256: Pj.rig_action_sha256, foreground_occluder_ids: ["counter"] };
+  assert.deepEqual(inv(contract(bound)), [], "the bound contract compiles clean");
+  assert.ok(inv(contract(bound), (q) => (q.fps = 30)).includes("HOST_FPS_60"));
+  assert.ok(inv(contract(bound), (q) => (q.alpha_mode = "PREMULTIPLIED")).includes("HOST_ALPHA_STRAIGHT"));
+  assert.ok(inv(contract({ ...bound, host_mesh_sha256: "a".repeat(64) })).includes("HOST_SOURCE_CURRENT"), "a changed mesh without a re-render is stale");
+  assert.ok(inv(contract({ ...bound, rig_action_sha256: "b".repeat(64) })).includes("HOST_SOURCE_CURRENT"), "a changed performance without a re-render is stale");
+  assert.ok(inv(contract({ ...bound, foreground_occluder_ids: ["room_far"] })).includes("HOST_OCCLUDER_ORDER"), "an 'occluder' behind the host band is refused");
+  const opq = png("opaque_host.png", 1920, 1080, () => [214, 190, 160, 255]), opFile = path.join(passes, "opaque_host.png"); fs.copyFileSync(path.join(FIX, opq.file), opFile);
+  assert.ok(inv(contract(bound), (q) => { q.frames[0].host = { file: "opaque_host.png", sha256: opq.sha256 }; }).includes("HOST_PASS_TRANSPARENT"), "a render with its own background (a pasted rectangle) is refused");
   // NEGATIVE: a diagnostic stand-in in a PRODUCTION film → HOST_3D_ASSET_PENDING; incomplete frame coverage is refused
   const prod = compileHostPasses({ contract: contract(), passesDir: passes, assetRoot: FIX, runType: "PRODUCTION" });
   assert.ok(prod.errors.some((e) => e.code === "HOST_3D_ASSET_PENDING")); assert.ok(prod.errors.some((e) => e.details?.failed_invariant === "HOST_FRAMES_COMPLETE"));

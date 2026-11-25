@@ -15,7 +15,7 @@
 import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto";
 import { packetDigest } from "./creative_packet.mjs";
 import { feedback } from "./creative_preflight.mjs";
-import { validateModelCard, evaluateModel, displayLabelAudit } from "../decoder/model_card.mjs";
+import { validateModelCard, evaluateModel, displayLabelAudit, scenarioClaimAudit } from "../decoder/model_card.mjs";
 
 const PR = "engine/story/hybrid_contract.mjs#hybridPreflight";
 const TRUTH = ["F", "R", "M", "H", "X"];
@@ -53,6 +53,7 @@ export function hybridPreflight(packet, H, { sourceDir = null } = {}) {
     const V = validateModelCard(d.model_card); if (!V.ok) for (const e of V.errors) bad(e.details?.failed_invariant || "MODEL_CARD_VALID", "INCOMPLETE_DIRECTION", e.human_readable_reason || e.message);
     else { for (const sid of new Set((d.scenario_keys || []).map((k) => k[1]))) { try { const R = evaluateModel(d.model_card, sid), v = R.values[d.output]; if (!v) bad("DECODER_OUTPUT_DEFINED", "INCOMPLETE_DIRECTION", `model has no output ${d.output}`); else if (v.unit !== d.unit) bad("DECODER_UNIT", "INCOMPLETE_DIRECTION", `${d.output} is ${v.unit}, the decoder declares ${d.unit}`); } catch (e) { bad(e.details?.failed_invariant || e.code, "INCOMPLETE_DIRECTION", e.human_readable_reason || e.message); } }
       for (const e of displayLabelAudit(d.model_card, d.displays || [])) bad("DISPLAY_PROVENANCE_HONEST", "INCOMPLETE_DIRECTION", e.human_readable_reason || e.message);
+      for (const e of scenarioClaimAudit(d.model_card)) bad("SCENARIO_CLAIM_MATCHES_MODEL", "INCOMPLETE_DIRECTION", e.human_readable_reason || e.message);
       for (const v of d.model_card.variables.filter((x) => x.provenance === "REAL_DOCUMENTED")) { const c = claims.get(v.claim_id); if (!c || c.mode !== "F") bad("MODEL_DOCUMENTED_HAS_SOURCE", "INCOMPLETE_DIRECTION", `input ${v.id} claims REAL_DOCUMENTED but claim ${v.claim_id} is not a sourced F claim in this contract`); } }
     ledger.decoders.push(row); }
   // hosts: TBO-G14

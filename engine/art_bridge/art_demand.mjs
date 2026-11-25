@@ -5,6 +5,7 @@
 import { stateIntervals } from "./asset_state.mjs";
 import { cameraSizedArtworkDemand } from "./source_method_causality.mjs";
 import { ev } from "./temporal.mjs";
+import { performanceArtClosure } from "./performance_commands.mjs";
 const merge = (spans) => { const s = spans.map((x) => [...x]).sort((a, b) => a[0] - b[0]), o = []; for (const x of s) { const l = o.at(-1); if (l && x[0] <= l[1]) l[1] = Math.max(l[1], x[1]); else o.push(x); } return o; };
 export function deriveArtDemands({ doc, plan, motionPlans = {} }) {
   const planned = new Set(plan.assets.map((a) => a.asset_id)), dem = new Map(), add = (id, o) => { const d = dem.get(id) || { asset: id, why: new Set(), frames: [], representation: o.representation, consumers: new Set() }; d.why.add(o.why); d.frames.push(o.frames); d.consumers.add(o.consumer); dem.set(id, d); };
@@ -33,6 +34,8 @@ export function deriveArtDemands({ doc, plan, motionPlans = {} }) {
   // procedural symbols, effect sprites and light planes. A state with no drawing becomes an explicit demand BEFORE any render.
   const span = (rigId) => doc.actions.filter((x) => x.actors.some((y) => y.rig_id === rigId)).map((x) => x.frame_range), actFrames = (id) => doc.actions.find((x) => x.id === id)?.frame_range || [0, doc.stage?.total_frames ?? 0];
   for (const mp of plans) {
+    // P06 §6.5: every drawing the approved PerformanceCommands reach (eye/mouth/hand/expression/view/gait states), derived from the measured rig + roles
+    if (mp?.performance) { const pc = performanceArtClosure(doc, mp); for (const x of pc.demands) for (const fr of x.frames) add(x.asset, { why: x.why.join("; "), frames: fr, representation: x.representation, consumer: x.consumers[0] }); }
     for (const [rigId, A] of Object.entries(mp?.acting || {})) { const rig = doc.rigs.find((r) => r.id === rigId), want = [...(A.blink ? [[A.blink.channel, A.blink.open], [A.blink.channel, A.blink.closed]] : []), ...(A.speech ? [[A.speech.channel, A.speech.rest], [A.speech.channel, A.speech.open], [A.speech.channel, A.speech.mid], ...Object.values(A.speech.shapes || {}).map((x) => [A.speech.channel, x])] : [])].filter(([c, x]) => c && x);
       for (const [ch, stId] of want) { const c = (rig?.state_channels || []).find((x) => x.id === ch), st = c?.states.find((x) => x.id === stId), ids = Object.entries(st?.asset_bindings || {}), def = c?.default === stId, why = `acting of ${rigId} reaches ${ch}.${stId} (${A.blink?.channel === ch ? "blink" : "speech"})`;
         for (const fr of span(rigId)) { if (st && ids.length) for (const [, aid] of ids) add(aid, { why, frames: fr, representation: "REGISTERED_CELS", consumer: "acting.mjs#compileActing" }); else if (!st || (!def && !ids.length)) add(`${rigId}::${ch}.${stId}`, { why: `${why}: the channel has no drawing for this state`, frames: fr, representation: "REGISTERED_CELS", consumer: "acting.mjs#compileActing" }); } } }

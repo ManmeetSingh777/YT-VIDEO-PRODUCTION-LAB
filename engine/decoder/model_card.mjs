@@ -144,3 +144,15 @@ export function displayLabelAudit(card, displays, scenarioId = "baseline") {
     if (d.shown_provenance !== v.provenance) out.push(err("DECODER_INERT_OR_MISLEADING", { record_id: d.value_ref, reason: `display labels ${d.value_ref} as ${d.shown_provenance} but the model classifies it ${v.provenance}${v.assumption_inputs.length ? ` (depends on assumptions ${v.assumption_inputs.join(", ")})` : ""}`, producer: `${PR}#displayLabelAudit`, details: { failed_invariant: "DISPLAY_PROVENANCE_HONEST" } })); }
   return out;
 }
+
+/** P06 §5.2: a scenario's stated outcome must be what the model computes. scenario.claim = { output, outcome: "GAIN"|"LOSS"|"BREAKS_CONSTRAINT" }.
+ *  Relabelling the counterexample (a losing or capacity-breaking scenario) as a success is DECODER_INERT_OR_MISLEADING. */
+export function scenarioClaimAudit(card) {
+  const out = [], bad = (s, why) => out.push(err("DECODER_INERT_OR_MISLEADING", { record_id: s.id, reason: why, producer: `${PR}#scenarioClaimAudit`, details: { failed_invariant: "SCENARIO_CLAIM_MATCHES_MODEL" } }));
+  for (const s of card.scenarios || []) { if (!s.claim) continue; const want = s.claim.outcome; if (!["GAIN", "LOSS", "BREAKS_CONSTRAINT"].includes(want)) { bad(s, `scenario ${s.id} claim outcome ${want} must be GAIN, LOSS or BREAKS_CONSTRAINT`); continue; }
+    let R = null, broke = null; try { R = evaluateModel(card, s.id); } catch (e) { if (e.code === "MODEL_CONSTRAINT_VIOLATED") broke = e; else throw e; }
+    const got = broke ? "BREAKS_CONSTRAINT" : (() => { const v = R.values[s.claim.output]?.value; if (v === undefined) return null; return v > 0 ? "GAIN" : v < 0 ? "LOSS" : "ZERO"; })();
+    if (got === null) bad(s, `scenario ${s.id} claims an outcome for ${s.claim.output}, which the model does not define`);
+    else if (got !== want) bad(s, `scenario ${s.id} is presented as ${want} but the model computes ${got}${R ? ` (${s.claim.output} = ${R.values[s.claim.output].value} ${R.values[s.claim.output].unit})` : `: ${broke.human_readable_reason}`}`); }
+  return out;
+}
