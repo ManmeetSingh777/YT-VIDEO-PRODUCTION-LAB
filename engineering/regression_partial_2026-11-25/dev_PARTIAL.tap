@@ -1,0 +1,1093 @@
+TAP version 13
+# Subtest: R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin
+ok 1 - R01/R02 raster→canonical→raster round trips; canonical rect = bbox of the 4 transformed corners for scale/rotation/nonuniform/crop/negative origin
+  ---
+  duration_ms: 5.0442
+  type: 'test'
+  ...
+# Subtest: R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay
+ok 2 - R07 unlike families fit THEIR OWN interfaces: a machine hinge and an organism appendage move to measured art; frame anchors stay
+  ---
+  duration_ms: 4.8234
+  type: 'test'
+  ...
+# Subtest: R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted
+ok 3 - R08 negatives: missing hidden paint, wrong underpaint order, unknown alpha refuse before any pixels are trusted
+  ---
+  duration_ms: 1.3503
+  type: 'test'
+  ...
+# Subtest: H1 demands are derived from the real action graph (every bound state, contact closure, camera coverage) with frames — no fixed image count
+ok 4 - H1 demands are derived from the real action graph (every bound state, contact closure, camera coverage) with frames — no fixed image count
+  ---
+  duration_ms: 34.5676
+  type: 'test'
+  ...
+# Subtest: P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused
+ok 5 - P01 the film's shots tile [0,7200) exactly; gaps, double ownership and off-boundary transitions are refused
+  ---
+  duration_ms: 6.2957
+  type: 'test'
+  ...
+# Subtest: P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a nondeterministic renderer fails re-render verification
+ok 6 - P02 chunk renders are deterministic: seek == sequential, a transient crash is retried to identical bytes, a nondeterministic renderer fails re-render verification
+  ---
+  duration_ms: 8660.7744
+  type: 'test'
+  ...
+# Subtest: P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render
+ok 7 - P03 any upstream change (manifest, story, direction, motion plan, design, audio) changes the film revision and stales QA/render
+  ---
+  duration_ms: 4480.9731
+  type: 'test'
+  ...
+# Subtest: P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks
+ok 8 - P04 measured narration places critical events; a changed word time moves the event frame; estimated timing blocks
+  ---
+  duration_ms: 1.2012
+  type: 'test'
+  ...
+# Subtest: P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification
+ok 9 - P05 render negatives: no audio stream, wrong fps, black frame, sentinel (uncovered) pixels each fail verification
+  ---
+  duration_ms: 3447.7505
+  type: 'test'
+  ...
+# Subtest: P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art
+ok 10 - P08 layered verdicts: every layer on test/diagnostic evidence → TEST_PASS only; any missing layer → FAIL; P07/P09 stay unproven without real art
+  ---
+  duration_ms: 0.7137
+  type: 'test'
+  ...
+# Subtest: M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse
+ok 11 - M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse
+  ---
+  duration_ms: 18.9253
+  type: 'test'
+  ...
+# Subtest: M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error
+ok 12 - M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error
+  ---
+  duration_ms: 64.7477
+  type: 'test'
+  ...
+# Subtest: M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched
+ok 13 - M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched
+  ---
+  duration_ms: 38.5116
+  type: 'test'
+  ...
+# Subtest: M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)
+ok 14 - M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)
+  ---
+  duration_ms: 2168.6683
+  type: 'test'
+  ...
+# Subtest: M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused
+ok 15 - M12 one phrase drives body, prop, face, camera and sound on shared integer frames with overlap; isolated motion is refused
+  ---
+  duration_ms: 5.7732
+  type: 'test'
+  ...
+# Subtest: M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic
+ok 16 - M13 seeded particle/phase state is a pure function of (seed, frame): random seek equals sequential replay; shutter samples are deterministic
+  ---
+  duration_ms: 7.3739
+  type: 'test'
+  ...
+# Subtest: B3-1 single-scene QA never certifies a film (whole_film_pass false)
+ok 17 - B3-1 single-scene QA never certifies a film (whole_film_pass false)
+  ---
+  duration_ms: 1738714.1197
+  type: 'test'
+  ...
+# Subtest: B3-2 automated gates pass; without a film review the verdict is FAIL
+ok 18 - B3-2 automated gates pass; without a film review the verdict is FAIL
+  ---
+  duration_ms: 16415.0935
+  type: 'test'
+  ...
+# Subtest: B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)
+ok 19 - B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)
+  ---
+  duration_ms: 32613.5511
+  type: 'test'
+  ...
+# Subtest: B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+ok 20 - B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+  ---
+  duration_ms: 21424.8979
+  type: 'test'
+  ...
+# Subtest: B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame
+ok 21 - B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame
+  ---
+  duration_ms: 2688090.2496
+  type: 'test'
+  ...
+# Subtest: B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)
+ok 22 - B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)
+  ---
+  duration_ms: 36402.0817
+  type: 'test'
+  ...
+# Subtest: B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail
+ok 23 - B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail
+  ---
+  duration_ms: 186301.7861
+  type: 'test'
+  ...
+# Subtest: P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render
+ok 24 - P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render
+  ---
+  duration_ms: 35270.0319
+  type: 'test'
+  ...
+# Subtest: B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine
+ok 25 - B1-a 640×900 master registered at 0.5×: canonical rect [-20,-15,320,450] and one full crop→canonical affine
+  ---
+  duration_ms: 17691.9488
+  type: 'test'
+  ...
+# Subtest: B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)
+ok 26 - B1-b every registered part: canonical rect = bbox of its four transformed crop corners (independent ground truth from the delivery transform)
+  ---
+  duration_ms: 6.1462
+  type: 'test'
+  ...
+# Subtest: B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix
+ok 27 - B1-c the loader refuses a canonical rect that disagrees with its crop→canonical matrix
+  ---
+  duration_ms: 347.1083
+  type: 'test'
+  ...
+# Subtest: B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree
+ok 28 - B1-d world plate at 2 px/unit: rect [-100,-60,1200,675]; footprint flags the wide view and passes the push-in; Chrome pixels agree
+  ---
+  duration_ms: 3164.2774
+  type: 'test'
+  ...
+# Subtest: B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)
+ok 29 - B1-e emitter applies scale/rotation/crop exactly once: interior source pixels land where crop→canonical predicts (0.5×, 1.25×+rot, 0.9×+rot, rot, sub-crop)
+  ---
+  duration_ms: 1917.062
+  type: 'test'
+  ...
+# Subtest: B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)
+ok 30 - B1-f transition plates delivered at 2× density render like 1× plates (mask aperture, anchor and scale applied once)
+  ---
+  duration_ms: 4710.019
+  type: 'test'
+  ...
+# Subtest: B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners
+ok 31 - B2-a the real Ines plan declares surface→underpaint ownership; plan validation refuses unmapped / non-underpaint / wrongly ordered owners
+  ---
+  duration_ms: 9.1752
+  type: 'test'
+  ...
+# Subtest: B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses
+ok 32 - B2-b intake carries the ownership: forearm links pilot_underpaint, loader finds no MISSING_UNDERPAINT, unmapped plan refuses
+  ---
+  duration_ms: 403.1957
+  type: 'test'
+  ...
+# Subtest: B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam
+ok 33 - B2-c hard elbow bend in Chrome: owned underpaint closes the joint; hiding it opens a seam
+  ---
+  duration_ms: 2871.4187
+  type: 'test'
+  ...
+# Subtest: H1 planned alpha contract is enforced at intake (no silent rewrite)
+ok 34 - H1 planned alpha contract is enforced at intake (no silent rewrite)
+  ---
+  duration_ms: 210.8492
+  type: 'test'
+  ...
+# Subtest: H2 registration receipt content is verified and bound into the approval
+ok 35 - H2 registration receipt content is verified and bound into the approval
+  ---
+  duration_ms: 152.1243
+  type: 'test'
+  ...
+# Subtest: H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume
+ok 36 - H3 provider: model/size/config in the idempotency key; multiple outputs kept as immutable candidates; retry then resume
+  ---
+  duration_ms: 2327.5215
+  type: 'test'
+  ...
+# Subtest: H4 review history is immutable; a rejection clears the current pointer; every decision survives
+ok 37 - H4 review history is immutable; a rejection clears the current pointer; every decision survives
+  ---
+  duration_ms: 266.4028
+  type: 'test'
+  ...
+# Subtest: H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator
+ok 38 - H5 API reviews are DIAGNOSTIC; production refuses non-human approvals; human attestation cannot be minted without an interactive operator
+  ---
+  duration_ms: 467.857
+  type: 'test'
+  ...
+# Subtest: B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused
+ok 39 - B2-d REAL Ines contract: forearm + elbow underpaint ingest with linked ownership and BELOW order; removing the link is refused
+  ---
+  duration_ms: 1956.7953
+  type: 'test'
+  ...
+# Subtest: P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+ok 40 - P0-1a every exported ArtJob whose triggers carry frames has non-empty motion_context.frame_ranges
+  ---
+  duration_ms: 278.4487
+  type: 'test'
+  ...
+# Subtest: P0-1b Ines master context covers the S02 interval and the master's shots
+ok 41 - P0-1b Ines master context covers the S02 interval and the master's shots
+  ---
+  duration_ms: 267.5518
+  type: 'test'
+  ...
+# Subtest: P0-1c perturbing S02 grip timing changes only dependent job contexts
+ok 42 - P0-1c perturbing S02 grip timing changes only dependent job contexts
+  ---
+  duration_ms: 457.9797
+  type: 'test'
+  ...
+# Subtest: P0-2a all six canonical-master jobs route to the canonical master medium
+ok 43 - P0-2a all six canonical-master jobs route to the canonical master medium
+  ---
+  duration_ms: 241.1097
+  type: 'test'
+  ...
+# Subtest: P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+ok 44 - P0-2b routeMedium per typed kind; contradictory (state_kind, medium) refused
+  ---
+  duration_ms: 1.7331
+  type: 'test'
+  ...
+# Subtest: P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+ok 45 - P0-3 intake API exists: ingest-master registers landmarks + identity hash; derived art refused before approval; kinds preserved
+  ---
+  duration_ms: 1511.8367
+  type: 'test'
+  ...
+# Subtest: P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+ok 46 - P0-4 production refuses random strings, foreign receipts, replaced PNGs, moved pivots, changed edges
+  ---
+  duration_ms: 20496.2102
+  type: 'test'
+  ...
+# Subtest: P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+ok 47 - P0-5 submit path: no provider → exact WAITING status and no file; stub server → receipts, decoded alpha, ancestry, idempotent
+  ---
+  duration_ms: 18601.3265
+  type: 'test'
+  ...
+# Subtest: P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+ok 48 - P0-6 fixture QA passes only the mechanical gate; production gate fails without audio and review
+  ---
+  duration_ms: 4082.483
+  type: 'test'
+  ...
+# Subtest: P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+ok 49 - P0-1d world-camera footprint perturbation changes only that world's jobs; compiled master prompt hash follows
+  ---
+  duration_ms: 1515.7499
+  type: 'test'
+  ...
+# Subtest: L01 a failure is recorded against its producer (general class, predicate, invariant); scene-named classes are refused
+ok 50 - L01 a failure is recorded against its producer (general class, predicate, invariant); scene-named classes are refused
+  ---
+  duration_ms: 15.8693
+  type: 'test'
+  ...
+# Subtest: L02 a NEW first pass (no local patch) consumes the matching rule: the compiled request carries its positive operations
+ok 51 - L02 a NEW first pass (no local patch) consumes the matching rule: the compiled request carries its positive operations
+  ---
+  duration_ms: 868.1419
+  type: 'test'
+  ...
+# Subtest: L03 a non-matching subject receives no rule
+ok 52 - L03 a non-matching subject receives no rule
+  ---
+  duration_ms: 813.2706
+  type: 'test'
+  ...
+# Subtest: L04 a rule contradicting the approved design/source blocks (REPAIR_RULE_CONFLICT) instead of being chosen
+ok 53 - L04 a rule contradicting the approved design/source blocks (REPAIR_RULE_CONFLICT) instead of being chosen
+  ---
+  duration_ms: 198.9092
+  type: 'test'
+  ...
+# Subtest: L05 diagnostic or missing pixels can never mark artistic learning qualified
+ok 54 - L05 diagnostic or missing pixels can never mark artistic learning qualified
+  ---
+  duration_ms: 6.8575
+  type: 'test'
+  ...
+# Subtest: L06 a memory change invalidates only the jobs whose predicate it matches
+ok 55 - L06 a memory change invalidates only the jobs whose predicate it matches
+  ---
+  duration_ms: 302.7619
+  type: 'test'
+  ...
+# Subtest: T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')
+ok 56 - T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')
+  ---
+  duration_ms: 7.132
+  type: 'test'
+  ...
+# Subtest: T03 one hand cannot grip two unrelated props at once; an unclaimed contact is an ORPHAN action; possession cannot teleport
+ok 57 - T03 one hand cannot grip two unrelated props at once; an unclaimed contact is an ORPHAN action; possession cannot teleport
+  ---
+  duration_ms: 0.7571
+  type: 'test'
+  ...
+# Subtest: T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused
+ok 58 - T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused
+  ---
+  duration_ms: 1.2952
+  type: 'test'
+  ...
+# Subtest: T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler
+ok 59 - T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler
+  ---
+  duration_ms: 0.7944
+  type: 'test'
+  ...
+# Subtest: REAL proposal S02: the 'loads' verb and the carried bag compile to exact missing operations (reproduces F013 without a scene patch)
+ok 60 - REAL proposal S02: the 'loads' verb and the carried bag compile to exact missing operations (reproduces F013 without a scene patch)
+  ---
+  duration_ms: 4.7831
+  type: 'test'
+  ...
+# Subtest: T05 outgoing door OPEN but incoming CLOSED (opening only later) is refused; an approved, reasoned time jump is accepted
+ok 61 - T05 outgoing door OPEN but incoming CLOSED (opening only later) is refused; an approved, reasoned time jump is accepted
+  ---
+  duration_ms: 2.7281
+  type: 'test'
+  ...
+# Subtest: unlike continuity: carried object and weather/lighting state across cuts; frame gaps are refused
+ok 62 - unlike continuity: carried object and weather/lighting state across cuts; frame gaps are refused
+  ---
+  duration_ms: 0.6644
+  type: 'test'
+  ...
+# Subtest: A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED
+ok 63 - A05 every F01–F80 method: source clause → applicability rule → consumer → changed output (decision changed execution), pixels EXTERNAL_PROVIDER_BLOCKED
+  ---
+  duration_ms: 95.6275
+  type: 'test'
+  ...
+# Subtest: A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic
+ok 64 - A01 character: changing face/anatomy decisions changes the head/eye components and their stage; motion interfaces stay semantic
+  ---
+  duration_ms: 1546.219
+  type: 'test'
+  ...
+# Subtest: A02 machine: functional topology methods are required; a box-plus-circles decision is refused, a functional one is delivered
+ok 65 - A02 machine: functional topology methods are required; a box-plus-circles decision is refused, a functional one is delivered
+  ---
+  duration_ms: 1.1071
+  type: 'test'
+  ...
+# Subtest: A03 organism / natural world: human garment/head rules never leak into branches, leaves or limbs
+ok 66 - A03 organism / natural world: human garment/head rules never leak into branches, leaves or limbs
+  ---
+  duration_ms: 0.6283
+  type: 'test'
+  ...
+# Subtest: A04 diagram/data world: grammar, glyph and value→geometry methods are required; artistic symbols cannot stand in for values
+ok 67 - A04 diagram/data world: grammar, glyph and value→geometry methods are required; artistic symbols cannot stand in for values
+  ---
+  duration_ms: 1.0978
+  type: 'test'
+  ...
+# Subtest: A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)
+ok 68 - A06 projection scale, roles and planes produce DIFFERENT detail/projection treatment (no universal template)
+  ---
+  duration_ms: 1.2321
+  type: 'test'
+  ...
+# Subtest: A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision
+ok 69 - A07 native-size review packet; automation cannot approve; a rejection must trace region + method + cause + edited decision
+  ---
+  duration_ms: 20107.1139
+  type: 'test'
+  ...
+# Subtest: valid examples pass
+ok 70 - valid examples pass
+  ---
+  duration_ms: 194.8792
+  type: 'test'
+  ...
+# Subtest: checked-in example files match the generator and pass/fail as named
+ok 71 - checked-in example files match the generator and pass/fail as named
+  ---
+  duration_ms: 280.7214
+  type: 'test'
+  ...
+# Subtest: unreachable contact reports exact missing distance
+ok 72 - unreachable contact reports exact missing distance
+  ---
+  duration_ms: 40.0456
+  type: 'test'
+  ...
+# Subtest: missing underpaint
+ok 73 - missing underpaint
+  ---
+  duration_ms: 39.1785
+  type: 'test'
+  ...
+# Subtest: illegal view morph
+ok 74 - illegal view morph
+  ---
+  duration_ms: 40.458
+  type: 'test'
+  ...
+# Subtest: wrong pivot → UNREGISTERED_PIVOT
+ok 75 - wrong pivot → UNREGISTERED_PIVOT
+  ---
+  duration_ms: 101.4176
+  type: 'test'
+  ...
+# Subtest: invalid parent → error naming the asset
+ok 76 - invalid parent → error naming the asset
+  ---
+  duration_ms: 49.2344
+  type: 'test'
+  ...
+# Subtest: rig with cyclic joints fails
+ok 77 - rig with cyclic joints fails
+  ---
+  duration_ms: 43.9786
+  type: 'test'
+  ...
+# Subtest: unsupported view state → UNSUPPORTED_VIEW
+ok 78 - unsupported view state → UNSUPPORTED_VIEW
+  ---
+  duration_ms: 67.1811
+  type: 'test'
+  ...
+# Subtest: circular layer order → OCCLUSION_CONFLICT
+ok 79 - circular layer order → OCCLUSION_CONFLICT
+  ---
+  duration_ms: 43.2324
+  type: 'test'
+  ...
+# Subtest: hash mismatch / missing file / path escape
+ok 80 - hash mismatch / missing file / path escape
+  ---
+  duration_ms: 99.5781
+  type: 'test'
+  ...
+# Subtest: production mode rejects diagnostic fixtures
+ok 81 - production mode rejects diagnostic fixtures
+  ---
+  duration_ms: 51.4418
+  type: 'test'
+  ...
+# Subtest: continuous transition without middle art → MISSING_TRANSITION_STATE
+ok 82 - continuous transition without middle art → MISSING_TRANSITION_STATE
+  ---
+  duration_ms: 103.1173
+  type: 'test'
+  ...
+# Subtest: schema rejects unknown top-level keys and wrong stage
+ok 83 - schema rejects unknown top-level keys and wrong stage
+  ---
+  duration_ms: 10.9249
+  type: 'test'
+  ...
+# Subtest: coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact
+ok 84 - coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact
+  ---
+  duration_ms: 11.1786
+  type: 'test'
+  ...
+# Subtest: static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG
+ok 85 - static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG
+  ---
+  duration_ms: 7.097
+  type: 'test'
+  ...
+# Subtest: two-bone IK: exact, non-clamping, bend-branch and degenerate
+ok 86 - two-bone IK: exact, non-clamping, bend-branch and degenerate
+  ---
+  duration_ms: 1.7885
+  type: 'test'
+  ...
+# Subtest: contact graph solves only active contacts
+ok 87 - contact graph solves only active contacts
+  ---
+  duration_ms: 0.592
+  type: 'test'
+  ...
+# Subtest: F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion
+ok 88 - F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion
+  ---
+  duration_ms: 77.9225
+  type: 'test'
+  ...
+# Subtest: declared method use without a real consumer → METHOD_NO_REAL_CONSUMER
+ok 89 - declared method use without a real consumer → METHOD_NO_REAL_CONSUMER
+  ---
+  duration_ms: 52.135
+  type: 'test'
+  ...
+# Subtest: stateAtFrame is pure: random-order evaluation equals linear evaluation
+ok 90 - stateAtFrame is pure: random-order evaluation equals linear evaluation
+  ---
+  duration_ms: 407.9166
+  type: 'test'
+  ...
+# Subtest: grip and plant hold on every locked frame; no failures over the action
+ok 91 - grip and plant hold on every locked frame; no failures over the action
+  ---
+  duration_ms: 636.907
+  type: 'test'
+  ...
+# Subtest: bend branch contradicting the FK pose is reported, not flipped silently
+ok 92 - bend branch contradicting the FK pose is reported, not flipped silently
+  ---
+  duration_ms: 417.5768
+  type: 'test'
+  ...
+# Subtest: transform ownership, routing and morph topology are enforced at compile time
+ok 93 - transform ownership, routing and morph topology are enforced at compile time
+  ---
+  duration_ms: 403.5024
+  type: 'test'
+  ...
+# Subtest: light plane is painted on its owner and under everything above the owner; reads the owner's matrix
+ok 94 - light plane is painted on its owner and under everything above the owner; reads the owner's matrix
+  ---
+  duration_ms: 408.628
+  type: 'test'
+  ...
+# Subtest: every runtime element is written on every frame (seek-safe DOM state)
+ok 95 - every runtime element is written on every frame (seek-safe DOM state)
+  ---
+  duration_ms: 691.7219
+  type: 'test'
+  ...
+# Subtest: transition anchor is invariant; stages OUT→MIDDLE→IN
+ok 96 - transition anchor is invariant; stages OUT→MIDDLE→IN
+  ---
+  duration_ms: 674.1646
+  type: 'test'
+  ...
+# Subtest: camera footprint flags exact spans when the camera outruns painted plates
+ok 97 - camera footprint flags exact spans when the camera outruns painted plates
+  ---
+  duration_ms: 1425.9922
+  type: 'test'
+  ...
+# Subtest: gear ratio and flow symbols follow the declared mechanism
+ok 98 - gear ratio and flow symbols follow the declared mechanism
+  ---
+  duration_ms: 26.3468
+  type: 'test'
+  ...
+# Subtest: registration solver recovers similarity and affine exactly; collinear affine refused
+ok 99 - registration solver recovers similarity and affine exactly; collinear affine refused
+  ---
+  duration_ms: 3.0316
+  type: 'test'
+  ...
+# Subtest: ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere
+ok 100 - ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere
+  ---
+  duration_ms: 4.0937
+  type: 'test'
+  ...
+# Subtest: state coverage: one static master for acting states never passes; front features on a turned head are missing
+ok 101 - state coverage: one static master for acting states never passes; front features on a turned head are missing
+  ---
+  duration_ms: 8.9009
+  type: 'test'
+  ...
+# Subtest: provider boundary: no configuration → NullProvider with an exact blocker; never fabricates
+ok 102 - provider boundary: no configuration → NullProvider with an exact blocker; never fabricates
+  ---
+  duration_ms: 2.8399
+  type: 'test'
+  ...
+# Subtest: sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused
+ok 103 - sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused
+  ---
+  duration_ms: 405.9936
+  type: 'test'
+  ...
+# Subtest: word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT
+ok 104 - word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT
+  ---
+  duration_ms: 3.6871
+  type: 'test'
+  ...
+# Subtest: S3C-1 method fidelity: the audited Ines brief (F64 bound as hand construction, F05/F52 mislabelled) is refused before compile
+ok 105 - S3C-1 method fidelity: the audited Ines brief (F64 bound as hand construction, F05/F52 mislabelled) is refused before compile
+  ---
+  duration_ms: 26.8262
+  type: 'test'
+  ...
+# Subtest: S3C-2 rig-forced generic geometry without source grounding is refused
+ok 106 - S3C-2 rig-forced generic geometry without source grounding is refused
+  ---
+  duration_ms: 12.3475
+  type: 'test'
+  ...
+# Subtest: S3C-3 absent (or placeholder) molecular_visual_decisions cannot pass
+ok 107 - S3C-3 absent (or placeholder) molecular_visual_decisions cannot pass
+  ---
+  duration_ms: 51.1652
+  type: 'test'
+  ...
+# Subtest: S3C-4 view agreement: the motion contract carries the rig's canonical view, and a design/motion view mismatch is refused
+ok 108 - S3C-4 view agreement: the motion contract carries the rig's canonical view, and a design/motion view mismatch is refused
+  ---
+  duration_ms: 137.5168
+  type: 'test'
+  ...
+# Subtest: S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused
+ok 109 - S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused
+  ---
+  duration_ms: 695.0264
+  type: 'test'
+  ...
+# Subtest: S3C-6 applicability: every method the subject family + motion contract makes applicable is bound faithfully (not all 80)
+ok 110 - S3C-6 applicability: every method the subject family + motion contract makes applicable is bound faithfully (not all 80)
+  ---
+  duration_ms: 112.06
+  type: 'test'
+  ...
+# Subtest: S3C-7 a faithful design passes every automated gate but cannot be submitted without a HUMAN design approval
+ok 111 - S3C-7 a faithful design passes every automated gate but cannot be submitted without a HUMAN design approval
+  ---
+  duration_ms: 7909.2125
+  type: 'test'
+  ...
+# Subtest: S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible
+ok 112 - S3C-8 (E) approved art determines the rig: different arm proportions are FITTED, not refused; infeasible action → restaging required; approved restaging → feasible
+  ---
+  duration_ms: 2079.2059
+  type: 'test'
+  ...
+# Subtest: S3C-9 (F) a genuinely unsuitable design fails before generation even when every field has text
+ok 113 - S3C-9 (F) a genuinely unsuitable design fails before generation even when every field has text
+  ---
+  duration_ms: 54.6842
+  type: 'test'
+  ...
+# Subtest: T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)
+ok 114 - T01 a diagram that stops ALL costs when activity stops fails its counterfactual (MECHANISM_CONTRADICTION)
+  ---
+  duration_ms: 12.3325
+  type: 'test'
+  ...
+# Subtest: T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED
+ok 115 - T04 an obstacle declared RESOLVED without mechanism support is OBSTACLE_UNRESOLVED; unverified claims are FACT_CHECK_REQUIRED
+  ---
+  duration_ms: 7.1045
+  type: 'test'
+  ...
+# Subtest: T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check
+ok 116 - T08 (mechanisms) unlike infection/exposure and orbital-energy mechanisms run through the SAME evaluator and counterfactual check
+  ---
+  duration_ms: 4.8623
+  type: 'test'
+  ...
+# Subtest: T06 changed script or audio invalidates word-linked frame anchors; estimated timing cannot anchor a critical cue
+ok 117 - T06 changed script or audio invalidates word-linked frame anchors; estimated timing cannot anchor a critical cue
+  ---
+  duration_ms: 14.6081
+  type: 'test'
+  ...
+# Subtest: T09 the timed animatic retains DIAGNOSTIC_ONLY provenance and cannot pass an art or film gate
+ok 118 - T09 the timed animatic retains DIAGNOSTIC_ONLY provenance and cannot pass an art or film gate
+  ---
+  duration_ms: 6.3406
+  type: 'test'
+  ...
+# Subtest: M01 disjoint transform ownership: camera → plane → root → joint → art; double owners, wrong nesting and cycles are refused
+ok 119 - M01 disjoint transform ownership: camera → plane → root → joint → art; double owners, wrong nesting and cycles are refused
+  ---
+  duration_ms: 2.3609
+  type: 'test'
+  ...
+# Subtest: M06 a full turn needs registered view cels; rotating the front PNG is refused
+ok 120 - M06 a full turn needs registered view cels; rotating the front PNG is refused
+  ---
+  duration_ms: 0.446
+  type: 'test'
+  ...
+# Subtest: M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map
+ok 121 - M07 REGISTERED_MORPH needs homologous topology; EXPLICIT_DEFORM needs an approved, non-flipping map
+  ---
+  duration_ms: 4.7342
+  type: 'test'
+  ...
+# Subtest: M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)
+ok 122 - M09 cast shadows exist only for occluder→receiver relations; treatment differs by receiver material (no universal crescent)
+  ---
+  duration_ms: 0.8687
+  type: 'test'
+  ...
+# Subtest: M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused
+ok 123 - M11 portal OUT→MIDDLE→IN shares one aperture with a rim occluder and full mask coverage; an opacity zoom-cut is refused
+  ---
+  duration_ms: 0.6591
+  type: 'test'
+  ...
+# Subtest: M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art
+ok 124 - M15 a missing state is a typed MISSING_ART_ASSET demand with frames — never substituted by other art
+  ---
+  duration_ms: 46.4764
+  type: 'test'
+  ...
+# Subtest: M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge
+ok 125 - M07b the PRODUCTION state router refuses a non-homologous vector morph and an unapproved deform map on a state edge
+  ---
+  duration_ms: 1.8279
+  type: 'test'
+  ...
+# Subtest: G-wiring the film-contracts compiler (run by exportOutbox before art) reports the real proposal's blockers from its own producers
+ok 126 - G-wiring the film-contracts compiler (run by exportOutbox before art) reports the real proposal's blockers from its own producers
+  ---
+  duration_ms: 370.8407
+  type: 'test'
+  ...
+# Subtest: U01 all six masters produce a NON-NULL contract status; each incomplete design is BLOCKED (never COMPILED/SUBMITTED)
+ok 127 - U01 all six masters produce a NON-NULL contract status; each incomplete design is BLOCKED (never COMPILED/SUBMITTED)
+  ---
+  duration_ms: 5698.8212
+  type: 'test'
+  ...
+# Subtest: U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations
+ok 128 - U02 two unlike families absent from the laundromat fixtures route distinct source methods and motion obligations
+  ---
+  duration_ms: 2.1451
+  type: 'test'
+  ...
+# Subtest: U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)
+ok 129 - U03 every missing authority refuses BEFORE the provider spy's call count moves (positive control proves the spy)
+  ---
+  duration_ms: 8628.5143
+  type: 'test'
+  ...
+# Subtest: U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes
+ok 130 - U04 each upstream mutation yields a new dependency digest and stale approval; an unchanged rerun keeps the digest and the old bytes
+  ---
+  duration_ms: 1067.7563
+  type: 'test'
+  ...
+# Subtest: U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion
+ok 131 - U05 exporting twice keeps every earlier compiled request, candidate and receipt byte-identical; no whole-directory deletion
+  ---
+  duration_ms: 20694.586
+  type: 'test'
+  ...
+# Subtest: U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider
+ok 132 - U06 a rejected design cannot be bypassed by doc.status, human:true, test-trust or an edited pointer; test-trust never reaches a real provider
+  ---
+  duration_ms: 8003.1994
+  type: 'test'
+  ...
+# Subtest: P02-R16 positive control: an envelope signed by an external trust anchor mints a HUMAN receipt that verifies
+ok 133 - P02-R16 positive control: an envelope signed by an external trust anchor mints a HUMAN receipt that verifies
+  ---
+  duration_ms: 22.9215
+  type: 'test'
+  ...
+# Subtest: P02-R16 forgeries fail production: typed TTY, hand-written HUMAN receipt, replay, wrong scope, stale packet, expiry, revocation, in-repo key
+ok 134 - P02-R16 forgeries fail production: typed TTY, hand-written HUMAN receipt, replay, wrong scope, stale packet, expiry, revocation, in-repo key
+  ---
+  duration_ms: 55.6524
+  type: 'test'
+  ...
+# Subtest: P02-R16/R21 a diagnostic key never qualifies outside its namespace; copying diagnostic receipts + anchors into a production film fails
+ok 135 - P02-R16/R21 a diagnostic key never qualifies outside its namespace; copying diagnostic receipts + anchors into a production film fails
+  ---
+  duration_ms: 36.1292
+  type: 'test'
+  ...
+# Subtest: P02-R22 motion decisions reach the browser-applied render state: joint key, effect seed (character family) and camera key (world family)
+ok 136 - P02-R22 motion decisions reach the browser-applied render state: joint key, effect seed (character family) and camera key (world family)
+  ---
+  duration_ms: 21356.9666
+  type: 'test'
+  ...
+# Subtest: P02-R22 attention and art-demand decisions reach S02/S04 consumers
+ok 137 - P02-R22 attention and art-demand decisions reach S02/S04 consumers
+  ---
+  duration_ms: 652.8516
+  type: 'test'
+  ...
+# Subtest: P02-R22 an art-design decision and a matching repair rule change the exact compiled request; a non-matching rule is INERT for that job
+ok 138 - P02-R22 an art-design decision and a matching repair rule change the exact compiled request; a non-matching rule is INERT for that job
+  ---
+  duration_ms: 7496.0167
+  type: 'test'
+  ...
+# Subtest: P02-R22 negative: a field no consumer reads is refused as INERT_CONTROL
+ok 139 - P02-R22 negative: a field no consumer reads is refused as INERT_CONTROL
+  ---
+  duration_ms: 1335.5955
+  type: 'test'
+  ...
+# Subtest: P02-R23 S00 missing film intent
+ok 140 - P02-R23 S00 missing film intent
+  ---
+  duration_ms: 25500.3362
+  type: 'test'
+  ...
+# Subtest: P02-R23 S01 story approval withdrawn
+ok 141 - P02-R23 S01 story approval withdrawn
+  ---
+  duration_ms: 6971.1319
+  type: 'test'
+  ...
+# Subtest: P02-R23 S02 attention on an element nothing animates
+ok 142 - P02-R23 S02 attention on an element nothing animates
+  ---
+  duration_ms: 9293.6525
+  type: 'test'
+  ...
+# Subtest: P02-R23 S03 missing measured narration
+ok 143 - P02-R23 S03 missing measured narration
+  ---
+  duration_ms: 15172.7063
+  type: 'test'
+  ...
+# Subtest: P02-R23 S04 absent art (a bound state has no planned drawing)
+ok 144 - P02-R23 S04 absent art (a bound state has no planned drawing)
+  ---
+  duration_ms: 20435.9187
+  type: 'test'
+  ...
+# Subtest: P02-R23 S05 delivered art bytes changed after approval
+ok 145 - P02-R23 S05 delivered art bytes changed after approval
+  ---
+  duration_ms: 25046.0447
+  type: 'test'
+  ...
+# Subtest: P02-R23 S06 invalid canonical registration (first observed at S05, where the asset approval bound to it goes stale; attributed to registration)
+ok 146 - P02-R23 S06 invalid canonical registration (first observed at S05, where the asset approval bound to it goes stale; attributed to registration)
+  ---
+  duration_ms: 29339.1304
+  type: 'test'
+  ...
+# Subtest: P02-R23 S06 a state edge approval revoked
+ok 147 - P02-R23 S06 a state edge approval revoked
+  ---
+  duration_ms: 49910.2242
+  type: 'test'
+  ...
+# Subtest: P02-R23 S07 renderer crash mid-chunk (non-transient)
+ok 148 - P02-R23 S07 renderer crash mid-chunk (non-transient)
+  ---
+  duration_ms: 67782.9542
+  type: 'test'
+  ...
+# Subtest: P02-R23 S07 frozen required action (pixels stop while the expected state moves)
+ok 149 - P02-R23 S07 frozen required action (pixels stop while the expected state moves)
+  ---
+  duration_ms: 1889973.3001
+  type: 'test'
+  ...
+# Subtest: P02-R23 S08 final MP4 replaced after the render
+ok 150 - P02-R23 S08 final MP4 replaced after the render
+  ---
+  duration_ms: 1893112.7108
+  type: 'test'
+  ...
+# Subtest: P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied
+ok 151 - P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied
+  ---
+  duration_ms: 1830384.2797
+  type: 'test'
+  ...
+# Subtest: P02-R15a tamper detection: altered, deleted, reordered, duplicated, cross-linked and truncated events all fail verify; replay refuses
+ok 152 - P02-R15a tamper detection: altered, deleted, reordered, duplicated, cross-linked and truncated events all fail verify; replay refuses
+  ---
+  duration_ms: 1138.7084
+  type: 'test'
+  ...
+# Subtest: P02-R15b crash leftovers (torn temp file) are ignored; a STATUS index edit or deletion never changes replayed authority
+ok 153 - P02-R15b crash leftovers (torn temp file) are ignored; a STATUS index edit or deletion never changes replayed authority
+  ---
+  duration_ms: 200.3139
+  type: 'test'
+  ...
+# Subtest: P02-R15c an event that merely CLAIMS completion (failed verification or unresolvable output) is never counted as verified
+ok 154 - P02-R15c an event that merely CLAIMS completion (failed verification or unresolvable output) is never counted as verified
+  ---
+  duration_ms: 234.5579
+  type: 'test'
+  ...
+# Subtest: P02-R15d two concurrent OS processes appending to one run produce one gap-free verified chain (fenced lock)
+ok 155 - P02-R15d two concurrent OS processes appending to one run produce one gap-free verified chain (fenced lock)
+  ---
+  duration_ms: 6289.6705
+  type: 'test'
+  ...
+# Subtest: P02-F085 legacy migration: pre-ledger history becomes a SEPARATE IMPORTED_LEGACY_UNVERIFIED stream; idempotent; never authority
+ok 156 - P02-F085 legacy migration: pre-ledger history becomes a SEPARATE IMPORTED_LEGACY_UNVERIFIED stream; idempotent; never authority
+  ---
+  duration_ms: 195.5135
+  type: 'test'
+  ...
+# Subtest: P02-PORTAL-INTAKE plates + mask registered by intake satisfy the demand and compile with zero anchor drift; layers reach the scene
+ok 157 - P02-PORTAL-INTAKE plates + mask registered by intake satisfy the demand and compile with zero anchor drift; layers reach the scene
+  ---
+  duration_ms: 17873.4358
+  type: 'test'
+  ...
+# Subtest: P02-PORTAL-INTAKE negatives: no mask, a plate lacking the shared landmark, an unplanned plate
+ok 158 - P02-PORTAL-INTAKE negatives: no mask, a plate lacking the shared landmark, an unplanned plate
+  ---
+  duration_ms: 4.9255
+  type: 'test'
+  ...
+# Subtest: P02-R26 external ChatGPT handoff: exact request/skill/witness/master bytes exported; only a matching operator bundle imports, as OPERATOR-ATTESTED
+ok 159 - P02-R26 external ChatGPT handoff: exact request/skill/witness/master bytes exported; only a matching operator bundle imports, as OPERATOR-ATTESTED
+  ---
+  duration_ms: 20933.8875
+  type: 'test'
+  ...
+# Subtest: P02-R27 declared capabilities are not evidence; fake edit/transparency/multi-reference/size support cannot promote output
+ok 160 - P02-R27 declared capabilities are not evidence; fake edit/transparency/multi-reference/size support cannot promote output
+  ---
+  duration_ms: 3199.9584
+  type: 'test'
+  ...
+# Subtest: P02-R10 forged / stale / cross-job predecessor paths fail BEFORE any provider call; lineage is immutable
+ok 161 - P02-R10 forged / stale / cross-job predecessor paths fail BEFORE any provider call; lineage is immutable
+  ---
+  duration_ms: 3112.8297
+  type: 'test'
+  ...
+# Subtest: P02-R20 two REAL OS processes race to select different candidates: exactly one commits, the loser sees the winner; crash-held and stale locks recover
+ok 162 - P02-R20 two REAL OS processes race to select different candidates: exactly one commits, the loser sees the winner; crash-held and stale locks recover
+  ---
+  duration_ms: 2954.0982
+  type: 'test'
+  ...
+# Subtest: P02-R19 timeout after a possible send halts at OUTCOME_UNKNOWN; no automatic second call; duplicate workers send once; reconciliation is explicit
+ok 163 - P02-R19 timeout after a possible send halts at OUTCOME_UNKNOWN; no automatic second call; duplicate workers send once; reconciliation is explicit
+  ---
+  duration_ms: 4536.8616
+  type: 'test'
+  ...
+# Subtest: P02-F089 paid-run authorization: signed manifest bounds jobs, ceiling and retries; never extends to new images; unsigned/edited manifests refuse
+ok 164 - P02-F089 paid-run authorization: signed manifest bounds jobs, ceiling and retries; never extends to new images; unsigned/edited manifests refuse
+  ---
+  duration_ms: 68.5749
+  type: 'test'
+  ...
+# Subtest: P02-R01 the production registry renders native 1920x1080 RGB24 frames from real layers; PNG bytes and 16x9 outputs are refused
+ok 165 - P02-R01 the production registry renders native 1920x1080 RGB24 frames from real layers; PNG bytes and 16x9 outputs are refused
+  ---
+  duration_ms: 24355.9449
+  type: 'test'
+  ...
+# Subtest: P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+ok 166 - P02-R02 out-of-order and separate-session capture give identical hashes; changed source art refuses the session
+  ---
+  duration_ms: 22630.723
+  type: 'test'
+  ...
+# Subtest: P02-R03 600 consecutive image-backed frames stream into one verified lossless segment; memory does not grow with chunk size
+ok 167 - P02-R03 600 consecutive image-backed frames stream into one verified lossless segment; memory does not grow with chunk size
+  ---
+  duration_ms: 3959076.2767
+  type: 'test'
+  ...
+# Subtest: P02-R04 a crash at chunk start/mid/end or an encoder failure publishes nothing; the retry resumes exact coverage with reused verified chunks
+ok 168 - P02-R04 a crash at chunk start/mid/end or an encoder failure publishes nothing; the retry resumes exact coverage with reused verified chunks
+  ---
+  duration_ms: 918511.6932
+  type: 'test'
+  ...
+# Subtest: P02-R05 chunk joins 599/600 and 1199/1200 re-render identically on a fresh session (diagnostic film evidence for 7200 frames is the rehearsal)
+ok 169 - P02-R05 chunk joins 599/600 and 1199/1200 re-render identically on a fresh session (diagnostic film evidence for 7200 frames is the rehearsal)
+  ---
+  duration_ms: 22253.1278
+  type: 'test'
+  ...
+# Subtest: P02-R07 particles and shutter blur change REAL browser pixels only under their predicates (character + world families); a view turn without landmarks is refused
+ok 170 - P02-R07 particles and shutter blur change REAL browser pixels only under their predicates (character + world families); a view turn without landmarks is refused
+  ---
+  duration_ms: 44722.0542
+  type: 'test'
+  ...
+# Subtest: P02-RP1 attention owners include cameras/worlds/effects: reproduce, negative, unlike transfer
+ok 171 - P02-RP1 attention owners include cameras/worlds/effects: reproduce, negative, unlike transfer
+  ---
+  duration_ms: 2.8296
+  type: 'test'
+  ...
+# Subtest: P02-RP2 pose/state owner resolved from the manifest, never from a scene name: reproduce, negative, unlike transfer
+ok 172 - P02-RP2 pose/state owner resolved from the manifest, never from a scene name: reproduce, negative, unlike transfer
+  ---
+  duration_ms: 3.0073
+  type: 'test'
+  ...
+# Subtest: P02-RP3 frame trace index: world plates traced, camera motion is not a static hold, the film's plan is used
+ok 173 - P02-RP3 frame trace index: world plates traced, camera motion is not a static hold, the film's plan is used
+  ---
+  duration_ms: 6.6428
+  type: 'test'
+  ...
+# Subtest: P02-RP4 downstream reviews do not change the revision they review; upstream approvals still do
+ok 174 - P02-RP4 downstream reviews do not change the revision they review; upstream approvals still do
+  ---
+  duration_ms: 766.6164
+  type: 'test'
+  ...
+# Subtest: P02-RP5 a failed chunk surfaces its typed failure (partial segment removed after the encoder exits)
+ok 175 - P02-RP5 a failed chunk surfaces its typed failure (partial segment removed after the encoder exits)
+  ---
+  duration_ms: 655.7999
+  type: 'test'
+  ...
+# Subtest: P02-RP6 transition art demand comes from the transition CONTRACT (plates + masks), for any transition id: reproduce, negative, unlike transfer
+ok 176 - P02-RP6 transition art demand comes from the transition CONTRACT (plates + masks), for any transition id: reproduce, negative, unlike transfer
+  ---
+  duration_ms: 3.2016
+  type: 'test'
+  ...
+# Subtest: P02-RP7 perturbed/test film copies exclude top-level outputs (render/, production/, qa/) — a copy never inherits another run's ledger or segments
+ok 177 - P02-RP7 perturbed/test film copies exclude top-level outputs (render/, production/, qa/) — a copy never inherits another run's ledger or segments
+  ---
+  duration_ms: 62.3751
+  type: 'test'
+  ...
+# Subtest: P02-RP8 expected-state hash covers VISIBLE state only: hidden rows that keep animating are not expected motion (no false FROZEN_FRAME)
+ok 178 - P02-RP8 expected-state hash covers VISIBLE state only: hidden rows that keep animating are not expected motion (no false FROZEN_FRAME)
+  ---
+  duration_ms: 1.0903
+  type: 'test'
+  ...
+# Subtest: P02-RP9 handoff outputs resolve from the store OR the named film file with that exact hash; changed/missing outputs are refused
+ok 179 - P02-RP9 handoff outputs resolve from the store OR the named film file with that exact hash; changed/missing outputs are refused
+  ---
+  duration_ms: 46.4118
+  type: 'test'
+  ...
+# Subtest: P02-RP10 sub-frame (shutter) sample times keep their integer frame's shot, camera and actions; continuous motion interpolates
+ok 180 - P02-RP10 sub-frame (shutter) sample times keep their integer frame's shot, camera and actions; continuous motion interpolates
+  ---
+  duration_ms: 17122.1609
+  type: 'test'
+  ...
+# Subtest: P02-R06 positive: moving interval changes pixels; a static hold may repeat pixels without failing
+ok 181 - P02-R06 positive: moving interval changes pixels; a static hold may repeat pixels without failing
+  ---
+  duration_ms: 4548.2894
+  type: 'test'
+  ...
+# Subtest: P02-R06 negatives: frozen moving interval, missing frames/state, uncovered edge, broken boundary
+ok 182 - P02-R06 negatives: frozen moving interval, missing frames/state, uncovered edge, broken boundary
+  ---
+  duration_ms: 5484.1001
+  type: 'test'
+  ...
