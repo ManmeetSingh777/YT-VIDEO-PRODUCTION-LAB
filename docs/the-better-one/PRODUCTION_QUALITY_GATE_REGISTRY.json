@@ -1,0 +1,223 @@
+{
+  "schema_version": "1.0.0",
+  "authority": [
+    "docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md",
+    "docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md",
+    "docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md"
+  ],
+  "release_policy": {
+    "required_when_applicable": true,
+    "status_enum": [
+      "NOT_TESTED",
+      "BLOCKED_EXTERNAL",
+      "FAILED",
+      "VERIFIED_WITH_EVIDENCE",
+      "NOT_APPLICABLE_WITH_EVIDENCE"
+    ],
+    "implicit_pass": false,
+    "human_approval_required_for": [
+      "TBO-G02",
+      "TBO-G05",
+      "TBO-G06",
+      "TBO-G14",
+      "TBO-G18",
+      "TBO-G20"
+    ],
+    "evidence_required": [
+      "fixed_source_sha",
+      "producer_function",
+      "consumer_function",
+      "input_hashes",
+      "artifact_hashes",
+      "frame_range_or_film_scope",
+      "test_id",
+      "negative_test_result",
+      "human_receipt_if_relevant"
+    ],
+    "cannot_self_certify_artistic_quality": true,
+    "accepted_seconds_only_real_approved_film": true,
+    "note": "This is a normative requirements registry; it is NOT connected to P05 runtime until the engineer implements and tests its actual production-stage enforcer."
+  },
+  "gates": [
+    {
+      "id": "TBO-G01",
+      "phase": "story_truth",
+      "owner": "GPT_EDITOR",
+      "required_proof": "Verified source ledger, F/R/M/H/X modes, model card, payoff proof",
+      "negative_control": "Remove citation or use fictional outcome as real fact",
+      "failure_code": "CLAIM_TRUTH_UNVERIFIED",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G02",
+      "phase": "viewer_story",
+      "owner": "GPT_EDITOR",
+      "required_proof": "Value Blueprint, meaningful acts, 12-part shot direction, audio-first animatic, human review",
+      "negative_control": "Delete causal clue or main character decision",
+      "failure_code": "DIRECTOR_DECISION_MISSING",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G03",
+      "phase": "creative_runtime_mapping",
+      "owner": "ENGINE",
+      "required_proof": "Every approved direction/action ID maps to real supported producer and observable visual or audio outcome",
+      "negative_control": "Remove actual motion consumer but keep director JSON",
+      "failure_code": "DIRECTION_CONSUMER_INERT",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G04",
+      "phase": "preart_state_closure",
+      "owner": "ENGINE",
+      "required_proof": "All reachable poses, views, expressions, eyes, mouths, hand states, masks, lighting, underpaint, world/camera planes have ArtJobs",
+      "negative_control": "Demand complex grip but remove required fingers-underpaint cel",
+      "failure_code": "MISSING_ART_REQUIREMENT",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G05",
+      "phase": "f_methods_image",
+      "owner": "GPT_ART_HUMAN",
+      "required_proof": "Actual current F01-F80 skill and authorized witnesses, method→request→approved image review, real PNG bytes",
+      "negative_control": "Use nonexistent witness or generic style label instead",
+      "failure_code": "ART_METHOD_EVIDENCE_MISSING",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G06",
+      "phase": "canonical_identity",
+      "owner": "GPT_ART_HUMAN",
+      "required_proof": "Approved master and source-attached derived views/states with human whole-look review",
+      "negative_control": "Use different face for profile with matching landmarks",
+      "failure_code": "CHARACTER_IDENTITY_DRIFT",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G07",
+      "phase": "image_ingest",
+      "owner": "ENGINE",
+      "required_proof": "Original bytes, hash, dimensions, alpha, crop, provenance and matching requirement id",
+      "negative_control": "Import flattened screenshot as transparent arm part",
+      "failure_code": "ART_ASSET_INVALID",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G08",
+      "phase": "registration",
+      "owner": "ENGINE",
+      "required_proof": "Reviewed pixels/landmarks, transforms, pivots, rest recomposition, seams/underpaint/near-far",
+      "negative_control": "Remove hidden torso area under raised arm",
+      "failure_code": "ART_RECOMPOSITION_FAILED",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G09",
+      "phase": "motion_feasibility",
+      "owner": "ENGINE",
+      "required_proof": "All required frame evaluations, joint limits, state/paint, contacts, camera and exceptions",
+      "negative_control": "Return 0 checked frames with no errors",
+      "failure_code": "FRAME_NOT_EVALUATED",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G10",
+      "phase": "acting_motion",
+      "owner": "NEUTRINO",
+      "required_proof": "Actual registered artwork moves with anticipation/gaze/weight/body timing/follow-through and human watch review",
+      "negative_control": "Keep flat puppet arm while root moves",
+      "failure_code": "ACTING_INTENT_UNRENDERED",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G11",
+      "phase": "painted_grip_release",
+      "owner": "NEUTRINO",
+      "required_proof": "HAND state, palm basis, finger near-far, full hold, weight, prop reaction, release in all required frames",
+      "negative_control": "Open palm in middle of grip while particles still animate",
+      "failure_code": "GRIP_VISUAL_FAILED",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G12",
+      "phase": "view_cel_deform",
+      "owner": "NEUTRINO",
+      "required_proof": "Approved alternate heads/views/cels and valid mesh/alpha/transition across motion",
+      "negative_control": "Rotate frontal face as fake three-quarter or fold mesh",
+      "failure_code": "VIEW_OR_DEFORMATION_INVALID",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G13",
+      "phase": "camera_world",
+      "owner": "COMPOSITOR",
+      "required_proof": "Full painted world/crop/depth/foreground masks for all camera positions",
+      "negative_control": "Push camera to reveal empty world patch",
+      "failure_code": "UNCOVERED_WORLD",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G14",
+      "phase": "host_3d",
+      "owner": "BLENDER_COMPOSITOR",
+      "required_proof": "Real approved mesh/rig, matching projection/world, frame aligned RGBA/depth/shadow/occlusion and visually approved performance",
+      "negative_control": "Shift host camera or remove foreground occluder/shadow",
+      "failure_code": "HOST_INTEGRATION_INVALID",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G15",
+      "phase": "strategy_decoder",
+      "owner": "MODEL_COMPOSITOR",
+      "required_proof": "Model card, input provenance, equations, changing variable→actual animated result with understandable units",
+      "negative_control": "Change food cost but freeze displayed profit graph",
+      "failure_code": "DECODER_INERT_OR_MISLEADING",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G16",
+      "phase": "owner_attribution",
+      "owner": "RENDER_QA",
+      "required_proof": "Relevant actual owner/cel/pixel evidence including blur frames and every expected action interval",
+      "negative_control": "Freeze Mia while background and camera move",
+      "failure_code": "REQUIRED_OWNER_MOTION_MISSING",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G17",
+      "phase": "final_audio",
+      "owner": "AUDIO_MUX",
+      "required_proof": "Actual measured dialogue/audio buses/cues and final mux stream verified against final MP4 SHA",
+      "negative_control": "Publish old mix or silent MP4",
+      "failure_code": "FINAL_AUDIO_MISMATCH",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G18",
+      "phase": "editorial_final",
+      "owner": "HUMAN",
+      "required_proof": "Full running video reviewed for clarity, emotion, humor, artistic beauty, acting, credible model, rights and packaging; exact signed receipt",
+      "negative_control": "Technically valid ugly/stiff scene marked approved without watch",
+      "failure_code": "ARTISTIC_REVIEW_MISSING",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G19",
+      "phase": "source_revision",
+      "owner": "LEDGER",
+      "required_proof": "Versioned sources/images/code/audio/approvals/chunks and reproducible rerun with invalidation",
+      "negative_control": "Change image bytes, reuse previous render proof",
+      "failure_code": "STALE_EVIDENCE_ACCEPTED",
+      "initial_status": "NOT_TESTED"
+    },
+    {
+      "id": "TBO-G20",
+      "phase": "film_progress",
+      "owner": "FILM_LEDGER",
+      "required_proof": "8–10s accepted actual E01 segments, contiguous 90–120s proof, final film review and cost/effort ledger",
+      "negative_control": "Count diagnostic test MP4 as finished Mia scene",
+      "failure_code": "DIAGNOSTIC_PROMOTED_TO_FILM",
+      "initial_status": "NOT_TESTED"
+    }
+  ]
+}
