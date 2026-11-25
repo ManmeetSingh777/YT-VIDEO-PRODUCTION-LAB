@@ -76,6 +76,9 @@ Gate: character has agency and distinct identity; relationship chemistry; real e
 **Perform first:** rough voices at unconstrained natural speed, then audio-first animatic with temporary drawings and 2D/3D blocks labeled PREVIS ONLY; correct timing based on actual playback. Scratch can be rough and free; it is NOT final voice approval.
 **No premature 13-second restriction:** choose a complete 20–35s opening when earned, then select a contiguous 13s window for E01's first technical qualification.
 
+### FAST-TRACK — Advance the first real film scene without waiting for every final-film paragraph
+The film's research-backed mechanism, character truth, broad emotional arc, foreseeable ending constraints and viewer promise must be coherent FIRST; this prevents a gorgeous clip from being invalidated by the eventual plot. But the **entire 8–13-minute screenplay does NOT have to be dialogue-locked before producing the selected 13-second interval.** Approve the complete 32.5s opening, actual first-extract start/end continuity, scene-level director/actual scratch sound and applicable art/engine requirements; engineer/preflight/art/animate that scene while GPT continues the rest of the screenplay and later decoder/host planning. No second competing opening is to be created merely for the engine. Any later whole-film change must run dependency impact checks on already accepted footage, never silently overwrite it.
+
 ### S3 — Experience Director and creative version lock
 Input: screenplay with actual revised audio timing + approved storyboard/blocking.
 Output: EXPERIENCE_DIRECTOR_vN.md and a shot table for every scene with 12 mandatory fields exactly as inputs/EXPERIENCE_DIRECTOR_V1.md defines; STORYBOARD/ANIMATIC; SHOT_TIMELINE.csv; ACTION_GRAPH.json; CONTINUITY_STATE.json; AUDIO_CUE_PLAN.json; ART_REQUIREMENTS.md; MEDIA_ROUTE_MAP.json; EDITORIAL_APPROVAL_REQUEST.md.
