@@ -37,26 +37,26 @@ These are a **source starting set**, not a completed claim ledger. Find primary 
 
 ## D. Demonstrative hypothetical unit model — from the Bible, NOT a business forecast
 
-\`meals=180/day\`, \`price=$12\`, \`variable_cost=$9\`, \`other_daily_cost=$600\`.
-Baseline contribution after variable cost: \`180*(12-9)=$540\`. Net after other daily cost = **−$60/day**.
-Lower price to $10 without increasing already capped volume: \`180*(10-9)-600=−$420/day\`.
+`meals=180/day`, `price=$12`, `variable_cost=$9`, `other_daily_cost=$600`.
+Baseline contribution after variable cost: `180*(12-9)=$540`. Net after other daily cost = **−$60/day**.
+Lower price to $10 without increasing already capped volume: `180*(10-9)-600=−$420/day`.
 Hypothetical cost improvement to $8.40/meal and 40 incremental drinks with $3 contribution, **assuming no added overhead, labor/capacity or quality impact**:
-\`180*(12-8.4)+40*3-600=+$168/day\`.
+`180*(12-8.4)+40*3-600=+$168/day`.
 
 **Safety:** Real restaurant food and labor costs include variable and fixed portions; choose variable-cost definitions carefully to avoid double-counting. The example assumes the extra drinks have no additional bottleneck cost and customer behavior is unchanged—neither is a verified fact. Host must stress-test those assumptions, not call this proof of actual rescue. The emotional ending must be coherent with assumptions.
 
 ## E. Mandatory creative outputs BEFORE final production art
 
 1. Three title/thumbnail concepts tested for one clear contradiction and authentic emotional appeal.
-2. One-page \`VALUE_BLUEPRINT.md\` (15 fields from Channel Bible §20.4), with final move and counterexample proved.
-3. \`CLAIM_LEDGER.csv\` showing exact source, date, page, supporting and contradictory evidence, truth mode, scenario ID.
-4. \`MODEL_CARD.json\` with inputs, formulas, units, assumptions, constraints, sensitivity, rival/customer response and result classification.
-5. \`ENDING_PROOF.md\`: exactly what the credible move changes, cost, limit and why human ending is earned.
-6. \`BEAT_OUTLINE.md\` with planted clues, first attempt/backfire, meaningful historical case ONLY if mechanism relevant, decoding and transfer.
-7. \`SCRIPT.md\`: specific dialogue for Mia/host/supporting characters, narration, humor and film/audio time budget; no jargon without visual teaching.
-8. Audio-first \`ANIMATIC\` with scratch read and an honest comprehensibility review.
+2. One-page `VALUE_BLUEPRINT.md` (15 fields from Channel Bible §20.4), with final move and counterexample proved.
+3. `CLAIM_LEDGER.csv` showing exact source, date, page, supporting and contradictory evidence, truth mode, scenario ID.
+4. `MODEL_CARD.json` with inputs, formulas, units, assumptions, constraints, sensitivity, rival/customer response and result classification.
+5. `ENDING_PROOF.md`: exactly what the credible move changes, cost, limit and why human ending is earned.
+6. `BEAT_OUTLINE.md` with planted clues, first attempt/backfire, meaningful historical case ONLY if mechanism relevant, decoding and transfer.
+7. `SCRIPT.md`: specific dialogue for Mia/host/supporting characters, narration, humor and film/audio time budget; no jargon without visual teaching.
+8. Audio-first `ANIMATIC` with scratch read and an honest comprehensibility review.
 9. Full 12-field Experience Director V1 shot contracts plus complete action graphs and distinct render-mode choices.
-10. Actual v1.1.0 \`CREATIVE_PACKET.json\` with sourced files/hashes and pre-art film/motion demand.
+10. Actual v1.1.0 `CREATIVE_PACKET.json` with sourced files/hashes and pre-art film/motion demand.
 11. Human edit/approval; if the ending/value is weak, revise **before** paying for many art variants.
 
 ## F. First three actual-film sequence acceptance targets (provisional until script lock)
