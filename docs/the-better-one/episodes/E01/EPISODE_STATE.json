@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "episode_id": "E01",
+  "show": "THE BETTER ONE",
+  "authority": {
+    "branch": "production/better-one-mia-first-film",
+    "standards": [
+      "docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md",
+      "docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md",
+      "docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md",
+      "inputs/EXPERIENCE_DIRECTOR_V1.md",
+      "docs/the-better-one/PRODUCTION_QUALITY_GATE_REGISTRY.json"
+    ],
+    "note": "Resolve HEAD at each session; the branch may advance. Only exact content hashes and genuine scoped approval determine executable revision."
+  },
+  "idea": {
+    "working_title": "This Restaurant Is Packed. Why Is It Dying?",
+    "protagonist": "Mia",
+    "story_truth_mode": "FICTIONAL_WITH_SOURCE_GROUNDED_MECHANISMS",
+    "economic_master_revelation": "Optimize contribution under genuine capacity, demand and other system constraints.",
+    "status": "PROPOSED",
+    "final_rescue_strategy": "UNDECIDED",
+    "final_ending": "UNDECIDED",
+    "baseline_model_ref": "E01 V0.2/V0.3 model and research package external to currently published repository; obtain actual full source before making a final financial claim"
+  },
+  "creative": {
+    "latest_opening": {
+      "path": "docs/the-better-one/episodes/E01/E01_OPENING_V0_4_PROPOSED.md",
+      "revision": "0.4",
+      "status": "PROPOSED_NOT_APPROVED",
+      "opening_length_seconds": 32.5,
+      "opening_absolute_frames": [
+        0,
+        1950
+      ],
+      "first_extract_absolute_frames": [
+        180,
+        960
+      ],
+      "first_extract_local_frames": [
+        0,
+        780
+      ],
+      "fps": 60,
+      "width": 1920,
+      "height": 1080,
+      "extract_starts_mid_scene": true,
+      "pre_roll_state_required_at_abs_frame": 180
+    },
+    "older": "V0.3 corrected 13s award direction: HISTORICAL; not executable for V0.4 without explicit reconciliation",
+    "creative_artifacts_missing": [
+      "Actual user-approved final dialogue/character performance and natural scratch audio timings",
+      "Full 32.5-second updated 12-part Experience Director V1 shot/action/continuity/audio direction",
+      "Approved complete first episode screenplay and ending",
+      "Recomputed V0.4 source-hashed CREATIVE_PACKET v1.1.0",
+      "Actual local versioned full financial model/evidence from V0.3"
+    ],
+    "estimated_host_entrance_absolute_s": [
+      24.75,
+      32.5
+    ]
+  },
+  "engineering": {
+    "public_repo_p06_code_state": "UNVERIFIED_CURRENT_LOCAL_RUN",
+    "note": "At verification time public production branch still contained governance documentation, not verified final local P06 engine commit. User's Claude session reportedly runs a final regression; cannot inspect live Windows process here.",
+    "required": [
+      "Claude finishes and publishes actual P06 tested source SHA and honest regression status",
+      "Producer/consumer command capability matrix with real rendering proofs",
+      "v1.1.0 packet validate + preflight against approved V0.4 director",
+      "Exact per-art-job pre-art requests and typed unsupported actions",
+      "G01–G20 applicable statuses with true evidence"
+    ],
+    "regression_status": "UNKNOWN_LATEST_LOCAL"
+  },
+  "art": {
+    "f01_f80_skill_version_verified_for_new_art_chat": false,
+    "original_mia_master_created": false,
+    "approved_masters": [],
+    "registered_dependent_states": [],
+    "real_image_film_test_completed": false,
+    "license_native_witnesses_not_public": true
+  },
+  "hybrid": {
+    "blender_host_final_design_approved": false,
+    "blender_host_real_render_qualified": false,
+    "math_decoder_film_shot_qualified": false,
+    "contiguous_90_to_120_seconds_qualified": false
+  },
+  "accepted_real_film": {
+    "seconds": 0,
+    "shots": [],
+    "full_episode_finished": false
+  },
+  "next_actions_ordered": [
+    {
+      "id": "N01",
+      "owner": "GPT+USER",
+      "action": "Perform/review V0.4 full opening with scratch audio/animatic, finalize dialogue and approve specific opening and 13s interval.",
+      "blocker": "UNAPPROVED_TIMING"
+    },
+    {
+      "id": "N02",
+      "owner": "CLAUDE",
+      "action": "Finish P06 current regression; publish actual code SHA and evidence; do not claim that diagnostics prove real artwork.",
+      "blocker": "UNVERIFIED_P06_RELEASE"
+    },
+    {
+      "id": "N03",
+      "owner": "GPT+USER",
+      "action": "Generate updated full 12-part Experience Director and corrected V0.4 action/audio/art maps for [0,1950), including pre-roll state for [180,960).",
+      "blocker": "N01"
+    },
+    {
+      "id": "N04",
+      "owner": "CLAUDE",
+      "action": "Import/validate approved v1.1.0 packet, run pre-art capability+art closure, return ArtJobs, unresolved producers and direct user choices.",
+      "blocker": "N02_N03"
+    },
+    {
+      "id": "N05",
+      "owner": "GPT_ART+USER",
+      "action": "Use verified installed F01-F80 skill and actual witnesses; make canonical Mia/regular/lead/world art and all art-state jobs; human whole-look review.",
+      "blocker": "N04"
+    },
+    {
+      "id": "N06",
+      "owner": "CLAUDE+USER",
+      "action": "Real-art rig fit/post-art, animate actual [180,960) 780 frames, add audio, inspect full video, repair reusable earliest defects, approve.",
+      "blocker": "N05"
+    },
+    {
+      "id": "N07",
+      "owner": "ALL",
+      "action": "Prove real Blender host, real decoder, contiguous hybrid 90–120s, then full 8–13min/earned longer episode.",
+      "blocker": "N06_AND_APPROVED_FULL_FILM"
+    }
+  ],
+  "warning": "This is a planning truth ledger and human-readable state. It is not currently wired into a P06 state machine, and it carries no fabricated approval, byte hash or completed test result."
+}
