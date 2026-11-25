@@ -2,6 +2,8 @@
 
 **Production branch:** `production/better-one-mia-first-film`. **Status:** P05 engineering qualification incomplete; first genuine GPT-artwork film not yet rendered/approved. This is not a finished product claim.
 
+**New GPT chat (recommended first):** Download [complete creative source pack](docs/the-better-one/NEW_GPT_CREATIVE_SESSION_COMPLETE_SOURCE_PACK.md) as one Markdown file, upload to a separate GPT story/direction conversation and follow [creative start instructions](docs/the-better-one/NEW_GPT_E01_CREATIVE_START.md). **Later, after story and direction:** use the [P05/P06 creative-packet and pre-art source pack](docs/the-better-one/NEW_GPT_STAGE3_ENGINEERING_INTERFACE_SOURCE_PACK.md). Never generate approved artwork before pre-art motion-state requirements are checked.
+
 **Start here, in this order:**
 
 1. [User-approved channel editorial Bible](docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md) — identity, audience, formats, Mia concept, truth model, creative/release gates.
