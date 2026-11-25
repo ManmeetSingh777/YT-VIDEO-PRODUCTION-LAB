@@ -1,0 +1,615 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:the-better-one:performance-command-v1",
+  "title": "The Better One reusable semantic performance command packet v1",
+  "description": "Proposed normalized adapter input. Does NOT certify render consumer, frame closure, human approvals or art quality until wired and proved on P05.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "film_id",
+    "fps",
+    "total_frames",
+    "characters",
+    "commands"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "film_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+    },
+    "fps": {
+      "const": 60
+    },
+    "total_frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "actor_rig_id",
+          "master_sha",
+          "topology_kind",
+          "character_profile_id",
+          "role_map",
+          "approved_state_channels",
+          "approved_motion_routes"
+        ],
+        "properties": {
+          "actor_rig_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+          },
+          "master_sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "topology_kind": {
+            "enum": [
+              "BIPED",
+              "QUADRUPED",
+              "NONHUMAN",
+              "MECHANISM",
+              "ABSTRACT"
+            ]
+          },
+          "character_profile_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+          },
+          "role_map": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+            }
+          },
+          "approved_state_channels": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+            }
+          },
+          "approved_motion_routes": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "RIGID_2D",
+                "PART_RIG_2D",
+                "APPROVED_CELS",
+                "APPROVED_DEFORM",
+                "BLENDER_3D",
+                "SEMANTIC_GRAPHICS",
+                "WORLD_CAMERA_TRANSITION"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "action_id",
+          "direction_decision_ids",
+          "actor_rig_id",
+          "character_profile_id",
+          "verb",
+          "frames",
+          "intent",
+          "required_prestate",
+          "required_poststate",
+          "phases",
+          "motion_routes",
+          "required_art_refs",
+          "expected_effects",
+          "override_policy",
+          "source_digest"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+          },
+          "action_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+          },
+          "direction_decision_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+            },
+            "uniqueItems": true
+          },
+          "actor_rig_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+          },
+          "character_profile_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+          },
+          "verb": {
+            "enum": [
+              "look_at",
+              "blink",
+              "turn_head",
+              "speak",
+              "reach",
+              "grip",
+              "release",
+              "walk",
+              "react",
+              "change_expression",
+              "point",
+              "idle",
+              "turn_body",
+              "hold"
+            ]
+          },
+          "frames": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "integer",
+                "minimum": 1
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "target": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "xy",
+                      "space"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "WORLD_POINT"
+                      },
+                      "xy": {
+                        "type": "array",
+                        "prefixItems": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "number"
+                          }
+                        ],
+                        "items": false,
+                        "minItems": 2,
+                        "maxItems": 2
+                      },
+                      "space": {
+                        "enum": [
+                          "WORLD_CSS_PX",
+                          "CANONICAL_2D"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "rig_id",
+                      "socket_id"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "RIG_SOCKET"
+                      },
+                      "rig_id": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                      },
+                      "socket_id": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "cue_id"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "AUDIO_CUE"
+                      },
+                      "cue_id": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "object_id"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "OBJECT"
+                      },
+                      "object_id": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "intent": {
+            "type": "string",
+            "minLength": 3
+          },
+          "required_prestate": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "channel_states",
+              "possession"
+            ],
+            "properties": {
+              "channel_states": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                }
+              },
+              "possession": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "pose_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "view_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "support_socket_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                }
+              }
+            }
+          },
+          "required_poststate": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "channel_states",
+              "possession"
+            ],
+            "properties": {
+              "channel_states": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                }
+              },
+              "possession": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "pose_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "view_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "support_socket_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                }
+              }
+            }
+          },
+          "phases": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "frames",
+                "goal",
+                "expected_owner_effect"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                },
+                "frames": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  ],
+                  "items": false,
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "goal": {
+                  "type": "string",
+                  "minLength": 3
+                },
+                "expected_owner_effect": {
+                  "type": "string",
+                  "minLength": 3
+                }
+              }
+            }
+          },
+          "motion_routes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "RIGID_2D",
+                "PART_RIG_2D",
+                "APPROVED_CELS",
+                "APPROVED_DEFORM",
+                "BLENDER_3D",
+                "SEMANTIC_GRAPHICS",
+                "WORLD_CAMERA_TRANSITION"
+              ]
+            }
+          },
+          "required_art_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+            },
+            "uniqueItems": true
+          },
+          "expected_effects": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "owner_id",
+                "frames",
+                "test_id",
+                "human_quality_check"
+              ],
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "GazeTowardTarget",
+                    "EyeStateTransition",
+                    "ApprovedViewTransition",
+                    "SpeechAudioVisualSync",
+                    "ContactApproach",
+                    "PaintedGripMaintained",
+                    "ReleaseAndSeparation",
+                    "PlantedFootStable",
+                    "PurposefulEmotionRendered",
+                    "ExpressionStateReached",
+                    "ApprovedPointerAligned",
+                    "LegalIdleHold",
+                    "ApprovedBodyTurn",
+                    "PoseContactHold",
+                    "PropReaction",
+                    "CameraWorldCoverage",
+                    "ModelResultRendered"
+                  ]
+                },
+                "owner_id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                },
+                "frames": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  ],
+                  "items": false,
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "test_id": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                },
+                "human_quality_check": {
+                  "type": "string",
+                  "minLength": 3
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "units": {
+                  "enum": [
+                    "px",
+                    "deg",
+                    "frames",
+                    "ratio",
+                    "none"
+                  ]
+                }
+              }
+            }
+          },
+          "override_policy": {
+            "enum": [
+              "DIRECTOR_PRIORITY_STRICT",
+              "STRICT_CONFLICT"
+            ]
+          },
+          "source_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "verb": {
+                  "const": "look_at"
+                }
+              },
+              "required": [
+                "verb"
+              ]
+            },
+            "then": {
+              "required": [
+                "target"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "verb": {
+                  "const": "speak"
+                }
+              },
+              "required": [
+                "verb"
+              ]
+            },
+            "then": {
+              "properties": {
+                "target": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "cue_id"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "AUDIO_CUE"
+                    },
+                    "cue_id": {
+                      "type": "string",
+                      "pattern": "^[a-zA-Z][a-zA-Z0-9_.:-]{0,119}$"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "target"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "verb": {
+                  "enum": [
+                    "reach",
+                    "grip",
+                    "release",
+                    "point"
+                  ]
+                }
+              },
+              "required": [
+                "verb"
+              ]
+            },
+            "then": {
+              "required": [
+                "target"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

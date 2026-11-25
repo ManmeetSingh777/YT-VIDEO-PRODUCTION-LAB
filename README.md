@@ -7,7 +7,8 @@
 1. [User-approved channel editorial Bible](docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md) — identity, audience, formats, Mia concept, truth model, creative/release gates.
 2. [First-film production master](docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md) — GPT/Claude, Neutrino, Blender 3D host, decoder, 8–10-second actual film iterations.
 3. [Art, motion, and hybrid quality gates](docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md) — six failure classes, all stages, negative proof, human visual standards. [Machine-readable gate registry](docs/the-better-one/PRODUCTION_QUALITY_GATE_REGISTRY.json) lists 20 testable obligations (not yet wired to runtime).
-4. [Mia editorial starter](docs/the-better-one/E01_MIA_EDITORIAL_STARTER.md) — original research sources, illustrative economics and responsible drafting requirements.
+4. [P06 one-run 13-second motion implementation directive](docs/the-better-one/P06_13S_PERFORMANCE_SYSTEM_IMPLEMENTATION_DIRECTIVE.md) — source-level adaptation of reusable commands, expressive acting, image-ready state closure, Blender host and decoder. [Typed performance-command schema](docs/the-better-one/PERFORMANCE_COMMAND_SCHEMA_V1.json) (draft; must be validated and connected to runtime).
+5. [Mia editorial starter](docs/the-better-one/E01_MIA_EDITORIAL_STARTER.md) — original research sources, illustrative economics and responsible drafting requirements.
 5. [New GPT E01 script/direction start](docs/the-better-one/NEW_GPT_E01_CREATIVE_START.md) — open a separate GPT research/writing conversation.
 6. [New Claude account exact start prompt](docs/the-better-one/NEW_CLAUDE_ACCOUNT_START.md) — paste into a fresh Claude Code session.
 7. [Mandatory Claude session instructions](CLAUDE.md) and [current P05 handoff](HANDOFF.md) — **do not follow older P02 startup instructions**.

@@ -10,6 +10,7 @@
    - `docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md` — absolute editorial identity/value/truth/format/release authority.
    - `docs/the-better-one/FIRST_FILM_PRODUCTION_MASTER.md` — current film architecture and intended work.
    - `docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md` — binding image/rig/motion/3D/decoder acceptance conditions.
+   **P06 precise engineering directive:** `docs/the-better-one/P06_13S_PERFORMANCE_SYSTEM_IMPLEMENTATION_DIRECTIVE.md` — reusable actor-independent commands, six quality failure classes, Blender+decoder integration, 780-frame first-film acceptance, exact named code producers and negatives.
    - `docs/the-better-one/PRODUCTION_QUALITY_GATE_REGISTRY.json` — exact 20 machine-readable requirements; bind to actual runtime gates, don't accept self-reported pass.
    - `docs/the-better-one/NEW_CLAUDE_ACCOUNT_START.md` — first-account authorized execution order.
    - `HANDOFF.md` — exact code, tests, user approvals, blockers and next film operations.
