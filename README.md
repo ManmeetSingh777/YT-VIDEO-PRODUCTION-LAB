@@ -2,6 +2,8 @@
 
 **Production branch:** `production/better-one-mia-first-film`. **Status:** source-governance updated for E01 V0.4; newest local P06 code/regression is not yet verified/pushed in this branch; actual GPT-image film is not rendered or human-approved. Do not confuse the status of GitHub documentation with the status of the local Claude checkout.
 
+**NEW MANDATORY ART→FILM PROTOCOL:** [Real GPT artwork, manual F01–F80 operator loop, measured Neutrino motion and film review](docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md). It binds the existing P06 exporter/importer to rigorous visual review; it is a standard, **not** evidence real art has passed. [P06 engineering final report](https://github.com/ManmeetSingh777/YT-VIDEO-PRODUCTION-LAB/blob/production/better-one-first-film-engineering/engineering/p06/P06_FINAL_REPORT.md) records 296/296 diagnostic tests and **zero** accepted real-art seconds.
+
 **PERMANENT STANDARD / START HERE:** [Production Operating Standard V1](docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md) · [Restart any GPT/Claude session](docs/the-better-one/SESSION_RECOVERY_AND_HANDOFF_V1.md) · [E01 current truthful status](docs/the-better-one/episodes/E01/EPISODE_STATE.json) · [E01 V0.4 proposed 32.5s opening](docs/the-better-one/episodes/E01/E01_OPENING_V0_4_PROPOSED.md).
 
 **The first E01 film qualification is a proposed contiguous 13s, 780-frame extract at film-absolute [180,960), local [0,780).** It is NOT a requirement to write 13-second scenes. V0.4 dialogue/direction is PROPOSED pending scratch performance, human approval and new 12-part Director. The full flagship runtime is an editorial decision.
