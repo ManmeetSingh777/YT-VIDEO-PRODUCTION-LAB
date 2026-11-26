@@ -4,6 +4,7 @@
 //   1.1.0  the executable superset (schemas/creative_packet_v1_1.schema.json): the only version that can be imported.
 // A pass means STRUCTURAL_VALID only: not truth, taste, feasibility, approval or art.
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
+import { validateShotSpan } from "./action_span.mjs";
 import { validate as jsonSchema } from "../art_bridge/jsonschema.mjs";
 import { validateStoryContract } from "./mechanism.mjs";
 const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
@@ -48,7 +49,9 @@ export function validatePacket(p) {
   let at = 0; for (const s of [...p.shots].sort((a, b) => a.frames[0] - b.frames[0])) { interval(s.id, s.frames); if (s.frames[0] !== at) err("SHOT_TILING", s.id, `expected start ${at}, got ${s.frames[0]}`); at = Math.max(at, s.frames[1]); } if (at !== total) err("SHOT_TILING", "film", `shots end at ${at}, the film needs ${total}`);
   for (const d of p.decisions) { const sh = shots.get(d.shot_id); if (!sh) err("UNKNOWN_SHOT", d.id, d.shot_id); interval(d.id, d.frames, sh?.frames);
     for (const c of d.consumer_ids) { const o = acts.get(c) || cues.get(c); if (!o) err("DIRECTION_CONSUMER_MISSING", d.id, `${c} is not an action or audio cue`); else { if (!over(o.frames, d.frames)) err("DIRECTION_CONSUMER_INERT", d.id, `${c} does not overlap the decision's frames`); if (acts.has(c) && !acts.get(c).direction_ids.includes(d.id)) err("DIRECTION_LINK_ASYMMETRIC", c, `action does not list its decision ${d.id}`); } } }
-  for (const a of p.actions) { const sh = shots.get(a.shot_id); if (!sh) err("UNKNOWN_SHOT", a.id, a.shot_id); interval(a.id, a.frames, sh?.frames);
+  for (const a of p.actions) { const sh = shots.get(a.shot_id); if (!sh) err("UNKNOWN_SHOT", a.id, a.shot_id);
+    // a continuous parent action (shot_span) lives through declared, contiguous, same-world cuts; every other action stays inside its one shot
+    if (a.shot_span !== undefined) { interval(a.id, a.frames); for (const x of validateShotSpan(a, { shots, transitions: p.transitions })) err(x.code, a.id, x.reason); } else interval(a.id, a.frames, sh?.frames);
     let cur = a.frames[0]; for (const ph of [...a.phases].sort((x, y) => x.frames[0] - y.frames[0])) { interval(`${a.id}:${ph.name}`, ph.frames, a.frames); if (ph.frames[0] !== cur) err("ACTION_PHASE_GAP_OR_OVERLAP", a.id, `phase ${ph.name} starts at ${ph.frames[0]}, expected ${cur}`); cur = ph.frames[1]; } if (cur !== a.frames[1]) err("ACTION_PHASE_GAP_OR_OVERLAP", a.id, `phases end at ${cur}, the action ends at ${a.frames[1]}`);
     for (const r of a.art_ids) { const x = arts.get(r); if (!x) err("MISSING_ART_REQUIREMENT", a.id, `art ${r}`); else if (!x.required_by.includes(a.id)) err("ART_USAGE_LINK_ASYMMETRIC", r, `does not list its consumer ${a.id}`); }
     for (const r of a.direction_ids) { if (!decs.has(r)) err("DIRECTION_REF_MISSING", a.id, r); else if (!decs.get(r).consumer_ids.includes(a.id)) err("DIRECTION_LINK_ASYMMETRIC", a.id, `${r} does not consume ${a.id}`); }

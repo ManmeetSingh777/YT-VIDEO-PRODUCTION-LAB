@@ -1,0 +1,289 @@
+{
+ "packet_sha256": "ceba69013b3b885e39a1f4e25ad4021b630cb0bd8cb9fd1f2e1f5a4895817696",
+ "file_sha256": "ab5a62acdf4faef762f1c1ea68a7caa6ad868f1c67e42452b752f633579ece58",
+ "film_id": "E01",
+ "version": "1.1.0",
+ "total_frames": 960,
+ "source": [
+  {
+   "role": "script",
+   "file": "E01_OPENING_SCREENPLAY_V0_4_P1.md",
+   "sha256": "1e9d40aa85322348760a9db8a915ee9b338c8c5084c2483872dcfc265be20b61",
+   "bytes": 5572
+  },
+  {
+   "role": "phase_director",
+   "file": "E01_EXPERIENCE_DIRECTOR_PHASE1_P3.md",
+   "sha256": "bb6f9eebb1dd756682559440ffa59e63c9b7f9132fbe4f9dbabfef2521daafd4",
+   "bytes": 12018
+  },
+  {
+   "role": "action_plan",
+   "file": "E01_ACTION_PLAN_PHASE1_P3.csv",
+   "sha256": "140fe8a624a35bdc9e8b0da3c7b0f52f28c19ae275e28f70706ed21b03c82a60",
+   "bytes": 13120
+  },
+  {
+   "role": "shot_timeline",
+   "file": "E01_SHOT_TIMELINE_PHASE1_P3.csv",
+   "sha256": "bd73fc545554217ba13282ff11a437f1c766980f411c8266abbd009086b4d4a2",
+   "bytes": 332
+  },
+  {
+   "role": "audio_cue_plan",
+   "file": "E01_AUDIO_CUE_PLAN_PHASE1_P3.csv",
+   "sha256": "f1f3a9beb7143e91a782bce4d480badd0747c64d288bfe144d8154a56ca5fffb",
+   "bytes": 3311
+  },
+  {
+   "role": "continuity",
+   "file": "E01_CONTINUITY_PHASE1_P3.csv",
+   "sha256": "10d80bd3610a5fdcef5f47cae157354e9e6725cd45d069f64fce745da3d331c4",
+   "bytes": 7199
+  },
+  {
+   "role": "performance_states",
+   "file": "PERFORMANCE_STATES_P3_2.csv",
+   "sha256": "a28b068cb6cbd1cfe56c155d36ef3be4616543b7a95845052f9fd45754407762",
+   "bytes": 6708
+  },
+  {
+   "role": "art_requirements",
+   "file": "ART_REQUIREMENTS_PHASE1_P3_2.md",
+   "sha256": "faa3d3303872bc5512caba85557ec7923161ff7d3303445c645e95756a2d9465",
+   "bytes": 4918
+  },
+  {
+   "role": "storyboard",
+   "file": "STORYBOARD_PHASE1_P3_2.md",
+   "sha256": "9025f8f01f17eae9c6a04114a395987abeed30693fb76ad4284773845809ac1e",
+   "bytes": 18726
+  },
+  {
+   "role": "storyboard_index",
+   "file": "STORYBOARD_BOARD_INDEX_P3_2.csv",
+   "sha256": "53ba9268380872c87087488b640531dda19fd2bad40ceb50dfcd5ad5857a80d1",
+   "bytes": 14524
+  },
+  {
+   "role": "original_delta_manifest",
+   "file": "DELTA_MANIFEST_P3_2.json",
+   "sha256": "0332b48b88cdbc5e736f9d44a32c0efc630344ad7d0813f55dae78f2984b3aba",
+   "bytes": 54970
+  },
+  {
+   "role": "delta_manifest",
+   "file": "DELTA_MANIFEST_PACKET_CAPTION_V1.json",
+   "sha256": "ab287f56cae1fef2d8d0c5632216833d3806247c0f71360f7080b818681fc3a1",
+   "bytes": 32975
+  },
+  {
+   "role": "take_selections",
+   "file": "E01_TAKE_SELECTIONS_P3.json",
+   "sha256": "2c0b72c202496e41f3d01063949fe3e9654bdf9f1c43dd0ddb08d0224b6c4374",
+   "bytes": 11840
+  },
+  {
+   "role": "audio_approval",
+   "file": "AUDIO_APPROVAL_RECORD_P3_1.json",
+   "sha256": "9ef40ccbba4d6c3dbc0bdb6b9b0b509e575dcb6a8e986cda1aa669412e359730",
+   "bytes": 2854
+  },
+  {
+   "role": "measured_phones",
+   "file": "MEASURED_PHONE_TIMELINE.csv",
+   "sha256": "cdcadd78075fd071241e1c6d6dfa80b6d1787b80dbc22932469bf6495c8fe50c",
+   "bytes": 9906
+  },
+  {
+   "role": "measured_words",
+   "file": "MEASURED_WORD_TIMELINE.csv",
+   "sha256": "30f914c2442d8c3988a44f1710ed8d8c983143eeecf8e56655cc02e890683db5",
+   "bytes": 3133
+  },
+  {
+   "role": "phoneme_demands",
+   "file": "PHONEME_ART_DEMANDS_PENDING_P08.json",
+   "sha256": "b6d587433dd89e125d06bac1d13feab460fe05a7dc9683e3f24b4960a4a6c5bf",
+   "bytes": 2521
+  },
+  {
+   "role": "motion_reconciliation",
+   "file": "P08_MOTION_RECONCILIATION_SOURCE.json",
+   "sha256": "d0a19ced5115becfb370d177e4b941b42a9442c02c4e863555b59f7dfb8beb9a",
+   "bytes": 108663
+  },
+  {
+   "role": "caption_policy",
+   "file": "CAPTION_CORRECTION.md",
+   "sha256": "4a038ef840c8e01cea9534a41da164488fd19ade53b85ef007742cec031ade35",
+   "bytes": 793
+  },
+  {
+   "role": "phase_continuity_source",
+   "file": "PHASE_SCOPE_PROPOSAL_NOT_ENGINE_PACKET.json",
+   "sha256": "b8bb4a477f4fb9dca6676b236637a0489d6d78d6205055b734998efa732f2c53",
+   "bytes": 2325
+  },
+  {
+   "role": "captions",
+   "file": "PHASE1_DIALOGUE.srt",
+   "sha256": "1fa9b3bb860fdf4c834b69ed6a5591427895f584f45a6d15b1c30feff5fd38b2",
+   "bytes": 342
+  },
+  {
+   "role": "captions",
+   "file": "PHASE1_DIALOGUE.vtt",
+   "sha256": "751f5c6c20ef736616d6e4f8c825fb8c80b9a71d5962f84925c9ae9468e83179",
+   "bytes": 338
+  },
+  {
+   "role": "captions",
+   "file": "EXTRACT_DIALOGUE.srt",
+   "sha256": "3f36f85399f8b452dbe4de6483ff963c6fefb79c9a1100e04ecdbcc341a74e1e",
+   "bytes": 281
+  },
+  {
+   "role": "captions",
+   "file": "EXTRACT_DIALOGUE.vtt",
+   "sha256": "263107f17f6550c00cc452b44860e156035b8151160a09598571788ee106d111",
+   "bytes": 279
+  },
+  {
+   "role": "captions",
+   "file": "PHASE1_SDH.srt",
+   "sha256": "fb22554153e23fdc7e95e4ca9a0c2eb66e7edda65fb80346d16477bb12826be0",
+   "bytes": 386
+  },
+  {
+   "role": "captions",
+   "file": "PHASE1_SDH.vtt",
+   "sha256": "d18e37fcb18159319d67717898e375294ac6565b5dfbdc8c22425d728fd83439",
+   "bytes": 380
+  },
+  {
+   "role": "captions",
+   "file": "EXTRACT_SDH.srt",
+   "sha256": "403ec26ed5b2eb655bb9607401ef6ce8fd3500978d67dc80e135d41c12cd4664",
+   "bytes": 325
+  },
+  {
+   "role": "captions",
+   "file": "EXTRACT_SDH.vtt",
+   "sha256": "98c2601d4799159977c3d18f737a15be304f8bc46eb51fdcb43ea62283a5c306",
+   "bytes": 321
+  },
+  {
+   "role": "parent_director",
+   "file": "E01_EXPERIENCE_DIRECTOR_V0_4_P1.md",
+   "sha256": "b8933e6c5c013659db65493168fc1e049fd0e646166b576113e233a87160217d",
+   "bytes": 29187
+  },
+  {
+   "role": "parent_art_requirements",
+   "file": "E01_ART_REQUIREMENTS_V0_4_P1.md",
+   "sha256": "cdb3e89c7e927f73fdab5b89c9b1af0486033a1173a8b8299ed447052c164c33",
+   "bytes": 6483
+  },
+  {
+   "role": "parent_screenplay",
+   "file": "E01_OPENING_SCREENPLAY_V0_4_P1.md",
+   "sha256": "1e9d40aa85322348760a9db8a915ee9b338c8c5084c2483872dcfc265be20b61",
+   "bytes": 5572
+  },
+  {
+   "role": "economic_model",
+   "file": "E01_MODEL_AND_EVIDENCE_V0_3.md",
+   "sha256": "9bdc6a9db0e6d454762356f083607c109ad2072865d23be889494503f8bd71bd",
+   "bytes": 43469
+  },
+  {
+   "role": "value_blueprint",
+   "file": "E01_VALUE_BLUEPRINT_V0_3.md",
+   "sha256": "813d3e7c89e9e01e1e22f38d258abfd268ab6a33c67d5e993182ba41292d9fc4",
+   "bytes": 20562
+  },
+  {
+   "role": "historical_decision_register",
+   "file": "E01_CREATIVE_DECISION_REGISTER_V0_3.md",
+   "sha256": "86574c6672f05160944b11a60e7babeff0a9e95822c4a6557f68b329af831e2a",
+   "bytes": 16967
+  },
+  {
+   "role": "p08_routing",
+   "file": "P08_CONTRACT_ROUTING.md",
+   "sha256": "41a9442f2d256ba9e595008dd2ff26af9d68bb61eaecb6fc0990300e90abffad",
+   "bytes": 6802
+  },
+  {
+   "role": "p08_action_coverage",
+   "file": "P08_ACTION_COVERAGE_P3_2.json",
+   "sha256": "5c27b92008a12cb2cb58fc6c3930469dbdd624798f099720f757343248ffd20e",
+   "bytes": 36126
+  },
+  {
+   "role": "p08_speech_evidence",
+   "file": "E01_SPEECH_PREFLIGHT_SUMMARY.json",
+   "sha256": "39ea906fe04dc8995528e777afab674a58ce61aa004560527b1e6cd2ce23fbd8",
+   "bytes": 5745
+  },
+  {
+   "role": "p08_art_delta",
+   "file": "P08_ART_CONTRACT_DELTA.json",
+   "sha256": "90047c62dd3cf0903d32b62b16cc1fd7f644923df97a746c0ccd6490f43dd1d8",
+   "bytes": 2325
+  }
+ ],
+ "structural": "STRUCTURAL_VALID",
+ "scope": {
+  "kind": "PRODUCTION_PHASE",
+  "phase_id": "E01_S001_PHASE1",
+  "parent_frames": [
+   0,
+   1950
+  ],
+  "frames": [
+   0,
+   960
+  ],
+  "qualification_frames": [
+   180,
+   960
+  ],
+  "parent_source_sha256": "b8933e6c5c013659db65493168fc1e049fd0e646166b576113e233a87160217d",
+  "excluded_shot_ids": [
+   "E01-S001-SH04",
+   "E01-S001-SH05",
+   "E01-S001-SH06",
+   "E01-S001-SH07"
+  ],
+  "outgoing_continuity": [
+   {
+    "frame": 959,
+    "owners": [
+     "CHAR_MIA",
+     "CHAR_REGULAR",
+     "CHAR_LEAD",
+     "PROP_AWARD",
+     "PROP_REPORT",
+     "PROP_PHONE",
+     "WORLD_RESTAURANT",
+     "BG_DINER_A",
+     "BG_DINER_B",
+     "BG_OCCUPANCY",
+     "BG_QUEUE"
+    ],
+    "obligation": "Capture exact live pose, contacts, driver, expression, view, camera and world state at f959, freeze it at f960. No reset, no separately generated still. Audio tail below. P3.2: lead offcrop staff station, Mia report behind counter with uninterrupted grip, exact revised f959 social smile and all BG poses. Do not reuse P3.1 snapshot. AUD01 live bed stops at f960, AUD11 exact [960,987) successor continuation; only first 6 frames nondiegetic room tail; no duplication.",
+    "consumer": "E01 phase 2 (SH04 freeze) — not yet approved"
+   }
+  ],
+  "approval_statement": "Approves ONLY E01 frames [0,960) (SH01–SH03) of the 32.5 s opening; frames [960,1950) are NOT approved by this digest."
+ },
+ "approval_claim": {
+  "status": "CREATIVE_REVIEW_REQUIRED",
+  "receipt": null
+ },
+ "approval_claim_trusted": false,
+ "status": "IMPORTED_AWAITING_APPROVAL",
+ "imported_utc": "2026-11-26T22:18:49.876Z"
+}

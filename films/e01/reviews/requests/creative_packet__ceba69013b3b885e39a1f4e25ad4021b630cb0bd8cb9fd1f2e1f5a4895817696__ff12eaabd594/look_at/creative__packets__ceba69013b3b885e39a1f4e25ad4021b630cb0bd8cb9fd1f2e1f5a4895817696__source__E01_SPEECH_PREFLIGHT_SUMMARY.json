@@ -1,0 +1,214 @@
+{
+ "kind": "E01_PHASE1_SPEECH_PREFLIGHT",
+ "source_package": "E01_PHASE1_MEASURED_P3_1_STORYBOARD (private; not in git)",
+ "inventory": {
+  "id": "EN_ARPABET_VISEME_V1",
+  "version": "1.0.0"
+ },
+ "clock": "48000 Hz / 60 fps = 800 samples per frame",
+ "approval_status": "USER_APPROVED_SELECTED_AUDIO",
+ "approval_kind": "USER_STATEMENT_RECORD_NOT_ENGINE_SIGNATURE",
+ "note": "selected audio is user-approved (statement record, not an engine signature); A/V placement, animatic and packet are NOT approved",
+ "cues": [
+  {
+   "cue_id": "AUD03",
+   "actor": "CHAR_REGULAR",
+   "take_id": "E01_AUD03_REGULAR_am_michael_TC",
+   "master_sha256": "1c8313e446875f78822e178d2f97a82543343d2bfe59b85da6f321de1504f70b",
+   "master_verified": true,
+   "alignment_sha256": "4b28d850ceab583ae63ad8343a1a5e69780e006bb2787d12975fed15cb74cad3",
+   "aligner": "Montreal Forced Aligner 3.3.8 english_us_arpa",
+   "phones": 18,
+   "phones_match_creative_csv": true,
+   "frames": [
+    15,
+    119
+   ],
+   "visemes_used": [
+    "AA",
+    "EE",
+    "L",
+    "MBP",
+    "NARROW",
+    "OH",
+    "REST"
+   ],
+   "forced_closures": 0,
+   "subframe_not_visible": 0,
+   "record_sha256": "15124e0c123ec7967ec707a1fd2c8a6b87be8ea7bc1c072b3acbd55792be0033"
+  },
+  {
+   "cue_id": "AUD12",
+   "actor": "CHAR_MIA",
+   "take_id": "E01_AUD12_MIA_af_heart_TA",
+   "master_sha256": "ef40b615a0c1e6a3eefa22a66ecffe256daabd8bd5da626f3cdba8c42e18212b",
+   "master_verified": true,
+   "alignment_sha256": "56a921a5c9fbbd6f1b27d80b360317bb97a2237cb43e1634bca3189c888a76b1",
+   "aligner": "Montreal Forced Aligner 3.3.8 english_us_arpa",
+   "phones": 5,
+   "phones_match_creative_csv": true,
+   "frames": [
+    135,
+    173
+   ],
+   "visemes_used": [
+    "AA",
+    "CHJ",
+    "MBP",
+    "NARROW",
+    "OO"
+   ],
+   "forced_closures": 0,
+   "subframe_not_visible": 0,
+   "record_sha256": "672a44c3582bb9c98c8bd726e3602c0d45837aec45e1b533e9f6b3be1f0d78ba"
+  },
+  {
+   "cue_id": "AUD20",
+   "actor": "CHAR_REGULAR",
+   "take_id": "E01_AUD20_CHUCKLE_fs458101",
+   "master_sha256": "c59a9698832a5e708f0d4693a931d606daa394c694db3856ac089314c4cf431e",
+   "master_verified": true,
+   "kind": "NONVERBAL",
+   "route": "NONVERBAL_PRODUCER_REQUIRED (no phone labels fabricated)",
+   "frames": null
+  },
+  {
+   "cue_id": "AUD13",
+   "actor": "CHAR_LEAD",
+   "take_id": "E01_AUD13_LEAD_af_sarah_TC",
+   "master_sha256": "57ad4ee9157bf38f235cf6231c436a41be67479273b3454bc2427ade20914398",
+   "master_verified": true,
+   "alignment_sha256": "acc142ebe66582a6dbee11551862e96a446bb96d957a6950c2bc140d42d1ea76",
+   "aligner": "Montreal Forced Aligner 3.3.8 english_us_arpa",
+   "phones": 17,
+   "phones_match_creative_csv": true,
+   "frames": [
+    225,
+    320
+   ],
+   "visemes_used": [
+    "AA",
+    "EE",
+    "MBP",
+    "NARROW",
+    "OO",
+    "REST"
+   ],
+   "forced_closures": 0,
+   "subframe_not_visible": 0,
+   "record_sha256": "4b374de4b80846b8ae6e6c3cbfbec88fdb140a6fa3725bfd9454bdc322912e7d"
+  },
+  {
+   "cue_id": "AUD02",
+   "actor": "CHAR_MIA",
+   "take_id": "E01_AUD02_MIA_af_heart_TC",
+   "master_sha256": "5e5dab1763630fada3fe23b1d4dd68a2b377c5daa3f3b64b5607700af2bf6e90",
+   "master_verified": true,
+   "alignment_sha256": "d9de5865f587ae640ed2bfa9606231773d1f9427cdb7b0ae2b29770830e747cd",
+   "aligner": "Montreal Forced Aligner 3.3.8 english_us_arpa",
+   "phones": 5,
+   "phones_match_creative_csv": true,
+   "frames": [
+    326,
+    355
+   ],
+   "visemes_used": [
+    "AA",
+    "NARROW",
+    "TH"
+   ],
+   "forced_closures": 0,
+   "subframe_not_visible": 0,
+   "record_sha256": "07cb2ac18659c79891a432ade42f7a116905dda011a3b05e71dc2d5b236ea418"
+  },
+  {
+   "cue_id": "AUD14",
+   "actor": "CHAR_REGULAR",
+   "take_id": "E01_AUD14_REGULAR_am_michael_TB",
+   "master_sha256": "626f1853d1b29b07b69d978bc37271b7a5c8d5ffc34e5e8a4d7bf44b7c7056cf",
+   "master_verified": true,
+   "alignment_sha256": "1a389d1d50f902365e6d601cfac1977338f681abe0db1a2ee1f200cfa147a730",
+   "aligner": "Montreal Forced Aligner 3.3.8 english_us_arpa",
+   "phones": 27,
+   "phones_match_creative_csv": true,
+   "frames": [
+    591,
+    745
+   ],
+   "visemes_used": [
+    "AA",
+    "EE",
+    "L",
+    "MBP",
+    "NARROW",
+    "OO",
+    "REST",
+    "TH"
+   ],
+   "forced_closures": 0,
+   "subframe_not_visible": 0,
+   "record_sha256": "16696a322b715e80f62781923be11720ac836d9213f7a8d987751a1bea794ce5"
+  },
+  {
+   "cue_id": "AUD09",
+   "actor": "CHAR_MIA",
+   "take_id": "E01_AUD09_MIA_af_heart_TB",
+   "master_sha256": "44d9321ee5a8af6e3f1360d6434c7b80b8db01d9a6b9cc9ab6f6268ff9f3a3da",
+   "master_verified": true,
+   "alignment_sha256": "6afeb9c9d3cc5dd14c578493021ac93c048531a5299a808e749eae2ba07e4553",
+   "aligner": "Montreal Forced Aligner 3.3.8 english_us_arpa",
+   "phones": 14,
+   "phones_match_creative_csv": true,
+   "frames": [
+    783,
+    859
+   ],
+   "visemes_used": [
+    "AA",
+    "EE",
+    "L",
+    "NARROW",
+    "OO",
+    "TH"
+   ],
+   "forced_closures": 0,
+   "subframe_not_visible": 0,
+   "record_sha256": "9052c2527cb86282ccf479ccc3b1e99f33186c4f286261364c59e83d1785c53b"
+  }
+ ],
+ "visemes_needed_per_actor_before_expression_context": {
+  "CHAR_REGULAR": [
+   "AA",
+   "EE",
+   "L",
+   "MBP",
+   "NARROW",
+   "OH",
+   "OO",
+   "REST",
+   "TH"
+  ],
+  "CHAR_MIA": [
+   "AA",
+   "CHJ",
+   "EE",
+   "L",
+   "MBP",
+   "NARROW",
+   "OO",
+   "TH"
+  ],
+  "CHAR_LEAD": [
+   "AA",
+   "EE",
+   "MBP",
+   "NARROW",
+   "OO",
+   "REST"
+  ]
+ },
+ "art_demand_note": "the exact mouth tuples are (view, mouth family of the visible expression, viseme); families come from the approved expression timeline of the phase packet, so the final tuple list is generated by compilePerformance from the signed packet — not typed here",
+ "problems": [],
+ "ok": true,
+ "private_detail_dir": "outside git (operator-local)"
+}

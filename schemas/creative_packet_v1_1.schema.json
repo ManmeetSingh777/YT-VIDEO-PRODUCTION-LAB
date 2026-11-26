@@ -769,6 +769,15 @@
      "shot_id": {
       "$ref": "#/$defs/id"
      },
+     "shot_span": {
+      "description": "CONTINUOUS PARENT ACTION: the contiguous, time-ordered, same-world shots this one action lives through; [0] is shot_id. A cut never restarts, releases or duplicates it (engine/story/action_span.mjs). Omit for an action inside one shot.",
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+       "$ref": "#/$defs/id"
+      }
+     },
      "owner": {
       "$ref": "#/$defs/id"
      },

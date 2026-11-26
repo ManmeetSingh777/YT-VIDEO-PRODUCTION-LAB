@@ -1,0 +1,165 @@
+{
+ "original_file_sha256": "a1917f738edf2353eb8ac77ebf26a5b481cf16628f0792426248500e38fa9b3f",
+ "original_digest": "f4255c44c9d8d5cfbe65492e650c35aca5e3eb4d48f0cb85b8758f7e92356855",
+ "reconciled_file_sha256": "ab5a62acdf4faef762f1c1ea68a7caa6ad868f1c67e42452b752f633579ece58",
+ "reconciled_digest": "ceba69013b3b885e39a1f4e25ad4021b630cb0bd8cb9fd1f2e1f5a4895817696",
+ "only_change": "actions[].shot_span added (nothing else differs)",
+ "added": [
+  {
+   "action": "E01-S001-A01",
+   "shot_id": "E01-S001-SH01",
+   "frames": [
+    0,
+    960
+   ],
+   "shot_span": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "segments": [
+    {
+     "segment_id": "E01-S001-A01@E01-S001-SH01",
+     "frames": [
+      0,
+      444
+     ],
+     "events": 8,
+     "contacts": []
+    },
+    {
+     "segment_id": "E01-S001-A01@E01-S001-SH02",
+     "frames": [
+      444,
+      588
+     ],
+     "events": 2,
+     "contacts": []
+    },
+    {
+     "segment_id": "E01-S001-A01@E01-S001-SH03",
+     "frames": [
+      588,
+      960
+     ],
+     "events": 4,
+     "contacts": []
+    }
+   ],
+   "proof": {
+    "ok": true,
+    "failures": []
+   }
+  },
+  {
+   "action": "E01-S001-A03",
+   "shot_id": "E01-S001-SH01",
+   "frames": [
+    0,
+    882
+   ],
+   "shot_span": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "segments": [
+    {
+     "segment_id": "E01-S001-A03@E01-S001-SH01",
+     "frames": [
+      0,
+      444
+     ],
+     "events": 10,
+     "contacts": [
+      {
+       "index": 0,
+       "begins_here": true,
+       "release_here": false
+      }
+     ]
+    },
+    {
+     "segment_id": "E01-S001-A03@E01-S001-SH02",
+     "frames": [
+      444,
+      588
+     ],
+     "events": 0,
+     "contacts": [
+      {
+       "index": 0,
+       "begins_here": false,
+       "release_here": false
+      }
+     ]
+    },
+    {
+     "segment_id": "E01-S001-A03@E01-S001-SH03",
+     "frames": [
+      588,
+      882
+     ],
+     "events": 4,
+     "contacts": [
+      {
+       "index": 0,
+       "begins_here": false,
+       "release_here": false
+      }
+     ]
+    }
+   ],
+   "proof": {
+    "ok": true,
+    "failures": []
+   }
+  },
+  {
+   "action": "E01-S001-A27",
+   "shot_id": "E01-S001-SH01",
+   "frames": [
+    404,
+    960
+   ],
+   "shot_span": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "segments": [
+    {
+     "segment_id": "E01-S001-A27@E01-S001-SH01",
+     "frames": [
+      404,
+      444
+     ],
+     "events": 6,
+     "contacts": []
+    },
+    {
+     "segment_id": "E01-S001-A27@E01-S001-SH02",
+     "frames": [
+      444,
+      588
+     ],
+     "events": 2,
+     "contacts": []
+    },
+    {
+     "segment_id": "E01-S001-A27@E01-S001-SH03",
+     "frames": [
+      588,
+      960
+     ],
+     "events": 0,
+     "contacts": []
+    }
+   ],
+   "proof": {
+    "ok": true,
+    "failures": []
+   }
+  }
+ ]
+}

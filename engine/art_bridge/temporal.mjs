@@ -26,6 +26,7 @@ import { multiSupportWithoutContract, segmentAt, evaluatePropSupport } from "./p
 import { canonicalContact, validateContactShots } from "./contact_continuity.mjs";
 import { compileComposition } from "./composition.mjs";
 import { normalizePinch } from "./pinch.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 const EASES = {
   linear: (p) => p, none: (p) => p,
@@ -193,7 +194,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport, composition: compReport, timeRemaps: remaps, pinch: pinch.byContact };
   C.remapAt = (f) => remaps.filter((m) => f >= m.frames[0] && f < m.frames[1]).map((m) => ({ ...m, source_frame: m.source.mode === "FREEZE" ? m.source.frame : Math.round(ev(m.source.keys, f)) }));
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
-  const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
+  const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => actionInShot(a, shot?.id) && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
   // root + joint values from tracks (+ gear followers + baked secondary)
   const additive = plan.__additive || {}, addAt = (key, f) => { let s = 0; for (const a of additive[key] || []) { let env = 1; if (a.frames) { if (f < a.frames[0] || f >= a.frames[1]) continue; const r = Math.max(1, Math.min(a.period / 4, (a.frames[1] - a.frames[0]) / 4)); env = Math.min(1, (f - a.frames[0]) / r, (a.frames[1] - f) / r); } s += env * a.amp * Math.sin((2 * Math.PI * (f + a.phase)) / a.period); } return s; }; // P06: a windowed additive (idle breathing) fades in/out inside its command
@@ -300,7 +301,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   C.contactsAt = (f) => {
     const out = [];
     for (const k of contacts) {
-      if (!k.identity.persists && C.shotAt(f)?.id !== k.action.shot_id) continue; // a declared persistent contact is physics across the cut, not per-shot
+      if (!k.identity.persists && !actionInShot(k.action, C.shotAt(f)?.id)) continue; // a declared persistent contact is physics across the cut, not per-shot
       if (k.c.start_frame <= f && f < k.c.end_frame) { out.push({ ...k, w: 1, locked: true }); continue; }
       const r = rampOf(k); if (!r) continue;
       if (r.approach && r.approach[0] <= f && f < k.c.start_frame) out.push({ ...k, w: smooth((f - r.approach[0]) / (k.c.start_frame - r.approach[0])), locked: false });
@@ -405,7 +406,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   C.celsAt = (f) => {
     const out = [];
     for (const [aid, cel] of Object.entries(plan.cels || {})) {
-      const a = actions.find((x) => x.id === aid); if (!a || f < a.frame_range[0] || f >= a.frame_range[1] || C.shotAt(f)?.id !== a.shot_id) continue;
+      const a = actions.find((x) => x.id === aid); if (!a || f < a.frame_range[0] || f >= a.frame_range[1] || !actionInShot(a, C.shotAt(f)?.id)) continue; // a continuous parent action stays live through its spanned cuts (absolute clock: no restart)
       const step = cel.step_distance_px, d = ev(cel.distance, f), idx = Math.max(0, Math.floor(d / step)), n = cel.cycle.length;
       let plant = cel.start_xy.slice(), placeM = null;
       for (let i = 0; i <= idx; i++) {

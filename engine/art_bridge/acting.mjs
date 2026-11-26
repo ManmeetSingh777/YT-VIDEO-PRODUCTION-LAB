@@ -23,6 +23,7 @@
 // }
 import { err } from "./errors.mjs";
 import { compilePhrase } from "./motion_systems.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 const clone = (o) => JSON.parse(JSON.stringify(o ?? {}));
 /** phrases → primary tracks. Owner ids: "<rig>.<joint>", "<rig>.root.<x|y|rot|scale>", "<camera>.<x|y|zoom|rot>". */
@@ -87,7 +88,7 @@ export function compileActing(doc, plan, { fps = doc.stage?.fps || 60, actions =
     if (A.gaze) { if (needJoint(A.gaze.joint, "gaze")) { const gk = `${rid}.${A.gaze.joint}`, prev = (out.__gaze ||= {})[gk]; out.__gaze[gk] = prev ? [...[].concat(prev), { ...A.gaze, source: "acting:gaze" }] : A.gaze; rep.gaze = A.gaze.joint; } } // P06: append (commands may aim the same joint in other windows)
     const chan = (id) => (rig.state_channels || []).find((c) => c.id === id), needState = (c, s, what) => { if (!c?.states.some((x) => x.id === s)) { errors.push(err("MISSING_ART_ASSET", { record_id: `${rid}.${c?.id ?? "?"}.${s}`, suggested_producer: "GPT state manufacture (source-attached edit of the approved master)", reason: `${what} needs approved state ${s} in channel ${c?.id ?? "(undeclared)"}` })); return false; } return true; };
     // acting windows: frames where this rig is on screen in an action (blinks/speech never happen off-screen or outside its shots)
-    const windows = actions.filter((a) => a.actors.some((x) => x.rig_id === rid)).map((a) => [a.frame_range[0], a.frame_range[1], a.shot_id]);
+    const windows = actions.filter((a) => a.actors.some((x) => x.rig_id === rid)).flatMap((a) => a.shot_span ? shotSegments(a, doc.shots).map((s) => [s.frames[0], s.frames[1], s.shot_id]) : [[a.frame_range[0], a.frame_range[1], a.shot_id]]); // a continuous parent action: one window per spanned shot, each labelled with the shot it is seen in
     const inWin = (f) => windows.find(([s, e]) => f >= s && f < e);
     if (A.blink) { const B = A.blink, c = chan(B.channel); if (needState(c, B.open, "blink") && needState(c, B.closed, "blink")) { const fs_ = new Set(B.extra_frames || []); for (let f = B.phase_frames || 0; f < total; f += B.period_frames) fs_.add(f);
       for (const f of [...fs_].sort((p, q) => p - q)) { const w = inWin(f); if (!w || f + B.duration_frames >= w[1]) continue; events.push({ frame: f, rig: rid, channel: B.channel, state: B.closed, shot: w[2], source: "acting:blink" }, { frame: f + B.duration_frames, rig: rid, channel: B.channel, state: B.open, shot: w[2], source: "acting:blink" }); rep.blinks++; } } }

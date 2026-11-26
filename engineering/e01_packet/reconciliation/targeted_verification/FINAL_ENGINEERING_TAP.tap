@@ -1,0 +1,808 @@
+TAP version 13
+# Subtest: M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse
+ok 1 - M02 every quadrant, both bend branches: FK of the returned RADIAN angles reproduces the target; reach limits and degeneracy refuse
+  ---
+  duration_ms: 10.342
+  type: 'test'
+  ...
+# Subtest: M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error
+ok 2 - M03 orientation-constrained grip follows a ROTATING target within tolerance; a reversed palm FAILS even with zero XY error
+  ---
+  duration_ms: 36.7528
+  type: 'test'
+  ...
+# Subtest: M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched
+ok 3 - M05 an out-of-arm reach is solved by bounded root/torso shift with feet planted and balance inside support — or refused, never stretched
+  ---
+  duration_ms: 13.4725
+  type: 'test'
+  ...
+# Subtest: M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)
+ok 4 - M10 feasibility re-solves EVERY action frame and validates state/view edges (not contact snapshots)
+  ---
+  duration_ms: 1267.9838
+  type: 'test'
+  ...
+# Subtest: T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')
+ok 5 - T02 a verb in the prose with no typed action, or a LOAD with no bag/trajectory/contained state, is UNCOMPILED / MISSING_ART (never 'motion complete')
+  ---
+  duration_ms: 2.6526
+  type: 'test'
+  ...
+# Subtest: T03 one hand cannot grip two unrelated props at once; an unclaimed contact is an ORPHAN action; possession cannot teleport
+ok 6 - T03 one hand cannot grip two unrelated props at once; an unclaimed contact is an ORPHAN action; possession cannot teleport
+  ---
+  duration_ms: 0.5463
+  type: 'test'
+  ...
+# Subtest: T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused
+ok 7 - T07 a direction decision no track consumes is DIRECTION_DECISION_INERT; fake 3D camera over a flat plate is refused
+  ---
+  duration_ms: 0.8254
+  type: 'test'
+  ...
+# Subtest: T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler
+ok 8 - T08 (actions) unlike scenarios — a scientist transferring a sample and an octopus releasing a shell — run through the SAME compiler
+  ---
+  duration_ms: 0.5178
+  type: 'test'
+  ...
+# Subtest: REAL proposal S02: the 'loads' verb and the carried bag compile to exact missing operations (reproduces F013 without a scene patch)
+ok 9 - REAL proposal S02: the 'loads' verb and the carried bag compile to exact missing operations (reproduces F013 without a scene patch)
+  ---
+  duration_ms: 4.0478
+  type: 'test'
+  ...
+# Subtest: valid examples pass
+ok 10 - valid examples pass
+  ---
+  duration_ms: 150.6506
+  type: 'test'
+  ...
+# Subtest: checked-in example files match the generator and pass/fail as named
+ok 11 - checked-in example files match the generator and pass/fail as named
+  ---
+  duration_ms: 222.5025
+  type: 'test'
+  ...
+# Subtest: unreachable contact reports exact missing distance
+ok 12 - unreachable contact reports exact missing distance
+  ---
+  duration_ms: 30.7447
+  type: 'test'
+  ...
+# Subtest: missing underpaint
+ok 13 - missing underpaint
+  ---
+  duration_ms: 33.8774
+  type: 'test'
+  ...
+# Subtest: illegal view morph
+ok 14 - illegal view morph
+  ---
+  duration_ms: 34.8661
+  type: 'test'
+  ...
+# Subtest: wrong pivot → UNREGISTERED_PIVOT
+ok 15 - wrong pivot → UNREGISTERED_PIVOT
+  ---
+  duration_ms: 38.1745
+  type: 'test'
+  ...
+# Subtest: invalid parent → error naming the asset
+ok 16 - invalid parent → error naming the asset
+  ---
+  duration_ms: 32.8381
+  type: 'test'
+  ...
+# Subtest: rig with cyclic joints fails
+ok 17 - rig with cyclic joints fails
+  ---
+  duration_ms: 33.4345
+  type: 'test'
+  ...
+# Subtest: unsupported view state → UNSUPPORTED_VIEW
+ok 18 - unsupported view state → UNSUPPORTED_VIEW
+  ---
+  duration_ms: 32.9103
+  type: 'test'
+  ...
+# Subtest: circular layer order → OCCLUSION_CONFLICT
+ok 19 - circular layer order → OCCLUSION_CONFLICT
+  ---
+  duration_ms: 32.8896
+  type: 'test'
+  ...
+# Subtest: hash mismatch / missing file / path escape
+ok 20 - hash mismatch / missing file / path escape
+  ---
+  duration_ms: 65.2769
+  type: 'test'
+  ...
+# Subtest: production mode rejects diagnostic fixtures
+ok 21 - production mode rejects diagnostic fixtures
+  ---
+  duration_ms: 36.8925
+  type: 'test'
+  ...
+# Subtest: continuous transition without middle art → MISSING_TRANSITION_STATE
+ok 22 - continuous transition without middle art → MISSING_TRANSITION_STATE
+  ---
+  duration_ms: 74.5359
+  type: 'test'
+  ...
+# Subtest: schema rejects unknown top-level keys and wrong stage
+ok 23 - schema rejects unknown top-level keys and wrong stage
+  ---
+  duration_ms: 8.3952
+  type: 'test'
+  ...
+# Subtest: coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact
+ok 24 - coverage walks every frame of [0,7200); gaps, overlaps and missing art spans are exact
+  ---
+  duration_ms: 8.1944
+  type: 'test'
+  ...
+# Subtest: static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG
+ok 25 - static plate bound as an articulated rig → STATIC_PLATE_NOT_RIG
+  ---
+  duration_ms: 3.3758
+  type: 'test'
+  ...
+# Subtest: two-bone IK: exact, non-clamping, bend-branch and degenerate
+ok 26 - two-bone IK: exact, non-clamping, bend-branch and degenerate
+  ---
+  duration_ms: 1.255
+  type: 'test'
+  ...
+# Subtest: contact graph solves only active contacts
+ok 27 - contact graph solves only active contacts
+  ---
+  duration_ms: 0.5401
+  type: 'test'
+  ...
+# Subtest: F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion
+ok 28 - F01–F80 registry: exactly 80 rows, every verdict computed, no hand-set completion
+  ---
+  duration_ms: 60.3484
+  type: 'test'
+  ...
+# Subtest: declared method use without a real consumer → METHOD_NO_REAL_CONSUMER
+ok 29 - declared method use without a real consumer → METHOD_NO_REAL_CONSUMER
+  ---
+  duration_ms: 33.7467
+  type: 'test'
+  ...
+# Subtest: stateAtFrame is pure: random-order evaluation equals linear evaluation
+ok 30 - stateAtFrame is pure: random-order evaluation equals linear evaluation
+  ---
+  duration_ms: 267.2324
+  type: 'test'
+  ...
+# Subtest: grip and plant hold on every locked frame; no failures over the action
+ok 31 - grip and plant hold on every locked frame; no failures over the action
+  ---
+  duration_ms: 366.7586
+  type: 'test'
+  ...
+# Subtest: bend branch contradicting the FK pose is reported, not flipped silently
+ok 32 - bend branch contradicting the FK pose is reported, not flipped silently
+  ---
+  duration_ms: 265.7048
+  type: 'test'
+  ...
+# Subtest: transform ownership, routing and morph topology are enforced at compile time
+ok 33 - transform ownership, routing and morph topology are enforced at compile time
+  ---
+  duration_ms: 260.348
+  type: 'test'
+  ...
+# Subtest: light plane is painted on its owner and under everything above the owner; reads the owner's matrix
+ok 34 - light plane is painted on its owner and under everything above the owner; reads the owner's matrix
+  ---
+  duration_ms: 254.3693
+  type: 'test'
+  ...
+# Subtest: every runtime element is written on every frame (seek-safe DOM state)
+ok 35 - every runtime element is written on every frame (seek-safe DOM state)
+  ---
+  duration_ms: 395.1095
+  type: 'test'
+  ...
+# Subtest: transition anchor is invariant; stages OUT→MIDDLE→IN
+ok 36 - transition anchor is invariant; stages OUT→MIDDLE→IN
+  ---
+  duration_ms: 387.425
+  type: 'test'
+  ...
+# Subtest: camera footprint flags exact spans when the camera outruns painted plates
+ok 37 - camera footprint flags exact spans when the camera outruns painted plates
+  ---
+  duration_ms: 787.3161
+  type: 'test'
+  ...
+# Subtest: gear ratio and flow symbols follow the declared mechanism
+ok 38 - gear ratio and flow symbols follow the declared mechanism
+  ---
+  duration_ms: 20.2217
+  type: 'test'
+  ...
+# Subtest: registration solver recovers similarity and affine exactly; collinear affine refused
+ok 39 - registration solver recovers similarity and affine exactly; collinear affine refused
+  ---
+  duration_ms: 1.7239
+  type: 'test'
+  ...
+# Subtest: ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere
+ok 40 - ArtJobs: every §6.2 motion_context field present (value or null+reason); non-art defects are routed elsewhere
+  ---
+  duration_ms: 3.5502
+  type: 'test'
+  ...
+# Subtest: state coverage: one static master for acting states never passes; front features on a turned head are missing
+ok 41 - state coverage: one static master for acting states never passes; front features on a turned head are missing
+  ---
+  duration_ms: 7.9404
+  type: 'test'
+  ...
+# Subtest: provider boundary: no configuration → NullProvider with an exact blocker; never fabricates
+ok 42 - provider boundary: no configuration → NullProvider with an exact blocker; never fabricates
+  ---
+  duration_ms: 1.7036
+  type: 'test'
+  ...
+# Subtest: sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused
+ok 43 - sprite emitter: image at (cx-px, cy-py), crop via nested viewport, static asset_to_canonical wrapper; missing asset refused
+  ---
+  duration_ms: 225.3468
+  type: 'test'
+  ...
+# Subtest: word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT
+ok 44 - word cues: measured timing resolves exact frames; estimated timing or a broken cue → MISSING_WORD_ALIGNMENT
+  ---
+  duration_ms: 3.4892
+  type: 'test'
+  ...
+# Subtest: P04-2.3 action coverage: CONTACT_END needs a real release; TARGET_STATE_CHANGE needs the correct target and the requested state; unknown verbs refused
+ok 45 - P04-2.3 action coverage: CONTACT_END needs a real release; TARGET_STATE_CHANGE needs the correct target and the requested state; unknown verbs refused
+  ---
+  duration_ms: 4.6695
+  type: 'test'
+  ...
+# Subtest: P04-2.2 direction: a decision needs the OPERATION and EFFECT it names; removing the consumer makes it inert (causal mutation)
+ok 46 - P04-2.2 direction: a decision needs the OPERATION and EFFECT it names; removing the consumer makes it inert (causal mutation)
+  ---
+  duration_ms: 0.8731
+  type: 'test'
+  ...
+# Subtest: P04-2.4 phrases: the approved file compiles into the ONE production plan; a conflicting plan.phrases is a conflict; editing a phrase changes compiled tracks
+ok 47 - P04-2.4 phrases: the approved file compiles into the ONE production plan; a conflicting plan.phrases is a conflict; editing a phrase changes compiled tracks
+  ---
+  duration_ms: 405.771
+  type: 'test'
+  ...
+# Subtest: P04-2.1 script handoff: exported request is sealed and self-contained; import refuses an altered manifest, a wrong revision and contradictory decisions; acceptance needs approval
+ok 48 - P04-2.1 script handoff: exported request is sealed and self-contained; import refuses an altered manifest, a wrong revision and contradictory decisions; acceptance needs approval
+  ---
+  duration_ms: 52.0569
+  type: 'test'
+  ...
+# Subtest: P04-3.1 one persistent state timeline: pose/view/channels carry across actions and shots; a declared reset and only a declared reset clears them
+ok 49 - P04-3.1 one persistent state timeline: pose/view/channels carry across actions and shots; a declared reset and only a declared reset clears them
+  ---
+  duration_ms: 0.526
+  type: 'test'
+  ...
+# Subtest: P04-5.1 event priority is explicit and order-independent; equal-priority contradictions fail
+ok 50 - P04-5.1 event priority is explicit and order-independent; equal-priority contradictions fail
+  ---
+  duration_ms: 0.3744
+  type: 'test'
+  ...
+# Subtest: P04-5.2 acting limits: zero/NaN periods, out-of-film frames and self-driven springs are refused immediately (no hang)
+ok 51 - P04-5.2 acting limits: zero/NaN periods, out-of-film frames and self-driven springs are refused immediately (no hang)
+  ---
+  duration_ms: 4.3888
+  type: 'test'
+  ...
+# Subtest: P04-5.3 grip: no contract = blocking; body GRIP with an OPEN hand fails; a closed hand with a valid contract is evaluated; fingers behind the prop fail; unrelated prop motion fails
+ok 52 - P04-5.3 grip: no contract = blocking; body GRIP with an OPEN hand fails; a closed hand with a valid contract is evaluated; fingers behind the prop fail; unrelated prop motion fails
+  ---
+  duration_ms: 90.095
+  type: 'test'
+  ...
+# Subtest: P04-5.5 deformation: duplicate/overlapping triangles and partial coverage refused; a map renders only under a verified approval that binds geometry and pixels
+ok 53 - P04-5.5 deformation: duplicate/overlapping triangles and partial coverage refused; a map renders only under a verified approval that binds geometry and pixels
+  ---
+  duration_ms: 4.8863
+  type: 'test'
+  ...
+# Subtest: P04-6.1 global approvals enumerate every channel state
+ok 54 - P04-6.1 global approvals enumerate every channel state
+  ---
+  duration_ms: 137.2897
+  type: 'test'
+  ...
+# Subtest: P04-3.2 art demand: closure comes from the HAND channel — changing body pose does not satisfy it, changing the hand state changes the demanded drawing
+ok 55 - P04-3.2 art demand: closure comes from the HAND channel — changing body pose does not satisfy it, changing the hand state changes the demanded drawing
+  ---
+  duration_ms: 19.415
+  type: 'test'
+  ...
+# Subtest: P04-4.1/4.2 feasibility: zero plans = NOT_EVALUATED; every frame evaluated; a per-frame exception and a failing state are failures; NOT_APPLICABLE is never feasible
+ok 56 - P04-4.1/4.2 feasibility: zero plans = NOT_EVALUATED; every frame evaluated; a per-frame exception and a failing state are failures; NOT_APPLICABLE is never feasible
+  ---
+  duration_ms: 689.1811
+  type: 'test'
+  ...
+# Subtest: P04-7.3 capability tasks record every evaluation exception (first, middle, last frame) instead of skipping it
+ok 57 - P04-7.3 capability tasks record every evaluation exception (first, middle, last frame) instead of skipping it
+  ---
+  duration_ms: 21.7822
+  type: 'test'
+  ...
+# Subtest: P04-7.1 preflight is read-only: the film tree is byte-identical before and after (audio tasks are not executed)
+ok 58 - P04-7.1 preflight is read-only: the film tree is byte-identical before and after (audio tasks are not executed)
+  ---
+  duration_ms: 12123.3023
+  type: 'test'
+  ...
+# Subtest: P04-7.2 plan resolution: no plan / conflicting film plans refuse before the renderer; the resolved plan is materialised outside handoff/
+ok 59 - P04-7.2 plan resolution: no plan / conflicting film plans refuse before the renderer; the resolved plan is materialised outside handoff/
+  ---
+  duration_ms: 5671.9917
+  type: 'test'
+  ...
+# Subtest: P04-7.4 stage obligations: a required capability with no producing task blocks (EMPTY_STAGE_OBLIGATION), never passes as 'nothing to do'
+ok 60 - P04-7.4 stage obligations: a required capability with no producing task blocks (EMPTY_STAGE_OBLIGATION), never passes as 'nothing to do'
+  ---
+  duration_ms: 25.5924
+  type: 'test'
+  ...
+# Subtest: P04-7.8 revision hashes content, not timestamps: rewriting a producer with the same size and mtime changes the digest
+ok 61 - P04-7.8 revision hashes content, not timestamps: rewriting a producer with the same size and mtime changes the digest
+  ---
+  duration_ms: 789.2578
+  type: 'test'
+  ...
+# Subtest: P04-7.7 audio publication: per-stem cue verification (late cue, missing word, wrong bus) fails; the published MP4 carries the verified audio and a bound receipt
+ok 62 - P04-7.7 audio publication: per-stem cue verification (late cue, missing word, wrong bus) fails; the published MP4 carries the verified audio and a bound receipt
+  ---
+  duration_ms: 7230.7177
+  type: 'test'
+  ...
+# Subtest: P04-7.5 the owner gate requires captured samples for every acting owner (no skipping of single frames) and reports blurred frames' owners
+ok 63 - P04-7.5 the owner gate requires captured samples for every acting owner (no skipping of single frames) and reports blurred frames' owners
+  ---
+  duration_ms: 2.5496
+  type: 'test'
+  ...
+# Subtest: P04-2.2/5.4/7.6 measured semantic consequences: OPEN/GRIP/PLANT/MECHANISM verified from executed motion; a trivial mechanism change or an unsupported verb is not a pass
+ok 64 - P04-2.2/5.4/7.6 measured semantic consequences: OPEN/GRIP/PLANT/MECHANISM verified from executed motion; a trivial mechanism change or an unsupported verb is not a pass
+  ---
+  duration_ms: 226.8102
+  type: 'test'
+  ...
+# Subtest: P04-1 production IR: decisions, actions, art, registered art, motion and their arrows resolve on the fixture; a missing arrow is named
+ok 65 - P04-1 production IR: decisions, actions, art, registered art, motion and their arrows resolve on the fixture; a missing arrow is named
+  ---
+  duration_ms: 28.827
+  type: 'test'
+  ...
+# Subtest: P05-A1 draft v1.0.0 fixtures: valid/invalid behave as published; a v1.0.0 packet is never completed by guessing and cannot be imported
+ok 66 - P05-A1 draft v1.0.0 fixtures: valid/invalid behave as published; a v1.0.0 packet is never completed by guessing and cannot be imported
+  ---
+  duration_ms: 20.7838
+  type: 'test'
+  ...
+# Subtest: P05-A2 v1.1 fixture is structurally valid and supported in principle; nothing claims more
+ok 67 - P05-A2 v1.1 fixture is structurally valid and supported in principle; nothing claims more
+  ---
+  duration_ms: 26.3893
+  type: 'test'
+  ...
+# Subtest: P05-A3 mutations: each single omission or contradiction is refused with its own code
+ok 68 - P05-A3 mutations: each single omission or contradiction is refused with its own code
+  ---
+  duration_ms: 424.8041
+  type: 'test'
+  ...
+# Subtest: P05-B1 pre-art refusals are typed, carry a next step and never simplify: verb, contact, camera, operation, morph, cel, symbol, bend, view, object response, swap reason, witnesses
+ok 69 - P05-B1 pre-art refusals are typed, carry a next step and never simplify: verb, contact, camera, operation, morph, cel, symbol, bend, view, object response, swap reason, witnesses
+  ---
+  duration_ms: 102.6834
+  type: 'test'
+  ...
+# Subtest: P05-C1 lossless: every schema field has a stated destination, every record reaches a generated file, and every id maps to an origin
+ok 70 - P05-C1 lossless: every schema field has a stated destination, every record reaches a generated file, and every id maps to an origin
+  ---
+  duration_ms: 20.2156
+  type: 'test'
+  ...
+# Subtest: P05-C2 import: hashes, sizes and paths of source files are checked; the packet is immutable; accept needs a verified signature over the exact digest; a claimed approval is never trusted
+ok 71 - P05-C2 import: hashes, sizes and paths of source files are checked; the packet is immutable; accept needs a verified signature over the exact digest; a claimed approval is never trusted
+  ---
+  duration_ms: 660.5142
+  type: 'test'
+  ...
+# Subtest: P05-C3 an unimplementable requirement is refused at accept with typed feedback — not downgraded; a production film without a packet is blocked
+ok 72 - P05-C3 an unimplementable requirement is refused at accept with typed feedback — not downgraded; a production film without a packet is blocked
+  ---
+  duration_ms: 86.6615
+  type: 'test'
+  ...
+# Subtest: P05-C4 a revision invalidates only what changed, keeps unaffected records and preserves the previous packet
+ok 73 - P05-C4 a revision invalidates only what changed, keeps unaffected records and preserves the previous packet
+  ---
+  duration_ms: 227.9186
+  type: 'test'
+  ...
+# Subtest: P05-D1 art-first stage order: measured tasks and obligations leave S03 and are owned by S06; unmeasured rigs never move
+ok 74 - P05-D1 art-first stage order: measured tasks and obligations leave S03 and are owned by S06; unmeasured rigs never move
+  ---
+  duration_ms: 41.8696
+  type: 'test'
+  ...
+# Subtest: P05-D2 the packet alone demands every state it reaches before art (blink, speech, closure, plates); removing one drawing is a missing demand
+ok 75 - P05-D2 the packet alone demands every state it reaches before art (blink, speech, closure, plates); removing one drawing is a missing demand
+  ---
+  duration_ms: 25.6254
+  type: 'test'
+  ...
+# Subtest: P05-G1 film length is variable in schema and logic: 1, 600, 7200 and 216000 frames; 0, fractions and absurd lengths are refused; consumers use the film's own clock
+ok 76 - P05-G1 film length is variable in schema and logic: 1, 600, 7200 and 216000 frames; 0, fractions and absurd lengths are refused; consumers use the film's own clock
+  ---
+  duration_ms: 127.3874
+  type: 'test'
+  ...
+# Subtest: P05-H1 CLI: validate/preflight exit codes, import prints the signing step, feedback is machine readable, status never promotes; the published Python validator agrees with the engine on every mutation when jsonschema is installed
+ok 77 - P05-H1 CLI: validate/preflight exit codes, import prints the signing step, feedback is machine readable, status never promotes; the published Python validator agrees with the engine on every mutation when jsonschema is installed
+  ---
+  duration_ms: 237.8075
+  type: 'test'
+  ...
+# Subtest: P05-K1 evidence builders write only under their own default output: every --out has a default inside hybrid_v2/evidence, never an argv fallback
+ok 78 - P05-K1 evidence builders write only under their own default output: every --out has a default inside hybrid_v2/evidence, never an argv fallback
+  ---
+  duration_ms: 7.9369
+  type: 'test'
+  ...
+# Subtest: P05-K2 the chunk key contains the rendering environment; another Node, Chrome or FFmpeg never shares segments
+ok 79 - P05-K2 the chunk key contains the rendering environment; another Node, Chrome or FFmpeg never shares segments
+  ---
+  duration_ms: 88.4253
+  type: 'test'
+  ...
+# Subtest: C05 attention windows: a readable target passes on every frame; offscreen actor, camera that hides it, covering prop, short window, empty interval and unknown target fail
+ok 80 - C05 attention windows: a readable target passes on every frame; offscreen actor, camera that hides it, covering prop, short window, empty interval and unknown target fail
+  ---
+  duration_ms: 24078.5465
+  type: 'test'
+  ...
+# Subtest: C05 painted world plates occlude: the P05 cave's FOREGROUND rock hides lumen during its attention window (the actor is drawn, the viewer cannot read it)
+ok 81 - C05 painted world plates occlude: the P05 cave's FOREGROUND rock hides lumen during its attention window (the actor is drawn, the viewer cannot read it)
+  ---
+  duration_ms: 332297.7124
+  type: 'test'
+  ...
+# Subtest: COMP-1 three unfamiliar combinations from reusable primitives: every primitive's owner effect holds on every frame; one write set, no conflicts
+ok 82 - COMP-1 three unfamiliar combinations from reusable primitives: every primitive's owner effect holds on every frame; one write set, no conflicts
+  ---
+  duration_ms: 5.457
+  type: 'test'
+  ...
+# Subtest: COMP-2 disable one contributing producer at a time: exactly that primitive's consequence fails (others keep passing)
+ok 83 - COMP-2 disable one contributing producer at a time: exactly that primitive's consequence fails (others keep passing)
+  ---
+  duration_ms: 625.5545
+  type: 'test'
+  ...
+# Subtest: COMP-3 the same code, different direction: trajectory, timing, actor geometry and emotional profile change the measured performance
+ok 84 - COMP-3 the same code, different direction: trajectory, timing, actor geometry and emotional profile change the measured performance
+  ---
+  duration_ms: 257.5828
+  type: 'test'
+  ...
+# Subtest: COMP-4 supported-parameter domains and precedence: out-of-domain requests return the precise missing dependency, never a fallback
+ok 85 - COMP-4 supported-parameter domains and precedence: out-of-domain requests return the precise missing dependency, never a fallback
+  ---
+  duration_ms: 26.9424
+  type: 'test'
+  ...
+# Subtest: COMP-5 real Chrome owner pixels: the waving hand, the surprised brows, the spinning token and the sliding sheet each change their OWN pixels
+ok 86 - COMP-5 real Chrome owner pixels: the waving hand, the surprised brows, the spinning token and the sliding sheet each change their OWN pixels
+  ---
+  duration_ms: 7745.0416
+  type: 'test'
+  ...
+# Subtest: COMP-6 surprised, recoiling actor SPEAKS: semantic speak (viseme route) and composed primitives share one compile, one clock and one write set
+ok 87 - COMP-6 surprised, recoiling actor SPEAKS: semantic speak (viseme route) and composed primitives share one compile, one clock and one write set
+  ---
+  duration_ms: 109.1749
+  type: 'test'
+  ...
+# Subtest: A02-1 one plaque held by both hands across two cuts (offscreen in the middle shot), released in the third shot by another action; QA passes
+ok 88 - A02-1 one plaque held by both hands across two cuts (offscreen in the middle shot), released in the third shot by another action; QA passes
+  ---
+  duration_ms: 3.1015
+  type: 'test'
+  ...
+# Subtest: A02-2 deterministic random seek: shuffled frame order around both cuts gives byte-identical evaluated state
+ok 89 - A02-2 deterministic random seek: shuffled frame order around both cuts gives byte-identical evaluated state
+  ---
+  duration_ms: 23.5197
+  type: 'test'
+  ...
+# Subtest: A02-3 the same socket holds two different props in succession: distinct immutable ids, each consumer reads its own target
+ok 90 - A02-3 the same socket holds two different props in succession: distinct immutable ids, each consumer reads its own target
+  ---
+  duration_ms: 0.5539
+  type: 'test'
+  ...
+# Subtest: A02-4 negatives: continuity removed, shot unmapped, wrong mapping, duplicate id, declared visibility contradicted by the camera, undeclared contact across a cut
+ok 91 - A02-4 negatives: continuity removed, shot unmapped, wrong mapping, duplicate id, declared visibility contradicted by the camera, undeclared contact across a cut
+  ---
+  duration_ms: 248.9448
+  type: 'test'
+  ...
+# Subtest: A02-5 no reset at the cuts: the hand stays closed, locked and on the plaque on both sides of each cut; reusing the wrong id is caught by every consumer
+ok 92 - A02-5 no reset at the cuts: the hand stays closed, locked and on the plaque on both sides of each cut; reusing the wrong id is caught by every consumer
+  ---
+  duration_ms: 175.0232
+  type: 'test'
+  ...
+# Subtest: SPAN-1 runtime: a gripped crank and a planted foot run through a same-world cut with every frame identical to the unsplit film
+ok 93 - SPAN-1 runtime: a gripped crank and a planted foot run through a same-world cut with every frame identical to the unsplit film
+  ---
+  duration_ms: 1231.6963
+  type: 'test'
+  ...
+# Subtest: SPAN-2 runtime: registered gait cels keep their entry index through the cut (celsAt gates on actionInShot, not on the owning shot)
+ok 94 - SPAN-2 runtime: registered gait cels keep their entry index through the cut (celsAt gates on actionInShot, not on the owning shot)
+  ---
+  duration_ms: 72.0842
+  type: 'test'
+  ...
+# Subtest: SPAN-3 refusals: an undeclared cross-cut action, a span into another world, an unneeded span, and a span that skips footage
+ok 95 - SPAN-3 refusals: an undeclared cross-cut action, a span into another world, an unneeded span, and a span that skips footage
+  ---
+  duration_ms: 445.7561
+  type: 'test'
+  ...
+# Subtest: SPAN-4 shot-local transport: fragments carry lineage and absolute frames, tile the parent, and hold every event exactly once; a duplicated or re-started fragment is refused
+ok 96 - SPAN-4 shot-local transport: fragments carry lineage and absolute frames, tile the parent, and hold every event exactly once; a duplicated or re-started fragment is refused
+  ---
+  duration_ms: 1.9379
+  type: 'test'
+  ...
+# Subtest: SPAN-5 packet validator: the strict per-shot rule is unchanged without a span; a declared span is validated, not waived
+ok 97 - SPAN-5 packet validator: the strict per-shot rule is unchanged without a span; a declared span is validated, not waived
+  ---
+  duration_ms: 48.9155
+  type: 'test'
+  ...
+# Subtest: C03-1 visemes: every frame shows the (view, family, viseme) drawing of the phone under its midpoint; sub-frame closure forced visible and reported
+ok 98 - C03-1 visemes: every frame shows the (view, family, viseme) drawing of the phone under its midpoint; sub-frame closure forced visible and reported
+  ---
+  duration_ms: 3.0616
+  type: 'test'
+  ...
+# Subtest: C03-2 the mouth family follows the visible expression mid-line: SMILE while slipping, NEUTRAL on the concerned face, SMILE again on the social smile
+ok 99 - C03-2 the mouth family follows the visible expression mid-line: SMILE while slipping, NEUTRAL on the concerned face, SMILE again on the social smile
+  ---
+  duration_ms: 6.7623
+  type: 'test'
+  ...
+# Subtest: C03-3 negatives: wrong take digest, wrong character cue, OOV phone, word-only aligner, diagnostic schedule in PRODUCTION, LIMITED mouth substituted, shifted/deleted mouth events
+ok 100 - C03-3 negatives: wrong take digest, wrong character cue, OOV phone, word-only aligner, diagnostic schedule in PRODUCTION, LIMITED mouth substituted, shifted/deleted mouth events
+  ---
+  duration_ms: 176.5219
+  type: 'test'
+  ...
+# Subtest: C02 expression transitions: anchored intermediates visible in order; negatives for missing cel, skipped/wrong-order edge, endpoint-only, unordered anchors, morph route, swap producer removed
+ok 101 - C02 expression transitions: anchored intermediates visible in order; negatives for missing cel, skipped/wrong-order edge, endpoint-only, unordered anchors, morph route, swap producer removed
+  ---
+  duration_ms: 98.5527
+  type: 'test'
+  ...
+# Subtest: C04 facial tuple legality: wrong-family mouth, double (baked) mouth, wrong region owner, mouth of another view — all fail on the evaluated frames
+ok 102 - C04 facial tuple legality: wrong-family mouth, double (baked) mouth, wrong region owner, mouth of another view — all fail on the evaluated frames
+  ---
+  duration_ms: 202.9023
+  type: 'test'
+  ...
+# Subtest: C02/C03 real Chrome owner pixels: the bound brow and mouth drawings are the painted ones at measured frames; removing a mouth event changes the mouth pixels
+ok 103 - C02/C03 real Chrome owner pixels: the bound brow and mouth drawings are the painted ones at measured frames; removing a mouth event changes the mouth pixels
+  ---
+  duration_ms: 3898.2542
+  type: 'test'
+  ...
+# Subtest: A01 ledger: every directed action is covered on every frame by producers bound to it, executed on every frame and visible in the owner's own pixels
+ok 104 - A01 ledger: every directed action is covered on every frame by producers bound to it, executed on every frame and visible in the owner's own pixels
+  ---
+  duration_ms: 70927.0003
+  type: 'test'
+  ...
+# Subtest: A01 negatives: deleted producer under a moving camera; no-op producer with correct metadata; partial interval; wrong owner; dropped action; unbound primitive
+ok 105 - A01 negatives: deleted producer under a moving camera; no-op producer with correct metadata; partial interval; wrong owner; dropped action; unbound primitive
+  ---
+  duration_ms: 139424.3517
+  type: 'test'
+  ...
+# Subtest: A01 production path: the S08 ledger evidence is read from the real render receipts (segment_render + chrome attribution) of this revision
+ok 106 - A01 production path: the S08 ledger evidence is read from the real render receipts (segment_render + chrome attribution) of this revision
+  ---
+  duration_ms: 205131.6246
+  type: 'test'
+  ...
+# Subtest: B01-1 ACTOR_DRIVEN: the hand path lowers the plaque with NO plaque keys; plaque follows the hand rigidly; supporter + bench valid; QA passes
+ok 107 - B01-1 ACTOR_DRIVEN: the hand path lowers the plaque with NO plaque keys; plaque follows the hand rigidly; supporter + bench valid; QA passes
+  ---
+  duration_ms: 15.1935
+  type: 'test'
+  ...
+# Subtest: B01-2 SURFACE_DRIVEN moving surface + BAKED predecessor: the bench takes the exact pose the hand left; moving the bench carries the plaque
+ok 108 - B01-2 SURFACE_DRIVEN moving surface + BAKED predecessor: the bench takes the exact pose the hand left; moving the bench carries the plaque
+  ---
+  duration_ms: 1.8527
+  type: 'test'
+  ...
+# Subtest: B01-3 hand-over to an ACTOR driver: the receiver's hand path draws the card in (no card keys after 356); no jump at the transfer; giver released
+ok 109 - B01-3 hand-over to an ACTOR driver: the receiver's hand path draws the card in (no card keys after 356); no jump at the transfer; giver released
+  ---
+  duration_ms: 1.1573
+  type: 'test'
+  ...
+# Subtest: B01-4 OBJECT_DRIVEN (reverse case): the prop's track moves the prop and the supporting hand follows; the hand is a supporter, not a transform writer
+ok 110 - B01-4 OBJECT_DRIVEN (reverse case): the prop's track moves the prop and the supporting hand follows; the hand is a supporter, not a transform writer
+  ---
+  duration_ms: 7.5825
+  type: 'test'
+  ...
+# Subtest: B01-5 negatives: driver consumer deleted, conflicting writers, undeclared mode, mode/driver mismatch, path vs arm track, invalid transfer, free flight with grip
+ok 111 - B01-5 negatives: driver consumer deleted, conflicting writers, undeclared mode, mode/driver mismatch, path vs arm track, invalid transfer, free flight with grip
+  ---
+  duration_ms: 41.5612
+  type: 'test'
+  ...
+# Subtest: B01-6 FREE_AUTHORED: after both claws let go the drum flies its directed track with no grip support and no conflict
+ok 112 - B01-6 FREE_AUTHORED: after both claws let go the drum flies its directed track with no grip support and no conflict
+  ---
+  duration_ms: 5.2222
+  type: 'test'
+  ...
+# Subtest: B01-7 real Chrome owner pixels: the plaque's own pixels move with the hand path; deleting the actor-drive consumer leaves them behind
+ok 113 - B01-7 real Chrome owner pixels: the plaque's own pixels move with the hand path; deleting the actor-drive consumer leaves them behind
+  ---
+  duration_ms: 2277.4772
+  type: 'test'
+  ...
+# Subtest: B04-1 two unlike bipeds walk from approved step schedules: planted stance, clearance arcs, no flight, pelvis over support, monotone progress
+ok 114 - B04-1 two unlike bipeds walk from approved step schedules: planted stance, clearance arcs, no flight, pelvis over support, monotone progress
+  ---
+  duration_ms: 3.6939
+  type: 'test'
+  ...
+# Subtest: B04-2 negatives: no step schedule, impossible stride (too few steps), flight without running, feet stepping twice, non-biped topology, stance anchor slid, swapped knee branch
+ok 115 - B04-2 negatives: no step schedule, impossible stride (too few steps), flight without running, feet stepping twice, non-biped topology, stance anchor slid, swapped knee branch
+  ---
+  duration_ms: 163.8838
+  type: 'test'
+  ...
+# Subtest: B04-3 real Chrome owner pixels: a stance foot's own pixels stay put while the torso's pixels advance
+ok 116 - B04-3 real Chrome owner pixels: a stance foot's own pixels stay put while the torso's pixels advance
+  ---
+  duration_ms: 2069.323
+  type: 'test'
+  ...
+# Subtest: HYBRID_CONTRACT: a supported set is feasible in principle; only external authority (host asset, recorded voice) is pending
+ok 117 - HYBRID_CONTRACT: a supported set is feasible in principle; only external authority (host asset, recorded voice) is pending
+  ---
+  duration_ms: 16.2825
+  type: 'test'
+  ...
+# Subtest: HYBRID_CONTRACT negatives: each contradiction names its invariant and owner
+ok 118 - HYBRID_CONTRACT negatives: each contradiction names its invariant and owner
+  ---
+  duration_ms: 77.9594
+  type: 'test'
+  ...
+# Subtest: creative_handoff hybrid-preflight CLI
+ok 119 - creative_handoff hybrid-preflight CLI
+  ---
+  duration_ms: 9.4115
+  type: 'test'
+  ...
+# Subtest: HYBRID_CONTRACT P08: a VISEME dialogue line routes to the measured-phone viseme producer; it needs the phone alignment; an unknown scheme is refused
+ok 120 - HYBRID_CONTRACT P08: a VISEME dialogue line routes to the measured-phone viseme producer; it needs the phone alignment; an unknown scheme is refused
+  ---
+  duration_ms: 16.7233
+  type: 'test'
+  ...
+# Subtest: P07-P1 PINCH is never dropped or silently turned into a GRIP: preflight names its missing art/contract, the manifest keeps it as PINCH, the compiler refuses it without its contract
+ok 121 - P07-P1 PINCH is never dropped or silently turned into a GRIP: preflight names its missing art/contract, the manifest keeps it as PINCH, the compiler refuses it without its contract
+  ---
+  duration_ms: 44.9557
+  type: 'test'
+  ...
+# Subtest: P07-P2 production phase packet: schema-valid, keeps every original id and the whole pre-roll, binds approval to the phase only
+ok 122 - P07-P2 production phase packet: schema-valid, keeps every original id and the whole pre-roll, binds approval to the phase only
+  ---
+  duration_ms: 90.1673
+  type: 'test'
+  ...
+# Subtest: P07-A1 pre-generation audit: present, bound to the design revision and witnesses, ten distinct substantive domains; filler and stale audits are refused
+ok 123 - P07-A1 pre-generation audit: present, bound to the design revision and witnesses, ten distinct substantive domains; filler and stale audits are refused
+  ---
+  duration_ms: 48.1351
+  type: 'test'
+  ...
+# Subtest: P07-A2 the real pre-generation gate carries the audit status and the design approval bundle binds the audit digest
+ok 124 - P07-A2 the real pre-generation gate carries the audit status and the design approval bundle binds the audit digest
+  ---
+  duration_ms: 25790.2186
+  type: 'test'
+  ...
+# Subtest: P07-S1 schema + positive: two unlike rigs, three props, every frame of every contract and every command effect passes
+ok 125 - P07-S1 schema + positive: two unlike rigs, three props, every frame of every contract and every command effect passes
+  ---
+  duration_ms: 3.2293
+  type: 'test'
+  ...
+# Subtest: P07-E01 V0.4 frame values on the stand-in rigs: award two-hand setdown and report hand-over at the exact directed instants
+ok 126 - P07-E01 V0.4 frame values on the stand-in rigs: award two-hand setdown and report hand-over at the exact directed instants
+  ---
+  duration_ms: 6.8144
+  type: 'test'
+  ...
+# Subtest: P07-N1 compile-time typed refusals: removed support, conflicting drivers, gap, premature release, early transfer, wrong socket, missing painted hand, no contract
+ok 127 - P07-N1 compile-time typed refusals: removed support, conflicting drivers, gap, premature release, early transfer, wrong socket, missing painted hand, no contract
+  ---
+  duration_ms: 54.0052
+  type: 'test'
+  ...
+# Subtest: P07-N2 every-frame negatives through the real consumers: open painted hand, palm reversal, teleport, overextension
+ok 128 - P07-N2 every-frame negatives through the real consumers: open painted hand, palm reversal, teleport, overextension
+  ---
+  duration_ms: 618.3969
+  type: 'test'
+  ...
+# Subtest: P07-R1 real Chrome pixels: shared hold, transfer and release are visible on each OWNER's own drawing
+ok 129 - P07-R1 real Chrome pixels: shared hold, transfer and release are visible on each OWNER's own drawing
+  ---
+  duration_ms: 4145.3114
+  type: 'test'
+  ...
+# Subtest: REG-S1 preflight: the estimate is the largest MEASURED peak; too little free space refuses the run before anything starts
+ok 130 - REG-S1 preflight: the estimate is the largest MEASURED peak; too little free space refuses the run before anything starts
+  ---
+  duration_ms: 3.9301
+  type: 'test'
+  ...
+# Subtest: REG-S2 watchdog: a storage error in the TAP, or free space under the stop floor, kills the whole process tree; a clean run is untouched
+ok 131 - REG-S2 watchdog: a storage error in the TAP, or free space under the stop floor, kills the whole process tree; a clean run is untouched
+  ---
+  duration_ms: 2024.8504
+  type: 'test'
+  ...
+# Subtest: REG-S3 copyFilmTree links ONLY immutable segments; a negative's edit of any other file never reaches the source; reclaim needs TBO_RECLAIM_WORK=1
+ok 132 - REG-S3 copyFilmTree links ONLY immutable segments; a negative's edit of any other file never reaches the source; reclaim needs TBO_RECLAIM_WORK=1
+  ---
+  duration_ms: 27.239
+  type: 'test'
+  ...
+# Subtest: REG-S4 chunk cache: a hit HARD-LINKS the verified segment (no duplicate bytes); a tampered cache entry is never reused
+ok 133 - REG-S4 chunk cache: a hit HARD-LINKS the verified segment (no duplicate bytes); a tampered cache entry is never reused
+  ---
+  duration_ms: 5084.0391
+  type: 'test'
+  ...
+1..133
+# tests 133
+# suites 0
+# pass 133
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 626350.2598

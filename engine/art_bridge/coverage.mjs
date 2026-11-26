@@ -1,6 +1,7 @@
 // Frame coverage (spec §4 step 4, §11.4): walk [0,total) frame-by-frame, find the dominant shot, active actions, required assets, contact
 // intervals and state edges; return exact missing frame spans and ArtJob requests. A static master plate never counts as an active rig.
 import { err } from "./errors.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 export function computeCoverage(doc) {
   const total = doc.stage.total_frames, errors = [], assets = new Map(doc.assets.map((a) => [a.id, a]));
@@ -16,7 +17,7 @@ export function computeCoverage(doc) {
   // per-frame requirements
   const missing = new Map(); // assetId -> frames
   const need = (id, f) => { if (!assets.has(id)) { if (!missing.has(id)) missing.set(id, []); missing.get(id).push(f); } };
-  const actionsByShot = new Map(); for (const a of doc.actions) { if (!actionsByShot.has(a.shot_id)) actionsByShot.set(a.shot_id, []); actionsByShot.get(a.shot_id).push(a); }
+  const actionsByShot = new Map(); for (const a of doc.actions) for (const sid of actionShots(a)) { if (!actionsByShot.has(sid)) actionsByShot.set(sid, []); actionsByShot.get(sid).push(a); }
   const shotById = new Map(doc.shots.map((s) => [s.id, s]));
   for (let f = 0; f < total; f++) {
     const s = shotAt[f]; if (!s) continue; const shot = shotById.get(s);

@@ -13,6 +13,7 @@ import { compileTransition } from "./transitions.mjs";
 import { applyApprovedLighting } from "./lighting.mjs";
 import { chain, mul, T, S, R, apply, inv, fmt } from "./math2d.mjs";
 import { cropToCanonical, coversCanonical } from "./asset_geometry.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 const BANDS = ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND"];
 
@@ -48,7 +49,7 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   for (const d of world?.depth_owners || []) for (const aid of d.asset_ids) { const r = registry.get(aid); bands[d.depth_band].push({ id: `world--${d.id}--${aid}`, asset_id: aid, slot: aid, markup: `<g id="${xml(P(`world--${d.id}--${aid}`))}" transform="translate(${r.asset.pivot_xy[0]} ${r.asset.pivot_xy[1]})">${emitPass(`world--${d.id}--${aid}-p`, r.asset, r.url, prefix)}</g>`, static: true }); }
   // rigs placed in this shot
   const rigIds = doc.rigs.filter((r) => compiled.placement(r.id, shot)).map((r) => r.id), rigPasses = [];
-  const inThisShot = (actionId) => { const a = doc.actions.find((x) => x.id === actionId); return !a || a.shot_id === shot.id; };
+  const inThisShot = (actionId) => { const a = doc.actions.find((x) => x.id === actionId); return !a || actionInShot(a, shot.id); };
   // P03 F: cast shadows re-use the APPROVED occluder drawing, projected onto the declared receiver plane and flattened by its material treatment
   const shadowPasses = [];
   const shadowGroups = new Map();
@@ -62,8 +63,8 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
     for (const [planeId, L] of Object.entries(plan.lighting || {})) { const owner = passes.find((p) => p.slot === L.owner_part); if (!owner) continue; const r = registry.get(planeId), id = `${owner.pass_id}--light-${planeId}`; (bands[assets.get(owner.asset_id).depth_band] || bands.FOCAL).push({ id, asset_id: planeId, slot: `${owner.slot}:light`, after: owner.pass_id, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); }
   }
   // cels and procedural symbols active in this shot
-  for (const [aid, cel] of Object.entries(plan.cels || {})) { const a = doc.actions.find((x) => x.id === aid); if (a?.shot_id !== shot.id) continue; for (const e of [...new Set(cel.cycle.map((c) => c.asset_id))]) { const r = registry.get(e), id = `${aid}--cel--${e}`; bands[cel.band || "FOCAL"].push({ id, asset_id: e, slot: e, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); } }
-  for (const [aid, p] of Object.entries(plan.procedural || {})) { if (p.type !== "FLOW_PATH" && p.type !== "MODEL_BAR") continue; const a = doc.actions.find((x) => x.id === aid); if (a?.shot_id !== shot.id) continue; const max = p.type === "MODEL_BAR" ? 1 : Math.max(...p.count.map((k) => k[1])), r = registry.get(p.symbol_asset); for (let i = 0; i < max; i++) { const id = `${aid}--sym${i}`; bands[p.band || "FOCAL"].push({ id, asset_id: p.symbol_asset, slot: p.symbol_asset, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); } }
+  for (const [aid, cel] of Object.entries(plan.cels || {})) { const a = doc.actions.find((x) => x.id === aid); if (!a || !actionInShot(a, shot.id)) continue; for (const e of [...new Set(cel.cycle.map((c) => c.asset_id))]) { const r = registry.get(e), id = `${aid}--cel--${e}`; bands[cel.band || "FOCAL"].push({ id, asset_id: e, slot: e, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); } }
+  for (const [aid, p] of Object.entries(plan.procedural || {})) { if (p.type !== "FLOW_PATH" && p.type !== "MODEL_BAR") continue; const a = doc.actions.find((x) => x.id === aid); if (!a || !actionInShot(a, shot.id)) continue; const max = p.type === "MODEL_BAR" ? 1 : Math.max(...p.count.map((k) => k[1])), r = registry.get(p.symbol_asset); for (let i = 0; i < max; i++) { const id = `${aid}--sym${i}`; bands[p.band || "FOCAL"].push({ id, asset_id: p.symbol_asset, slot: p.symbol_asset, markup: emitPass(id, r.asset, r.url, prefix) }); runtimeIds.push(id); } }
   // Better One TBO-G14: Blender host passes (engine/host3d/host_pass.mjs#compileHostPasses validated them). A SHADOW and a HOST <image> per
   // host sit in a depth band, so painted 2D foreground bands/occluders cover them by the same paint order as everything else; their href is
   // written every frame from the pass manifest (one Blender frame per film frame). Passes are rendered by the calibrated 3D camera, so the 2D

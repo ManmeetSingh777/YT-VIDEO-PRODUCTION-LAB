@@ -28,6 +28,7 @@ import { dependencyDigest } from "./art_requests.mjs";
 import { channelEvents } from "./state_channels.mjs";
 import { compileMotionTracks, stateAtFrame } from "./temporal.mjs";
 import { rigPoseTimeline } from "./state_timeline.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 const MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json", PLAN = "handoff/ART_DEPENDENCY_PLAN.json";
 const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex"), hsha = (o) => crypto.createHash("sha256").update(JSON.stringify(o)).digest("hex");
@@ -42,7 +43,7 @@ export function requirementsFor(doc, plan) {
   const req = new Map(), need = (id) => { if (!req.has(id)) req.set(id, { spans: [], shots: new Set(), modes: new Set(), contacts: [], facings: new Set(), poses: new Set(), cameras: new Set(), sources: [] }); return req.get(id); };
   const shotById = new Map(doc.shots.map((s) => [s.id, s]));
   for (const s of doc.shots) for (const id of s.required_asset_ids) { const r = need(id); r.spans.push([s.start_frame, s.end_frame]); r.shots.add(s.id); if (s.camera_track_id) r.cameras.add(s.camera_track_id); r.sources.push(`shot ${s.id}`); }
-  for (const a of doc.actions) for (const id of a.required_assets) { const r = need(id); (r.actionSpans ||= []).push(a.frame_range); r.shots.add(a.shot_id); r.modes.add(a.mode); r.sources.push(`action ${a.id}`); }
+  for (const a of doc.actions) for (const id of a.required_assets) { const r = need(id); (r.actionSpans ||= []).push(a.frame_range); for (const sid of actionShots(a)) r.shots.add(sid); r.modes.add(a.mode); r.sources.push(`action ${a.id}`); }
   for (const w of doc.worlds) for (const d of w.depth_owners) for (const id of d.asset_ids) for (const s of doc.shots.filter((x) => x.world_id === w.id)) { const r = need(id); r.spans.push([s.start_frame, s.end_frame]); r.shots.add(s.id); if (s.camera_track_id) r.cameras.add(s.camera_track_id); r.world = w; r.sources.push(`world ${w.id} in ${s.id}`); }
   for (const t of doc.transitions) for (const id of [...t.out_asset_ids, ...t.middle_asset_ids, ...t.in_asset_ids, ...t.mask_or_occluder_ids]) { const r = need(id); r.spans.push(t.frame_range); r.shots.add(t.from_shot); r.shots.add(t.to_shot); r.modes.add("TRANSITION"); r.transition = `${t.from_shot}->${t.to_shot}`; r.sources.push(`transition ${t.from_shot}->${t.to_shot}`); }
   const rigs = new Map(doc.rigs.map((r) => [r.id, r]));
@@ -252,12 +253,12 @@ function feasibilityFor(FILM, doc, identityId, motionPlan) {
       for (const v of a.view_events || []) { if (!ids.has(v.to_state) && !doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === v.to_state))) failures.push({ code: "UNSUPPORTED_VIEW", record_id: a.id, shot: a.shot_id, frame_range: [v.frame, v.frame + 1], reason: `view state ${v.to_state} is not in rig ${rr.id}` }); else if (!rr.allowed_state_edges.some((g) => g.from === v.from_state && g.to === v.to_state)) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: a.shot_id, frame_range: [v.frame, v.frame + 1], reason: `no allowed edge ${v.from_state} -> ${v.to_state}` }); } }
     for (const ce of channelEvents(rr, doc.actions).errors) failures.push({ code: ce.code, record_id: rr.id, shot: null, frame_range: ce.frame_range, reason: ce.human_readable_reason || ce.message }); }
   const rigRev = crypto.createHash("sha256").update(JSON.stringify(doc.rigs.filter((r) => rigs.has(r.id)))).digest("hex");
-  for (const sh of doc.shots.filter((s) => acts.some((a) => a.shot_id === s.id))) {
+  for (const sh of doc.shots.filter((s) => acts.some((a) => actionInShot(a, s.id)))) {
     const plans = motionPlan ? [{ shot: sh.id, file: "(supplied restaging plan)", plan: motionPlan }] : motionPlansFor(FILM).filter((p) => !p.shot || p.shot === sh.id), ids = acts.filter((x) => x.shot_id === sh.id).map((x) => x.id);
     if (!plans.length) { notEvaluated.push({ shot: sh.id, actions: ids, reason: "no motion plan matches this shot: nothing was executed" }); continue; }
     for (const mp of plans) {
       let C; try { C = compileMotionTracks(doc.actions, doc.shots, { doc, plan: mp.plan, requireApproval: false, allowPendingArt: true }); } catch (e) { failures.push({ code: "MOTION_COMPILE_FAILED", shot: sh.id, plan: mp.file, reason: String(e.message).slice(0, 300), errors: (e.errors || []).slice(0, 8).map((x) => `${x.code} ${x.record_id}`) }); continue; }
-      const wanted = new Set(); for (const a of acts.filter((x) => x.shot_id === sh.id)) for (let f = Math.max(a.frame_range[0], sh.start_frame); f < Math.min(a.frame_range[1], sh.end_frame); f++) wanted.add(f);
+      const wanted = new Set(); for (const a of acts.filter((x) => actionInShot(x, sh.id))) for (let f = Math.max(a.frame_range[0], sh.start_frame); f < Math.min(a.frame_range[1], sh.end_frame); f++) wanted.add(f);
       const bad = {}; let ev = 0, paintPending = 0; const contactsChecked = new Set(), pendingArt = new Set(C.pendingArt || []);
       for (const f of [...wanted].sort((x, y) => x - y)) { let st; try { st = stateAtFrame(C, f); } catch (e) { if (e.code === "MISSING_ART_ASSET") { // art for this frame is not delivered yet: the PHYSICAL motion is still fully evaluated; paint/occlusion feasibility is recorded as pending on those drawings
           try { const sh2 = C.shotAt(f), prim = C.evalPrimary(f, sh2), contacts = C.contactsAt(f), con = C.solveConstraints(f, prim, contacts); const sup = C.supportAt(f, con.matrices), rea = C.reactionsAt(f, sh2); st = { contacts: con.solved, failures: [...con.failures, ...sup.failures, ...rea.filter((r) => !r.ok).map((r) => err("REACTION_UNSATISFIABLE", { record_id: r.id, reason: `mechanism residual ${r.residual_px.toFixed(2)}px` }))], physical_only: true }; paintPending++; pendingArt.add(e.record_id || e.dependency || "?"); } catch (e2) { const c2 = e2.code || "EXCEPTION"; (bad[`FRAME_EVALUATION_FAILED|${c2}`] ||= { code: "FRAME_EVALUATION_FAILED", record_id: c2, shot: sh.id, plan: mp.file, frames: [], reason: `${c2}: ${e2.human_readable_reason || e2.message}`.slice(0, 300) }).frames.push(f); continue; } }

@@ -1,0 +1,77 @@
+{
+  "kind": "USER_STATEMENT_RECORD_NOT_ENGINE_SIGNATURE",
+  "status": "USER_APPROVED_SELECTED_AUDIO",
+  "statement": "I listened to the complete assembled 16-second dialogue preview and the qualification extract. The selected voices, dialogue performances and regular customer's chuckle are approved.",
+  "approved_decisions": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6"
+  ],
+  "preview_hashes": {
+    "E01_PHASE1_DIALOGUE_PREVIEW.wav": "c3363a1e1c7556ce4e478218386952d34b51a34da48d5e9fc577908ca9928832",
+    "E01_QUALIFICATION_DIALOGUE_PREVIEW.wav": "57d76be6024a39b577bfdfec6d6341c8d5a2fb08c3cc76634ccc744554e8e0ac"
+  },
+  "selected_masters": [
+    {
+      "cue_id": "AUD03",
+      "actor": "CHAR_REGULAR",
+      "take_id": "E01_AUD03_REGULAR_am_michael_TC",
+      "master_path": "source_audio/master_48k/E01_AUD03_REGULAR_am_michael_TC.wav",
+      "master_sha256": "1c8313e446875f78822e178d2f97a82543343d2bfe59b85da6f321de1504f70b"
+    },
+    {
+      "cue_id": "AUD12",
+      "actor": "CHAR_MIA",
+      "take_id": "E01_AUD12_MIA_af_heart_TA",
+      "master_path": "source_audio/master_48k/E01_AUD12_MIA_af_heart_TA.wav",
+      "master_sha256": "ef40b615a0c1e6a3eefa22a66ecffe256daabd8bd5da626f3cdba8c42e18212b"
+    },
+    {
+      "cue_id": "AUD20",
+      "actor": "CHAR_REGULAR",
+      "take_id": "E01_AUD20_CHUCKLE_fs458101",
+      "master_path": "source_audio/nonverbal/AUD20/master_48k/E01_AUD20_CHUCKLE_fs458101.wav",
+      "master_sha256": "c59a9698832a5e708f0d4693a931d606daa394c694db3856ac089314c4cf431e"
+    },
+    {
+      "cue_id": "AUD13",
+      "actor": "CHAR_LEAD",
+      "take_id": "E01_AUD13_LEAD_af_sarah_TC",
+      "master_path": "source_audio/master_48k/E01_AUD13_LEAD_af_sarah_TC.wav",
+      "master_sha256": "57ad4ee9157bf38f235cf6231c436a41be67479273b3454bc2427ade20914398"
+    },
+    {
+      "cue_id": "AUD02",
+      "actor": "CHAR_MIA",
+      "take_id": "E01_AUD02_MIA_af_heart_TC",
+      "master_path": "source_audio/master_48k/E01_AUD02_MIA_af_heart_TC.wav",
+      "master_sha256": "5e5dab1763630fada3fe23b1d4dd68a2b377c5daa3f3b64b5607700af2bf6e90"
+    },
+    {
+      "cue_id": "AUD14",
+      "actor": "CHAR_REGULAR",
+      "take_id": "E01_AUD14_REGULAR_am_michael_TB",
+      "master_path": "source_audio/master_48k/E01_AUD14_REGULAR_am_michael_TB.wav",
+      "master_sha256": "626f1853d1b29b07b69d978bc37271b7a5c8d5ffc34e5e8a4d7bf44b7c7056cf"
+    },
+    {
+      "cue_id": "AUD09",
+      "actor": "CHAR_MIA",
+      "take_id": "E01_AUD09_MIA_af_heart_TB",
+      "master_path": "source_audio/master_48k/E01_AUD09_MIA_af_heart_TB.wav",
+      "master_sha256": "44d9321ee5a8af6e3f1360d6434c7b80b8db01d9a6b9cc9ab6f6268ff9f3a3da"
+    }
+  ],
+  "not_approved": [
+    "storyboard",
+    "audiovisual animatic",
+    "final sound mix",
+    "scoped packet digest",
+    "final artwork",
+    "later phase",
+    "ending"
+  ]
+}

@@ -1,0 +1,348 @@
+{
+ "status": "PREVIEW: unsigned V0.4 drafts run through the live design gate against the reconciled packet; drafts are not installed",
+ "packet_sha256": "ceba69013b3b885e39a1f4e25ad4021b630cb0bd8cb9fd1f2e1f5a4895817696",
+ "gates": {
+  "MIA_MASTER": {
+   "draft": "MIA_MASTER.design.json",
+   "draft_sha256": "ea6227520d37de145bb9f4b44d8d2e00c50827199043e938c4ace709d6020da8",
+   "job": "ARTJOB_MASTER_MIA_MASTER_cf7e5c4c",
+   "status": "REFUSED",
+   "failures": [
+    {
+     "code": "CONTRACT_VIEW_MISMATCH",
+     "reason": "design view_id (prose only) ≠ motion view_id to_regular"
+    },
+    {
+     "code": "CONTRACT_SCALE_MISMATCH",
+     "reason": "figure authored at ? px but the action graph shows it up to 174 px on screen"
+    },
+    {
+     "code": "CONTRACT_POSE_MISMATCH",
+     "reason": "canonical pose null ≠ rig rest state ready"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "attachment semantics missing for joints root, head, upper_r, fore_r, hand_r, upper_l, fore_l, hand_l"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "contact semantics missing for sockets CHAR_MIA.palm_r, CHAR_MIA.palm_l"
+    },
+    {
+     "code": "CONTRACT_STATE_MISSING",
+     "reason": "state_family lacks states the action graph shows: ready, regal, lower, reach, reading, low_report, social_capture, to_lead, down_report, to_regular, to_lens"
+    },
+    {
+     "code": "PREGEN_AUDIT_INVALID",
+     "reason": "the audit is not bound to the native witness manifest in use",
+     "field": "AUDIT_BOUND_TO_WITNESSES"
+    },
+    {
+     "code": "PREGEN_AUDIT_INVALID",
+     "reason": "articulation_occlusion_alternate_art.findings repeats face_expression_hands_identity_views.findings",
+     "field": "PASSES_ARE_DISTINCT"
+    }
+   ],
+   "required_methods": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F14",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F30",
+    "F31",
+    "F33",
+    "F35",
+    "F36",
+    "F51",
+    "F52",
+    "F53",
+    "F56",
+    "F57",
+    "F58",
+    "F59",
+    "F61",
+    "F62",
+    "F64",
+    "F65",
+    "F66",
+    "F67",
+    "F77",
+    "F78",
+    "F79",
+    "F80"
+   ]
+  },
+  "REGULAR_MASTER": {
+   "draft": "REGULAR_MASTER.design.json",
+   "draft_sha256": "c44d2ccbf9d551c449e952e544890f6fce29b076c848f2f1db8f925fb9053a72",
+   "job": "ARTJOB_MASTER_REGULAR_MASTER_6907d6f6",
+   "status": "REFUSED",
+   "failures": [
+    {
+     "code": "CONTRACT_VIEW_MISMATCH",
+     "reason": "design view_id (prose only) ≠ motion view_id to_mia"
+    },
+    {
+     "code": "CONTRACT_SCALE_MISMATCH",
+     "reason": "figure authored at ? px but the action graph shows it up to 265 px on screen"
+    },
+    {
+     "code": "CONTRACT_POSE_MISMATCH",
+     "reason": "canonical pose null ≠ rig rest state phone_low"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "attachment semantics missing for joints root, head, upper_r, fore_r, hand_r, upper_l, fore_l, hand_l, thumb_r"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "contact semantics missing for sockets CHAR_REGULAR.palm_r, CHAR_REGULAR.palm_l, CHAR_REGULAR.thumb_r"
+    },
+    {
+     "code": "CONTRACT_STATE_MISSING",
+     "reason": "state_family lacks states the action graph shows: phone_low, phone_ready, phone_wait, phone_review, to_lead, to_mia, own_screen, room"
+    },
+    {
+     "code": "PREGEN_AUDIT_INVALID",
+     "reason": "the audit is not bound to the native witness manifest in use",
+     "field": "AUDIT_BOUND_TO_WITNESSES"
+    },
+    {
+     "code": "PREGEN_AUDIT_INVALID",
+     "reason": "articulation_occlusion_alternate_art.findings repeats face_expression_hands_identity_views.findings",
+     "field": "PASSES_ARE_DISTINCT"
+    }
+   ],
+   "required_methods": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F14",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F30",
+    "F31",
+    "F33",
+    "F35",
+    "F36",
+    "F51",
+    "F52",
+    "F53",
+    "F56",
+    "F57",
+    "F58",
+    "F59",
+    "F61",
+    "F62",
+    "F64",
+    "F65",
+    "F66",
+    "F67",
+    "F77",
+    "F78",
+    "F79",
+    "F80"
+   ]
+  },
+  "LEAD_MASTER": {
+   "draft": "LEAD_MASTER.design.json",
+   "draft_sha256": "ff66cc97cb53423a02bbef39ac20488b2e2a974cc423c39b22457a9fa1a305e3",
+   "job": "ARTJOB_MASTER_LEAD_MASTER_63a6b44a",
+   "status": "REFUSED",
+   "failures": [
+    {
+     "code": "CONTRACT_VIEW_MISMATCH",
+     "reason": "design view_id (prose only) ≠ motion view_id to_mia"
+    },
+    {
+     "code": "CONTRACT_SCALE_MISMATCH",
+     "reason": "figure authored at ? px but the action graph shows it up to 174 px on screen"
+    },
+    {
+     "code": "CONTRACT_POSE_MISMATCH",
+     "reason": "canonical pose null ≠ rig rest state approach"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "attachment semantics missing for joints root, head, upper_r, fore_r, hand_r, upper_l, fore_l, hand_l, thigh_r, shin_r, foot_r, thigh_l, shin_l, foot_l"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "contact semantics missing for sockets CHAR_LEAD.palm_r, CHAR_LEAD.palm_l, CHAR_LEAD.sole_r, CHAR_LEAD.sole_l"
+    },
+    {
+     "code": "CONTRACT_STATE_MISSING",
+     "reason": "state_family lacks states the action graph shows: settled, present, turn_staff, station, to_mia, to_edge, to_staff, staff_side"
+    },
+    {
+     "code": "PREGEN_AUDIT_INVALID",
+     "reason": "the audit is not bound to the native witness manifest in use",
+     "field": "AUDIT_BOUND_TO_WITNESSES"
+    },
+    {
+     "code": "PREGEN_AUDIT_INVALID",
+     "reason": "articulation_occlusion_alternate_art.findings repeats face_expression_hands_identity_views.findings",
+     "field": "PASSES_ARE_DISTINCT"
+    }
+   ],
+   "required_methods": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F14",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F30",
+    "F31",
+    "F33",
+    "F35",
+    "F36",
+    "F51",
+    "F52",
+    "F53",
+    "F56",
+    "F57",
+    "F58",
+    "F59",
+    "F61",
+    "F62",
+    "F64",
+    "F65",
+    "F66",
+    "F67",
+    "F77",
+    "F78",
+    "F79",
+    "F80"
+   ]
+  },
+  "ART_ENV01.MASTER": {
+   "draft": "ENV_RESTAURANT_SH01.design.json",
+   "draft_sha256": "727aec32c60d7a439a40221c8bc586b0035c743078c16dbcf6b5019e6c0ad723",
+   "job": "ARTJOB_MASTER_ART_ENV01.MASTER_1f5982ee",
+   "status": "REFUSED",
+   "failures": [
+    {
+     "code": "MOLECULAR_DECISIONS_MISSING",
+     "reason": "animation_ancestry names ENV_RESTAURANT_SH01, not ART_ENV01.MASTER"
+    },
+    {
+     "code": "CONTRACT_VIEW_MISMATCH",
+     "reason": "design view (undeclared) ≠ motion view room"
+    },
+    {
+     "code": "CONTRACT_REPRESENTATION_MISSING",
+     "reason": "motion_representation must be one of RIGID/ARTICULATED/REGISTERED_CELS/REGISTERED_MORPH/EXPLICIT_DEFORM/PROCEDURAL/CAMERA_WORLD/TRANSITION"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "attachment semantics missing for root"
+    },
+    {
+     "code": "CONTRACT_INTERFACE_MISSING",
+     "reason": "contact semantics missing for WORLD_RESTAURANT.counter_support"
+    },
+    {
+     "code": "CONTRACT_STATE_MISSING",
+     "reason": "state_family lacks base"
+    },
+    {
+     "code": "CONTRACT_SCALE_MISMATCH",
+     "reason": "world overscan 0,0,1920,1080 not covered by authored canonical_coverage_rect null"
+    },
+    {
+     "code": "CONTRACT_SCALE_MISMATCH",
+     "reason": "authored pixel size undeclared"
+    },
+    {
+     "code": "ART_DESIGN_UNSPECIFIED",
+     "method": "F38",
+     "reason": "world design declares no proof_projection/planes"
+    },
+    {
+     "code": "PREGEN_AUDIT_MISSING",
+     "reason": "no pre-generation audit for ENV_RESTAURANT_SH01: ten subject-specific gap-finding passes must be recorded before the first image",
+     "field": "AUDIT_PRESENT"
+    }
+   ],
+   "required_methods": [
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F08",
+    "F10",
+    "F13",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F31",
+    "F33",
+    "F34",
+    "F35",
+    "F36",
+    "F37",
+    "F38",
+    "F40",
+    "F46",
+    "F47",
+    "F49",
+    "F50",
+    "F51",
+    "F52",
+    "F53",
+    "F54",
+    "F55",
+    "F56",
+    "F57",
+    "F58",
+    "F59",
+    "F60",
+    "F61",
+    "F62",
+    "F63",
+    "F70",
+    "F76",
+    "F77",
+    "F78",
+    "F79",
+    "F80"
+   ]
+  }
+ },
+ "masters_without_any_draft": [
+  "ART_P01.MASTER",
+  "ART_P02.MASTER",
+  "ART_P03.MASTER",
+  "ART_BG01.BG_DINER_A.MASTER",
+  "ART_BG01.BG_DINER_B.MASTER",
+  "ART_BG01.BG_OCCUPANCY.MASTER",
+  "ART_BG02.BG_QUEUE.MASTER"
+ ]
+}

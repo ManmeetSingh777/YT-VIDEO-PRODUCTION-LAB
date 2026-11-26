@@ -1,0 +1,68 @@
+{
+ "packet_zip_sha256": "e86230b3561e9af252a548bdb6ba8fdd8d44368304cc541069d9040488dc24db",
+ "reconciled_digest": "ceba69013b3b885e39a1f4e25ad4021b630cb0bd8cb9fd1f2e1f5a4895817696",
+ "hybrid_bound_to": "ceba69013b3b885e39a1f4e25ad4021b630cb0bd8cb9fd1f2e1f5a4895817696",
+ "original": {
+  "validate": "BLOCKED",
+  "errors": [
+   "INTERVAL_OUTSIDE_OWNER E01-S001-A01",
+   "INTERVAL_OUTSIDE_OWNER E01-S001-A03",
+   "INTERVAL_OUTSIDE_OWNER E01-S001-A27"
+  ]
+ },
+ "reconciled": {
+  "validate": "STRUCTURAL_VALID",
+  "errors": 0,
+  "preflight": "SUPPORTED_IN_PRINCIPLE",
+  "preart_feasible": true,
+  "authority_pending": true,
+  "feedback": [
+   "AUTHORITY_REQUIRED CREATIVE_HUMAN_APPROVED E01"
+  ],
+  "hybrid": "SUPPORTED_IN_PRINCIPLE",
+  "hybrid_feasible": true,
+  "dialogue": [
+   "LINE_AUD02 SUPPORTED_IN_PRINCIPLE VISEME",
+   "LINE_AUD03 SUPPORTED_IN_PRINCIPLE VISEME",
+   "LINE_AUD09 SUPPORTED_IN_PRINCIPLE VISEME",
+   "LINE_AUD12 SUPPORTED_IN_PRINCIPLE VISEME",
+   "LINE_AUD13 SUPPORTED_IN_PRINCIPLE VISEME",
+   "LINE_AUD14 SUPPORTED_IN_PRINCIPLE VISEME"
+  ]
+ },
+ "deferred_obligations": {
+  "RIGID_OVERLAY_CONTAINED": 56,
+  "PROP_SUPPORT_DRIVER": 10
+ },
+ "prop_surface_supports": [
+  {
+   "action": "E01-S001-A04",
+   "prop_rig": "PROP_AWARD",
+   "prop_socket": "PROP_AWARD.base",
+   "surface": "WORLD_RESTAURANT.counter_support",
+   "frames": [
+    284,
+    342
+   ],
+   "contact_type": "SUPPORT",
+   "producer": "engine/art_bridge/prop_support.mjs (surface support of a carried prop; one authoritative driver per frame)",
+   "status": "OWED_TO_MOTION_PLAN"
+  }
+ ],
+ "artjobs": {
+  "total": 304,
+  "masters": [
+   "ARTJOB_MASTER_ART_BG01.BG_DINER_A.MASTER_7fed77bb",
+   "ARTJOB_MASTER_ART_BG01.BG_DINER_B.MASTER_ae170fe1",
+   "ARTJOB_MASTER_ART_BG01.BG_OCCUPANCY.MASTER_b57d5e39",
+   "ARTJOB_MASTER_ART_BG02.BG_QUEUE.MASTER_d5d00816",
+   "ARTJOB_MASTER_ART_ENV01.MASTER_1f5982ee",
+   "ARTJOB_MASTER_ART_P01.MASTER_14e1ac38",
+   "ARTJOB_MASTER_ART_P02.MASTER_34baa7c9",
+   "ARTJOB_MASTER_ART_P03.MASTER_04f1948b",
+   "ARTJOB_MASTER_LEAD_MASTER_63a6b44a",
+   "ARTJOB_MASTER_MIA_MASTER_cf7e5c4c",
+   "ARTJOB_MASTER_REGULAR_MASTER_6907d6f6"
+  ]
+ }
+}

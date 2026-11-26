@@ -1,0 +1,2540 @@
+{
+  "status": "UNSIGNED_CREATIVE_COMPILATION; motion reconciliation required",
+  "phase": [
+    0,
+    960
+  ],
+  "qualification": [
+    180,
+    960
+  ],
+  "source_revision": "P3.2 approved plus caption-only correction",
+  "rows": [
+    {
+      "source_row": {
+        "action_id": "E01-S001-A01",
+        "absolute_start": "0",
+        "absolute_end_exclusive": "960",
+        "extract_local_start": "0",
+        "extract_local_end_exclusive": "780",
+        "owner": "WORLD_RESTAURANT; BG_DINER_A/B; BG_OCCUPANCY; BG_QUEUE",
+        "target": "occupied room/window",
+        "directed_state_transition": "Independent background: diner A [42,104) small table-side hand gesture then settle [104,136); B listens then incline [136,184), returns [184,216). Occupancy: quiet plate/utensil and listening gestures in separate depth clusters [258,306), [474,526) offscreen, [620,665); queue one modest weight transfer [600,670). No new walk-through, no synchronized looping; all state advances through insert; snapshot exact f959. No forced reset to neutral.",
+        "expected_visual_result": "Readable occupied tables, food/plates and waiting silhouettes; low contrast and smaller motion than principals; never compete with face or report.",
+        "art_families": "ART_ENV01 ART_BG01 ART_BG02",
+        "shot_ids": "E01-S001-SH01 E01-S001-SH02 E01-S001-SH03",
+        "linked_audio_cues": "AUD01",
+        "dependencies_and_order": "Independent background; freeze at A20",
+        "visibility": "Visible in SH01/03, maintained offscreen SH02"
+      },
+      "packet_action_id": "E01-S001-A01",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            0,
+            444
+          ]
+        },
+        {
+          "shot_id": "E01-S001-SH02",
+          "frames": [
+            444,
+            588
+          ]
+        },
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            588,
+            960
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_ENV01",
+        "ART_BG01",
+        "ART_BG02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A02",
+        "absolute_start": "0",
+        "absolute_end_exclusive": "225",
+        "extract_local_start": "0",
+        "extract_local_end_exclusive": "45",
+        "owner": "CHAR_MIA",
+        "target": "PROP_AWARD; CHAR_REGULAR",
+        "directed_state_transition": "f0 both hands securely support plaque at upper abdomen; right sole proposed driver, left supports. [36,72) anticipation; [72,119) lift only to upper sternum below chin, straighten shoulders and lift chin toward regular. [119,135) mock-regal hold, [135,173) measured AUD12, full mouth/cheeks/chin visible with prop clearance throughout; [173,189) grin emerges (f173 corners soften, f180 transitional cheek lift, f189 genuine grin complete), [189,225) alive hold. Head true three-quarter toward regular/phone, not camera. A04 after interruption.",
+        "expected_visual_result": "Both grips retain support, plaque never masks face including speech or grin; proud posture opens into authentic amusement; no instant face swap.",
+        "art_families": "ART_M01–06 ART_P01",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD12",
+        "dependencies_and_order": "A05 invitation; A16 response; A04 after lead starts",
+        "visibility": "Face including chin, both hands, plaque and base visible in new locked SH01 crop"
+      },
+      "packet_action_id": "E01-S001-A02",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            0,
+            225
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M01",
+        "ART_M02",
+        "ART_M03",
+        "ART_M04",
+        "ART_M05",
+        "ART_M06",
+        "ART_P01"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A03",
+        "absolute_start": "0",
+        "absolute_end_exclusive": "882",
+        "extract_local_start": "0",
+        "extract_local_end_exclusive": "702",
+        "owner": "CHAR_REGULAR",
+        "target": "PROP_PHONE; CHAR_MIA",
+        "directed_state_transition": "Phone owned and supported by regular throughout. [40,100) initial lift; [100,225) ready without shutter, chuckle [177,220). [225,271) notices lead and lowers to relaxed chest; [271,591) waits politely. [591,690) room glance, back by f720; [720,825) waits; [825,882) late raise only after Mia re-engages and page below crop by807; aim stable882; no capture until900. Public-side torso and head turn toward Mia; initial lens angled toward Mia. Late raise825–882: shoulder/elbow lift, wrist aligns actual rear lens to face AND fixed award; regular gaze alternates Mia then own screen, screen hidden; arm stops by882, independent thumb pre-contact only afterwards.",
+        "expected_visual_result": "No prolonged elevated hold during interruption; natural arm support and true aim rather than pointing at film camera; privacy807 before lift825.",
+        "art_families": "ART_R01 ART_P03",
+        "shot_ids": "E01-S001-SH01 E01-S001-SH02 E01-S001-SH03",
+        "linked_audio_cues": "AUD03 AUD14",
+        "dependencies_and_order": "A17 speech starts225; A13 privacy807; A15 capture900",
+        "visibility": "Visible in SH01/03; offscreen state SH02"
+      },
+      "packet_action_id": "E01-S001-A03",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            0,
+            444
+          ]
+        },
+        {
+          "shot_id": "E01-S001-SH02",
+          "frames": [
+            444,
+            588
+          ]
+        },
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            588,
+            882
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_R01",
+        "ART_P03"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A04",
+        "absolute_start": "225",
+        "absolute_end_exclusive": "342",
+        "extract_local_start": "45",
+        "extract_local_end_exclusive": "162",
+        "owner": "CHAR_MIA",
+        "target": "PROP_AWARD; counter",
+        "directed_state_transition": "[225,248) attention shifts from lead to clear counter; [248,284) lowers plaque with both hands, controlled deceleration. Base contacts284, counter support valid by295, sole driver transfers to counter296 (right hand driver before transfer, proposed). [296,306) right grip opens, clear306; [306,320) left fingertips stabilize then release, clear320; [320,342) left withdraws and settles. Award fixed from f296 onward. Start from revised chest-level plaque, shorter descent with same base/contact/driver times. Head looks toward lead then clear surface; no mouth occlusion.",
+        "expected_visual_result": "Award fixed at f296 onward, stable base/shadow; no sliding or lingering hand; right reach may overlap left settle",
+        "art_families": "ART_M02 ART_M03 ART_P01 ART_ENV01",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD04 AUD02",
+        "dependencies_and_order": "A17 interruption225; counter valid on f295 before transfer; A07 may begin306",
+        "visibility": "Both hand grips and base readable within tightened SH01 crop; no obstruction by caption"
+      },
+      "packet_action_id": "E01-S001-A04",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            225,
+            342
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M02",
+        "ART_M03",
+        "ART_P01",
+        "ART_ENV01"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A05",
+        "absolute_start": "15",
+        "absolute_end_exclusive": "119",
+        "extract_local_start": "",
+        "extract_local_end_exclusive": "",
+        "owner": "CHAR_REGULAR",
+        "target": "CHAR_MIA",
+        "directed_state_transition": "Invitation spoken measured 0.25–1.97s; frame cover [15,119); friendly gaze, A03 owns phone motion. Public-side chest angled toward Mia; gaze on Mia, not camera; near/far eyes and nose direction communicate true three-quarter view.",
+        "expected_visual_result": "Natural established relationship",
+        "art_families": "ART_R01 ART_R02",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD03",
+        "dependencies_and_order": "Prompts A02",
+        "visibility": "Regular face and phone"
+      },
+      "packet_action_id": "E01-S001-A05",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            15,
+            119
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_R01",
+        "ART_R02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A06",
+        "absolute_start": "132",
+        "absolute_end_exclusive": "342",
+        "extract_local_start": "0",
+        "extract_local_end_exclusive": "162",
+        "owner": "CHAR_LEAD",
+        "target": "PROP_REPORT; employee lane",
+        "directed_state_transition": "[132,225) grounded approach in staff lane, right hand WRAP at lower-right page edge viewed from front; foot/weight rhythm even if cropped, settle with speech [225,320). [320,342) present page toward Mia after award counter transfer296; left relaxed; right maintains support. Approach emerges from staff-side right edge, with grounded weight and torso settle, chest angled toward Mia; true head turn and eyeline toward her. Do not fake a horizontal slide; natural cropped feet.",
+        "expected_visual_result": "No counter clipping; presented only after safe setdown; page front stays private",
+        "art_families": "ART_L01 ART_L02 ART_L03 ART_P02",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD13",
+        "dependencies_and_order": "Lead retains driver until368; present before Mia contact350; waist-up D1, gait not waived",
+        "visibility": "Lead approach/hand visible, grounded even if feet cropped"
+      },
+      "packet_action_id": "E01-S001-A06",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            132,
+            342
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_L01",
+        "ART_L02",
+        "ART_L03",
+        "ART_P02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A07",
+        "absolute_start": "306",
+        "absolute_end_exclusive": "350",
+        "extract_local_start": "126",
+        "extract_local_end_exclusive": "170",
+        "owner": "CHAR_MIA",
+        "target": "PROP_REPORT free lower-left edge as seen on front",
+        "directed_state_transition": "[306,320) gaze/shoulder anticipates page; [320,346) curved right reach while lead presents and left withdraws independently; [346,350) near grip approach. Eyes move first to available grip edge; head/torso follow toward lead, right shoulder advances with reach, left withdrawal independent.",
+        "expected_visual_result": "Right hand available after award release; no premature contact",
+        "art_families": "ART_M02 ART_M03 ART_M04",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD05",
+        "dependencies_and_order": "A04 right clear306; A06 presents by342; A08 first contact350",
+        "visibility": "Right reach and independent left withdrawal visible"
+      },
+      "packet_action_id": "E01-S001-A07",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            306,
+            350
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M02",
+        "ART_M03",
+        "ART_M04"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A08",
+        "absolute_start": "350",
+        "absolute_end_exclusive": "386",
+        "extract_local_start": "170",
+        "extract_local_end_exclusive": "206",
+        "owner": "CHAR_MIA; CHAR_LEAD",
+        "target": "PROP_REPORT",
+        "directed_state_transition": "f350 first fingertip contact; [350,360) natural page-edge WRAP closes; f360 incoming secure. [360,368) both secure, lead sole driver. At368 Mia sole driver (valid prior frame367); [368,380) lead opens and separates, clear380; [380,386) lead retreats. No dual transform writers.",
+        "expected_visual_result": "No gap in physical support or double conflicting object drivers; no teleport; opposing grip surfaces, paper flex only if approved",
+        "art_families": "ART_M03 ART_L02 ART_P02",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD05",
+        "dependencies_and_order": "A07 contact350; D2 near thumb/far fingertips; incoming valid before transfer",
+        "visibility": "Both grips and edges visible"
+      },
+      "packet_action_id": "E01-S001-A08",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            350,
+            386
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M03",
+        "ART_L02",
+        "ART_P02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A09",
+        "absolute_start": "380",
+        "absolute_end_exclusive": "416",
+        "extract_local_start": "200",
+        "extract_local_end_exclusive": "236",
+        "owner": "CHAR_MIA; CHAR_LEAD",
+        "target": "PROP_REPORT; gaze",
+        "directed_state_transition": "[380,402) Mia draws page inward, slight tilt; [402,416) settle, fixed reading angle416. Lead retracts right hand by404, eyes away from report toward employee lane; A27 owns subsequent retreat. Mia left free.",
+        "expected_visual_result": "Same orientation continues to insert; Mia sole support; lead clears exchange and does not stare at reader.",
+        "art_families": "ART_M02 ART_M03 ART_M04 ART_L01 ART_P02",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD06",
+        "dependencies_and_order": "A08 lead clear380; A10 scanning begins during settle",
+        "visibility": "Mia grip and tilt; lead retreat"
+      },
+      "packet_action_id": "E01-S001-A09",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            380,
+            416
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M02",
+        "ART_M03",
+        "ART_M04",
+        "ART_L01",
+        "ART_P02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A10",
+        "absolute_start": "404",
+        "absolute_end_exclusive": "444",
+        "extract_local_start": "224",
+        "extract_local_end_exclusive": "264",
+        "owner": "CHAR_MIA",
+        "target": "report sales then loss",
+        "directed_state_transition": "[404,416) eyes top line while page settles; [416,428) gaze second line with head pitched down; f416 automatic warmth subsides, f428 corners release asymmetrically, brows inner lift/knit, cheeks deflate, lids lose happy squeeze; [428,444) small breath and concerned expression. Hold continuous offscreen during insert.",
+        "expected_visual_result": "Concern visibly arrives through gaze, lids, cheeks, brow, mouth and posture before insert; no face jump.",
+        "art_families": "ART_M04 ART_M05",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD07",
+        "dependencies_and_order": "A09; loss recognized before A12 cut444",
+        "visibility": "Mia eyes/mouth visible"
+      },
+      "packet_action_id": "E01-S001-A10",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            404,
+            444
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M04",
+        "ART_M05"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A12",
+        "absolute_start": "444",
+        "absolute_end_exclusive": "588",
+        "extract_local_start": "264",
+        "extract_local_end_exclusive": "408",
+        "owner": "CAMERA",
+        "target": "PROP_REPORT; M01",
+        "directed_state_transition": "Hard cut444; same page/front/right grip; hold fully readable and essentially static [444,588). Existing optional tiny settle [444,456) only if readability unchanged; no required motion, no animated figures. Exact M01 copy.",
+        "expected_visual_result": "Sales $3,210, operating result −$120, LOSS; not bank balance",
+        "art_families": "ART_P02 ART_TXT01 ART_CAM01",
+        "shot_ids": "E01-S001-SH02",
+        "linked_audio_cues": "AUD08",
+        "dependencies_and_order": "A10; AUD08 [444,591); same world at return588",
+        "visibility": "Report plane and right grip visible"
+      },
+      "packet_action_id": "E01-S001-A12",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH02",
+          "frames": [
+            444,
+            588
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_P02",
+        "ART_TXT01",
+        "ART_CAM01"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A13",
+        "absolute_start": "588",
+        "absolute_end_exclusive": "882",
+        "extract_local_start": "408",
+        "extract_local_end_exclusive": "702",
+        "owner": "CHAR_MIA",
+        "target": "CHAR_REGULAR; PROP_REPORT",
+        "directed_state_transition": "[588,690) gaze down/listens; [690,720) eyes toward regular before head follows [720,745); [745,783) meaningful pause and composure. Report lowers [750,807) behind staff-side counter occluder, continuous right WRAP; privacy by807. [783,859) measured AUD09, restrained kindness, worried inner brows and lids; [859,882) deliberate smile rebuild: f859 speech rest, f870 asymmetric corner lift, f882 social smile complete, cheeks less raised and eyes less narrowed than genuine grin. Straightens a little without earlier mock-regal buoyancy.",
+        "expected_visual_result": "Emotional callback without copying genuine grin; report remains held privately behind counter, left relaxed, no reset across cut.",
+        "art_families": "ART_M02–06 ART_P02",
+        "shot_ids": "E01-S001-SH03",
+        "linked_audio_cues": "AUD14 AUD09",
+        "dependencies_and_order": "A12 ends588; A19 speech591–744.6f; page private807 before A03 lift825",
+        "visibility": "Mia face/report and arm; regular partial"
+      },
+      "packet_action_id": "E01-S001-A13",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            588,
+            882
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M02",
+        "ART_M03",
+        "ART_M04",
+        "ART_M05",
+        "ART_M06",
+        "ART_P02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A14",
+        "absolute_start": "783",
+        "absolute_end_exclusive": "859",
+        "extract_local_start": "603",
+        "extract_local_end_exclusive": "679",
+        "owner": "CHAR_MIA",
+        "target": "CHAR_REGULAR",
+        "directed_state_transition": "Measured reply 13.05–14.31s, mouth independent of held page and gaze; no exaggerated despair. Context-specific mouth states preserve restrained smile and worried upper face; eye/head aim at regular rather than film camera.",
+        "expected_visual_result": "Double meaning, not overtly announcing crisis",
+        "art_families": "ART_M05 ART_M06",
+        "shot_ids": "E01-S001-SH03",
+        "linked_audio_cues": "AUD09",
+        "dependencies_and_order": "A13; shutter900 after reply",
+        "visibility": "Mia mouth, eyes and low report"
+      },
+      "packet_action_id": "E01-S001-A14",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            783,
+            859
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M05",
+        "ART_M06"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A15",
+        "absolute_start": "882",
+        "absolute_end_exclusive": "960",
+        "extract_local_start": "702",
+        "extract_local_end_exclusive": "780",
+        "owner": "CHAR_REGULAR; CHAR_MIA",
+        "target": "PROP_PHONE; PROP_REPORT",
+        "directed_state_transition": "[882,891) stable aim and settled supporting fingers, separate thumb relaxed. [891,900) thumb approaches actual shutter control at screen-side rim (or verified physical side control; route chosen by prop design, no screen shown); f900 contact/activation once. [901,912) thumb separates while support and lens aim hold; [912,942) phone lowers, [942,953) looks at own hidden screen, [953,960) settles. Mia deliberately maintains social smile and lens eyeline through capture, then gaze returns subtly to regular after phone lowering, worried upper face persists. Low report stays Mia R behind counter. f959 exact live snapshot; no flash.",
+        "expected_visual_result": "Clear independent thumb excursion/contact/release while phone remains stable; one photo at900, Mia face+award inside phone view, page fully out/occluded. No reveal or fake flash; f959 inherits actual revised state.",
+        "art_families": "ART_R01 ART_R02 ART_M04–06 ART_P01–03",
+        "shot_ids": "E01-S001-SH03",
+        "linked_audio_cues": "AUD10 AUD11",
+        "dependencies_and_order": "A03 aim882; A14 ends859; A20 exact f959 snapshot",
+        "visibility": "Phone/thumb and Mia smile; lens excludes report"
+      },
+      "packet_action_id": "E01-S001-A15",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            882,
+            960
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_R01",
+        "ART_R02",
+        "ART_M04",
+        "ART_M05",
+        "ART_M06",
+        "ART_P01",
+        "ART_P02",
+        "ART_P03"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A16",
+        "absolute_start": "177",
+        "absolute_end_exclusive": "220",
+        "extract_local_start": "0",
+        "extract_local_end_exclusive": "40",
+        "owner": "CHAR_REGULAR",
+        "target": "CHAR_MIA",
+        "directed_state_transition": "Regular human-source chuckle energy region 2.95–3.66s, [177,220) frame cover; triggered after Mia line 2.88s; cheeks/lids/jaw/breath, no phoneme fabrication, support grip unchanged. f180 active. Eyes directed at Mia, natural brief lid narrowing/cheek lift, jaw/breath separate; no look into film camera.",
+        "expected_visual_result": "Brief audible laugh from regular; full burst retained, no laugh track",
+        "art_families": "ART_R01 ART_R02",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD20",
+        "dependencies_and_order": "A02 joke; lead speech begins225 after measured energy ends",
+        "visibility": "Regular face and stable grip"
+      },
+      "packet_action_id": "E01-S001-A16",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            177,
+            220
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_R01",
+        "ART_R02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A17",
+        "absolute_start": "225",
+        "absolute_end_exclusive": "320",
+        "extract_local_start": "45",
+        "extract_local_end_exclusive": "140",
+        "owner": "CHAR_LEAD",
+        "target": "CHAR_MIA",
+        "directed_state_transition": "Lead measured speech 3.75–5.33s, discreet concurrent arrival/settle. Gaze Mia, no report figures read aloud. Three-quarter toward Mia, near/far feature visibility and staff-side torso orientation.",
+        "expected_visual_result": "Natural interruption",
+        "art_families": "ART_L03",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD13",
+        "dependencies_and_order": "A06 approach; triggers A04",
+        "visibility": "Lead face speaking"
+      },
+      "packet_action_id": "E01-S001-A17",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            225,
+            320
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_L03"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A18",
+        "absolute_start": "326",
+        "absolute_end_exclusive": "355",
+        "extract_local_start": "146",
+        "extract_local_end_exclusive": "175",
+        "owner": "CHAR_MIA",
+        "target": "CHAR_LEAD",
+        "directed_state_transition": "Thanks measured 5.433333–5.913333s; automatic warmth while lead presents and Mia reaches/first contact; mouth independent of arms; still before reading. Gaze briefly acknowledges lead, then free edge; caption display [326,398) distinct from audio cover [326,355).",
+        "expected_visual_result": "Warm reply during reach/contact before financial discovery, no mouth/arm overwrite",
+        "art_families": "ART_M06",
+        "shot_ids": "E01-S001-SH01",
+        "linked_audio_cues": "AUD02",
+        "dependencies_and_order": "A17 ends319.8f; A04 left settling; A07/A08 concurrent",
+        "visibility": "Mia face, right reach and first page contact"
+      },
+      "packet_action_id": "E01-S001-A18",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            326,
+            355
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_M06"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A19",
+        "absolute_start": "591",
+        "absolute_end_exclusive": "745",
+        "extract_local_start": "411",
+        "extract_local_end_exclusive": "565",
+        "owner": "CHAR_REGULAR",
+        "target": "dining room then Mia",
+        "directed_state_transition": "Expansion remark measured 9.85–12.41s; regular eyes/head turn toward occupied tables [591,630), room glance [630,690), eyes return first and head follows by720, then directs line to Mia. Torso remains at counter; no camera address.",
+        "expected_visual_result": "Sincere encouragement creates irony",
+        "art_families": "ART_R01 ART_R02",
+        "shot_ids": "E01-S001-SH03",
+        "linked_audio_cues": "AUD14",
+        "dependencies_and_order": "A12 ends588; A13 response",
+        "visibility": "Regular face/room glance"
+      },
+      "packet_action_id": "E01-S001-A19",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            591,
+            745
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_R01",
+        "ART_R02"
+      ]
+    },
+    {
+      "source_row": {
+        "action_id": "E01-S001-A27",
+        "absolute_start": "404",
+        "absolute_end_exclusive": "960",
+        "extract_local_start": "224",
+        "extract_local_end_exclusive": "780",
+        "owner": "CHAR_LEAD",
+        "target": "staff-side lane / existing offcrop station",
+        "directed_state_transition": "[404,416) gaze turns to staff lane, chest/weight prepare; [416,444) quiet rightward step, hands clear. [444,520) continues offscreen to existing staff-side station; [520,960) settles there, hands free, attends ordinary work offcrop (no new prop/action required). Stop exact f959 state; no reset.",
+        "expected_visual_result": "Lead gives Mia privacy, does not linger facing camera; no extra distracting pass in SH03. Grounded route, no slide.",
+        "art_families": "ART_L01 ART_L02 ART_ENV01 ART_CAM01",
+        "shot_ids": "E01-S001-SH01 E01-S001-SH02 E01-S001-SH03",
+        "linked_audio_cues": "AUD01",
+        "dependencies_and_order": "A08 lead clear380; A09 retract by404; independent of Mia reading; no prop ownership after380; A20 f960 freeze",
+        "visibility": "SH01 turn/first step visible; rest offscreen SH02 and off right crop SH03; preserve offscreen state"
+      },
+      "packet_action_id": "E01-S001-A27",
+      "shot_intersections": [
+        {
+          "shot_id": "E01-S001-SH01",
+          "frames": [
+            404,
+            444
+          ]
+        },
+        {
+          "shot_id": "E01-S001-SH02",
+          "frames": [
+            444,
+            588
+          ]
+        },
+        {
+          "shot_id": "E01-S001-SH03",
+          "frames": [
+            588,
+            960
+          ]
+        }
+      ],
+      "art_family_ids": [
+        "ART_L01",
+        "ART_L02",
+        "ART_ENV01",
+        "ART_CAM01"
+      ]
+    }
+  ],
+  "caption_policy": "Dialogue captions: minimum 1.0 s uncut. AUD12 display [2.250,3.250) s; measured speech remains [2.250,2.880). Qualification clips display to [0,.250). SDH retains measured customer chuckle [2.950,3.660), overlapping AUD12 0.300 s; use distinct stacked lanes (Mia above nonverbal cue), no masking or independent retiming. Chuckle is an event caption, not a dialogue dwell extension. Adjacent lead cue remains [3.750,5.330). For extract [0,.250) both cues are active; chuckle remains [0,.660). No captions over [7.4,9.8).",
+  "cross_shot_contract_conflict": [
+    {
+      "id": "E01-S001-A01",
+      "frames": [
+        0,
+        960
+      ],
+      "shot_ids": [
+        "E01-S001-SH01",
+        "E01-S001-SH02",
+        "E01-S001-SH03"
+      ],
+      "reason": "creative_packet.mjs validatePacket calls interval(a.id,a.frames,sh.frames); single shot_id cannot encode action across cuts. Preserve original 19 actions; Claude must reconcile engine transport without changing source timeline or dropping offscreen phases."
+    },
+    {
+      "id": "E01-S001-A03",
+      "frames": [
+        0,
+        882
+      ],
+      "shot_ids": [
+        "E01-S001-SH01",
+        "E01-S001-SH02",
+        "E01-S001-SH03"
+      ],
+      "reason": "creative_packet.mjs validatePacket calls interval(a.id,a.frames,sh.frames); single shot_id cannot encode action across cuts. Preserve original 19 actions; Claude must reconcile engine transport without changing source timeline or dropping offscreen phases."
+    },
+    {
+      "id": "E01-S001-A27",
+      "frames": [
+        404,
+        960
+      ],
+      "shot_ids": [
+        "E01-S001-SH01",
+        "E01-S001-SH02",
+        "E01-S001-SH03"
+      ],
+      "reason": "creative_packet.mjs validatePacket calls interval(a.id,a.frames,sh.frames); single shot_id cannot encode action across cuts. Preserve original 19 actions; Claude must reconcile engine transport without changing source timeline or dropping offscreen phases."
+    }
+  ],
+  "audio_sample_placement": [
+    {
+      "cue_id": "AUD03",
+      "actor": "CHAR_REGULAR",
+      "voice_id": "am_michael",
+      "take_id": "E01_AUD03_REGULAR_am_michael_TC",
+      "text": "Hold it up, Mia. Big smile.",
+      "master_path": "source_audio/master_48k/E01_AUD03_REGULAR_am_michael_TC.wav",
+      "master_sha256": "1c8313e446875f78822e178d2f97a82543343d2bfe59b85da6f321de1504f70b",
+      "alignment_path": "source_audio/alignment/timing/E01_AUD03_REGULAR_am_michael_TC.timing.json",
+      "alignment_sha256": "4b28d850ceab583ae63ad8343a1a5e69780e006bb2787d12975fed15cb74cad3",
+      "alignment_source": "MEASURED (supplied MFA; primary raw JSON independently matched, not rerun)",
+      "alignment_method": "Montreal Forced Aligner 3.3.8 english_us_arpa, 10ms",
+      "file_in_sample": 12480,
+      "file_out_sample_exclusive": 102240,
+      "timeline_clip_start_sample": 9600,
+      "timeline_clip_end_sample_exclusive": 99360,
+      "absolute_speech_start_sample": 12000,
+      "absolute_speech_end_sample_exclusive": 94560,
+      "absolute_speech_start_s": 0.25,
+      "absolute_speech_end_s": 1.97,
+      "speech_start_frame": 15,
+      "speech_end_frame_exclusive": 119,
+      "preview_gain_db": 0,
+      "discarded_audio_peak_dbfs": -70.95,
+      "uncertainty_flags": [
+        {
+          "take_id": "E01_AUD03_REGULAR_am_michael_TC",
+          "tier": "phones",
+          "label": "OW1",
+          "start_s": "0.41",
+          "end_s": "0.44",
+          "alt_pass_start_s": "",
+          "alt_pass_end_s": "",
+          "reason": "at MFA minimum duration (0.030s, 3 frames); boundary resolution limited"
+        }
+      ],
+      "rationale": "1.72s, closest to original 1.75s, protects joke setup",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    },
+    {
+      "cue_id": "AUD12",
+      "actor": "CHAR_MIA",
+      "voice_id": "af_heart",
+      "take_id": "E01_AUD12_MIA_af_heart_TA",
+      "text": "Too much?",
+      "master_path": "source_audio/master_48k/E01_AUD12_MIA_af_heart_TA.wav",
+      "master_sha256": "ef40b615a0c1e6a3eefa22a66ecffe256daabd8bd5da626f3cdba8c42e18212b",
+      "alignment_path": "source_audio/alignment/timing/E01_AUD12_MIA_af_heart_TA.timing.json",
+      "alignment_sha256": "56a921a5c9fbbd6f1b27d80b360317bb97a2237cb43e1634bca3189c888a76b1",
+      "alignment_source": "MEASURED (supplied MFA; primary raw JSON independently matched, not rerun)",
+      "alignment_method": "Montreal Forced Aligner 3.3.8 english_us_arpa, 10ms",
+      "file_in_sample": 14400,
+      "file_out_sample_exclusive": 51840,
+      "timeline_clip_start_sample": 105600,
+      "timeline_clip_end_sample_exclusive": 143040,
+      "absolute_speech_start_sample": 108000,
+      "absolute_speech_end_sample_exclusive": 138240,
+      "absolute_speech_start_s": 2.25,
+      "absolute_speech_end_s": 2.88,
+      "speech_start_frame": 135,
+      "speech_end_frame_exclusive": 173,
+      "preview_gain_db": 0,
+      "discarded_audio_peak_dbfs": -66.11,
+      "uncertainty_flags": [],
+      "rationale": "Normal-speed 0.63s, keeps mock-regal beat without unnecessary acceleration",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    },
+    {
+      "cue_id": "AUD20",
+      "actor": "CHAR_REGULAR",
+      "voice_id": "human source, NOT am_michael",
+      "take_id": "E01_AUD20_CHUCKLE_fs458101",
+      "text": "[chuckles]",
+      "master_path": "source_audio/nonverbal/AUD20/master_48k/E01_AUD20_CHUCKLE_fs458101.wav",
+      "master_sha256": "c59a9698832a5e708f0d4693a931d606daa394c694db3856ac089314c4cf431e",
+      "alignment_source": "MEASURED_ENERGY_REGION_ONLY; no speech/phonemes",
+      "file_in_sample": 4800,
+      "file_out_sample_exclusive": 46080,
+      "timeline_clip_start_sample": 139200,
+      "timeline_clip_end_sample_exclusive": 180480,
+      "absolute_speech_start_sample": 141600,
+      "absolute_speech_end_sample_exclusive": 175680,
+      "absolute_speech_start_s": 2.95,
+      "absolute_speech_end_s": 3.66,
+      "speech_start_frame": 177,
+      "speech_end_frame_exclusive": 220,
+      "preview_gain_db": 3,
+      "rationale": "Single quiet male chuckle per provenance; preserve entire detected 0.71s burst, no pitch/time modification. Timbral match to regular requires audition.",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    },
+    {
+      "cue_id": "AUD13",
+      "actor": "CHAR_LEAD",
+      "voice_id": "af_sarah",
+      "take_id": "E01_AUD13_LEAD_af_sarah_TC",
+      "text": "Mia? Yesterday's numbers.",
+      "master_path": "source_audio/master_48k/E01_AUD13_LEAD_af_sarah_TC.wav",
+      "master_sha256": "57ad4ee9157bf38f235cf6231c436a41be67479273b3454bc2427ade20914398",
+      "alignment_path": "source_audio/alignment/timing/E01_AUD13_LEAD_af_sarah_TC.timing.json",
+      "alignment_sha256": "acc142ebe66582a6dbee11551862e96a446bb96d957a6950c2bc140d42d1ea76",
+      "alignment_source": "MEASURED (supplied MFA; primary raw JSON independently matched, not rerun)",
+      "alignment_method": "Montreal Forced Aligner 3.3.8 english_us_arpa, 10ms",
+      "file_in_sample": 19200,
+      "file_out_sample_exclusive": 102240,
+      "timeline_clip_start_sample": 177600,
+      "timeline_clip_end_sample_exclusive": 260640,
+      "absolute_speech_start_sample": 180000,
+      "absolute_speech_end_sample_exclusive": 255840,
+      "absolute_speech_start_s": 3.75,
+      "absolute_speech_end_s": 5.33,
+      "speech_start_frame": 225,
+      "speech_end_frame_exclusive": 320,
+      "preview_gain_db": -4,
+      "discarded_audio_peak_dbfs": -77.94,
+      "uncertainty_flags": [],
+      "rationale": "Shortest clean alignment 1.58s, routine interruption; longer than original 1.20s",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    },
+    {
+      "cue_id": "AUD02",
+      "actor": "CHAR_MIA",
+      "voice_id": "af_heart",
+      "take_id": "E01_AUD02_MIA_af_heart_TC",
+      "text": "Thanks.",
+      "master_path": "source_audio/master_48k/E01_AUD02_MIA_af_heart_TC.wav",
+      "master_sha256": "5e5dab1763630fada3fe23b1d4dd68a2b377c5daa3f3b64b5607700af2bf6e90",
+      "alignment_path": "source_audio/alignment/timing/E01_AUD02_MIA_af_heart_TC.timing.json",
+      "alignment_sha256": "d9de5865f587ae640ed2bfa9606231773d1f9427cdb7b0ae2b29770830e747cd",
+      "alignment_source": "MEASURED (supplied MFA; primary raw JSON independently matched, not rerun)",
+      "alignment_method": "Montreal Forced Aligner 3.3.8 english_us_arpa, 10ms",
+      "file_in_sample": 14400,
+      "file_out_sample_exclusive": 44640,
+      "timeline_clip_start_sample": 258400,
+      "timeline_clip_end_sample_exclusive": 288640,
+      "absolute_speech_start_sample": 260800,
+      "absolute_speech_end_sample_exclusive": 283840,
+      "absolute_speech_start_s": 5.433333333333334,
+      "absolute_speech_end_s": 5.913333333333333,
+      "speech_start_frame": 326,
+      "speech_end_frame_exclusive": 355,
+      "preview_gain_db": 0,
+      "discarded_audio_peak_dbfs": -66.36,
+      "uncertainty_flags": [],
+      "rationale": "0.48s, closest to original 0.45s, brisk warmth",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    },
+    {
+      "cue_id": "AUD14",
+      "actor": "CHAR_REGULAR",
+      "voice_id": "am_michael",
+      "take_id": "E01_AUD14_REGULAR_am_michael_TB",
+      "text": "At this rate, you're gonna need a bigger place.",
+      "master_path": "source_audio/master_48k/E01_AUD14_REGULAR_am_michael_TB.wav",
+      "master_sha256": "626f1853d1b29b07b69d978bc37271b7a5c8d5ffc34e5e8a4d7bf44b7c7056cf",
+      "alignment_path": "source_audio/alignment/timing/E01_AUD14_REGULAR_am_michael_TB.timing.json",
+      "alignment_sha256": "1a389d1d50f902365e6d601cfac1977338f681abe0db1a2ee1f200cfa147a730",
+      "alignment_source": "MEASURED (supplied MFA; primary raw JSON independently matched, not rerun)",
+      "alignment_method": "Montreal Forced Aligner 3.3.8 english_us_arpa, 10ms",
+      "file_in_sample": 16800,
+      "file_out_sample_exclusive": 146880,
+      "timeline_clip_start_sample": 470400,
+      "timeline_clip_end_sample_exclusive": 600480,
+      "absolute_speech_start_sample": 472800,
+      "absolute_speech_end_sample_exclusive": 595680,
+      "absolute_speech_start_s": 9.85,
+      "absolute_speech_end_s": 12.41,
+      "speech_start_frame": 591,
+      "speech_end_frame_exclusive": 745,
+      "preview_gain_db": 0,
+      "discarded_audio_peak_dbfs": -53.33,
+      "uncertainty_flags": [
+        {
+          "take_id": "E01_AUD14_REGULAR_am_michael_TB",
+          "tier": "words",
+          "label": "rate",
+          "start_s": "0.81",
+          "end_s": "1.14",
+          "alt_pass_start_s": "0.81",
+          "alt_pass_end_s": "1.12",
+          "reason": "boundary differs between two MFA passes on identical audio"
+        },
+        {
+          "take_id": "E01_AUD14_REGULAR_am_michael_TB",
+          "tier": "phones",
+          "label": "T",
+          "start_s": "1.07",
+          "end_s": "1.14",
+          "alt_pass_start_s": "1.07",
+          "alt_pass_end_s": "1.12",
+          "reason": "boundary differs between two MFA passes on identical audio"
+        }
+      ],
+      "rationale": "2.56s, roomier sincere delivery candidate, fewer alignment flags than A/C",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    },
+    {
+      "cue_id": "AUD09",
+      "actor": "CHAR_MIA",
+      "voice_id": "af_heart",
+      "take_id": "E01_AUD09_MIA_af_heart_TB",
+      "text": "Let's get through today.",
+      "master_path": "source_audio/master_48k/E01_AUD09_MIA_af_heart_TB.wav",
+      "master_sha256": "44d9321ee5a8af6e3f1360d6434c7b80b8db01d9a6b9cc9ab6f6268ff9f3a3da",
+      "alignment_path": "source_audio/alignment/timing/E01_AUD09_MIA_af_heart_TB.timing.json",
+      "alignment_sha256": "6afeb9c9d3cc5dd14c578493021ac93c048531a5299a808e749eae2ba07e4553",
+      "alignment_source": "MEASURED (supplied MFA; primary raw JSON independently matched, not rerun)",
+      "alignment_method": "Montreal Forced Aligner 3.3.8 english_us_arpa, 10ms",
+      "file_in_sample": 12960,
+      "file_out_sample_exclusive": 80640,
+      "timeline_clip_start_sample": 624000,
+      "timeline_clip_end_sample_exclusive": 691680,
+      "absolute_speech_start_sample": 626400,
+      "absolute_speech_end_sample_exclusive": 686880,
+      "absolute_speech_start_s": 13.05,
+      "absolute_speech_end_s": 14.31,
+      "speech_start_frame": 783,
+      "speech_end_frame_exclusive": 859,
+      "preview_gain_db": 0,
+      "discarded_audio_peak_dbfs": -76.3,
+      "uncertainty_flags": [],
+      "rationale": "1.26s, closest to original 1.30s, no flagged boundaries; permits dry weight",
+      "status": "USER_APPROVED_AUDIO_PERFORMANCE; AV_ANIMATIC_AND_PACKET_PENDING"
+    }
+  ],
+  "audio_cue_rows": [
+    {
+      "cue_id": "AUD01",
+      "absolute_start": "0",
+      "absolute_end_exclusive": "960",
+      "source": "WORLD_RESTAURANT",
+      "dialogue_or_sound": "Restaurant bed",
+      "intent": "Live restaurant bed; duck430–462, recover588–618; cut live bed at960; no duplicate with AUD11.",
+      "status": "TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING",
+      "parent_absolute_start": "0",
+      "parent_absolute_end_exclusive": "960",
+      "absolute_start_sample": "0",
+      "absolute_end_sample_exclusive": "768000",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD02",
+      "absolute_start": "326",
+      "absolute_end_exclusive": "355",
+      "source": "CHAR_MIA",
+      "dialogue_or_sound": "Thanks.",
+      "intent": "Automatic warmth, still smiling. Caption display 5.433–6.633s (local 2.433–3.633), speech and alignment unchanged; bottom safe lane.",
+      "status": "MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "270",
+      "parent_absolute_end_exclusive": "297",
+      "absolute_start_sample": "260800",
+      "absolute_end_sample_exclusive": "283840",
+      "selected_take_id": "E01_AUD02_MIA_af_heart_TC"
+    },
+    {
+      "cue_id": "AUD03",
+      "absolute_start": "15",
+      "absolute_end_exclusive": "119",
+      "source": "CHAR_REGULAR",
+      "dialogue_or_sound": "Hold it up, Mia. Big smile.",
+      "intent": "Warm, already familiar, not announcer.",
+      "status": "MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "15",
+      "parent_absolute_end_exclusive": "120",
+      "absolute_start_sample": "12000",
+      "absolute_end_sample_exclusive": "94560",
+      "selected_take_id": "E01_AUD03_REGULAR_am_michael_TC"
+    },
+    {
+      "cue_id": "AUD04",
+      "absolute_start": "284",
+      "absolute_end_exclusive": "304",
+      "source": "PROP_AWARD",
+      "dialogue_or_sound": "Plaque base contact",
+      "intent": "Soft base contact284, settle toward296; no clang.",
+      "status": "TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING",
+      "parent_absolute_start": "264",
+      "parent_absolute_end_exclusive": "284",
+      "absolute_start_sample": "227200",
+      "absolute_end_sample_exclusive": "243200",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD05",
+      "absolute_start": "346",
+      "absolute_end_exclusive": "386",
+      "source": "PROP_REPORT",
+      "dialogue_or_sound": "Paper transfer",
+      "intent": "Quiet rustle approach/closure/release; strongest lead release.",
+      "status": "TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING",
+      "parent_absolute_start": "334",
+      "parent_absolute_end_exclusive": "374",
+      "absolute_start_sample": "276800",
+      "absolute_end_sample_exclusive": "308800",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD06",
+      "absolute_start": "380",
+      "absolute_end_exclusive": "416",
+      "source": "PROP_REPORT",
+      "dialogue_or_sound": "Paper reading settle",
+      "intent": "Page flex/settle; decay before insert444.",
+      "status": "TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING",
+      "parent_absolute_start": "368",
+      "parent_absolute_end_exclusive": "404",
+      "absolute_start_sample": "304000",
+      "absolute_end_sample_exclusive": "332800",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD07",
+      "absolute_start": "0",
+      "absolute_end_exclusive": "960",
+      "source": "SCORE",
+      "dialogue_or_sound": "Sparse warm score",
+      "intent": "Optional sparse score; thin426–444 at discovery, no sting.",
+      "status": "DIRECTED_NOT_RECORDED_OR_MIXED",
+      "parent_absolute_start": "0",
+      "parent_absolute_end_exclusive": "960",
+      "absolute_start_sample": "0",
+      "absolute_end_sample_exclusive": "768000",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD08",
+      "absolute_start": "444",
+      "absolute_end_exclusive": "591",
+      "source": "M01",
+      "dialogue_or_sound": "Comprehension window",
+      "intent": "Speech-free; report visible [444,588) exactly144f; continues through cut for3f.",
+      "status": "DIRECTED_SPEECH_FREE_CHECKED",
+      "parent_absolute_start": "432",
+      "parent_absolute_end_exclusive": "579",
+      "absolute_start_sample": "355200",
+      "absolute_end_sample_exclusive": "472800",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD09",
+      "absolute_start": "783",
+      "absolute_end_exclusive": "859",
+      "source": "CHAR_MIA",
+      "dialogue_or_sound": "Let's get through today.",
+      "intent": "Dry but kindly, one breath; not overt despair.",
+      "status": "MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "783",
+      "parent_absolute_end_exclusive": "861",
+      "absolute_start_sample": "626400",
+      "absolute_end_sample_exclusive": "686880",
+      "selected_take_id": "E01_AUD09_MIA_af_heart_TB"
+    },
+    {
+      "cue_id": "AUD10",
+      "absolute_start": "900",
+      "absolute_end_exclusive": "912",
+      "source": "PROP_PHONE",
+      "dialogue_or_sound": "Shutter",
+      "intent": "Single click at900 only, no flash. P3.1 temporary click reported in reviewed MP4; reuse existing temporary mix for one preview, final source approval pending.",
+      "status": "TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING",
+      "parent_absolute_start": "900",
+      "parent_absolute_end_exclusive": "912",
+      "absolute_start_sample": "720000",
+      "absolute_end_sample_exclusive": "729600",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD11",
+      "absolute_start": "861",
+      "absolute_end_exclusive": "960",
+      "source": "WORLD_RESTAURANT",
+      "dialogue_or_sound": "Reaction and freeze bridge",
+      "intent": "Reaction/freeze bridge, parent end987; exact continuation [960,987), only first6f successor nondiegetic room tail, no duplicate bed.",
+      "status": "TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING",
+      "parent_absolute_start": "861",
+      "parent_absolute_end_exclusive": "987",
+      "absolute_start_sample": "688800",
+      "absolute_end_sample_exclusive": "768000",
+      "selected_take_id": ""
+    },
+    {
+      "cue_id": "AUD12",
+      "absolute_start": "135",
+      "absolute_end_exclusive": "173",
+      "source": "CHAR_MIA",
+      "dialogue_or_sound": "Too much?",
+      "intent": "Mock-regal; eyes already amused.",
+      "status": "MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "135",
+      "parent_absolute_end_exclusive": "177",
+      "absolute_start_sample": "108000",
+      "absolute_end_sample_exclusive": "138240",
+      "selected_take_id": "E01_AUD12_MIA_af_heart_TA"
+    },
+    {
+      "cue_id": "AUD13",
+      "absolute_start": "225",
+      "absolute_end_exclusive": "320",
+      "source": "CHAR_LEAD",
+      "dialogue_or_sound": "Mia? Yesterday's numbers.",
+      "intent": "Discreet, ordinary work, no ominous tone.",
+      "status": "MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "189",
+      "parent_absolute_end_exclusive": "261",
+      "absolute_start_sample": "180000",
+      "absolute_end_sample_exclusive": "255840",
+      "selected_take_id": "E01_AUD13_LEAD_af_sarah_TC"
+    },
+    {
+      "cue_id": "AUD14",
+      "absolute_start": "591",
+      "absolute_end_exclusive": "745",
+      "source": "CHAR_REGULAR",
+      "dialogue_or_sound": "At this rate, you're gonna need a bigger place.",
+      "intent": "Encouragement, sincere; glance across room then back.",
+      "status": "MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "579",
+      "parent_absolute_end_exclusive": "756",
+      "absolute_start_sample": "472800",
+      "absolute_end_sample_exclusive": "595680",
+      "selected_take_id": "E01_AUD14_REGULAR_am_michael_TB"
+    },
+    {
+      "cue_id": "AUD20",
+      "absolute_start": "177",
+      "absolute_end_exclusive": "220",
+      "source": "CHAR_REGULAR",
+      "dialogue_or_sound": "Small chuckle",
+      "intent": "Regular chuckle, energy bounds only, no phoneme tier; user approved chuckle match after preview listening.",
+      "status": "MEASURED_ENERGY_AUDIO_APPROVED_AV_PLACEMENT_PENDING",
+      "parent_absolute_start": "177",
+      "parent_absolute_end_exclusive": "189",
+      "absolute_start_sample": "141600",
+      "absolute_end_sample_exclusive": "175680",
+      "selected_take_id": "E01_AUD20_CHUCKLE_fs458101"
+    }
+  ],
+  "performance_rows": [
+    {
+      "state_id": "MIA-P01",
+      "owner": "CHAR_MIA",
+      "absolute_start": "0",
+      "absolute_end_exclusive": "119",
+      "intent": "Warm to mock-regal",
+      "gaze_target": "Regular / phone",
+      "view_requirement": "True 3/4 toward regular; chin lifts modestly",
+      "brow_lid_cheek": "Brows relaxed then one amused raise; eyes on regular, lids awake; cheek lift starts",
+      "mouth": "Natural warm corners; speak only on measured cue; no smile loop",
+      "head_body_support": "Shoulders straighten, weight grounded; both grips support at sternum",
+      "lineage": "A02 A05; ART_M01–06 ART_P01"
+    },
+    {
+      "state_id": "MIA-P02",
+      "owner": "CHAR_MIA",
+      "absolute_start": "119",
+      "absolute_end_exclusive": "173",
+      "intent": "Comic proud hold / Too much?",
+      "gaze_target": "Regular",
+      "view_requirement": "3/4 near/far skull, chin up, no face mask",
+      "brow_lid_cheek": "One brow lifted; playful eyes; cheeks exposed",
+      "mouth": "AUD12 [135,173) contextual phonemes independent of amused upper face",
+      "head_body_support": "Chest opens; elbows bent; lower plaque leaves chin/mouth clear",
+      "lineage": "A02 A16; ART_M02–06"
+    },
+    {
+      "state_id": "MIA-P03",
+      "owner": "CHAR_MIA",
+      "absolute_start": "173",
+      "absolute_end_exclusive": "189",
+      "intent": "Genuine grin develops",
+      "gaze_target": "Regular",
+      "view_requirement": "Same view, chin relaxes from mock-regal",
+      "brow_lid_cheek": "f173 brows soften, f180 cheek rise/lid narrowing, f189 happy eye squeeze; asymmetry natural",
+      "mouth": "From speech-rest to wide spontaneous grin; no sudden whole face swap",
+      "head_body_support": "Shoulders release slightly; breath; both grips unchanged",
+      "lineage": "A02 A16; ART_M04–06"
+    },
+    {
+      "state_id": "MIA-P04",
+      "owner": "CHAR_MIA",
+      "absolute_start": "189",
+      "absolute_end_exclusive": "225",
+      "intent": "Genuine grin hold",
+      "gaze_target": "Regular",
+      "view_requirement": "Partner-facing 3/4",
+      "brow_lid_cheek": "High cheeks, relaxed brows, narrowed happy lids; pupils track partner as visible",
+      "mouth": "Broad smile, teeth if approved identity supports, not a frozen open mouth",
+      "head_body_support": "Weight balanced; subtle breath, award stable",
+      "lineage": "A02 A16"
+    },
+    {
+      "state_id": "MIA-P05",
+      "owner": "CHAR_MIA",
+      "absolute_start": "225",
+      "absolute_end_exclusive": "306",
+      "intent": "Interrupted warmth",
+      "gaze_target": "Lead then counter",
+      "view_requirement": "Eyes lead; head turns toward lead then pitches to dry surface",
+      "brow_lid_cheek": "Grin reduces to friendly attentive expression; brows neutral",
+      "mouth": "No speech before Thanks; mouth rest",
+      "head_body_support": "Lower plaque with both hands; base284/driver296; right free306",
+      "lineage": "A04 A17"
+    },
+    {
+      "state_id": "MIA-P06",
+      "owner": "CHAR_MIA",
+      "absolute_start": "306",
+      "absolute_end_exclusive": "380",
+      "intent": "Responsible work / Thanks",
+      "gaze_target": "Lead then free page edge",
+      "view_requirement": "True 3/4 toward lead; gaze edge before reach",
+      "brow_lid_cheek": "Friendly lids, no concern yet",
+      "mouth": "AUD02 [326,355) phonemes; caption separate",
+      "head_body_support": "R shoulder advances; L release/withdraw independent, WRAP350–360; transfer368",
+      "lineage": "A07 A08 A18"
+    },
+    {
+      "state_id": "MIA-P07",
+      "owner": "CHAR_MIA",
+      "absolute_start": "380",
+      "absolute_end_exclusive": "428",
+      "intent": "Read first then second line",
+      "gaze_target": "Report",
+      "view_requirement": "Downward-pitched view, pupils scan distinct lines",
+      "brow_lid_cheek": "f404 gaze top; f416 scan down; smile weakens, brows start to knit",
+      "mouth": "Rest corners slowly relax",
+      "head_body_support": "Draw page; settle416, right sole grip",
+      "lineage": "A09 A10"
+    },
+    {
+      "state_id": "MIA-P08",
+      "owner": "CHAR_MIA",
+      "absolute_start": "428",
+      "absolute_end_exclusive": "690",
+      "intent": "Concern recognized/held",
+      "gaze_target": "Report",
+      "view_requirement": "Same down gaze through cut and offscreen",
+      "brow_lid_cheek": "f428 asymmetric corner drop; inner brows lift/knit, lids lose smile squeeze; cheeks deflate; f443 worried expression established",
+      "mouth": "Closed restrained mouth; no exaggerated frown",
+      "head_body_support": "Small breath, chin dips, shoulders subtly compress; page stable; offscreen continuity",
+      "lineage": "A10 A12 A13"
+    },
+    {
+      "state_id": "MIA-P09",
+      "owner": "CHAR_MIA",
+      "absolute_start": "690",
+      "absolute_end_exclusive": "783",
+      "intent": "Social reengagement",
+      "gaze_target": "Regular",
+      "view_requirement": "Eyes first690–720; actual head follows720–745",
+      "brow_lid_cheek": "Concern persists; lids open, brow tension not erased",
+      "mouth": "Small preparatory mouth rest; meaningful pause745–783",
+      "head_body_support": "Head rises; page lowers750–807; left relaxed",
+      "lineage": "A13"
+    },
+    {
+      "state_id": "MIA-P10",
+      "owner": "CHAR_MIA",
+      "absolute_start": "783",
+      "absolute_end_exclusive": "859",
+      "intent": "Restrained reply",
+      "gaze_target": "Regular",
+      "view_requirement": "3/4 toward regular; no camera gaze",
+      "brow_lid_cheek": "Inner brows remain concerned, cheeks restrained; not overt sadness",
+      "mouth": "AUD09 measured phonemes, restrained kindness, upper-face ownership independent",
+      "head_body_support": "Report right behind counter by807; stable posture",
+      "lineage": "A13 A14"
+    },
+    {
+      "state_id": "MIA-P11",
+      "owner": "CHAR_MIA",
+      "absolute_start": "859",
+      "absolute_end_exclusive": "882",
+      "intent": "Reconstruct smile deliberately",
+      "gaze_target": "Regular then phone lens",
+      "view_requirement": "Chin rises only modestly",
+      "brow_lid_cheek": "f859 worried eyes with rest mouth; f870 asymmetric corner lift, modest cheek; f882 concern remains, lids more open than genuine grin",
+      "mouth": "Smaller controlled closed smile, less cheek rise than P04; no exaggerated lip curl",
+      "head_body_support": "Small deliberate straighten, no mock-regal buoyancy; private report held",
+      "lineage": "A13 A03"
+    },
+    {
+      "state_id": "MIA-P12",
+      "owner": "CHAR_MIA",
+      "absolute_start": "882",
+      "absolute_end_exclusive": "960",
+      "intent": "Hold social smile / capture",
+      "gaze_target": "Lens at capture; regular after phone lowers",
+      "view_requirement": "Stable partner-facing head; return eyes gently to regular [942,960)",
+      "brow_lid_cheek": "Worried brow/less compressed lids survive smile; optional natural microblink outside capture only",
+      "mouth": "Reconstructed smile holds through f959, not generic happy face",
+      "head_body_support": "Left free behind counter; right report stable; exact outgoing actual state",
+      "lineage": "A15 A20"
+    },
+    {
+      "state_id": "REG-P01",
+      "owner": "CHAR_REGULAR",
+      "absolute_start": "0",
+      "absolute_end_exclusive": "225",
+      "intent": "Invitation and amusement",
+      "gaze_target": "Mia",
+      "view_requirement": "3/4 toward Mia, chest angled toward counter",
+      "brow_lid_cheek": "Warm eyes; AUD20 [177,220) natural cheek/lid/breath",
+      "mouth": "AUD03 measured; chuckle jaw/breath not fabricated phonemes",
+      "head_body_support": "Phone support continuous; lift40–100 then ready",
+      "lineage": "A03 A05 A16"
+    },
+    {
+      "state_id": "REG-P02",
+      "owner": "CHAR_REGULAR",
+      "absolute_start": "225",
+      "absolute_end_exclusive": "591",
+      "intent": "Discreet waiting",
+      "gaze_target": "Mia; not private report",
+      "view_requirement": "Turn briefly to lead then Mia; no camera address",
+      "brow_lid_cheek": "Polite neutral face",
+      "mouth": "Rest",
+      "head_body_support": "Lower225–271; hold low through insert",
+      "lineage": "A03"
+    },
+    {
+      "state_id": "REG-P03",
+      "owner": "CHAR_REGULAR",
+      "absolute_start": "591",
+      "absolute_end_exclusive": "745",
+      "intent": "Expansion remark",
+      "gaze_target": "Room then Mia",
+      "view_requirement": "Eyes/head room591–630; glance630–690; return by720",
+      "brow_lid_cheek": "Sincere encouragement, brows up lightly",
+      "mouth": "AUD14 measured context",
+      "head_body_support": "Phone low, grounded torso, no new walk",
+      "lineage": "A19"
+    },
+    {
+      "state_id": "REG-P04",
+      "owner": "CHAR_REGULAR",
+      "absolute_start": "745",
+      "absolute_end_exclusive": "882",
+      "intent": "Photo readiness",
+      "gaze_target": "Mia then own screen",
+      "view_requirement": "Partner-facing; eye-to-screen only when aiming",
+      "brow_lid_cheek": "Friendly anticipation",
+      "mouth": "Rest",
+      "head_body_support": "Report private807 before raise825; shoulder/elbow/wrist aim settled882",
+      "lineage": "A03"
+    },
+    {
+      "state_id": "REG-P05",
+      "owner": "CHAR_REGULAR",
+      "absolute_start": "882",
+      "absolute_end_exclusive": "912",
+      "intent": "Capture",
+      "gaze_target": "Own hidden screen / lens framing",
+      "view_requirement": "Rear lens toward Mia+award; face not toward film camera",
+      "brow_lid_cheek": "Focused friendly expression",
+      "mouth": "Rest",
+      "head_body_support": "Independent thumb approach891–900, activate f900 once, release901–912; support closed",
+      "lineage": "A15"
+    },
+    {
+      "state_id": "REG-P06",
+      "owner": "CHAR_REGULAR",
+      "absolute_start": "912",
+      "absolute_end_exclusive": "960",
+      "intent": "Check and settle",
+      "gaze_target": "Own hidden screen then Mia",
+      "view_requirement": "Eyes down during review942–953; subtle return",
+      "brow_lid_cheek": "Natural satisfied expression, no surprise",
+      "mouth": "Rest",
+      "head_body_support": "Lower912–942; settle953–960; exact outgoing state",
+      "lineage": "A15"
+    },
+    {
+      "state_id": "LEAD-P01",
+      "owner": "CHAR_LEAD",
+      "absolute_start": "132",
+      "absolute_end_exclusive": "320",
+      "intent": "Discreet approach / line",
+      "gaze_target": "Mia",
+      "view_requirement": "Staff-side chest toward Mia, real 3/4 head view",
+      "brow_lid_cheek": "Ordinary work; no ominous acting",
+      "mouth": "AUD13 measured [225,320)",
+      "head_body_support": "Grounded approach, right supports page; left free, settle",
+      "lineage": "A06 A17"
+    },
+    {
+      "state_id": "LEAD-P02",
+      "owner": "CHAR_LEAD",
+      "absolute_start": "320",
+      "absolute_end_exclusive": "404",
+      "intent": "Presentation / release",
+      "gaze_target": "Mia/free grip edge",
+      "view_requirement": "Head follows actual page exchange",
+      "brow_lid_cheek": "Quiet focus; no voyeuristic read",
+      "mouth": "Rest",
+      "head_body_support": "Present320–342; shared support; release368–380; retract by404",
+      "lineage": "A06 A08 A09"
+    },
+    {
+      "state_id": "LEAD-P03",
+      "owner": "CHAR_LEAD",
+      "absolute_start": "404",
+      "absolute_end_exclusive": "960",
+      "intent": "Discreet withdrawal",
+      "gaze_target": "Staff lane / work station",
+      "view_requirement": "Eyes turn first, torso follows; genuine alternate turn/side view",
+      "brow_lid_cheek": "Neutral task focus",
+      "mouth": "Rest",
+      "head_body_support": "Step416–444, continue offscreen to station by520, remain grounded hands free through959",
+      "lineage": "A27"
+    },
+    {
+      "state_id": "BG-P01",
+      "owner": "BG_DINER_A/B",
+      "absolute_start": "0",
+      "absolute_end_exclusive": "960",
+      "intent": "Quiet occupied dining",
+      "gaze_target": "Each other / table",
+      "view_requirement": "Seated partner gaze, no camera address",
+      "brow_lid_cheek": "Low-detail small nod/gesture",
+      "mouth": "No directed intelligible speech",
+      "head_body_support": "A gesture42–104 settle104–136; B incline136–184 settle184–216; offscreen advance, exact f959 snapshot",
+      "lineage": "A01"
+    },
+    {
+      "state_id": "BG-P02",
+      "owner": "BG_OCCUPANCY; BG_QUEUE",
+      "absolute_start": "0",
+      "absolute_end_exclusive": "960",
+      "intent": "Successful occupied room",
+      "gaze_target": "Food/partners; queue waits",
+      "view_requirement": "Subdued separate depth clusters",
+      "brow_lid_cheek": "Minimal low-contrast expressions",
+      "mouth": "No new intelligible dialogue",
+      "head_body_support": "Table gestures258–306,474–526(offscreen),620–665; queue weight shift600–670; no sync loops",
+      "lineage": "A01"
+    }
+  ],
+  "continuity_rows": [
+    {
+      "absolute_frame": "0",
+      "extract_local_frame": "",
+      "mia": "Both hands plaque; playful ready; plaque below chin, both grips; face unobstructed",
+      "lead": "Report right hand; offside",
+      "regular": "Phone chest",
+      "award_support": "Mia R driver proposed, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01 live"
+    },
+    {
+      "absolute_frame": "173",
+      "extract_local_frame": "",
+      "mia": "Speech ends; both grips chest-level; mock-regal begins to soften",
+      "lead": "Approaching, report right",
+      "regular": "Eyes on Mia; phone ready, chuckle not yet started",
+      "award_support": "Mia R driver, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "Inherited live state, no reset"
+    },
+    {
+      "absolute_frame": "180",
+      "extract_local_frame": "0",
+      "mia": "Genuine grin, both hands plaque; plaque below chin, both grips; grin emerging, eyes regular",
+      "lead": "Approaching, report right",
+      "regular": "Chuckle active, phone ready",
+      "award_support": "Mia R driver, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "Inherited live state, no reset"
+    },
+    {
+      "absolute_frame": "189",
+      "extract_local_frame": "9",
+      "mia": "Genuine grin complete; cheeks high, eyes narrowed, shoulders relaxed; both grips",
+      "lead": "Approaching, report right",
+      "regular": "Chuckle active; secure phone support",
+      "award_support": "Mia R driver, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "Inherited live state, no reset"
+    },
+    {
+      "absolute_frame": "225",
+      "extract_local_frame": "45",
+      "mia": "Attention shifts, both hands plaque; plaque below chin, both grips; face unobstructed",
+      "lead": "Speech starts, settle",
+      "regular": "Starts lowering phone",
+      "award_support": "Mia R driver, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "271",
+      "extract_local_frame": "91",
+      "mia": "Lowering plaque",
+      "lead": "Speaking",
+      "regular": "Phone low",
+      "award_support": "Mia R driver, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "284",
+      "extract_local_frame": "104",
+      "mia": "Base contacts counter",
+      "lead": "Speaking",
+      "regular": "Phone low",
+      "award_support": "Mia R driver; L and counter contact",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "295",
+      "extract_local_frame": "115",
+      "mia": "Both hands still on base",
+      "lead": "Speaking",
+      "regular": "Phone low",
+      "award_support": "Mia R driver; valid counter support by this frame",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "296",
+      "extract_local_frame": "116",
+      "mia": "Right grip begins opening",
+      "lead": "Speaking",
+      "regular": "Phone low",
+      "award_support": "Counter sole driver; hands release sequentially",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "306",
+      "extract_local_frame": "126",
+      "mia": "Right clear, begins anticipation; left steady",
+      "lead": "Speaking",
+      "regular": "Phone low",
+      "award_support": "Counter driver, L support",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "320",
+      "extract_local_frame": "140",
+      "mia": "Left clear, withdraw; right reaches",
+      "lead": "Speech done; presents page",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "342",
+      "extract_local_frame": "162",
+      "mia": "Left settled; right approaching",
+      "lead": "Presentation held",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Lead R driver",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "350",
+      "extract_local_frame": "170",
+      "mia": "Right fingertips contact; thanks ongoing",
+      "lead": "Grip remains secure",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Lead R driver; Mia contact not yet secure",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "360",
+      "extract_local_frame": "180",
+      "mia": "Right WRAP secure",
+      "lead": "Grip secure",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Lead R driver; Mia R valid support",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "368",
+      "extract_local_frame": "188",
+      "mia": "Right drives sheet",
+      "lead": "Opens fingers",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R driver; lead residual support/contact",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "380",
+      "extract_local_frame": "200",
+      "mia": "Sole grip, draws inward",
+      "lead": "Right clear/retract",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "404",
+      "extract_local_frame": "224",
+      "mia": "Draw/settle and top-line gaze begins",
+      "lead": "Right hand retracted; begins A27 gaze toward staff lane",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "416",
+      "extract_local_frame": "236",
+      "mia": "Reading angle settled; eyes shift to loss",
+      "lead": "Hands free, turned toward staff lane; withdrawal begun",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01"
+    },
+    {
+      "absolute_frame": "443",
+      "extract_local_frame": "263",
+      "mia": "Concern visible, right grip stable",
+      "lead": "Hands free, stepping right toward offcrop station",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH01 last frame"
+    },
+    {
+      "absolute_frame": "444",
+      "extract_local_frame": "264",
+      "mia": "Same grip, body offscreen",
+      "lead": "Hands free, stepping right toward offcrop station",
+      "regular": "Offscreen state persists",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH02 cut, text readable"
+    },
+    {
+      "absolute_frame": "520",
+      "extract_local_frame": "340",
+      "mia": "Concern held offscreen, right WRAP reading angle",
+      "lead": "At offcrop staff station, hands free, grounded",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH02 report still readable, offscreen states advance"
+    },
+    {
+      "absolute_frame": "587",
+      "extract_local_frame": "407",
+      "mia": "Same grip; concern held offscreen",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH02 last frame"
+    },
+    {
+      "absolute_frame": "588",
+      "extract_local_frame": "408",
+      "mia": "Down gaze, concern continuous",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "About to speak, phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03 return"
+    },
+    {
+      "absolute_frame": "807",
+      "extract_local_frame": "627",
+      "mia": "Report below photo crop, eyes engaged; right WRAP behind counter, report occluded from film camera; no privacy reset",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Phone low",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03 privacy checkpoint"
+    },
+    {
+      "absolute_frame": "825",
+      "extract_local_frame": "645",
+      "mia": "Reply ongoing, low report; right WRAP behind counter, report occluded from film camera; no privacy reset",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Late raise begins",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03"
+    },
+    {
+      "absolute_frame": "859",
+      "extract_local_frame": "679",
+      "mia": "Reply finished, social smile develops; right WRAP behind counter, report occluded from film camera; no privacy reset",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Raising phone",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03"
+    },
+    {
+      "absolute_frame": "870",
+      "extract_local_frame": "690",
+      "mia": "Intermediate social smile: asymmetric corner lift, worried inner brows, modest cheek lift; report behind counter",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Phone still raising, secure support",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03"
+    },
+    {
+      "absolute_frame": "882",
+      "extract_local_frame": "702",
+      "mia": "Social smile, worried eyes; right WRAP behind counter, report occluded from film camera; lens-facing deliberate smile, worried brows",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Stable aim",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03"
+    },
+    {
+      "absolute_frame": "891",
+      "extract_local_frame": "711",
+      "mia": "Social smile, worried eyes; right WRAP behind counter, report occluded from film camera; lens-facing deliberate smile, worried brows",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Aim stable; independent thumb begins approach, support unchanged",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03"
+    },
+    {
+      "absolute_frame": "900",
+      "extract_local_frame": "720",
+      "mia": "Social smile, low page; right WRAP behind counter, report occluded from film camera; lens-facing deliberate smile, worried brows",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Stable lens aim Mia + award, support fingers closed, independent thumb activates control once",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03 award in photo/report out, actual frustum pending"
+    },
+    {
+      "absolute_frame": "901",
+      "extract_local_frame": "721",
+      "mia": "Social smile, low page; right WRAP behind counter, report occluded from film camera; lens-facing deliberate smile, worried brows",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Shutter already fired once; thumb begins separating; aim held",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03 award in photo/report out, actual frustum pending"
+    },
+    {
+      "absolute_frame": "942",
+      "extract_local_frame": "762",
+      "mia": "Smile held, left free; right WRAP behind counter, report occluded from film camera; no privacy reset",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Phone lowered, check begins",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "SH03"
+    },
+    {
+      "absolute_frame": "959",
+      "extract_local_frame": "779",
+      "mia": "Reconstructed smile (worried upper face, restrained cheeks), gaze softly back to regular; right holds page behind counter, left relaxed",
+      "lead": "Offcrop staff station; grounded, hands free",
+      "regular": "Phone lowered, own screen hidden, support grip closed; thumb clear; gaze settled on phone then toward Mia",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "Exact outgoing live state, all BG owners preserved; current A27 offcrop lead and A01 independent background snapshot, no neutral reset"
+    },
+    {
+      "absolute_frame": "960",
+      "extract_local_frame": "",
+      "mia": "Frozen revised exact f959 pose, low private report and social smile",
+      "lead": "Frozen exact offcrop f959 station state",
+      "regular": "Frozen f959 pose",
+      "award_support": "Counter only",
+      "report_support": "Mia R only",
+      "phone_support": "Regular continuous",
+      "world_camera": "Successor obligation, outside phase; bed stops; current A27 offcrop lead and A01 independent background snapshot, no neutral reset"
+    }
+  ],
+  "storyboard_rows": [
+    {
+      "absolute_frame": "0",
+      "seconds": "0.000000",
+      "extract_local_frame": "",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F000_ready.svg",
+      "action_visual": "Room alive; regular has phone low, Mia holds award; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia → regular; anticipatory smile; lead offside",
+      "support_contact": "Mia R drives plaque, L supports; lead R owns report offscreen; award below chin, both grips maintained",
+      "audio": "AUD01 bed; AUD03 starts15"
+    },
+    {
+      "absolute_frame": "119",
+      "seconds": "1.983333",
+      "extract_local_frame": "",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F119_regal.svg",
+      "action_visual": "Award lifted modestly; shoulders tall, chin raised; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia mock-regal 3/4 toward regular, chin up, one brow playfully lifted, full mouth/cheeks visible; regular faces Mia",
+      "support_contact": "Both hands plaque; phone ready; award below chin, both grips maintained",
+      "audio": "AUD03 ends119 frame cover"
+    },
+    {
+      "absolute_frame": "150",
+      "seconds": "2.500000",
+      "extract_local_frame": "",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F150_joke.svg",
+      "action_visual": "Mia delivers her playful question; lead beginning approach; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia mock-regal 3/4 toward regular, chin up, one brow playfully lifted, full mouth/cheeks visible; regular faces Mia",
+      "support_contact": "Plaque supported by both; phone ready; award below chin, both grips maintained",
+      "audio": "AUD12 [135,173)"
+    },
+    {
+      "absolute_frame": "173",
+      "seconds": "2.883333",
+      "extract_local_frame": "",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F173_grin_onset.svg",
+      "action_visual": "Measured line ends; amusement begins",
+      "gaze_acting": "Mia mouth rest from speech; eyes soften; cheek rise begins",
+      "support_contact": "Both grips, plaque below face; regular phone ready",
+      "audio": "AUD12 ends; chuckle starts177"
+    },
+    {
+      "absolute_frame": "180",
+      "seconds": "3.000000",
+      "extract_local_frame": "0",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F180_extract_entry.svg",
+      "action_visual": "Inherited grin and ongoing chuckle; lead approaching; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia transitional genuine grin (not fully completed until189); regular chuckle active; lead approaches from staff edge",
+      "support_contact": "Both hands plaque, phone continuous, lead R report; award below chin, both grips maintained",
+      "audio": "AUD20 [177,220); extract starts mid-burst"
+    },
+    {
+      "absolute_frame": "189",
+      "seconds": "3.150000",
+      "extract_local_frame": "9",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F189_genuine_grin.svg",
+      "action_visual": "Grin fully formed; shoulder relaxes",
+      "gaze_acting": "High cheeks, happy narrowed lids, relaxed brows, broad spontaneous grin; regular chuckle",
+      "support_contact": "Both grips retained; phone secure",
+      "audio": "AUD20 active"
+    },
+    {
+      "absolute_frame": "225",
+      "seconds": "3.750000",
+      "extract_local_frame": "45",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F225_interrupt.svg",
+      "action_visual": "Lead reaches arrival zone; regular starts lowering phone; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia shifts eyes toward lead/counter; grin softens; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Both hands plaque; report stays lead R; award below chin, both grips maintained",
+      "audio": "AUD13 starts225"
+    },
+    {
+      "absolute_frame": "271",
+      "seconds": "4.516667",
+      "extract_local_frame": "91",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F271_lowering.svg",
+      "action_visual": "Phone low, Mia lowers plaque toward dry counter; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia checks surface; lead speaking; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Mia R drives/L supports; base still above surface",
+      "audio": "AUD13 continues"
+    },
+    {
+      "absolute_frame": "284",
+      "seconds": "4.733333",
+      "extract_local_frame": "104",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F284_base_contact.svg",
+      "action_visual": "Plaque base meets counter; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia checks base; lead maintains calm attention; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Base contact, Mia R driver, L support; counter not yet driver",
+      "audio": "AUD04 begins284"
+    },
+    {
+      "absolute_frame": "295",
+      "seconds": "4.916667",
+      "extract_local_frame": "115",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F295_counter_valid.svg",
+      "action_visual": "Counter support already valid before transfer; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia eyes on setdown; lead speaking; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Mia R still sole driver; counter valid; L support",
+      "audio": "AUD04 decay; AUD13"
+    },
+    {
+      "absolute_frame": "296",
+      "seconds": "4.933333",
+      "extract_local_frame": "116",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F296_counter_driver.svg",
+      "action_visual": "Base fully supported; right grip starts opening; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia eyes toward page, no sudden torso reset; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Counter sole driver; hand contacts releasing independently",
+      "audio": "AUD04 decay; AUD13 continues"
+    },
+    {
+      "absolute_frame": "306",
+      "seconds": "5.100000",
+      "extract_local_frame": "126",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F306_right_clear.svg",
+      "action_visual": "Right hand free; left steadies plaque; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia shoulder anticipates reach; lead still speaking; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Counter driver; left support until320",
+      "audio": "AUD13 continues"
+    },
+    {
+      "absolute_frame": "320",
+      "seconds": "5.333333",
+      "extract_local_frame": "140",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F320_present.svg",
+      "action_visual": "Left hand clear, lead presents page; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia gaze at page; right reaches; left retracts; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Counter only; lead R report driver",
+      "audio": "AUD13 ended; AUD02 starts326"
+    },
+    {
+      "absolute_frame": "342",
+      "seconds": "5.700000",
+      "extract_local_frame": "162",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F342_approach.svg",
+      "action_visual": "Left arm relaxed; lead presentation complete; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia still warm, speaking Thanks; right hand approaches; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Lead R holds lower-right page edge; no Mia contact yet",
+      "audio": "AUD02 [326,355)"
+    },
+    {
+      "absolute_frame": "350",
+      "seconds": "5.833333",
+      "extract_local_frame": "170",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F350_first_contact.svg",
+      "action_visual": "Mia fingertips contact free lower-left page edge; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia warm reply; lead looks at contact; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Lead R sole driver; Mia fingertips not secure yet",
+      "audio": "AUD05 [346,386); AUD02 ongoing"
+    },
+    {
+      "absolute_frame": "360",
+      "seconds": "6.000000",
+      "extract_local_frame": "180",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F360_shared_support.svg",
+      "action_visual": "Both WRAP grips secure; pause supports; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia eyes toward sheet; lead calm; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Lead sole driver; incoming Mia valid; no jump",
+      "audio": "AUD05; no new speech"
+    },
+    {
+      "absolute_frame": "367",
+      "seconds": "6.116667",
+      "extract_local_frame": "187",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F367_incoming_valid.svg",
+      "action_visual": "Incoming Mia support valid before transfer; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Both hands steady; Mia attending to page; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Lead sole driver; Mia R secure on prior frame",
+      "audio": "AUD05"
+    },
+    {
+      "absolute_frame": "368",
+      "seconds": "6.133333",
+      "extract_local_frame": "188",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F368_report_transfer.svg",
+      "action_visual": "Mia takes report control; lead begins opening fingers; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia follows sheet; lead releases discreetly; actual partner/prop-directed 3/4 head views and angled torso",
+      "support_contact": "Mia R sole driver; lead separating; incoming valid367",
+      "audio": "AUD05"
+    },
+    {
+      "absolute_frame": "380",
+      "seconds": "6.333333",
+      "extract_local_frame": "200",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F380_lead_clear.svg",
+      "action_visual": "Lead hand clear; Mia draws report inward; locked tighter SH01, head ~174px, counter front reduced",
+      "gaze_acting": "Mia looks down; lead retracts and looks away",
+      "support_contact": "Mia R alone; award counter fixed",
+      "audio": "AUD06 begins380; AUD05 decay"
+    },
+    {
+      "absolute_frame": "416",
+      "seconds": "6.933333",
+      "extract_local_frame": "236",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F416_reading.svg",
+      "action_visual": "Page settles toward Mia; eyes move to loss; locked tighter SH01, head ~174px, counter front reduced; A27 lead turns/steps toward staff lane, no new prop",
+      "gaze_acting": "Mia attention changes from top line to loss; lead gaze away toward lane, not camera",
+      "support_contact": "Mia sole WRAP, L free",
+      "audio": "AUD06 ends416"
+    },
+    {
+      "absolute_frame": "428",
+      "seconds": "7.133333",
+      "extract_local_frame": "248",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F428_loss_recognition.svg",
+      "action_visual": "Mia recognizes loss; smile begins slipping; locked tighter SH01, head ~174px, counter front reduced; A27 lead turns/steps toward staff lane, no new prop",
+      "gaze_acting": "Eyes lead; brows/lids change asymmetrically; lead gaze away toward lane, not camera",
+      "support_contact": "Mia R sole grip; left free",
+      "audio": "Score thins426–444"
+    },
+    {
+      "absolute_frame": "443",
+      "seconds": "7.383333",
+      "extract_local_frame": "263",
+      "shot": "SH01",
+      "board_path": "PREVIS_ONLY/F443_pre_insert.svg",
+      "action_visual": "Eyes worried; smile has slipped; locked tighter SH01, head ~174px, counter front reduced; A27 lead turns/steps toward staff lane, no new prop",
+      "gaze_acting": "Mia gaze down; regular waits, lead withdrawn; lead gaze away toward lane, not camera",
+      "support_contact": "Same reading grip and page plane",
+      "audio": "Bed duck430–462; score thins426–444"
+    },
+    {
+      "absolute_frame": "444",
+      "seconds": "7.400000",
+      "extract_local_frame": "264",
+      "shot": "SH02",
+      "board_path": "PREVIS_ONLY/F444_insert_in.svg",
+      "action_visual": "Hard cut to same report from Mia reading side",
+      "gaze_acting": "Only same right thumb and page visible",
+      "support_contact": "Mia R front thumb/back fingertips; page fixed in grip",
+      "audio": "AUD08 [444,591); speech-free"
+    },
+    {
+      "absolute_frame": "456",
+      "seconds": "7.600000",
+      "extract_local_frame": "276",
+      "shot": "SH02",
+      "board_path": "PREVIS_ONLY/F456_insert_settle.svg",
+      "action_visual": "Tiny settling ends; text fully readable",
+      "gaze_acting": "No camera/graphic movement after settle",
+      "support_contact": "Same page and grip",
+      "audio": "AUD08; subdued room"
+    },
+    {
+      "absolute_frame": "587",
+      "seconds": "9.783333",
+      "extract_local_frame": "407",
+      "shot": "SH02",
+      "board_path": "PREVIS_ONLY/F587_insert_out.svg",
+      "action_visual": "Last frame report insert; no text changes",
+      "gaze_acting": "Offscreen Mia still concerned",
+      "support_contact": "Mia sole grip persists",
+      "audio": "AUD08"
+    },
+    {
+      "absolute_frame": "588",
+      "seconds": "9.800000",
+      "extract_local_frame": "408",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F588_return.svg",
+      "action_visual": "Closer static cut; Mia still looking down; lead at offcrop staff station",
+      "gaze_acting": "Concern continuous; regular about to glance room",
+      "support_contact": "Page at reading height, award fixed, phone low",
+      "audio": "AUD08 through591; AUD14 starts591"
+    },
+    {
+      "absolute_frame": "690",
+      "seconds": "11.500000",
+      "extract_local_frame": "510",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F690_reengage.svg",
+      "action_visual": "Regular looks across room; Mia eyes start return; lead at offcrop staff station",
+      "gaze_acting": "Eyes lead, chin follows; regular returning by720",
+      "support_contact": "Page still held reading angle",
+      "audio": "AUD14 continues"
+    },
+    {
+      "absolute_frame": "720",
+      "seconds": "12.000000",
+      "extract_local_frame": "540",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F720_gaze_return.svg",
+      "action_visual": "Regular returns gaze; Mia head follows eyes; lead at offcrop staff station",
+      "gaze_acting": "Mia concern visible; regular sincere",
+      "support_contact": "Page still held; phone low",
+      "audio": "AUD14 continuing"
+    },
+    {
+      "absolute_frame": "750",
+      "seconds": "12.500000",
+      "extract_local_frame": "570",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F750_lower_page.svg",
+      "action_visual": "Mia begins lowering page during meaningful pause; lead at offcrop staff station",
+      "gaze_acting": "Head toward regular, concerned eyes; mouth still closed",
+      "support_contact": "Page rotates/lowers privately with same right hand",
+      "audio": "AUD14 ended745; AUD09 starts783"
+    },
+    {
+      "absolute_frame": "783",
+      "seconds": "13.050000",
+      "extract_local_frame": "603",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F783_reply_start.svg",
+      "action_visual": "Mia begins restrained reply while page lowers; lead at offcrop staff station",
+      "gaze_acting": "Gaze toward regular; concerned eyes stay",
+      "support_contact": "Same report grip; phone low",
+      "audio": "AUD09 begins783"
+    },
+    {
+      "absolute_frame": "807",
+      "seconds": "13.450000",
+      "extract_local_frame": "627",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F807_privacy.svg",
+      "action_visual": "Page reaches low position; Mia replies; lead at offcrop staff station",
+      "gaze_acting": "Restrained friendly mouth, worried eyes",
+      "support_contact": "Report below intended phone frame; no grip swap; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD09 [783,859)"
+    },
+    {
+      "absolute_frame": "825",
+      "seconds": "13.750000",
+      "extract_local_frame": "645",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F825_late_raise.svg",
+      "action_visual": "Regular starts motivated phone raise; lead at offcrop staff station",
+      "gaze_acting": "Mia speaking; regular sees reengagement",
+      "support_contact": "Phone continuously supported; report stays low; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD09 ongoing"
+    },
+    {
+      "absolute_frame": "859",
+      "seconds": "14.316667",
+      "extract_local_frame": "679",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F859_reply_end.svg",
+      "action_visual": "Speech finished; smile reconstruction begins; lead at offcrop staff station",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Page low; phone rising; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD09 cover ends859; AUD11 begins861"
+    },
+    {
+      "absolute_frame": "870",
+      "seconds": "14.500000",
+      "extract_local_frame": "690",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F870_social_inbetween.svg",
+      "action_visual": "Deliberate asymmetric corner lift, phone mid-raise",
+      "gaze_acting": "Concerned inner brows and open lids; small cheek rise, chin modestly lifts",
+      "support_contact": "Right WRAP held behind counter; phone support closed",
+      "audio": "AUD09 ended; AUD11 bridge"
+    },
+    {
+      "absolute_frame": "882",
+      "seconds": "14.700000",
+      "extract_local_frame": "702",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F882_aim.svg",
+      "action_visual": "Phone stable; social smile now established; lead at offcrop staff station; rear lens physically aims toward Mia + award, independent thumb control; no screen/flash",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Award in intended photo; report outside; thumb ready; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD11 bridge"
+    },
+    {
+      "absolute_frame": "891",
+      "seconds": "14.850000",
+      "extract_local_frame": "711",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F891_thumb_approach.svg",
+      "action_visual": "Stable aim; thumb begins approaching shutter; lead at offcrop staff station; rear lens physically aims toward Mia + award, independent thumb control; no screen/flash",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Support fingers remain closed; no capture yet; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD11"
+    },
+    {
+      "absolute_frame": "900",
+      "seconds": "15.000000",
+      "extract_local_frame": "720",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F900_shutter.svg",
+      "action_visual": "Thumb presses shutter once; no flash; lead at offcrop staff station; rear lens physically aims toward Mia + award, independent thumb control; no screen/flash",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Support grip unchanged; actual thumb press; no screen; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD10 single click at900"
+    },
+    {
+      "absolute_frame": "901",
+      "seconds": "15.016667",
+      "extract_local_frame": "721",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F901_thumb_release.svg",
+      "action_visual": "Shutter has occurred once; thumb starts release; lead at offcrop staff station; rear lens physically aims toward Mia + award, independent thumb control; no screen/flash",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Support maintained; thumb separates; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD10 click decay"
+    },
+    {
+      "absolute_frame": "912",
+      "seconds": "15.200000",
+      "extract_local_frame": "732",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F912_lower_phone.svg",
+      "action_visual": "Thumb clear; regular begins lowering phone; lead at offcrop staff station",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Phone continuous support, report low; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD10 ends912; AUD11"
+    },
+    {
+      "absolute_frame": "942",
+      "seconds": "15.700000",
+      "extract_local_frame": "762",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F942_review_photo.svg",
+      "action_visual": "Phone lowered; regular looks at own screen; lead at offcrop staff station",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Screen faces regular, not film audience; report private; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD11"
+    },
+    {
+      "absolute_frame": "953",
+      "seconds": "15.883333",
+      "extract_local_frame": "773",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F953_settle.svg",
+      "action_visual": "Regular finishes screen glance and settles; lead at offcrop staff station",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "Phone low; page low; award fixed; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD11"
+    },
+    {
+      "absolute_frame": "959",
+      "seconds": "15.983333",
+      "extract_local_frame": "779",
+      "shot": "SH03",
+      "board_path": "PREVIS_ONLY/F959_outgoing.svg",
+      "action_visual": "Exact final live frame; all owners held for freeze; lead at offcrop staff station",
+      "gaze_acting": "Mia restrained social smile, eyes toward regular after lowering; regular settles; exact outgoing revised state",
+      "support_contact": "Award counter, report Mia R, phone regular; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD11 continues to successor; live bed cuts960"
+    },
+    {
+      "absolute_frame": "960",
+      "seconds": "16.000000",
+      "extract_local_frame": "",
+      "shot": "SH04 successor outside phase",
+      "board_path": "PREVIS_ONLY/F959_outgoing.svg",
+      "action_visual": "Reuse exact f959 live scene; do not redraw; lead at offcrop staff station",
+      "gaze_acting": "Mia deliberately reconstructs smaller smile; worried inner brows/open lids, cheek lift restrained; eyes toward regular/phone lens through capture",
+      "support_contact": "same drivers; Mia right grip remains behind counter, page occluded from film camera",
+      "audio": "AUD01 stops; AUD11 exact continuation"
+    }
+  ],
+  "photo_intent": {
+    "privacy_by": 807,
+    "raise": [
+      825,
+      882
+    ],
+    "aim_stable": [
+      882,
+      912
+    ],
+    "thumb_approach": [
+      891,
+      900
+    ],
+    "shutter": 900,
+    "thumb_release": [
+      901,
+      912
+    ],
+    "lower": [
+      912,
+      942
+    ],
+    "review": [
+      942,
+      953
+    ],
+    "settle": [
+      953,
+      960
+    ],
+    "subject": [
+      "CHAR_MIA",
+      "PROP_AWARD"
+    ],
+    "exclude": [
+      "PROP_REPORT"
+    ],
+    "lens": "rear LENS faces Mia and plaque; approved prop control route required; no flash/screen reveal",
+    "geometry_status": "UNMEASURED; verify actual camera/frustum"
+  },
+  "prop_support": {
+    "award": {
+      "initial_driver": "CHAR_MIA right",
+      "supporters": [
+        "Mia right",
+        "Mia left"
+      ],
+      "base_contact": 284,
+      "valid_surface_by": 295,
+      "transfer_to_counter": 296,
+      "right_clear": 306,
+      "left_clear": 320,
+      "left_settle": 342,
+      "fixed_until": 960
+    },
+    "report": {
+      "driver_lead_until": 368,
+      "first_contact": 350,
+      "secure_mia": 360,
+      "incoming_valid_previous_frame": 367,
+      "driver_mia_from": 368,
+      "lead_clear": 380,
+      "reading_settle": 416,
+      "privacy_by": 807,
+      "held_through": 959
+    },
+    "phone": {
+      "driver": "CHAR_REGULAR",
+      "support_interval": [
+        0,
+        960
+      ],
+      "thumb_independent": true
+    }
+  },
+  "outgoing_audio": {
+    "phase_samples": [
+      0,
+      768000
+    ],
+    "extract_samples": [
+      144000,
+      768000
+    ],
+    "AUD08": [
+      355200,
+      472800
+    ],
+    "AUD11_parent_samples": [
+      688800,
+      789600
+    ],
+    "AUD11_phase_samples": [
+      688800,
+      768000
+    ],
+    "AUD11_successor_samples": [
+      768000,
+      789600
+    ],
+    "successor_nondiegetic_tail_samples": [
+      768000,
+      772800
+    ],
+    "status": "source assets and actual bridge mix not supplied; timing obligation only, no fabricated tail"
+  },
+  "persistent_contacts": [
+    {
+      "owner": "CHAR_MIA",
+      "hand": "r",
+      "object": "PROP_AWARD",
+      "frames": [
+        0,
+        306
+      ],
+      "sole_driver_until": 296
+    },
+    {
+      "owner": "CHAR_MIA",
+      "hand": "l",
+      "object": "PROP_AWARD",
+      "frames": [
+        0,
+        320
+      ]
+    },
+    {
+      "owner": "WORLD_RESTAURANT",
+      "object": "PROP_AWARD",
+      "contact_at": 284,
+      "valid_at": 295,
+      "sole_driver_frames": [
+        296,
+        960
+      ]
+    },
+    {
+      "owner": "CHAR_LEAD",
+      "hand": "r",
+      "object": "PROP_REPORT",
+      "frames": [
+        0,
+        380
+      ],
+      "sole_driver_until": 368,
+      "visible_entry": 132,
+      "edge": "front lower-right"
+    },
+    {
+      "owner": "CHAR_MIA",
+      "hand": "r",
+      "object": "PROP_REPORT",
+      "first_touch": 350,
+      "secure_frames": [
+        360,
+        960
+      ],
+      "sole_driver_frames": [
+        368,
+        960
+      ],
+      "edge": "front lower-left"
+    },
+    {
+      "owner": "CHAR_REGULAR",
+      "hand": "r",
+      "object": "PROP_PHONE",
+      "frames": [
+        0,
+        960
+      ],
+      "single_driver": true,
+      "thumb_contact": [
+        900,
+        901
+      ]
+    }
+  ],
+  "contract_conflicts": [
+    {
+      "source": "01_READ_FIRST/GPT_PACKET_COMPILATION_INSTRUCTIONS.md §3–4 vs 03_VALIDATORS/engine/story/creative_packet.mjs interval(a.id,a.frames,sh?.frames)",
+      "status": "BLOCKING",
+      "ids": [
+        "E01-S001-A01",
+        "E01-S001-A03",
+        "E01-S001-A27"
+      ],
+      "resolution_required": "Retain full source parent IDs and all phases. Engine must support parent action across cuts or deterministic shot-local transport linked to parent IDs. No new creative action, reset, or truncation; revalidate exact digest after reconciliation."
+    },
+    {
+      "source": "handoff same target_socket instruction vs 04_P08_CONTRACTS/engine/art_bridge/prop_support.mjs lines 95–97",
+      "status": "RECONCILED_IN_PACKET",
+      "resolution": "Distinct PROP_REPORT.edge_lead and edge_mia, both on PROP_REPORT; same prop, not same socket. Shared support [360,368), one driver transfer at368. Lower-right/left as viewed on page front."
+    },
+    {
+      "source": "creative_preflight.mjs OBJECT_RESPONSE_DECIDED legacy REACT/static requirement",
+      "status": "LOCAL_RECONCILIATION_REQUIRED",
+      "resolution": "Use actual P08 PROP_SUPPORT and composition proof, not a fabricated static hold or mechanism REACT where a prop is moved by its valid driver. Run supplied preflight; if refused return typed error and reconcile legacy check without weakening real proof."
+    }
+  ],
+  "motion_reconciliation_requirements": [
+    "Keep all source action rows verbatim and their shot intersections. Each true continuing contact coalesces across cut/action boundary, never closes again on an unchanged held grip.",
+    "Gaze/pupil ownership distinct from eyelids and brow; actual face_composition must map full view/family/viseme tuple, including lids, cheeks, rest expressions and nonverbal chuckle jaw/breath; no overwrite by generic mouth swap.",
+    "Actual walk/weight support, torso and offcrop staff retreat; sole sockets declared, exact gait foot plant intervals and path must come from measured artwork and accepted motion reconciliation, not invented coordinates.",
+    "Pose names are semantic articulation targets, not registered cels with measured geometry. Any alternate silhouette needed is a source-attached drawing demand; actual closure must prove all poses and face transitions.",
+    "Camera fixed per shot; no CAMERA_MOVE proof invented. Attention subject, size, occupied world, native report readability, privacy, all exact source requirements and frame-level owner coverage must be enforced.",
+    "Runtime AUDIO offset/trim/gain/sample mapping from exact take source; all ambience/SFX/score final source assets and mix pending, no substitute audio. AUD11 successor bridge sample-exact.",
+    "Caption simultaneous SDH lanes and display clipping at qualification boundary; no speech timing change.",
+    "All joint limits and root_xy are planning-only schema-required values/board estimates, not measured or approved rig geometry. Review source-art topology and safe limits before acceptance of physical plan; never use broad placeholder limits as anatomy.",
+    "Named sockets and joints are symbolic construction interfaces, not registered points. Actual prop and hand design must match near/far topology, no forced anatomy. Regular right support hand is provisional schematic mapping; confirm actual approved board/view and independent thumb-control feasibility."
+  ],
+  "skill_source_verification": {
+    "pinned_commit": "1c7d9c1a2ecd3bf615fabe6b2ca4c1d2b896da94",
+    "skill_git_blob": "9c4e0ed9c219d7d9fcac42b26f95003f49f3d863",
+    "witness_manifest_git_blob": "795aacde2063343eaefbd73b86d630f31f7e4246",
+    "manifest_name": "QUESTION_NATIVE_WITNESS_MANIFEST.json",
+    "note": "Repo text and method headings inspected; native pixels and private SKILL.md byte hash not independently verified. Do not authorize ArtJobs."
+  }
+}

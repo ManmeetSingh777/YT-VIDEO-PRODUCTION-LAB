@@ -1,0 +1,68 @@
+{
+ "runner": "tools/tbo/release_regression.mjs",
+ "started": "2026-11-26T21:58:26.802Z",
+ "worktree": "C:\\Users\\gmanm\\TBO_REL1_REGRESSION",
+ "revision": "148850222e8ff02aa93fd299d27cd39abc15b9ee",
+ "dirty": [
+  " M films/hv2_film001/intake/DEPENDENT_JOB_STATUS.json",
+  " M films/hv2_film001/intake/INTAKE_LOG.jsonl",
+  " M films/hv2_film001/story/FILM_CONTRACT_REPORT.json"
+ ],
+ "node": "v22.20.0",
+ "nu_js_sha256": "773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be",
+ "scope": "targeted",
+ "files": [
+  "tests/p02/p02_render.test.mjs"
+ ],
+ "test_name_pattern": "P02-R04",
+ "stages": [
+  "suite"
+ ],
+ "storage": {
+  "estimate_bytes": 21474836480,
+  "estimate_basis": "OPERATOR OVERRIDE --estimate-gb 20",
+  "margin": 0.25,
+  "stop_floor_bytes": 8589934592,
+  "preflight": {
+   "ok": true,
+   "required_bytes": 35433480192,
+   "volumes": [
+    {
+     "volume": "C:\\",
+     "roles": [
+      "worktree",
+      "out",
+      "cache",
+      "tmp"
+     ],
+     "free_bytes": 98422468608,
+     "required_bytes": 35433480192
+    }
+   ],
+   "reasons": [],
+   "warnings": []
+  },
+  "start_free_bytes": 98422468608,
+  "min_free_bytes": 97776136192,
+  "peak_bytes": 646332416,
+  "cache_bytes": 0
+ },
+ "results": [
+  {
+   "stage": "suite",
+   "started": "2026-11-26T21:58:27.043Z",
+   "ended": "2026-11-26T22:10:17.438Z",
+   "exit": 0,
+   "storage_stop": null,
+   "min_free_bytes": 97776136192,
+   "tap": {
+    "tests": 1,
+    "pass": 1,
+    "fail": 0,
+    "cancelled": 0
+   }
+  }
+ ],
+ "outcome": "COMPLETE_PASS",
+ "ended": "2026-11-26T22:10:17.440Z"
+}

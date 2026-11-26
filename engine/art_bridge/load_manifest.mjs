@@ -10,6 +10,7 @@ import { solveTwoBonePosition } from "./constraints.mjs";
 import { checkMethodUses } from "./method_trace.mjs";
 import { verifyAllApprovals } from "./approvals.mjs";
 import { rectMismatch } from "./asset_geometry.mjs";
+import { validateShotSpan } from "../story/action_span.mjs";
 const here = path.dirname(url.fileURLToPath(import.meta.url));
 export const SCHEMA = JSON.parse(fs.readFileSync(path.join(here, "..", "..", "schemas", "motion_art_manifest_v2.schema.json"), "utf8"));
 const deepFreeze = (o) => { if (o && typeof o === "object" && !Object.isFrozen(o)) { Object.freeze(o); for (const v of Object.values(o)) deepFreeze(v); } return o; };
@@ -32,7 +33,7 @@ export async function loadManifest(projectRoot, manifestPath, options = {}) {
   // duplicate ids across top-level records
   const seen = new Map();
   for (const [kind, list] of [["identity", doc.identities], ["asset", doc.assets], ["rig", doc.rigs], ["world", doc.worlds], ["action", doc.actions], ["shot", doc.shots]])
-    for (const r of list) { if (seen.has(r.id)) E("DUPLICATE_ELEMENT_ID", { record_id: r.id, reason: `id used by ${seen.get(r.id)} and ${kind}` }); else seen.set(r.id, kind); }
+    for (const r of list) { if (seen.has(r.id) && !(kind === "rig" && seen.get(r.id) === "identity" && r.identity_id === r.id)) E("DUPLICATE_ELEMENT_ID", { record_id: r.id, reason: `id used by ${seen.get(r.id)} and ${kind}` }); else if (!seen.has(r.id)) seen.set(r.id, kind); } // a rig may carry the id of its OWN identity (E01 packet: rig CHAR_MIA of identity CHAR_MIA): both name one subject; any other collision is refused
   const assets = new Map(doc.assets.map((a) => [a.id, a])), identities = new Map(doc.identities.map((i) => [i.id, i])), shots = new Map(doc.shots.map((s) => [s.id, s]));
 
   // authority files exist
@@ -111,7 +112,9 @@ export async function loadManifest(projectRoot, manifestPath, options = {}) {
   // actions: frame ranges, states, reach
   for (const a of doc.actions) {
     const shot = shots.get(a.shot_id); if (!shot) { E("UNKNOWN_REFERENCE", { record_id: a.id, dependency: a.shot_id, reason: "action shot unknown" }); continue; }
-    const [f0, f1] = a.frame_range; if (!(f0 < f1) || f0 < shot.start_frame || f1 > shot.end_frame) E("INVALID_FRAME_RANGE", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: "action range must be non-empty and inside its shot" });
+    const [f0, f1] = a.frame_range;
+    if (a.shot_span !== undefined) { if (!(f0 < f1)) E("INVALID_FRAME_RANGE", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: "action range must be non-empty" }); for (const x of validateShotSpan(a, { shots, transitions: doc.transitions || [] })) E(x.code === "UNKNOWN_SHOT" ? "UNKNOWN_REFERENCE" : "INVALID_FRAME_RANGE", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: `continuous parent action: ${x.code}: ${x.reason}` }); } // lives through its declared, contiguous, same-world cuts
+    else if (!(f0 < f1) || f0 < shot.start_frame || f1 > shot.end_frame) E("INVALID_FRAME_RANGE", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: "action range must be non-empty and inside its shot" });
     for (const id of a.required_assets) if (!assets.has(id)) E("MISSING_ART_ASSET", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, dependency: id, suggested_producer: "GPT image provider", reason: "action requires an absent asset" });
     for (const actor of a.actors) {
       const r = rigs.get(actor.rig_id); if (!r) { E("UNKNOWN_REFERENCE", { record_id: a.id, dependency: actor.rig_id, reason: "actor rig unknown" }); continue; }

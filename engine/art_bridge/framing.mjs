@@ -11,6 +11,7 @@ import { cameraMatrix, composeShot as composeShotDefault } from "./scene_graph.m
 import { stateAtFrame } from "./temporal.mjs";
 import { canonicalQuad, canonicalToCrop } from "./asset_geometry.mjs";
 import { readPNG } from "./png.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 const area = (p) => { let a = 0; for (let i = 0; i < p.length; i++) { const [x0, y0] = p[i], [x1, y1] = p[(i + 1) % p.length]; a += x0 * y1 - x1 * y0; } return Math.abs(a) / 2; };
 /** Sutherland–Hodgman against the viewport */
 function clip(poly, W, H) { const edges = [[(p) => p[0] >= 0, (a, b) => { const t = (0 - a[0]) / (b[0] - a[0]); return [0, a[1] + t * (b[1] - a[1])]; }], [(p) => p[0] <= W, (a, b) => { const t = (W - a[0]) / (b[0] - a[0]); return [W, a[1] + t * (b[1] - a[1])]; }], [(p) => p[1] >= 0, (a, b) => { const t = (0 - a[1]) / (b[1] - a[1]); return [a[0] + t * (b[0] - a[0]), 0]; }], [(p) => p[1] <= H, (a, b) => { const t = (H - a[1]) / (b[1] - a[1]); return [a[0] + t * (b[0] - a[0]), H]; }]]; let out = poly; for (const [ins, x] of edges) { const inp = out; out = []; for (let i = 0; i < inp.length; i++) { const a = inp[i], b = inp[(i + 1) % inp.length]; if (ins(b)) { if (!ins(a)) out.push(x(a, b)); out.push(b); } else if (ins(a)) out.push(x(a, b)); } if (!out.length) break; } return out; }
@@ -20,7 +21,7 @@ export function verifyFraming({ compiled: C, doc, plan = {}, score = null, total
   const assets = new Map(doc.assets.map((a) => [a.id, a])), W = doc.stage.width, H = doc.stage.height, bad = {}, checked = [], add = (code, shot, rec, f, reason) => { const b = (bad[`${code}|${shot}|${rec}`] ||= { code, shot, rec, frames: [], reason }); b.frames.push(f); };
   for (const sh of doc.shots) {
     const decl = plan.framing?.[sh.id]?.subjects || [], att = (score?.shots || []).find((x) => x.shot === sh.id)?.attention_path || [], rigs = new Set([...decl.map((s) => s.rig), ...att.filter((e) => doc.rigs.some((r) => r.id === e))]), end = total === null ? sh.end_frame : Math.min(total, sh.end_frame); let n = 0;
-    const acting = doc.actions.filter((a) => a.shot_id === sh.id); // frames where the subject is on stage
+    const acting = doc.actions.filter((a) => actionInShot(a, sh.id)); // frames where the subject is on stage
     for (let f = sh.start_frame; f < end; f++) {
       if (!acting.some((a) => a.frame_range[0] <= f && f < a.frame_range[1])) continue; let st; try { st = stateAtFrame(C, f); } catch (e) { if (e.code === "MISSING_ART_ASSET") continue; add("FRAME_EVALUATION_FAILED", sh.id, e.code || "EXCEPTION", f, e.human_readable_reason || e.message); continue; } n++;
       const per = {};

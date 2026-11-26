@@ -3,6 +3,7 @@
 import path from "node:path";
 import { loadManifest, resolveInside } from "./load_manifest.mjs";
 import { err } from "./errors.mjs";
+import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 const xmlSafe = /^[A-Za-z0-9_./-]+$/;
 export async function createAssetRegistry(root, manifest, { production = false } = {}) {
@@ -21,7 +22,7 @@ export async function createAssetRegistry(root, manifest, { production = false }
     preloadForShot(shotId) {
       const shot = doc.shots.find((s) => s.id === shotId); if (!shot) throw err("UNKNOWN_REFERENCE", { record_id: shotId, reason: "unknown shot" });
       const ids = new Set(shot.required_asset_ids);
-      for (const a of doc.actions) if (a.shot_id === shotId) { a.required_assets.forEach((x) => ids.add(x)); for (const act of a.actors) { const r = doc.rigs.find((q) => q.id === act.rig_id); r?.render_parts.forEach((p) => ids.add(p.asset_id)); for (const s of [...(r?.pose_states || []), ...(r?.view_states || [])]) Object.values(s.asset_bindings).forEach((x) => ids.add(x)); } }
+      for (const a of doc.actions) if (actionInShot(a, shotId)) { a.required_assets.forEach((x) => ids.add(x)); for (const act of a.actors) { const r = doc.rigs.find((q) => q.id === act.rig_id); r?.render_parts.forEach((p) => ids.add(p.asset_id)); for (const s of [...(r?.pose_states || []), ...(r?.view_states || [])]) Object.values(s.asset_bindings).forEach((x) => ids.add(x)); } }
       const w = doc.worlds.find((x) => x.id === shot.world_id); w?.depth_owners.forEach((d) => d.asset_ids.forEach((x) => ids.add(x)));
       return [...ids].map((id) => reg.get(id));
     },

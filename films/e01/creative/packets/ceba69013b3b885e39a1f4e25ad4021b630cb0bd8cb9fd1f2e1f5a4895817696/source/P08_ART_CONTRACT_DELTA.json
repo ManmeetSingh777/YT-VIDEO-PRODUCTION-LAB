@@ -1,0 +1,38 @@
+{
+ "schema_version": "1.0",
+ "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+ "applies_to": "E01 masters and derived states (and every future character/prop)",
+ "unchanged": [
+  "pre-generation ten-pass audit (P07)",
+  "manual art_outbox export → export-gpt-job route (never submit)",
+  "evaluation identity: a rule change mints a new generation; approvals bind ruleset version P08.0"
+ ],
+ "characters": [
+  "face_composition: ownership of BASE_HEAD / BROWS / EYES / MOUTH regions by named channels (schema motion_art_manifest_v2 rig.face_composition)",
+  "MOUTH channel states carry face {family, viseme (EN_ARPABET_VISEME_V1), view_id}; only the tuples the phase's measured phones and expression timeline USE are requested",
+  "EXPRESSION channel states carry face.family (and bundled_mouth when a cel bakes a mouth); approved within-channel edges list the D4 intermediates (mock-regal → grin; grin → slip → concern; concern → social smile with concerned eyes)",
+  "hands: separate NEAR thumb and FAR finger layer slots + reviewed patch sockets (thumb, finger, pinch point) for WRAP/PINCH; holding sockets declare basis_angle_deg (production contacts are oriented)",
+  "joints the directed poses bend: owned underpaint / hidden-surface paint (verified on alpha every frame)",
+  "legs only if D1 framing shows them; a walking route needs reviewed sole sockets + leg IK (or an approved gait cel cycle)"
+ ],
+ "props": [
+  "registered grip/edge sockets with basis; the phone's LENS socket (PHOTO_INTENT forward axis)",
+  "a container/occluder needs separate front/aperture layers and registered inside/slot sockets"
+ ],
+ "worlds": [
+  "declared band depths when a dolly/orbit is directed; an orbit of a 2D world needs approved view/depth art beyond the approved flat-azimuth coverage"
+ ],
+ "schemas_added_or_versioned": [
+  "prop_support 1.1.0",
+  "contact_continuity 1.0.0",
+  "PINCH_CONTRACT 1.0.0 (plan.pinch_contracts)",
+  "SPEECH_ALIGNMENT 1.0.0 (audio cue alignment)",
+  "EXPRESSION_TRANSITION 1.0.0",
+  "performance_command 1.1.0 (VisemeSync, ExpressionTransitionTraversed)",
+  "COMPOSITION_CONTRACT 1.0.0",
+  "PHOTO_INTENT 1.0.0",
+  "PHASE_OUTGOING_BOUNDARY 1.0.0",
+  "plan.time_remaps / plan.grades / plan.camera_ops",
+  "manifest: channel state face{}, channel edges[], rig face_composition"
+ ]
+}

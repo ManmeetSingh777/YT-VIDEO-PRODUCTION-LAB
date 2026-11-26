@@ -1,0 +1,4 @@
+shot_id,absolute_start,absolute_end_exclusive,frames,extract_local_intersection,purpose,proposed_media_route
+E01-S001-SH01,0,444,444,"[0,264)",Live photo / report interruption,2D
+E01-S001-SH02,444,588,144,"[264,408)",Report insert,2D + registered editorial type
+E01-S001-SH03,588,960,372,"[408,780)",Expansion remark / photo,2D

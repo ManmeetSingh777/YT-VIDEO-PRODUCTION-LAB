@@ -1,0 +1,125 @@
+{
+  "status": "semantic demand, not runtime viseme enum or final ArtJob",
+  "by_cue": [
+    {
+      "cue_id": "AUD03",
+      "context": "friendly invitation / regular-facing Mia",
+      "actor": "CHAR_REGULAR",
+      "arpabet_labels": [
+        "AH0",
+        "AH1",
+        "AY1",
+        "B",
+        "D",
+        "G",
+        "HH",
+        "IH0",
+        "IH1",
+        "IY1",
+        "L",
+        "M",
+        "OW1",
+        "P",
+        "S",
+        "T"
+      ],
+      "required_art_family": "ART_R02"
+    },
+    {
+      "cue_id": "AUD12",
+      "context": "mock-regal / toward regular",
+      "actor": "CHAR_MIA",
+      "arpabet_labels": [
+        "AH1",
+        "CH",
+        "M",
+        "T",
+        "UW1"
+      ],
+      "required_art_family": "ART_M06"
+    },
+    {
+      "cue_id": "AUD13",
+      "context": "discreet lead / toward Mia",
+      "actor": "CHAR_LEAD",
+      "arpabet_labels": [
+        "AH0",
+        "AH1",
+        "B",
+        "D",
+        "EH1",
+        "ER0",
+        "EY2",
+        "IY1",
+        "M",
+        "N",
+        "S",
+        "T",
+        "Y",
+        "Z"
+      ],
+      "required_art_family": "ART_L03"
+    },
+    {
+      "cue_id": "AUD02",
+      "context": "automatic warmth / toward lead",
+      "actor": "CHAR_MIA",
+      "arpabet_labels": [
+        "AE1",
+        "K",
+        "NG",
+        "S",
+        "TH"
+      ],
+      "required_art_family": "ART_M06"
+    },
+    {
+      "cue_id": "AUD14",
+      "context": "encouragement / room glance then Mia",
+      "actor": "CHAR_REGULAR",
+      "arpabet_labels": [
+        "AA1",
+        "AE1",
+        "AH0",
+        "B",
+        "D",
+        "DH",
+        "ER0",
+        "EY1",
+        "G",
+        "IH1",
+        "IY1",
+        "L",
+        "N",
+        "P",
+        "R",
+        "S",
+        "T",
+        "UH1",
+        "Y"
+      ],
+      "required_art_family": "ART_R02"
+    },
+    {
+      "cue_id": "AUD09",
+      "context": "restrained smile / toward regular",
+      "actor": "CHAR_MIA",
+      "arpabet_labels": [
+        "AH0",
+        "D",
+        "EH1",
+        "EY1",
+        "G",
+        "L",
+        "R",
+        "S",
+        "T",
+        "TH",
+        "UW1"
+      ],
+      "required_art_family": "ART_M06"
+    }
+  ],
+  "chuckle": "ART_R02 separate cheeks/lids/jaw breath performance; no fabricated phonemes",
+  "notes": "P08 must map phone + context + actual view to approved viseme/state IDs, preserve expression channel ownership and resolve subframe overlaps/coarticulation. Frame-center file is diagnostic only."
+}

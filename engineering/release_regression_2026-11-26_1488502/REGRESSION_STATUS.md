@@ -32,6 +32,12 @@ At the end of the run, C: had **2.0 GB free of 1.7 TB (100%)**. The space was ta
 
 No failure shows an engine defect. However, **41 tests did not actually exercise their assertions**. This run therefore neither qualifies nor disqualifies `1488502`.
 
+## P02-R04 targeted re-check (2026-11-27, after the user freed space on C:)
+- **Run:** `p02_r04_targeted/`. The same worktree at `1488502` ran only P02-R04 through `tools/tbo/release_regression.mjs` (guarded).
+- **Result:** **ok 1/1**, 710 s, `COMPLETE_PASS`. The peak was 0.6 GB, with 91 GB free.
+- **Conclusion:** the same revision passes with adequate space. That is evidence its "encoder closed" failure in the full run was environmental, not an engine defect.
+- **Still outstanding:** the other 40 storage failures have not been re-run. No comprehensive regression has been re-launched.
+
 ## To get a qualifying result
 1. Free space on C:. The regression's own outputs can be regenerated:
    - `TBO_REL1_REGRESSION\hybrid_v2\work`
