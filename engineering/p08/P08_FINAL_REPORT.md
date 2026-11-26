@@ -133,9 +133,17 @@ The cache is fresh per run and never shared between runs.
   - Updating them is creative-side work against `ART_REQUIREMENTS_PHASE1_P3_2.md`; no engine change is implied.
 
 ## 8. F06 consolidation (no blind merge)
-See the PR: integration branch `integration/p08-f06-consolidation` = this branch + `origin/main` (README only) +
-`origin/design/gpt-creative-production-contract-v1`. The design branch brings docs, a creative-packet schema, a Python validator and
-synthetic fixtures under `docs/gpt-creative-control/`. The PR is opened to `main` and left **unmerged**; no branch is deleted.
+- **Integration branch:** `integration/p08-f06-consolidation` (pushed, tip `df69bc1`) = `44412e0` + `origin/main` `587bfd8` +
+  `origin/design/gpt-creative-production-contract-v1` `0c3096c`. No branch was deleted.
+- **Conflict resolutions, each reviewed** (full table in `engineering/p08/F06_PR_BODY.md`):
+  - README: both versions kept.
+  - The three `docs/gpt-creative-control` docs take the design text. On this branch P05 commit `0576c9a` had corrupted them with a
+    leading backtick on every line, and their content was otherwise identical.
+  - The validator keeps this branch's strict superset.
+  - The release-gates doc is added.
+- **The PR is not opened yet:** the GitHub CLI is not installed on this machine. Open it from
+  `https://github.com/ManmeetSingh777/YT-VIDEO-PRODUCTION-LAB/pull/new/integration/p08-f06-consolidation` with that body, and leave
+  it unmerged pending review.
 
 ## 9. Open decisions for Manmeet
 1. **Qualify P08:** authorize a second comprehensive regression on `5314269` (or the then-current tip). Alternatively, accept
