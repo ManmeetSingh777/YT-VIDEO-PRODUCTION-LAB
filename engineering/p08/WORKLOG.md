@@ -22,3 +22,13 @@ See P08_REQUIREMENT_RESULTS.json (generated at the end from executed tests). Ord
 C02/C03/C04 → E01/E07 → F01/A04 → D01 → B04–B08 → C01/C05 → E02/E05/E06 → E03/E04 → F02–F06; regression-efficiency profiling before freeze.
 - B01 `8b6e50a` (tests/p08/prop_authority.test.mjs 7/7, Chrome owner pixels). A02 `5b41357` (tests/p08/contact_continuity.test.mjs 5/5).
   A02 open item: "held object while speech/face turns" combination → covered later by the face-capable P08 character fixture (composition tests).
+- C02/C03/C04 `f21dfab`: engine/art_bridge/speech_visemes.mjs (SPEECH_ALIGNMENT v1, EN_ARPABET_VISEME_V1), speak VISEME route, EXPRESSION_TRANSITION v1,
+  face_composition + FaceComposition verifier, performance_command schema v1.1.0. Fixture tests/p08/character_fixture.mjs (kade tall / pim short bipeds,
+  legs+hands+composed face, 80 s real intake). tests/p08/face_speech.test.mjs 6/6. Real P3.1 phones: 86/86 absolute samples identical (scratch check).
+  Fixture lessons: part pivot landmark must lie on painted pixels; grip drawing must cover the wrist pivot (radius in MASTER px = 2× canonical).
+- Next: tools/tbo/e01_speech_preflight.mjs (private input, commit summary only) → composition contract A01/A03 + addendum → E01 freeze/A04/F01 → E07 → B02/B03 → B04 …
+- A01/A03+addendum `470a676`: engine/art_bridge/composition.mjs (COMPOSITION_CONTRACT v1.0.0, writeSet), engine/film/composition_qa.mjs; tests/p08/composition.test.mjs 6/6
+  (combo 4 "mechanism + model graphic" still TODO with E06). E01 speech preflight tool + summary committed (private detail in E:\TBO_PRIVATE\E01_SPEECH_PREFLIGHT).
+- E01/A04/F01 `b48699c`: plan.time_remaps in temporal; engine/film/phase_boundary.mjs; engine/film/phase_audio.mjs; tests/p08/phase_freeze_audio.test.mjs 6/6.
+  Note: owner pixel identity must be measured as raw bytes over the owner's region (colour-key matching is ambiguous across owners).
+- Next: E07 photo polygon → B02 palm-orientation IK → B03 PINCH → B04 walk → B05/B06/B07/B08 → C01/C05/C06 → D01–D06 → E02/E05/E06(+combo4)/E03/E04 → F02–F06 → regression efficiency → freeze.
