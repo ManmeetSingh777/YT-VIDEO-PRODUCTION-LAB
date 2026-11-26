@@ -59,7 +59,7 @@
     },
     "older": "V0.3 corrected 13s award direction: HISTORICAL; not executable for V0.4 without explicit reconciliation",
     "creative_artifacts_missing": [
-      "Executable CREATIVE_PACKET v1.1.0 + HYBRID_CONTRACT for [0,960) (compilation handoff issued: E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip, engine 1c7d9c1)",
+      "Executable CREATIVE_PACKET v1.1.0 + HYBRID_CONTRACT for [0,960) (compilation handoff accepted: E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip sha256 1f05905ffbc8036772e19c19ea64a524c2a7962f81c7d6829320b3482752cefe; Creative GPT compiling; 'Too much?' caption to be re-timed to ≥ 1.0 s)",
       "Signed creative_packet / story / direction receipts for that digest",
       "Direction for phases after f960 (SH04–SH07) and the ending",
       "Actual local versioned full financial model/evidence from V0.3"
@@ -143,7 +143,7 @@
       "diagnostic_working": "composition primitives (JOINT_ROTATE, ROOT_MOVE, OSCILLATE, AIM, STATE_SWAP, PLANT, REACH, CAMERA_MOVE, WALK, CARRY, LOAD_CONTAINER, INSERT_TOKEN); contact continuity; prop authority ACTOR/OBJECT/SURFACE/FREE with transfers; oriented contacts; PINCH; WRAP grips; measured-phone VISEME speech; expression transitions; face composition; time remaps; grades; DOLLY/ORBIT camera ops; calibrated PERSP host camera; photo intent; phase boundary + phase audio; selective chunk re-render",
       "missing_or_being_closed": [
         "E04 per-pixel host depth/matte: IMPLEMENTED on diagnostic fixtures (004ce11); approved host design pending",
-        "CAPTION_OVERLAY: IMPLEMENTED (cf4ad3c); FINDING: approved 'Too much?' cue 0.633 s < 1.0 s default dwell (creative decision)",
+        "CAPTION_OVERLAY: IMPLEMENTED (cf4ad3c); 1.0 s minimum dwell retained (user 2026-11-27); 'Too much?' re-timed by Creative GPT in the packet",
         "A01 obligation ledger, C04 pupil mask, C05 attention windows, D03 native resolution: IMPLEMENTED (3a03343, 576f067)",
         "no automatic packet → P08 MOTION_PLAN compiler (Claude reconciles; A01 ledger checks)",
         "none of the above qualified on real E01 art; comprehensive release regression pending on the consolidated revision"
@@ -239,8 +239,8 @@
       "owner": "CLAUDE",
       "action": "Import/validate approved v1.1.0 packet, run pre-art capability+art closure, return ArtJobs, unresolved producers and direct user choices.",
       "blocker": "N02_N03",
-      "status": "WAITING_FOR_CREATIVE_GPT_PACKET",
-      "evidence": "E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip (sha256 d4d4784405ee05106fe8696bec099d57a755791e0703b69b5b7bd55174c041f3)"
+      "status": "WAITING_FOR_CREATIVE_GPT_PACKET (compilation in progress)",
+      "evidence": "E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip (sha256 1f05905ffbc8036772e19c19ea64a524c2a7962f81c7d6829320b3482752cefe, 513733 bytes, 140 files; standard DEFLATE ZIP, accepted by the user 2026-11-27; supersedes the first export d4d4784405ee… whose ./-prefixed entries showed 0 items in Windows Explorer)"
     },
     {
       "id": "N05",
@@ -299,7 +299,8 @@
       "id": "N-P08-6",
       "owner": "GPT/MANMEET",
       "action": "Decide the caption minimum dwell (or re-time 'Too much?' [135,173) = 0.633 s)",
-      "status": "PENDING_HUMAN"
+      "status": "RESOLVED",
+      "resolution": "User 2026-11-27: keep the 1.0 s caption minimum dwell; Creative GPT re-times 'Too much?' [135,173) (0.633 s) during packet compilation"
     }
   ],
   "warning": "Status file is a human-readable production ledger, not an engine-produced attestable output. Current engineering evidence proves diagnostics only; user and GPT must approve genuine V0.4 creative packet, then generate actual F01-F80 art, rig and film."
