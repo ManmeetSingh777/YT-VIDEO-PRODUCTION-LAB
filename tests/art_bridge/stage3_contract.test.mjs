@@ -13,6 +13,9 @@ const MEM = path.join(FILM, "learning", "REPAIR_MEMORY.json");
 // tests state the family the brief described (ACTING_HUMAN) to keep exercising the per-method checks they were written for
 const OLD = () => ({ ...J(OLD_DESIGN), art_family: "ACTING_HUMAN" });
 const inesJob = async () => (await planJobs({ film: FILM })).jobs.find((j) => j.root_dependency === "ines_master");
+// P07: a new canonical master also needs its ten-pass pre-generation audit; these tests supply a labelled DIAGNOSTIC audit in memory (never written into the film)
+const { diagnosticAudit } = await import("../tbo/pregen_audit_fixture.mjs"), AUD = (d = J(path.join(FILM, "art_designs", "ines_master.design.json"))) => diagnosticAudit(FILM, d);
+const ctxA = (d) => ({ ...ctx(), pregenAudit: AUD(d) });
 const ctx = () => ({ doc: J(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json")), plan: J(path.join(FILM, "handoff", "ART_DEPENDENCY_PLAN.json")), motionPlans: { S02: J(path.join(FILM, "handoff", "MOTION_PLAN_S02.json")) }, film: FILM });
 let JOB; test.before(async () => { JOB = await inesJob(); });
 const refusal = (fn) => { try { fn(); return { refused: false, codes: [] }; } catch (e) { return { refused: e.code === "ART_CONTRACT_REFUSED", codes: (e.details?.failures || []).map((f) => `${f.code}${f.method ? ":" + f.method : ""}`), error: e }; } };
@@ -36,10 +39,11 @@ test("S3C-4 view agreement: the motion contract carries the rig's canonical view
   assert.ok(refusal(() => compileArtJob(JOB, { baseJob: d, outDir: path.join(W, "s4"), repairMemory: MEM, contract: ctx(), jobFrom: "ines_master" })).codes.includes("CONTRACT_VIEW_MISMATCH"));
 });
 test("S3C-5 alpha agreement: a STRAIGHT-alpha master compiles with transparent_background true (contract-owned), and a design alpha mismatch is refused", async () => {
-  const c = compileArtJob(JOB, { baseJob: J(path.join(FILM, "art_designs", "ines_master.design.json")), outDir: path.join(W, "s5"), repairMemory: MEM, contract: ctx(), jobFrom: "ines_master" });
+  assert.ok(refusal(() => compileArtJob(JOB, { baseJob: J(path.join(FILM, "art_designs", "ines_master.design.json")), outDir: path.join(W, "s5x"), repairMemory: MEM, contract: ctx(), jobFrom: "ines_master" })).codes.includes("PREGEN_AUDIT_MISSING"), "P07: no first image without the ten-pass audit");
+  const c = compileArtJob(JOB, { baseJob: J(path.join(FILM, "art_designs", "ines_master.design.json")), outDir: path.join(W, "s5"), repairMemory: MEM, contract: ctxA(), jobFrom: "ines_master" });
   const req = J(path.join(W, "s5", "IMAGEGEN_REQUEST.json")); assert.equal(req.transparent_background, true); assert.equal(c.gate.pass, true); assert.ok(fs.existsSync(path.join(W, "s5", "BRIDGE_REQUEST_CONTRACT.json")));
   const d = J(path.join(FILM, "art_designs", "ines_master.design.json")); d.output.alpha_mode = "OPAQUE";
-  assert.ok(refusal(() => compileArtJob(JOB, { baseJob: d, outDir: path.join(W, "s5b"), repairMemory: MEM, contract: ctx(), jobFrom: "ines_master" })).codes.includes("CONTRACT_ALPHA_MISMATCH"));
+  assert.ok(refusal(() => compileArtJob(JOB, { baseJob: d, outDir: path.join(W, "s5b"), repairMemory: MEM, contract: ctxA(d), jobFrom: "ines_master" })).codes.includes("CONTRACT_ALPHA_MISMATCH"));
 });
 test("S3C-6 applicability: every method the subject family + motion contract makes applicable is bound faithfully (not all 80)", async () => {
   const { requiredMethods } = await import("../../engine/art_bridge/art_contract.mjs");
@@ -51,7 +55,8 @@ test("S3C-6 applicability: every method the subject family + motion contract mak
 });
 test("S3C-7 a faithful design passes every automated gate but cannot be submitted without a HUMAN design approval", async () => {
   const { preGenerationGate } = await import("../../engine/art_bridge/art_contract.mjs");
-  const g = preGenerationGate({ design: J(path.join(FILM, "art_designs", "ines_master.design.json")), job: await inesJob(), ...ctx() });
+  const g0 = preGenerationGate({ design: J(path.join(FILM, "art_designs", "ines_master.design.json")), job: await inesJob(), ...ctx() }); assert.ok(g0.failures.some((x) => x.code === "PREGEN_AUDIT_MISSING"), "P07: the audit is part of the automated gate");
+  const g = preGenerationGate({ design: J(path.join(FILM, "art_designs", "ines_master.design.json")), job: await inesJob(), ...ctxA() });
   assert.equal(g.pass, true, JSON.stringify(g.failures, null, 1)); assert.equal(g.design_approval.status, "BLOCKED_ON_DESIGN_APPROVAL");
   const I = await import("../../engine/art_bridge/art_intake.mjs"), { startProviderStub } = await import("./roundtrip_fixture.mjs"), { exportOutbox } = await import("../../engine/tools/art_outbox.mjs");
   const out = path.join(W, "outbox7"); await exportOutbox({ film: FILM, out }); const job = J(path.join(out, "OUTBOX_INDEX.json")).index.find((r) => r.asset === "ines_master").artjob_id;

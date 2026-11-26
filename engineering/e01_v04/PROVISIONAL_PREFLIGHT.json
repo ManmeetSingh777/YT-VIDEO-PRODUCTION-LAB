@@ -72,16 +72,16 @@
  },
  "status_counts": {
   "SUPPORTED_IN_PRINCIPLE": 0,
-  "NEEDS_REAL_ART": 6,
-  "NEEDS_CREATIVE_DECISION": 9,
-  "NEEDS_ENGINE_PRODUCER": 10,
+  "NEEDS_REAL_ART": 7,
+  "NEEDS_CREATIVE_DECISION": 11,
+  "NEEDS_ENGINE_PRODUCER": 7,
   "UNSUPPORTED": 0
  },
  "status_counts_in_extract": {
   "SUPPORTED_IN_PRINCIPLE": 0,
-  "NEEDS_REAL_ART": 6,
-  "NEEDS_CREATIVE_DECISION": 7,
-  "NEEDS_ENGINE_PRODUCER": 4,
+  "NEEDS_REAL_ART": 7,
+  "NEEDS_CREATIVE_DECISION": 9,
+  "NEEDS_ENGINE_PRODUCER": 1,
   "UNSUPPORTED": 0
  },
  "issues": [
@@ -376,6 +376,7 @@
  ],
  "gaps": {
   "CROSS_ACTOR_PROP_TRANSFER": {
+   "status": "CLOSED_BY_P07",
    "reason": "two actors hold one prop at once, then possession transfers at a stated frame (dual secure support [348,356), transfer f356, lead clear f368)",
    "evidence": [
     "engine/film/performance_qa.mjs:29 possessionAt() keeps ONE holder per object (a later locked grip overwrites an earlier one): no dual-hold state and no transfer frame",
@@ -388,6 +389,7 @@
    ]
   },
   "TWO_HAND_SINGLE_PROP": {
+   "status": "CLOSED_BY_P07",
    "reason": "both hands of one actor co-support one prop (award raised with two hands; setdown with sequential release)",
    "evidence": [
     "engine/film/performance_qa.mjs:29 possessionAt() records one holder per object; two hands of one rig on one object are not represented",
@@ -400,7 +402,7 @@
    ]
   },
   "PAGE_EDGE_PINCH": {
-   "reason": "a single sheet held by its edge between thumb and fingers is physically a pinch",
+   "reason": "a single sheet held by its edge between thumb and fingers is physically a pinch (P07: compilePacket now REFUSES an unsupported PINCH instead of dropping it)",
    "evidence": [
     "creative_preflight.CONTACT_PRODUCERS.PINCH = false",
     "engine/story/action_coverage.mjs ONTOLOGY.PINCH exists but CONSEQUENCES.PINCH measure is listed while CONTACT_PRODUCERS refuses it"
@@ -597,22 +599,22 @@
     "ART_P01"
    ],
    "intended_visible_result": "Plaque never floats or hides face; humor from pose, then genuine laugh",
-   "status": "NEEDS_ENGINE_PRODUCER",
-   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
    "ops": [
     {
      "op": "two hands support plaque from f0",
      "actor": "CHAR_MIA",
      "reg": {
-      "gap": "TWO_HAND_SINGLE_PROP"
+      "prop_support": "two hands of one actor share the prop; one driver per frame"
      },
      "art": [
       "MIA.hand_l.grip_plaque",
       "MIA.hand_r.grip_plaque",
       "PROP_AWARD.grip_sockets"
      ],
-     "status": "NEEDS_ENGINE_PRODUCER",
-     "registry_evidence": "GAP TWO_HAND_SINGLE_PROP: engine/film/performance_qa.mjs:29 possessionAt() records one holder per object; two hands of one rig on one object are not represented"
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "P07 prop support v1.0.0 (prop_support_v1.schema.json): two hands of one actor share the prop; one driver per frame — engine/art_bridge/prop_support.mjs + performance_qa.mjs#verifyPropSupport; needs an approved support contract on the real rigs (tests P07-S1/E01/N1/N2/R1)"
     },
     {
      "op": "anticipation + raise plaque, chin rise [36,120)",
@@ -686,7 +688,6 @@
     }
    ],
    "gaps_and_decisions": [
-    "TWO_HAND_SINGLE_PROP",
     "VISEMES",
     "GRADUAL_EXPRESSION"
    ]
@@ -807,8 +808,8 @@
     "ART_ENV01"
    ],
    "intended_visible_result": "Award fixed at f276 onward, stable base/shadow; no sliding or lingering hand; right reach may overlap left settle",
-   "status": "NEEDS_ENGINE_PRODUCER",
-   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
    "ops": [
     {
      "op": "eyes check surface [205,228)",
@@ -827,11 +828,11 @@
      "op": "two-hand controlled setdown [228,264)",
      "actor": "CHAR_MIA",
      "reg": {
-      "gap": "TWO_HAND_SINGLE_PROP"
+      "prop_support": "two hands of one actor share the prop; one driver per frame"
      },
      "art": [],
-     "status": "NEEDS_ENGINE_PRODUCER",
-     "registry_evidence": "GAP TWO_HAND_SINGLE_PROP: engine/film/performance_qa.mjs:29 possessionAt() records one holder per object; two hands of one rig on one object are not represented"
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "P07 prop support v1.0.0 (prop_support_v1.schema.json): two hands of one actor share the prop; one driver per frame — engine/art_bridge/prop_support.mjs + performance_qa.mjs#verifyPropSupport; needs an approved support contract on the real rigs (tests P07-S1/E01/N1/N2/R1)"
     },
     {
      "op": "plaque base contacts counter f264, counter bears load f276",
@@ -875,9 +876,7 @@
      "registry_evidence": "VERBS.release via PART_RIG_2D; producer: contact end + HAND open state + release ramp; effect: ReleaseAndSeparation"
     }
    ],
-   "gaps_and_decisions": [
-    "TWO_HAND_SINGLE_PROP"
-   ]
+   "gaps_and_decisions": []
   },
   {
    "action": "A05",
@@ -1124,8 +1123,8 @@
     "ART_P02"
    ],
    "intended_visible_result": "No gap in physical support or double conflicting object drivers; no teleport; opposing grip surfaces, paper flex only if approved",
-   "status": "NEEDS_ENGINE_PRODUCER",
-   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
    "ops": [
     {
      "op": "Mia first contact f338, closes grip, secure f348",
@@ -1148,11 +1147,11 @@
      "op": "dual secure support [348,356), transfer f356, lead clear f368",
      "actor": "CHAR_MIA; CHAR_LEAD",
      "reg": {
-      "gap": "CROSS_ACTOR_PROP_TRANSFER"
+      "prop_support": "dual support [348,356), driver transfer at 356, giver releases only its own hand"
      },
      "art": [],
-     "status": "NEEDS_ENGINE_PRODUCER",
-     "registry_evidence": "GAP CROSS_ACTOR_PROP_TRANSFER: engine/film/performance_qa.mjs:29 possessionAt() keeps ONE holder per object (a later locked grip overwrites an earlier one): no dual-hold state and no transfer frame"
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "P07 prop support v1.0.0 (prop_support_v1.schema.json): dual support [348,356), driver transfer at 356, giver releases only its own hand — engine/art_bridge/prop_support.mjs + performance_qa.mjs#verifyPropSupport; needs an approved support contract on the real rigs (tests P07-S1/E01/N1/N2/R1)"
     },
     {
      "op": "lead opens fingers and withdraws [356,374)",
@@ -1169,8 +1168,7 @@
     }
    ],
    "gaps_and_decisions": [
-    "PAGE_EDGE_PINCH",
-    "CROSS_ACTOR_PROP_TRANSFER"
+    "PAGE_EDGE_PINCH"
    ]
   },
   {
@@ -2247,7 +2245,10 @@
    "derived_from": null,
    "why": "canonical Mia, SH01 three-quarter counter view; identity for every derived Mia state",
    "first_job": true,
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_MIA_MASTER_cf7e5c4c",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR_MASTER",
@@ -2256,7 +2257,10 @@
    "derived_from": null,
    "why": "canonical regular, camera-left public side",
    "first_job": true,
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_REGULAR_MASTER_6907d6f6",
+   "id_legal_for_packet": true
   },
   {
    "id": "LEAD_MASTER",
@@ -2265,7 +2269,10 @@
    "derived_from": null,
    "why": "canonical shift lead, staff lane",
    "first_job": true,
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_LEAD_MASTER_63a6b44a",
+   "id_legal_for_packet": true
   },
   {
    "id": "ENV_RESTAURANT_SH01",
@@ -2279,7 +2286,10 @@
     "OCCLUDER",
     "MASK"
    ],
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_ENV_RESTAURANT_SH01_9855d2f0",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_AWARD",
@@ -2287,7 +2297,10 @@
    "family": "ART_P01",
    "derived_from": null,
    "why": "plaque front/side/base, base socket, contact shadow",
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_PROP_AWARD_e8fad9e2",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_REPORT",
@@ -2295,7 +2308,10 @@
    "family": "ART_P02",
    "derived_from": null,
    "why": "single sheet front/back/edge; two edge grip sockets; TYPE plane",
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_PROP_REPORT_71b2ddee",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_PHONE",
@@ -2303,7 +2319,10 @@
    "family": "ART_P03",
    "derived_from": null,
    "why": "front/back/side; lens side; grip socket",
-   "consumers": []
+   "consumers": [],
+   "planjobs_state_kind": "MASTER",
+   "conditional_artjob_id": "ARTJOB_MASTER_PROP_PHONE_a2925388",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.parts",
@@ -2313,7 +2332,10 @@
    "why": "head, neck, torso, upper arms, forearms, hands as source-attached edits of the master",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.parts_638eb37c",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.underpaint.shoulders_elbows",
@@ -2323,7 +2345,10 @@
    "why": "hidden cloth/torso/neck/shoulder/elbow paint for raise, setdown, reach, draw-in",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "UNDERPAINT",
+   "conditional_artjob_id": "ARTJOB_UNDERPAINT_MIA.underpaint.shoulders_elbows_7c59e458",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.underpaint.elbow_r",
@@ -2334,7 +2359,10 @@
    "consumers": [
     "A07",
     "A09"
-   ]
+   ],
+   "planjobs_state_kind": "UNDERPAINT",
+   "conditional_artjob_id": "ARTJOB_UNDERPAINT_MIA.underpaint.elbow_r_0d3f6e4f",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_l.grip_plaque",
@@ -2344,7 +2372,10 @@
    "why": "left hand on plaque, near/far fingers",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_l.grip_plaque_81da5c7e",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_r.grip_plaque",
@@ -2354,7 +2385,10 @@
    "why": "right hand on plaque, near/far fingers",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_r.grip_plaque_97e8102f",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_l.fingertip_steady",
@@ -2364,7 +2398,10 @@
    "why": "left fingertips stabilise after load transfer",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_l.fingertip_steady_c7592e53",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_l.open",
@@ -2374,7 +2411,10 @@
    "why": "left release/relaxed",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_l.open_ad048acf",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_r.open",
@@ -2384,7 +2424,10 @@
    "why": "right release",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_r.open_ab2e36d7",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_r.reach_open",
@@ -2394,7 +2437,10 @@
    "why": "curved-wrist reach",
    "consumers": [
     "A07"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_r.reach_open_aed45b8b",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_r.page_grip",
@@ -2404,7 +2450,10 @@
    "why": "page-edge grip (thumb/finger wrap: PAGE_EDGE_PINCH decision)",
    "consumers": [
     "A08"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_r.page_grip_d9d203d1",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.hand_r.near_far_layers",
@@ -2414,7 +2463,10 @@
    "why": "near/far finger layers around the page",
    "consumers": [
     "A08"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.hand_r.near_far_layers_e48f5bae",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.eyes.gaze_states",
@@ -2424,7 +2476,10 @@
    "why": "eyes to regular / lead / page / return",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.eyes.gaze_states_535c8554",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.eyes.gaze_down",
@@ -2434,7 +2489,10 @@
    "why": "surface check",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.eyes.gaze_down_4913482c",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.eyes.reading_down_states",
@@ -2444,7 +2502,10 @@
    "why": "line 1 → line 2",
    "consumers": [
     "A10"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.eyes.reading_down_states_3303c0c0",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.head_views (toward regular; if beyond rigid limit)",
@@ -2455,7 +2516,10 @@
    "conditional": true,
    "consumers": [
     "A13"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "MIA.expr.mock_regal",
@@ -2465,7 +2529,10 @@
    "why": "face",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.expr.mock_regal_9e8ce127",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.expr.genuine_grin",
@@ -2475,7 +2542,10 @@
    "why": "face; the first smile the payoff echoes",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.expr.genuine_grin_e05100ca",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.expr.slipping_smile",
@@ -2485,7 +2555,10 @@
    "why": "asymmetric weakening",
    "consumers": [
     "A10"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.expr.slipping_smile_a069729f",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.expr.concerned",
@@ -2495,7 +2568,10 @@
    "why": "lids/brows settle",
    "consumers": [
     "A10"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.expr.concerned_f490d62a",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.expr.social_smile_concerned_eyes",
@@ -2505,7 +2581,10 @@
    "why": "reconstructed smile, worried eyes",
    "consumers": [
     "A13"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.expr.social_smile_concerned_eyes_791f2474",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.expr.inbetweens",
@@ -2517,7 +2596,10 @@
     "A02",
     "A10",
     "A13"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA.expr.inbetweens_df54e9eb",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA.mouth.rest/mid/open@mock_regal",
@@ -2527,7 +2609,10 @@
    "why": "Too much?",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "MIA.mouth.rest/mid/open@smile",
@@ -2537,7 +2622,10 @@
    "why": "Thanks.",
    "consumers": [
     "A18"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "MIA.mouth.rest/mid/open@restrained_smile",
@@ -2547,7 +2635,10 @@
    "why": "Let's get through today.",
    "consumers": [
     "A14"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "REGULAR.parts",
@@ -2557,7 +2648,10 @@
    "why": "head, torso, near arm (upper/fore/hand)",
    "consumers": [
     "A03"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_REGULAR.parts_497cc68e",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.underpaint.elbow_wrist_sleeve",
@@ -2567,7 +2661,10 @@
    "why": "lift/lower exposure",
    "consumers": [
     "A03"
-   ]
+   ],
+   "planjobs_state_kind": "UNDERPAINT",
+   "conditional_artjob_id": "ARTJOB_UNDERPAINT_REGULAR.underpaint.elbow_wrist_sleeve_e1e31130",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.hand_near.phone_grip",
@@ -2577,7 +2674,10 @@
    "why": "support grip",
    "consumers": [
     "A03"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_REGULAR.hand_near.phone_grip_0dfd8b9d",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.hand_near.near_far_layers",
@@ -2587,7 +2687,10 @@
    "why": "fingers around phone",
    "consumers": [
     "A03"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_REGULAR.hand_near.near_far_layers_9b3cf60f",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.thumb.ready",
@@ -2597,7 +2700,10 @@
    "why": "separate THUMB channel",
    "consumers": [
     "A15"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_REGULAR.thumb.ready_bd2a9074",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.thumb.press",
@@ -2607,7 +2713,10 @@
    "why": "shutter press f900",
    "consumers": [
     "A15"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_REGULAR.thumb.press_6da0ba57",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.head_view_room (if beyond rigid limit)",
@@ -2618,7 +2727,10 @@
    "conditional": true,
    "consumers": [
     "A03"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "REGULAR.expr.chuckle",
@@ -2628,7 +2740,10 @@
    "why": "cheek/lid",
    "consumers": [
     "A16"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_REGULAR.expr.chuckle_ac022352",
+   "id_legal_for_packet": true
   },
   {
    "id": "REGULAR.mouth.rest/mid/open",
@@ -2639,7 +2754,10 @@
    "consumers": [
     "A05",
     "A19"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "LEAD.parts",
@@ -2649,7 +2767,10 @@
    "why": "head, torso, right arm; legs only if visible",
    "consumers": [
     "A06"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_LEAD.parts_7e094337",
+   "id_legal_for_packet": true
   },
   {
    "id": "LEAD.legs_feet (if visible)",
@@ -2660,7 +2781,10 @@
    "conditional": true,
    "consumers": [
     "A06"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "LEAD.underpaint.sleeve_elbow",
@@ -2670,7 +2794,10 @@
    "why": "presentation reach",
    "consumers": [
     "A06"
-   ]
+   ],
+   "planjobs_state_kind": "UNDERPAINT",
+   "conditional_artjob_id": "ARTJOB_UNDERPAINT_LEAD.underpaint.sleeve_elbow_f740d605",
+   "id_legal_for_packet": true
   },
   {
    "id": "LEAD.hand_r.report_grip",
@@ -2680,7 +2807,10 @@
    "why": "front/back fingers on page",
    "consumers": [
     "A06"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_LEAD.hand_r.report_grip_91c50bbe",
+   "id_legal_for_packet": true
   },
   {
    "id": "LEAD.hand_r.open",
@@ -2690,7 +2820,10 @@
    "why": "release",
    "consumers": [
     "A08"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_LEAD.hand_r.open_eb2d66a4",
+   "id_legal_for_packet": true
   },
   {
    "id": "LEAD.eyes.down",
@@ -2700,7 +2833,10 @@
    "why": "discreet gaze away",
    "consumers": [
     "A09"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_LEAD.eyes.down_c2cbc183",
+   "id_legal_for_packet": true
   },
   {
    "id": "LEAD.mouth.rest/mid/open",
@@ -2710,7 +2846,10 @@
    "why": "speech",
    "consumers": [
     "A17"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "PROP_AWARD.grip_sockets",
@@ -2720,7 +2859,10 @@
    "why": "reviewed landmarks for both hands",
    "consumers": [
     "A02"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_AWARD.grip_sockets_257eb520",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_AWARD.base_socket",
@@ -2730,7 +2872,10 @@
    "why": "base landmark for SUPPORT",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_AWARD.base_socket_c1850163",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_AWARD.contact_shadow",
@@ -2740,7 +2885,10 @@
    "why": "counter shadow",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_AWARD.contact_shadow_1c252b08",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_REPORT.edge_socket_lead",
@@ -2750,7 +2898,10 @@
    "why": "lead grip landmark",
    "consumers": [
     "A06"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_REPORT.edge_socket_lead_f4b0feab",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_REPORT.edge_socket_mia",
@@ -2760,7 +2911,10 @@
    "why": "Mia grip landmark",
    "consumers": [
     "A08"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_REPORT.edge_socket_mia_b476e179",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_REPORT.reading_tilt_view",
@@ -2770,7 +2924,10 @@
    "why": "tilted reading angle",
    "consumers": [
     "A09"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_REPORT.reading_tilt_view_4809be7c",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_PHONE.grip_socket",
@@ -2780,7 +2937,10 @@
    "why": "palm landmark",
    "consumers": [
     "A03"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_PHONE.grip_socket_3fd4058d",
+   "id_legal_for_packet": true
   },
   {
    "id": "ENV.counter_top_landmark",
@@ -2790,7 +2950,10 @@
    "why": "dry counter support surface",
    "consumers": [
     "A04"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_ENV.counter_top_landmark_78b95c84",
+   "id_legal_for_packet": true
   },
   {
    "id": "INSERT.report_closeup_plate",
@@ -2800,7 +2963,10 @@
    "why": "native-resolution close-up drawing for SH02 (not an upscale)",
    "consumers": [
     "A12"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_INSERT.report_closeup_plate_49a77232",
+   "id_legal_for_packet": true
   },
   {
    "id": "INSERT.mia_hand_r_thumb",
@@ -2810,7 +2976,10 @@
    "why": "Mia's right hand/thumb at insert scale",
    "consumers": [
     "A12"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_INSERT.mia_hand_r_thumb_136041d4",
+   "id_legal_for_packet": true
   },
   {
    "id": "TYPE.M01_report_text",
@@ -2820,7 +2989,10 @@
    "why": "exact M01 copy: YESTERDAY / Sales $3,210 / Operating result −$120 / LOSS",
    "consumers": [
     "A12"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_TYPE.M01_report_text_a9230335",
+   "id_legal_for_packet": true
   },
   {
    "id": "BG_DINERS.parts",
@@ -2830,7 +3002,10 @@
    "why": "seated pair with table masks",
    "consumers": [
     "A01"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_BG_DINERS.parts_ec7b1c9a",
+   "id_legal_for_packet": true
   },
   {
    "id": "BG_DINERS.underpaint",
@@ -2840,7 +3015,10 @@
    "why": "gesture exposure",
    "consumers": [
     "A01"
-   ]
+   ],
+   "planjobs_state_kind": "UNDERPAINT",
+   "conditional_artjob_id": "ARTJOB_UNDERPAINT_BG_DINERS.underpaint_affd3a24",
+   "id_legal_for_packet": true
   },
   {
    "id": "BG_QUEUE.figures",
@@ -2850,7 +3028,10 @@
    "why": "queue through window glass, depth occlusion",
    "consumers": [
     "A01"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_BG_QUEUE.figures_e9872270",
+   "id_legal_for_packet": true
   },
   {
    "id": "ART_FREEZE01.masks",
@@ -2861,7 +3042,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A20"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_ART_FREEZE01.masks_497f6845",
+   "id_legal_for_packet": true
   },
   {
    "id": "TYPE.THIS_IS_MIA",
@@ -2872,7 +3056,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A20"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_TYPE.THIS_IS_MIA_934bbec5",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA_MEM.hand_r.sign_grip",
@@ -2883,7 +3070,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A21"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA_MEM.hand_r.sign_grip_ddb4e097",
+   "id_legal_for_packet": true
   },
   {
    "id": "MIA_MEM.body_views",
@@ -2895,7 +3085,10 @@
    "conditional": true,
    "consumers": [
     "A21"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_MIA_MEM.body_views_60bcb596",
+   "id_legal_for_packet": true
   },
   {
    "id": "ENV_PAST_ROOM",
@@ -2906,7 +3099,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A21"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_ENV_PAST_ROOM_dad253ac",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_OPEN_SIGN.faces_OPEN_CLOSED",
@@ -2917,7 +3113,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A21"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_OPEN_SIGN.faces_OPEN_CLOSED_e1a3f643",
+   "id_legal_for_packet": true
   },
   {
    "id": "PROP_OPEN_SIGN.pivot_socket",
@@ -2928,7 +3127,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A21"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_PROP_OPEN_SIGN.pivot_socket_a03ee78b",
+   "id_legal_for_packet": true
   },
   {
    "id": "ENV.wide_SH06_coverage",
@@ -2939,7 +3141,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A22"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_ENV.wide_SH06_coverage_88536534",
+   "id_legal_for_packet": true
   },
   {
    "id": "ART_CAM02.wide_plates",
@@ -2950,7 +3155,10 @@
    "scope": "OUTSIDE_EXTRACT",
    "consumers": [
     "A22"
-   ]
+   ],
+   "planjobs_state_kind": "PART_OR_STATE",
+   "conditional_artjob_id": "ARTJOB_PART_OR_STATE_ART_CAM02.wide_plates_ae93b569",
+   "id_legal_for_packet": true
   },
   {
    "id": "HOST.blend (mesh/rig/face)",
@@ -2962,7 +3170,10 @@
    "route": "BLENDER",
    "consumers": [
     "A23"
-   ]
+   ],
+   "planjobs_state_kind": "NOT_A_2D_ARTJOB (Blender host asset)",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": false
   },
   {
    "id": "HOST.shape_keys",
@@ -2974,7 +3185,10 @@
    "route": "BLENDER",
    "consumers": [
     "A24"
-   ]
+   ],
+   "planjobs_state_kind": "NOT_A_2D_ARTJOB (Blender host asset)",
+   "conditional_artjob_id": null,
+   "id_legal_for_packet": true
   }
  ]
 }

@@ -27,6 +27,11 @@ export const CODES = Object.freeze([
   "DECODER_MODEL_INVALID", "MODEL_CONSTRAINT_VIOLATED", "DECODER_INERT_OR_MISLEADING", "HOST_3D_ASSET_PENDING", "HOST_INTEGRATION_INVALID", "QUALITY_GATE_UNPROVEN",
   // P06 reusable performance commands
   "PERFORMANCE_COMMAND_INVALID", "PERFORMANCE_CAPABILITY_MISSING", "PERFORMANCE_PROFILE_INVALID", "PERFORMANCE_EFFECT_UNMET",
+  // P07 multi-support props (shared support, one transform driver, explicit transfer)
+  "PROP_SUPPORT_INVALID", "PROP_SUPPORT_CONTRACT_REQUIRED", "PROP_DRIVER_CONFLICT", "PROP_UNSUPPORTED_GAP", "PROP_TRANSFER_INVALID", "PROP_DRIVER_RELEASED_EARLY",
+  "PROP_DRIVER_INVALID", "PROP_SUPPORT_MISSING", "PROP_CONTACT_TARGET_INCONSISTENT", "PROP_SOCKET_OCCUPIED", "PROP_SURFACE_CONTACT_INVALID",
+  // P07 scoped production phase + pre-generation audit
+  "PHASE_SCOPE_INVALID", "PREGEN_AUDIT_MISSING", "PREGEN_AUDIT_INVALID",
 ]);
 /** directive N2: every refusal carries the same machine-readable fields (producer, invariant, owner, resume point, revisions, evidence) */
 const N2 = ["producer", "failed_invariant", "dependency_ids", "required_art_or_operation", "repair_owner", "resume_at", "input_revision_hashes", "diagnostic_evidence", "severity", "frame_ranges"];

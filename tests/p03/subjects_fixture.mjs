@@ -106,11 +106,14 @@ function worldRaster(file) {
   fs.mkdirSync(path.dirname(file), { recursive: true }); writeRGBA(file, W, H, px);
 }
 /* ---------------- film build ---------------- */
-export function buildSubjects(dir) {
+/** buildSubjects(dir, spec?) — spec = {subjects, shot_ids, scene: ({subjects}) => {project_id, actions, shots}, plan} builds ANOTHER diagnostic film through the
+ *  same code (P07 multi-support subjects); with no spec it is exactly the P03 film. */
+export function buildSubjects(dir, spec = null) {
+  const SUBJ = spec?.subjects ?? SUBJECTS, SHOT_IDS = spec?.shot_ids ?? ["p03_shot_a", "p03_shot_b"];
   fs.rmSync(dir, { recursive: true, force: true }); const film = path.join(dir, "film"), src = path.join(dir, "delivered"); fs.mkdirSync(path.join(film, "handoff"), { recursive: true }); fs.mkdirSync(src, { recursive: true });
   const files = {}, assets = [], rigs = [], identities = [], plan = [];
-  const P = (asset_id, identity, kind, order, o) => ({ asset_id, identity_id: identity, kind, manufacturing_order: order, derived_from: order === 1 ? null : `${identity}_master`, view_id: "front", pose_id: o.pose ?? null, expression_id: null, alpha_mode: o.alpha || "STRAIGHT", joint_id: o.joint ?? null, pivot_landmark_id: o.pivot ?? null, pivot_xy: o.pivot_xy ?? null, hidden_surfaces: [], surface_underpaint: {}, draw_order: o.order || [], shots: o.shots || ["p03_shot_a", "p03_shot_b"], why: o.why, depth_band: o.band || "FOCAL", overscan_rect: null });
-  for (const [sid, S] of Object.entries(SUBJECTS)) {
+  const P = (asset_id, identity, kind, order, o) => ({ asset_id, identity_id: identity, kind, manufacturing_order: order, derived_from: order === 1 ? null : `${identity}_master`, view_id: "front", pose_id: o.pose ?? null, expression_id: null, alpha_mode: o.alpha || "STRAIGHT", joint_id: o.joint ?? null, pivot_landmark_id: o.pivot ?? null, pivot_xy: o.pivot_xy ?? null, hidden_surfaces: [], surface_underpaint: {}, draw_order: o.order || [], shots: o.shots || SHOT_IDS, why: o.why, depth_band: o.band || "FOCAL", overscan_rect: null });
+  for (const [sid, S] of Object.entries(SUBJ)) {
     const M = Object.fromEntries(Object.entries(S.lm).map(([k, v]) => [k, toMaster(v)])), shape = (spec) => spec[3](M);
     files[`${sid}_master`] = path.join(src, `${sid}_master.png`); raster(files[`${sid}_master`], S.canvas[0], S.canvas[1], S.master_order.map((n) => shape(S.parts[n])));
     files[`${sid}_master_landmarks`] = path.join(src, `${sid}_master.landmarks.json`); fs.writeFileSync(files[`${sid}_master_landmarks`], JSON.stringify({ landmarks: M, reviewed_by: "p03-operator (DIAGNOSTIC)", method: "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)" }, null, 1));
@@ -140,39 +143,40 @@ export function buildSubjects(dir) {
     const st = (id, bind) => ({ id, asset_bindings: bind, landmark_correspondence: S.lm.wrist_r ? ["wrist_r", "knuckle_r"] : Object.keys(S.lm).slice(0, 2), contact_set: [], view_facing: "front", required_underpaint: [], approved_review_id: null });
     rigs.push({ id: `${sid}_rig`, identity_id: sid, root_part: S.root, joints: J, render_parts: rp, sockets: S.sockets, pose_states: S.pose_states.map(([i, b]) => st(i, b)), view_states: [], constraints: S.ik.map(([id, chain, b]) => ({ id, type: "TWO_BONE_IK", chain, bend_sign: b })),
       state_channels: S.channels, allowed_state_edges: S.edges.map(([from, to]) => ({ from, to, mode: "REGISTERED_SWAP", max_transition_frames: 0, landmark_ids: [S.lm.wrist_r ? "wrist_r" : Object.keys(S.lm)[0]], mask_or_occluder_id: null, approved_assembly_review_id: null })) });
-    identities.push({ id: sid, kind: S.kind, canonical_asset_id: `${sid}_master`, master_sha256: "0".repeat(64), landmarks: S.lm, palette_roles: {}, material_owners: [sid], source_method_ids: ["F01", "F05", "F64"], allowed_views: ["front"], required_shot_ids: ["p03_shot_a", "p03_shot_b"], approved_review_id: null });
+    identities.push({ id: sid, kind: S.kind, canonical_asset_id: `${sid}_master`, master_sha256: "0".repeat(64), landmarks: S.lm, palette_roles: {}, material_owners: [sid], source_method_ids: ["F01", "F05", "F64"], allowed_views: ["front"], required_shot_ids: SHOT_IDS, approved_review_id: null });
   }
   files.world = path.join(src, "world_plate.png"); worldRaster(files.world); files.world_landmarks = path.join(src, "world_plate.landmarks.json");
   fs.writeFileSync(files.world_landmarks, JSON.stringify({ landmarks: Object.fromEntries(Object.entries(WLM).map(([k, c]) => [k, [(c[0] - WORLD.origin[0]) * WORLD.density, (c[1] - WORLD.origin[1]) * WORLD.density]])), reviewed_by: "p03-operator (DIAGNOSTIC)", method: "exact construction coordinates of this DIAGNOSTIC raster (operator-confirmed)" }, null, 1));
-  identities.push({ id: "p03_world", kind: "WORLD", canonical_asset_id: "p03_world_far", master_sha256: "0".repeat(64), landmarks: WLM, palette_roles: {}, material_owners: ["p03_world"], source_method_ids: ["F08"], allowed_views: ["front"], required_shot_ids: ["p03_shot_a", "p03_shot_b"], approved_review_id: null });
+  identities.push({ id: "p03_world", kind: "WORLD", canonical_asset_id: "p03_world_far", master_sha256: "0".repeat(64), landmarks: WLM, palette_roles: {}, material_owners: ["p03_world"], source_method_ids: ["F08"], allowed_views: ["front"], required_shot_ids: SHOT_IDS, approved_review_id: null });
   plan.push(P("p03_world_far", "p03_world", "WORLD_PLANE", 1, { alpha: "OPAQUE", band: "FAR", why: "diagnostic room plate" }));
   // two short shots: A = biped grips the lever handle and pulls (weight transfer, planted feet, lever reaction, blink, speech, follow-through)
   //                  B = creature idles and looks at the biped's position (lag through the neck chain, tail follow, single-eye blink, gaze)
   const A = { mode: "ARTICULATED", targets: [], view_events: [], secondary_owners: [], causal_effects: [], visibility_effects: [], physics_track_id: null, required_assets: [] };
-  const actions = [
+  const SC = spec?.scene ? spec.scene({ subjects: SUBJ, A }) : null;
+  const actions = SC ? SC.actions : [
     { ...A, id: "nova_pull_lever", shot_id: "p03_shot_a", frame_range: [0, 240], semantic_goal: "biped reaches, grips the lever handle, leans back and pulls it, releases", proof_conditions: ["hand stays on the handle while the lever follows the lean-back", "feet stay planted"], actors: [{ rig_id: "nova_rig", root_world_xy: [560, 520], root_scale: 1 }, { rig_id: "lever_rig", root_world_xy: [700, 600], root_scale: 1 }],
       contact_events: [{ source_socket: "nova_grip", target_socket: "lever_handle", contact_type: "GRIP", start_frame: 70, end_frame: 200, allowed_error_px: 1.5, near_far_relation: "hand in front of the lever arm", release_behavior: "hand opens and returns to its own pose" }, { source_socket: "nova_sole_l", target_socket: "floor", target_world_xy: [0, 0], contact_type: "PLANT", start_frame: 0, end_frame: 240, allowed_error_px: 1.0, near_far_relation: "sole on the floor plane", release_behavior: "stays planted" }, { source_socket: "nova_sole_r", target_socket: "floor", target_world_xy: [0, 0], contact_type: "PLANT", start_frame: 0, end_frame: 240, allowed_error_px: 1.0, near_far_relation: "sole on the floor plane", release_behavior: "stays planted" }],
       pose_events: [{ frame: 0, state_id: "open" }, { frame: 70, state_id: "grip" }, { frame: 200, state_id: "open" }], state_events: [{ frame: 40, channel: "mouth", state: "rest", rig: "nova_rig" }, { frame: 70, channel: "hand_r", state: "grip", rig: "nova_rig" }, { frame: 200, channel: "hand_r", state: "open", rig: "nova_rig" }] },
     { ...A, id: "lumen_watch", shot_id: "p03_shot_b", frame_range: [240, 7200], proof_conditions: ["neck chain lags the body; tail follows; eye blinks by state swap"], semantic_goal: "creature idles, notices the lever and turns its head toward it", actors: [{ rig_id: "lumen_rig", root_world_xy: [520, 632], root_scale: 1 }], contact_events: [], pose_events: [{ frame: 240, state_id: "idle" }] },
   ];
   // PLANT targets = the FK sole position at rest placement (a planted foot stays where the approved standing pose puts it)
-  const nv = SUBJECTS.nova, plantAt = (lm, local) => [560 + (nv.lm[lm][0] - nv.lm.pelvis[0]) + local[0], 520 + (nv.lm[lm][1] - nv.lm.pelvis[1]) + local[1]];
-  actions[0].contact_events[1].target_world_xy = plantAt("ankle_l", [10, 8]); actions[0].contact_events[2].target_world_xy = plantAt("ankle_r", [10, 8]);
-  const shots = [{ id: "p03_shot_a", start_frame: 0, end_frame: 240, world_id: "p03_world_w", entry_state: "reach", events: ["grip", "pull", "release"], attention_path: ["hand", "lever"], camera_track_id: "cam_a", required_asset_ids: ["p03_world_far"], exit_state: "released", continuity_to: "p03_shot_b", hold_purpose: "diagnostic pull" },
+  if (!SC) { const nv = SUBJECTS.nova, plantAt = (lm, local) => [560 + (nv.lm[lm][0] - nv.lm.pelvis[0]) + local[0], 520 + (nv.lm[lm][1] - nv.lm.pelvis[1]) + local[1]];
+  actions[0].contact_events[1].target_world_xy = plantAt("ankle_l", [10, 8]); actions[0].contact_events[2].target_world_xy = plantAt("ankle_r", [10, 8]); }
+  const shots = SC ? SC.shots : [{ id: "p03_shot_a", start_frame: 0, end_frame: 240, world_id: "p03_world_w", entry_state: "reach", events: ["grip", "pull", "release"], attention_path: ["hand", "lever"], camera_track_id: "cam_a", required_asset_ids: ["p03_world_far"], exit_state: "released", continuity_to: "p03_shot_b", hold_purpose: "diagnostic pull" },
     { id: "p03_shot_b", start_frame: 240, end_frame: 7200, world_id: "p03_world_w", entry_state: "idle", events: ["notice"], attention_path: ["eye"], camera_track_id: "cam_b", required_asset_ids: ["p03_world_far"], exit_state: "looking", continuity_to: null, hold_purpose: "diagnostic creature acting" }];
-  const doc = { schema_version: "2.0.0", project_id: "p03_subjects", production_mode: "COMPLETE_FILM_ART_PACKAGE", status: "PLANNED", stage: { width: 1920, height: 1080, fps: 60, total_frames: 7200, coord_system: "SVG_Y_DOWN_PX", color_space: "sRGB" },
+  const doc = { schema_version: "2.0.0", project_id: SC?.project_id ?? "p03_subjects", production_mode: "COMPLETE_FILM_ART_PACKAGE", status: "PLANNED", stage: { width: 1920, height: 1080, fps: 60, total_frames: SC?.total_frames ?? 7200, coord_system: "SVG_Y_DOWN_PX", color_space: "sRGB" },
     authority: { script: null, direction: null, style_skill: "skill/SKILL.md", visual_bible: null, source_witness_manifest: "skill/QUESTION_NATIVE_WITNESS_MANIFEST.json" },
     identities, assets, worlds: [{ id: "p03_world_w", identity_id: "p03_world", depth_owners: [{ id: "far", depth_band: "FAR", asset_ids: ["p03_world_far"] }], camera_footprint: [0, 0, 1920, 1080], overscan_rect: [-500, -300, 2000, 1300] }],
     rigs, actions, shots, transitions: [], audio: { narration_file: null, word_alignment_file: null, sfx_events_file: null }, learning: { repair_memory_file: null, compiler_receipts: [] }, evidence: { asset_review_index: null, motion_review_index: null, method_trace_index: null } };
   fs.writeFileSync(path.join(film, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"), JSON.stringify(doc, null, 1));
   fs.writeFileSync(path.join(film, "handoff", "ART_DEPENDENCY_PLAN.json"), JSON.stringify({ status: "DIAGNOSTIC_P03_SUBJECTS", assets: plan }, null, 1));
-  fs.writeFileSync(path.join(film, "handoff", "MOTION_PLAN.json"), JSON.stringify(basePlan(), null, 1));
+  fs.writeFileSync(path.join(film, "handoff", "MOTION_PLAN.json"), JSON.stringify(spec?.plan ?? basePlan(), null, 1));
   fs.mkdirSync(path.join(film, "skill"), { recursive: true }); for (const f of ["SKILL.md", "references/QUESTION_NATIVE_WITNESS_MANIFEST.json"]) fs.copyFileSync(path.join(REPO, "reference", "construct-kurzgesagt-art", f), path.join(film, "skill", path.basename(f)));
   fs.mkdirSync(path.join(film, "learning"), { recursive: true }); fs.writeFileSync(path.join(film, "learning", "REPAIR_MEMORY.json"), fs.readFileSync(path.join(REPO, "films", "hv2_film001", "learning", "REPAIR_MEMORY.json")));
   fs.writeFileSync(path.join(film, ".diagnostic_namespace"), "DIAGNOSTIC P03 two-subject fixture film: test-trusted receipts are valid only here (F087)\n");
   // compile-path testing only: each master borrows the (unapproved) Ines master brief, adapted to that subject's OWN motion contract
   fs.mkdirSync(path.join(film, "art_designs"), { recursive: true });
-  for (const [sid, S] of Object.entries(SUBJECTS)) { const d = JSON.parse(fs.readFileSync(path.join(REPO, "films", "hv2_film001", "art_designs", "ines_master.design.json"), "utf8")); d.job_id = `${sid}_master`; d.borrowed_for_compile_path_testing_only = true;
+  for (const [sid, S] of Object.entries(SUBJ)) { const d = JSON.parse(fs.readFileSync(path.join(REPO, "films", "hv2_film001", "art_designs", "ines_master.design.json"), "utf8")); d.job_id = `${sid}_master`; d.borrowed_for_compile_path_testing_only = true;
     const cd = d.first_pass_control.character_designs[0]; cd.view_id = "front"; cd.canonical_pose = S.pose_states[0][0]; cd.state_family = S.pose_states.map(([i]) => i); d.output.figure_height_px = 4000;
     d.motion_requirements = { attachment_semantics: S.semantics, contact_semantics: Object.fromEntries(S.sockets.map((s) => [s.id, s.semantic_role])), note: "requirements only" };
     d.molecular_visual_decisions.animation_ancestry.canonical_master_id = `${sid}_master`; d.molecular_visual_decisions.animation_ancestry.intermediate_states = S.pose_states.map(([i]) => i);
@@ -184,8 +188,8 @@ export function buildSubjects(dir) {
  *  this subject are kept; a required authored method the donor brief lacks gets a DIAGNOSTIC decision that says so in its own text (these
  *  briefs exist to exercise compile/approval mechanics on fixture rasters; they are never art direction). */
 const SRCF = JSON.parse(fs.readFileSync(path.join(REPO, "engine", "methods", "source", "F_SOURCE.json"), "utf8"));
-export async function adaptDesign(d, { sid, job, doc, plan }) {
-  const C = await import("../../engine/art_bridge/art_contract.mjs"), A = await import("../../engine/art_bridge/art_families.mjs"), S = SUBJECTS[sid];
+export async function adaptDesign(d, { sid, job, doc, plan, subjects = SUBJECTS }) {
+  const C = await import("../../engine/art_bridge/art_contract.mjs"), A = await import("../../engine/art_bridge/art_families.mjs"), S = subjects[sid];
   d.art_family = S.family; d.subject_profile = { face_visible: !!S.face, ...(S.family === "MACHINE_OR_MECHANISM" ? { mechanism: true } : {}) };
   const req = C.requiredMethods({ design: d, job, doc, plan }), reqIds = new Set(req.map((r) => r.method)), donor = d.method_decisions[0], parts = Object.keys(S.parts).join(", ");
   const have = new Map(d.method_decisions.filter((x) => reqIds.has(x.method_id)).map((x) => [x.method_id, x]));
@@ -214,23 +218,23 @@ export function basePlan() {
 /** P04 §5.5: hash-scoped TEST_TRUST approvals for a plan's deformation maps; returns the plan with the receipts it must carry */
 export async function approveDeforms(film, plan) { const I = await import("../../engine/art_bridge/art_intake.mjs"), prev = process.env.ART_BRIDGE_TEST_TRUST; process.env.ART_BRIDGE_TEST_TRUST = "1"; const out = JSON.parse(JSON.stringify(plan)); try { for (const [id, m] of Object.entries(out.deform_maps || {})) { const r = await I.approveDeform({ film, id, map: m, reviewer: "p04-operator", verdict: "APPROVED", notes: "DIAGNOSTIC mesh", scope_note: "DIAGNOSTIC_ONLY: fixture mesh", attestation: { method: "TEST_TRUST", note: "P04 DIAGNOSTIC fixture" } }); m.approved_receipt = r.receipt; } } finally { process.env.ART_BRIDGE_TEST_TRUST = prev ?? ""; } return out; }
 /** full registration through the real intake API */
-export async function runSubjects(dir, { log = () => {} } = {}) {
+export async function runSubjects(dir, { log = () => {}, spec = null } = {}) {
   const I = await import("../../engine/art_bridge/art_intake.mjs"), { exportOutbox } = await import("../../engine/tools/art_outbox.mjs"), C = await import("../../engine/art_bridge/art_contract.mjs");
-  const rt = buildSubjects(dir), steps = [], step = (name, r) => { steps.push({ step: name, result: r }); log(name, r); return r; }, prov = "DIAGNOSTIC_FIXTURE", op = { reviewer: "p03-operator", scope_note: "DIAGNOSTIC_ONLY: fixture rasters, not target art" };
+  const SUBJ = spec?.subjects ?? SUBJECTS, rt = buildSubjects(dir, spec), steps = [], step = (name, r) => { steps.push({ step: name, result: r }); log(name, r); return r; }, prov = "DIAGNOSTIC_FIXTURE", op = { reviewer: "p03-operator", scope_note: "DIAGNOSTIC_ONLY: fixture rasters, not target art" };
   const prev = process.env.ART_BRIDGE_TEST_TRUST; process.env.ART_BRIDGE_TEST_TRUST = "1"; const TT = { method: "TEST_TRUST", note: "P03 DIAGNOSTIC fixture" };
   try {
     const doc = JSON.parse(fs.readFileSync(rt.manifest, "utf8")), dplan = JSON.parse(fs.readFileSync(path.join(rt.film, "handoff", "ART_DEPENDENCY_PLAN.json"), "utf8")), { jobs } = await I.planJobs({ film: rt.film });
     for (const scope of ["story", "direction"]) step(`approve ${scope} (TEST_TRUST)`, await C.approveScope({ film: rt.film, scope, reviewer: "p03-operator", verdict: "APPROVED", attestation: TT }));
-    for (const sid of Object.keys(SUBJECTS)) { const df = path.join(rt.film, "art_designs", `${sid}_master.design.json`), d = JSON.parse(fs.readFileSync(df, "utf8")), mj = jobs.find((j) => j.root_dependency === `${sid}_master`);
-      await adaptDesign(d, { sid, job: mj, doc, plan: dplan }); fs.writeFileSync(df, JSON.stringify(d, null, 1));
+    for (const sid of Object.keys(SUBJ)) { const df = path.join(rt.film, "art_designs", `${sid}_master.design.json`), d = JSON.parse(fs.readFileSync(df, "utf8")), mj = jobs.find((j) => j.root_dependency === `${sid}_master`);
+      await adaptDesign(d, { sid, job: mj, doc, plan: dplan, subjects: SUBJ }); fs.writeFileSync(df, JSON.stringify(d, null, 1));
       step(`approve ${sid} design (TEST_TRUST)`, await C.approveDesign({ film: rt.film, doc, job: mj, reviewer: "p03-operator", verdict: "APPROVED", attestation: TT })); }
     step("export (masters only)", (await exportOutbox({ film: rt.film, out: rt.outbox })).by_status);
-    for (const sid of Object.keys(SUBJECTS)) { step(`ingest-master ${sid}`, await I.ingestMaster({ film: rt.film, asset: `${sid}_master`, file: rt.files[`${sid}_master`], landmarks: rt.files[`${sid}_master_landmarks`], provenance: prov })); step(`review-master ${sid}`, await I.reviewMaster({ film: rt.film, identity: sid, verdict: "APPROVED", notes: "landmark overlay checked", ...op })); }
+    for (const sid of Object.keys(SUBJ)) { step(`ingest-master ${sid}`, await I.ingestMaster({ film: rt.film, asset: `${sid}_master`, file: rt.files[`${sid}_master`], landmarks: rt.files[`${sid}_master_landmarks`], provenance: prov })); step(`review-master ${sid}`, await I.reviewMaster({ film: rt.film, identity: sid, verdict: "APPROVED", notes: "landmark overlay checked", ...op })); }
     step("ingest-master world", await I.ingestMaster({ film: rt.film, asset: "p03_world_far", file: rt.files.world, landmarks: rt.files.world_landmarks, provenance: prov })); step("review-master world", await I.reviewMaster({ film: rt.film, identity: "p03_world", verdict: "APPROVED", notes: "plate corners checked", ...op }));
     step("resume/export dependents", (await exportOutbox({ film: rt.film, out: rt.outbox })).by_status);
-    for (const [sid, S] of Object.entries(SUBJECTS)) for (const name of [...Object.keys(S.parts), ...Object.keys(S.states_only)]) { const aid = `${sid}_${name}`; step(`ingest-part ${aid}`, (await I.ingestPart({ film: rt.film, asset: aid, file: rt.files[aid], landmarks: rt.files[`${aid}_landmarks`], provenance: prov })).status); step(`review-part ${aid}`, (await I.reviewPart({ film: rt.film, asset: aid, verdict: "APPROVED", ...op })).verdict); }
-    for (const [sid, S] of Object.entries(SUBJECTS)) for (const name of Object.keys(S.vectors || {})) { const aid = `${sid}_${name}`; step(`ingest-vector ${aid}`, (await I.ingestVectorPart({ film: rt.film, asset: aid, file: rt.files[aid], landmarks: rt.files[`${aid}_landmarks`], provenance: prov })).status); step(`review-part ${aid}`, (await I.reviewPart({ film: rt.film, asset: aid, verdict: "APPROVED", ...op })).verdict); }
-    for (const [sid, S] of Object.entries(SUBJECTS)) { for (const [st] of S.pose_states) step(`approve-state ${sid}.${st}`, (await I.approveState({ film: rt.film, rig: `${sid}_rig`, state: st, verdict: "APPROVED", ...op })).verdict);
+    for (const [sid, S] of Object.entries(SUBJ)) for (const name of [...Object.keys(S.parts), ...Object.keys(S.states_only)]) { const aid = `${sid}_${name}`; step(`ingest-part ${aid}`, (await I.ingestPart({ film: rt.film, asset: aid, file: rt.files[aid], landmarks: rt.files[`${aid}_landmarks`], provenance: prov })).status); step(`review-part ${aid}`, (await I.reviewPart({ film: rt.film, asset: aid, verdict: "APPROVED", ...op })).verdict); }
+    for (const [sid, S] of Object.entries(SUBJ)) for (const name of Object.keys(S.vectors || {})) { const aid = `${sid}_${name}`; step(`ingest-vector ${aid}`, (await I.ingestVectorPart({ film: rt.film, asset: aid, file: rt.files[aid], landmarks: rt.files[`${aid}_landmarks`], provenance: prov })).status); step(`review-part ${aid}`, (await I.reviewPart({ film: rt.film, asset: aid, verdict: "APPROVED", ...op })).verdict); }
+    for (const [sid, S] of Object.entries(SUBJ)) { for (const [st] of S.pose_states) step(`approve-state ${sid}.${st}`, (await I.approveState({ film: rt.film, rig: `${sid}_rig`, state: st, verdict: "APPROVED", ...op })).verdict);
       for (const ch of S.channels) for (const st of ch.states) step(`approve-state ${sid}.${ch.id}.${st.id}`, (await I.approveState({ film: rt.film, rig: `${sid}_rig`, state: `${ch.id}.${st.id}`, verdict: "APPROVED", ...op })).verdict);
       for (const [a, b] of S.edges) step(`approve-edge ${sid} ${a}->${b}`, (await I.approveStateEdge({ film: rt.film, rig: `${sid}_rig`, from: a, to: b, verdict: "APPROVED", ...op })).verdict); }
   } finally { process.env.ART_BRIDGE_TEST_TRUST = prev ?? ""; }

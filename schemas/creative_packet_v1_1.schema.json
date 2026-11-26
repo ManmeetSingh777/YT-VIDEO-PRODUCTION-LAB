@@ -1500,6 +1500,11 @@
    },
    "minItems": 1
   },
+  "scope": { "description": "P07: an approved PRODUCTION PHASE of a longer film. Approval of this packet digest covers ONLY scope.frames; the parent film stays unapproved. frames[0] must be the parent film f0 (later phases need an accepted predecessor phase, not implemented).", "type": "object", "additionalProperties": false,
+   "required": ["kind", "phase_id", "parent_frames", "frames", "qualification_frames", "parent_source_sha256", "outgoing_continuity", "approval_statement"],
+   "properties": { "kind": { "const": "PRODUCTION_PHASE" }, "phase_id": { "$ref": "#/$defs/id" }, "parent_frames": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 2, "maxItems": 2 }, "frames": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 2, "maxItems": 2 }, "qualification_frames": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 2, "maxItems": 2 }, "parent_source_sha256": { "$ref": "#/$defs/sha" }, "excluded_shot_ids": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+    "outgoing_continuity": { "type": "array", "minItems": 1, "items": { "type": "object", "additionalProperties": false, "required": ["frame", "owners", "obligation", "consumer"], "properties": { "frame": { "type": "integer", "minimum": 0 }, "owners": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/text" } }, "obligation": { "$ref": "#/$defs/text" }, "consumer": { "$ref": "#/$defs/text" } } } },
+    "approval_statement": { "$ref": "#/$defs/text" } } },
   "approval": {
    "type": "object",
    "additionalProperties": false,

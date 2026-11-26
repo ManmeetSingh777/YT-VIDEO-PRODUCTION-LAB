@@ -11,6 +11,7 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
 import { err } from "./errors.mjs";
 import { stateIntervals } from "./asset_state.mjs";
 import { verifyApproval, bundleHash, writeReceipt, attestHuman, testTrust } from "./approvals.mjs";
+import { pregenAuditStatus } from "./pregen_audit.mjs";
 import { verifyCompiled } from "../story/creative_adapter.mjs";
 import { FAMILIES, resolveFamily, subjectFacts } from "./art_families.mjs";
 import { applicability, operativeSha, RULES } from "./method_applicability.mjs";
@@ -200,7 +201,7 @@ export function validateAgreementUniversal({ design, job, doc, facts, motionPlan
 }
 
 /** the BEFORE gate — universal over all families. Never returns NOT_EVALUATED: a context/family failure is a failure row. */
-export function preGenerationGate({ design, job, doc, plan, motionPlans = {}, film = null }) {
+export function preGenerationGate({ design, job, doc, plan, motionPlans = {}, film = null, pregenAudit = undefined }) { // pregenAudit: an in-memory audit evaluated INSTEAD of the film file (same validation; nothing is waived)
   const failures = []; let facts = null, table = [], req = [];
   try { facts = subjectFacts({ design, job, doc, plan }); table = applicability(facts); req = table.filter((r) => r.required).map((r) => ({ method: r.method, reason: r.reason, role: r.role, phase: r.phase })); }
   catch (e) { failures.push(f(e.code || "UNSUPPORTED_ART_FAMILY", { reason: e.human_readable_reason || e.message })); }
@@ -210,8 +211,10 @@ export function preGenerationGate({ design, job, doc, plan, motionPlans = {}, fi
     failures.push(...validateMethodDecisions(design, req), ...validateTopics(design, facts, req), ...validateAgreementUniversal({ design, job, doc, facts, motionPlans }));
     if (facts.family === "ACTING_HUMAN") failures.push(...validateGrounding(design, job, doc));
   }
+  // P07: a new canonical master needs its ten bound, substantive pre-generation passes before the first image (diagnostic namespaces: reported, not required)
+  const pregen = pregenAuditStatus({ film, design, isMaster: !job.derived_from, audit: pregenAudit }); failures.push(...pregen.failures.map((e) => f(e.code, { reason: e.human_readable_reason, field: e.failed_invariant })));
   const report = { job: job.artjob_id, design: design.job_id ?? null, family: facts?.family ?? null, pass: failures.length === 0, status: failures.length ? "REFUSED" : "PASS", failures, required_methods: req, applicability_table: table,
-    required_figure_height_px: facts?.human ? requiredFigureHeightPx({ job, doc, motionPlans }) : null, design_sha256: bundleHash(design), checked_at: new Date().toISOString() };
+    required_figure_height_px: facts?.human ? requiredFigureHeightPx({ job, doc, motionPlans }) : null, design_sha256: bundleHash(design), pregen_audit: { status: pregen.status, sha256: pregen.sha256 ?? null }, checked_at: new Date().toISOString() };
   report.design_approval = report.pass ? designApprovalStatus({ film, doc, design, report }) : { status: "NOT_ELIGIBLE", reason: "automated gate failed" };
   return report;
 }
@@ -220,7 +223,7 @@ export function assertGate(report) { if (!report || report.pass !== true) throw 
 /** F — design approval: HUMAN receipt over the exact design + gate result + witness regions (the reviewer attests the regions show the claims) */
 export function designBundle(design, report) {
   const regions = (design.method_decisions || []).flatMap((d) => (d.source_witness_pixel_regions || []).map((r) => ({ method: d.method_id, witness: r.witness, region_px: r.region_px, witness_sha256: witnessPath(r.witness) ? crypto.createHash("sha256").update(fs.readFileSync(witnessPath(r.witness))).digest("hex") : null, observation: r.observation })));
-  return { scope: "design", id: design.job_id, design_sha256: bundleHash(design), family: report.family ?? null, gate: { pass: report.pass, failures: report.failures.length, required_methods: report.required_methods.map((x) => x.method) }, witness_regions: regions };
+  return { scope: "design", id: design.job_id, design_sha256: bundleHash(design), ...(report.pregen_audit?.sha256 ? { pregen_audit_sha256: report.pregen_audit.sha256 } : {}), family: report.family ?? null, gate: { pass: report.pass, failures: report.failures.length, required_methods: report.required_methods.map((x) => x.method) }, witness_regions: regions };
 }
 export function designApprovalStatus({ film, doc, design, report }) {
   const ptrF = film && path.join(film, "art_designs", `${design.job_id}.APPROVAL_POINTER.json`), ptr = ptrF && fs.existsSync(ptrF) ? JSON.parse(fs.readFileSync(ptrF, "utf8")).receipt_id : null;

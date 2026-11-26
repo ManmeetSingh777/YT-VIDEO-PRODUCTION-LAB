@@ -22,6 +22,7 @@ import { compileModelBars } from "../decoder/model_bar.mjs";
 import { compilePerformance } from "./performance_commands.mjs";
 import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHinge, comX } from "./execution.mjs";
 import { balance } from "./contact_solver.mjs";
+import { multiSupportWithoutContract, segmentAt, evaluatePropSupport } from "./prop_support.mjs";
 
 const EASES = {
   linear: (p) => p, none: (p) => p,
@@ -133,6 +134,11 @@ export function compileMotionTracks(actions, shots, ctx) {
   const contactDriven = new Set(contacts.map((k) => k.rig));
   // precedence report: contact IK (layer 4) owns its chain joints while a contact is locked; acting on those joints is overridden there, never silently
   for (const k of contacts) for (const j of k.chain) if ((plan.__acting_report?.[k.rig]?.lagged || {})[j] !== undefined || (plan.__additive || {})[`${k.rig}.${j}`]) layerReport.suppressed_by_contact.push({ action: k.action.id, rig: k.rig, joint: j, frames: [k.c.start_frame, k.c.end_frame] });
+  // P07: a prop held by several supports needs a contract naming the ONE driver per instant; a surface that drives a prop is its only transform
+  // writer, so an authored track that still moves the prop inside a surface-driven interval is a second, conflicting driver
+  const propSupport = plan.prop_support?.props || []; errors.push(...multiSupportWithoutContract(contacts, new Set(propSupport.map((p) => p.prop_rig))));
+  for (const P_ of propSupport) for (const sg of P_.segments) { if (sg.driver_kind !== "SURFACE") continue; const tr = plan.tracks?.[P_.prop_rig], chans = [...Object.entries(tr?.root || {}).map(([k, v]) => [`root.${k}`, v]), ...Object.entries(tr?.joints || {}).map(([k, v]) => [`joint.${k}`, v])];
+    for (const [name, keys] of chans) { const v0 = ev(keys, sg.hold_from); for (let f = sg.frames[0]; f < sg.frames[1]; f++) if (Math.abs(ev(keys, f) - v0) > 1e-6) { errors.push(err("PROP_DRIVER_CONFLICT", { record_id: P_.prop_rig, frame_range: [f, f + 1], reason: `${P_.id}: the authored ${name} track moves the prop at ${f} while ${sg.driver} drives it (two transform writers)`, failed_invariant: "SURFACE_IS_SOLE_WRITER", producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" })); break; } } }
   for (const k of contacts) if (k.tgtRig && contactDriven.has(k.tgtRig)) errors.push(err("UNSUPPORTED_STATE_EDGE", { record_id: k.action.id, reason: `contact target rig ${k.tgtRig} is itself contact-driven (chained contacts are not supported)` }));
 
   // shots
@@ -143,7 +149,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     for (let i = errors.length - 1; i >= 0; i--) { const e = errors[i], act = actions.find((a) => a.id === e.record_id), edge = /^(.+?)\.(.+)->(.+)$/.exec(e.record_id || ""), ids = e.code === "MISSING_ART_ASSET" ? (act ? absent(act.required_assets) : absent([e.record_id])) : ["UNSUPPORTED_VIEW", "UNSUPPORTED_STATE_EDGE"].includes(e.code) && edge ? absent([...stateArt(edge[1], edge[2]), ...stateArt(edge[1], edge[3])]) : ["INVALID_MORPH_TOPOLOGY", "INVALID_DEFORM_MAP", "DEFORM_RENDER_FAILURE"].includes(e.code) && act ? absent(act.required_assets) : []; if (ids.length) { pendingArt.push(...ids); errors.splice(i, 1); } } }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
@@ -180,6 +186,8 @@ export function compileMotionTracks(actions, shots, ctx) {
       if (!tgt) continue; const M = fk(rid, s), p = apply(M[j], rigs.get(rid).joints.get(j).rest_xy), cur = angleOf(M[j]) + (g.forward_deg || 0);
       const d = wrap180(deg(Math.atan2(tgt[1] - p[1], tgt[0] - p[0])) - cur), m = g.max_deg ?? 20; s.theta[j] += wgt * (g.gain ?? 1) * Math.max(-m, Math.min(m, d));
     }
+    // P07: while a surface drives a prop, the surface is its transform writer: the prop keeps the pose it had when the surface took over
+    for (const P_ of propSupport) { const sg = segmentAt(P_, Math.floor(f)); if (sg?.driver_kind !== "SURFACE" || !out[P_.prop_rig]) continue; const held = evalBase(sg.hold_from, C.shotAt(sg.hold_from) || shot)[P_.prop_rig]; if (held) out[P_.prop_rig] = JSON.parse(JSON.stringify(held)); }
     return out;
   };
   /** HINGE_FOLLOW: in [frames) the handle keeps the distance d0 it had to the driver joint at the first frame; afterwards it holds (or returns via its track) */
@@ -255,13 +263,13 @@ export function compileMotionTracks(actions, shots, ctx) {
         }
         s.theta[js] = ts; s.theta[je] = te; s.theta[jw] = tw;
         for (const [j, v] of [[js, ts], [je, te], [jw, tw]]) { ikSolved.add(`${k.rig}.${j}`); const lim = R_.joints.get(j).rotation_limits_deg; if (v < lim[0] - 1e-6 || v > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${k.rig}.${j}`, shot_id: k.action.shot_id, frame_range: [f, f + 1], dependency: k.action.id, suggested_producer: "re-stage within approved range or GPT pose cel for this extreme", reason: `${j} needs ${v.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: v, limits: lim } })); }
-        solved.push({ action: k.action.id, socket: k.c.source_socket, target, contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: k.locked, w: k.w, ik_joints: [js, je, jw] });
+        solved.push({ action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target, contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: k.locked, w: k.w, ik_joints: [js, je, jw] });
       } catch (e) { if (!e.code) throw e; e.frame_range = [f, f + 1]; e.record_id = k.action.id; e.shot_id = k.action.shot_id; failures.push(e); }
     }
     for (const rid of contactDriven) if (st[rid]) M[rid] = fk(rid, st[rid]);
     for (const [rid, s] of Object.entries(st)) for (const [j, v] of Object.entries(s.theta)) { if (ikSolved.has(`${rid}.${j}`)) continue; const lim = rigs.get(rid).joints.get(j).rotation_limits_deg, w = wrap180(v); if (w < lim[0] - 1e-6 || w > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${rid}.${j}`, shot_id: C.shotAt(f)?.id, frame_range: [f, f + 1], suggested_producer: "GPT pose/bend cel for this extreme, or re-stage within the approved range", reason: `${j} at ${w.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: w, limits: lim } })); }
     for (const [rid, gz] of Object.entries(plan.gaze || {})) for (const [j, g] of Object.entries(gz)) { const o = st[rid]?.offset?.[j]; if (!o) continue; const pupil = assets.get(g.pupil_asset), surf = assets.get(g.surface_asset), [px, py, pw, ph] = pupil.canonical_rect, [sx, sy, sw, sh] = surf.canonical_rect; if (px + o[0] < sx || py + o[1] < sy || px + o[0] + pw > sx + sw || py + o[1] + ph > sy + sh) failures.push(err("UNSUPPORTED_STATE_EDGE", { record_id: `${rid}.${j}`, frame_range: [f, f + 1], reason: `gaze offset [${o.map((v) => v.toFixed(2))}] leaves owned eye surface ${surf.id}` })); }
-    for (const s of solved) { if (!s.locked) continue; const k = contacts.find((x) => x.action.id === s.action && x.c.source_socket === s.socket); s.achieved = socketWorld(k.rig, M[k.rig], s.socket); s.error_px = dist(s.achieved, s.target);
+    for (const s of solved) { if (!s.locked) continue; const k = contacts.find((x) => x.action.id === s.action && x.c.source_socket === s.socket && x.c.start_frame === s.start_frame); /* P07: one socket may hold several props in one action at different times */ s.achieved = socketWorld(k.rig, M[k.rig], s.socket); s.error_px = dist(s.achieved, s.target);
       // directive I2/N4: contact = position AND orientation. When the contact declares a target basis angle and the socket a palm/sole basis,
       // the post-FK world angle must match (wrapped) — a reversed palm fails even with zero XY error
       if (Number.isFinite(k.c.target_angle_deg) && Number.isFinite(k.socket.basis_angle_deg)) { const tgtAng = k.c.target_angle_deg + (k.tgtRig && M[k.tgtRig] ? angleOf(M[k.tgtRig][rigs.get(k.tgtRig).socketById.get(k.c.target_socket)?.joint_id] || [1, 0, 0, 1, 0, 0]) : 0); s.angle_residual_deg = Math.abs(wrap180(angleOf(M[k.rig][k.socket.joint_id]) + k.socket.basis_angle_deg - tgtAng)); if (s.angle_residual_deg > (k.c.allowed_angle_deg ?? 12)) failures.push(err("CONTACT_ORIENTATION_UNSATISFIABLE", { record_id: s.action, frame_range: [f, f + 1], dependency: s.socket, reason: `palm/sole basis off by ${s.angle_residual_deg.toFixed(2)}° (allowed ${k.c.allowed_angle_deg ?? 12}°)`, details: { angle_residual_deg: s.angle_residual_deg } })); } if (s.error_px > s.allowed_error_px) failures.push(err("CONTACT_DRIFT", { record_id: s.action, frame_range: [f, f + 1], reason: `contact error ${s.error_px.toFixed(3)}px > ${s.allowed_error_px}` })); }
@@ -364,6 +372,10 @@ export function stateAtFrame(compiled, f, { subframe = false } = {}) {
   const deforms = compiled.deformsAt(fi), morphs = compiled.morphsAt(fi), reactions = compiled.reactionsAt(f, shot), support = compiled.supportAt(fi, matrices);
   for (const d of deforms) failures.push(...d.failures); failures.push(...support.failures);
   for (const r of reactions) if (!r.ok) failures.push(err("REACTION_UNSATISFIABLE", { record_id: r.id, frame_range: [fi, fi + 1], reason: `mechanism cannot follow the pull within its approved hinge range (residual ${r.residual_px.toFixed(2)}px)`, details: r }));
+  // P07: shared prop support, evaluated from the same solved contacts, matrices and art states the renderer draws
+  const pivotOf = (rid, Mr, j) => apply(Mr[j], compiled.rigs.get(rid).joints.get(j).rest_xy);
+  const propSupport = (compiled.propSupport || []).map((p) => evaluatePropSupport(p, fi, { solved: constrained.solved, contacts: compiled.contacts, M: matrices, artStates, socketWorld: compiled.socketWorld, pivotOf })).filter(Boolean);
+  for (const r of propSupport) failures.push(...r.failures);
   for (const p of passes) if (!finite(p.matrix)) failures.push(err("RENDER_CAPTURE_FAILURE", { record_id: p.pass_id, frame_range: [f, f + 1], reason: "non-finite matrix" }));
-  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(fi), deforms, morphs, reactions, support: support.support });
+  return Object.freeze({ frame: f, shotId: shot.id, artStates, matrices, passes, cels, procedural, secondary, contacts: constrained.solved, failures, camera: compiled.cameraAt(f), events: compiled.eventsAt(fi), deforms, morphs, reactions, support: support.support, prop_support: propSupport });
 }

@@ -148,7 +148,7 @@ export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null
   let gate;
   if (c.derived) { if (!masterJob) throw err("ART_CONTRACT_NOT_EVALUATED", { record_id: job.artjob_id, reason: "derived job compiled without its master job contract", producer: "engine/art_bridge/art_requests.mjs#compileArtJob" });
     gate = preGenerationGate({ design, job: masterJob, doc: c.doc, plan: c.plan, motionPlans: c.motionPlans, film: c.film }); const g2 = gateForJob({ film: c.film, doc: c.doc, job, masterJob }); if (!g2.pass) gate = { ...gate, pass: false, failures: [...gate.failures, ...g2.failures.filter((x) => !gate.failures.some((y) => y.code === x.code && y.reason === x.reason))] }; gate.state_contract = c.stateContract; }
-  else gate = preGenerationGate({ design, job, doc: c.doc, plan: c.plan, motionPlans: c.motionPlans, film: c.film });
+  else gate = preGenerationGate({ design, job, doc: c.doc, plan: c.plan, motionPlans: c.motionPlans, film: c.film, pregenAudit: contract?.pregenAudit });
   assertGate(gate);
   if (dryRun) return { gate, status: "DRY_RUN_REPORT_ONLY", provider_ready: false };
   fs.mkdirSync(outDir, { recursive: true });

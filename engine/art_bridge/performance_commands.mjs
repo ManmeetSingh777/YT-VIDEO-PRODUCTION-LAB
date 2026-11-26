@@ -17,6 +17,7 @@
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
 import { err } from "./errors.mjs";
 import { validate } from "./jsonschema.mjs";
+import { normalizePropSupport, validatePropCoverage, handBoundTo, PROP_SUPPORT_VERSION } from "./prop_support.mjs";
 
 export const ADAPTER_VERSION = "1.0.0";
 const here = path.dirname(url.fileURLToPath(import.meta.url));
@@ -138,6 +139,8 @@ export function compilePerformance(doc, plan, { runType = "DIAGNOSTIC", decision
   const chars = new Map(), caps = {}; for (const ch of pkt.characters) { if (chars.has(ch.actor_rig_id)) errors.push(refuse("DUPLICATE_ELEMENT_ID", null, { record: ch.actor_rig_id, invariant: "ONE_CHARACTER_PER_RIG", reason: "rig listed twice" })); chars.set(ch.actor_rig_id, ch);
     const d = deriveCapabilityProfile(doc, ch); errors.push(...d.errors); caps[ch.actor_rig_id] = d.profile;
     const pr = perf.profiles?.[ch.character_profile_id]; errors.push(...validateProfile(pr, { runType, rigId: ch.actor_rig_id })); }
+  // P07: shared prop support contract (hands bound to registered prop sockets, one driver per instant), resolved through the reviewed role maps
+  const PS = normalizePropSupport(perf.prop_support ?? null, { doc, roleOf: (rid, k) => caps[rid]?.roles?.[k]?.id ?? null }); errors.push(...PS.errors);
   const digests = new Set(pkt.commands.map((c) => c.source_digest)); if (digests.size !== 1) errors.push(refuse("STALE_DEPENDENCY", null, { record: pkt.film_id, invariant: "ONE_SOURCE_REVISION", reason: `commands cite ${digests.size} different packet revisions` }));
   if (packetDigest && !digests.has(packetDigest)) errors.push(refuse("STALE_DEPENDENCY", null, { record: pkt.film_id, invariant: "SOURCE_DIGEST_CURRENT", reason: `commands were approved for ${[...digests][0]?.slice(0, 12)}…, the current creative packet is ${packetDigest.slice(0, 12)}…`, needed: "re-approve the performance commands for the current packet" }));
   if (runType === "PRODUCTION" && !packetDigest) errors.push(refuse("STALE_DEPENDENCY", null, { record: pkt.film_id, invariant: "SOURCE_DIGEST_BOUND", reason: "PRODUCTION compile needs the current approved creative packet digest" }));
@@ -182,7 +185,9 @@ export function compilePerformance(doc, plan, { runType = "DIAGNOSTIC", decision
       if (tgt.kind === "AUDIO_CUE") return { cue_id: tgt.cue_id }; return null; };
     const T0 = resolveTarget(); if (errors.length > E0) continue; rec.resolved_target = T0;
     const objectOf = (T) => T?.object ?? null;
-    const pickHand = (states = []) => { const want = Object.values({ ...(c.required_poststate.possession || {}), ...(c.required_prestate.possession || {}) }).map((h) => (typeof h === "string" && h.startsWith(`${rig.id}#`) ? h.slice(rig.id.length + 1) : null)).filter(Boolean);
+    const pickHand = (states = []) => { const bound = T0?.socket ? handBoundTo(PS.props, rig.id, T0.rig, T0.socket) : null; // P07: the prop socket's contract binding decides the hand
+      if (bound) { const okB = !!R(`hand.${bound.hand}.socket`) && states.every((s) => R(`hand.${bound.hand}.${s}_state`)); if (!okB) { no("PERFORMANCE_CAPABILITY_MISSING", { invariant: "BOUND_HAND_QUALIFIES", reason: `${bound.ref} is bound to ${T0.socket} but lacks ${states.join("/") || "a socket"}`, needed: `hand roles ${states.map((s) => `${s}_state`).join(", ")}` }); return null; } const h = bound.hand; return { name: h, socket: R(`hand.${h}.socket`), channel: R(`hand.${h}.channel`), open: R(`hand.${h}.open_state`), closed: R(`hand.${h}.closed_state`), point: R(`hand.${h}.point_state`), aim_joint: R(`hand.${h}.aim_joint`) }; }
+      const want = Object.values({ ...(c.required_poststate.possession || {}), ...(c.required_prestate.possession || {}) }).map((h) => (typeof h === "string" && h.startsWith(`${rig.id}#`) ? h.slice(rig.id.length + 1) : null)).filter(Boolean);
       const ok = cap.hands.filter((h) => R(`hand.${h}.socket`) && states.every((s) => R(`hand.${h}.${s}_state`)));
       const h = want.length ? want.find((x) => ok.includes(x)) : ok.length === 1 ? ok[0] : null;
       if (!h) { no("PERFORMANCE_CAPABILITY_MISSING", { invariant: "HAND_UNAMBIGUOUS", reason: want.length ? `possession names hand ${want[0]}, which lacks ${states.join("/") || "a socket"}` : `${ok.length} hands qualify; name one via possession "${rig.id}#<hand>"`, needed: `hand roles ${states.map((s) => `${s}_state`).join(", ")}` }); return null; }
@@ -275,10 +280,14 @@ export function compilePerformance(doc, plan, { runType = "DIAGNOSTIC", decision
   for (const [k, list] of aims) { list.sort((a, b) => a.frames[0] - b.frames[0]); for (let i = 1; i < list.length; i++) if (overl(list[i - 1].frames, list[i].frames)) errors.push(refuse("INVALID_TRANSFORM_OWNER", list[i].cmd, { owner: k, invariant: "ONE_AIM_PER_INSTANT", frame_range: [list[i].frames[0], list[i - 1].frames[1]], reason: `${list[i - 1].cmd.id} and ${list[i].cmd.id} both aim ${k}` }));
     for (const x of list) { if (keyed.has(k) && x.cmd.override_policy === "STRICT_CONFLICT" && keyed.get(k).some((y) => overl(y.frames, x.frames))) errors.push(refuse("INVALID_TRANSFORM_OWNER", x.cmd, { owner: k, invariant: "STRICT_CONFLICT", reason: `aim of ${x.cmd.id} overlaps command keys on ${k} and the policy is STRICT_CONFLICT` })); }
     const prev = out.__gaze?.[k]; (out.__gaze ||= {})[k] = [...(prev ? [].concat(prev) : []), ...list.map((x) => x.spec)]; }
+  // P07: the contract must be carried by real contacts; bound palm orientation travels on the contact (checked every locked frame by the solver)
+  if (PS.props.length) { errors.push(...validatePropCoverage(PS.props, D.actions));
+    for (const p of PS.props) for (const h of p.hands) if (h.grip_angle_deg !== null) for (const a of D.actions) for (const k of a.contact_events) if (k.source_socket === h.socket && k.target_socket === h.prop_socket) { k.target_angle_deg = h.grip_angle_deg; if (h.allowed_angle_deg !== null) k.allowed_angle_deg = h.allowed_angle_deg; }
+    out.prop_support = { schema_version: PROP_SUPPORT_VERSION, props: PS.props }; }
   out.__acting_events = [...(plan.__acting_events || []), ...events].sort((p, q) => p.frame - q.frame);
   out.__command_owned = { ...(plan.__command_owned || {}), ...commandOwned };
   const art_demands = [...demands.values()].map((d) => ({ asset: d.asset, why: [...d.why], frames: d.frames, representation: d.representation, consumers: [...d.consumers], commands: [...d.commands], supplied: !/::/.test(d.asset) && (doc.assets || []).some((a) => a.id === d.asset) }));
-  const report = { adapter_version: ADAPTER_VERSION, schema_sha256: sha256(fs.readFileSync(SCHEMA_FILE)), packet_sha256: sha256(pkt), film_id: pkt.film_id, run_type: runType, commands: records, capability_profiles: caps, art_demands, missing_art: art_demands.filter((d) => !d.supplied) };
+  const report = { adapter_version: ADAPTER_VERSION, schema_sha256: sha256(fs.readFileSync(SCHEMA_FILE)), packet_sha256: sha256(pkt), film_id: pkt.film_id, run_type: runType, commands: records, capability_profiles: caps, art_demands, missing_art: art_demands.filter((d) => !d.supplied), prop_support: PS.props };
   out.__performance = report;
   return { doc: D, plan: out, report, errors };
 }

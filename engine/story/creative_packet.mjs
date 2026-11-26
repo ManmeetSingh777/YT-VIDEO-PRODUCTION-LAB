@@ -13,6 +13,20 @@ const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), sha = (b) => crypto.cre
 const canon = (v) => (Array.isArray(v) ? v.map(canon) : v && typeof v === "object" ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, canon(v[k])])) : v);
 export const packetDigest = (p) => { const { approval, ...rest } = p; void approval; return sha(JSON.stringify(canon(rest))); };
 const DERIVED = new Set(["PART", "CEL", "UNDERPAINT", "VECTOR_PATH", "MATERIAL_PLANE"]), over = (a, b) => a[0] < b[1] && a[1] > b[0];
+/** P07 production phase: a packet may carry ONE approved phase of a longer film (e.g. SH01–SH03 of a 32.5 s opening). The phase runs on the parent's
+ *  absolute clock from the parent's f0 (so all pre-roll history is inside it), names the parent director source by hash, declares the frames that
+ *  are scored, and lists the continuity it OWES the next phase at its last frame. Its approval covers only scope.frames. */
+export function validatePhaseScope(p, err) {
+  const s = p.scope, total = p.stage.total_frames, bad = (reason) => err("PHASE_SCOPE_INVALID", `scope.${s.phase_id}`, reason), [a, b] = s.frames, [pa, pb] = s.parent_frames, [qa, qb] = s.qualification_frames;
+  if (a !== 0 || pa !== 0) bad(`phase [${a},${b}) must start at the parent film's f0 (and the parent at 0): a phase that starts later needs the accepted predecessor phase's exact outgoing state, which no engine operation inherits yet`);
+  if (b !== total) bad(`phase ends at ${b} but the packet clock runs to ${total}: the phase IS the packet's whole clock`);
+  if (!(pb > b)) bad(`phase [${a},${b}) is not a strict part of the parent [${pa},${pb}): an unscoped packet is the whole film`);
+  if (!(qa >= a && qb <= b && qa < qb)) bad(`qualification [${qa},${qb}) must lie inside the phase [${a},${b})`);
+  if (!p.source.documents.some((d) => d.sha256 === s.parent_source_sha256) && p.source.script_sha256 !== s.parent_source_sha256) bad("the parent director/screenplay source is not attached by that hash: the phase must carry the complete parent source for later stages");
+  for (const o of s.outgoing_continuity) { if (o.frame !== b - 1) bad(`outgoing continuity at ${o.frame} must be the phase's last frame ${b - 1}`); if (o.obligation.trim().length < 12) bad(`outgoing continuity obligation "${o.obligation}" states nothing checkable`); }
+  for (const id of s.excluded_shot_ids || []) if (p.shots.some((x) => x.id === id)) bad(`excluded shot ${id} is also inside the phase`);
+  if (!new RegExp(`\\[\\s*${a}\\s*,\\s*${b}\\s*\\)`).test(s.approval_statement) || !/not|only/i.test(s.approval_statement)) bad(`approval_statement must state the approved frames as [${a},${b}) and that the rest of the parent is NOT approved`);
+}
 /** validatePacket(packet) → {status: STRUCTURAL_VALID | BLOCKED, version, errors:[{code,id,reason}], counts} */
 export function validatePacket(p) {
   const errors = [], err = (code, id, reason) => errors.push({ code, id, reason }), done = () => ({ status: errors.length ? "BLOCKED" : "STRUCTURAL_VALID", version: p?.version ?? null, errors, counts: Object.fromEntries(["shots", "decisions", "actions", "art_requirements", "audio_cues"].map((k) => [k, p?.[k]?.length ?? 0])), frames: p?.stage?.total_frames ?? null, note: "structure and cross-references only: not truth, creative quality, feasibility, approval or art" });
@@ -20,6 +34,7 @@ export function validatePacket(p) {
   const sf = PACKET_SCHEMAS[p.version]; if (!sf) { err("SCHEMA_INVALID", "version", `packet version ${p.version} is not supported (${Object.keys(PACKET_SCHEMAS).join(", ")})`); return done(); }
   for (const x of jsonSchema(J(sf), p)) err("SCHEMA_INVALID", x.path, x.msg); if (errors.length) return done();
   const total = p.stage.total_frames, ids = {}, v11 = p.version === "1.1.0";
+  if (p.scope) validatePhaseScope(p, err);
   const interval = (id, r, owner = null) => { if (!(r[0] >= 0 && r[0] < r[1] && r[1] <= total)) err("INVALID_FRAME_INTERVAL", id, `[${r}] is empty or outside [0,${total})`); if (owner && !(owner[0] <= r[0] && r[1] <= owner[1])) err("INTERVAL_OUTSIDE_OWNER", id, `[${r}] is outside its owner [${owner}]`); };
   for (const g of ["shots", "decisions", "actions", "art_requirements", "audio_cues", ...(v11 ? ["identities", "worlds"] : [])]) for (const x of p[g]) { if (ids[x.id]) err("DUPLICATE_ID", x.id, `also used by ${ids[x.id]}`); ids[x.id] = g; }
   const by = (g) => new Map(p[g].map((x) => [x.id, x])), shots = by("shots"), arts = by("art_requirements"), acts = by("actions"), decs = by("decisions"), cues = by("audio_cues");

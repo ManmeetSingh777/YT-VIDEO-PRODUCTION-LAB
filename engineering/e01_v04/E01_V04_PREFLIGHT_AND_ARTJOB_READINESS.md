@@ -1,5 +1,10 @@
 # E01 V0.4-DIR-P1: provisional preflight and real-ArtJob readiness
 
+> **Superseded in part by P07 (2026-11-26):**
+> - The full-opening tally is now **6 / 9 / 10** (real art / creative decision / engine producer), taken from the generated rows. An earlier hand-typed 5/9/11 was wrong.
+> - After P07, `TWO_HAND_SINGLE_PROP` and `CROSS_ACTOR_PROP_TRANSFER` are **implemented**, and PINCH is refused, never dropped.
+> - The current machine tally is in `PROVISIONAL_PREFLIGHT.json`, and `engineering/p07/P07_FINAL_REPORT.md` has the current status.
+
 **Status: PROVISIONAL, read-only.** V0.4-DIR-P1 is still **PROPOSED**. No creative packet was built, signed or imported. No approval was
 recorded, no art was generated and no ArtJob ZIP was exported. The engine's own gates refuse that export today; section 8 gives the reasons.
 
@@ -40,9 +45,9 @@ Full per-operation evidence (producer, consumer, art states) is in `PROVISIONAL_
 | | All 25 | In the 780-frame extract (17) |
 |---|---|---|
 | SUPPORTED_IN_PRINCIPLE (no art needed) | 0 | 0 |
-| NEEDS_REAL_ART only | 5 | 6 |
+| NEEDS_REAL_ART only | 6 | 6 |
 | NEEDS_CREATIVE_DECISION | 9 | 7 |
-| NEEDS_ENGINE_PRODUCER | 11 | 4 |
+| NEEDS_ENGINE_PRODUCER | 10 | 4 |
 | UNSUPPORTED | 0 | 0 |
 
 **In the extract:**
@@ -168,7 +173,7 @@ Blockers, in the order the code checks them:
    - Then `creative_handoff import` → `review_sign` → `STORY_APPROVAL_REQUIRED` and `DIRECTION_APPROVAL_REQUIRED` are satisfied.
 3. **`art_outbox export`** creates the E01 film contracts and the `ART_AND_MOTION_MANIFEST_V2.json`.
 4. **The design file `art_designs/<MASTER>.design.json`**, written by GPT ART with the user. Then `check-design` must PASS and `review-design` must record a human `DESIGN_APPROVED`.
-5. **`submit`** compiles the generation, then **`export-gpt-job --job <id> --stage 1`** produces the sealed ZIP.
+5. **`art_outbox export`** compiles the generation (`COMPILED_WAITING_FOR_GPT_ART`), then **`export-gpt-job --job <id> --stage 1`** produces the sealed ZIP. *(Corrected 2026-11-26: `submit` is the provider/API route and is NOT used for manual ChatGPT.)*
 6. **In the art chat:** the installed F01–F80 skill and native witnesses are verified (operator; cannot be checked from here).
 
 The four missing producers do **not** block drawing the masters. They block post-art motion for A02, A04, A06 and A08.
