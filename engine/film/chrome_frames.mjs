@@ -140,7 +140,14 @@ export async function createChromeFrameSession({ film, manifest = MF, planFile, 
     return { rgb, state_sha: visibleStateSha(all.flat()), owners, blur: { shutter: b.shutter, samples: times.length } };
   }
   const browserVersion = await browser.version();
-  return { renderFrame, width, height, info: { renderer: "art_bridge_chrome_frames", browser: browserVersion, chrome_path: CHROME, nu_js_sha256: fsha(path.join(path.dirname(url.fileURLToPath(import.meta.url)), "..", "runtime", "nu.js")), run_type: runType, shots: shots.map((s) => s.shot.id), browser_pid: browser.process()?.pid ?? null },
+  // P08 F02: the INPUTS of a chunk = the visible runtime rows of its own frames + the bytes of every asset those rows draw + every static
+  // (non-row) asset and the scene markup. A chunk whose inputs are unchanged keeps its pixels even when an unrelated drawing elsewhere changed.
+  const assetSha = new Map((reg.doc.assets || []).map((a) => [a.id, a.sha256])), ids = [...assetSha.keys()].sort((a, b) => b.length - a.length);
+  const rowAssets = (rows) => { const out = new Set(); for (const r of rows) if (r[2] === 1) { const id = String(r[0]); const hit = ids.find((a) => id.endsWith(`--${a}`) || id.includes(`--${a}--`)); if (hit) out.add(hit); } return out; };
+  const rigOwned = new Set((reg.doc.rigs || []).flatMap((r) => [...r.render_parts.map((p) => p.asset_id), ...[...(r.pose_states || []), ...(r.view_states || []), ...(r.state_channels || []).flatMap((c) => c.states)].flatMap((st) => Object.values(st.asset_bindings || {}))]));
+  let staticKey = null; const staticInputs = () => staticKey ??= sha(JSON.stringify({ svg: shots.map((k) => sha(k.scene.svg)), static_assets: [...assetSha].filter(([a]) => !rigOwned.has(a)).sort() })); // world plates, symbols, light planes: drawn by every frame
+  const chunkInputKey = (ch) => { const per = [], used = new Set(); for (let f = ch[0]; f < ch[1]; f++) { const k = shots.find((x) => x.shot.start_frame <= f && f < x.shot.end_frame), rows = k ? k.scene.frameState(f).rows : []; per.push(visibleStateSha(rows)); for (const a of rowAssets(rows)) used.add(a); } return sha(JSON.stringify({ static: staticInputs(), frames: per, drawn_assets: [...used].sort().map((a) => [a, assetSha.get(a)]) })); };
+  return { renderFrame, chunkInputKey, width, height, info: { renderer: "art_bridge_chrome_frames", browser: browserVersion, chrome_path: CHROME, nu_js_sha256: fsha(path.join(path.dirname(url.fileURLToPath(import.meta.url)), "..", "runtime", "nu.js")), run_type: runType, shots: shots.map((s) => s.shot.id), browser_pid: browser.process()?.pid ?? null },
     async close() { if (closed) return; closed = true; for (const p of pages.values()) { try { await p.page.close(); } catch {} try { await p.server.close(); } catch {} } await browser.close(); } };
 }
 export function chromeRss(pid) { try { const o = execFileSync("tasklist", ["/FI", `PID eq ${pid}`, "/FO", "CSV", "/NH"], { encoding: "utf8" }); const m = o.match(/"([\d,.]+) K"/); return m ? +m[1].replace(/[,.]/g, "") * 1024 : null; } catch { return null; } }
