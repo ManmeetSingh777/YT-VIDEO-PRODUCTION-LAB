@@ -23,6 +23,9 @@ E01 evidence anchors: award both Mia hands f180; counter first touch f264, takes
 
 **8. The actual E01 private references are unavailable in public GitHub.** The native F01–F80 witness images are local and excluded from the public repository. Any user ChatGPT art job must receive required witness pixels privately within the sealed handoff and verify skill access/version. Do not upload licensed witnesses, internal ZIPs or human signing keys to public repository.
 
+
+**9. Inconsistent full-opening category totals in Claude report.** Parsing the 25 data rows of engineering/e01_v04/PROVISIONAL_PREFLIGHT_TABLES.md directly gives 6 NEEDS_REAL_ART, 9 NEEDS_CREATIVE_DECISION, 10 NEEDS_ENGINE_PRODUCER = 25. But E01_V04_PREFLIGHT_AND_ARTJOB_READINESS.md §3 states 5/9/11 = 25. The extract numbers 6/7/4 are consistent with 17 actions. Repair the full-opening report tally from the single machine-derived table, add a counting invariant/assertion and do not let hand-written figures disagree with generated rows.
+
 ## Mandatory artistic/technical feedback loop
 
 STORY and AUDIO: audition real performances with a scratch animatic; repair weak dialogue/chemistry in script/Director and version all effects before signing.
