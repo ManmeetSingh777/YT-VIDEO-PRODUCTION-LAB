@@ -10,7 +10,10 @@ export const genDir = (out, kind, jobId, digest) => path.join(out, kind, jobId, 
 export function writeOnce(file, data) {
   const buf = Buffer.isBuffer(data) ? data : Buffer.from(typeof data === "string" ? data : JSON.stringify(data, null, 1));
   if (fs.existsSync(file)) { if (!fs.readFileSync(file).equals(buf)) throw err("OUTBOX_IMMUTABLE_VIOLATION", { file, reason: "a content-addressed record would be overwritten with different bytes", producer: "engine/art_bridge/outbox_store.mjs#writeOnce" }); return false; }
-  fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, buf, { flag: "wx" }); return true;
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  try { fs.writeFileSync(file, buf, { flag: "wx" }); return true; }
+  catch (e) { if (e.code !== "EEXIST") throw e; // a concurrent writer created it first: identical bytes are idempotent, different bytes are a violation
+    if (!fs.readFileSync(file).equals(buf)) throw err("OUTBOX_IMMUTABLE_VIOLATION", { file, reason: "a concurrent writer created this content-addressed record with different bytes", producer: "engine/art_bridge/outbox_store.mjs#writeOnce" }); return false; }
 }
 /** materialize(finalDir, build) — build(tmpDir) fills a temp dir; renamed to finalDir only if finalDir does not exist (same digest ⇒ idempotent) */
 export function materialize(finalDir, build) {
@@ -20,11 +23,17 @@ export function materialize(finalDir, build) {
   const result = build(tmp);
   const listing = fs.readdirSync(tmp).sort().map((f) => [f, fs.statSync(path.join(tmp, f)).isFile() ? fsha(path.join(tmp, f)) : "dir"]);
   fs.writeFileSync(path.join(tmp, ".COMPLETE"), JSON.stringify({ files: listing }, null, 1));
-  fs.mkdirSync(path.dirname(finalDir), { recursive: true }); fs.renameSync(tmp, finalDir);
+  fs.mkdirSync(path.dirname(finalDir), { recursive: true });
+  try { fs.renameSync(tmp, finalDir); }
+  catch (e) { // a concurrent export completed the same generation first: accept it only if its sealed listing is byte-identical to ours
+    if (!fs.existsSync(path.join(finalDir, ".COMPLETE"))) throw e;
+    const theirs = fs.readFileSync(path.join(finalDir, ".COMPLETE"), "utf8"), ours = fs.readFileSync(path.join(tmp, ".COMPLETE"), "utf8");
+    if (theirs !== ours) throw err("OUTBOX_IMMUTABLE_VIOLATION", { file: finalDir, reason: "a concurrent export sealed this generation with different contents", producer: "engine/art_bridge/outbox_store.mjs#materialize", details: { kept_candidate: tmp } });
+    fs.rmSync(tmp, { recursive: true, force: true }); return { created: false, dir: finalDir, result, concurrent: true }; }
   return { created: true, dir: finalDir, result };
 }
 /** atomic CURRENT pointer update (write temp + rename) */
-export function writeCurrent(out, current) { const f = path.join(out, "CURRENT.json"), t = `${f}.tmp-${process.pid}`; fs.writeFileSync(t, JSON.stringify(current, null, 1)); fs.renameSync(t, f); }
+export function writeCurrent(out, current) { const f = path.join(out, "CURRENT.json"), t = `${f}.tmp-${process.pid}-${crypto.randomBytes(4).toString("hex")}`; fs.writeFileSync(t, JSON.stringify(current, null, 1)); fs.renameSync(t, f); }
 export function readCurrent(out, jobId) {
   const f = path.join(out, "CURRENT.json"); if (!fs.existsSync(f)) return null;
   const c = JSON.parse(fs.readFileSync(f, "utf8"))[jobId]; if (!c) return null;

@@ -1,0 +1,33 @@
+{
+ "schema_version": "1.0.0",
+ "rule_sources": [
+  "engine/art_bridge/art_contract.mjs",
+  "engine/art_bridge/pregen_audit.mjs",
+  "engine/art_bridge/method_applicability.mjs",
+  "engine/art_bridge/art_families.mjs",
+  "engine/art_bridge/witness_regions.mjs",
+  "schemas/pregen_audit_v1.schema.json",
+  "engine/methods/source/F_SOURCE.json"
+ ],
+ "current": "P08.0",
+ "versions": [
+  {
+   "version": "P06",
+   "rule_source_sha256": "f88f00b241152d29e83baba0433d8e20878ca781b530965c78904b1836c3f50a",
+   "reason": "P06 frozen source rules (no pre-generation audit)",
+   "source": "git:b2c6931a628f68773349dc2565d7aae5530ad41d"
+  },
+  {
+   "version": "P07",
+   "rule_source_sha256": "c2889be26f88a87eb28a748796b51f22ba634625775f04be25a99d9b21c49ae2",
+   "reason": "P07 frozen source: ten-pass pre-generation audit required for production masters",
+   "source": "git:ecd0aa82a9bfa8d8d67d2916aa08e5f60e2aace0"
+  },
+  {
+   "version": "P08.0",
+   "rule_source_sha256": "2e4d5755c57b95438a1f38be7a0c82323133bb0da5fd5dcc19366766a7411cf1",
+   "reason": "design approvals bind the explicit ruleset version; evaluation identity in outbox generations (S3C-7 correction)",
+   "source": "WORKING_TREE"
+  }
+ ]
+}

@@ -12,6 +12,7 @@ import { err } from "./errors.mjs";
 import { stateIntervals } from "./asset_state.mjs";
 import { verifyApproval, bundleHash, writeReceipt, attestHuman, testTrust } from "./approvals.mjs";
 import { pregenAuditStatus } from "./pregen_audit.mjs";
+import { rulesetVersion } from "./evaluation_identity.mjs";
 import { verifyCompiled } from "../story/creative_adapter.mjs";
 import { FAMILIES, resolveFamily, subjectFacts } from "./art_families.mjs";
 import { applicability, operativeSha, RULES } from "./method_applicability.mjs";
@@ -223,7 +224,7 @@ export function assertGate(report) { if (!report || report.pass !== true) throw 
 /** F — design approval: HUMAN receipt over the exact design + gate result + witness regions (the reviewer attests the regions show the claims) */
 export function designBundle(design, report) {
   const regions = (design.method_decisions || []).flatMap((d) => (d.source_witness_pixel_regions || []).map((r) => ({ method: d.method_id, witness: r.witness, region_px: r.region_px, witness_sha256: witnessPath(r.witness) ? crypto.createHash("sha256").update(fs.readFileSync(witnessPath(r.witness))).digest("hex") : null, observation: r.observation })));
-  return { scope: "design", id: design.job_id, design_sha256: bundleHash(design), ...(report.pregen_audit?.sha256 ? { pregen_audit_sha256: report.pregen_audit.sha256 } : {}), family: report.family ?? null, gate: { pass: report.pass, failures: report.failures.length, required_methods: report.required_methods.map((x) => x.method) }, witness_regions: regions };
+  return { scope: "design", id: design.job_id, design_sha256: bundleHash(design), ...(report.pregen_audit?.sha256 ? { pregen_audit_sha256: report.pregen_audit.sha256 } : {}), family: report.family ?? null, gate: { pass: report.pass, failures: report.failures.length, required_methods: report.required_methods.map((x) => x.method) }, ruleset_version: rulesetVersion(), witness_regions: regions };
 }
 export function designApprovalStatus({ film, doc, design, report }) {
   const ptrF = film && path.join(film, "art_designs", `${design.job_id}.APPROVAL_POINTER.json`), ptr = ptrF && fs.existsSync(ptrF) ? JSON.parse(fs.readFileSync(ptrF, "utf8")).receipt_id : null;

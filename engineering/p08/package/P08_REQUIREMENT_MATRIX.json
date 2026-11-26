@@ -1,0 +1,333 @@
+{
+  "schema_version": "1.0",
+  "contract_sha256": "6609d8cf26fb2aa8ae01795730087c05eda93f483a9d4cf8b771efaa6c2fd39d",
+  "required_count": 38,
+  "status": "REQUIREMENTS_ONLY_NOT_IMPLEMENTED_OR_TESTED",
+  "allowed_result_statuses": [
+    "CODE_VERIFIED_AWAITING_REAL_INPUT",
+    "VERIFIED_CODE",
+    "NEEDS_HUMAN",
+    "ACCEPTED_REAL",
+    "BLOCKED_IMPLEMENTATION",
+    "BLOCKED_EXTERNAL_INPUT"
+  ],
+  "required_result_fields": [
+    "requirement_id",
+    "status",
+    "source_sha",
+    "producer",
+    "consumer",
+    "test_ids",
+    "positive_evidence",
+    "negative_evidence",
+    "checked_frame_count_or_non_frame_check_count",
+    "external_input_blocker",
+    "artifact_digests"
+  ],
+  "requirements": [
+    {
+      "id": "A01",
+      "title": "Complete causal compile",
+      "positive_acceptance": "Every directed owner effect bound to real plan and visible consequence",
+      "required_negative_control": "Delete producer; owner effect fails even with camera moving",
+      "normative_section": "A01",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "A02",
+      "title": "Global semantic state independent of shot",
+      "positive_acceptance": "Cross-action and cross-shot persistent contact; random seek deterministic",
+      "required_negative_control": "Remove continuation; reuse wrong contact id",
+      "normative_section": "A02",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "A03",
+      "title": "Channel ownership and evaluation order",
+      "positive_acceptance": "Concurrent gaze, emotion, speech and grip with explicit ownership",
+      "required_negative_control": "Conflict or silent overwrite; mandatory effect missing",
+      "normative_section": "A03",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "A04",
+      "title": "Successor phase inheritance",
+      "positive_acceptance": "Split vs continuous phase state/pixels/audio match",
+      "required_negative_control": "Stale/wrong/missing predecessor and lost crossing cue",
+      "normative_section": "A04",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B01",
+      "title": "Real prop driver and transform authority",
+      "positive_acceptance": "Actual hand-driven prop pixels; object-driven and surface-driven alternatives; transfer",
+      "required_negative_control": "Disable driver consumer; conflicting writer; invalid transfer",
+      "normative_section": "B01",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B02",
+      "title": "Contact geometry/orientation",
+      "positive_acceptance": "Position and orientation constraints solved on real contacts",
+      "required_negative_control": "Missing basis; reversed palm; flipped elbow; incompatible simultaneous grips",
+      "normative_section": "B02",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B03",
+      "title": "Genuine PINCH and WRAP",
+      "positive_acceptance": "PINCH with opposing patch contacts and WRAP layering",
+      "required_negative_control": "Same-side fingers, floating patch, generic fist, missing art",
+      "normative_section": "B03",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B04",
+      "title": "Full support locomotion (articulated plus cels)",
+      "positive_acceptance": "Two unlike biped gait profiles with planted foot and carry; gait cel route",
+      "required_negative_control": "Foot slide, impossible stride, root-only glide, unsupported topology",
+      "normative_section": "B04",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B05",
+      "title": "Continuous articulated silhouette and material integrity",
+      "positive_acceptance": "Seam/hidden paint/silhouette valid across intermediate frames",
+      "required_negative_control": "Middle-frame hole, scale/stretch, detached limb or shadow",
+      "normative_section": "B05",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B06",
+      "title": "Reach, point, idle, body/head turn and hold",
+      "positive_acceptance": "Correct target, view edge, directed hold and release",
+      "required_negative_control": "Wrong target, flat yaw, mid-hold break, camera-only motion",
+      "normative_section": "B06",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B07",
+      "title": "Carry/load/insert and object reactions",
+      "positive_acceptance": "Carry, load and insert physical object consequence and hinge where required",
+      "required_negative_control": "Teleport, release too early, wall penetration, false follower",
+      "normative_section": "B07",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B08",
+      "title": "Support and collision policy",
+      "positive_acceptance": "Support/collision intent and approved tolerance checks",
+      "required_negative_control": "Floating grounded owner, collision, excessive drift",
+      "normative_section": "B08",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "B09",
+      "title": "Runtime mutation tests and measured pixel checks",
+      "positive_acceptance": "Actual renderer and owner-specific frame evidence",
+      "required_negative_control": "Zero frames, metadata-only or camera-only apparent change",
+      "normative_section": "B09",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "C01",
+      "title": "Character-specific performance",
+      "positive_acceptance": "Two distinct character profiles produce intentional distinct performance",
+      "required_negative_control": "Same profile trace, wrong owner, lag overrides constraint",
+      "normative_section": "C01",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "C02",
+      "title": "Explicit smooth expression route",
+      "positive_acceptance": "Directed actual intermediate expression cels or valid morph",
+      "required_negative_control": "Missing middle cel, wrong order, wrong view, endpoint-only proof",
+      "normative_section": "C02",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "C03",
+      "title": "Real visemes",
+      "positive_acceptance": "Measured phones to contextual visemes and final audio placement",
+      "required_negative_control": "Missing phone/closure, wrong audio digest, coarse substituted mouth",
+      "normative_section": "C03",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "C04",
+      "title": "Facial composition legality",
+      "positive_acceptance": "Compatible facial state tuples with masks and underpaint",
+      "required_negative_control": "Double mouth, wrong emotion context, escaped pupil",
+      "normative_section": "C04",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "C05",
+      "title": "Directed gaze and attention",
+      "positive_acceptance": "Gaze, framing, readable attention and intended crop",
+      "required_negative_control": "Wrong gaze, head cropped, camera hides failed action",
+      "normative_section": "C05",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "C06",
+      "title": "E01 coordinated performance acceptance",
+      "positive_acceptance": "E01 source-derived coordinated acting checks and actual review",
+      "required_negative_control": "Missing one owner action or wrong photo/hold timing",
+      "normative_section": "C06",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "D01",
+      "title": "Pre-art closure and exact handoff",
+      "positive_acceptance": "Complete sealed art demand with source lineage and approval gate",
+      "required_negative_control": "Missing state tuple, stale hash, absent audit, fake measured geometry",
+      "normative_section": "D01",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "D02",
+      "title": "Intake and registration",
+      "positive_acceptance": "Native source intake, measured registration, rest recomposition",
+      "required_negative_control": "Mirror, mismatched part, shifted crop, missing underpaint",
+      "normative_section": "D02",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "D03",
+      "title": "Full moving-state closure",
+      "positive_acceptance": "Every required frame evaluated for actual art feasibility",
+      "required_negative_control": "Middle-frame failure, missing view, unintended upscale",
+      "normative_section": "D03",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "D04",
+      "title": "Identity/view family and occlusion",
+      "positive_acceptance": "Canonical view transitions and actual depth/occlusion",
+      "required_negative_control": "Foreign identity, mirror, wrong paint order, missing view",
+      "normative_section": "D04",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "D05",
+      "title": "Actual manual repair loop and producer routing",
+      "positive_acceptance": "Real repair feedback routing and selective invalidation",
+      "required_negative_control": "Stale candidate, wrong repair owner, unrelated master invalidated",
+      "normative_section": "D05",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "D06",
+      "title": "Real image acceptance vs structural checks",
+      "positive_acceptance": "Distinct engineering/real/human gates; approved exact film bytes",
+      "required_negative_control": "Diagnostic or synthetic human approval rejected",
+      "normative_section": "D06",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E01",
+      "title": "World freeze/time remap",
+      "positive_acceptance": "Exact source-world freeze, independently live host group",
+      "required_negative_control": "Wrong freeze frame, moving frozen prop, frozen host",
+      "normative_section": "E01",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E02",
+      "title": "Selective desaturation and transition",
+      "positive_acceptance": "Selective grading and directed transition pixels",
+      "required_negative_control": "Global grayscale, wrong mask, halo or wrong source",
+      "normative_section": "E02",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E03",
+      "title": "Perspective calibrated host/camera",
+      "positive_acceptance": "Perspective calibrated Blender camera and actual rig projection",
+      "required_negative_control": "Wrong focal length, scale, float, gaze, flat substitute",
+      "normative_section": "E03",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E04",
+      "title": "Depth, matte and host/world compositing",
+      "positive_acceptance": "Real RGBA/depth/matte and correct host occlusion/shadow",
+      "required_negative_control": "Wrong depth, stale pass, missing matte, host always in front",
+      "normative_section": "E04",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E05",
+      "title": "Camera orbit and 3D dolly",
+      "positive_acceptance": "Real dolly/orbit with multi-depth projected anchors",
+      "required_negative_control": "Flat zoom substitution, unapproved disocclusion",
+      "normative_section": "E05",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E06",
+      "title": "Model-driven decoder and truthful graphics",
+      "positive_acceptance": "Actual model-derived endpoint numbers and owner pixels",
+      "required_negative_control": "Wrong sign, denominator, stale model, wrong rendered value",
+      "normative_section": "E06",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "E07",
+      "title": "Phone frustum and actual photography intent",
+      "positive_acceptance": "Photo review geometry, correct lens and timing",
+      "required_negative_control": "Report in photo, wrong orientation, early shutter",
+      "normative_section": "E07",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "F01",
+      "title": "One timeline and real audio",
+      "positive_acceptance": "Frame/sample exact audio, split continuation, mux checks",
+      "required_negative_control": "Wrong take, duplicated cue, drift, lost frame",
+      "normative_section": "F01",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "F02",
+      "title": "Efficient dependency-based production",
+      "positive_acceptance": "Selective cache invalidation, deterministic resume and metrics",
+      "required_negative_control": "Stale output reused or unrelated assets rebuilt",
+      "normative_section": "F02",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "F03",
+      "title": "Full capability registry and action truth",
+      "positive_acceptance": "Actual generated action counts and complete capability matrix",
+      "required_negative_control": "Missing row, unbound gate, stale blocker or false supported status",
+      "normative_section": "F03",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "F04",
+      "title": "Evidence and mutation discipline",
+      "positive_acceptance": "Actual frozen test report and meaningful production mutation evidence",
+      "required_negative_control": "Skipped test, fake verdict, evidence mismatch",
+      "normative_section": "F04",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "F05",
+      "title": "Qualification order and stop conditions",
+      "positive_acceptance": "Actual staged production gate chain and honest external-input status",
+      "required_negative_control": "Unapproved output or unsupported route silently accepted",
+      "normative_section": "F05",
+      "status": "NOT_EVALUATED"
+    },
+    {
+      "id": "F06",
+      "title": "Consolidation",
+      "positive_acceptance": "Safe ancestry reconciliation from newest tested head",
+      "required_negative_control": "Lost source, stale evidence, private artifact publication or unauthorized merge",
+      "normative_section": "F06",
+      "status": "NOT_EVALUATED"
+    }
+  ]
+}

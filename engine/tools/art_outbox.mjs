@@ -23,6 +23,7 @@ import { compileArtJob, dependencyDigest } from "../art_bridge/art_requests.mjs"
 import * as C from "../art_bridge/art_contract.mjs";
 import { compileFilmContracts } from "./compile_film_contracts.mjs";
 import { genDir, materialize, writeOnce, writeCurrent } from "../art_bridge/outbox_store.mjs";
+import { writeEvaluationOnce } from "../art_bridge/evaluation_identity.mjs";
 import { discoverProvider } from "../art_bridge/providers/image_provider.mjs";
 import * as I from "../art_bridge/art_intake.mjs";
 
@@ -50,7 +51,7 @@ export async function exportOutbox({ film, out = path.join(REPO, "hybrid_v2", "a
     const gate = C.gateForJob({ film: FILM, doc, job: j, masterJob });
     let status = j.unused_in_action_graph ? "UNUSED_IN_ACTION_GRAPH" : rd?.status || "WAITING_FOR_GPT_ART";
     const compilable = j.state_kind === "MASTER" ? !["APPROVED", "PENDING_REVIEW"].includes(status) : status === "READY_FOR_SOURCE_ATTACHED_EDIT";
-    const dg = dependencyDigest({ job: j, design, repairMemory: mem, editReference: rd?.edit_reference || null, storyBundle: storyB, directionBundle: dirB, size, doc }), digest = dg.digest.slice(0, 24);
+    const dg = dependencyDigest({ job: j, design, repairMemory: mem, editReference: rd?.edit_reference || null, storyBundle: storyB, directionBundle: dirB, size, doc, film: FILM }), digest = dg.digest.slice(0, 24);
     let compiled = null;
     if (!gate.pass) { compiled = { status: "BLOCKED_CONTRACT", failures: gate.failures.map((x) => `${x.code}${x.method ? ":" + x.method : ""}`) }; status = "BLOCKED_CONTRACT"; }
     else if (compilable) {
@@ -67,7 +68,7 @@ export async function exportOutbox({ film, out = path.join(REPO, "hybrid_v2", "a
       compiled_request: compiled, inbox: { expected_file: `inbox/${j.artjob_id}.png`, landmarks_sidecar: `inbox/${j.artjob_id}.landmarks.json`, format: j.motion_context.alpha_requirement === "OPAQUE" ? "lossless PNG, opaque" : "lossless PNG with real alpha (never a keyed background)" } };
     // the generation record is IMMUTABLE content (job + dependency digest + gate verdict); mutable status lives in CURRENT.json / OUTBOX_INDEX.json
     const { triggered_by, registration_contract, dependents, ...content } = j, immutable = { ...content, generation: digest, dependency_parts_digest: dg.digest, gate: rec.gate };
-    writeOnce(path.join(genDir(out, "jobs", j.artjob_id, digest), "job.json"), JSON.stringify(immutable, null, 1));
+    writeEvaluationOnce(path.join(genDir(out, "jobs", j.artjob_id, digest), "job.json"), JSON.stringify({ ...immutable, evaluation_identity: dg.parts.evaluation }, null, 1), writeOnce);
     current[j.artjob_id] = { digest, status, blocked_on: rec.blocked_on, compiled: compiled?.status || null, readiness: rd?.status || null, mutable: { triggered_by, registration_contract, dependents } };
     index.push({ ...(compiled?.error ? { blocked_reason: compiled.error.human_readable_reason ?? compiled.error.reason ?? String(compiled.error.message ?? compiled.error) } : compiled?.failures ? { blocked_reason: compiled.failures.join(", ") } : {}), artjob_id: j.artjob_id, asset: j.root_dependency, state_kind: j.state_kind, asset_kind: j.asset_kind, medium: j.medium.medium, order: j.manufacturing_order, derived_from: j.derived_from, status, generation: digest, gate_pass: gate.pass, family: gate.family ?? null, frame_ranges: j.motion_context.frame_ranges, triggers: j.triggered_by.length, motion_context_sha256: j.motion_context_sha256, compiled: compiled?.status || null, prompt_sha256: compiled?.prompt_sha256 || null, witnesses: compiled?.witnesses || [] });
   }
@@ -80,7 +81,7 @@ export async function exportOutbox({ film, out = path.join(REPO, "hybrid_v2", "a
     provider: { ...provider.report, capabilities: caps }, story_approval: story.ok ? "APPROVED" : `NOT_APPROVED (${story.status})`, direction_approval: direction.ok ? "APPROVED" : `NOT_APPROVED (${direction.status})`, jobs: index.length,
     by_order: index.reduce((m, r) => ((m[r.order] = (m[r.order] || 0) + 1), m), {}), by_status: index.reduce((m, r) => ((m[r.status] = (m[r.status] || 0) + 1), m), {}), gate_blocked: index.filter((r) => !r.gate_pass).length,
     compiled: index.filter((r) => r.compiled === "COMPILED_WAITING_FOR_GPT_ART").length, empty_frame_ranges_with_triggers: jobs.filter((j) => j.triggered_by.some((t) => t.frame_range) && !j.motion_context.frame_ranges.length).length, unused_in_action_graph: jobs.filter((j) => j.unused_in_action_graph).map((j) => j.root_dependency), index };
-  fs.writeFileSync(path.join(out, "OUTBOX_INDEX.json"), JSON.stringify(summary, null, 1));
+  { const f = path.join(out, "OUTBOX_INDEX.json"), t = `${f}.tmp-${process.pid}-${Math.random().toString(16).slice(2)}`; fs.writeFileSync(t, JSON.stringify(summary, null, 1)); fs.renameSync(t, f); } // atomic (concurrent exports)
   fs.writeFileSync(path.join(out, "INSTRUCTIONS_FOR_IMAGE_PRODUCTION.md"), instructions(summary));
   fs.writeFileSync(path.join(out, "inbox", "README.md"), "Deliver `<ARTJOB_ID>.png` (lossless PNG; real alpha where required) + `<ARTJOB_ID>.landmarks.json` = {\"landmarks\": {name: [x,y] in delivered pixels}, \"reviewed_by\": NAME, \"method\": TEXT}.\nMasters: `art_outbox.mjs ingest-master ...` then an explicit `review-master`. Derived states: only after the master's approval verifies, `ingest-part` then `review-part`.\nNothing in this folder is ever generated by Claude.\n");
   return summary;

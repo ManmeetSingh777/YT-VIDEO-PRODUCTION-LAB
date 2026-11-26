@@ -6,6 +6,7 @@
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto"; import { spawnSync } from "node:child_process";
 import { err } from "./errors.mjs";
 import { preGenerationGate, assertGate, resolveContractContext, gateForJob } from "./art_contract.mjs";
+import { evaluationIdentity } from "./evaluation_identity.mjs";
 import { planStages } from "./request_stages.mjs";
 import { allocateDetail, compileWorldSystem, styleConstructionGraph } from "./source_method_causality.mjs";
 import { matchingRulesDigest, selectRules } from "./repair_memory.mjs";
@@ -114,7 +115,7 @@ export function missingArtJobs(errors, ctx) {
 
 /** dependencyDigest — everything that changes what a provider would be asked to make (directive E3). Same digest ⇒ idempotent rerun;
  *  any change ⇒ a new immutable generation and stale downstream approvals. */
-export function dependencyDigest({ job, design, repairMemory = null, editReference = null, storyBundle = null, directionBundle = null, size = null, skillRoot = SKILL, doc = null }) {
+export function dependencyDigest({ job, design, repairMemory = null, editReference = null, storyBundle = null, directionBundle = null, size = null, skillRoot = SKILL, doc = null, film = null }) {
   const skillFiles = [];
   for (const d of ["scripts", "references"]) { const dir = path.join(skillRoot, d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).sort()) { const p = path.join(dir, f); if (fs.statSync(p).isFile()) skillFiles.push([`${d}/${f}`, fileSha(p)]); } }
   const witnesses = (design?.first_pass_control?.references || []).map((r) => [r.path, fs.existsSync(path.join(SKILL, r.path)) ? fileSha(path.join(SKILL, r.path)) : fs.existsSync(path.join(REPO, r.path)) ? fileSha(path.join(REPO, r.path)) : null]);
@@ -122,7 +123,9 @@ export function dependencyDigest({ job, design, repairMemory = null, editReferen
     // the manifest state the contract gate reads for this identity (landmarks, rigs, joints, sockets, states) — review pointers excluded
     identity_state: doc ? ((i) => ({ identity: i && Object.fromEntries(Object.entries(i).filter(([k]) => !["approved_review_id", "master_sha256"].includes(k))), rigs: doc.rigs.filter((r) => r.identity_id === job.identity_id).map((r) => ({ ...r, pose_states: r.pose_states.map(({ approved_review_id, ...x }) => x), view_states: r.view_states.map(({ approved_review_id, ...x }) => x), allowed_state_edges: r.allowed_state_edges.map(({ approved_assembly_review_id, ...x }) => x) })) }))(doc.identities.find((i) => i.id === job.identity_id)) : null,
     // only the repair rules that MATCH this job's learning context enter its digest (L06: unrelated rule changes leave it stable)
-    witnesses, repair_memory_sha256: matchingRulesDigest(repairMemory, learningContextFor(job, design)), edit_reference_sha256: editReference?.sha256 ?? null, story: storyBundle, direction: directionBundle, size };
+    witnesses, repair_memory_sha256: matchingRulesDigest(repairMemory, learningContextFor(job, design)), edit_reference_sha256: editReference?.sha256 ?? null, story: storyBundle, direction: directionBundle, size,
+    // S3C-7 / P08: the checking rules are part of the evaluation identity (changed rules ⇒ new generation; history kept)
+    evaluation: evaluationIdentity({ film }) };
   return { digest: sha(JSON.stringify(parts)), parts };
 }
 
@@ -181,7 +184,7 @@ export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null
   fs.writeFileSync(path.join(outDir, "STYLE_CONSTRUCTION_DECISION.json"), JSON.stringify({ ...styleConstructionGraph({ design, gate, stages: plan.stages, sha: (x) => sha(Buffer.from(x)) }), detail_budget: detail }, null, 1));
   for (const s of plan.stages) fs.writeFileSync(path.join(outDir, `STAGE_${String(s.index).padStart(2, "0")}_REQUEST.json`), JSON.stringify({ prompt: s.prompt, referenced_image_paths: refs, transparent_background: transparent, mode: s.mode, stage: s.index, of: plan.stages.length, predecessor_sha256: s.predecessor_sha256, methods: s.methods }, null, 2) + "\n");
   const reqF = path.join(outDir, "IMAGEGEN_REQUEST.json"); fs.copyFileSync(path.join(outDir, "STAGE_01_REQUEST.json"), reqF);
-  const stagesMeta = plan.stages.map(({ prompt, ...s }) => s), dg = dependencyDigest({ job, design, repairMemory, editReference });
+  const stagesMeta = plan.stages.map(({ prompt, ...s }) => s), dg = dependencyDigest({ job, design, repairMemory, editReference, film: FILM });
   const pre = { ...manifest, status: "COMPILED_NOT_PROVIDER_READY", prompt_sha256: plan.stages[0].prompt_sha256, prompt_characters: plan.stages[0].characters, stages: stagesMeta, contract_brief_sha256: plan.brief_sha256, skill_complete_compile_sha256: manifest.prompt_sha256, provider_request_submitted: false };
   fs.writeFileSync(path.join(outDir, "PROVIDER_PRE_SUBMISSION_MANIFEST.json"), JSON.stringify(pre, null, 1));
   fs.writeFileSync(path.join(outDir, "BRIDGE_MOTION_CONTEXT.json"), JSON.stringify({ artjob_id: job.artjob_id, note: "machine rig/motion contract: kept by the bridge, NOT sent to the artist (the artist receives motion only as requirements)", motion_context: job.motion_context, null_reasons: job.null_reasons, registration_contract: job.registration_contract, medium: job.medium }, null, 1));

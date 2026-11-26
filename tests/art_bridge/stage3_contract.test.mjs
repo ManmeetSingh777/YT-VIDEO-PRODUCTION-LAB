@@ -6,7 +6,9 @@ import fs from "node:fs"; import path from "node:path"; import url from "node:ur
 import { compileArtJob } from "../../engine/art_bridge/art_requests.mjs";
 import { planJobs } from "../../engine/art_bridge/art_intake.mjs";
 
-const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), FILM = path.join(REPO, "films", "hv2_film001"), W = path.join(REPO, "hybrid_v2", "work", "stage3_contract");
+// S3C-7 correction: mutable outputs go to a directory owned by this run only (a stale outbox from an earlier run caused the P07 failure)
+const { isolatedWork } = await import("../_lib/isolated_work.mjs");
+const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), FILM = path.join(REPO, "films", "hv2_film001"), W = isolatedWork("stage3_contract");
 const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), OLD_DESIGN = path.join(here, "fixtures", "stage3", "ines_master.design.AUDITED_094a1d0.json");
 const MEM = path.join(FILM, "learning", "REPAIR_MEMORY.json");
 // the audited brief declared its family only in prose; the universal gate (directive E1) refuses an undeclared family outright, so these
