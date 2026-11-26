@@ -7,8 +7,13 @@
   mix, artwork and the executable packet are not approved by that statement.
 
 ## Priority 1: creative-packet compilation handoff (delivered first)
-- **ZIP:** `E:\TBO_PRIVATE\E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip` (private; sha256 `d4d4784405ee05106fe8696bec099d57a755791e0703b69b5b7bd55174c041f3`). Built
-  by `tools/tbo/e01_packet_handoff.mjs` from engine `1c7d9c1`.
+- **ZIP:** `E:\TBO_PRIVATE\E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip` (private; sha256 `1f05905ffbc8036772e19c19ea64a524c2a7962f81c7d6829320b3482752cefe`,
+  513,733 bytes, 140 files; independently verified and accepted 2026-11-27).
+  - It replaces the first export (`d4d4784405ee0510…`, built from engine `1c7d9c1`). That file was a valid ZIP, but its `./`-prefixed entries
+    showed 0 items in Windows Explorer. It was rebuilt as a standard DEFLATE ZIP with clean names from the same bytes; all 139 manifest hashes match.
+  - Since `4a17440` the builder (`tools/tbo/e01_packet_handoff.mjs` + `tools/tbo/zip_archive.mjs`) writes standard ZIPs. It reports an export only
+    after reading the archive back: CRC per entry, no empty or directory entries, exact count, required files, every manifest hash.
+    `--verify FILE` checks an existing archive.
 - **Contents:**
   - schemas, validators and P08 contract sources as byte copies;
   - a field reference and rule-code list generated from the live schema and code;
@@ -32,8 +37,8 @@
 The regressions run alongside these: composition, face/speech, integrity, the TBO-G14 host test, the E03 host test, the hybrid contract and the universal contract all pass.
 
 ## Findings (reported, not hidden)
-- **Captions:** the approved P3.2 "Too much?" [135,173) is on screen 0.633 s, below the 1.0 s default minimum dwell. Its reading rate is fine (9 characters).
-  - The dwell minimum is a creative-policy decision, or the cue is re-timed. It was not changed here.
+- **Captions:** the approved P3.2 "Too much?" [135,173) is on screen 0.633 s, below the 1.0 s minimum dwell. Its reading rate is fine (9 characters).
+  - **Resolved (user, 2026-11-27):** the 1.0 s minimum is retained, and Creative GPT re-times the cue during packet compilation.
 - **P05 diagnostic direction:** it attends to lumen during [270,450) while the cave's FOREGROUND rock covers it.
   - C05 measures this, so the diagnostic chain enables the attention gate only when its plan declares a policy. Every PRODUCTION run is gated.
 - **E04:** each flat 2D layer has one declared depth. Depth that varies within one painted layer is not represented.
