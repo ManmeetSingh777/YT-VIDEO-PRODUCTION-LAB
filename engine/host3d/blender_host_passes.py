@@ -34,8 +34,9 @@ def build_diagnostic():
     bpy.ops.object.empty_add(location=(0, 0, 0)); foot = bpy.context.object; foot.name = "DIAG_FOOT"; foot.parent = body; foot.location = (0, -0.35, -0.7)  # visible front edge of the sole (the contact the camera sees)
     # walk along +X: 2 world units over the film interval (keyed in BLENDER frames)
     a, b = req["film_frames"]; off = req["blender_frame_offset"]
-    body.location = (-1.0, 0, 0.7); body.keyframe_insert("location", frame=a - off)
-    body.location = (1.0, 0, 0.7); body.keyframe_insert("location", frame=b - 1 - off)
+    p0, p1 = req.get("diagnostic_path") or [[-1.0, 0], [1.0, 0]]  # P08 E04: a diagnostic walk may move along the depth axis (behind → in front of a 2D occluder)
+    body.location = (p0[0], p0[1], 0.7); body.keyframe_insert("location", frame=a - off)
+    body.location = (p1[0], p1[1], 0.7); body.keyframe_insert("location", frame=b - 1 - off)
     for fc in body.animation_data.action.fcurves if hasattr(body.animation_data.action, "fcurves") else []:
         for k in fc.keyframe_points: k.interpolation = "LINEAR"
     bpy.ops.mesh.primitive_plane_add(size=40, location=(0, 0, req["ground"]["z"])); g = bpy.context.object; g.name = "GROUND"
@@ -83,6 +84,36 @@ def perf_update():
             for pb in o.pose.bones: perf_h.update((pb.name + ":" + ",".join("%.6f" % v for r in pb.matrix for v in r) + ";").encode())
 host_mesh_sha = mesh_sha(host_objs)
 contact_objs = [bpy.data.objects[p["object"]] for p in req["contact_points"]]
+import gzip
+_depth_ng = None
+def render_depth(f):
+    """P08 E04: the host's real Cycles Z pass (ground hidden) at one centred sample per pixel, written by a compositor File Output node as float EXR,
+    read back through Blender's bundled OpenImageIO and stored as raw little-endian float32, row-major, top row first, gzip — the metric depth Blender
+    computed (camera-space distance in world units; background 1e10), never a normalised image. The node group is attached only for this render."""
+    global _depth_ng
+    import OpenImageIO as oiio, glob
+    tmp = os.path.join(out, "_depth_tmp"); os.makedirs(tmp, exist_ok=True)
+    for x in glob.glob(os.path.join(tmp, "*")): os.remove(x)
+    for v in sc.view_layers: v.use_pass_z = True   # before the Render Layers node exists: its Depth socket appears only with the pass enabled
+    if _depth_ng is None:
+        _depth_ng = bpy.data.node_groups.new("tbo_depth", "CompositorNodeTree"); rl = _depth_ng.nodes.new("CompositorNodeRLayers"); fo = _depth_ng.nodes.new("CompositorNodeOutputFile"); fo.name = "tbo_depth_out"
+        if hasattr(fo.format, "media_type"): fo.format.media_type = "IMAGE"
+        fo.format.file_format = "OPEN_EXR"; fo.format.color_depth = "32"; fo.format.color_mode = "BW"; fo.file_output_items.clear(); fo.file_output_items.new("FLOAT", "Z"); _depth_ng.links.new(rl.outputs["Depth"], fo.inputs["Z"])
+    fo = _depth_ng.nodes["tbo_depth_out"]; fo.directory = tmp; fo.file_name = "z_"
+    ng0, comp0, s0, fw0 = sc.compositing_node_group, sc.render.use_compositing, sc.cycles.samples, sc.cycles.filter_width
+    for v in sc.view_layers: v.use_pass_z = True
+    sc.compositing_node_group = _depth_ng; sc.render.use_compositing = True; sc.cycles.samples = 1; sc.cycles.filter_width = 0.01
+    bpy.ops.render.render(write_still=False)
+    sc.compositing_node_group = ng0; sc.render.use_compositing = comp0; sc.cycles.samples = s0; sc.cycles.filter_width = fw0
+    for v in sc.view_layers: v.use_pass_z = False
+    files = glob.glob(os.path.join(tmp, "*.exr"))
+    if len(files) != 1: raise SystemExit("HOST_INTEGRATION_INVALID: the depth render wrote %d EXR files" % len(files))
+    inp = oiio.ImageInput.open(files[0]); spec = inp.spec(); px = inp.read_image(0, 0, 0, 1, oiio.FLOAT); inp.close(); os.remove(files[0])
+    if (spec.width, spec.height) != (W, H): raise SystemExit("HOST_INTEGRATION_INVALID: depth pass is %dx%d, the host pass %dx%d" % (spec.width, spec.height, W, H))
+    data = px.reshape(spec.height, spec.width).astype("<f4").tobytes()
+    gz = os.path.join(out, f"depth_{f:06d}.f32.gz")
+    with gzip.open(gz, "wb", compresslevel=6) as fh: fh.write(data)
+    return {"file": os.path.basename(gz), "sha256": sha(gz), "channel": list(spec.channelnames)[0], "width": spec.width, "height": spec.height, "format": "float32le_rowmajor_topdown_gzip", "background": 1e10}
 rows = []
 for f in req["frames"]:
     bf = f - req["blender_frame_offset"]; sc.frame_set(bf); perf_update()
@@ -90,6 +121,7 @@ for f in req["frames"]:
     ground.hide_render = True
     for o in host_objs: o.visible_camera = True
     p_host = os.path.join(out, f"host_{f:06d}.png"); sc.render.filepath = p_host; bpy.ops.render.render(write_still=True)
+    depth = render_depth(f) if req.get("depth_pass") else None
     # SHADOW pass: host invisible to the camera but still casting; ground is a shadow catcher
     ground.hide_render = False; ground.is_shadow_catcher = True
     for o in host_objs: o.visible_camera = False
@@ -99,10 +131,10 @@ for f in req["frames"]:
     for p, o in zip(req["contact_points"], contact_objs):
         wp = o.matrix_world.translation; v = world_to_camera_view(sc, cam, wp)
         contacts.append({"id": p["id"], "world": [wp.x, wp.y, wp.z], "px": [v.x * W, (1 - v.y) * H]})
-    rows.append({"film_frame": f, "blender_frame": bf, "host": {"file": os.path.basename(p_host), "sha256": sha(p_host)}, "shadow": {"file": os.path.basename(p_sh), "sha256": sha(p_sh)}, "contacts": contacts})
+    rows.append({"film_frame": f, "blender_frame": bf, "host": {"file": os.path.basename(p_host), "sha256": sha(p_host)}, "shadow": {"file": os.path.basename(p_sh), "sha256": sha(p_sh)}, "contacts": contacts, **({"depth": depth} if depth else {})})
 
 json.dump({"adapter_version": "1.1.0", "blender_version": bpy.app.version_string, "blend_file": bpy.data.filepath or None, "diagnostic_fixture": bool(req.get("diagnostic_fixture")),
-           "fps": sc.render.fps / sc.render.fps_base, "alpha_mode": "STRAIGHT", "color_view_transform": sc.view_settings.view_transform, "host_mesh_sha256": host_mesh_sha, "rig_action_sha256": perf_h.hexdigest(), "pass_list": ["host_rgba", "shadow_catcher_rgba"],
+           "fps": sc.render.fps / sc.render.fps_base, "alpha_mode": "STRAIGHT", "color_view_transform": sc.view_settings.view_transform, "host_mesh_sha256": host_mesh_sha, "rig_action_sha256": perf_h.hexdigest(), "pass_list": ["host_rgba", "shadow_catcher_rgba"] + (["host_depth_z"] if req.get("depth_pass") else []), "depth_units": "BLENDER_Z_WORLD_UNITS" if req.get("depth_pass") else None,
            "camera_used": {"type": cam.data.type, "ortho_scale": cam.data.ortho_scale, "lens_mm": cam.data.lens, "sensor_width_mm": cam.data.sensor_width, "matrix_world": [list(r) for r in cam.matrix_world], "resolution": [W, H]},
            "frames": rows}, open(os.path.join(out, "PASSES.json"), "w", encoding="utf8"), indent=1)
 print("PASSES_WRITTEN", len(rows))
