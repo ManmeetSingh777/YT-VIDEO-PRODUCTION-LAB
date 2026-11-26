@@ -47,3 +47,15 @@ C02/C03/C04 → E01/E07 → F01/A04 → D01 → B04–B08 → C01/C05 → E02/E0
 - Efficiency profile (from P07 TAP): p02_injection S07-frozen/S08/S09 ~26 min each (full 7200-frame diagnostic chain per copy), p02_render R03 55.5 + R04 13.5,
   p02_trace R13 27, p01_film_qa B3-5 36.7 + B3-1 24.1. Cache measurement (S08+S09 with cache) running in background task bs0pxh2xl.
 - Remaining: E03/E04 (Blender 5.1 present — perspective + depth), E05 dolly/orbit, E06 + combo4, C01/C05/C06, B06, D02–D06, F02/F04/F05/F06, freeze + regression, reports.
+- E05 `3f88faa` (camera_ops DOLLY/ORBIT), combo4 `1c91928` (gear train + MODEL_BAR), F02 `c27d99d` (chunkInputKey selective reuse, by_input store).
+- Chunk cache measurement: S08 17.1 min (P07 25.9) and S09 5.6 min but S09 FAILED with raw 'write EOF' — cause: **E: drive 100% full (517 MB free)**;
+  p02 injection writes 7200-frame FFV1 chunks under E:\TBO_DEV\hybrid_v2\work. Cache dir C:\Users\gmanm\AppData\Local\Temp\tbo-test-runs\chunk_cache_measure_1 (7.1 GB, mine).
+  Final regression must run in the C: worktree (C:\Users\gmanm\TBO_DEV_REGRESSION, 168 GB free) like P07.
+- E03 `(this commit)`: projectCamera PERSP + Blender PERSP; tests/p08/host_perspective.test.mjs (real Blender). E04 per-pixel depth/matte compositing NOT implemented (BLOCKED_IMPLEMENTATION).
+- Freed 7.3 GB on E: by removing my own measurement scratch (hybrid_v2/work/p02/injection/s08_mp4, s09_audio). E: is still 97% full → final regression on C:.
+- Fresh worktrees lack the gitignored F01–F80 witness images (117 files under reference/construct-kurzgesagt-art/assets) → copy them locally
+  (git ls-files --others --ignored --exclude-standard reference/) into any regression worktree; never commit them.
+- Final regression script: C:\Users\gmanm\TBO_P08_FINAL\run.sh (worktree C:\Users\gmanm\TBO_P08_REGRESSION at the frozen SHA; fresh chunk cache).
+- Report tools: tools/tbo/p08_results.mjs --tap <TAP> --sha <sha> → P08_REQUIREMENT_RESULTS / CAPABILITY_MATRIX / ART_CONTRACT_DELTA / NEGATIVE_EVIDENCE.
+- F06: our head contains mia-first-film + 3 repair branches; missing only main (README, 3 commits) and design/gpt-creative-production-contract-v1
+  (8 doc files under docs/gpt-creative-control) → integration branch + one PR after publication (no merge).
