@@ -102,6 +102,10 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
       runtimeIds.push(id);
     });
   }
+  // CAPTION_OVERLAY: captions compiled from the approved subtitle files (engine/film/captions.mjs → plan.__captions) are painted above everything,
+  // one element per cue, switched by frameState on the film frame clock (never by wall time)
+  const caps = (plan.__captions || []).filter((c) => c.frames[0] < shot.end_frame && shot.start_frame < c.frames[1]);
+  for (const c of caps) runtimeIds.push(c.id);
   const ids = new Set(); for (const id of runtimeIds) { if (ids.has(id)) throw err("DUPLICATE_ELEMENT_ID", { record_id: id, reason: "runtime id emitted twice" }); ids.add(id); }
   const camIds = BANDS.filter((b) => ordered[b].length).map((b) => `cam-${b}`);
   const W = doc.stage.width, H = doc.stage.height;
@@ -111,7 +115,8 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" id="${xml(P("stage"))}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs>${[...new Set(defs)].join("")}</defs>` +
     (background ? `<rect id="${xml(P("sentinel"))}" x="0" y="0" width="${W}" height="${H}" fill="${sentinel}"/>` : "") +
     BANDS.filter((b) => ordered[b].length).map((b) => `<g id="${xml(P(`cam-${b}`))}" data-band="${b}">${ordered[b].map((it) => it.markup).join("")}</g>`).join("") +
-    (screen.length ? `<g id="${xml(P("screen"))}">${[...screen].sort((x, y) => y.k - x.k).map((s) => s.markup).join("")}</g>` : "") + `</svg>`; // P05: IN is painted first, then MIDDLE, then OUT: each plate is seen only through the aperture of the plate in front of it
+    (screen.length ? `<g id="${xml(P("screen"))}">${[...screen].sort((x, y) => y.k - x.k).map((s) => s.markup).join("")}</g>` : "") +
+    (caps.length ? `<g id="${xml(P("captions"))}">${caps.map((c) => { const [x, y, w, h] = c.box, lh = c.font_px * c.line_height; return `<g id="${xml(P(c.id))}" data-caption="${xml(c.id)}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${(c.font_px * 0.25).toFixed(1)}" fill="#000000" fill-opacity="0.62"/><text font-family="Arial, Helvetica, sans-serif" font-size="${c.font_px}" fill="#ffffff" text-anchor="middle">${c.text_lines.map((l, i) => `<tspan x="${(x + w / 2).toFixed(2)}" y="${(y + c.pad_px + (i + 0.78) * lh).toFixed(2)}">${xml(l)}</tspan>`).join("")}</text></g>`; }).join("")}</g>` : "") + `</svg>`; // P05: IN is painted first, then MIDDLE, then OUT: each plate is seen only through the aperture of the plate in front of it
   const pivotOf = (aid) => assets.get(aid).pivot_xy;
 
   /** full runtime state for frame f: [[elementId, transform, visible, opacity]] for every runtime-owned element (+ the raw stateAtFrame) */
@@ -164,6 +169,7 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
       if (fr && h.kind === "host") { const m = cameraMatrix(cam, h.band, plan.parallax, doc.stage); if ([m[0] - 1, m[1], m[2], m[3] - 1, m[4], m[5]].some((x) => Math.abs(x) > 1e-6)) st.failures.push(err("HOST_INTEGRATION_INVALID", { record_id: h.hid, shot_id: shot.id, frame_range: [f, f + 1], reason: `the 2D camera of band ${h.band} moves (${fmt(m)}) while Blender host pass ${h.hid} is visible: the pass was rendered for a static calibrated camera`, producer: "engine/art_bridge/scene_graph.mjs#frameState", details: { failed_invariant: "HOST_CAMERA_MATCHED" } })); } }
     const transitions = {};
     for (const s of screen) { const fr = s.tr.frameAt(f); transitions[s.tr.id] = fr; const L = fr?.layers.find((l) => l.asset_id === s.asset_id); rows.push([P(s.id), fmt(L ? mul(L.matrix, T(...pivotOf(s.asset_id))) : [1, 0, 0, 1, 0, 0]), L ? 1 : 0, 1]); }
+    for (const c of caps) rows.push([P(c.id), "matrix(1 0 0 1 0 0)", inShot && c.frames[0] <= f && f < c.frames[1] ? 1 : 0, 1]);
     return { rows, state: st, transitions, execution };
   }
   /** camera footprint over [f0,f1): the viewport mapped into each band must lie inside an opaque painted plate of that band */
