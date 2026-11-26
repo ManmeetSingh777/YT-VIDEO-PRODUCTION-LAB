@@ -1,0 +1,32 @@
+{
+ "failure_id": "FAIL-S07_NEUTRINO_RENDER-chunk_0_1200-7f2e89",
+ "status": "FAILED",
+ "code_revision": "dcaeb745e1aa07924b688158d32be082ad2799c787e2d07d15ac9ff79a94cf72",
+ "consumed_inputs": [],
+ "next_permitted_operation": "production_run.mjs resume",
+ "run_id": "DIAG-20261126193753-84b857",
+ "stage_id": "S07_NEUTRINO_RENDER",
+ "attempt_id": "Amwxyghb2",
+ "task_id": "chunk_0_1200",
+ "frame_ranges": [],
+ "artifact_refs": [],
+ "first_observed_bad_output": "FFV1 segment frames 0..1199",
+ "expected_invariant": "exact frame count, 1920x1080, 60/1; no defect; absolute seeking",
+ "observed_measurement": "ENOSPC: ENOSPC: no space left on device, copyfile 'C:\\Users\\gmanm\\TBO_REL1_FINAL\\chunk_cache\\dbb5ff72394968fcfb3df08d16f9e28d48b47a14efac4e57a5630869c4868056\\0_1200.mkv' -> 'C:\\Users\\gmanm\\TBO_REL1_REGRESSION\\hybrid_v2\\work\\p02\\trace\\film\\render\\chunks\\c6ae07b0a72f792e\\chunk_00000_01200.mkv'",
+ "applicability_predicate": "stage S07_NEUTRINO_RENDER, task class chunk_0",
+ "failure_class": "RENDER_OR_MEMORY",
+ "root_producer_or_UNKNOWN": "engine/film/segment_render.mjs#renderFilm (diagnostic_flat)",
+ "suspected_mechanism": "ENOSPC: ENOSPC: no space left on device, copyfile 'C:\\Users\\gmanm\\TBO_REL1_FINAL\\chunk_cache\\dbb5ff72394968fcfb3df08d16f9e28d48b47a14efac4e57a5630869c4868056\\0_1200.mkv' -> 'C:\\Users\\gmanm\\TBO_REL1_REGRESSION\\hybrid_v2\\work\\p02\\trace\\film\\render\\chunks\\c6ae07b0a72f792e\\chunk_00000_01200.mkv'",
+ "causal_evidence_refs": [],
+ "rejected_bypass_paths": [],
+ "invalidated_downstream_nodes": [
+  "assemble",
+  "S08_QA_REPAIR",
+  "S09_FILM_AUDIO_FINAL"
+ ],
+ "repair_owner": "RENDER_PRODUCER",
+ "resume_from_stage": "S07_NEUTRINO_RENDER",
+ "retry_safe_boolean": true,
+ "external_spend_risk": false,
+ "reproduction_command": "node engine/tools/production_run.mjs why --film film --run-id DIAG-20261126193753-84b857 --failure FAIL-S07_NEUTRINO_RENDER-chunk_0_1200-7f2e89"
+}

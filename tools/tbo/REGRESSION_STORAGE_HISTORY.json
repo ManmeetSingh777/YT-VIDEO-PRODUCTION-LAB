@@ -1,0 +1,15 @@
+{
+ "note": "Measured peak storage of release regressions, read by tools/tbo/release_regression.mjs preflight. peak_bytes = free space at start minus the minimum observed during the run (it includes concurrent test outputs, the chunk cache and test temp). lower_bound: the run exhausted its disk, so the true peak was larger. Append only measured runs (--record-history); never edit a value by hand.",
+ "runs": [
+  {
+   "revision": "148850222e8ff02aa93fd299d27cd39abc15b9ee",
+   "date": "2026-11-26",
+   "scope": "full",
+   "peak_bytes": 96745899644,
+   "lower_bound": true,
+   "outcome": "INCOMPLETE_STORAGE (run.sh; drive C: exhausted mid-suite)",
+   "measurement": "footprint measured after the run, not by the watchdog (start free space was not recorded): worktree hybrid_v2/work 71 GiB (du -sh; p01 57 GiB, p02 14 GiB) + chunk cache 20,510,230,140 bytes (RUN.txt). Test temp (isolatedWork under %TEMP%) was not measured. Measured BEFORE segment hard-linking and post-assertion reclaim existed, so later runs should record lower peaks.",
+   "source": "engineering/release_regression_2026-11-26_1488502"
+  }
+ ]
+}
