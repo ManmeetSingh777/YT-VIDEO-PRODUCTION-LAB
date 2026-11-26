@@ -10,6 +10,10 @@
       "role": "Mandatory permanent process and production gates"
     },
     {
+      "path": "docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md",
+      "role": "MANDATORY real artwork-to-animation operating and human manual QA standard"
+    },
+    {
       "path": "docs/the-better-one/THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md",
       "role": "Complete channel editorial authority"
     },
