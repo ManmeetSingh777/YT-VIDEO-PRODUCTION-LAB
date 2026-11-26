@@ -36,7 +36,8 @@ test("HYBRID_CONTRACT negatives: each contradiction names its invariant and owne
     ["model value labelled as documented fact", (h) => { h.decoders[0].displays[0].shown_provenance = "REAL_DOCUMENTED"; }, "DISPLAY_PROVENANCE_HONEST"],
     ["documented input without a sourced F claim", (h) => { const v = h.decoders[0].model_card.variables[0]; v.provenance = "REAL_DOCUMENTED"; v.claim_id = "c_model"; v.source = "x"; }, "MODEL_DOCUMENTED_HAS_SOURCE"],
     ["F claim without source", (h) => { h.claims[0].mode = "F"; }, "CLAIM_TRUTH_UNVERIFIED"],
-    ["perspective host camera", (h) => { h.hosts[0].camera.type = "PERSP"; }, "HOST_CAMERA_ORTHO"],
+    ["perspective host camera without calibrated intrinsics (P08 E03)", (h) => { h.hosts[0].camera.type = "PERSP"; }, "HOST_CAMERA_INTRINSICS"],
+    ["unknown host camera model", (h) => { h.hosts[0].camera.type = "FISHEYE"; }, "HOST_CAMERA_MODEL"],
     ["calibration on an unrequested landmark", (h) => { h.hosts[0].calibration_landmarks[1].landmark = "floor_mark"; }, "HOST_WORLD_CALIBRATED"],
     ["host outside its shot", (h) => { h.hosts[0].frames = [200, 400]; }, "HOST_FRAMES_IN_SHOT"],
     ["undirected host acting", (h) => { h.hosts[0].performance = []; }, "HOST_PERFORMANCE_DIRECTED"],
@@ -53,4 +54,12 @@ test("creative_handoff hybrid-preflight CLI", async () => {
   const pf = path.join(dir, "CREATIVE_PACKET.json"), hf = path.join(dir, "HYBRID_CONTRACT.json"); fs.writeFileSync(pf, JSON.stringify(packet)); fs.writeFileSync(hf, JSON.stringify(hybrid()));
   const lines = []; const code = await main(["hybrid-preflight", "--packet", pf, "--hybrid", hf, "--sources", dir], (s) => lines.push(s));
   assert.equal(code, 0); assert.equal(JSON.parse(lines[0]).hybrid_feasible, true);
+});
+
+test("HYBRID_CONTRACT P08: a VISEME dialogue line routes to the measured-phone viseme producer; it needs the phone alignment; an unknown scheme is refused", () => {
+  const H = (l) => ({ ...hybrid(), dialogue: [{ line_id: "l1", speaker: "nova", text: "Wait.", frames: [30, 110], audio_file: null, alignment_file: null, limited_mouth_approved: false, ...l }] }), codes = (r) => r.feedback.map((x) => x.failed_invariant);
+  const v = hybridPreflight(packet, H({ mouth_scheme: "VISEME", alignment_file: "l1.timing.json" }), { sourceDir: dir }); assert.ok(!codes(v).includes("DIALOGUE_MOUTH_SCHEME_SUPPORTED") && !codes(v).includes("DIALOGUE_MOUTH_SCHEME_APPROVED"), JSON.stringify(v.feedback)); assert.equal(v.ledger.dialogue[0].mouth_route.inventory, "EN_ARPABET_VISEME_V1");
+  assert.ok(codes(hybridPreflight(packet, H({ mouth_scheme: "VISEME" }), { sourceDir: dir })).includes("DIALOGUE_PHONE_ALIGNMENT"), "no alignment, no viseme timing");
+  assert.ok(codes(hybridPreflight(packet, H({ mouth_scheme: "PHONEME_GUESS" }), { sourceDir: dir })).includes("DIALOGUE_MOUTH_SCHEME_SUPPORTED"));
+  assert.ok(codes(hybridPreflight(packet, H({ mouth_scheme: "REST_MID_OPEN" }), { sourceDir: dir })).includes("DIALOGUE_MOUTH_SCHEME_APPROVED"), "the legacy swap still needs its approval");
 });
