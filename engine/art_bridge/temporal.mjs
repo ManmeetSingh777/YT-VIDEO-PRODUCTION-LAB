@@ -25,6 +25,7 @@ import { balance } from "./contact_solver.mjs";
 import { multiSupportWithoutContract, segmentAt, evaluatePropSupport } from "./prop_support.mjs";
 import { canonicalContact, validateContactShots } from "./contact_continuity.mjs";
 import { compileComposition } from "./composition.mjs";
+import { normalizePinch } from "./pinch.mjs";
 
 const EASES = {
   linear: (p) => p, none: (p) => p,
@@ -138,6 +139,9 @@ export function compileMotionTracks(actions, shots, ctx) {
   // P08 B02: a production holding contact is position AND orientation — both the target basis angle and the socket basis are required
   for (const k of contacts) if (ctx.runType === "PRODUCTION" && ["GRIP", "PINCH"].includes(k.c.contact_type) && !(Number.isFinite(k.c.target_angle_deg) && Number.isFinite(k.socket.basis_angle_deg))) errors.push(err("CONTACT_BASIS_REQUIRED", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `production ${k.c.contact_type} ${k.identity.contact_id} needs the reviewed target basis angle and the socket basis (a matching point with an unknown palm orientation is not a contact)`, failed_invariant: "PRODUCTION_CONTACT_ORIENTED", producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" }));
   for (let i = 0; i < contacts.length; i++) for (let j = i + 1; j < contacts.length; j++) { const a = contacts[i], b = contacts[j]; if (a.c.source_socket !== b.c.source_socket || !(a.c.start_frame < b.c.end_frame && b.c.start_frame < a.c.end_frame)) continue; const ta = a.c.target_socket ?? JSON.stringify(a.c.target_world_xy ?? null), tb = b.c.target_socket ?? JSON.stringify(b.c.target_world_xy ?? null); if (ta !== tb && a.c.contact_type !== "PLANT" && b.c.contact_type !== "PLANT") errors.push(err("CONTACT_CONFLICT", { record_id: b.identity.contact_id, frame_range: [Math.max(a.c.start_frame, b.c.start_frame), Math.min(a.c.end_frame, b.c.end_frame)], reason: `${a.c.source_socket} would hold ${ta} and ${tb} at once`, failed_invariant: "ONE_OBJECT_PER_SOCKET" })); }
+  // P08 B03: a PINCH contact needs its approved contract (patches, edge, view, thickness, clearance, near/far layers); its FACE_ON layering is
+  // emitted into the SAME cross-rig paint order the scene graph consumes
+  const pinch = normalizePinch(plan.pinch_contracts || [], { rigs, contacts }); errors.push(...pinch.errors); if (pinch.paint_order.length) plan.paint_order = [...(plan.paint_order || []), ...pinch.paint_order];
   errors.push(...validateContactShots(contacts, shots)); // P08 A02: one id per contact; crossing a cut only as a declared, fully mapped persistent contact
   const contactDriven = new Set(contacts.map((k) => k.rig));
   // precedence report: contact IK (layer 4) owns its chain joints while a contact is locked; acting on those joints is overridden there, never silently
@@ -174,7 +178,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   for (let i = 0; i < remaps.length; i++) for (let k = i + 1; k < remaps.length; k++) { const a = remaps[i], b = remaps[k], shared = (a.owner_group?.rigs || []).filter((r) => (b.owner_group?.rigs || []).includes(r)); if (shared.length && a.frames[0] < b.frames[1] && b.frames[0] < a.frames[1]) errors.push(err("TIME_REMAP_INVALID", { record_id: b.id, reason: `remaps ${a.id} and ${b.id} both own ${shared} at once`, failed_invariant: "ONE_REMAP_PER_OWNER" })); }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport, composition: compReport, timeRemaps: remaps };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport, composition: compReport, timeRemaps: remaps, pinch: pinch.byContact };
   C.remapAt = (f) => remaps.filter((m) => f >= m.frames[0] && f < m.frames[1]).map((m) => ({ ...m, source_frame: m.source.mode === "FREEZE" ? m.source.frame : Math.round(ev(m.source.keys, f)) }));
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };

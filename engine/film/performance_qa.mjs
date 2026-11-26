@@ -9,6 +9,7 @@
 import { stateAtFrame } from "../art_bridge/temporal.mjs";
 import { apply, angleOf, wrap180 } from "../art_bridge/math2d.mjs";
 import { err } from "../art_bridge/errors.mjs";
+import { pinchGeometry } from "../art_bridge/pinch.mjs";
 const deg = (r) => (r * 180) / Math.PI, dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 export const EFFECT_EXECUTORS = Object.freeze(["GazeTowardTarget", "EyeStateTransition", "ApprovedViewTransition", "SpeechAudioVisualSync", "ContactApproach", "PaintedGripMaintained", "ReleaseAndSeparation", "PlantedFootStable", "PurposefulEmotionRendered", "ExpressionStateReached", "ApprovedPointerAligned", "LegalIdleHold", "ApprovedBodyTurn", "PoseContactHold", "PropSupportContract", "VisemeSync", "ExpressionTransitionTraversed", "ContactContinuity"]);
 /** verifyPerformance(C, {perturb}) → {ok, results:[{command, verb, kind, test_id, ok, frames_checked, reason, measurement, human_review}], failures} */
@@ -92,6 +93,7 @@ export function verifyPerformance(C, { only = null } = {}) {
     }
   }
   // P07: every prop support contract, on every frame of its span
+  for (const k of C.contacts || []) { const pc = C.pinch?.get(k.identity?.contact_id); if (!pc) continue; const r = verifyPinch(C, k, pc, st); results.push(r); if (!r.ok) failures.push(err("PINCH_INVALID", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `pinch ${pc.id}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyPinch" })); }
   for (const [rid, R_] of C.rigs) { const fc = R_.rec.face_composition; if (!fc) continue; const ivs = (rep.commands || []).filter((r) => r.rig === rid).map((r) => r.frames); if (!ivs.length) continue; const r = verifyFaceComposition(C, rid, ivs, st); results.push(r); if (!r.ok) failures.push(err("FACE_TUPLE_INVALID", { record_id: rid, reason: `face composition ${rid}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyFaceComposition" })); }
   for (const k of C.contacts || []) { if (!k.identity?.persists || (only && !only.includes(k.identity.contact_id))) continue; const r = verifyContactContinuity(C, k, st); results.push(r); if (!r.ok) failures.push(err(r.code || "PERFORMANCE_EFFECT_UNMET", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `persistent contact ${k.identity.contact_id}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyContactContinuity" })); }
   for (const p of C.propSupport || []) { if (only && !only.includes(p.id)) continue; const r = verifyPropSupport(C, p, st); results.push(r); if (!r.ok) failures.push(err("PERFORMANCE_EFFECT_UNMET", { record_id: p.id, frame_range: p.span, reason: `prop support ${p.id} (${p.test_id}): ${r.reason}`, failed_invariant: "PropSupportContract", details: { prop: p.id, frame_range: p.span, failed_invariant: "PropSupportContract", earliest_producer: "engine/art_bridge/prop_support.mjs", needed_art_or_capability: null, user_approval_needed: false } })); }
@@ -161,4 +163,17 @@ export function verifyFaceComposition(C, rid, intervals, st = (f) => stateAtFram
     const mouthPasses = s.passes.filter((p) => p.rig === rid && mouthSlots.has(p.slot) && p.visible); if (mouthPasses.length > 1) bad.push(`frame ${f}: ${mouthPasses.length} visible mouth drawings`); }
   if (!n) bad.push("zero frames checked");
   return { command: rid, verb: "face", kind: "FaceComposition", owner: rid, frames_checked: n, ok: !bad.length, reason: bad.slice(0, 6).join("; ") || null, human_review: { check: `native playback: ${rid}'s face reads as one coherent drawing in every expression and spoken shape`, status: "NEEDS_HUMAN" } };
+}
+
+/** P08 B03 — every locked frame of a PINCH: the contact is locked on its edge, the patches satisfy the contract's opposition for its view, the
+ *  approved pinch closure drawing is the bound visible pass, and (FACE_ON) the near/far layer order is present in the paint order the renderer uses */
+export function verifyPinch(C, k, pc, st = (f) => stateAtFrame(C, f)) {
+  const bad = []; let n = 0, worst = null; const po = C.plan.paint_order || [], prop = k.tgtRig;
+  if (pc.view === "FACE_ON" && !(po.some((x) => x.above === pc.near_slot && x.below === prop) && po.some((x) => x.above === prop && x.below === pc.far_slot))) bad.push(`near/far layering ${pc.near_slot} > ${prop} > ${pc.far_slot} is not in the paint order`);
+  for (let f = k.c.start_frame; f < k.c.end_frame; f++) { const s = st(f); if (s.error) { bad.push(`frame ${f}: ${s.error.message}`); continue; } const rec = s.contacts.find((x) => x.contact_id === k.identity.contact_id); if (!rec?.locked) continue; n++;
+    const g = pinchGeometry(C, s, k, pc); if (!g.ok) bad.push(`frame ${f}: ${g.why}`); worst = g.measurement;
+    if (s.artStates?.[k.rig]?.channels?.[pc.closure.channel] !== pc.closure.state) bad.push(`frame ${f}: hand shows ${s.artStates?.[k.rig]?.channels?.[pc.closure.channel]}, not the approved pinch ${pc.closure.state} (a fist or open hand is not a pinch)`);
+    for (const slot of [pc.near_slot, pc.far_slot]) { const p = s.passes.find((x) => x.rig === k.rig && x.slot === slot); if (!p?.visible) bad.push(`frame ${f}: pinch layer ${slot} is not visible`); } }
+  if (!n) bad.push("zero locked frames checked");
+  return { command: k.identity.contact_id, verb: "pinch", kind: "PinchContact", owner: `${k.rig}.${k.c.source_socket}`, frames: [k.c.start_frame, k.c.end_frame], frames_checked: n, ok: !bad.length, reason: bad.slice(0, 5).join("; ") || null, measurement: { view: pc.view, last: worst }, human_review: { check: `native playback: ${pc.id} reads as a thumb-and-finger pinch on the ${pc.view === "FACE_ON" ? "page edge" : "object edge"}`, status: "NEEDS_HUMAN" } };
 }

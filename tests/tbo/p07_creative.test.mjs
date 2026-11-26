@@ -10,12 +10,19 @@ const clone = (o) => JSON.parse(JSON.stringify(o)), src = path.join(W, "src"), b
 const firstGrip = (p) => p.actions.flatMap((a) => a.contact_events.map((c) => ({ a, c }))).find((x) => x.c.type === "GRIP");
 const codeOf = (fn) => { try { fn(); return null; } catch (e) { return { code: e.code, inv: e.failed_invariant, reason: e.human_readable_reason }; } };
 
-test("P07-P1 PINCH is refused at preflight AND at compile; it is never dropped or silently turned into a GRIP", () => {
+// P08 B03 contract migration (documented): PINCH now HAS a producer (engine/art_bridge/pinch.mjs). It is still never dropped and never a GRIP:
+// preflight names the exact missing art/contract, the packet carries it into the manifest AS PINCH, and the motion compiler refuses it until the
+// approved PINCH_CONTRACT and its near/far layers exist (tests/p08/pinch.test.mjs proves the executable route).
+test("P07-P1 PINCH is never dropped or silently turned into a GRIP: preflight names its missing art/contract, the manifest keeps it as PINCH, the compiler refuses it without its contract", async () => {
   const p = clone(base), g = firstGrip(p); assert.ok(g, "fixture has a GRIP to re-direct"); g.c.type = "PINCH";
   assert.equal(V.validatePacket(p).status, "STRUCTURAL_VALID", "a PINCH request is structurally expressible");
-  const pf = PF.creativePreflight(p), fb = pf.feedback.find((x) => x.failed_invariant === "CONTACT_TYPE_SUPPORTED");
-  assert.ok(fb && fb.needed_change_type === "MISSING_ENGINE_PRODUCER" && pf.preart_feasible === false, "preflight names the missing producer");
-  const e = codeOf(() => A.compilePacket(p)); assert.equal(e?.code, "UNIMPLEMENTABLE_CREATIVE_REQUIREMENT"); assert.equal(e?.inv, "CONTACT_NOT_DROPPED"); assert.match(e.reason, /GRIP with WRAP near\/far finger layers/);
+  const pf = PF.creativePreflight(p), fb = pf.feedback.find((x) => x.failed_invariant === "PINCH_CONTRACT_AND_LAYERS");
+  assert.ok(fb && fb.needed_change_type === "MISSING_ART_REQUIREMENT" && pf.preart_feasible === false, "preflight names the exact missing pinch contract and near/far layers");
+  assert.ok(!pf.feedback.some((x) => x.failed_invariant === "CONTACT_TYPE_SUPPORTED"), "the producer exists");
+  const mfP = A.compilePacket(p).files["handoff/ART_AND_MOTION_MANIFEST_V2.json"], kinds = mfP.actions.flatMap((a) => a.contact_events.map((c) => c.contact_type));
+  assert.ok(kinds.includes("PINCH") && kinds.filter((k) => k === "GRIP").length === base.actions.flatMap((a) => a.contact_events).filter((c) => c.type === "GRIP").length - 1, "the PINCH reaches the manifest as PINCH (not dropped, not a GRIP)");
+  const { normalizePinch } = await import("../../engine/art_bridge/pinch.mjs"), ks = mfP.actions.flatMap((a) => a.contact_events.filter((c) => c.contact_type === "PINCH").map((c) => ({ c, rig: "r", tgtRig: "t", identity: { contact_id: "pinch_1" } })));
+  assert.ok(normalizePinch([], { rigs: new Map(), contacts: ks }).errors.some((x) => x.code === "PINCH_CONTRACT_REQUIRED"), "the motion compiler refuses the PINCH until its approved contract exists");
   assert.doesNotThrow(() => A.compilePacket(base), "the unmodified packet still compiles");
   const mf = A.compilePacket(base).files["handoff/ART_AND_MOTION_MANIFEST_V2.json"], n = base.actions.reduce((s, a) => s + a.contact_events.length, 0); assert.equal(mf.actions.reduce((s, a) => s + a.contact_events.length, 0), n, "every directed contact reaches the manifest");
 });
