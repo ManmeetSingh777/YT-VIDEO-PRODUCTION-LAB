@@ -76,17 +76,27 @@ export async function renderFilm({ film, revision, renderer = "diagnostic_flat",
   fs.mkdirSync(chunksDir, { recursive: true });
   if (session.width !== width || session.height !== height) { await session.close(); throw err("IMAGE_DIMENSION_MISMATCH", { reason: `renderer session ${session.width}x${session.height} ≠ film ${width}x${height}` }); }
   const receipts = [], mem = [], live = new Set(); let prev = null;
+  // P08 regression efficiency (opt-in, env TBO_RENDER_CHUNK_CACHE): a chunk whose PIXEL INPUTS are identical (code, contracts, art, registration,
+  // designs, direction, canvas, renderer source/args/environment, seed, size) may be reused from a content-addressed cache. Approvals and story
+  // text do not change pixels, so a re-approved copy of a film reuses its pixels; any change to a real producer input misses the cache. An
+  // injected failure ALWAYS disables the cache (a negative control must run the real producer); every reuse is recorded and the receipt
+  // verifier still re-renders sampled frames on a fresh session.
+  const cacheRoot = process.env.TBO_RENDER_CHUNK_CACHE && !Object.keys(inject || {}).length ? path.resolve(process.env.TBO_RENDER_CHUNK_CACHE) : null;
+  const pixelKey = cacheRoot ? crypto.createHash("sha256").update(JSON.stringify({ ...key, revision: undefined, pixel_scopes: Object.fromEntries(["code", "contracts", "designs", "art", "registration", "direction", "canvas"].map((k) => [k, revision.scopes?.[k] ?? null])) })).digest("hex") : null;
+  const fromCache = (ch) => { if (!cacheRoot || !revision.scopes) return null; const b = path.join(cacheRoot, pixelKey, `${ch[0]}_${ch[1]}`); if (!fs.existsSync(`${b}.json`) || !fs.existsSync(`${b}.mkv`)) return null; const rc = JSON.parse(fs.readFileSync(`${b}.json`, "utf8")); return rc.mkv_sha256 === fsha(`${b}.mkv`) ? { rc, mkv: `${b}.mkv` } : null; };
+  const toCache = (ch, mkv, rc) => { if (!cacheRoot || !revision.scopes) return; const d = path.join(cacheRoot, pixelKey), b = path.join(d, `${ch[0]}_${ch[1]}`); if (fs.existsSync(`${b}.json`)) return; fs.mkdirSync(d, { recursive: true }); const t = `${b}.tmp-${process.pid}-${crypto.randomBytes(3).toString("hex")}`; fs.copyFileSync(mkv, `${t}.mkv`); fs.writeFileSync(`${t}.json`, JSON.stringify(rc)); try { fs.renameSync(`${t}.mkv`, `${b}.mkv`); fs.renameSync(`${t}.json`, `${b}.json`); } catch { fs.rmSync(`${t}.mkv`, { force: true }); fs.rmSync(`${t}.json`, { force: true }); } };
   try {
     for (const ch of planChunks(total, chunkSize)) {
       const base = path.join(chunksDir, `chunk_${String(ch[0]).padStart(5, "0")}_${String(ch[1]).padStart(5, "0")}`), rcF = `${base}.json`, mkv = `${base}.mkv`;
       if (fs.existsSync(rcF) && fs.existsSync(mkv)) { const rc = JSON.parse(fs.readFileSync(rcF, "utf8")); if (rc.key_sha256 === keySha && rc.mkv_sha256 === fsha(mkv)) { const again = { ...rc, reused: true, probe: probeMp4(mkv) }; receipts.push(again); prev = rc.last; onChunk?.(again); continue; } } // P05: a reused chunk is reported like a rendered one (re-probed): a resumed stage could never commit
       for (const x of [mkv, rcF]) fs.rmSync(x, { force: true }); // an unverified or stale chunk is discarded and regenerated from its FIRST frame
+      { const hit = fromCache(ch); if (hit) { fs.copyFileSync(hit.mkv, mkv); const rc = { ...hit.rc, key_sha256: keySha, key, mkv: path.relative(FILM, mkv).split(path.sep).join("/"), mkv_sha256: fsha(mkv), reused_from_cache: { pixel_key_sha256: pixelKey }, probe: probeMp4(mkv) }; writeAtomic(rcF, JSON.stringify(rc, null, 1)); receipts.push(rc); prev = rc.last; onChunk?.(rc); continue; } }
       const tmp = `${base}.tmp-${process.pid}.mkv`, enc = encoder(tmp, { width, height, fps }); live.add(enc);
       let r; try { r = await renderChunk(session, ch, { write: (b) => { if (inject.failEncodeChunk === ch[0]) { enc.kill(); inject.failEncodeChunk = null; } return enc.write(b); }, crashAt: inject.crashAt, prev }); enc.ff.stdin.end(); await enc.done; }
       catch (e) { enc.kill(); await enc.exited; rmRetry(tmp); throw e.code ? e : err("RENDER_CAPTURE_FAILURE", { frame_range: ch, reason: e.message, producer: "engine/film/segment_render.mjs#renderFilm", resume_at: `CHUNK_${ch[0]}` }); } finally { live.delete(enc); }
       const p = probeMp4(tmp); if (p.frames !== ch[1] - ch[0] || p.width !== width || p.height !== height || p.r_frame_rate !== `${fps}/1`) { fs.rmSync(tmp, { force: true }); throw err("RENDER_CAPTURE_FAILURE", { frame_range: ch, reason: `segment probe ${JSON.stringify(p)} does not match ${ch[1] - ch[0]} frames ${width}x${height}@${fps}` }); }
       fs.renameSync(tmp, mkv); const rc = { key_sha256: keySha, key, frames: ch, hashes: r.hashes, state_hashes: r.state_hashes, owners: r.owners, chunk_sha256: r.chunk_sha256, defects: r.defects, mkv: path.relative(FILM, mkv).split(path.sep).join("/"), mkv_sha256: fsha(mkv), probe: p, last: r.last, rss_bytes: process.memoryUsage().rss };
-      writeAtomic(rcF, JSON.stringify(rc, null, 1)); receipts.push(rc); prev = r.last; mem.push({ chunk: ch, node_rss: process.memoryUsage().rss, heap: process.memoryUsage().heapUsed }); onChunk?.(rc);
+      writeAtomic(rcF, JSON.stringify(rc, null, 1)); toCache(ch, mkv, rc); receipts.push(rc); prev = r.last; mem.push({ chunk: ch, node_rss: process.memoryUsage().rss, heap: process.memoryUsage().heapUsed }); onChunk?.(rc);
     }
   } finally { for (const e of live) e.kill(); await session.close(); }
   // assemble: verified chunks in order → final MP4 (exact cadence) + supplied audio → probe → atomic publish
@@ -97,7 +107,7 @@ export async function renderFilm({ film, revision, renderer = "diagnostic_flat",
   catch (e) { fs.rmSync(tmp, { force: true }); throw err("RENDER_CAPTURE_FAILURE", { reason: `final assembly failed: ${e.message.slice(0, 200)}`, producer: "engine/film/segment_render.mjs#renderFilm", resume_at: "ASSEMBLE" }); }
   const probe = probeMp4(tmp); fs.renameSync(tmp, final);
   const manifest = { revision: revision.digest, key_sha256: keySha, renderer, renderer_provenance: R.provenance, renderer_module: R.module, renderer_source_sha256: key.renderer_source_sha256, renderer_args: rendererArgs, session_info: session.info, seed, total, fps, width, height, chunk_size: chunkSize,
-    chunks: receipts.map((r) => ({ frames: r.frames, chunk_sha256: r.chunk_sha256, mkv: r.mkv, mkv_sha256: r.mkv_sha256, defects: r.defects, reused: !!r.reused })), memory: mem };
+    chunks: receipts.map((r) => ({ frames: r.frames, chunk_sha256: r.chunk_sha256, mkv: r.mkv, mkv_sha256: r.mkv_sha256, defects: r.defects, reused: !!r.reused, ...(r.reused_from_cache ? { reused_from_cache: r.reused_from_cache } : {}) })), memory: mem };
   const mf = path.join(dir, "FRAME_MANIFEST.json"); writeAtomic(mf, JSON.stringify(manifest, null, 1));
   const receipt = { produced_by: "engine/film/segment_render.mjs#renderFilm", revision: revision.digest, frame_manifest: "render/FRAME_MANIFEST.json", frame_manifest_sha256: fsha(mf), mp4: path.relative(FILM, final).split(path.sep).join("/"), mp4_sha256: fsha(final), probe, renderer, renderer_provenance: R.provenance, renderer_source_sha256: key.renderer_source_sha256, audio_sha256: audio ? fsha(audio) : null, completed_at: new Date().toISOString() };
   writeAtomic(path.join(dir, "RENDER_COMPLETION_RECEIPT.json"), JSON.stringify(receipt, null, 1));

@@ -8,7 +8,7 @@ import { bindableAssets } from "./state_channels.mjs";
 import { castShadow } from "./motion_systems.mjs";
 import { gripMorphology } from "./contact_solver.mjs";
 import { shadowAffine, dilate } from "./execution.mjs";
-import { stateAtFrame } from "./temporal.mjs";
+import { stateAtFrame, ev } from "./temporal.mjs";
 import { compileTransition } from "./transitions.mjs";
 import { applyApprovedLighting } from "./lighting.mjs";
 import { chain, mul, T, S, R, apply, inv, fmt } from "./math2d.mjs";
@@ -104,6 +104,9 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   const ids = new Set(); for (const id of runtimeIds) { if (ids.has(id)) throw err("DUPLICATE_ELEMENT_ID", { record_id: id, reason: "runtime id emitted twice" }); ids.add(id); }
   const camIds = BANDS.filter((b) => ordered[b].length).map((b) => `cam-${b}`);
   const W = doc.stage.width, H = doc.stage.height;
+  const grades = (plan.grades || []).filter((g) => g.frames[0] < shot.end_frame && shot.start_frame < g.frames[1]), Q = 100;
+  if (grades.length) for (let q = 0; q <= Q; q++) { const w = q / Q, l = [0.2126, 0.7152, 0.0722], m = [0, 1, 2].map((r) => [0, 1, 2].map((c) => +(w * l[c] + (1 - w) * (r === c ? 1 : 0)).toFixed(6))); defs.push(`<filter id="${xml(P(`grade-q${String(q).padStart(3, "0")}`))}" color-interpolation-filters="linearRGB" x="0" y="0" width="1" height="1" filterUnits="objectBoundingBox"><feColorMatrix type="matrix" values="${m.map((row) => [...row, 0, 0].join(" ")).join(" ")} 0 0 0 1 0"/></filter>`); }
+  const gradeOf = (rig, f) => { for (const g of grades) { if (f < g.frames[0] || f >= g.frames[1] || !(g.owner_group?.rigs || []).includes(rig) || (g.protected_rigs || []).includes(rig)) continue; const w = Math.max(0, Math.min(1, ev(g.weight, f))); return w > 0 ? `url(#${P(`grade-q${String(Math.round(w * Q)).padStart(3, "0")}`)})` : "none"; } return grades.length ? "none" : null; };
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" id="${xml(P("stage"))}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs>${[...new Set(defs)].join("")}</defs>` +
     (background ? `<rect id="${xml(P("sentinel"))}" x="0" y="0" width="${W}" height="${H}" fill="${sentinel}"/>` : "") +
     BANDS.filter((b) => ordered[b].length).map((b) => `<g id="${xml(P(`cam-${b}`))}" data-band="${b}">${ordered[b].map((it) => it.markup).join("")}</g>`).join("") +
@@ -118,7 +121,7 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
     const lights = []; for (const p of st.passes) lights.push(...applyApprovedLighting(p, st.artStates[p.rig], f, { assets, lighting: plan.lighting }));
     const liveLight = new Map(lights.map((l) => [l.pass_id, l]));
     const execution = { shadows: [], grips: [], deforms: st.deforms.map((d) => ({ id: d.id, weight: d.weight })), morphs: st.morphs.map((m) => ({ id: m.id, weight: m.weight })) }, deformedBase = new Set(triPasses.filter((t) => st.deforms.some((d) => d.id === t.map)).map((t) => t.base));
-    for (const p of rigPasses) { const q = live.get(p.pass_id); rows.push([P(p.pass_id), fmt(mul(q ? q.matrix : compiled.fk(p.rig, compiled.evalPrimary(f, shot)[p.rig])[p.joint], T(...pivotOf(p.asset_id)))), q && q.visible && !deformedBase.has(p.pass_id) ? 1 : 0, 1]); }
+    for (const p of rigPasses) { const q = live.get(p.pass_id); const gr = gradeOf(p.rig, f); rows.push([P(p.pass_id), fmt(mul(q ? q.matrix : compiled.fk(p.rig, compiled.evalPrimary(f, shot)[p.rig])[p.joint], T(...pivotOf(p.asset_id)))), q && q.visible && !deformedBase.has(p.pass_id) ? 1 : 0, 1, ...(gr !== null ? [{ filter: gr }] : [])]); }
     for (const t of triPasses) { const q = live.get(t.base), d = st.deforms.find((x) => x.id === t.map), on = !!(q && q.visible && d); rows.push([P(t.id), fmt(mul(mul(q ? q.matrix : [1, 0, 0, 1, 0, 0], on ? d.affines[t.tri] : [1, 0, 0, 1, 0, 0]), T(...pivotOf(t.asset_id)))), on ? 1 : 0, 1]); }
     for (const mp of morphPaths) { const m = st.morphs.find((x) => x.id === mp.map); rows.push([P(mp.id), "matrix(1 0 0 1 0 0)", 1, 1, { d: m ? m.d[mp.i] : mp.d0 }]); }
     for (const s of shadowPasses) { const q = live.get(s.pass_id), A = shadowAffine(s.sh.light, s.sh.receiver), on = !!(q && q.visible); rows.push([P(s.id), fmt(mul(mul(A, q ? q.matrix : [1, 0, 0, 1, 0, 0]), T(...pivotOf(s.aid)))), on ? 1 : 0, 1]);
