@@ -69,6 +69,11 @@ export const SUBJECTS = { kade: biped("kade", { head_r: 32, torso: 170, leg: 300
   sheet: S({ kind: "PROP", family: "PROP", face: false, canvas: [360, 260], root: "sheet", lm: { sheet_c: [90, 60], edge_r: [150, 60], edge_l: [30, 60], top: [90, 10] }, joints: [["sheet", null, "sheet_c", [-40, 40]]],
     parts: { page: P("sheet", "sheet_c", ["sheet_c", "edge_r", "top"], (M) => ({ rgb: col("sheet:page"), sdf: rect(M.sheet_c, 110, 90) })) }, states_only: {}, master_order: ["page"],
     sockets: [{ id: "sheet_edge_r_front", joint_id: "sheet", local_xy: [58, 0], basis_angle_deg: 0, semantic_role: "right edge, front face" }, { id: "sheet_edge_l_front", joint_id: "sheet", local_xy: [-58, 0], basis_angle_deg: 0, semantic_role: "left edge, front face" }], ik: [], channels: [], pose_states: [["rest", {}]], edges: [], semantics: { sheet: "rigid page (DIAGNOSTIC)" } }),
+  box: S({ kind: "PROP", family: "PROP", face: false, canvas: [420, 360], root: "box", lm: { box_c: [100, 90], inside: [100, 120], slot: [100, 32], lip_l: [30, 150], lip_r: [170, 150], top: [100, 30] }, joints: [["box", null, "box_c", [-10, 10]]],
+    parts: { body: P("box", "box_c", ["box_c", "inside", "top"], (M) => ({ rgb: col("box:body"), sdf: (p) => Math.max(rect(M.box_c, 140, 120)(p), -rect([M.box_c[0], M.box_c[1] - 120], 8, 30)(p)) })),
+      front: P("box", "inside", ["inside", "lip_l", "lip_r"], (M) => ({ rgb: col("box:front"), sdf: rect([M.box_c[0], M.box_c[1] + 60], 140, 60) })) }, states_only: {}, master_order: ["body", "front"],
+    sockets: [{ id: "box_inside", joint_id: "box", local_xy: [0, 30], basis_angle_deg: 0, semantic_role: "inside floor (load destination)" }, { id: "box_slot", joint_id: "box", local_xy: [0, -58], basis_angle_deg: 90, semantic_role: "top slot centre (insertion axis = +basis)" }],
+    ik: [], channels: [], pose_states: [["rest", {}]], edges: [], semantics: { box: "rigid container with a front lip (DIAGNOSTIC)" } }),
   token: S({ kind: "PROP", family: "PROP", face: false, canvas: [160, 120], root: "token", lm: { token_c: [30, 20], edge: [42, 20], top: [30, 12] }, joints: [["token", null, "token_c", [-60, 60]]],
     parts: { coin: P("token", "token_c", ["token_c", "edge", "top"], (M) => ({ rgb: col("token:coin"), sdf: ell(M.token_c, 26, 8) })) }, states_only: {}, master_order: ["coin"],
     sockets: [{ id: "token_rim", joint_id: "token", local_xy: [10, 0], basis_angle_deg: 0, semantic_role: "rim (pinch faces top/bottom)" }, { id: "token_rim_face", joint_id: "token", local_xy: [18, 0], basis_angle_deg: 90, semantic_role: "rim edge, face normal (edge-on pinch)" }], ik: [], channels: [], pose_states: [["rest", {}]], edges: [], semantics: { token: "rigid thin coin (DIAGNOSTIC)" } }) };
@@ -76,10 +81,10 @@ export const SHOT_IDS = ["p08c_s1"];
 export const ACT = { kade: "p08c_kade_acts", pim: "p08c_pim_acts", props: "p08c_props" };
 export function scene({ A }) {
   const a = (id, actors, goal) => ({ ...A, id, shot_id: SHOT_IDS[0], frame_range: [0, 600], semantic_goal: goal, proof_conditions: ["owner effect visible"], actors: actors.map(([rig_id, xy]) => ({ rig_id, root_world_xy: xy, root_scale: 1 })), contact_events: [], pose_events: [{ frame: 0, state_id: "rest" }], state_events: [] });
-  return { project_id: "p08_characters", total_frames: 600, actions: [a(ACT.kade, [["kade_rig", [560, 470]]], "tall biped acts"), a(ACT.pim, [["pim_rig", [1080, 560]]], "short biped acts"), a(ACT.props, [["sheet_rig", [760, 520]], ["token_rig", [900, 600]]], "props wait")],
+  return { project_id: "p08_characters", total_frames: 600, actions: [a(ACT.kade, [["kade_rig", [560, 470]]], "tall biped acts"), a(ACT.pim, [["pim_rig", [1080, 560]]], "short biped acts"), a(ACT.props, [["sheet_rig", [760, 520]], ["token_rig", [900, 600]], ["box_rig", [1300, 640]]], "props wait")],
     shots: [{ id: SHOT_IDS[0], start_frame: 0, end_frame: 600, world_id: "p03_world_w", entry_state: "idle", events: ["acting"], attention_path: ["faces"], camera_track_id: "cam_1", required_asset_ids: ["p03_world_far"], exit_state: "idle", continuity_to: null, hold_purpose: "diagnostic acting" }] };
 }
-export const placements = { kade_rig: { x: 560, y: 470, scale: 1 }, pim_rig: { x: 1080, y: 560, scale: 1 }, sheet_rig: { x: 760, y: 520, scale: 1 }, token_rig: { x: 900, y: 600, scale: 1 } };
+export const placements = { kade_rig: { x: 560, y: 470, scale: 1 }, pim_rig: { x: 1080, y: 560, scale: 1 }, sheet_rig: { x: 760, y: 520, scale: 1 }, token_rig: { x: 900, y: 600, scale: 1 }, box_rig: { x: 1300, y: 640, scale: 1 } };
 export const basePlan = () => ({ id: "p08_characters_plan", placements: JSON.parse(JSON.stringify(placements)), tracks: {}, cameras: { cam_1: { x: [[0, 820]], y: [[0, 520]], zoom: [[0, 1.0]] } } });
 export const SPEC = { subjects: SUBJECTS, shot_ids: SHOT_IDS, scene, plan: basePlan() };
 let cached = null;

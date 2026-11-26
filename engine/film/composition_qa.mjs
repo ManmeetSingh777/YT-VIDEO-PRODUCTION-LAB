@@ -3,7 +3,7 @@
 // deleted/disabled producer, a suppressed effect or a camera move standing in for actor motion fails. A primitive checked on zero frames fails.
 import { stateAtFrame } from "../art_bridge/temporal.mjs";
 import { ev } from "../art_bridge/temporal.mjs";
-import { apply, angleOf, wrap180 } from "../art_bridge/math2d.mjs";
+import { apply, angleOf, wrap180, inv, mul } from "../art_bridge/math2d.mjs";
 import { err } from "../art_bridge/errors.mjs";
 import { writeSet } from "../art_bridge/composition.mjs";
 const deg = (r) => (r * 180) / Math.PI;
@@ -53,6 +53,25 @@ export function verifyComposition(C, { st = null, tolerance_deg = 0.5, aim_toler
           return why.length ? why.join("; ") : null; });
         res.measurement = { steps: r.steps.length, max_stance_drift_px: +maxDrift.toFixed(3), max_penetration_px: +pen.toFixed(3), min_mid_swing_clearance_px: Number.isFinite(minClear) ? +minClear.toFixed(2) : null };
         if (Number.isFinite(minClear) && minClear < 2) bad.push(`swing toe clearance ${minClear.toFixed(2)}px (the swing foot scuffs the ground)`); break; }
+      case "CARRY": { let rel0 = null, p0 = null, p1 = null, worst = 0; const R0 = C.rigs.get(rid).root, P_ = (C.propSupport || []).find((x) => x.prop_rig === rid);
+        each((s, f) => { const sg = P_?.segments.find((g) => g.frames[0] <= f && f < g.frames[1]), h = P_?.hands.find((x) => x.socket === r.hand && x.rig === r.carrier);
+          if (!sg || sg.mode !== "ACTOR_DRIVEN" || !h || sg.driver !== h.ref) return `the prop's transform is not written by ${r.carrier}'s ${r.hand} here (${sg ? sg.mode + " / " + sg.driver : "no support contract"}): a carried prop has no separate owner`;
+          const H = C.socketFrame(r.carrier, s.matrices[r.carrier], r.hand), Pm = s.matrices[rid][R0.id], rel = mul(inv(H), Pm), pos = apply(Pm, R0.rest_xy); if (!rel0) { rel0 = rel; p0 = pos; } p1 = pos;
+          const d = Math.hypot(rel[4] - rel0[4], rel[5] - rel0[5]), a = Math.abs(wrap180(Math.atan2(rel[1], rel[0]) * 180 / Math.PI - Math.atan2(rel0[1], rel0[0]) * 180 / Math.PI)); worst = Math.max(worst, d); return d > 0.5 || a > 0.5 ? `the prop shifts in the carrying hand (${d.toFixed(2)}px, ${a.toFixed(2)}°)` : null; });
+        const travel = p0 && p1 ? Math.hypot(p1[0] - p0[0], p1[1] - p0[1]) : 0; res.measurement = { travel_px: +travel.toFixed(2), max_slip_px: +worst.toFixed(3) }; if (travel < r.min_travel) bad.push(`the carried prop travels ${travel.toFixed(1)}px < ${r.min_travel}px (no carry happened)`); break; }
+      case "LOAD_CONTAINER": { let prev = null, maxStep = 0; const R0 = C.rigs.get(rid).root;
+        each((s, f) => { const base = C.socketWorld(rid, s.matrices[rid], r.base), inside = C.socketWorld(r.container, s.matrices[r.container], r.inside), rimF = C.socketFrame(r.container, s.matrices[r.container], r.rim), pos = apply(s.matrices[rid][R0.id], R0.rest_xy), why = [];
+          if (prev) { const st = Math.hypot(pos[0] - prev[0], pos[1] - prev[1]); maxStep = Math.max(maxStep, st); if (st > 25) why.push(`the prop jumps ${st.toFixed(1)}px in one frame (teleport into the container)`); } prev = pos;
+          const below = base[1] > rimF[5] + 0.5; if (below && Math.abs(base[0] - rimF[4]) > r.opening) why.push(`the prop is below the rim ${(base[0] - rimF[4]).toFixed(1)}px off the opening (it passes through the container wall)`);
+          if (f >= r.rest_from) { const d = Math.hypot(base[0] - inside[0], base[1] - inside[1]); if (d > r.tol) why.push(`at rest the prop base is ${d.toFixed(2)}px from the inside socket`); } return why.join("; ") || null; });
+        res.measurement = { max_step_px: +maxStep.toFixed(2) }; if (!(C.plan.paint_order || []).some((x) => x.above === r.layer && x.below === rid)) bad.push(`the container's front layer ${r.layer} does not occlude ${rid}`); break; }
+      case "INSERT_TOKEN": { let prevD = -Infinity, maxD = -Infinity;
+        each((s, f) => { const Sf = C.socketFrame(r.container, s.matrices[r.container], r.slot), Tf = C.socketFrame(rid, s.matrices[rid], r.tip), ax = Math.atan2(Sf[1], Sf[0]), n = [Math.cos(ax), Math.sin(ax)], t = [-n[1], n[0]], dx = Tf[4] - Sf[4], dy = Tf[5] - Sf[5], d = dx * n[0] + dy * n[1], lat = dx * t[0] + dy * t[1], why = [];
+          const ang = Math.abs(wrap180(Math.atan2(Tf[1], Tf[0]) * 180 / Math.PI - ax * 180 / Math.PI)); if (d > 0 && ang > r.angle) why.push(`token axis ${ang.toFixed(1)}° off the slot axis while inserted (wrong orientation)`);
+          if (d > 0 && Math.abs(lat) > r.lateral) why.push(`token ${lat.toFixed(1)}px off the slot laterally at depth ${d.toFixed(1)} (it passes through the solid wall)`);
+          if (d < prevD - 1e-6) why.push(`insertion depth decreases ${prevD.toFixed(2)} → ${d.toFixed(2)} (not a monotone insertion)`); if (d > r.depth + r.tol) why.push(`token pushed ${(d - r.depth).toFixed(2)}px past the directed depth`);
+          if (f >= r.stop_at && Math.abs(d - r.depth) > r.tol) why.push(`at the stop the depth is ${d.toFixed(2)}px, directed ${r.depth}px`); prevD = d; maxD = Math.max(maxD, d); return why.join("; ") || null; });
+        res.measurement = { max_depth_px: +maxD.toFixed(2) }; if (!(C.plan.paint_order || []).some((x) => x.above === r.layer && x.below === rid)) bad.push(`the aperture layer ${r.layer} does not hide the inserted token`); break; }
       case "CAMERA_MOVE": { each((s, f) => { for (const [k, ks] of Object.entries(r.abs)) { const want = ev(ks, f); if (Math.abs((s.camera[k] ?? 0) - want) > 1e-6) return `camera ${k} ${s.camera[k]} ≠ ${want}`; } return null; }); break; }
     }
     if (!n) bad.push("zero frames checked"); res.frames_checked = n; res.ok = !bad.length; res.reason = bad.slice(0, 5).join("; ") || null; results.push(res);
