@@ -2,14 +2,17 @@
 // the schema field reference and enums come from schemas/creative_packet_v1_1.schema.json, the validator rule list from the err("CODE", …) calls in
 // the actual validators, the diagnostic example is built by the P05 packet fixture + the P07 scope test shape and VALIDATED by validatePacket()
 // (and its hybrid companion by hybridPreflight()). Nothing is approved, signed, generated or submitted.
-// Usage: node tools/tbo/e01_packet_handoff.mjs --out E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip
+// Usage: node tools/tbo/e01_packet_handoff.mjs --out E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip   (export; reports success only after read-back verification)
+//        node tools/tbo/e01_packet_handoff.mjs --verify FILE.zip                                                    (verify an existing archive)
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto"; import os from "node:os"; import { execFileSync } from "node:child_process";
 import { validatePacket, packetDigest } from "../../engine/story/creative_packet.mjs";
 import { creativePreflight } from "../../engine/story/creative_preflight.mjs";
 import { hybridPreflight } from "../../engine/story/hybrid_contract.mjs";
 import { buildPacket } from "../../tests/p05/packet_fixture.mjs";
+import { writeZip, verifyZip } from "./zip_archive.mjs";
 const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".."), arg = (k) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const OUT = path.resolve(arg("--out") || "E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip"), sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), fsha = (f) => sha(fs.readFileSync(f));
+if (arg("--verify")) { const V = verifyZip(path.resolve(arg("--verify")), { required: ["MANIFEST.json"] }); console.log(JSON.stringify({ verify: V.ok ? "VERIFIED" : "FAILED", file: path.resolve(arg("--verify")), sha256: V.sha256, bytes: V.bytes, files: V.entries, manifest_listed: V.manifest_listed, errors: V.errors.slice(0, 20) })); process.exit(V.ok ? 0 : 5); }
 const head = execFileSync("git", ["rev-parse", "HEAD"], { cwd: REPO, encoding: "utf8" }).trim(), dirty = execFileSync("git", ["status", "--porcelain", "--", "engine", "schemas", "tools/tbo", "docs/the-better-one/episodes/E01/P3_2_MEASURED"], { cwd: REPO, encoding: "utf8" }).trim();
 if (dirty) { console.error("refusing: engine/schemas/tools/P3.2 sources have uncommitted changes; the handoff must name an exact source SHA\n" + dirty); process.exit(2); }
 const STAGE = fs.mkdtempSync(path.join(os.tmpdir(), "e01-packet-handoff-")), put = (rel, data) => { const f = path.join(STAGE, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, data); };
@@ -66,6 +69,10 @@ copy("engineering/e01_packet/P08_CONTRACT_ROUTING.md", "01_READ_FIRST/P08_CONTRA
 const all = fs.readdirSync(STAGE, { recursive: true }).map(String).filter((f) => fs.statSync(path.join(STAGE, f)).isFile()).map((f) => f.split(path.sep).join("/")).sort();
 put("MANIFEST.json", JSON.stringify({ kind: "E01_CREATIVE_PACKET_COMPILATION_HANDOFF", engine_source_sha: head, status: "DIAGNOSTIC EXAMPLE ONLY; no approval, receipt, artwork or signature inside", files: all.map((f) => ({ file: f, sha256: fsha(path.join(STAGE, f)) })) }, null, 1) + "\n");
 fs.mkdirSync(path.dirname(OUT), { recursive: true }); if (fs.existsSync(OUT)) { console.error(`refusing to overwrite ${OUT}`); process.exit(4); }
-const TAR = process.platform === "win32" ? path.join(process.env.SystemRoot || "C:/Windows", "System32", "tar.exe") : "zip"; // Windows bsdtar writes .zip with -a; GNU tar (Git Bash) cannot
-if (process.platform === "win32") execFileSync(TAR, ["-a", "-c", "-f", OUT, "-C", STAGE, "."], { stdio: "inherit" }); else execFileSync(TAR, ["-r", "-q", OUT, "."], { cwd: STAGE, stdio: "inherit" });
-console.log(JSON.stringify({ out: OUT, sha256: fsha(OUT), bytes: fs.statSync(OUT).size, files: all.length + 1, engine_source_sha: head, example: v.status, hybrid_example: hv.status }));
+// standard ZIP (clean relative names, DEFLATE), written to a temporary file and moved to OUT only after an independent read-back verification:
+// every entry inflates with its CRC-32, nothing is empty or a directory entry, the entry count is exact, and every MANIFEST.json hash matches.
+const TMP_OUT = `${OUT}.partial-${process.pid}`; writeZip(TMP_OUT, all.concat("MANIFEST.json").map((name) => ({ name, data: fs.readFileSync(path.join(STAGE, name)) })));
+const V = verifyZip(TMP_OUT, { expectFiles: all.length + 1, required: ["MANIFEST.json", "01_READ_FIRST/GPT_PACKET_COMPILATION_INSTRUCTIONS.md", "01_READ_FIRST/SOURCE_HASHES.json", "02_SCHEMAS/creative_packet_v1_1.schema.json", "09_DIAGNOSTIC_EXAMPLE/DIAGNOSTIC_EXAMPLE_PACKET.json"] });
+if (!V.ok) { fs.rmSync(TMP_OUT, { force: true }); console.error(JSON.stringify({ export: "FAILED_VERIFICATION", errors: V.errors.slice(0, 20) })); process.exit(5); }
+fs.renameSync(TMP_OUT, OUT); const V2 = verifyZip(OUT, { expectFiles: all.length + 1 }); if (!V2.ok || V2.sha256 !== V.sha256) { console.error(JSON.stringify({ export: "FAILED_AFTER_MOVE", errors: V2.errors })); process.exit(6); }
+console.log(JSON.stringify({ export: "VERIFIED", out: OUT, sha256: V2.sha256, bytes: V2.bytes, files: V2.entries, manifest_listed: V2.manifest_listed, engine_source_sha: head, example: v.status, hybrid_example: hv.status }));
