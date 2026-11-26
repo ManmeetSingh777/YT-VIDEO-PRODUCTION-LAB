@@ -10,6 +10,10 @@
       "role": "Permanent stage/contract/restart standard"
     },
     {
+      "path": "docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md",
+      "role": "Mandatory artist/engineer ArtJob and actual real-art gate protocol"
+    },
+    {
       "path": "docs/the-better-one/episodes/E01/EPISODE_STATE.json",
       "role": "Status and exact 13s range"
     },
@@ -44,6 +48,10 @@
     {
       "path": "inputs/EXPERIENCE_DIRECTOR_V1.md",
       "role": "Full 12-part director field source"
+    },
+    {
+      "path": "docs/the-better-one/ART_TO_FILM_ENFORCEMENT_GAP_AUDIT_V1.md",
+      "role": "Verified code producer and consumer mapping, explicit unproven real-art capability checks"
     }
   ],
   "missing_source_warning": "Actual V0.4 approved 12-part director, sealed CREATIVE_PACKET v1.1.0, measured sound, GPT image ArtJobs/masters and final P06 tested code SHA do not exist in this source pack; cannot truthfully pass production preart."
