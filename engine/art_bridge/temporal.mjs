@@ -24,6 +24,7 @@ import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHi
 import { balance } from "./contact_solver.mjs";
 import { multiSupportWithoutContract, segmentAt, evaluatePropSupport } from "./prop_support.mjs";
 import { canonicalContact, validateContactShots } from "./contact_continuity.mjs";
+import { compileComposition } from "./composition.mjs";
 
 const EASES = {
   linear: (p) => p, none: (p) => p,
@@ -59,6 +60,8 @@ export function compileMotionTracks(actions, shots, ctx) {
   // P06: approved PerformanceCommands compile ONCE, here, into the same plan/action surfaces every consumer below reads (no second timeline)
   let perfReport = null; if (ctx.plan?.performance) { const Pc = compilePerformance(ctx.doc, ctx.plan, { runType: ctx.runType ?? "DIAGNOSTIC", decisions: ctx.directionDecisions ?? null, packetDigest: ctx.packetDigest ?? null, fps: ctx.doc.stage?.fps ?? 60 }); errors.push(...Pc.errors); perfReport = Pc.report;
     if (Pc.report) { const byId = new Map(Pc.doc.actions.map((a) => [a.id, a])); actions = actions.map((a) => byId.get(a.id) || a); ctx = { ...ctx, doc: Pc.doc, plan: Pc.plan }; } }
+  // P08 A01/A03: composed low-level primitives compile into the SAME surfaces as the semantic commands (after them, before validation)
+  let compReport = null; if (ctx.plan?.composition) { const Cm = compileComposition(ctx.doc, ctx.plan); if (Cm.errors.length) { const e = new Error(`compileMotionTracks: ${Cm.errors.length} composition error(s)`); e.errors = Cm.errors; throw e; } const byId = new Map(Cm.doc.actions.map((a) => [a.id, a])); actions = actions.map((a) => byId.get(a.id) || a); ctx = { ...ctx, doc: Cm.doc, plan: Cm.plan }; compReport = Cm.report; }
   const { doc } = ctx, total = doc.stage.total_frames;
   { const un = (doc.rigs || []).filter((r) => r.geometry_status === "UNMEASURED" && actions.some((a) => a.actors.some((x) => x.rig_id === r.id))); if (un.length) throw Object.assign(err("GEOMETRY_UNMEASURED", { record_id: un[0].id, reason: `motion cannot be computed before the artwork is measured: ${un.map((r) => r.id).join(", ")}` }), { errors: un.map((r) => err("GEOMETRY_UNMEASURED", { record_id: r.id, reason: "rig geometry is unmeasured" })) }); }
   // layers 2–3 (P03 A+D, see acting.mjs): compiled PHRASES become primary tracks, ACTING modifies them (lag/anticipation/settle) and adds
@@ -157,7 +160,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     for (let i = errors.length - 1; i >= 0; i--) { const e = errors[i], act = actions.find((a) => a.id === e.record_id), edge = /^(.+?)\.(.+)->(.+)$/.exec(e.record_id || ""), ids = e.code === "MISSING_ART_ASSET" ? (act ? absent(act.required_assets) : absent([e.record_id])) : ["UNSUPPORTED_VIEW", "UNSUPPORTED_STATE_EDGE"].includes(e.code) && edge ? absent([...stateArt(edge[1], edge[2]), ...stateArt(edge[1], edge[3])]) : ["INVALID_MORPH_TOPOLOGY", "INVALID_DEFORM_MAP", "DEFORM_RENDER_FAILURE"].includes(e.code) && act ? absent(act.required_assets) : []; if (ids.length) { pendingArt.push(...ids); errors.splice(i, 1); } } }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
-  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport };
+  const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport, composition: compReport };
   C.shotAt = (f) => shots[shotAt[Math.floor(f)]] || null; // shot ownership is DISCRETE: a sub-frame sample time belongs to its integer frame (P02 repair: fractional t returned no shot → default camera, skipped actions)
   const placement = (rid, shot) => { const p = plan.placements?.[rid]; if (p) return p; const act = actions.find((a) => a.shot_id === shot?.id && a.actors.some((x) => x.rig_id === rid)); const ac = act?.actors.find((x) => x.rig_id === rid); return ac ? { x: ac.root_world_xy[0], y: ac.root_world_xy[1], scale: ac.root_scale ?? 1 } : null; };
   C.placement = placement;
