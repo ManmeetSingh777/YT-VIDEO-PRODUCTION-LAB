@@ -1,0 +1,2980 @@
+{
+ "kind": "E01_V04_PROVISIONAL_PREFLIGHT",
+ "status": "PROVISIONAL_NOT_FORMAL",
+ "approval": "NONE (V0.4-DIR-P1 is PROPOSED; no packet digest signed)",
+ "engine_registries_from": "frozen P06 engine b2c6931 (imported read-only)",
+ "source_dir": "docs\\the-better-one\\episodes\\E01\\V0_4_DIR_P1\\original",
+ "source_integrity": [
+  {
+   "file": "E01_ACTION_PLAN_V0_4_P1.csv",
+   "expected": "85abf7eb82c0500d73d29cdfee17a7fea05c058fbcb92e2f7a2aeec2ae962f9d",
+   "actual": "85abf7eb82c0500d73d29cdfee17a7fea05c058fbcb92e2f7a2aeec2ae962f9d",
+   "ok": true
+  },
+  {
+   "file": "E01_ART_REQUIREMENTS_V0_4_P1.md",
+   "expected": "cdb3e89c7e927f73fdab5b89c9b1af0486033a1173a8b8299ed447052c164c33",
+   "actual": "cdb3e89c7e927f73fdab5b89c9b1af0486033a1173a8b8299ed447052c164c33",
+   "ok": true
+  },
+  {
+   "file": "E01_AUDIO_CUE_PLAN_V0_4_P1.csv",
+   "expected": "ffe3f700d8818a9e60e9436865f9f77a0b18d9987511c802d380902b3714be39",
+   "actual": "ffe3f700d8818a9e60e9436865f9f77a0b18d9987511c802d380902b3714be39",
+   "ok": true
+  },
+  {
+   "file": "E01_CHANGE_IMPACT_V0_4_P1.md",
+   "expected": "e80103456bd65d3d43fae0da04f484d23a4e27978ca46310b2b6a8a4c7c4da98",
+   "actual": "e80103456bd65d3d43fae0da04f484d23a4e27978ca46310b2b6a8a4c7c4da98",
+   "ok": true
+  },
+  {
+   "file": "E01_CONTINUITY_CHECKPOINTS_V0_4_P1.csv",
+   "expected": "d560a2ee5ea5fca27e397734d1b5963a22ea50b93606851e322ed4ae6e56459a",
+   "actual": "d560a2ee5ea5fca27e397734d1b5963a22ea50b93606851e322ed4ae6e56459a",
+   "ok": true
+  },
+  {
+   "file": "E01_EDITORIAL_APPROVAL_REQUEST_V0_4_P1.md",
+   "expected": "7fef5ea50e428d78faac9cb760a55d5ccfb564091fb0b170020b7151ba018f8e",
+   "actual": "7fef5ea50e428d78faac9cb760a55d5ccfb564091fb0b170020b7151ba018f8e",
+   "ok": true
+  },
+  {
+   "file": "E01_EXPERIENCE_DIRECTOR_V0_4_P1.md",
+   "expected": "b8933e6c5c013659db65493168fc1e049fd0e646166b576113e233a87160217d",
+   "actual": "b8933e6c5c013659db65493168fc1e049fd0e646166b576113e233a87160217d",
+   "ok": true
+  },
+  {
+   "file": "E01_OPENING_SCREENPLAY_V0_4_P1.md",
+   "expected": "1e9d40aa85322348760a9db8a915ee9b338c8c5084c2483872dcfc265be20b61",
+   "actual": "1e9d40aa85322348760a9db8a915ee9b338c8c5084c2483872dcfc265be20b61",
+   "ok": true
+  },
+  {
+   "file": "E01_SHOT_TIMELINE_V0_4_P1.csv",
+   "expected": "25d6fc53a2853ef00ab721c0dcf47278638295f623fff1bef8c9b14bac564c90",
+   "actual": "25d6fc53a2853ef00ab721c0dcf47278638295f623fff1bef8c9b14bac564c90",
+   "ok": true
+  }
+ ],
+ "counts": {
+  "shots": 7,
+  "actions": 25,
+  "actions_in_extract": 17,
+  "audio_cues": 24,
+  "art_families": 27,
+  "continuity_rows": 17,
+  "dag_nodes": 72,
+  "dag_nodes_in_extract": 61
+ },
+ "status_counts": {
+  "SUPPORTED_IN_PRINCIPLE": 0,
+  "NEEDS_REAL_ART": 6,
+  "NEEDS_CREATIVE_DECISION": 9,
+  "NEEDS_ENGINE_PRODUCER": 10,
+  "UNSUPPORTED": 0
+ },
+ "status_counts_in_extract": {
+  "SUPPORTED_IN_PRINCIPLE": 0,
+  "NEEDS_REAL_ART": 6,
+  "NEEDS_CREATIVE_DECISION": 7,
+  "NEEDS_ENGINE_PRODUCER": 4,
+  "UNSUPPORTED": 0
+ },
+ "issues": [
+  {
+   "severity": "NORMALIZE",
+   "record": "A01",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A02",
+   "check": "ART_REFERENCE_SYNTAX",
+   "reason": "shorthand ART_M01–06 expanded to ART_M01 ART_M02 ART_M03 ART_M04 ART_M05 ART_M06"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A03",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A04",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A13",
+   "check": "ART_REFERENCE_SYNTAX",
+   "reason": "shorthand ART_M02–06 expanded to ART_M02 ART_M03 ART_M04 ART_M05 ART_M06"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A13",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A15",
+   "check": "ART_REFERENCE_SYNTAX",
+   "reason": "shorthand ART_M04–06, ART_P01–03 expanded to ART_M04 ART_M05 ART_M06 ART_P01 ART_P02 ART_P03"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A15",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A20",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A21",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A22",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "NORMALIZE",
+   "record": "A26",
+   "check": "MULTI_VALUE_FIELDS",
+   "reason": "space-separated multi-value field parsed into an array"
+  },
+  {
+   "severity": "INFO",
+   "record": "AUD08",
+   "check": "CUE_CROSSES_CUT",
+   "reason": "spans E01-S001-SH02, E01-S001-SH03 (intentional per INDEPENDENT_QA §3; keep audible, do not clip to shot)"
+  },
+  {
+   "severity": "INFO",
+   "record": "continuity",
+   "check": "CHECKPOINT_COUNT_PROSE",
+   "reason": "17 data rows (manifest says 17); the '18' in accompanying GPT prose is not a file fact; no checkpoint is invented"
+  }
+ ],
+ "boundary": {
+  "f180": {
+   "frame": 180,
+   "active_actions": [
+    {
+     "action": "A01",
+     "owners": [
+      "WORLD_RESTAURANT",
+      "BG_DINER_A/B",
+      "BG_OCCUPANCY",
+      "BG_QUEUE"
+     ],
+     "active_phase": "B responds head incline [136,184), settles [184,216)",
+     "last_event": null
+    },
+    {
+     "action": "A02",
+     "owners": [
+      "CHAR_MIA"
+     ],
+     "active_phase": "[177,189) smile breaks into genuine grin",
+     "last_event": {
+      "frame": 0,
+      "what": "both hands securely support plaque at chest/just above counter"
+     }
+    },
+    {
+     "action": "A03",
+     "owners": [
+      "CHAR_REGULAR"
+     ],
+     "active_phase": "[40,100) initial small lift to intended photo height, [100,189) ready but no shutter. [189,235) notices lead, lowers to relaxed chest, gaze Mia/lead then Mia. [235,579) waits",
+     "last_event": null
+    },
+    {
+     "action": "A06",
+     "owners": [
+      "CHAR_LEAD"
+     ],
+     "active_phase": "[132,189) approaches from anatomical right, report held right hand at near lower/right edge facing inward",
+     "last_event": null
+    },
+    {
+     "action": "A16",
+     "owners": [
+      "CHAR_REGULAR"
+     ],
+     "active_phase": "(no explicit phase: action-level state)",
+     "last_event": null
+    }
+   ],
+   "continuity_row": {
+    "absolute_frame": "180",
+    "shot": "SH01 / local 0",
+    "Mia": "Genuine grin, both hands hold award, gaze regular",
+    "lead": "Approaching from Mia right, report supported",
+    "regular": "Initial photo-ready grip, chuckle ongoing",
+    "award_support": "Mia both hands",
+    "report_ownership": "Lead right hand",
+    "phone_ownership": "Regular",
+    "world_and_camera": "Live background in progress; carry actual f179 pose/audio"
+   }
+  },
+  "audio_active_at_f180": [
+   "AUD01",
+   "AUD07",
+   "AUD20"
+  ],
+  "f959": {
+   "frame": 959,
+   "active_actions": [
+    {
+     "action": "A01",
+     "owners": [
+      "WORLD_RESTAURANT",
+      "BG_DINER_A/B",
+      "BG_OCCUPANCY",
+      "BG_QUEUE"
+     ],
+     "active_phase": "(no explicit phase: action-level state)",
+     "last_event": null
+    },
+    {
+     "action": "A15",
+     "owners": [
+      "CHAR_REGULAR",
+      "CHAR_MIA"
+     ],
+     "active_phase": "[953,960) settles",
+     "last_event": {
+      "frame": 900,
+      "what": "press/capture"
+     }
+    }
+   ],
+   "continuity_row": {
+    "absolute_frame": "959",
+    "shot": "SH03 / local 779",
+    "Mia": "Social smile, low right report, free left",
+    "lead": "Hands free, same work lane",
+    "regular": "Phone lowered, settled",
+    "award_support": "Counter only",
+    "report_ownership": "Mia sole",
+    "phone_ownership": "Regular",
+    "world_and_camera": "Exact outgoing live state"
+   }
+  },
+  "rule": "local f0 = absolute f180; state is inherited from the full timeline, never re-authored"
+ },
+ "ownership": [
+  {
+   "f": 180,
+   "col": "award_support",
+   "has": [
+    "Mia"
+   ],
+   "value": "Mia both hands",
+   "ok": true
+  },
+  {
+   "f": 264,
+   "col": "award_support",
+   "has": [
+    "Counter",
+    "Mia"
+   ],
+   "value": "Counter+Mia hands",
+   "ok": true
+  },
+  {
+   "f": 286,
+   "col": "award_support",
+   "has": [
+    "left"
+   ],
+   "value": "Counter supports; left light contact",
+   "ok": true
+  },
+  {
+   "f": 338,
+   "col": "award_support",
+   "has": [
+    "Counter only"
+   ],
+   "value": "Counter only",
+   "ok": true
+  },
+  {
+   "f": 0,
+   "col": "report_ownership",
+   "has": [
+    "Lead"
+   ],
+   "value": "Lead right hand",
+   "ok": true
+  },
+  {
+   "f": 338,
+   "col": "report_ownership",
+   "has": [
+    "Lead",
+    "Mia"
+   ],
+   "value": "Lead; Mia fingertip contact",
+   "ok": true
+  },
+  {
+   "f": 356,
+   "col": "report_ownership",
+   "has": [
+    "Mia driver",
+    "lead"
+   ],
+   "value": "Mia driver, lead residual contact",
+   "ok": true
+  },
+  {
+   "f": 368,
+   "col": "report_ownership",
+   "has": [
+    "Mia sole"
+   ],
+   "value": "Mia sole",
+   "ok": true
+  },
+  {
+   "f": 959,
+   "col": "report_ownership",
+   "has": [
+    "Mia sole"
+   ],
+   "value": "Mia sole",
+   "ok": true
+  },
+  {
+   "f": 900,
+   "col": "phone_ownership",
+   "has": [
+    "Regular"
+   ],
+   "value": "Regular",
+   "ok": true
+  }
+ ],
+ "gaps": {
+  "CROSS_ACTOR_PROP_TRANSFER": {
+   "reason": "two actors hold one prop at once, then possession transfers at a stated frame (dual secure support [348,356), transfer f356, lead clear f368)",
+   "evidence": [
+    "engine/film/performance_qa.mjs:29 possessionAt() keeps ONE holder per object (a later locked grip overwrites an earlier one): no dual-hold state and no transfer frame",
+    "no P06 verb or effect executor for a cross-actor handover (VERBS has grip/release per actor only)",
+    "no test in tests/ exercises a two-rig handover of one prop"
+   ],
+   "resolution": [
+    "ENGINEERING: implement a TRANSFER producer (one prop transform owner per instant; FOLLOW contact for the non-driving hand; executor checks no support gap, single driver, release order) and qualify it on two unlike rigs",
+    "CREATIVE (only if the user chooses): restage so the report is set on the counter and picked up (not recommended: the handover is a directed beat)"
+   ]
+  },
+  "TWO_HAND_SINGLE_PROP": {
+   "reason": "both hands of one actor co-support one prop (award raised with two hands; setdown with sequential release)",
+   "evidence": [
+    "engine/film/performance_qa.mjs:29 possessionAt() records one holder per object; two hands of one rig on one object are not represented",
+    "P06 diagnostic packet (tests/tbo/performance_fixture.mjs) grips with one hand only",
+    "creative_preflight.CONTACT_PRODUCERS.FOLLOW exists for a non-driving contact, but no P06 effect executor proves a two-hand hold"
+   ],
+   "resolution": [
+    "ENGINEERING: extend grip/hold to a driving hand + FOLLOW hand with an executor for both contacts and the sequential release",
+    "art: near/far finger layers for both hands on the plaque"
+   ]
+  },
+  "PAGE_EDGE_PINCH": {
+   "reason": "a single sheet held by its edge between thumb and fingers is physically a pinch",
+   "evidence": [
+    "creative_preflight.CONTACT_PRODUCERS.PINCH = false",
+    "engine/story/action_coverage.mjs ONTOLOGY.PINCH exists but CONSEQUENCES.PINCH measure is listed while CONTACT_PRODUCERS refuses it"
+   ],
+   "resolution": [
+    "CREATIVE+ART decision: direct it as a GRIP on a page-edge socket with wrapped thumb/finger layers (supported route), or ENGINEERING builds PINCH first"
+   ]
+  },
+  "ARTICULATED_WALK": {
+   "reason": "lead approaches with feet planting (f180/216); host walks in",
+   "evidence": [
+    "performance_commands.VERBS.walk.refused_routes.PART_RIG_2D = \"articulated walk (alternating plant IK with swing-foot arcs and hip weight shift) has no producer yet\""
+   ],
+   "resolution": [
+    "ART: approved gait cel cycle (APPROVED_CELS walk), or",
+    "ENGINEERING: build articulated walk (alternating plant IK, swing arcs, hip shift) + PlantedFootStable on two unlike rigs, or",
+    "CREATIVE: keep the lead's feet below the counter crop and stage the approach as a root MOVE with upper-body acting (explicit user choice; never silent)"
+   ]
+  },
+  "WORLD_FREEZE": {
+   "reason": "freeze every live owner at exactly its f959 state for [960,1098) and again at [1332,1950)",
+   "evidence": [
+    "no time-remap / frame-hold operator in engine/art_bridge/scene_graph.mjs or engine/film/*.mjs",
+    "available: P06 `hold` per owner and DIRECTION_OPERATIONS.HOLD (owner does not change) — a world freeze would be authored as one hold per owner; a missed owner would thaw silently"
+   ],
+   "resolution": [
+    "ENGINEERING (recommended): a compositor time-remap (source_frame = 959 for a frame range) applied to all 2D owners, with an executor that proves every owner's pixels equal f959"
+   ]
+  },
+  "SELECTIVE_DESATURATION": {
+   "reason": "desaturate the room except Mia's silhouette/overlaps [960,987)",
+   "evidence": [
+    "no runtime colour/grade/desaturation effect in engine/art_bridge or engine/film (palette.mjs is an authoring method, not a compositor effect)"
+   ],
+   "resolution": [
+    "ENGINEERING: a masked compositor colour effect driven by the approved ART_FREEZE01 masks, with an owner-isolated pixel test"
+   ]
+  },
+  "HOST_PERSPECTIVE_CAMERA": {
+   "reason": "real Blender host composited into the 2D frozen room with matched scale/light/shadow/occlusion",
+   "evidence": [
+    "engine/host3d/host_pass.mjs + blender_host_passes.py: adapter verified on a DIAGNOSTIC capsule (P06 G14)",
+    "P06 report §6: perspective host camera and depth/matte pass are NOT built"
+   ],
+   "resolution": [
+    "ENGINEERING: calibrated perspective camera + depth/matte/shadow-receiver passes",
+    "ART: approved original host .blend (mesh/rig/face/shape keys)"
+   ]
+  },
+  "VISEMES": {
+   "reason": "ART_M06/L03/R02 ask for phoneme-dependent mouth states",
+   "evidence": [
+    "performance_commands.VERBS.speak: LIMITED rest/mid/open from MEASURED words; no viseme producer (P06 report §6)"
+   ],
+   "resolution": [
+    "CREATIVE: approve limited_mouth in each speaking character's profile, or",
+    "ENGINEERING: viseme producer + phoneme mouth art"
+   ]
+  },
+  "GRADUAL_EXPRESSION": {
+   "reason": "smile weakens asymmetrically / corners lift 'not two discrete face swaps'",
+   "evidence": [
+    "change_expression/react are APPROVED_CELS channel swaps (performance_commands.VERBS)",
+    "REGISTERED_MORPH (execution.mjs#morphAt) needs two homologous VECTOR_PATH drawings; raster faces cannot morph"
+   ],
+   "resolution": [
+    "ART: approved inbetween expression cels (e.g. 3–4 per transition) so the swap sequence reads as gradual",
+    "or ART+ENGINEERING: vector mouth/brow paths for a registered morph"
+   ]
+  },
+  "BODY_VIEW_TURN": {
+   "reason": "Mia turns toward the entrance/empty room (memory)",
+   "evidence": [
+    "VERBS.turn_body routes = APPROVED_CELS only; refused without an approved body view family (P06 report)"
+   ],
+   "resolution": [
+    "ART: body view family + edge",
+    "or CREATIVE: keep the body in one view and turn head/eyes only"
+   ]
+  },
+  "SCREEN_CAPTURE_SEMANTICS": {
+   "reason": "'phone camera excludes report' / 'award included in intended photo' is a claim about an unseen photo",
+   "evidence": [
+    "no executor can measure an off-screen photo frustum"
+   ],
+   "resolution": [
+    "HUMAN check in review; optionally an explicit lens-frustum overlay in QA"
+   ]
+  }
+ },
+ "actions": [
+  {
+   "action": "A01",
+   "frames": [
+    0,
+    960
+   ],
+   "extract_local": [
+    0,
+    780
+   ],
+   "in_extract": true,
+   "owners": [
+    "WORLD_RESTAURANT",
+    "BG_DINER_A/B",
+    "BG_OCCUPANCY",
+    "BG_QUEUE"
+   ],
+   "target": "occupied room/window",
+   "shots": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "audio": [
+    "AUD01"
+   ],
+   "art_families": [
+    "ART_ENV01",
+    "ART_BG01",
+    "ART_BG02"
+   ],
+   "intended_visible_result": "Busy believable lunch; no synchronized loop; preserve exact f959 poses",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
+   "ops": [
+    {
+     "op": "diner A gesture / B head incline / distant holds",
+     "actor": "BG_DINER_A/B; BG_OCCUPANCY",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [
+      "BG_DINERS.parts",
+      "BG_DINERS.underpaint"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    },
+    {
+     "op": "queue weight shift [600,670)",
+     "actor": "BG_QUEUE",
+     "reg": {
+      "direction": "ARTICULATE"
+     },
+     "art": [
+      "BG_QUEUE.figures"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "DIRECTION_OPERATIONS.ARTICULATE"
+    },
+    {
+     "op": "background idle between beats; live through f959, the f960 stop is A20's freeze",
+     "actor": "BG_*",
+     "reg": {
+      "p06": "idle",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.idle via PART_RIG_2D; producer: declared stillness + optional approved windowed breathing; effect: LegalIdleHold"
+    }
+   ],
+   "gaps_and_decisions": []
+  },
+  {
+   "action": "A02",
+   "frames": [
+    0,
+    189
+   ],
+   "extract_local": [
+    0,
+    9
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "PROP_AWARD; CHAR_REGULAR",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD12"
+   ],
+   "art_families": [
+    "ART_M01",
+    "ART_M02",
+    "ART_M03",
+    "ART_M04",
+    "ART_M05",
+    "ART_M06",
+    "ART_P01"
+   ],
+   "intended_visible_result": "Plaque never floats or hides face; humor from pose, then genuine laugh",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "two hands support plaque from f0",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "gap": "TWO_HAND_SINGLE_PROP"
+     },
+     "art": [
+      "MIA.hand_l.grip_plaque",
+      "MIA.hand_r.grip_plaque",
+      "PROP_AWARD.grip_sockets"
+     ],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP TWO_HAND_SINGLE_PROP: engine/film/performance_qa.mjs:29 possessionAt() records one holder per object; two hands of one rig on one object are not represented"
+    },
+    {
+     "op": "anticipation + raise plaque, chin rise [36,120)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [
+      "MIA.parts",
+      "MIA.underpaint.shoulders_elbows"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    },
+    {
+     "op": "mock-regal hold [120,135)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "hold",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.hold via PART_RIG_2D; producer: no new motion; asserts persistence of listed states, pose, view and possession; effect: PoseContactHold"
+    },
+    {
+     "op": "speak 'Too much?' [135,177)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "speak",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA.mouth.rest/mid/open@mock_regal"
+     ],
+     "decision": "VISEMES",
+     "audio": [
+      "AUD12"
+     ],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.speak via APPROVED_CELS; producer: measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync); effect: SpeechAudioVisualSync"
+    },
+    {
+     "op": "smile breaks into genuine grin [177,189)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "change_expression",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA.expr.mock_regal",
+      "MIA.expr.genuine_grin",
+      "MIA.expr.inbetweens"
+     ],
+     "decision": "GRADUAL_EXPRESSION",
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.change_expression via APPROVED_CELS; producer: EXPRESSION channel swap; effect: ExpressionStateReached"
+    },
+    {
+     "op": "gaze to regular",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.eyes.gaze_states"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    }
+   ],
+   "gaps_and_decisions": [
+    "TWO_HAND_SINGLE_PROP",
+    "VISEMES",
+    "GRADUAL_EXPRESSION"
+   ]
+  },
+  {
+   "action": "A03",
+   "frames": [
+    0,
+    882
+   ],
+   "extract_local": [
+    0,
+    702
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_REGULAR"
+   ],
+   "target": "PROP_PHONE; CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "audio": [
+    "AUD03",
+    "AUD14"
+   ],
+   "art_families": [
+    "ART_R01",
+    "ART_P03"
+   ],
+   "intended_visible_result": "No long elevated hold; continuous support fingers; lens off report, no photo during reading; hand track visible in SH03",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
+   "ops": [
+    {
+     "op": "phone support grip throughout",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "grip",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "REGULAR.hand_near.phone_grip",
+      "PROP_PHONE.grip_socket",
+      "REGULAR.hand_near.near_far_layers"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.grip via PART_RIG_2D; producer: locked GRIP contact until the matching release + HAND closure state + plan.grips; effect: PaintedGripMaintained"
+    },
+    {
+     "op": "lift / lower / late raise of held phone",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [
+      "REGULAR.parts",
+      "REGULAR.underpaint.elbow_wrist_sleeve"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    },
+    {
+     "op": "glance around room [579,690) and back",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "turn_head",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "REGULAR.head_view_room (if beyond rigid limit)"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.turn_head via PART_RIG_2D; producer: rigid head aim within the approved rigid-turn limit, or an approved view-cel edge; effect: ApprovedViewTransition, GazeTowardTarget"
+    },
+    {
+     "op": "waiting holds",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "hold",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.hold via PART_RIG_2D; producer: no new motion; asserts persistence of listed states, pose, view and possession; effect: PoseContactHold"
+    }
+   ],
+   "gaps_and_decisions": []
+  },
+  {
+   "action": "A04",
+   "frames": [
+    205,
+    322
+   ],
+   "extract_local": [
+    25,
+    142
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "PROP_AWARD; counter",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD04",
+    "AUD02"
+   ],
+   "art_families": [
+    "ART_M02",
+    "ART_M03",
+    "ART_P01",
+    "ART_ENV01"
+   ],
+   "intended_visible_result": "Award fixed at f276 onward, stable base/shadow; no sliding or lingering hand; right reach may overlap left settle",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "eyes check surface [205,228)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.eyes.gaze_down"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    },
+    {
+     "op": "two-hand controlled setdown [228,264)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "gap": "TWO_HAND_SINGLE_PROP"
+     },
+     "art": [],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP TWO_HAND_SINGLE_PROP: engine/film/performance_qa.mjs:29 possessionAt() records one holder per object; two hands of one rig on one object are not represented"
+    },
+    {
+     "op": "plaque base contacts counter f264, counter bears load f276",
+     "actor": "PROP_AWARD",
+     "reg": {
+      "contact": "SUPPORT"
+     },
+     "art": [
+      "PROP_AWARD.base_socket",
+      "PROP_AWARD.contact_shadow",
+      "ENV.counter_top_landmark"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "CONTACT_PRODUCERS.SUPPORT = true"
+    },
+    {
+     "op": "right grip opens, free f286",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "release",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.hand_r.open"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.release via PART_RIG_2D; producer: contact end + HAND open state + release ramp; effect: ReleaseAndSeparation"
+    },
+    {
+     "op": "left fingertips steady then clear f300, arm settles",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "release",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.hand_l.fingertip_steady",
+      "MIA.hand_l.open"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.release via PART_RIG_2D; producer: contact end + HAND open state + release ramp; effect: ReleaseAndSeparation"
+    }
+   ],
+   "gaps_and_decisions": [
+    "TWO_HAND_SINGLE_PROP"
+   ]
+  },
+  {
+   "action": "A05",
+   "frames": [
+    15,
+    120
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "CHAR_REGULAR"
+   ],
+   "target": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD03"
+   ],
+   "art_families": [
+    "ART_R01",
+    "ART_R02"
+   ],
+   "intended_visible_result": "Natural established relationship",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "speak 'Hold it up, Mia. Big smile.' (pre-roll)",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "speak",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "REGULAR.mouth.rest/mid/open"
+     ],
+     "decision": "VISEMES",
+     "audio": [
+      "AUD03"
+     ],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.speak via APPROVED_CELS; producer: measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync); effect: SpeechAudioVisualSync"
+    },
+    {
+     "op": "friendly eyes toward Mia",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    }
+   ],
+   "gaps_and_decisions": [
+    "VISEMES"
+   ]
+  },
+  {
+   "action": "A06",
+   "frames": [
+    132,
+    322
+   ],
+   "extract_local": [
+    0,
+    142
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_LEAD"
+   ],
+   "target": "PROP_REPORT; employee lane",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD13"
+   ],
+   "art_families": [
+    "ART_L01",
+    "ART_L02",
+    "ART_L03",
+    "ART_P02"
+   ],
+   "intended_visible_result": "No counter clipping; presented only after safe setdown; page front stays private",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "approach along staff lane, feet plant f180/216",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "p06": "walk",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "LEAD.legs_feet (if visible)"
+     ],
+     "gap": "ARTICULATED_WALK",
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "VERBS.walk.refused_routes.PART_RIG_2D"
+    },
+    {
+     "op": "lead holds report in right hand",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "contact": "GRIP"
+     },
+     "art": [
+      "LEAD.hand_r.report_grip",
+      "PROP_REPORT.edge_socket_lead"
+     ],
+     "gap2": "PAGE_EDGE_PINCH",
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "CONTACT_PRODUCERS.GRIP = true",
+     "secondary_gap": "PAGE_EDGE_PINCH"
+    },
+    {
+     "op": "discreet wait [261,298)",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "p06": "hold",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.hold via PART_RIG_2D; producer: no new motion; asserts persistence of listed states, pose, view and possession; effect: PoseContactHold"
+    },
+    {
+     "op": "extend sheet into Mia's reach [298,322)",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [
+      "LEAD.parts",
+      "LEAD.underpaint.sleeve_elbow"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    }
+   ],
+   "gaps_and_decisions": [
+    "ARTICULATED_WALK",
+    "PAGE_EDGE_PINCH"
+   ]
+  },
+  {
+   "action": "A07",
+   "frames": [
+    286,
+    338
+   ],
+   "extract_local": [
+    106,
+    158
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "PROP_REPORT free lower-left edge as seen on front",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD05"
+   ],
+   "art_families": [
+    "ART_M02",
+    "ART_M03",
+    "ART_M04"
+   ],
+   "intended_visible_result": "Right hand available after award release; no premature contact",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
+   "ops": [
+    {
+     "op": "gaze page + anticipatory shoulder [286,300)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    },
+    {
+     "op": "right reach to page edge [300,338)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "reach",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.hand_r.reach_open",
+      "MIA.underpaint.elbow_r"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.reach via PART_RIG_2D; producer: contact approach ramp (plan.reaches) into the following grip/point contact, two-bone IK; effect: ContactApproach"
+    },
+    {
+     "op": "no collision with left withdrawal (independent owners)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "direction": "ARTICULATE"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "DIRECTION_OPERATIONS.ARTICULATE"
+    }
+   ],
+   "gaps_and_decisions": []
+  },
+  {
+   "action": "A08",
+   "frames": [
+    338,
+    374
+   ],
+   "extract_local": [
+    158,
+    194
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA",
+    "CHAR_LEAD"
+   ],
+   "target": "PROP_REPORT",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD05"
+   ],
+   "art_families": [
+    "ART_M03",
+    "ART_L02",
+    "ART_P02"
+   ],
+   "intended_visible_result": "No gap in physical support or double conflicting object drivers; no teleport; opposing grip surfaces, paper flex only if approved",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "Mia first contact f338, closes grip, secure f348",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "grip",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.hand_r.page_grip",
+      "MIA.hand_r.near_far_layers",
+      "PROP_REPORT.edge_socket_mia"
+     ],
+     "gap2": "PAGE_EDGE_PINCH",
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.grip via PART_RIG_2D; producer: locked GRIP contact until the matching release + HAND closure state + plan.grips; effect: PaintedGripMaintained",
+     "secondary_gap": "PAGE_EDGE_PINCH"
+    },
+    {
+     "op": "dual secure support [348,356), transfer f356, lead clear f368",
+     "actor": "CHAR_MIA; CHAR_LEAD",
+     "reg": {
+      "gap": "CROSS_ACTOR_PROP_TRANSFER"
+     },
+     "art": [],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP CROSS_ACTOR_PROP_TRANSFER: engine/film/performance_qa.mjs:29 possessionAt() keeps ONE holder per object (a later locked grip overwrites an earlier one): no dual-hold state and no transfer frame"
+    },
+    {
+     "op": "lead opens fingers and withdraws [356,374)",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "p06": "release",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "LEAD.hand_r.open"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.release via PART_RIG_2D; producer: contact end + HAND open state + release ramp; effect: ReleaseAndSeparation"
+    }
+   ],
+   "gaps_and_decisions": [
+    "PAGE_EDGE_PINCH",
+    "CROSS_ACTOR_PROP_TRANSFER"
+   ]
+  },
+  {
+   "action": "A09",
+   "frames": [
+    368,
+    404
+   ],
+   "extract_local": [
+    188,
+    224
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA",
+    "CHAR_LEAD"
+   ],
+   "target": "PROP_REPORT; gaze",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD06"
+   ],
+   "art_families": [
+    "ART_M02",
+    "ART_M03",
+    "ART_M04",
+    "ART_L01",
+    "ART_P02"
+   ],
+   "intended_visible_result": "Same orientation continues to insert; report held by Mia alone",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
+   "ops": [
+    {
+     "op": "draw page inward, elbow flex, tilt [368,404)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [
+      "MIA.underpaint.elbow_r",
+      "PROP_REPORT.reading_tilt_view"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    },
+    {
+     "op": "reading hold f404",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "hold",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.hold via PART_RIG_2D; producer: no new motion; asserts persistence of listed states, pose, view and possession; effect: PoseContactHold"
+    },
+    {
+     "op": "lead retracts, eyes down/away",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "LEAD.eyes.down"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    }
+   ],
+   "gaps_and_decisions": []
+  },
+  {
+   "action": "A10",
+   "frames": [
+    392,
+    432
+   ],
+   "extract_local": [
+    212,
+    252
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "report sales then loss",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD07"
+   ],
+   "art_families": [
+    "ART_M04",
+    "ART_M05"
+   ],
+   "intended_visible_result": "Eyes drive emotion before cut; concerned expression maintained offscreen during insert",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "eyes top line → second line [392,416)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.eyes.reading_down_states"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    },
+    {
+     "op": "smile weakens asymmetrically, lids/brows settle [416,432)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "react",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA.expr.slipping_smile",
+      "MIA.expr.concerned",
+      "MIA.expr.inbetweens"
+     ],
+     "decision": "GRADUAL_EXPRESSION",
+     "note": "react needs its intent as a key in Mia's approved profile reactions{} (performance_commands)",
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.react via APPROVED_CELS; producer: approved profile reaction map: expression swap + body beat with anticipation/recovery; effect: PurposefulEmotionRendered"
+    }
+   ],
+   "gaps_and_decisions": [
+    "GRADUAL_EXPRESSION"
+   ]
+  },
+  {
+   "action": "A12",
+   "frames": [
+    432,
+    576
+   ],
+   "extract_local": [
+    252,
+    396
+   ],
+   "in_extract": true,
+   "owners": [
+    "CAMERA"
+   ],
+   "target": "PROP_REPORT; M01",
+   "shots": [
+    "E01-S001-SH02"
+   ],
+   "audio": [
+    "AUD08"
+   ],
+   "art_families": [
+    "ART_P02",
+    "ART_TXT01",
+    "ART_CAM01"
+   ],
+   "intended_visible_result": "Sales $3,210, operating result −$120, LOSS; not bank balance",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
+   "ops": [
+    {
+     "op": "hard cut to insert f432",
+     "actor": "CAMERA",
+     "reg": {
+      "route": "TRANSITION"
+     },
+     "art": [],
+     "note": "compileTransition mode CUT",
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.TRANSITION = engine/art_bridge/transitions.mjs#compileTransition"
+    },
+    {
+     "op": "report page plane with registered M01 type, thumb mask",
+     "actor": "PROP_REPORT",
+     "reg": {
+      "route": "CAMERA_WORLD"
+     },
+     "art": [
+      "INSERT.report_closeup_plate",
+      "INSERT.mia_hand_r_thumb",
+      "TYPE.M01_report_text"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.CAMERA_WORLD = engine/art_bridge/scene_graph.mjs#composeShot"
+    },
+    {
+     "op": "static insert camera, residual settle [432,444)",
+     "actor": "CAMERA",
+     "reg": {
+      "camera": "STATIC"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "CAMERA_OPERATIONS.STATIC = true"
+    }
+   ],
+   "gaps_and_decisions": []
+  },
+  {
+   "action": "A13",
+   "frames": [
+    576,
+    882
+   ],
+   "extract_local": [
+    396,
+    702
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "CHAR_REGULAR; PROP_REPORT",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "audio": [
+    "AUD14",
+    "AUD09"
+   ],
+   "art_families": [
+    "ART_M02",
+    "ART_M03",
+    "ART_M04",
+    "ART_M05",
+    "ART_M06",
+    "ART_P02"
+   ],
+   "intended_visible_result": "No reset at cut; smile echo clear, page private, left hand relaxed; not two discrete face swaps",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "gaze down/listen [576,690)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "hold",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.hold via PART_RIG_2D; producer: no new motion; asserts persistence of listed states, pose, view and possession; effect: PoseContactHold"
+    },
+    {
+     "op": "eyes then head toward regular [690,756)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "turn_head",
+      "route": "PART_RIG_2D"
+     },
+     "art": [
+      "MIA.head_views (toward regular; if beyond rigid limit)"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.turn_head via PART_RIG_2D; producer: rigid head aim within the approved rigid-turn limit, or an approved view-cel edge; effect: ApprovedViewTransition, GazeTowardTarget"
+    },
+    {
+     "op": "report lowers below photo crop [750,807)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    },
+    {
+     "op": "restrained smile while speaking; corners lift [861,882)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "change_expression",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA.expr.social_smile_concerned_eyes",
+      "MIA.expr.inbetweens"
+     ],
+     "decision": "GRADUAL_EXPRESSION",
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.change_expression via APPROVED_CELS; producer: EXPRESSION channel swap; effect: ExpressionStateReached"
+    }
+   ],
+   "gaps_and_decisions": [
+    "GRADUAL_EXPRESSION"
+   ]
+  },
+  {
+   "action": "A14",
+   "frames": [
+    783,
+    861
+   ],
+   "extract_local": [
+    603,
+    681
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "CHAR_REGULAR",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "audio": [
+    "AUD09"
+   ],
+   "art_families": [
+    "ART_M05",
+    "ART_M06"
+   ],
+   "intended_visible_result": "Double meaning, not overtly announcing crisis",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "speak 'Let's get through today.' [783,861)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "speak",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA.mouth.rest/mid/open@restrained_smile"
+     ],
+     "decision": "VISEMES",
+     "audio": [
+      "AUD09"
+     ],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.speak via APPROVED_CELS; producer: measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync); effect: SpeechAudioVisualSync"
+    }
+   ],
+   "gaps_and_decisions": [
+    "VISEMES"
+   ]
+  },
+  {
+   "action": "A15",
+   "frames": [
+    882,
+    960
+   ],
+   "extract_local": [
+    702,
+    780
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_REGULAR",
+    "CHAR_MIA"
+   ],
+   "target": "PROP_PHONE; PROP_REPORT",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "audio": [
+    "AUD10",
+    "AUD11"
+   ],
+   "art_families": [
+    "ART_R01",
+    "ART_R02",
+    "ART_M04",
+    "ART_M05",
+    "ART_M06",
+    "ART_P01",
+    "ART_P02",
+    "ART_P03"
+   ],
+   "intended_visible_result": "One photo, no flash; phone camera excludes report; award on counter included in intended photo; freeze inherits f959",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "thumb approaches/presses shutter f900, releases [891,912)",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "direction": "STATE_CHANGE"
+     },
+     "art": [
+      "REGULAR.thumb.ready",
+      "REGULAR.thumb.press"
+     ],
+     "note": "a separate THUMB state channel: the HAND grip channel must stay closed (PaintedGripMaintained)",
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "DIRECTION_OPERATIONS.STATE_CHANGE"
+    },
+    {
+     "op": "phone lowers with support grip [912,942)",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "route": "ARTICULATED"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.ARTICULATED = engine/art_bridge/temporal.mjs#compileMotionTracks"
+    },
+    {
+     "op": "glance at screen [942,953)",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    },
+    {
+     "op": "Mia holds social smile, eyes betray worry",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "hold",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.hold via PART_RIG_2D; producer: no new motion; asserts persistence of listed states, pose, view and possession; effect: PoseContactHold"
+    },
+    {
+     "op": "photo frustum excludes report, includes award",
+     "actor": "PROP_PHONE",
+     "reg": {
+      "gap": "SCREEN_CAPTURE_SEMANTICS",
+      "as": "NEEDS_CREATIVE_DECISION"
+     },
+     "art": [],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "GAP SCREEN_CAPTURE_SEMANTICS: no executor can measure an off-screen photo frustum"
+    }
+   ],
+   "gaps_and_decisions": [
+    "SCREEN_CAPTURE_SEMANTICS"
+   ]
+  },
+  {
+   "action": "A16",
+   "frames": [
+    177,
+    189
+   ],
+   "extract_local": [
+    0,
+    9
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_REGULAR"
+   ],
+   "target": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD20"
+   ],
+   "art_families": [
+    "ART_R01",
+    "ART_R02"
+   ],
+   "intended_visible_result": "Actual response not laugh track",
+   "status": "NEEDS_REAL_ART",
+   "engine_status": "SUPPORTED_IN_PRINCIPLE",
+   "ops": [
+    {
+     "op": "short chuckle: cheek/lid change",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "react",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "REGULAR.expr.chuckle"
+     ],
+     "audio": [
+      "AUD20"
+     ],
+     "note": "intent must be a key in the regular's approved profile reactions{}",
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.react via APPROVED_CELS; producer: approved profile reaction map: expression swap + body beat with anticipation/recovery; effect: PurposefulEmotionRendered"
+    }
+   ],
+   "gaps_and_decisions": []
+  },
+  {
+   "action": "A17",
+   "frames": [
+    189,
+    261
+   ],
+   "extract_local": [
+    9,
+    81
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_LEAD"
+   ],
+   "target": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD13"
+   ],
+   "art_families": [
+    "ART_L03"
+   ],
+   "intended_visible_result": "Natural interruption",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "speak 'Mia? Yesterday's numbers.' while arriving",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "p06": "speak",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "LEAD.mouth.rest/mid/open"
+     ],
+     "decision": "VISEMES",
+     "audio": [
+      "AUD13"
+     ],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.speak via APPROVED_CELS; producer: measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync); effect: SpeechAudioVisualSync"
+    },
+    {
+     "op": "gaze toward Mia",
+     "actor": "CHAR_LEAD",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    }
+   ],
+   "gaps_and_decisions": [
+    "VISEMES"
+   ]
+  },
+  {
+   "action": "A18",
+   "frames": [
+    270,
+    297
+   ],
+   "extract_local": [
+    90,
+    117
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_MIA"
+   ],
+   "target": "CHAR_LEAD",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "audio": [
+    "AUD02"
+   ],
+   "art_families": [
+    "ART_M06"
+   ],
+   "intended_visible_result": "Natural multitasking",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "speak 'Thanks.' during setdown",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "speak",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA.mouth.rest/mid/open@smile"
+     ],
+     "decision": "VISEMES",
+     "audio": [
+      "AUD02"
+     ],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.speak via APPROVED_CELS; producer: measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync); effect: SpeechAudioVisualSync"
+    },
+    {
+     "op": "gaze briefly to lead",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "look_at",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.look_at via PART_RIG_2D; producer: aim layer plan.__gaze (weighted, limit-bounded); effect: GazeTowardTarget"
+    }
+   ],
+   "gaps_and_decisions": [
+    "VISEMES"
+   ]
+  },
+  {
+   "action": "A19",
+   "frames": [
+    579,
+    756
+   ],
+   "extract_local": [
+    399,
+    576
+   ],
+   "in_extract": true,
+   "owners": [
+    "CHAR_REGULAR"
+   ],
+   "target": "dining room then Mia",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "audio": [
+    "AUD14"
+   ],
+   "art_families": [
+    "ART_R01",
+    "ART_R02"
+   ],
+   "intended_visible_result": "Sincere encouragement creates irony",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "speak expansion remark [579,756)",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "speak",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "REGULAR.mouth.rest/mid/open"
+     ],
+     "decision": "VISEMES",
+     "audio": [
+      "AUD14"
+     ],
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.speak via APPROVED_CELS; producer: measured word alignment → syllable-timed MOUTH rest/mid/open swaps (LIMITED mouth, not phoneme sync); effect: SpeechAudioVisualSync"
+    },
+    {
+     "op": "look out over room and back (see A03)",
+     "actor": "CHAR_REGULAR",
+     "reg": {
+      "p06": "turn_head",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.turn_head via PART_RIG_2D; producer: rigid head aim within the approved rigid-turn limit, or an approved view-cel edge; effect: ApprovedViewTransition, GazeTowardTarget"
+    }
+   ],
+   "gaps_and_decisions": [
+    "VISEMES"
+   ]
+  },
+  {
+   "action": "A20",
+   "frames": [
+    960,
+    1098
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "COMPOSITOR",
+    "WORLD_RESTAURANT"
+   ],
+   "target": "f959 exact state; THIS IS MIA",
+   "shots": [
+    "E01-S001-SH04"
+   ],
+   "audio": [
+    "AUD15",
+    "AUD11",
+    "AUD21"
+   ],
+   "art_families": [
+    "ART_FREEZE01",
+    "ART_TXT02",
+    "ART_CAM01"
+   ],
+   "intended_visible_result": "Actual paused world, no reposing or moving patrons; readable label, not title logo",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "freeze all live owners at f959",
+     "actor": "COMPOSITOR",
+     "reg": {
+      "gap": "WORLD_FREEZE"
+     },
+     "art": [],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP WORLD_FREEZE: no time-remap / frame-hold operator in engine/art_bridge/scene_graph.mjs or engine/film/*.mjs"
+    },
+    {
+     "op": "selective desaturation, Mia protected [960,987)",
+     "actor": "COMPOSITOR",
+     "reg": {
+      "gap": "SELECTIVE_DESATURATION"
+     },
+     "art": [
+      "ART_FREEZE01.masks"
+     ],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP SELECTIVE_DESATURATION: no runtime colour/grade/desaturation effect in engine/art_bridge or engine/film (palette.mjs is an authoring method, not a compositor effect)"
+    },
+    {
+     "op": "THIS IS MIA type/arrow [987,1059)",
+     "actor": "COMPOSITOR",
+     "reg": {
+      "direction": "EFFECT"
+     },
+     "art": [
+      "TYPE.THIS_IS_MIA"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "DIRECTION_OPERATIONS.EFFECT"
+    }
+   ],
+   "gaps_and_decisions": [
+    "WORLD_FREEZE",
+    "SELECTIVE_DESATURATION"
+   ]
+  },
+  {
+   "action": "A21",
+   "frames": [
+    1098,
+    1332
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "CHAR_MIA",
+    "WORLD_RESTAURANT_PAST"
+   ],
+   "target": "PROP_OPEN_SIGN; door; empty tables",
+   "shots": [
+    "E01-S001-SH05"
+   ],
+   "audio": [
+    "AUD16",
+    "AUD21",
+    "AUD24"
+   ],
+   "art_families": [
+    "ART_MEM01",
+    "ART_MEM02",
+    "ART_P04"
+   ],
+   "intended_visible_result": "Same location recognizable, not a real documentary; no future crowd or award in past",
+   "status": "NEEDS_CREATIVE_DECISION",
+   "engine_status": "NEEDS_CREATIVE_DECISION",
+   "ops": [
+    {
+     "op": "hard cut to memory f1098",
+     "actor": "CAMERA",
+     "reg": {
+      "route": "TRANSITION"
+     },
+     "art": [
+      "ENV_PAST_ROOM"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.TRANSITION = engine/art_bridge/transitions.mjs#compileTransition"
+    },
+    {
+     "op": "grip sign, turn to OPEN (sign pivots), release",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "direction": "REACT"
+     },
+     "art": [
+      "MIA_MEM.hand_r.sign_grip",
+      "PROP_OPEN_SIGN.faces_OPEN_CLOSED",
+      "PROP_OPEN_SIGN.pivot_socket"
+     ],
+     "note": "sign rotation = mechanism REACT (P03/P05 lever/gear producer); face swap past 90° needs both faces",
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "DIRECTION_OPERATIONS.REACT"
+    },
+    {
+     "op": "turn toward entrance/empty room [1170,1230)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "turn_body",
+      "route": "APPROVED_CELS"
+     },
+     "art": [
+      "MIA_MEM.body_views"
+     ],
+     "decision": "BODY_VIEW_TURN",
+     "status": "NEEDS_CREATIVE_DECISION",
+     "registry_evidence": "VERBS.turn_body via APPROVED_CELS; producer: approved body view edge + plants on the support sockets; effect: ApprovedBodyTurn"
+    },
+    {
+     "op": "hopeful wait, breath [1230,1332)",
+     "actor": "CHAR_MIA",
+     "reg": {
+      "p06": "idle",
+      "route": "PART_RIG_2D"
+     },
+     "art": [],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "VERBS.idle via PART_RIG_2D; producer: declared stillness + optional approved windowed breathing; effect: LegalIdleHold"
+    }
+   ],
+   "gaps_and_decisions": [
+    "BODY_VIEW_TURN"
+   ]
+  },
+  {
+   "action": "A22",
+   "frames": [
+    1332,
+    1485
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "COMPOSITOR",
+    "WORLD_RESTAURANT"
+   ],
+   "target": "f959 freeze state; CHAR_MIA",
+   "shots": [
+    "E01-S001-SH06"
+   ],
+   "audio": [
+    "AUD17",
+    "AUD23"
+   ],
+   "art_families": [
+    "ART_FREEZE01",
+    "ART_ENV01",
+    "ART_CAM02"
+   ],
+   "intended_visible_result": "Empty vs full contrast and human stakes, no invented cash claim",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "match cut back to frozen present, wider framing",
+     "actor": "CAMERA",
+     "reg": {
+      "route": "TRANSITION"
+     },
+     "art": [
+      "ENV.wide_SH06_coverage",
+      "ART_CAM02.wide_plates"
+     ],
+     "status": "SUPPORTED_IN_PRINCIPLE",
+     "registry_evidence": "ROUTES.TRANSITION = engine/art_bridge/transitions.mjs#compileTransition"
+    },
+    {
+     "op": "restore exact f959 state of every owner",
+     "actor": "COMPOSITOR",
+     "reg": {
+      "gap": "WORLD_FREEZE"
+     },
+     "art": [],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP WORLD_FREEZE: no time-remap / frame-hold operator in engine/art_bridge/scene_graph.mjs or engine/film/*.mjs"
+    }
+   ],
+   "gaps_and_decisions": [
+    "WORLD_FREEZE"
+   ]
+  },
+  {
+   "action": "A23",
+   "frames": [
+    1485,
+    1560
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "CHAR_HOST"
+   ],
+   "target": "public aisle floor",
+   "shots": [
+    "E01-S001-SH07"
+   ],
+   "audio": [
+    "AUD22"
+   ],
+   "art_families": [
+    "ART_HOST01",
+    "ART_HOST02",
+    "ART_CAM02"
+   ],
+   "intended_visible_result": "Real Blender host present, matched scale/light/shadow/occlusion; no 2D stand-in",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "Blender host walks in, plants f1508/1540, stops",
+     "actor": "CHAR_HOST",
+     "reg": {
+      "gap": "HOST_PERSPECTIVE_CAMERA"
+     },
+     "art": [
+      "HOST.blend (mesh/rig/face)"
+     ],
+     "note": "walk is authored inside Blender; the 2D walk refusal does not apply, the host camera/matte gap does",
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP HOST_PERSPECTIVE_CAMERA: engine/host3d/host_pass.mjs + blender_host_passes.py: adapter verified on a DIAGNOSTIC capsule (P06 G14)"
+    }
+   ],
+   "gaps_and_decisions": [
+    "HOST_PERSPECTIVE_CAMERA"
+   ]
+  },
+  {
+   "action": "A24",
+   "frames": [
+    1560,
+    1674
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "CHAR_HOST"
+   ],
+   "target": "Mia then occupied room",
+   "shots": [
+    "E01-S001-SH07"
+   ],
+   "audio": [
+    "AUD18"
+   ],
+   "art_families": [
+    "ART_HOST02"
+   ],
+   "intended_visible_result": "Curious, imperfect initial hypothesis",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "host gaze + question + optional open-hand gesture",
+     "actor": "CHAR_HOST",
+     "reg": {
+      "gap": "HOST_PERSPECTIVE_CAMERA"
+     },
+     "art": [
+      "HOST.shape_keys"
+     ],
+     "audio": [
+      "AUD18"
+     ],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP HOST_PERSPECTIVE_CAMERA: engine/host3d/host_pass.mjs + blender_host_passes.py: adapter verified on a DIAGNOSTIC capsule (P06 G14)"
+    }
+   ],
+   "gaps_and_decisions": [
+    "HOST_PERSPECTIVE_CAMERA"
+   ]
+  },
+  {
+   "action": "A25",
+   "frames": [
+    1674,
+    1758
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "CHAR_HOST"
+   ],
+   "target": "occupied tables/queue",
+   "shots": [
+    "E01-S001-SH07"
+   ],
+   "audio": [
+    "AUD23"
+   ],
+   "art_families": [
+    "ART_HOST02"
+   ],
+   "intended_visible_result": "Recognizes more demand may not be answer; no exaggerated confusion",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "host eye/head sweep to queue, lowers gesture",
+     "actor": "CHAR_HOST",
+     "reg": {
+      "gap": "HOST_PERSPECTIVE_CAMERA"
+     },
+     "art": [],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP HOST_PERSPECTIVE_CAMERA: engine/host3d/host_pass.mjs + blender_host_passes.py: adapter verified on a DIAGNOSTIC capsule (P06 G14)"
+    }
+   ],
+   "gaps_and_decisions": [
+    "HOST_PERSPECTIVE_CAMERA"
+   ]
+  },
+  {
+   "action": "A26",
+   "frames": [
+    1758,
+    1950
+   ],
+   "extract_local": null,
+   "in_extract": false,
+   "owners": [
+    "CHAR_HOST"
+   ],
+   "target": "Mia; register/counter direction",
+   "shots": [
+    "E01-S001-SH07"
+   ],
+   "audio": [
+    "AUD19",
+    "AUD23"
+   ],
+   "art_families": [
+    "ART_HOST02",
+    "ART_CAM02"
+   ],
+   "intended_visible_result": "Clear next question: follow money; cut f1950 into later unapproved shot",
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "engine_status": "NEEDS_ENGINE_PRODUCER",
+   "ops": [
+    {
+     "op": "host speaks decision, gaze to counter",
+     "actor": "CHAR_HOST",
+     "reg": {
+      "gap": "HOST_PERSPECTIVE_CAMERA"
+     },
+     "art": [],
+     "audio": [
+      "AUD19"
+     ],
+     "status": "NEEDS_ENGINE_PRODUCER",
+     "registry_evidence": "GAP HOST_PERSPECTIVE_CAMERA: engine/host3d/host_pass.mjs + blender_host_passes.py: adapter verified on a DIAGNOSTIC capsule (P06 G14)"
+    }
+   ],
+   "gaps_and_decisions": [
+    "HOST_PERSPECTIVE_CAMERA"
+   ]
+  }
+ ],
+ "art_dag": [
+  {
+   "id": "MIA_MASTER",
+   "kind": "MASTER",
+   "family": "ART_M01",
+   "derived_from": null,
+   "why": "canonical Mia, SH01 three-quarter counter view; identity for every derived Mia state",
+   "first_job": true,
+   "consumers": []
+  },
+  {
+   "id": "REGULAR_MASTER",
+   "kind": "MASTER",
+   "family": "ART_R01",
+   "derived_from": null,
+   "why": "canonical regular, camera-left public side",
+   "first_job": true,
+   "consumers": []
+  },
+  {
+   "id": "LEAD_MASTER",
+   "kind": "MASTER",
+   "family": "ART_L01",
+   "derived_from": null,
+   "why": "canonical shift lead, staff lane",
+   "first_job": true,
+   "consumers": []
+  },
+  {
+   "id": "ENV_RESTAURANT_SH01",
+   "kind": "WORLD_PLANE",
+   "family": "ART_ENV01",
+   "derived_from": null,
+   "why": "layered room: far window/queue, mid tables, counter, foreground counter occluder; overscan at SH01/SH03 crops",
+   "first_job": true,
+   "companions": [
+    "CLEAN_PLATE",
+    "OCCLUDER",
+    "MASK"
+   ],
+   "consumers": []
+  },
+  {
+   "id": "PROP_AWARD",
+   "kind": "MASTER",
+   "family": "ART_P01",
+   "derived_from": null,
+   "why": "plaque front/side/base, base socket, contact shadow",
+   "consumers": []
+  },
+  {
+   "id": "PROP_REPORT",
+   "kind": "MASTER",
+   "family": "ART_P02",
+   "derived_from": null,
+   "why": "single sheet front/back/edge; two edge grip sockets; TYPE plane",
+   "consumers": []
+  },
+  {
+   "id": "PROP_PHONE",
+   "kind": "MASTER",
+   "family": "ART_P03",
+   "derived_from": null,
+   "why": "front/back/side; lens side; grip socket",
+   "consumers": []
+  },
+  {
+   "id": "MIA.parts",
+   "kind": "PART",
+   "family": "ART_M02",
+   "derived_from": "MIA_MASTER",
+   "why": "head, neck, torso, upper arms, forearms, hands as source-attached edits of the master",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.underpaint.shoulders_elbows",
+   "kind": "UNDERPAINT",
+   "family": "ART_M02",
+   "derived_from": "MIA_MASTER",
+   "why": "hidden cloth/torso/neck/shoulder/elbow paint for raise, setdown, reach, draw-in",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.underpaint.elbow_r",
+   "kind": "UNDERPAINT",
+   "family": "ART_M02",
+   "derived_from": "MIA_MASTER",
+   "why": "right elbow exposed by reach/draw-in",
+   "consumers": [
+    "A07",
+    "A09"
+   ]
+  },
+  {
+   "id": "MIA.hand_l.grip_plaque",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "left hand on plaque, near/far fingers",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.hand_r.grip_plaque",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "right hand on plaque, near/far fingers",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.hand_l.fingertip_steady",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "left fingertips stabilise after load transfer",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "MIA.hand_l.open",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "left release/relaxed",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "MIA.hand_r.open",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "right release",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "MIA.hand_r.reach_open",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "curved-wrist reach",
+   "consumers": [
+    "A07"
+   ]
+  },
+  {
+   "id": "MIA.hand_r.page_grip",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "page-edge grip (thumb/finger wrap: PAGE_EDGE_PINCH decision)",
+   "consumers": [
+    "A08"
+   ]
+  },
+  {
+   "id": "MIA.hand_r.near_far_layers",
+   "kind": "CEL",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "near/far finger layers around the page",
+   "consumers": [
+    "A08"
+   ]
+  },
+  {
+   "id": "MIA.eyes.gaze_states",
+   "kind": "CEL",
+   "family": "ART_M04",
+   "derived_from": "MIA_MASTER",
+   "why": "eyes to regular / lead / page / return",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.eyes.gaze_down",
+   "kind": "CEL",
+   "family": "ART_M04",
+   "derived_from": "MIA_MASTER",
+   "why": "surface check",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "MIA.eyes.reading_down_states",
+   "kind": "CEL",
+   "family": "ART_M04",
+   "derived_from": "MIA_MASTER",
+   "why": "line 1 → line 2",
+   "consumers": [
+    "A10"
+   ]
+  },
+  {
+   "id": "MIA.head_views (toward regular; if beyond rigid limit)",
+   "kind": "CEL",
+   "family": "ART_M04",
+   "derived_from": "MIA_MASTER",
+   "why": "CONDITIONAL view family; required only if the measured turn exceeds Mia's approved max_rigid_turn_deg",
+   "conditional": true,
+   "consumers": [
+    "A13"
+   ]
+  },
+  {
+   "id": "MIA.expr.mock_regal",
+   "kind": "CEL",
+   "family": "ART_M05",
+   "derived_from": "MIA_MASTER",
+   "why": "face",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.expr.genuine_grin",
+   "kind": "CEL",
+   "family": "ART_M05",
+   "derived_from": "MIA_MASTER",
+   "why": "face; the first smile the payoff echoes",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.expr.slipping_smile",
+   "kind": "CEL",
+   "family": "ART_M05",
+   "derived_from": "MIA_MASTER",
+   "why": "asymmetric weakening",
+   "consumers": [
+    "A10"
+   ]
+  },
+  {
+   "id": "MIA.expr.concerned",
+   "kind": "CEL",
+   "family": "ART_M05",
+   "derived_from": "MIA_MASTER",
+   "why": "lids/brows settle",
+   "consumers": [
+    "A10"
+   ]
+  },
+  {
+   "id": "MIA.expr.social_smile_concerned_eyes",
+   "kind": "CEL",
+   "family": "ART_M05",
+   "derived_from": "MIA_MASTER",
+   "why": "reconstructed smile, worried eyes",
+   "consumers": [
+    "A13"
+   ]
+  },
+  {
+   "id": "MIA.expr.inbetweens",
+   "kind": "CEL",
+   "family": "ART_M05",
+   "derived_from": "MIA_MASTER",
+   "why": "inbetweens so swaps read as gradual (GRADUAL_EXPRESSION decision)",
+   "consumers": [
+    "A02",
+    "A10",
+    "A13"
+   ]
+  },
+  {
+   "id": "MIA.mouth.rest/mid/open@mock_regal",
+   "kind": "CEL",
+   "family": "ART_M06",
+   "derived_from": "MIA_MASTER",
+   "why": "Too much?",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "MIA.mouth.rest/mid/open@smile",
+   "kind": "CEL",
+   "family": "ART_M06",
+   "derived_from": "MIA_MASTER",
+   "why": "Thanks.",
+   "consumers": [
+    "A18"
+   ]
+  },
+  {
+   "id": "MIA.mouth.rest/mid/open@restrained_smile",
+   "kind": "CEL",
+   "family": "ART_M06",
+   "derived_from": "MIA_MASTER",
+   "why": "Let's get through today.",
+   "consumers": [
+    "A14"
+   ]
+  },
+  {
+   "id": "REGULAR.parts",
+   "kind": "PART",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "head, torso, near arm (upper/fore/hand)",
+   "consumers": [
+    "A03"
+   ]
+  },
+  {
+   "id": "REGULAR.underpaint.elbow_wrist_sleeve",
+   "kind": "UNDERPAINT",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "lift/lower exposure",
+   "consumers": [
+    "A03"
+   ]
+  },
+  {
+   "id": "REGULAR.hand_near.phone_grip",
+   "kind": "CEL",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "support grip",
+   "consumers": [
+    "A03"
+   ]
+  },
+  {
+   "id": "REGULAR.hand_near.near_far_layers",
+   "kind": "CEL",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "fingers around phone",
+   "consumers": [
+    "A03"
+   ]
+  },
+  {
+   "id": "REGULAR.thumb.ready",
+   "kind": "CEL",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "separate THUMB channel",
+   "consumers": [
+    "A15"
+   ]
+  },
+  {
+   "id": "REGULAR.thumb.press",
+   "kind": "CEL",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "shutter press f900",
+   "consumers": [
+    "A15"
+   ]
+  },
+  {
+   "id": "REGULAR.head_view_room (if beyond rigid limit)",
+   "kind": "CEL",
+   "family": "ART_R01",
+   "derived_from": "REGULAR_MASTER",
+   "why": "CONDITIONAL",
+   "conditional": true,
+   "consumers": [
+    "A03"
+   ]
+  },
+  {
+   "id": "REGULAR.expr.chuckle",
+   "kind": "CEL",
+   "family": "ART_R02",
+   "derived_from": "REGULAR_MASTER",
+   "why": "cheek/lid",
+   "consumers": [
+    "A16"
+   ]
+  },
+  {
+   "id": "REGULAR.mouth.rest/mid/open",
+   "kind": "CEL",
+   "family": "ART_R02",
+   "derived_from": "REGULAR_MASTER",
+   "why": "speech",
+   "consumers": [
+    "A05",
+    "A19"
+   ]
+  },
+  {
+   "id": "LEAD.parts",
+   "kind": "PART",
+   "family": "ART_L01",
+   "derived_from": "LEAD_MASTER",
+   "why": "head, torso, right arm; legs only if visible",
+   "consumers": [
+    "A06"
+   ]
+  },
+  {
+   "id": "LEAD.legs_feet (if visible)",
+   "kind": "PART",
+   "family": "ART_L01",
+   "derived_from": "LEAD_MASTER",
+   "why": "CONDITIONAL on the ARTICULATED_WALK decision",
+   "conditional": true,
+   "consumers": [
+    "A06"
+   ]
+  },
+  {
+   "id": "LEAD.underpaint.sleeve_elbow",
+   "kind": "UNDERPAINT",
+   "family": "ART_L01",
+   "derived_from": "LEAD_MASTER",
+   "why": "presentation reach",
+   "consumers": [
+    "A06"
+   ]
+  },
+  {
+   "id": "LEAD.hand_r.report_grip",
+   "kind": "CEL",
+   "family": "ART_L02",
+   "derived_from": "LEAD_MASTER",
+   "why": "front/back fingers on page",
+   "consumers": [
+    "A06"
+   ]
+  },
+  {
+   "id": "LEAD.hand_r.open",
+   "kind": "CEL",
+   "family": "ART_L02",
+   "derived_from": "LEAD_MASTER",
+   "why": "release",
+   "consumers": [
+    "A08"
+   ]
+  },
+  {
+   "id": "LEAD.eyes.down",
+   "kind": "CEL",
+   "family": "ART_L01",
+   "derived_from": "LEAD_MASTER",
+   "why": "discreet gaze away",
+   "consumers": [
+    "A09"
+   ]
+  },
+  {
+   "id": "LEAD.mouth.rest/mid/open",
+   "kind": "CEL",
+   "family": "ART_L03",
+   "derived_from": "LEAD_MASTER",
+   "why": "speech",
+   "consumers": [
+    "A17"
+   ]
+  },
+  {
+   "id": "PROP_AWARD.grip_sockets",
+   "kind": "MASK",
+   "family": "ART_P01",
+   "derived_from": "PROP_AWARD",
+   "why": "reviewed landmarks for both hands",
+   "consumers": [
+    "A02"
+   ]
+  },
+  {
+   "id": "PROP_AWARD.base_socket",
+   "kind": "MASK",
+   "family": "ART_P01",
+   "derived_from": "PROP_AWARD",
+   "why": "base landmark for SUPPORT",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "PROP_AWARD.contact_shadow",
+   "kind": "EFFECT_STATE",
+   "family": "ART_P01",
+   "derived_from": "PROP_AWARD",
+   "why": "counter shadow",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "PROP_REPORT.edge_socket_lead",
+   "kind": "MASK",
+   "family": "ART_P02",
+   "derived_from": "PROP_REPORT",
+   "why": "lead grip landmark",
+   "consumers": [
+    "A06"
+   ]
+  },
+  {
+   "id": "PROP_REPORT.edge_socket_mia",
+   "kind": "MASK",
+   "family": "ART_P02",
+   "derived_from": "PROP_REPORT",
+   "why": "Mia grip landmark",
+   "consumers": [
+    "A08"
+   ]
+  },
+  {
+   "id": "PROP_REPORT.reading_tilt_view",
+   "kind": "CEL",
+   "family": "ART_P02",
+   "derived_from": "PROP_REPORT",
+   "why": "tilted reading angle",
+   "consumers": [
+    "A09"
+   ]
+  },
+  {
+   "id": "PROP_PHONE.grip_socket",
+   "kind": "MASK",
+   "family": "ART_P03",
+   "derived_from": "PROP_PHONE",
+   "why": "palm landmark",
+   "consumers": [
+    "A03"
+   ]
+  },
+  {
+   "id": "ENV.counter_top_landmark",
+   "kind": "MASK",
+   "family": "ART_ENV01",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "dry counter support surface",
+   "consumers": [
+    "A04"
+   ]
+  },
+  {
+   "id": "INSERT.report_closeup_plate",
+   "kind": "WORLD_PLANE",
+   "family": "ART_P02",
+   "derived_from": "PROP_REPORT",
+   "why": "native-resolution close-up drawing for SH02 (not an upscale)",
+   "consumers": [
+    "A12"
+   ]
+  },
+  {
+   "id": "INSERT.mia_hand_r_thumb",
+   "kind": "PART",
+   "family": "ART_M03",
+   "derived_from": "MIA_MASTER",
+   "why": "Mia's right hand/thumb at insert scale",
+   "consumers": [
+    "A12"
+   ]
+  },
+  {
+   "id": "TYPE.M01_report_text",
+   "kind": "TYPE",
+   "family": "ART_TXT01",
+   "derived_from": null,
+   "why": "exact M01 copy: YESTERDAY / Sales $3,210 / Operating result −$120 / LOSS",
+   "consumers": [
+    "A12"
+   ]
+  },
+  {
+   "id": "BG_DINERS.parts",
+   "kind": "PART",
+   "family": "ART_BG01",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "seated pair with table masks",
+   "consumers": [
+    "A01"
+   ]
+  },
+  {
+   "id": "BG_DINERS.underpaint",
+   "kind": "UNDERPAINT",
+   "family": "ART_BG01",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "gesture exposure",
+   "consumers": [
+    "A01"
+   ]
+  },
+  {
+   "id": "BG_QUEUE.figures",
+   "kind": "PART",
+   "family": "ART_BG02",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "queue through window glass, depth occlusion",
+   "consumers": [
+    "A01"
+   ]
+  },
+  {
+   "id": "ART_FREEZE01.masks",
+   "kind": "MASK",
+   "family": "ART_FREEZE01",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "selective colour masks",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A20"
+   ]
+  },
+  {
+   "id": "TYPE.THIS_IS_MIA",
+   "kind": "TYPE",
+   "family": "ART_TXT02",
+   "derived_from": null,
+   "why": "identity type/arrow",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A20"
+   ]
+  },
+  {
+   "id": "MIA_MEM.hand_r.sign_grip",
+   "kind": "CEL",
+   "family": "ART_MEM01",
+   "derived_from": "MIA_MASTER",
+   "why": "memory Mia, same identity",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A21"
+   ]
+  },
+  {
+   "id": "MIA_MEM.body_views",
+   "kind": "CEL",
+   "family": "ART_MEM01",
+   "derived_from": "MIA_MASTER",
+   "why": "CONDITIONAL on BODY_VIEW_TURN decision",
+   "scope": "OUTSIDE_EXTRACT",
+   "conditional": true,
+   "consumers": [
+    "A21"
+   ]
+  },
+  {
+   "id": "ENV_PAST_ROOM",
+   "kind": "WORLD_PLANE",
+   "family": "ART_MEM02",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "same room three years earlier: empty tables, matched doorway/window landmarks, clean plates",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A21"
+   ]
+  },
+  {
+   "id": "PROP_OPEN_SIGN.faces_OPEN_CLOSED",
+   "kind": "CEL",
+   "family": "ART_P04",
+   "derived_from": null,
+   "why": "both faces",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A21"
+   ]
+  },
+  {
+   "id": "PROP_OPEN_SIGN.pivot_socket",
+   "kind": "MASK",
+   "family": "ART_P04",
+   "derived_from": null,
+   "why": "mount pivot",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A21"
+   ]
+  },
+  {
+   "id": "ENV.wide_SH06_coverage",
+   "kind": "WORLD_PLANE",
+   "family": "ART_ENV01",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "wide coverage",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A22"
+   ]
+  },
+  {
+   "id": "ART_CAM02.wide_plates",
+   "kind": "WORLD_PLANE",
+   "family": "ART_CAM02",
+   "derived_from": "ENV_RESTAURANT_SH01",
+   "why": "host floor path, shadow receiver",
+   "scope": "OUTSIDE_EXTRACT",
+   "consumers": [
+    "A22"
+   ]
+  },
+  {
+   "id": "HOST.blend (mesh/rig/face)",
+   "kind": "MASTER",
+   "family": "ART_HOST01",
+   "derived_from": null,
+   "why": "Blender asset, NOT a GPT 2D job",
+   "scope": "OUTSIDE_EXTRACT",
+   "route": "BLENDER",
+   "consumers": [
+    "A23"
+   ]
+  },
+  {
+   "id": "HOST.shape_keys",
+   "kind": "MASTER",
+   "family": "ART_HOST02",
+   "derived_from": "HOST.blend (mesh/rig/face)",
+   "why": "speech/face",
+   "scope": "OUTSIDE_EXTRACT",
+   "route": "BLENDER",
+   "consumers": [
+    "A24"
+   ]
+  }
+ ]
+}

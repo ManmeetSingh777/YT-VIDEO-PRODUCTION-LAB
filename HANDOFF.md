@@ -6,6 +6,16 @@
 
 **Historical section updated:** 25 November 2026. This replaces the obsolete P02 root handoff, archived at `docs/history/LEGACY_P02_HANDOFF.md`. No automatic production/human approval is implied.
 
+## 00. E01 V0.4 intake and provisional preflight (26 Nov 2026): read `engineering/e01_v04/` first
+- The docs branch `2a34719` was merged by `7e9fb4e` (docs only; the engine is still the frozen `b2c6931`). Originals of V0.4-DIR-P1 are in
+  `docs/the-better-one/episodes/E01/V0_4_DIR_P1/original/` (9/9 hashes match). V0.3 upstream sources are in `.../E01/V0_3/original/`.
+- **Provisional** producer/consumer table (25 actions), continuity, art DAG and ArtJob readiness: `E01_V04_PREFLIGHT_AND_ARTJOB_READINESS.md`.
+  Regenerate with `node tools/tbo/e01_v04_provisional_preflight.mjs --out engineering/e01_v04`.
+- **No READY ArtJob.** Export is refused until story → direction → design approvals exist. The four missing producers for the extract are
+  TWO_HAND_SINGLE_PROP (A02, A04), ARTICULATED_WALK (A06, if chosen), CROSS_ACTOR_PROP_TRANSFER (A08) and PINCH (if chosen).
+- **Next:** the user and GPT approve V0.4 after a scratch read and animatic, and decide the section 6 options. The next engineering task is the
+  TRANSFER and two-hand producers, with targeted tests only.
+
 ## 0a. P06 reusable performance system (26 Nov 2026): read `engineering/p06/` first
 Frozen engineering source `b2c6931a628f68773349dc2565d7aae5530ad41d` (branch `production/better-one-first-film-engineering`). One comprehensive
 regression ran on it: `engineering/p06/FINAL_ENGINEERING_TAP.tap`, results in `engineering/p06/P06_FINAL_REPORT.md`.

@@ -45,7 +45,17 @@
       "width": 1920,
       "height": 1080,
       "extract_starts_mid_scene": true,
-      "pre_roll_state_required_at_abs_frame": 180
+      "pre_roll_state_required_at_abs_frame": 180,
+      "director_package": {
+        "revision": "V0.4-DIR-P1",
+        "status": "PROPOSED",
+        "path": "docs/the-better-one/episodes/E01/V0_4_DIR_P1/original/",
+        "shots": 7,
+        "actions": 25,
+        "audio_cues": 24,
+        "art_families": 27,
+        "continuity_rows": 17
+      }
     },
     "older": "V0.3 corrected 13s award direction: HISTORICAL; not executable for V0.4 without explicit reconciliation",
     "creative_artifacts_missing": [
@@ -84,7 +94,12 @@
     },
     "art_operator_standard": "docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md",
     "status": "ENGINEERING_TESTED_ON_DIAGNOSTICS; REAL_ART_NOT_YET_QUALIFIED",
-    "merge_note": "Engineering source branch and creative documentation branch differ. Claude must inspect and safely integrate; no blind reset or cherry-pick that overwrites freeze."
+    "merge_note": "Engineering source branch and creative documentation branch differ. Claude must inspect and safely integrate; no blind reset or cherry-pick that overwrites freeze.",
+    "docs_merge": {
+      "merged_commit": "7e9fb4e",
+      "docs_branch_sha": "2a34719",
+      "engine_changed_since_freeze": false
+    }
   },
   "art": {
     "f01_f80_skill_version_verified_for_new_art_chat": false,
@@ -110,8 +125,17 @@
       "id": "N00",
       "owner": "CLAUDE",
       "action": "Safely reconcile published P06 engineering branch with current SOP, E01 V0.4-DIR-P1 proposed 7-shot package and new art-to-film operator standard, preserving tested source and accurate human-approval statuses. Inspect actual input ZIP, do provisional action/art state mapping.",
-      "status": "PENDING_LOCAL_INTAKE",
-      "blocker": "NO_APPROVED_E01_CREATIVE_PACKET"
+      "status": "PROVISIONAL_INTAKE_DONE",
+      "blocker": "NO_APPROVED_E01_CREATIVE_PACKET",
+      "evidence": {
+        "report": "engineering/e01_v04/E01_V04_PREFLIGHT_AND_ARTJOB_READINESS.md",
+        "tables": "engineering/e01_v04/PROVISIONAL_PREFLIGHT_TABLES.md",
+        "tool": "tools/tbo/e01_v04_provisional_preflight.mjs",
+        "originals": "docs/the-better-one/episodes/E01/V0_4_DIR_P1/original/ (9/9 sha256 match DELTA_MANIFEST)",
+        "v03_sources": "docs/the-better-one/episodes/E01/V0_3/original/ (5/5 match)",
+        "input_zip": "E:/MOTION_NATIVE_STUDIO_V1/inputs/E01_V04_DIRECTOR_AUDITED_HANDOFF (1).zip sha256 521bd38d57130d66a6e3a774b824a8a55719820932542d07cfd9d518d179bb46"
+      },
+      "result": "PROVISIONAL only. Extract (17 actions): 6 NEEDS_REAL_ART, 7 NEEDS_CREATIVE_DECISION, 4 NEEDS_ENGINE_PRODUCER (A02/A04 two-hand prop, A06 walk, A08 cross-actor transfer). No READY ArtJob: export refused until story/direction/design approvals."
     },
     {
       "id": "N01",

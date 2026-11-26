@@ -1,0 +1,25 @@
+cue_id,absolute_start,absolute_end_exclusive,source,dialogue_or_sound,intent,status
+AUD01,0,960,WORLD_RESTAURANT,Restaurant bed,"Natural cutlery, chatter, kitchen hum; duck 418–450, recover 576–606; stop live bed at freeze, tail AUD11.",ESTIMATED_UNRECORDED
+AUD02,270,297,CHAR_MIA,Thanks.,"Automatic warmth, still smiling.",ESTIMATED_UNRECORDED
+AUD03,15,120,CHAR_REGULAR,"Hold it up, Mia. Big smile.","Warm, already familiar, not announcer.",ESTIMATED_UNRECORDED
+AUD04,264,284,PROP_AWARD,Plaque base contact,"Soft contact onset 264; quiet settle, not clang.",ESTIMATED_UNRECORDED
+AUD05,334,374,PROP_REPORT,Paper transfer,"Rustle during contact/closure/release; strongest on release, quiet.",ESTIMATED_UNRECORDED
+AUD06,368,404,PROP_REPORT,Paper reading settle,"Small paper flex, decay before insert.",ESTIMATED_UNRECORDED
+AUD07,0,960,SCORE,Sparse warm score,"Quiet, optional original instrumental; thin as eyes notice loss 414–432, no sting; do not obscure speech.",ESTIMATED_UNRECORDED
+AUD08,432,579,M01,Comprehension window,No speech; actual report visible for 144f; ambience reduced.,ESTIMATED_UNRECORDED
+AUD09,783,861,CHAR_MIA,Let's get through today.,"Dry but kindly, one breath; not overt despair.",ESTIMATED_UNRECORDED
+AUD10,900,912,PROP_PHONE,Shutter,"Single audible click on activation f900, no flash.",ESTIMATED_UNRECORDED
+AUD11,861,987,WORLD_RESTAURANT,Reaction and freeze bridge,"Room sound under forced smile/click; at 960 cut live bed with short 6f non-diegetic tail, no fake ongoing room.",ESTIMATED_UNRECORDED
+AUD12,135,177,CHAR_MIA,Too much?,Mock-regal; eyes already amused.,ESTIMATED_UNRECORDED
+AUD13,189,261,CHAR_LEAD,Mia? Yesterday's numbers.,"Discreet, ordinary work, no ominous tone.",ESTIMATED_UNRECORDED
+AUD14,579,756,CHAR_REGULAR,"At this rate, you're gonna need a bigger place.","Encouragement, sincere; glance across room then back.",ESTIMATED_UNRECORDED
+AUD15,987,1059,CHAR_HOST,This is Mia.,"VO, affectionate matter-of-fact.",ESTIMATED_UNRECORDED
+AUD16,1098,1296,CHAR_HOST,"Three years ago, she opened this place.",VO; allow empty room to speak.,ESTIMATED_UNRECORDED
+AUD17,1332,1485,CHAR_HOST,Now she's worried she won't make payroll.,VO; concern not assertion of missed payment.,ESTIMATED_UNRECORDED
+AUD18,1560,1674,CHAR_HOST,Could she just serve more people?,"Genuine thought, not question for quiz.",ESTIMATED_UNRECORDED
+AUD19,1758,1908,CHAR_HOST,"First, let's see where the money goes.","Decisive, inviting investigation.",ESTIMATED_UNRECORDED
+AUD20,177,189,CHAR_REGULAR,Small chuckle,Breath laugh starts as Mia finishes; may overlap lead onset only if measured intelligible.,ESTIMATED_UNRECORDED
+AUD21,960,1332,SCORE,Freeze and memory transition,"Subtle tonal texture, restrained, no logo sting; carry through match cut.",ESTIMATED_UNRECORDED
+AUD22,1496,1560,CHAR_HOST,Host foot contact,"Soft grounded steps on actual contact frames 1508 and 1540, not generic whoosh.",ESTIMATED_UNRECORDED
+AUD23,1332,1950,SCORE,Concern into investigation,Sparse motif gains direction after host decides; no victory cue. No live restaurant bed while frozen.,ESTIMATED_UNRECORDED
+AUD24,1120,1158,PROP_OPEN_SIGN,Sign movement,"Soft hook/sign tap at 1148; memory room quiet, no phantom customers.",ESTIMATED_UNRECORDED

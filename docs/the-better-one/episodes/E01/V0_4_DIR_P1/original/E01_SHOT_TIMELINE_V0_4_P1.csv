@@ -1,0 +1,8 @@
+shot_id,absolute_start,absolute_end_exclusive,frames,extract_local_intersection,purpose,proposed_media_route
+E01-S001-SH01,0,432,432,"[0,252)",Live photo / report interruption,2D
+E01-S001-SH02,432,576,144,"[252,396)",Report insert,2D + registered editorial type
+E01-S001-SH03,576,960,384,"[396,780)",Expansion remark / photo,2D
+E01-S001-SH04,960,1098,138,—,Freeze and identity,2D frozen state + selective color/type
+E01-S001-SH05,1098,1332,234,—,Opening-day memory,2D memory; return cut at 1332
+E01-S001-SH06,1332,1485,153,—,Present / payroll concern,2D frozen state
+E01-S001-SH07,1485,1950,465,—,3D host enters / investigation,Blender host + 2D frozen room

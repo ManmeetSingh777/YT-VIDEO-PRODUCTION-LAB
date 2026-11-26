@@ -1,0 +1,31 @@
+{
+  "package": "E01-V0.3-CLAUDE-PREFLIGHT",
+  "purpose": "Provisional creative pre-art feasibility; no approval or engine pass",
+  "files": [
+    {
+      "path": "E01_CREATIVE_DECISION_REGISTER_V0_3.md",
+      "bytes": 16967,
+      "sha256": "86574c6672f05160944b11a60e7babeff0a9e95822c4a6557f68b329af831e2a"
+    },
+    {
+      "path": "E01_MODEL_AND_EVIDENCE_V0_3.md",
+      "bytes": 43469,
+      "sha256": "9bdc6a9db0e6d454762356f083607c109ad2072865d23be889494503f8bd71bd"
+    },
+    {
+      "path": "E01_S001_DIRECTOR_V0_3.md",
+      "bytes": 44927,
+      "sha256": "8c2271ed6a41829e1ea1454526fa2c327452abb9ac839c35d17a15c7cae98b6a"
+    },
+    {
+      "path": "E01_VALUE_BLUEPRINT_V0_3.md",
+      "bytes": 20562,
+      "sha256": "813d3e7c89e9e01e1e22f38d258abfd268ab6a33c67d5e993182ba41292d9fc4"
+    },
+    {
+      "path": "E01_V03_INDEPENDENT_PREFLIGHT_REVIEW.md",
+      "bytes": 8298,
+      "sha256": "c95a41a27ffe1ddb4682ff987eded43cbfebc74b180a07b6645775ac30ea23d1"
+    }
+  ]
+}
