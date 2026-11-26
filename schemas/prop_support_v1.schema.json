@@ -1,13 +1,13 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "prop_support_v1.schema.json",
- "title": "PROP_SUPPORT v1.0.0 — shared support, one transform driver, explicit transfer",
+ "title": "PROP_SUPPORT v1.1.0 — shared support, one NAMED transform authority mode, explicit transfer (v1.0.0 accepted and migrated)",
  "description": "Per prop: which hands (of one or several actors) and which fixed surfaces support it, bound to REGISTERED sockets; which ONE of them is the authoritative transform driver in each half-open frame interval. Approved input alongside the PerformanceCommand packet (plan.performance.prop_support). It never contains geometry: sockets come from the measured rigs.",
  "type": "object",
  "additionalProperties": false,
  "required": ["schema_version", "props"],
  "properties": {
-  "schema_version": { "const": "1.0.0" },
+  "schema_version": { "enum": ["1.0.0", "1.1.0"], "description": "1.1.0 (P08 B01) requires authority[].mode; 1.0.0 contracts are migrated (hand driver = OBJECT_DRIVEN, surface = SURFACE_DRIVEN) and reported as migrated" },
   "props": {
    "type": "array", "minItems": 1,
    "items": {
@@ -34,7 +34,9 @@
      "authority": {
       "type": "array", "minItems": 1,
       "items": { "type": "object", "additionalProperties": false, "required": ["frames", "driver", "required_supports"],
-       "properties": { "frames": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 2, "maxItems": 2 }, "driver": { "type": "string", "pattern": "^([^#]+#[^#]+|surface:.+)$" }, "required_supports": { "type": "array", "items": { "type": "string", "pattern": "^([^#]+#[^#]+|surface:.+)$" } } } }
+       "properties": { "frames": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "minItems": 2, "maxItems": 2 }, "driver": { "type": "string", "pattern": "^([^#]+#[^#]+|surface:.+|track)$", "description": "hand ref, surface:<id>, or 'track' (FREE_AUTHORED only)" }, "required_supports": { "type": "array", "items": { "type": "string", "pattern": "^([^#]+#[^#]+|surface:.+)$" } },
+         "mode": { "enum": ["ACTOR_DRIVEN", "OBJECT_DRIVEN", "SURFACE_DRIVEN", "FREE_AUTHORED"], "description": "ACTOR_DRIVEN: the driver hand's world transform drives the rigid prop (P = H·H_to_P); OBJECT_DRIVEN: the prop's directed track drives it and the driver hand follows by IK (a supporter, never claimed as transform writer); SURFACE_DRIVEN: a fixed or moving registered surface drives it; FREE_AUTHORED: directed free flight on the prop track with no grip support" },
+         "driver_path": { "type": "object", "additionalProperties": false, "description": "ACTOR_DRIVEN only: directed WORLD path of the driver hand socket (and optional world basis angle); the arm is solved to it BEFORE the prop is computed (no hand→prop→hand cycle). Omitted: the driver arm follows its own approved joint tracks (FK).", "properties": { "x": { "type": "array" }, "y": { "type": "array" }, "rot": { "type": "array" } }, "required": ["x", "y"] } } }
      }
     }
    }

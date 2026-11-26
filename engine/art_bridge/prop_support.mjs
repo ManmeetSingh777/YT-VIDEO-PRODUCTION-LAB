@@ -52,14 +52,28 @@ export function normalizePropSupport(spec, { doc, roleOf }) {
       if (!(s.frames[1] > s.frames[0])) { no("INVALID_FRAME_RANGE", { supporter: `surface:${s.id}`, invariant: "SURFACE_FRAMES", reason: `surface ${s.id} frames [${s.frames}) are empty` }); continue; }
       surfaces.set(`surface:${s.id}`, { ref: `surface:${s.id}`, kind: "SURFACE", id: s.id, prop_socket: s.prop_socket, target_rig: t.rig_id ?? null, target_socket: t.socket_id ?? null, target_world_xy: t.world_xy ?? null, frames: s.frames }); }
     // authority tiling: exactly one driver per instant, no unsupported gap inside the span
-    const segs = [...p.authority].map((a) => ({ frames: a.frames, driver: a.driver, required: [...new Set([a.driver, ...a.required_supports])] })).sort((a, b) => a.frames[0] - b.frames[0]);
+    // P08 B01: every authority segment carries an explicit, NAMED transform mode. v1.1.0 must state it; v1.0.0 is migrated by its meaning in P07
+    // (a hand "driver" there was a supporter following the prop's own track = OBJECT_DRIVEN) and the migration is reported, never silent.
+    const v11 = spec.schema_version === "1.1.0";
+    const segs = [...p.authority].map((a) => ({ frames: a.frames, driver: a.driver, mode: a.mode ?? (v11 ? null : isSurfaceRef(a.driver) ? "SURFACE_DRIVEN" : "OBJECT_DRIVEN"), mode_source: a.mode ? "DECLARED" : "MIGRATED_V1_0_0", driver_path: a.driver_path ?? null,
+      required: [...new Set([...(a.driver === "track" ? [] : [a.driver]), ...a.required_supports])] })).sort((a, b) => a.frames[0] - b.frames[0]);
     for (const s of segs) { if (!(s.frames[1] > s.frames[0])) no("INVALID_FRAME_RANGE", { invariant: "AUTHORITY_FRAMES", frame_range: s.frames, reason: `authority [${s.frames}) is empty` });
+      if (!s.mode) no("PROP_SUPPORT_INVALID", { invariant: "AUTHORITY_MODE_DECLARED", frame_range: s.frames, reason: `PROP_SUPPORT 1.1.0 authority [${s.frames}) of ${p.id} must name its transform mode (ACTOR_DRIVEN | OBJECT_DRIVEN | SURFACE_DRIVEN | FREE_AUTHORED)` });
+      const handDrv = hands.has(s.driver), surfDrv = isSurfaceRef(s.driver), track = s.driver === "track";
+      if (s.mode && ((["ACTOR_DRIVEN", "OBJECT_DRIVEN"].includes(s.mode) && !handDrv) || (s.mode === "SURFACE_DRIVEN" && !surfDrv) || (s.mode === "FREE_AUTHORED" && !track) || (track && s.mode !== "FREE_AUTHORED")))
+        no("PROP_SUPPORT_INVALID", { supporter: s.driver, invariant: "MODE_MATCHES_DRIVER", frame_range: s.frames, reason: `${s.mode} authority of ${p.id} in [${s.frames}) cannot be driven by ${s.driver} (ACTOR/OBJECT_DRIVEN need a declared hand, SURFACE_DRIVEN a surface, FREE_AUTHORED the prop's own 'track')` });
+      if (s.mode === "FREE_AUTHORED" && s.required.some((r) => hands.has(r))) no("PROP_SUPPORT_INVALID", { invariant: "FREE_FLIGHT_HAS_NO_GRIP", frame_range: s.frames, reason: `FREE_AUTHORED (airborne) ${p.id} in [${s.frames}) cannot require hand supports ${s.required.filter((r) => hands.has(r))}` });
+      if (s.driver_path && s.mode !== "ACTOR_DRIVEN") no("PROP_SUPPORT_INVALID", { invariant: "DRIVER_PATH_ONLY_FOR_ACTOR_DRIVEN", frame_range: s.frames, reason: `driver_path is the directed hand path of an ACTOR_DRIVEN span; ${s.mode} in [${s.frames}) moves the prop by ${s.mode === "OBJECT_DRIVEN" ? "its own track" : "its surface"}` });
       for (const r of s.required) if (!hands.has(r) && !surfaces.has(r)) no("UNKNOWN_REFERENCE", { supporter: r, invariant: "SUPPORT_DECLARED", frame_range: s.frames, reason: `authority [${s.frames}) names ${r}, which is not a declared hand or surface of ${p.id}` }); }
     for (let i = 1; i < segs.length; i++) { const a = segs[i - 1], b = segs[i];
       if (b.frames[0] < a.frames[1]) no("PROP_DRIVER_CONFLICT", { invariant: "ONE_DRIVER_PER_INSTANT", frame_range: [b.frames[0], a.frames[1]], reason: `${a.driver} and ${b.driver} both drive ${p.id} in [${b.frames[0]},${a.frames[1]})` });
       else if (b.frames[0] > a.frames[1]) no("PROP_UNSUPPORTED_GAP", { invariant: "SUPPORT_SPAN_GAP_FREE", frame_range: [a.frames[1], b.frames[0]], reason: `nothing drives ${p.id} in [${a.frames[1]},${b.frames[0]}): an unsupported prop would float or fall` }); }
     // a surface-driven run holds the pose it had when that surface took over
-    for (let i = 0; i < segs.length; i++) { const s = segs[i]; s.driver_kind = isSurfaceRef(s.driver) ? "SURFACE" : "HAND"; s.hold_from = s.driver_kind === "SURFACE" ? (i > 0 && segs[i - 1].driver === s.driver ? segs[i - 1].hold_from : s.frames[0]) : null; }
+    for (let i = 0; i < segs.length; i++) { const s = segs[i]; s.driver_kind = isSurfaceRef(s.driver) ? "SURFACE" : s.driver === "track" ? "TRACK" : "HAND"; s.hold_from = s.driver_kind === "SURFACE" ? (i > 0 && segs[i - 1].driver === s.driver ? segs[i - 1].hold_from : s.frames[0]) : null;
+      // a surface that takes over from an ACTOR-driven span holds the pose the actor left the prop in (baked at t-1), not the prop's own track value
+      s.hold_entry = s.driver_kind === "SURFACE" && i > 0 && segs[i - 1].driver !== s.driver && segs[i - 1].mode === "ACTOR_DRIVEN" ? "BAKED_PREDECESSOR" : s.driver_kind === "SURFACE" && i > 0 && segs[i - 1].driver === s.driver ? segs[i - 1].hold_entry : s.driver_kind === "SURFACE" ? "TRACK_AT_HOLD_FROM" : null; }
+    const surf = (ref) => surfaces.get(ref);
+    for (const s of segs) if (s.mode === "SURFACE_DRIVEN") s.moving_surface = s.mode_source === "DECLARED" && !!surf(s.driver)?.target_rig; // a DECLARED surface rig drives by its socket frame (it may move); migrated 1.0.0 keeps the P07 hold
     props.push({ id: p.id, prop_rig: R.id, object: R.identity_id ?? R.id, test_id: p.test_id, human_quality_check: p.human_quality_check ?? null, max_step_px: p.max_step_px, surface_tolerance_px: p.surface_tolerance_px, settle_tolerance_px: p.settle_tolerance_px,
       root_joint: (R.joints.find((j) => !j.parent_id) || R.joints[0]).id, prop_sockets: R.sockets.map((x) => x.id), hands: [...hands.values()], surfaces: [...surfaces.values()], segments: segs, span: segs.length ? [segs[0].frames[0], segs.at(-1).frames[1]] : null });
   }
@@ -88,7 +102,7 @@ export function validatePropCoverage(props, actions) {
         else if (r === s.driver && i > 0) no("PROP_TRANSFER_INVALID", { supporter: r, invariant: "INCOMING_SUPPORT_VALID_AT_TRANSFER", frame_range: [s.frames[0], s.frames[0] + 1], reason: `control of ${p.id} passes to ${r} at ${s.frames[0]} but ${r} is not supporting it then` });
         else no("PROP_SUPPORT_MISSING", { supporter: r, invariant: "REQUIRED_SUPPORT_PRESENT", frame_range: [gap ?? s.frames[0], s.frames[1]], reason: `${r} is a required support of ${p.id} in [${s.frames}) but holds nothing from ${gap ?? s.frames[0]}` }); }
       // transfer: the incoming driver must already be valid on the frame BEFORE it takes control (a dual-support instant), never become valid at the hand-off itself
-      if (i > 0 && p.segments[i - 1].driver !== s.driver && p.segments[i - 1].frames[1] === s.frames[0]) { const t = s.frames[0], iv = ivOf(s.driver);
+      if (i > 0 && s.driver !== "track" && p.segments[i - 1].driver !== s.driver && p.segments[i - 1].frames[1] === s.frames[0]) { const t = s.frames[0], iv = ivOf(s.driver);
         if (!iv.some((x) => x[0] <= t - 1 && x[1] > t - 1)) no("PROP_TRANSFER_INVALID", { supporter: s.driver, invariant: "INCOMING_SUPPORT_VALID_BEFORE_TRANSFER", frame_range: [t - 1, t + 1], reason: `${s.driver} takes control of ${p.id} at ${t} but was not supporting it at ${t - 1}: support transferred before the new support is physically valid` }); }
     });
   }
@@ -122,7 +136,7 @@ export function evaluatePropSupport(p, f, { solved, contacts, M, artStates, sock
     supporters.push({ ref, kind: "HAND", required: seg.required.includes(ref), valid: !why, why, locked: !!s?.locked, error_px: s?.error_px ?? null, closure });
   }
   const failures = [], drv = supporters.find((x) => x.ref === seg.driver);
-  if (!drv?.valid) failures.push(refuse(drv?.why?.startsWith("painted hand") ? "GRIP_MORPHOLOGY_FAILED" : "PROP_DRIVER_INVALID", { record: p.prop_rig, prop: p.id, supporter: seg.driver, fn: "evaluatePropSupport", frame_range: [f, f + 1], invariant: "DRIVER_SUPPORT_VALID", reason: `driver ${seg.driver} of ${p.id}: ${drv?.why ?? "absent"}` }));
+  if (seg.driver_kind !== "TRACK" && !drv?.valid) failures.push(refuse(drv?.why?.startsWith("painted hand") ? "GRIP_MORPHOLOGY_FAILED" : "PROP_DRIVER_INVALID", { record: p.prop_rig, prop: p.id, supporter: seg.driver, fn: "evaluatePropSupport", frame_range: [f, f + 1], invariant: "DRIVER_SUPPORT_VALID", reason: `driver ${seg.driver} of ${p.id}: ${drv?.why ?? "absent"}` }));
   for (const x of supporters) if (x.required && x.ref !== seg.driver && !x.valid) failures.push(refuse(x.kind === "SURFACE" ? "PROP_SURFACE_CONTACT_INVALID" : x.why?.startsWith("painted hand") ? "GRIP_MORPHOLOGY_FAILED" : "PROP_SUPPORT_MISSING", { record: p.prop_rig, prop: p.id, supporter: x.ref, fn: "evaluatePropSupport", frame_range: [f, f + 1], invariant: "REQUIRED_SUPPORT_VALID", reason: `${x.ref} must support ${p.id} here: ${x.why}` }));
   return { prop: p.id, prop_rig: p.prop_rig, object: p.object, frame: f, driver: seg.driver, driver_kind: seg.driver_kind, required: seg.required, supporters, valid_supporters: supporters.filter((x) => x.valid).map((x) => x.ref), root_xy: pivotOf(p.prop_rig, M[p.prop_rig], p.root_joint), ok: !failures.length, failures };
 }

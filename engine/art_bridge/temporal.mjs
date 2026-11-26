@@ -12,7 +12,7 @@
 //                        | {type:"FLOW_PATH", symbol_asset, path:[[x,y],...], count: KEYS, speed_px_per_frame, spacing_px, band?}},
 //   lighting: {assetId: {mode, owner_part, opacity?: KEYS, view_id?}}, gaze: {rigId: {jointId: {x: KEYS, y: KEYS, surface_asset}}} }
 import { err } from "./errors.mjs";
-import { I, mul, chain, T, S as Sc, R, apply, applyVec, angleOf, scaleOf, dist, deg, wrap180, finite } from "./math2d.mjs";
+import { I, mul, chain, T, S as Sc, R, apply, applyVec, angleOf, scaleOf, dist, deg, wrap180, finite, inv } from "./math2d.mjs";
 import { solveTwoBonePosition } from "./constraints.mjs";
 import { validateStateEdge } from "./state_router.mjs";
 import { validateChannels, channelEvents, channelStatesAt, resolveBindings } from "./state_channels.mjs";
@@ -137,8 +137,14 @@ export function compileMotionTracks(actions, shots, ctx) {
   // P07: a prop held by several supports needs a contract naming the ONE driver per instant; a surface that drives a prop is its only transform
   // writer, so an authored track that still moves the prop inside a surface-driven interval is a second, conflicting driver
   const propSupport = plan.prop_support?.props || []; errors.push(...multiSupportWithoutContract(contacts, new Set(propSupport.map((p) => p.prop_rig))));
-  for (const P_ of propSupport) for (const sg of P_.segments) { if (sg.driver_kind !== "SURFACE") continue; const tr = plan.tracks?.[P_.prop_rig], chans = [...Object.entries(tr?.root || {}).map(([k, v]) => [`root.${k}`, v]), ...Object.entries(tr?.joints || {}).map(([k, v]) => [`joint.${k}`, v])];
-    for (const [name, keys] of chans) { const v0 = ev(keys, sg.hold_from); for (let f = sg.frames[0]; f < sg.frames[1]; f++) if (Math.abs(ev(keys, f) - v0) > 1e-6) { errors.push(err("PROP_DRIVER_CONFLICT", { record_id: P_.prop_rig, frame_range: [f, f + 1], reason: `${P_.id}: the authored ${name} track moves the prop at ${f} while ${sg.driver} drives it (two transform writers)`, failed_invariant: "SURFACE_IS_SOLE_WRITER", producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" })); break; } } }
+  for (const P_ of propSupport) for (const sg of P_.segments) { if (!(sg.driver_kind === "SURFACE" || sg.mode === "ACTOR_DRIVEN")) continue; const tr = plan.tracks?.[P_.prop_rig], chans = [...Object.entries(tr?.root || {}).map(([k, v]) => [`root.${k}`, v]), ...Object.entries(tr?.joints || {}).map(([k, v]) => [`joint.${k}`, v])];
+    for (const [name, keys] of chans) { const v0 = ev(keys, sg.hold_from ?? sg.frames[0]); for (let f = sg.frames[0]; f < sg.frames[1]; f++) if (Math.abs(ev(keys, f) - v0) > 1e-6) { errors.push(err("PROP_DRIVER_CONFLICT", { record_id: P_.prop_rig, frame_range: [f, f + 1], reason: `${P_.id}: the authored ${name} track moves the prop at ${f} while ${sg.driver} drives it (two transform writers)`, failed_invariant: sg.mode === "ACTOR_DRIVEN" ? "ACTOR_IS_SOLE_WRITER" : "SURFACE_IS_SOLE_WRITER", producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" })); break; } } }
+  // P08 B01: an ACTOR_DRIVEN span with a directed hand path writes the driver's arm chain; authored joint tracks on that chain must hold still there
+  const handOf = (P_, ref) => P_.hands.find((h) => h.ref === ref), chainOf = (rid, sid) => { const R_ = rigs.get(rid), sk = R_?.socketById.get(sid); return R_?.rec.constraints.find((k) => k.type === "TWO_BONE_IK" && k.chain[2] === sk?.joint_id) || null; };
+  for (const P_ of propSupport) for (const sg of P_.segments) { if (sg.mode !== "ACTOR_DRIVEN" || !sg.driver_path) continue; const h = handOf(P_, sg.driver), ik = h && chainOf(h.rig, h.socket);
+    if (!ik) { errors.push(err("UNREACHABLE_IK", { record_id: P_.id, frame_range: sg.frames, reason: `${sg.driver} has no TWO_BONE_IK chain for its directed path`, producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" })); continue; }
+    for (const p of ["x", "y", ...(sg.driver_path.rot ? ["rot"] : [])]) safe(() => checkKeys(sg.driver_path[p], `${P_.id} driver_path.${p}`));
+    for (const j of ik.chain) { const keys = plan.tracks?.[h.rig]?.joints?.[j]; if (!keys) continue; const v0 = ev(keys, sg.frames[0]); for (let fr = sg.frames[0]; fr < sg.frames[1]; fr++) if (Math.abs(ev(keys, fr) - v0) > 1e-6) { errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: `${h.rig}.${j}`, frame_range: [fr, fr + 1], reason: `${j} is written by the directed hand path of ${P_.id} and by its own track at ${fr}`, failed_invariant: "ONE_WRITER_PER_JOINT", producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" })); break; } } }
   for (const k of contacts) if (k.tgtRig && contactDriven.has(k.tgtRig)) errors.push(err("UNSUPPORTED_STATE_EDGE", { record_id: k.action.id, reason: `contact target rig ${k.tgtRig} is itself contact-driven (chained contacts are not supported)` }));
 
   // shots
@@ -187,9 +193,42 @@ export function compileMotionTracks(actions, shots, ctx) {
       const d = wrap180(deg(Math.atan2(tgt[1] - p[1], tgt[0] - p[0])) - cur), m = g.max_deg ?? 20; s.theta[j] += wgt * (g.gain ?? 1) * Math.max(-m, Math.min(m, d));
     }
     // P07: while a surface drives a prop, the surface is its transform writer: the prop keeps the pose it had when the surface took over
-    for (const P_ of propSupport) { const sg = segmentAt(P_, Math.floor(f)); if (sg?.driver_kind !== "SURFACE" || !out[P_.prop_rig]) continue; const held = evalBase(sg.hold_from, C.shotAt(sg.hold_from) || shot)[P_.prop_rig]; if (held) out[P_.prop_rig] = JSON.parse(JSON.stringify(held)); }
+    for (const P_ of propSupport) { const sg = segmentAt(P_, Math.floor(f)); if (!sg || !out[P_.prop_rig]) continue; const bake = propBake.get(segKey(P_, sg));
+      if (sg.mode === "ACTOR_DRIVEN" || (sg.driver_kind === "SURFACE" && sg.moving_surface)) { // the directed hand path is the DRIVER's own intent: it is applied whether or not anything follows it
+        const H = sg.mode === "ACTOR_DRIVEN" ? driverFrame(P_, sg, out, f) : surfaceFrame(P_, sg, out); if (H && bake) setRootFromMatrix(P_.prop_rig, out[P_.prop_rig], mul(H, bake.rel)); continue; }
+      if (sg.driver_kind !== "SURFACE") continue;
+      const held = sg.hold_entry === "BAKED_PREDECESSOR" ? bake?.hold : evalBase(sg.hold_from, C.shotAt(sg.hold_from) || shot)[P_.prop_rig]; if (held) out[P_.prop_rig] = JSON.parse(JSON.stringify(held)); }
     return out;
   };
+  // ── P08 B01 transform authority helpers ── socket FRAME = joint matrix · T(rest + local) · R(basis): the hand/surface contact basis in world space
+  const segKey = (P_, sg) => `${P_.id}@${sg.frames[0]}`, propBake = new Map();
+  const socketFrame = (rid, M, sid) => { const R_ = rigs.get(rid), sk = R_.socketById.get(sid), r = R_.joints.get(sk.joint_id).rest_xy; return chain(M[sk.joint_id], T(r[0] + sk.local_xy[0], r[1] + sk.local_xy[1]), R(sk.basis_angle_deg || 0)); };
+  C.socketFrame = socketFrame;
+  /** the prop root state whose root-joint matrix equals D (rigid: rotation + uniform scale + translation; a reflection/non-uniform D is refused) */
+  const setRootFromMatrix = (rid, st, D) => { const R_ = rigs.get(rid), r0 = R_.root.rest_xy, th = st.theta[R_.root.id] || 0, sx = Math.hypot(D[0], D[1]), sy = Math.hypot(D[2], D[3]);
+    if (D[0] * D[3] - D[1] * D[2] <= 0 || Math.abs(sx - sy) > 1e-6 * Math.max(1, sx)) throw err("PROP_DRIVER_INVALID", { record_id: rid, reason: "the driving transform is not a rigid similarity (reflection or non-uniform scale): a rigid prop cannot follow it", failed_invariant: "RIGID_PROP_TRANSFORM" });
+    const p = apply(D, r0); st.root = { x: p[0], y: p[1], rot: angleOf(D) - th, scale: sx }; };
+  /** driver hand frame at f; with a directed driver_path the driver arm is solved to the path FIRST (two-bone IK, approved bend branch, limits checked later) */
+  const driverFrame = (P_, sg, out, f) => { const h = P_.hands.find((x) => x.ref === sg.driver), s = out[h?.rig]; if (!s) return null;
+    if (sg.driver_path) { const R_ = rigs.get(h.rig), sk = R_.socketById.get(h.socket), ik = R_.rec.constraints.find((k) => k.type === "TWO_BONE_IK" && k.chain[2] === sk.joint_id), [js, je, jw] = ik.chain;
+      const M0 = fk(h.rig, s), rs = R_.joints.get(js).rest_xy, re = R_.joints.get(je).rest_xy, rw = R_.joints.get(jw).rest_xy, sc = scaleOf(M0[js]), A = apply(M0[js], rs);
+      const pj = R_.joints.get(js).parent_id, parentM = pj ? M0[pj] : chain(T(s.root.x, s.root.y), R(s.root.rot), Sc(s.root.scale), T(-R_.root.rest_xy[0], -R_.root.rest_xy[1])), pa = angleOf(parentM);
+      const phi = sg.driver_path.rot ? ev(sg.driver_path.rot, f) - (sk.basis_angle_deg || 0) : angleOf(M0[jw]), local = applyVec(chain(R(phi), Sc(sc)), sk.local_xy), tgt = [ev(sg.driver_path.x, f), ev(sg.driver_path.y, f)], Wt = [tgt[0] - local[0], tgt[1] - local[1]];
+      const sol = solveTwoBonePosition(A, Wt, dist(rs, re) * sc, dist(re, rw) * sc, ik.bend_sign ?? 1), aSE = deg(Math.atan2(re[1] - rs[1], re[0] - rs[0])), aEW = deg(Math.atan2(rw[1] - re[1], rw[0] - re[0]));
+      const ts = wrap180(deg(Math.atan2(sol.elbow[1] - A[1], sol.elbow[0] - A[0])) - aSE - pa), te = wrap180(deg(Math.atan2(Wt[1] - sol.elbow[1], Wt[0] - sol.elbow[0])) - aEW - pa - ts); s.theta[js] = ts; s.theta[je] = te; s.theta[jw] = wrap180(phi - pa - ts - te); }
+    return socketFrame(h.rig, fk(h.rig, s), h.socket); };
+  const surfaceFrame = (P_, sg, out) => { const sf = P_.surfaces.find((x) => x.ref === sg.driver); if (!sf?.target_rig || !out[sf.target_rig]) return null; return socketFrame(sf.target_rig, fk(sf.target_rig, out[sf.target_rig]), sf.target_socket); };
+  /** the hands that are the TRANSFORM WRITER of a prop at f: their own grip contact is measured, never IK-solved toward the prop they move (no cycle) */
+  C.actorDriversAt = (f) => { const out = new Set(); for (const P_ of propSupport) { const sg = segmentAt(P_, Math.floor(f)); if (sg?.mode !== "ACTOR_DRIVEN") continue; const h = P_.hands.find((x) => x.ref === sg.driver); if (h) out.add(`${h.rig}|${h.socket}|${P_.prop_rig}|${h.prop_socket}`); } return out; };
+  C.propBakes = propBake;
+  C.__bakePropAuthority = (stateAt) => { // in time order: each span's relative transform is measured on the exact validated frame before it starts
+    const jobs = propSupport.flatMap((P_) => P_.segments.filter((sg) => sg.mode === "ACTOR_DRIVEN" || (sg.driver_kind === "SURFACE" && (sg.moving_surface || sg.hold_entry === "BAKED_PREDECESSOR"))).map((sg) => ({ P_, sg }))).sort((a, b) => a.sg.frames[0] - b.sg.frames[0]);
+    for (const { P_, sg } of jobs) { if (propBake.has(segKey(P_, sg))) continue; const t0 = sg.frames[0], prevShot = t0 > 0 ? C.shotAt(t0 - 1) : null, tm = prevShot ? t0 - 1 : t0, prim = C.evalPrimary(tm, C.shotAt(tm)), pst = prim[P_.prop_rig];
+      if (!pst) throw err("PROP_DRIVER_INVALID", { record_id: P_.id, frame_range: [tm, tm + 1], reason: `${P_.prop_rig} is not placed on the frame its ${sg.mode} span is measured from`, failed_invariant: "TRANSFER_FRAME_EVALUATED" });
+      if (sg.driver_kind === "SURFACE" && sg.hold_entry === "BAKED_PREDECESSOR" && !sg.moving_surface) { propBake.set(segKey(P_, sg), { measured_at: tm, hold: JSON.parse(JSON.stringify(pst)), rel: null }); continue; }
+      const Pm = fk(P_.prop_rig, pst)[rigs.get(P_.prop_rig).root.id], st = prevShot ? stateAt(tm) : null; // the driver frame at t-1 comes from the SOLVED state (incoming hand already valid there)
+      const H = sg.mode === "ACTOR_DRIVEN" ? (() => { const h = P_.hands.find((x) => x.ref === sg.driver); return st ? socketFrame(h.rig, st.matrices[h.rig], h.socket) : driverFrame(P_, sg, prim, tm); })() : (() => { const sf = P_.surfaces.find((x) => x.ref === sg.driver); return socketFrame(sf.target_rig, st ? st.matrices[sf.target_rig] : fk(sf.target_rig, prim[sf.target_rig]), sf.target_socket); })();
+      propBake.set(segKey(P_, sg), { measured_at: tm, rel: mul(inv(H), st ? st.matrices[P_.prop_rig][rigs.get(P_.prop_rig).root.id] : Pm), hold: null, from: prevShot ? "VALIDATED_PREVIOUS_FRAME" : "APPROVED_CONTACT_ALIGNMENT_AT_START" }); } };
   /** HINGE_FOLLOW: in [frames) the handle keeps the distance d0 it had to the driver joint at the first frame; afterwards it holds (or returns via its track) */
   C.reactionsAt = (f, shot, base = null) => {
     const out = [];
@@ -238,7 +277,9 @@ export function compileMotionTracks(actions, shots, ctx) {
   C.solveConstraints = (f, primary, active) => {
     const st = JSON.parse(JSON.stringify(primary)), failures = [], solved = [], M = {}, ikSolved = new Set();
     for (const rid of Object.keys(st)) if (!contactDriven.has(rid)) M[rid] = fk(rid, st[rid]);
+    const writers = C.actorDriversAt(f);
     for (const k of active) {
+      if (k.locked && writers.has(`${k.rig}|${k.c.source_socket}|${k.tgtRig}|${k.c.target_socket}`) && M[k.tgtRig]) { solved.push({ action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target: socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket), contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: true, w: 1, ik_joints: [], transform_writer: true }); continue; }
       const s = st[k.rig]; if (!s) { failures.push(err("UNKNOWN_REFERENCE", { record_id: k.action.id, frame_range: [f, f + 1], reason: `rig ${k.rig} not placed in shot` })); continue; }
       let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_world_xy ?? worldHold(k);
       if (!target) { failures.push(err("CONTACT_DRIFT", { record_id: k.action.id, frame_range: [f, f + 1], reason: `target rig ${k.tgtRig} not placed` })); continue; }
@@ -349,6 +390,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     }
     return out;
   };
+  if (propSupport.some((P_) => P_.segments.some((sg) => sg.mode === "ACTOR_DRIVEN" || sg.moving_surface || sg.hold_entry === "BAKED_PREDECESSOR"))) C.__bakePropAuthority((t) => stateAtFrame(C, t));
   return Object.freeze(C);
 }
 

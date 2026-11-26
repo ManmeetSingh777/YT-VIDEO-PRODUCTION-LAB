@@ -146,6 +146,6 @@ export function supportContract({ floor_xy = null } = {}) {
 }
 export const planWith = (doc, { pkt = packet(doc), support = supportContract(), plan = basePlan() } = {}) => ({ ...plan, performance: { packet: pkt, profiles: clone(PROFILES), audio_cues: {}, ...(support ? { prop_support: support } : {}) } });
 export const SPEC = { subjects: SUBJECTS, shot_ids: SHOT_IDS, scene, plan: basePlan() };
-/** build + register the film through the real intake (cached per process) */
+/** build + register the film through the real intake (cached per process; P08: built in a per-process directory — two test files build it concurrently) */
 let cached = null;
-export async function film() { if (cached) return cached; const { runSubjects } = await import("../p03/subjects_fixture.mjs"); const rt = await runSubjects(path.join(REPO, "hybrid_v2", "work", "p07", "subjects"), { spec: SPEC }); const doc = JSON.parse(fs.readFileSync(rt.manifest, "utf8")); cached = { rt, doc }; return cached; }
+export async function film() { if (cached) return cached; const { runSubjects } = await import("../p03/subjects_fixture.mjs"); const { isolatedWork } = await import("../_lib/isolated_work.mjs"); const rt = await runSubjects(isolatedWork("p07_subjects"), { spec: SPEC }); const doc = JSON.parse(fs.readFileSync(rt.manifest, "utf8")); cached = { rt, doc }; return cached; }

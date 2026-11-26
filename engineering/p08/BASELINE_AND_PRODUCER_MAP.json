@@ -1,0 +1,787 @@
+{
+ "schema_version": "1.0.0",
+ "kind": "P08_BASELINE_AND_PRODUCER_MAP",
+ "p07_frozen_source": "ecd0aa82a9bfa8d8d67d2916aa08e5f60e2aace0",
+ "p07_result": "304/305 (S3C-7 OUTBOX_IMMUTABLE_VIOLATION; corrected at fb01ca4)",
+ "observed_from": "git show at the frozen SHA (line numbers resolved from the source text)",
+ "requirement_count": 38,
+ "rows": [
+  {
+   "requirement_id": "A01",
+   "producer": [
+    "engine/story/creative_adapter.mjs:26",
+    "engine/art_bridge/performance_commands.mjs:132",
+    "engine/story/action_coverage.mjs:33"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:358",
+    "engine/art_bridge/scene_graph.mjs:42"
+   ],
+   "schema": "schemas/creative_packet_v1_1.schema.json, schemas/performance_command_v1.schema.json",
+   "observed_gap_at_p07": "Commands compile into plan surfaces with per-command expected_effects (P06), but there is no single interval-indexed obligation ledger proving every directed obligation (incl. purposeful holds, occluded contacts, offscreen sound) has exactly one producer and one consumer, and no union-of-covered-frames check.",
+   "existing_test_ids": [
+    "P06 performance_commands",
+    "P07 p07_creative"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "E01_PHASE1",
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "A02",
+   "producer": [
+    "engine/art_bridge/temporal.mjs:125"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:225",
+    "engine/film/performance_qa.mjs:15"
+   ],
+   "schema": "schemas/motion_art_manifest_v2.schema.json (contact_events)",
+   "observed_gap_at_p07": "contactsAt drops a contact when the current shot differs from its action's shot (`C.shotAt(f)?.id !== k.action.shot_id`), so a contact resets at a cut; contact identity is matched by action+socket+start_frame, no canonical contact_id, no per-shot visibility mapping.",
+   "existing_test_ids": [
+    "P07 prop_support (single shot)"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "A03",
+   "producer": [
+    "engine/art_bridge/temporal.mjs:81"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:176"
+   ],
+   "schema": "none (implicit)",
+   "observed_gap_at_p07": "Single-writer check exists only for joint tracks vs secondary/procedural/additive; no compiled write set (owner,property,interval,producer,mode) covering channels, props, camera and constraints; no report of constraint-suppressed acting as a failure of a mandatory effect.",
+   "existing_test_ids": [
+    "P03 acting",
+    "P06 performance"
+   ],
+   "depends_on": [
+    "A01"
+   ],
+   "production_scopes": [
+    "E01_PHASE1",
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "A04",
+   "producer": [
+    "engine/story/creative_packet.mjs:19"
+   ],
+   "consumer": [
+    "(none: no successor phase consumer)"
+   ],
+   "schema": "schemas/creative_packet_v1_1.schema.json (scope)",
+   "observed_gap_at_p07": "P07 PRODUCTION_PHASE must start at parent f0; no outgoing boundary bundle, no successor that consumes k-1 state.",
+   "existing_test_ids": [
+    "P07 p07_creative phase tests"
+   ],
+   "depends_on": [
+    "A02",
+    "F01"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (f959 outgoing)",
+    "E01_PHASE2"
+   ]
+  },
+  {
+   "requirement_id": "B01",
+   "producer": [
+    "engine/art_bridge/prop_support.mjs:108"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:238",
+    "engine/film/performance_qa.mjs:96"
+   ],
+   "schema": "schemas/prop_support_v1.schema.json",
+   "observed_gap_at_p07": "Prop transform comes only from its own authored track or the SURFACE hold; a hand never drives a prop (hand IK follows the prop socket). No ACTOR_DRIVEN/OBJECT_DRIVEN/FREE_AUTHORED modes, no H_to_P relative transform, chained contacts refused.",
+   "existing_test_ids": [
+    "P07 prop_support PS-1..5"
+   ],
+   "depends_on": [
+    "A02",
+    "A03"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (award, report, phone)"
+   ]
+  },
+  {
+   "requirement_id": "B02",
+   "producer": [
+    "engine/art_bridge/temporal.mjs:273"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:238"
+   ],
+   "schema": "schemas/motion_art_manifest_v2.schema.json socket.basis_angle_deg (optional)",
+   "observed_gap_at_p07": "Orientation is CHECKED after FK (target_angle_deg vs basis) but not SOLVED: IK keeps the FK wrist world angle; basis is optional even for production contacts.",
+   "existing_test_ids": [
+    "P06/P07 palm reversal negatives"
+   ],
+   "depends_on": [
+    "B01"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "B03",
+   "producer": [
+    "engine/story/creative_adapter.mjs:28"
+   ],
+   "consumer": [
+    "(refusal only)"
+   ],
+   "schema": "none",
+   "observed_gap_at_p07": "PINCH is refused (no producer).",
+   "existing_test_ids": [
+    "P07 p07_creative PINCH refusal"
+   ],
+   "depends_on": [
+    "B02"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (WRAP chosen D2; PINCH general)"
+   ]
+  },
+  {
+   "requirement_id": "B04",
+   "producer": [
+    "engine/art_bridge/performance_commands.mjs:264"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:321"
+   ],
+   "schema": "plan.cels",
+   "observed_gap_at_p07": "walk only on APPROVED_CELS; PART_RIG articulated gait refused; no foot-step schedule, stance anchors, pelvis shift or support polygon.",
+   "existing_test_ids": [
+    "P05 gait cels"
+   ],
+   "depends_on": [
+    "B02",
+    "B08"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (A06 cropped approach)",
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "B05",
+   "producer": [
+    "engine/art_bridge/execution.mjs:53"
+   ],
+   "consumer": [
+    "engine/film/chrome_frames.mjs (render)"
+   ],
+   "schema": "manifest joints/underpaint",
+   "observed_gap_at_p07": "Seam/hidden-paint integrity checked only in specific P03/B2 tests (elbow underpaint), not a general per-joint ROI validator over every demanded frame.",
+   "existing_test_ids": [
+    "B2-c elbow underpaint"
+   ],
+   "depends_on": [
+    "B04",
+    "D03"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "B06",
+   "producer": [
+    "engine/art_bridge/performance_commands.mjs:204",
+    "engine/art_bridge/performance_commands.mjs:228"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:176",
+    "engine/film/performance_qa.mjs:15"
+   ],
+   "schema": "schemas/performance_command_v1.schema.json",
+   "observed_gap_at_p07": "reach/point/turn_head/turn_body/idle/hold exist (P06). Gap: hold persistence across actions/cuts (A02), no explicit preparation→execution→settle envelope checks.",
+   "existing_test_ids": [
+    "P06 suite"
+   ],
+   "depends_on": [
+    "A02",
+    "C05"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "B07",
+   "producer": [
+    "engine/story/creative_preflight.mjs:18"
+   ],
+   "consumer": [
+    "(refusal only)"
+   ],
+   "schema": "none",
+   "observed_gap_at_p07": "CARRY, LOAD_CONTAINER, INSERT_TOKEN refused; HINGE_FOLLOW reaction exists.",
+   "existing_test_ids": [
+    "P05 hinge"
+   ],
+   "depends_on": [
+    "B01",
+    "B04"
+   ],
+   "production_scopes": [
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "B08",
+   "producer": [
+    "engine/art_bridge/temporal.mjs:205"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:358"
+   ],
+   "schema": "plan.support",
+   "observed_gap_at_p07": "Static COM balance per frame only; no declared support intent per owner, no collision masks/allowances.",
+   "existing_test_ids": [
+    "P05 balance"
+   ],
+   "depends_on": [
+    "B01",
+    "B04"
+   ],
+   "production_scopes": [
+    "E01_PHASE1",
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "B09",
+   "producer": [
+    "engine/film/performance_qa.mjs:15"
+   ],
+   "consumer": [
+    "engine/film/chrome_frames.mjs"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Owner-pixel checks exist for P03/P07 negatives; must extend to every new B route.",
+   "existing_test_ids": [
+    "p03 run_clips negatives",
+    "P07 PS-5 Chrome"
+   ],
+   "depends_on": [
+    "B01",
+    "B02",
+    "B03",
+    "B04"
+   ],
+   "production_scopes": [
+    "ALL"
+   ]
+  },
+  {
+   "requirement_id": "C01",
+   "producer": [
+    "engine/art_bridge/acting.mjs:65"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:176"
+   ],
+   "schema": "performance profile (P06)",
+   "observed_gap_at_p07": "Profiles drive reactions/idle/limits; no explicit per-actor anticipation/settle envelopes compared across two profiles from the same intent.",
+   "existing_test_ids": [
+    "P06 profiles"
+   ],
+   "depends_on": [
+    "A03"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "C02",
+   "producer": [
+    "engine/art_bridge/performance_commands.mjs:218"
+   ],
+   "consumer": [
+    "engine/art_bridge/state_channels.mjs:40"
+   ],
+   "schema": "performance_command_v1",
+   "observed_gap_at_p07": "change_expression is a single swap to the end state; no expression_transition with timed intermediate anchors.",
+   "existing_test_ids": [
+    "P06 expression swap"
+   ],
+   "depends_on": [
+    "C04"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (D4)"
+   ]
+  },
+  {
+   "requirement_id": "C03",
+   "producer": [
+    "engine/art_bridge/performance_commands.mjs:129"
+   ],
+   "consumer": [
+    "engine/art_bridge/state_channels.mjs:40"
+   ],
+   "schema": "audio cue {words}",
+   "observed_gap_at_p07": "speechSwaps INFERS evenly spaced vowel openings from words (forbidden by C03); LIMITED rest/mid/open only; no phone input, no viseme map, no sample clock.",
+   "existing_test_ids": [
+    "P06 speak"
+   ],
+   "depends_on": [
+    "F01",
+    "C04"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (D5)"
+   ]
+  },
+  {
+   "requirement_id": "C04",
+   "producer": [
+    "engine/art_bridge/state_channels.mjs:12"
+   ],
+   "consumer": [
+    "engine/art_bridge/temporal.mjs:279"
+   ],
+   "schema": "manifest state_channels",
+   "observed_gap_at_p07": "Disjoint slot ownership only; no facial ownership map/masks, no emotion-conditioned mouth family, no pupil-in-mask check.",
+   "existing_test_ids": [
+    "P03 channels"
+   ],
+   "depends_on": [
+    "C02",
+    "C03"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "C05",
+   "producer": [
+    "engine/art_bridge/temporal.mjs:182"
+   ],
+   "consumer": [
+    "engine/art_bridge/framing.mjs:19"
+   ],
+   "schema": "plan.__gaze, plan.framing",
+   "observed_gap_at_p07": "Gaze aim + framing SUBJECT_CROPPED exist; no attention-window readability per directed interval.",
+   "existing_test_ids": [
+    "P04 framing",
+    "P06 look_at"
+   ],
+   "depends_on": [
+    "A01"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "C06",
+   "producer": [
+    "(none)"
+   ],
+   "consumer": [
+    "(none)"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "No E01 coordinated acceptance derivation from the measured packet.",
+   "existing_test_ids": [],
+   "depends_on": [
+    "A01",
+    "B01",
+    "C02",
+    "C03",
+    "E07"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "D01",
+   "producer": [
+    "engine/art_bridge/art_demand.mjs:10",
+    "engine/art_bridge/art_intake.mjs:64"
+   ],
+   "consumer": [
+    "engine/tools/art_outbox.mjs#exportOutbox",
+    "engine/art_bridge/gpt_handoff.mjs#exportGptJob"
+   ],
+   "schema": "ArtJob",
+   "observed_gap_at_p07": "Demand covers pose/view/hand/transition/camera; P08 tuples (face tuple, viseme, expression intermediates, pinch patches) absent; pregen audit enforced (P07).",
+   "existing_test_ids": [
+    "P04 demand",
+    "P07 pregen"
+   ],
+   "depends_on": [
+    "C02",
+    "C03",
+    "C04",
+    "B03"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 masters"
+   ]
+  },
+  {
+   "requirement_id": "D02",
+   "producer": [
+    "engine/art_bridge/registration.mjs:14"
+   ],
+   "consumer": [
+    "engine/art_bridge/art_intake.mjs#ingestMaster"
+   ],
+   "schema": "landmarks",
+   "observed_gap_at_p07": "Similarity registration + residual + identity hash exist; hold-out landmark check and reflection refusal to verify.",
+   "existing_test_ids": [
+    "P0 audit",
+    "S3C-8 rig fit"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "D03",
+   "producer": [
+    "engine/production/post_art_feedback.mjs#postArtFeasibility"
+   ],
+   "consumer": [
+    "engine/production/stages.mjs"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Post-art feasibility re-solves frames; projected max scale vs source resolution policy (2×) not enforced.",
+   "existing_test_ids": [
+    "P05 chain"
+   ],
+   "depends_on": [
+    "D01"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "D04",
+   "producer": [
+    "engine/art_bridge/state_router.mjs:9"
+   ],
+   "consumer": [
+    "engine/art_bridge/graph.mjs#occlusionGraph"
+   ],
+   "schema": "manifest",
+   "observed_gap_at_p07": "View edges + occlusion cycles checked; facial-tuple compatibility across view edges absent.",
+   "existing_test_ids": [
+    "P03 view turn"
+   ],
+   "depends_on": [
+    "C04"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "D05",
+   "producer": [
+    "engine/art_bridge/repair_memory.mjs:13"
+   ],
+   "consumer": [
+    "engine/production/stages.mjs#recordFailure"
+   ],
+   "schema": "failure record",
+   "observed_gap_at_p07": "Failure records exist with producer routing; the full P08 field set and selective invalidation proof to verify.",
+   "existing_test_ids": [
+    "L0x repair",
+    "P02 repairs"
+   ],
+   "depends_on": [
+    "F02"
+   ],
+   "production_scopes": [
+    "ALL"
+   ]
+  },
+  {
+   "requirement_id": "D06",
+   "producer": [
+    "engine/film/final_review.mjs"
+   ],
+   "consumer": [
+    "engine/production/stages.mjs S09"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Human/real gates exist (S09 blocked under diagnostic); explicit four-state gate labels to add to matrix.",
+   "existing_test_ids": [
+    "P05 chain S09"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "ALL"
+   ]
+  },
+  {
+   "requirement_id": "E01",
+   "producer": [
+    "(none)"
+   ],
+   "consumer": [
+    "(none)"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "No world freeze/time remap.",
+   "existing_test_ids": [],
+   "depends_on": [
+    "A04"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (f960 freeze obligation)",
+    "E01_PHASE2"
+   ]
+  },
+  {
+   "requirement_id": "E02",
+   "producer": [
+    "(none)"
+   ],
+   "consumer": [
+    "(none)"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "No selective owner-group grading.",
+   "existing_test_ids": [],
+   "depends_on": [
+    "E01"
+   ],
+   "production_scopes": [
+    "E01_PHASE2"
+   ]
+  },
+  {
+   "requirement_id": "E03",
+   "producer": [
+    "engine/host3d/host_pass.mjs:22"
+   ],
+   "consumer": [
+    "engine/host3d/host_pass.mjs:105"
+   ],
+   "schema": "host pass contract",
+   "observed_gap_at_p07": "Calibrated ORTHOGRAPHIC host camera only; no perspective K[R|t].",
+   "existing_test_ids": [
+    "tbo host_pass"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "E01_PHASE2 (SH07 host)"
+   ]
+  },
+  {
+   "requirement_id": "E04",
+   "producer": [
+    "engine/host3d/host_pass.mjs:51"
+   ],
+   "consumer": [
+    "engine/art_bridge/scene_graph.mjs (host between bands)"
+   ],
+   "schema": "host pass",
+   "observed_gap_at_p07": "Host RGBA + shadow passes composited between bands; no depth pass / per-pixel depth occlusion.",
+   "existing_test_ids": [
+    "tbo host_pass"
+   ],
+   "depends_on": [
+    "E03"
+   ],
+   "production_scopes": [
+    "E01_PHASE2"
+   ]
+  },
+  {
+   "requirement_id": "E05",
+   "producer": [
+    "engine/story/creative_preflight.mjs:13"
+   ],
+   "consumer": [
+    "(refusal only)"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Camera orbit / 3D dolly refused.",
+   "existing_test_ids": [],
+   "depends_on": [
+    "E03"
+   ],
+   "production_scopes": [
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "E06",
+   "producer": [
+    "engine/decoder/model_bar.mjs:18"
+   ],
+   "consumer": [
+    "engine/decoder/decoder_qa.mjs#verifyModelBarFrames"
+   ],
+   "schema": "model card",
+   "observed_gap_at_p07": "MODEL_BAR driven by model card; counters/flows/labels and spoken-match checks partial.",
+   "existing_test_ids": [
+    "tbo decoder_model"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "FULL_FILM"
+   ]
+  },
+  {
+   "requirement_id": "E07",
+   "producer": [
+    "(none)"
+   ],
+   "consumer": [
+    "(none)"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "No photo polygon / phone lens review geometry.",
+   "existing_test_ids": [],
+   "depends_on": [
+    "C05"
+   ],
+   "production_scopes": [
+    "E01_PHASE1 (D6)"
+   ]
+  },
+  {
+   "requirement_id": "F01",
+   "producer": [
+    "engine/film/audio_mix.mjs:29",
+    "engine/art_bridge/audio_cues.mjs:8"
+   ],
+   "consumer": [
+    "engine/film/audio_mix.mjs#muxAV"
+   ],
+   "schema": "audio cue plan",
+   "observed_gap_at_p07": "Frame-addressed audio (sample = frame/fps); no explicit 800-samples/frame integer clock, take-trim placement formula or crossing-cue tail obligation.",
+   "existing_test_ids": [
+    "P05 chain audio"
+   ],
+   "depends_on": [],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "F02",
+   "producer": [
+    "engine/film/film_revision.mjs:34"
+   ],
+   "consumer": [
+    "engine/film/segment_render.mjs#renderFilm"
+   ],
+   "schema": "revision",
+   "observed_gap_at_p07": "Revision keys + chunk reuse exist; dependency-scoped invalidation for one mouth state/take to prove.",
+   "existing_test_ids": [
+    "P03 revision",
+    "P02 render"
+   ],
+   "depends_on": [
+    "A04"
+   ],
+   "production_scopes": [
+    "ALL"
+   ]
+  },
+  {
+   "requirement_id": "F03",
+   "producer": [
+    "tools/tbo/e01_v04_provisional_preflight.mjs"
+   ],
+   "consumer": [
+    "engineering/e01_v04/PROVISIONAL_PREFLIGHT.json"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Provisional generator evaluates P07 producers; needs P08 producers, P3.1 timing and multi-blocker rows.",
+   "existing_test_ids": [
+    "P07 tally invariant"
+   ],
+   "depends_on": [
+    "ALL"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "F04",
+   "producer": [
+    "engine/production/quality_gates.mjs:50"
+   ],
+   "consumer": [
+    "engineering/*/FINAL_ENGINEERING_TAP.tap"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Gate registry binds tests to gates; P08 suites to bind.",
+   "existing_test_ids": [
+    "quality_gates"
+   ],
+   "depends_on": [
+    "ALL"
+   ],
+   "production_scopes": [
+    "ALL"
+   ]
+  },
+  {
+   "requirement_id": "F05",
+   "producer": [
+    "engine/production/stages.mjs"
+   ],
+   "consumer": [
+    "engine/tools/production_run.mjs"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Stage chain exists; route-blocking status for unimplemented producers to surface per E01 phase.",
+   "existing_test_ids": [
+    "P05 chain"
+   ],
+   "depends_on": [
+    "F03"
+   ],
+   "production_scopes": [
+    "E01_PHASE1"
+   ]
+  },
+  {
+   "requirement_id": "F06",
+   "producer": [
+    "(process)"
+   ],
+   "consumer": [
+    "git"
+   ],
+   "schema": "-",
+   "observed_gap_at_p07": "Branch reconciliation pending after P08 publication.",
+   "existing_test_ids": [],
+   "depends_on": [
+    "ALL"
+   ],
+   "production_scopes": [
+    "REPOSITORY"
+   ]
+  }
+ ]
+}
