@@ -84,7 +84,10 @@ test("P07-N2 every-frame negatives through the real consumers: open painted hand
   assert.ok(!qo.ok && /painted hand shows open|GRIP_MORPHOLOGY_FAILED/.test(qo.results.find((r) => r.command === "report_standin").reason ?? ""), "open hand while it supports the card");
   // hand orientation reversal (palm basis flipped by 180°)
   const flip = verifyPerformance(compile(plan0({ support: ct((c) => (prop(c, "report_standin").hands[1].grip_angle_deg = 180)) })));
-  const rr = flip.results.find((r) => r.command === "report_standin"); assert.ok(!rr.ok && /palm orientation|CONTACT_ORIENTATION/.test(rr.reason), rr.reason);
+  const rr = flip.results.find((r) => r.command === "report_standin"); assert.ok(!rr.ok && /palm orientation|CONTACT_ORIENTATION|no contact on the bound prop socket/.test(rr.reason), rr.reason);
+  // P08 B02 contract migration: the palm basis is now SOLVED by the IK (not only checked after FK), so a reversed palm is refused by the solver
+  // itself (the wrist cannot reach the card with its basis flipped) — assert that typed solver failure on the evaluated frames, not a looser text
+  { const Cf = compile(plan0({ support: ct((c) => (prop(c, "report_standin").hands[1].grip_angle_deg = 180)) })), fl = stateAtFrame(Cf, 400).failures.map((x) => x.code); assert.ok(fl.some((c) => ["UNREACHABLE_IK", "JOINT_LIMIT_EXCEEDED", "CONTACT_ORIENTATION_UNSATISFIABLE"].includes(c)), fl.join(",")); }
   // prop teleport while a hand drives it: the hand follows the jump (zero contact error), only the owner's own path catches it
   const tp = tamper((p) => (p.tracks.card_rig.root.x = [[0, 0], [298, 0], [322, -12, "sine.inOut"], [368, -12], [404, -46, "sine.inOut"], [419, -46], [420, -16]])), qt = verifyPerformance(tp.C);
   assert.ok(/jumps .*teleport/.test(qt.results.find((r) => r.command === "report_standin").reason ?? ""), "prop teleport detected on the prop's own root");

@@ -135,6 +135,9 @@ export function compileMotionTracks(actions, shots, ctx) {
     if (!tgtRig && !c.target_world_xy && !["PLANT", "SUPPORT"].includes(c.contact_type)) { /* P05: a plant with no fixed point holds the place where the sole is when the contact starts (measured, never invented) */ errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
     contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig, identity: canonicalContact(a, c, { actorRig: srcRig, targetOwner: tgtRig ?? (c.target_world_xy ? "WORLD" : null) }) });
   }
+  // P08 B02: a production holding contact is position AND orientation — both the target basis angle and the socket basis are required
+  for (const k of contacts) if (ctx.runType === "PRODUCTION" && ["GRIP", "PINCH"].includes(k.c.contact_type) && !(Number.isFinite(k.c.target_angle_deg) && Number.isFinite(k.socket.basis_angle_deg))) errors.push(err("CONTACT_BASIS_REQUIRED", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `production ${k.c.contact_type} ${k.identity.contact_id} needs the reviewed target basis angle and the socket basis (a matching point with an unknown palm orientation is not a contact)`, failed_invariant: "PRODUCTION_CONTACT_ORIENTED", producer: "engine/art_bridge/temporal.mjs#compileMotionTracks" }));
+  for (let i = 0; i < contacts.length; i++) for (let j = i + 1; j < contacts.length; j++) { const a = contacts[i], b = contacts[j]; if (a.c.source_socket !== b.c.source_socket || !(a.c.start_frame < b.c.end_frame && b.c.start_frame < a.c.end_frame)) continue; const ta = a.c.target_socket ?? JSON.stringify(a.c.target_world_xy ?? null), tb = b.c.target_socket ?? JSON.stringify(b.c.target_world_xy ?? null); if (ta !== tb && a.c.contact_type !== "PLANT" && b.c.contact_type !== "PLANT") errors.push(err("CONTACT_CONFLICT", { record_id: b.identity.contact_id, frame_range: [Math.max(a.c.start_frame, b.c.start_frame), Math.min(a.c.end_frame, b.c.end_frame)], reason: `${a.c.source_socket} would hold ${ta} and ${tb} at once`, failed_invariant: "ONE_OBJECT_PER_SOCKET" })); }
   errors.push(...validateContactShots(contacts, shots)); // P08 A02: one id per contact; crossing a cut only as a declared, fully mapped persistent contact
   const contactDriven = new Set(contacts.map((k) => k.rig));
   // precedence report: contact IK (layer 4) owns its chain joints while a contact is locked; acting on those joints is overridden there, never silently
@@ -308,12 +311,16 @@ export function compileMotionTracks(actions, shots, ctx) {
       const orient = rampOf(k)?.orient || "WORLD", A = apply(M0[js], rs), thW = s.theta[jw];
       const pa = angleOf(parentM), aSE = deg(Math.atan2(re[1] - rs[1], re[0] - rs[0])), aEW = deg(Math.atan2(rw[1] - re[1], rw[0] - re[0]));
       try {
-        let phi = phiW, sol, Wt, ts, te, tw;
-        for (let it = 0; it < (orient === "RELATIVE" ? 12 : 1); it++) {
+        // P08 B02: a declared contact basis is SOLVED: the wrist takes the world angle that puts the socket basis on the target basis (blended in over
+        // the approach ramp); the wrist limit then refuses an impossible palm instead of the contact silently keeping an arbitrary FK angle
+        const tgtBasis = Number.isFinite(k.c.target_angle_deg) && Number.isFinite(k.socket.basis_angle_deg) ? k.c.target_angle_deg + (k.tgtRig && M[k.tgtRig] ? angleOf(M[k.tgtRig][rigs.get(k.tgtRig).socketById.get(k.c.target_socket)?.joint_id] || [1, 0, 0, 1, 0, 0]) : 0) - k.socket.basis_angle_deg : null;
+        const phiT = tgtBasis === null ? null : phiW + wrap180(tgtBasis - phiW) * (k.locked ? 1 : k.w);
+        let phi = phiT ?? phiW, sol, Wt, ts, te, tw;
+        for (let it = 0; it < (orient === "RELATIVE" && phiT === null ? 12 : 1); it++) {
           const local = applyVec(chain(R(phi), Sc(sc)), k.socket.local_xy); Wt = [target[0] - local[0], target[1] - local[1]];
           sol = solveTwoBonePosition(A, Wt, dist(rs, re) * sc, dist(re, rw) * sc, k.bend);
           ts = wrap180(deg(Math.atan2(sol.elbow[1] - A[1], sol.elbow[0] - A[0])) - aSE - pa); te = wrap180(deg(Math.atan2(Wt[1] - sol.elbow[1], Wt[0] - sol.elbow[0])) - aEW - pa - ts);
-          if (orient === "RELATIVE") { tw = thW; phi = pa + ts + te + tw; } else tw = wrap180(phiW - pa - ts - te);
+          if (phiT !== null) tw = wrap180(phiT - pa - ts - te); else if (orient === "RELATIVE") { tw = thW; phi = pa + ts + te + tw; } else tw = wrap180(phiW - pa - ts - te);
         }
         if (!k.locked) { // blending from/to FK: the approved bend branch must be the FK pose's branch, otherwise the elbow would flip on the ramp boundary
           const Efk = apply(M0[je], re), Wfk = apply(M0[jw], rw), side = Math.sign((Wfk[0] - A[0]) * (Efk[1] - A[1]) - (Wfk[1] - A[1]) * (Efk[0] - A[0])); // the FK pose's own branch
