@@ -98,8 +98,10 @@ export function compileHostPasses({ contract: c, passesDir, assetRoot, runType =
   for (const f of sample) for (const k of ["host", "shadow"]) { const png = readPng(path.join(passesDir, frames[f][k])); let lo = 255, opaque = 0; for (let i = 3; i < png.rgba.length; i += 4) { lo = Math.min(lo, png.rgba[i]); if (png.rgba[i] > 200) opaque++; }
     if (lo > 0) push("HOST_INTEGRATION_INVALID", c.host_id, `${k} pass of film frame ${f} has no transparent pixel (min alpha ${lo}): the render carries its own background and would paste a rectangle over the 2D world`, "HOST_PASS_TRANSPARENT", { frame_range: [f, f + 1] });
     if (k === "host" && !opaque) push("HOST_INTEGRATION_INVALID", c.host_id, `host pass of film frame ${f} is empty`, "HOST_PASS_PRESENT", { frame_range: [f, f + 1] }); }
-  const rel = path.relative(path.resolve(assetRoot), path.resolve(passesDir)).split(path.sep).join("/");
-  if (rel.startsWith("..")) push("HOST_INTEGRATION_INVALID", c.host_id, "passes must live under the film asset root", "HOST_PASS_PRESENT");
+  // P08 regression finding: path.relative across Windows drives returns an ABSOLUTE path (no ".."), so a prefix test alone let passes on another
+  // drive count as "under" the asset root. Containment = relative, not absolute, and not climbing out.
+  const relNative = path.relative(path.resolve(assetRoot), path.resolve(passesDir)), rel = relNative.split(path.sep).join("/");
+  if (path.isAbsolute(relNative) || rel === ".." || rel.startsWith("../")) push("HOST_INTEGRATION_INVALID", c.host_id, "passes must live under the film asset root", "HOST_PASS_PRESENT");
   const first = frames[want[0]] || { host: P.frames[0]?.host.file, shadow: P.frames[0]?.shadow.file };
   const entry = { shot_id: c.shot_id, band: c.band || "FOCAL", resolution: c.resolution, url_prefix: `assets/${rel}/`, frames, first, passes_sha256: fsha(pf), provenance: c.provenance };
   return { entry, errors, report: { host_id: c.host_id, provenance: c.provenance, adapter_version: P.adapter_version ?? null, blender_version: P.blender_version, fps: P.fps, alpha_mode: P.alpha_mode, host_mesh_sha256: P.host_mesh_sha256, rig_action_sha256: P.rig_action_sha256, camera_deviation: dev, calibration: calib, contacts, frames_checked: Object.keys(frames).length } };

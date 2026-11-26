@@ -3,5 +3,6 @@
 // cause) or a parallel file cannot leak into an assertion. Immutable shared fixtures are read from the repository, never written.
 import fs from "node:fs"; import os from "node:os"; import path from "node:path"; import crypto from "node:crypto";
 export const RUNS_ROOT = path.join(os.tmpdir(), "tbo-test-runs");
-/** isolatedWork(name) → a fresh, empty directory unique to this process and call */
-export function isolatedWork(name) { const d = path.join(RUNS_ROOT, `${name.replace(/[^\w.-]+/g, "_")}-${process.pid}-${crypto.randomBytes(4).toString("hex")}`); fs.mkdirSync(d, { recursive: true }); return d; }
+/** isolatedWork(name, {under}) → a fresh, empty directory unique to this process and call (under RUNS_ROOT, or under a given root when the
+ *  consumer requires containment, e.g. host passes inside the film asset root) */
+export function isolatedWork(name, { under = RUNS_ROOT } = {}) { const d = path.join(under, `${name.replace(/[^\w.-]+/g, "_")}-${process.pid}-${crypto.randomBytes(4).toString("hex")}`); fs.mkdirSync(d, { recursive: true }); return d; }
