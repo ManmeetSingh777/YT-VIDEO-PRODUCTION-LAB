@@ -133,7 +133,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     const sock = R_.socketById.get(c.source_socket), ikc = R_.rec.constraints.find((k) => k.type === "TWO_BONE_IK" && k.chain[2] === sock.joint_id);
     if (!ikc) { errors.push(err("UNREACHABLE_IK", { record_id: a.id, reason: `no TWO_BONE_IK chain ends at ${sock.joint_id}` })); continue; }
     const tgtRig = socketOwner.get(c.target_socket) || null;
-    if (!tgtRig && !c.target_world_xy && !["PLANT", "SUPPORT"].includes(c.contact_type)) { /* P05: a plant with no fixed point holds the place where the sole is when the contact starts (measured, never invented) */ errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
+    if (!tgtRig && !c.target_world_xy && !c.target_path && !["PLANT", "SUPPORT"].includes(c.contact_type)) { /* P05: a plant with no fixed point holds the place where the sole is when the contact starts (measured, never invented) */ errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
     contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig, identity: canonicalContact(a, c, { actorRig: srcRig, targetOwner: tgtRig ?? (c.target_world_xy ? "WORLD" : null) }) });
   }
   // P08 B02: a production holding contact is position AND orientation — both the target basis angle and the socket basis are required
@@ -305,7 +305,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     for (const k of active) {
       if (k.locked && writers.has(`${k.rig}|${k.c.source_socket}|${k.tgtRig}|${k.c.target_socket}`) && M[k.tgtRig]) { solved.push({ contact_id: k.identity.contact_id, visibility: k.identity.shot_visibility?.[C.shotAt(f)?.id]?.visibility ?? "VISIBLE", action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target: socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket), contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: true, w: 1, ik_joints: [], transform_writer: true }); continue; }
       const s = st[k.rig]; if (!s) { failures.push(err("UNKNOWN_REFERENCE", { record_id: k.action.id, frame_range: [f, f + 1], reason: `rig ${k.rig} not placed in shot` })); continue; }
-      let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_world_xy ?? worldHold(k);
+      let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_path ? [ev(k.c.target_path.x, f), ev(k.c.target_path.y, f)] : k.c.target_world_xy ?? worldHold(k);
       if (!target) { failures.push(err("CONTACT_DRIFT", { record_id: k.action.id, frame_range: [f, f + 1], reason: `target rig ${k.tgtRig} not placed` })); continue; }
       const R_ = rigs.get(k.rig), [js, je, jw] = k.chain, rs = R_.joints.get(js).rest_xy, re = R_.joints.get(je).rest_xy, rw = R_.joints.get(jw).rest_xy;
       const M0 = fk(k.rig, s), sc = scaleOf(M0[js]), phiW = angleOf(M0[jw]), parentM = R_.joints.get(js).parent_id ? M0[R_.joints.get(js).parent_id] : chain(T(s.root.x, s.root.y), R(s.root.rot), Sc(s.root.scale), T(-R_.root.rest_xy[0], -R_.root.rest_xy[1]));

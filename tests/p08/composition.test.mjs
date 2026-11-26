@@ -14,7 +14,7 @@ const codes = (fn) => { try { fn(); return []; } catch (e) { return (e.errors ||
 const C0 = compile(CF.basePlan()), sole = (sid, s) => C0.socketWorld(`${sid}_rig`, stateAtFrame(C0, 0).matrices[`${sid}_rig`], `${sid}_sole_${s}`);
 const E = (kind, extra = {}) => ({ kind, ...extra });
 /** combo 1 (kade): seated → rises with planted feet → gaze turns up-right → right arm raises and waves (elbow oscillation) */
-const combo1 = ({ rise = [60, 60], waveAmp = 25, wavePeriod = 24, gazeTo = [900, 230], who = "kade", drop = 120 } = {}) => [
+const combo1 = ({ rise = [60, 60], waveAmp = 25, wavePeriod = 24, gazeTo = [900, 230], who = "kade", drop = 100 } = {}) => [
   { id: `${who}_plant_l`, kind: "PLANT", owner: `${who}_rig.${who}_sole_l`, frames: [0, 300], inputs: { target: { world_xy: sole(who, "l") } }, expected_effect: E("SOCKET_FIXED") },
   { id: `${who}_plant_r`, kind: "PLANT", owner: `${who}_rig.${who}_sole_r`, frames: [0, 300], inputs: { target: { world_xy: sole(who, "r") } }, expected_effect: E("SOCKET_FIXED") },
   { id: `${who}_rise`, kind: "ROOT_MOVE", owner: `${who}_rig`, frames: [0, rise[0] + rise[1]], inputs: { y: [[0, drop], [rise[0], drop], [rise[0] + rise[1] - 1, 0, "sine.inOut"]] }, limits: { max_speed_px_per_frame: 6 }, expected_effect: E("ROOT_PATH") },
@@ -59,7 +59,7 @@ test("COMP-2 disable one contributing producer at a time: exactly that primitive
 });
 
 test("COMP-3 the same code, different direction: trajectory, timing, actor geometry and emotional profile change the measured performance", () => {
-  const traj = verifyComposition(compile(planOf(combo1({ gazeTo: [760, 420] })))), timing = compile(planOf(combo1({ rise: [90, 40] }))), geo = compile(planOf(combo1({ who: "pim", drop: 60, gazeTo: [1300, 360] })));
+  const traj = verifyComposition(compile(planOf(combo1({ gazeTo: [760, 420] })))), timing = compile(planOf(combo1({ rise: [90, 40] }))), geo = compile(planOf(combo1({ who: "pim", drop: 45, gazeTo: [1300, 360] })));
   assert.ok(traj.ok, traj.failures.map((x) => x.human_readable_reason).join("; "));
   const head = (Cx, f, who = "kade") => { const s = stateAtFrame(Cx, f); return Math.atan2(s.matrices[`${who}_rig`].head[1], s.matrices[`${who}_rig`].head[0]) * 180 / Math.PI; };
   assert.ok(Math.abs(head(C, 60) - head(compile(planOf(combo1({ gazeTo: [760, 420] }))), 60)) > 10, "a different directed gaze target gives a different head angle");

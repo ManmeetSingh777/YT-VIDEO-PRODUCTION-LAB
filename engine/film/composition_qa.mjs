@@ -18,7 +18,8 @@ export function verifyComposition(C, { st = null, tolerance_deg = 0.5, aim_toler
   const ws = writeSet(C);
   for (const r of rep.primitives) {
     const res = { primitive: r.id, kind: r.kind, owner: r.owner, frames: r.frames, ok: false, frames_checked: 0, reason: null, measurement: {} }, bad = []; let n = 0;
-    const each = (fn, frames = null) => { for (let f = (frames || r.frames)[0]; f < (frames || r.frames)[1]; f++) { const s = S(f); if (s.error) { bad.push(`frame ${f}: ${s.error.message}`); continue; } n++; const why = fn(s, f); if (why) bad.push(`frame ${f}: ${why}`); } };
+    const ownerFail = (s) => (s.failures || []).filter((x) => { const id = String(x.record_id ?? ""); return id === rid || id.startsWith(`${rid}.`) || (r.action && id === r.action); });
+    const each = (fn, frames = null) => { for (let f = (frames || r.frames)[0]; f < (frames || r.frames)[1]; f++) { const s = S(f); if (s.error) { bad.push(`frame ${f}: ${s.error.message}`); continue; } n++; const why = fn(s, f); if (why) bad.push(`frame ${f}: ${why}`); const of = r.kind !== "CAMERA_MOVE" ? ownerFail(s) : []; if (of.length) bad.push(`frame ${f}: ${of[0].code} ${of[0].record_id} ${String(of[0].human_readable_reason ?? "").slice(0, 90)}`); } };
     const [rid, sub] = String(r.owner).split(".");
     switch (r.kind) {
       case "JOINT_ROTATE": { const osc = rep.primitives.filter((x) => x.kind === "OSCILLATE" && x.owner === r.owner); let mx = 0;
@@ -39,6 +40,19 @@ export function verifyComposition(C, { st = null, tolerance_deg = 0.5, aim_toler
       case "PLANT": case "REACH": { let mx = 0; const tgtOf = (s) => r.contact.target_world_xy ?? (r.contact.target_socket ? (() => { const tr = [...C.rigs.values()].find((R_) => R_.socketById.has(r.contact.target_socket)); return tr && s.matrices[tr.rec.id] ? C.socketWorld(tr.rec.id, s.matrices[tr.rec.id], r.contact.target_socket) : null; })() : null);
         each((s) => { const got = C.socketWorld(rid, s.matrices[rid], sub), t = tgtOf(s); if (!t) return "target not placed"; const e = Math.hypot(got[0] - t[0], got[1] - t[1]); mx = Math.max(mx, e); return e > r.contact.allowed_error_px ? `${r.owner} ${e.toFixed(2)}px from its ${r.kind === "PLANT" ? "plant" : "target"} (allowed ${r.contact.allowed_error_px})` : null; });
         res.measurement = { max_error_px: +mx.toFixed(3) }; break; }
+      case "WALK": { let maxDrift = 0, pen = 0, minClear = Infinity, prevX = null; const R0 = C.rigs.get(rid).root, sockOf = (ft) => r.feet[ft].socket, segAt = (ft, f) => r.feet[ft].segments.find((g) => g.frames[0] <= f && f < g.frames[1]);
+        // DYNAMIC support for intentional locomotion (not a static balance test): the pelvis travels inside the envelope of the planted feet and the
+        // swing foot's push-off and landing anchors (the body falls toward its next footstep), never outside it
+        each((s, f) => { const why = [], P = apply(s.matrices[rid][R0.id], R0.rest_xy), planted = [], support = [];
+          for (const ft of ["l", "r"]) { const g = segAt(ft, f); if (!g) continue; const w = C.socketWorld(rid, s.matrices[rid], sockOf(ft));
+            if (w[1] > r.ground_y + 0.5) { pen = Math.max(pen, w[1] - r.ground_y); why.push(`${ft} sole ${(w[1] - r.ground_y).toFixed(2)}px below the ground`); }
+            if (g.kind === "PLANT") { const d = Math.hypot(w[0] - g.at[0], w[1] - g.at[1]); maxDrift = Math.max(maxDrift, d); if (d > 1.5) why.push(`${ft} stance foot slides ${d.toFixed(2)}px`); planted.push(w); } else { support.push(g.from, g.to); const mid = Math.round((g.frames[0] + g.frames[1]) / 2); if (f === mid) minClear = Math.min(minClear, r.ground_y - w[1]); } }
+          if (!planted.length && !r.running) why.push("no foot on the ground (flight is not directed)");
+          if (planted.length) { const env = [...planted, ...support], lo = Math.min(...env.map((q) => q[0])) - r.support_margin_px, hi = Math.max(...env.map((q) => q[0])) + r.support_margin_px; if (P[0] < lo || P[0] > hi) why.push(`pelvis x ${P[0].toFixed(1)} outside the support [${lo.toFixed(1)}, ${hi.toFixed(1)}]`); }
+          if (prevX !== null && (P[0] - prevX) * r.dir < -1e-6) why.push("the pelvis moves backwards along the directed path"); prevX = P[0];
+          return why.length ? why.join("; ") : null; });
+        res.measurement = { steps: r.steps.length, max_stance_drift_px: +maxDrift.toFixed(3), max_penetration_px: +pen.toFixed(3), min_mid_swing_clearance_px: Number.isFinite(minClear) ? +minClear.toFixed(2) : null };
+        if (Number.isFinite(minClear) && minClear < 2) bad.push(`swing toe clearance ${minClear.toFixed(2)}px (the swing foot scuffs the ground)`); break; }
       case "CAMERA_MOVE": { each((s, f) => { for (const [k, ks] of Object.entries(r.abs)) { const want = ev(ks, f); if (Math.abs((s.camera[k] ?? 0) - want) > 1e-6) return `camera ${k} ${s.camera[k]} ≠ ${want}`; } return null; }); break; }
     }
     if (!n) bad.push("zero frames checked"); res.frames_checked = n; res.ok = !bad.length; res.reason = bad.slice(0, 5).join("; ") || null; results.push(res);
