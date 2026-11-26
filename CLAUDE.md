@@ -2,6 +2,8 @@
 
 > **CURRENT E01 OVERRIDE (26 November 2026; applies to new sessions):** Before any engine change, read docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md, docs/the-better-one/SESSION_RECOVERY_AND_HANDOFF_V1.md, and docs/the-better-one/episodes/E01/EPISODE_STATE.json. The newest creative proposal is E01_OPENING_V0_4_PROPOSED.md (32.5s, not yet user-approved); first selected 13s actual film extract has absolute frames [180,960) and local [0,780). Older 8–10s examples in historical docs are superseded for E01. The P06 code in the user's running local Claude worktree may be ahead of this GitHub documentation branch; DO NOT reset, switch, merge or invalidate a running regression to obtain these docs. Resolve the source branches safely after its results are preserved. A proposal is not a signed human approval.
 
+Read docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md BEFORE generating any E01 art-related producer, GPT handoff, art review or post-art motion; it is the mandatory current manual/semi-automatic operator contract based on actual P06 art_outbox/gpt_handoff implementation. Do not rerun complete frozen P06 test suites merely because SOP docs change. The tested engineering branch is production/better-one-first-film-engineering (engine source b2c6931a...); merge docs safely with its live work rather than replacing engine files.
+
 **This is the CURRENT binding instruction set on the production branch.** The former P02 instructions were archived to `docs/history/LEGACY_P02_CLAUDE.md`. Do not follow the old P02-only stop point or assume the default `main` contains the latest production engine.
 
 ## 0. Do these FIRST on every new account/session
