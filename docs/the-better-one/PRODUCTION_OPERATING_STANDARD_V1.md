@@ -2,6 +2,8 @@
 **Scope:** E01 and every future 8–13-minute episode, or 20-minute episode if editorially earned. **Authority:** repeatable workflow; not a claim the P06 engine has implemented or passed all gates.
 **Binding sources:** THE_BETTER_ONE_MASTER_CHANNEL_BIBLE_v1.md; FIRST_FILM_PRODUCTION_MASTER.md; inputs/EXPERIENCE_DIRECTOR_V1.md; ART_MOTION_AND_HYBRID_QUALITY_GATES.md; P06_13S_PERFORMANCE_SYSTEM_IMPLEMENTATION_DIRECTIVE.md; PRODUCTION_QUALITY_GATE_REGISTRY.json; actual source schemas and runtime producers. Do not duplicate or replace their underlying visual/artistic rules with a superficial summary.
 
+> **BINDING ART/ANIMATION EXECUTION DETAIL:** docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md specifies the manual GPT F01–F80 art-job generation, review/repair learning, master/source-attached derivative, measured art-first rig, per-frame Neutrino, Blender/model graphic, audio and user-review loop. For new episodes, use this instead of improvising new art routines.
+
 ## 0. One-sentence definition of success
 Produce an original, exceptionally entertaining Better One episode whose actual final audiovisual footage communicates a defensible surprising idea, preserves its character's emotion/identity, contains beautiful approved artwork and expressive motion, and survives real human/editorial + technical review. **Tests and pretty frames are evidence, not the product.** Accepted film seconds and genuine viewer clarity are the leading production outputs; actual retention is measured only after release.
 
