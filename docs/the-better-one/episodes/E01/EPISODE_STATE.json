@@ -61,16 +61,30 @@
     ]
   },
   "engineering": {
-    "public_repo_p06_code_state": "UNVERIFIED_CURRENT_LOCAL_RUN",
-    "note": "At verification time public production branch still contained governance documentation, not verified final local P06 engine commit. User's Claude session reportedly runs a final regression; cannot inspect live Windows process here.",
-    "required": [
-      "Claude finishes and publishes actual P06 tested source SHA and honest regression status",
-      "Producer/consumer command capability matrix with real rendering proofs",
-      "v1.1.0 packet validate + preflight against approved V0.4 director",
-      "Exact per-art-job pre-art requests and typed unsupported actions",
-      "G01–G20 applicable statuses with true evidence"
-    ],
-    "regression_status": "UNKNOWN_LATEST_LOCAL"
+    "published_engineering_branch": "production/better-one-first-film-engineering",
+    "report_commit_sha": "efc49aec656b723559be0f05c9d9148f6a042b7b",
+    "tested_engine_code_sha": "b2c6931a628f68773349dc2565d7aae5530ad41d",
+    "regression": {
+      "source": "P06_FINAL_REPORT.md",
+      "result": "REPORTED_PASS",
+      "passed": 296,
+      "failed": 0,
+      "skipped": 0,
+      "frozen_source": true,
+      "independently_reexecuted_here": false
+    },
+    "actual_render_evidence": {
+      "real_mia_art_film_seconds": 0,
+      "approved_real_host_asset": false,
+      "accepted_hybrid_film": false
+    },
+    "capabilities": {
+      "diagnostic_working": "look_at, blink, idle, limited turn_head, coarse speak, reach, grip, release, hold, react, change_expression, point (per P06 report; varying test-rig coverage)",
+      "typed_refusal_or_missing": "articulated walk, body-turn without view cels, CARRY, PINCH, LOAD_CONTAINER, INSERT_TOKEN, visemes, camera orbit, 3D dolly, perspective host camera, depth/matte"
+    },
+    "art_operator_standard": "docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md",
+    "status": "ENGINEERING_TESTED_ON_DIAGNOSTICS; REAL_ART_NOT_YET_QUALIFIED",
+    "merge_note": "Engineering source branch and creative documentation branch differ. Claude must inspect and safely integrate; no blind reset or cherry-pick that overwrites freeze."
   },
   "art": {
     "f01_f80_skill_version_verified_for_new_art_chat": false,
@@ -93,6 +107,13 @@
   },
   "next_actions_ordered": [
     {
+      "id": "N00",
+      "owner": "CLAUDE",
+      "action": "Safely reconcile published P06 engineering branch with current SOP, E01 V0.4-DIR-P1 proposed 7-shot package and new art-to-film operator standard, preserving tested source and accurate human-approval statuses. Inspect actual input ZIP, do provisional action/art state mapping.",
+      "status": "PENDING_LOCAL_INTAKE",
+      "blocker": "NO_APPROVED_E01_CREATIVE_PACKET"
+    },
+    {
       "id": "N01",
       "owner": "GPT+USER",
       "action": "Perform/review V0.4 full opening with scratch audio/animatic, finalize dialogue and approve specific opening and 13s interval.",
@@ -102,7 +123,8 @@
       "id": "N02",
       "owner": "CLAUDE",
       "action": "Finish P06 current regression; publish actual code SHA and evidence; do not claim that diagnostics prove real artwork.",
-      "blocker": "UNVERIFIED_P06_RELEASE"
+      "blocker": "P06_REPORT_PUBLISHED; VERIFY_SAFE_DOC_MERGE; DO_NOT_RERUN_UNCHANGED_ENGINE",
+      "status": "P06_DIAGNOSTIC_ENGINEERING_COMPLETE"
     },
     {
       "id": "N03",
@@ -135,5 +157,5 @@
       "blocker": "N06_AND_APPROVED_FULL_FILM"
     }
   ],
-  "warning": "This is a planning truth ledger and human-readable state. It is not currently wired into a P06 state machine, and it carries no fabricated approval, byte hash or completed test result."
+  "warning": "Status file is a human-readable production ledger, not an engine-produced attestable output. Current engineering evidence proves diagnostics only; user and GPT must approve genuine V0.4 creative packet, then generate actual F01-F80 art, rig and film."
 }
