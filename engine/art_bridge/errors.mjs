@@ -34,7 +34,7 @@ export const CODES = Object.freeze([
   "PHASE_SCOPE_INVALID", "PREGEN_AUDIT_MISSING", "PREGEN_AUDIT_INVALID",
   "EVALUATION_NONDETERMINISM", "RULESET_LOCK_STALE", "STALE_EVALUATION_RULES",
   // P08 motion closure
-  "CONTACT_CONTINUITY_UNMAPPED", "CONTACT_VISIBILITY_MISMATCH",
+  "CONTACT_CONTINUITY_UNMAPPED", "CONTACT_VISIBILITY_MISMATCH", "FACE_TUPLE_INVALID", "FACE_COMPOSITION_UNDECLARED", "EXPRESSION_TRANSITION_INVALID",
 ]);
 /** directive N2: every refusal carries the same machine-readable fields (producer, invariant, owner, resume point, revisions, evidence) */
 const N2 = ["producer", "failed_invariant", "dependency_ids", "required_art_or_operation", "repair_owner", "resume_at", "input_revision_hashes", "diagnostic_evidence", "severity", "frame_ranges"];

@@ -20,3 +20,5 @@
 ## Plan / status (update as rows land)
 See P08_REQUIREMENT_RESULTS.json (generated at the end from executed tests). Order: composition contract (A01/A03 + addendum) → A02 → B01/B02 → B03 →
 C02/C03/C04 → E01/E07 → F01/A04 → D01 → B04–B08 → C01/C05 → E02/E05/E06 → E03/E04 → F02–F06; regression-efficiency profiling before freeze.
+- B01 `8b6e50a` (tests/p08/prop_authority.test.mjs 7/7, Chrome owner pixels). A02 `5b41357` (tests/p08/contact_continuity.test.mjs 5/5).
+  A02 open item: "held object while speech/face turns" combination → covered later by the face-capable P08 character fixture (composition tests).
