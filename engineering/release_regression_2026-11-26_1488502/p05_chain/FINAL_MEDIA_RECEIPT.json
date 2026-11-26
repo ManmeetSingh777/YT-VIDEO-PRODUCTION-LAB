@@ -1,0 +1,100 @@
+{
+ "out": "C:\\Users\\gmanm\\TBO_REL1_REGRESSION\\hybrid_v2\\work\\p05\\chain_film\\film\\render\\film_final.mp4",
+ "ok": true,
+ "failures": [],
+ "video_essence_sha256": "a040b3eadfbc3728d960b5f5944eee9036d5c16ccb71b04b1336ec2e36640e8e",
+ "video_packets_sha256": "800fa0b1cc5f15c55f7c7cf22413b1208f22ba649d1c539e9186d97e6db071e4",
+ "mix_sha256": "7b111e0511d851026b1778b10f29f4b6a623ae355e723f0e7369f54218a047ce",
+ "stems": {
+  "narration": "57d30559f96f5af2904eb3d1ebb9980f7455c57feff8eea926403127d9662354",
+  "sfx:grip_clunk": "9f7c55ffe6511d7ac003bfc97b41e6a51847a4fb72643a7e7bb319a0bee57e27",
+  "sfx:release_click": "e6dbc596982103d53c44f515cef6eb8574216d876c70b617784b5a91ffe78d77"
+ },
+ "final_sha256": "a3be7cc2a585aae519a83beff213472e9b9402299ec7bf10f43f6e5c9642c5c0",
+ "streams": {
+  "video_s": 10,
+  "audio_s": 10
+ },
+ "cue_verification": {
+  "ok": true,
+  "cues": [
+   {
+    "id": "grip_clunk",
+    "kind": "SFX",
+    "frame": 100,
+    "t": 1.6666666666666667,
+    "measured_s": 1.6666875,
+    "offset_ms": 0.021,
+    "ok": true,
+    "verified_on": "stem"
+   },
+   {
+    "id": "release_click",
+    "kind": "SFX",
+    "frame": 220,
+    "t": 3.6666666666666665,
+    "measured_s": 3.6666875,
+    "offset_ms": 0.021,
+    "ok": true,
+    "verified_on": "stem"
+   },
+   {
+    "id": "word0:pull",
+    "kind": "WORD",
+    "w": "pull",
+    "t": 0.5,
+    "frame": 30,
+    "measured_s": 0.5000208333333334,
+    "offset_ms": 0.021,
+    "ok": true,
+    "verified_on": "stem"
+   },
+   {
+    "id": "word1:together",
+    "kind": "WORD",
+    "w": "together",
+    "t": 1,
+    "frame": 60,
+    "measured_s": 1.0000208333333334,
+    "offset_ms": 0.021,
+    "ok": true,
+    "verified_on": "stem"
+   }
+  ],
+  "duck": {
+   "stem_rms_db_under_narration": -50.96,
+   "stem_rms_db_reference": -35.24,
+   "depth_db": 15.72
+  },
+  "integrated_lufs": -16.1,
+  "stem_verified": true
+ },
+ "audible_in_final": [
+  {
+   "id": "word0:pull",
+   "t": 0.5,
+   "frame": 30,
+   "measured_s": 0.500125
+  },
+  {
+   "id": "word1:together",
+   "t": 1,
+   "frame": 60,
+   "measured_s": 1.0000416666666667
+  },
+  {
+   "id": "grip_clunk",
+   "t": 1.6666666666666667,
+   "frame": 100,
+   "measured_s": 1.6660625
+  },
+  {
+   "id": "release_click",
+   "t": 3.6666666666666665,
+   "frame": 220,
+   "measured_s": 3.6666875
+  }
+ ],
+ "render_receipt_mp4_sha256": "a040b3eadfbc3728d960b5f5944eee9036d5c16ccb71b04b1336ec2e36640e8e",
+ "at": "2026-11-26T20:49:31.548Z"
+}

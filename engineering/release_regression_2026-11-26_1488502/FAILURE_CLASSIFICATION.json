@@ -1,0 +1,273 @@
+{
+ "revision": "148850222e8ff02aa93fd299d27cd39abc15b9ee",
+ "suite": {
+  "tests": 337,
+  "pass": 296,
+  "fail": 41,
+  "exit": 1
+ },
+ "stages": {
+  "p03_chrome_negatives": 0,
+  "p05_render_negatives": 0,
+  "p05_chain": "exit 0; S00–S08 COMMITTED; S09 BLOCKED only by the by-design DIAGNOSTIC film_review"
+ },
+ "disk_at_end": {
+  "C": "2.0G free of 1.7T (100%)",
+  "regression_worktree_hybrid_v2_work": "71G",
+  "chunk_cache": "20G"
+ },
+ "counts": {
+  "ENVIRONMENT_DISK_FULL": 40,
+  "PROBABLE_ENVIRONMENT_DISK_FULL": 1
+ },
+ "verdict": "NOT A QUALIFYING RESULT: the run exhausted drive C:. No failure shows an engine defect; one (P02-R04) is probable-disk without explicit proof.",
+ "failures": [
+  {
+   "tap_id": 23,
+   "name": "B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 24,
+   "name": "P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 151,
+   "name": "P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied",
+   "evidence": "ENOSPC: ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 168,
+   "name": "P02-R04 a crash at chunk start/mid/end or an encoder failure publishes nothing; the retry resumes exact coverage with reused verified chunks",
+   "evidence": "encoder closed",
+   "class": "PROBABLE_ENVIRONMENT_DISK_FULL",
+   "note": "final render ffmpeg encoder exited while C: had ~0 bytes free; no explicit ENOSPC in its output; passed in the frozen ef0a722 run"
+  },
+  {
+   "tap_id": 183,
+   "name": "P02-R13 every committed stage hands off a typed, re-verifiable packet; a forged or missing packet blocks the next stage",
+   "evidence": "shared before-hook: S07 BLOCKED; run record FAIL-S07_NEUTRINO_RENDER-chunk_0_1200-7f2e89 observed ENOSPC copying chunk_00000_01200.mkv",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 184,
+   "name": "P02-R14 frames trace back to output hash, shot score, actions, rig state, approved bytes, registration, design decisions with F-source hashes, story/direction and narration — on both families",
+   "evidence": "shared before-hook: S07 BLOCKED; run record FAIL-S07_NEUTRINO_RENDER-chunk_0_1200-7f2e89 observed ENOSPC copying chunk_00000_01200.mkv",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 185,
+   "name": "P02-R08 every input category changes the revision (code, audio, art, skill/style, story, direction, contracts, approvals, canvas); logs/QA/render do not",
+   "evidence": "shared before-hook: S07 BLOCKED; run record FAIL-S07_NEUTRINO_RENDER-chunk_0_1200-7f2e89 observed ENOSPC copying chunk_00000_01200.mkv",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 250,
+   "name": "P05-E2 post-art feedback names who must change what: impossible reach, out-of-support lean, missing drawing, inert decision, unowned obligation",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 251,
+   "name": "P05-E3 the rig IS the delivered art: every joint and socket equals its measured landmark; a sidecar without a joint landmark, a mis-shaped plate, and a mirrored or stretched part are refused",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 255,
+   "name": "P05-E7 stages: S00–S06 of the accepted packet film pass with real tasks; changing one approved direction value blocks them",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 258,
+   "name": "P05-E10 statuses stay separate: diagnostic drawings, no run, no human and no recorded voice are each named; an unrecorded voice is AUDIO_INPUT_MISSING; a returned vector is ingested by the operator command",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 259,
+   "name": "P05-E11 a continuous transition is a real nest: OUT is painted over MIDDLE over IN, each plate is seen only through the aperture in front of it; a misplaced aperture or a short plate is refused at S06 and in post-art feedback",
+   "evidence": "There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 260,
+   "name": "P05-E12 an owner is captured isolated from painted near planes and framed on everything the moving camera shows; an owner the viewer never sees is refused even if it moves",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 261,
+   "name": "P05-R1 an interrupted run resumes from its verified chunks with its own plan, length and chunking (found when the computer slept during a render)",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 34,
+   "name": "tests\\\\p08\\\\attention.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 35,
+   "name": "tests\\\\p08\\\\camera_ops.test.mjs",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 36,
+   "name": "tests\\\\p08\\\\captions.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 37,
+   "name": "tests\\\\p08\\\\carry_load_insert.test.mjs",
+   "evidence": "file-level: ENOSPC: no space left on device (stack printed after the result block)",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 39,
+   "name": "tests\\\\p08\\\\composition.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 40,
+   "name": "tests\\\\p08\\\\contact_continuity.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 41,
+   "name": "tests\\\\p08\\\\contact_orientation.test.mjs",
+   "evidence": "file-level: ENOSPC: no space left on device (stack printed after the result block)",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 284,
+   "name": "EID-1 exact S3C-7: a P06-rules record at the old id is kept byte-for-byte; the P07+ evaluation gets a NEW identity instead of colliding",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 286,
+   "name": "EID-3 policy is part of identity: same inputs under production vs diagnostic policy ⇒ distinct generations, different verdicts, both kept",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 287,
+   "name": "EID-4 repeated export is idempotent and deterministic: identical identity, byte-identical records, no new generation",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 288,
+   "name": "EID-5 concurrent export into one outbox: both succeed, one generation per job, sealed records identical, pointers valid JSON",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 289,
+   "name": "EID-6 attempted conflicting overwrite under an identical identity is refused as NONDETERMINISM; the record is unchanged",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 290,
+   "name": "EID-7 stale approval: a design receipt bound to an older ruleset version does not authorize; an old generation after a rule/policy change is STALE",
+   "evidence": "ENOSPC: no space left on device, copyfile",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 43,
+   "name": "tests\\\\p08\\\\face_pupil.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 44,
+   "name": "tests\\\\p08\\\\face_speech.test.mjs",
+   "evidence": "file-level: ENOSPC: no space left on device (stack printed after the result block)",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 293,
+   "name": "E04 per-pixel host depth: behind the painted counter, split at the crossing, in front after; every negative fails on pixels or at compile",
+   "evidence": "WinError 112] There is not enough space on the disk",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 294,
+   "name": "E03 perspective host: engine K[R|t] projection = Blender's projection of the contact; wrong lens / moved camera refused; behind-camera refused",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 47,
+   "name": "tests\\\\p08\\\\integrity.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 48,
+   "name": "tests\\\\p08\\\\native_resolution.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 49,
+   "name": "tests\\\\p08\\\\obligation_ledger.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 50,
+   "name": "tests\\\\p08\\\\phase_freeze_audio.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 51,
+   "name": "tests\\\\p08\\\\photo_intent.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 52,
+   "name": "tests\\\\p08\\\\pinch.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 53,
+   "name": "tests\\\\p08\\\\prop_authority.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 54,
+   "name": "tests\\\\p08\\\\selective_grade.test.mjs",
+   "evidence": "ENOSPC: no space left on device, write",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 55,
+   "name": "tests\\\\p08\\\\selective_invalidation.test.mjs",
+   "evidence": "file-level: ENOSPC: no space left on device (stack printed after the result block)",
+   "class": "ENVIRONMENT_DISK_FULL"
+  },
+  {
+   "tap_id": 311,
+   "name": "TBO-G15 MODEL_BAR in real Chrome frames: pixels follow the model; a changed input moves them; a frozen graph is detected",
+   "evidence": "ENOSPC: no space left on device, open",
+   "class": "ENVIRONMENT_DISK_FULL"
+  }
+ ]
+}

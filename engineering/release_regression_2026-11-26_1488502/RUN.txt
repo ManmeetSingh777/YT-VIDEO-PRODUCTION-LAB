@@ -1,0 +1,11 @@
+start=2026-11-26T18:32:17Z
+sha=148850222e8ff02aa93fd299d27cd39abc15b9ee
+node=v22.20.0
+nu_js_sha256=773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be
+chunk_cache=/c/Users/gmanm/TBO_REL1_FINAL/chunk_cache
+suite_exit=1 at=2026-11-26T19:46:00Z
+p03_chrome_negatives_exit=0 at=2026-11-26T20:01:43Z
+p05_render_negatives_exit=0 at=2026-11-26T20:14:54Z
+p05_chain_exit=0 at=2026-11-26T20:49:53Z
+cache_bytes=20510230140 cache_keys=12
+end=2026-11-26T20:49:55Z

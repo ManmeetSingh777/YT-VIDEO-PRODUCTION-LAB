@@ -1,0 +1,19 @@
+{
+ "status": "POST_ART_MOTION_FEASIBLE",
+ "packet_sha256": "3c2c2e69f067f98d19204d1a6a2aa2c13fd75fc55f7708517901da8041388e31",
+ "frames_evaluated": 890,
+ "frames_expected": 890,
+ "checks": {
+  "feasibility_nova": "FEASIBLE",
+  "feasibility_lumen": "FEASIBLE",
+  "feasibility_lever": "FEASIBLE",
+  "feasibility_gear": "FEASIBLE",
+  "framing": true,
+  "contact_patch": true,
+  "transitions": true,
+  "shadow_continuity": true,
+  "direction_decisions": true,
+  "motion_obligations": true
+ },
+ "feedback": []
+}
