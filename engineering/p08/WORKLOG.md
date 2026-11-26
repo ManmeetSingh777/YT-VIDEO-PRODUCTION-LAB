@@ -32,3 +32,18 @@ C02/C03/C04 → E01/E07 → F01/A04 → D01 → B04–B08 → C01/C05 → E02/E0
 - E01/A04/F01 `b48699c`: plan.time_remaps in temporal; engine/film/phase_boundary.mjs; engine/film/phase_audio.mjs; tests/p08/phase_freeze_audio.test.mjs 6/6.
   Note: owner pixel identity must be measured as raw bytes over the owner's region (colour-key matching is ambiguous across owners).
 - Next: E07 photo polygon → B02 palm-orientation IK → B03 PINCH → B04 walk → B05/B06/B07/B08 → C01/C05/C06 → D01–D06 → E02/E05/E06(+combo4)/E03/E04 → F02–F06 → regression efficiency → freeze.
+- E07 `0f9ff33` (engine/film/photo_intent.mjs, tests/p08/photo_intent.test.mjs 2/2); composition refuses overlapping composed primary writers.
+- B02 `08b25de` (orientation solved in solveConstraints; CONTACT_BASIS_REQUIRED for PRODUCTION; ONE_OBJECT_PER_SOCKET; tests/p08/contact_orientation.test.mjs 3/3; P07-N2 migrated).
+- B03 `e03f414` (engine/art_bridge/pinch.mjs, plan.pinch_contracts, verifyPinch; fixture hands split near thumb / far fingers; tests/p08/pinch.test.mjs 3/3; P07-P1 migrated).
+  Regression subset 200/200 at e03f414.
+- Next: B04 walk → B05 seams → B06 → B07 carry/load/insert → B08 support/collision → C01/C05/C06 → D01–D06 → E02/E05/E06(+combo4)/E03/E04 → F02–F06 → efficiency → freeze.
+- B04 `dcca5aa`: WALK composition primitive (+ contact target_path in temporal), gait QA (dynamic support envelope); composition QA now fails on owner
+  solver failures (COMP directions corrected: kade seat drop 100, pim 45). tests/p08/walk.test.mjs 3/3. Subset 194/194.
+- Remaining: B05 seams, B06 reach/point/turn/hold, B07 carry/load/insert, B08 support/collision, C01/C05/C06, D01–D06, E02/E05/E06(+combo4)/E03/E04,
+  F02–F06, regression efficiency (profile 4 files), freeze + one regression, reports (P08_REQUIREMENT_RESULTS etc.), F06 reconciliation.
+- B07 `4d5d462` (CARRY/LOAD_CONTAINER/INSERT_TOKEN composition kinds; fixture box prop), B05/B08 `10f1984` (engine/film/integrity_qa.mjs),
+  F03/D01 `3ee4c0a` (P3.1 text sources in docs/.../P3_1_MEASURED/original; tools/tbo/e01_p31_action_coverage.mjs → P08_ACTION_COVERAGE.json: 18 actions,
+  0 missing producers), E02 + chunk cache `8d4f289` (plan.grades in scene_graph; TBO_RENDER_CHUNK_CACHE in segment_render).
+- Efficiency profile (from P07 TAP): p02_injection S07-frozen/S08/S09 ~26 min each (full 7200-frame diagnostic chain per copy), p02_render R03 55.5 + R04 13.5,
+  p02_trace R13 27, p01_film_qa B3-5 36.7 + B3-1 24.1. Cache measurement (S08+S09 with cache) running in background task bs0pxh2xl.
+- Remaining: E03/E04 (Blender 5.1 present — perspective + depth), E05 dolly/orbit, E06 + combo4, C01/C05/C06, B06, D02–D06, F02/F04/F05/F06, freeze + regression, reports.

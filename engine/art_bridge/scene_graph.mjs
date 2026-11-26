@@ -17,6 +17,7 @@ import { cropToCanonical, coversCanonical } from "./asset_geometry.mjs";
 const BANDS = ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND"];
 
 export function cameraMatrix(cam, band, parallax, stage) {
+  if (cam.persp) { const cx0 = stage.width / 2, cy0 = stage.height / 2, d = cam.persp.depths[band] ?? cam.persp.depths.FOCAL, sc = cam.persp.focal_px / (d - cam.persp.z); return chain(T(cx0, cy0), R(-(cam.rot || 0)), S(sc), T(-cam.x, -cam.y)); }
   const p = parallax?.[band] ?? 1, cx0 = stage.width / 2, cy0 = stage.height / 2;
   const cx = cx0 + p * (cam.x - cx0), cy = cy0 + p * (cam.y - cy0), z = 1 + p * (cam.zoom - 1);
   return chain(T(cx0, cy0), R(-cam.rot), S(z), T(-cx, -cy));
