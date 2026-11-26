@@ -49,9 +49,12 @@ if ground is None:
     raise SystemExit("HOST_INTEGRATION_INVALID: the .blend has no GROUND shadow-receiver object")
 cam = sc.camera
 c = req["camera"]
-if c["type"] != "ORTHO":
-    raise SystemExit("HOST_INTEGRATION_INVALID: only an orthographic calibrated camera is supported in this adapter version")
-cam.data.type = "ORTHO"; cam.data.ortho_scale = c["ortho_scale"]
+if c["type"] == "ORTHO":
+    cam.data.type = "ORTHO"; cam.data.ortho_scale = c["ortho_scale"]
+elif c["type"] == "PERSP":  # P08 E03: calibrated perspective (fixed lens, horizontal sensor fit, square pixels)
+    cam.data.type = "PERSP"; cam.data.lens = c["lens_mm"]; cam.data.sensor_fit = "HORIZONTAL"; cam.data.sensor_width = c["sensor_width_mm"]; cam.data.shift_x = 0; cam.data.shift_y = 0
+else:
+    raise SystemExit("HOST_INTEGRATION_INVALID: camera type must be ORTHO or PERSP")
 cam.location = Vector(c["location"]); cam.rotation_euler = Euler([math.radians(x) for x in c["rotation_euler_deg"]])
 W, H = req["resolution"]
 sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = W, H, 100
@@ -100,6 +103,6 @@ for f in req["frames"]:
 
 json.dump({"adapter_version": "1.1.0", "blender_version": bpy.app.version_string, "blend_file": bpy.data.filepath or None, "diagnostic_fixture": bool(req.get("diagnostic_fixture")),
            "fps": sc.render.fps / sc.render.fps_base, "alpha_mode": "STRAIGHT", "color_view_transform": sc.view_settings.view_transform, "host_mesh_sha256": host_mesh_sha, "rig_action_sha256": perf_h.hexdigest(), "pass_list": ["host_rgba", "shadow_catcher_rgba"],
-           "camera_used": {"type": cam.data.type, "ortho_scale": cam.data.ortho_scale, "matrix_world": [list(r) for r in cam.matrix_world], "resolution": [W, H]},
+           "camera_used": {"type": cam.data.type, "ortho_scale": cam.data.ortho_scale, "lens_mm": cam.data.lens, "sensor_width_mm": cam.data.sensor_width, "matrix_world": [list(r) for r in cam.matrix_world], "resolution": [W, H]},
            "frames": rows}, open(os.path.join(out, "PASSES.json"), "w", encoding="utf8"), indent=1)
 print("PASSES_WRITTEN", len(rows))

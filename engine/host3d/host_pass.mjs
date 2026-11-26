@@ -31,6 +31,16 @@ export function orthoProject(cam, [W, H], p) {
   return [W / 2 + x * k, H / 2 - y * k];
 }
 
+/** P08 E03 — projectCamera(camera, [W,H], worldXYZ): ORTHO (above) or a calibrated PERSPECTIVE pinhole p = K[R|t]X divided by the positive camera
+ *  depth (Blender camera looks along local −Z, +Y up; horizontal sensor fit; square pixels). A point at or behind the camera is refused. */
+export function projectCamera(cam, [W, H], p) {
+  if (cam.type === "ORTHO") return orthoProject(cam, [W, H], p);
+  if (cam.type !== "PERSP") throw E("HOST_INTEGRATION_INVALID", "camera", `camera type ${cam.type} is not supported (ORTHO | PERSP)`, "HOST_CAMERA_MODEL", { fn: "projectCamera" });
+  if (!(cam.lens_mm > 0) || !(cam.sensor_width_mm > 0)) throw E("HOST_INTEGRATION_INVALID", "camera", "a perspective camera needs its calibrated lens_mm and sensor_width_mm", "HOST_CAMERA_INTRINSICS", { fn: "projectCamera" });
+  const { R, C } = cameraBasis(cam), d = [p[0] - C[0], p[1] - C[1], p[2] - C[2]], x = R[0][0] * d[0] + R[1][0] * d[1] + R[2][0] * d[2], y = R[0][1] * d[0] + R[1][1] * d[1] + R[2][1] * d[2], z = R[0][2] * d[0] + R[1][2] * d[1] + R[2][2] * d[2], depth = -z;
+  if (!(depth > 1e-9)) throw E("HOST_INTEGRATION_INVALID", "camera", `world point ${p} is at or behind the camera (depth ${depth.toFixed(4)})`, "POINT_IN_FRONT_OF_CAMERA", { fn: "projectCamera" });
+  const fx = (W * cam.lens_mm) / cam.sensor_width_mm; return [W / 2 + (fx * x) / depth, H / 2 - (fx * y) / depth];
+}
 /** renderHostPasses({contract, frames, outDir}) — runs Blender headless; returns PASSES.json (the engine never trusts it without compileHostPasses) */
 export function renderHostPasses({ contract, frames, outDir, blendFile = null, samples = 16 }) {
   fs.mkdirSync(outDir, { recursive: true });
@@ -66,11 +76,11 @@ export function compileHostPasses({ contract: c, passesDir, assetRoot, runType =
   for (const id of c.foreground_occluder_ids || []) { const a = doc?.assets?.find((x) => x.id === id); if (!doc) { push("HOST_INTEGRATION_INVALID", c.host_id, "occluder order needs the film manifest", "HOST_OCCLUDER_ORDER"); break; } if (!a) push("MISSING_ART_ASSET", id, `foreground occluder ${id} is not an approved asset`, "HOST_OCCLUDER_ORDER"); else if (BANDS.indexOf(a.depth_band) <= hb) push("HOST_INTEGRATION_INVALID", `${c.host_id}.${id}`, `occluder ${id} is in ${a.depth_band}, not in front of the host band ${c.band || "FOCAL"}: it would be drawn behind the host`, "HOST_OCCLUDER_ORDER"); }
   // 1. the camera Blender used is the contracted camera (a shifted/rotated/rescaled camera is caught here)
   const cu = P.camera_used, { R, C } = cameraBasis(c.camera);
-  if (cu.type !== c.camera.type || Math.abs(cu.ortho_scale - c.camera.ortho_scale) > 1e-6 || cu.resolution[0] !== c.resolution[0] || cu.resolution[1] !== c.resolution[1]) push("HOST_INTEGRATION_INVALID", c.host_id, `Blender rendered ${cu.type} scale ${cu.ortho_scale} at ${cu.resolution}; the contract is ${c.camera.type} ${c.camera.ortho_scale} at ${c.resolution}`, "HOST_CAMERA_MATCHED");
+  if (cu.type !== c.camera.type || (c.camera.type === "ORTHO" ? Math.abs(cu.ortho_scale - c.camera.ortho_scale) > 1e-6 : Math.abs((cu.lens_mm ?? -1) - c.camera.lens_mm) > 1e-6 || Math.abs((cu.sensor_width_mm ?? -1) - c.camera.sensor_width_mm) > 1e-6) || cu.resolution[0] !== c.resolution[0] || cu.resolution[1] !== c.resolution[1]) push("HOST_INTEGRATION_INVALID", c.host_id, `Blender rendered ${cu.type} scale ${cu.ortho_scale} at ${cu.resolution}; the contract is ${c.camera.type} ${c.camera.ortho_scale} at ${c.resolution}`, "HOST_CAMERA_MATCHED");
   const mw = cu.matrix_world, dev = Math.max(...[0, 1, 2].flatMap((i) => [Math.abs(mw[i][0] - R[i][0]), Math.abs(mw[i][1] - R[i][1]), Math.abs(mw[i][2] - R[i][2]), Math.abs(mw[i][3] - C[i])]));
   if (dev > 1e-4) push("HOST_INTEGRATION_INVALID", c.host_id, `Blender's camera matrix deviates from the contracted calibration by ${dev.toExponential(2)}`, "HOST_CAMERA_MATCHED");
   // 2. the 3D ground projects onto the PAINTED floor: reviewed world landmarks of the 2D plate
-  const calib = (c.calibration_landmarks || []).map((l) => { const q = orthoProject(c.camera, c.resolution, l.world), e = Math.hypot(q[0] - l.plate_px[0], q[1] - l.plate_px[1]); return { id: l.id, projected_px: q.map((v) => +v.toFixed(3)), plate_px: l.plate_px, error_px: +e.toFixed(3) }; });
+  const calib = (c.calibration_landmarks || []).map((l) => { const q = projectCamera(c.camera, c.resolution, l.world), e = Math.hypot(q[0] - l.plate_px[0], q[1] - l.plate_px[1]); return { id: l.id, projected_px: q.map((v) => +v.toFixed(3)), plate_px: l.plate_px, error_px: +e.toFixed(3) }; });
   if (calib.length < 2) push("HOST_INTEGRATION_INVALID", c.host_id, "at least two reviewed floor landmarks of the 2D world art are needed to tie the 3D ground to the painting", "HOST_WORLD_CALIBRATED");
   for (const k of calib) if (k.error_px > tol.calibration) push("HOST_INTEGRATION_INVALID", `${c.host_id}.${k.id}`, `world landmark ${k.id} projects to ${k.projected_px} but is painted at ${k.plate_px} (${k.error_px} px > ${tol.calibration}): the 3D camera does not match the 2D world`, "HOST_WORLD_CALIBRATED");
   // 3. frames: exact film→Blender mapping, complete coverage, hashes; Blender's contact projections agree with the engine's
@@ -79,7 +89,7 @@ export function compileHostPasses({ contract: c, passesDir, assetRoot, runType =
     if (f < c.film_frames[0] || f >= c.film_frames[1]) push("HOST_INTEGRATION_INVALID", c.host_id, `pass for film frame ${f} lies outside the host interval`, "HOST_FRAMES_COMPLETE", { frame_range: [f, f + 1] });
     if (r.blender_frame !== f - c.blender_frame_offset) push("HOST_INTEGRATION_INVALID", c.host_id, `film frame ${f} was rendered from Blender frame ${r.blender_frame}, expected ${f - c.blender_frame_offset}`, "HOST_FRAME_MAP_EXACT", { frame_range: [f, f + 1] });
     for (const k of ["host", "shadow"]) { const file = path.join(passesDir, r[k].file); if (!fs.existsSync(file)) push("HOST_INTEGRATION_INVALID", c.host_id, `${k} pass ${r[k].file} missing`, "HOST_PASS_PRESENT", { frame_range: [f, f + 1] }); else if (fsha(file) !== r[k].sha256) push("STALE_DEPENDENCY", c.host_id, `${k} pass ${r[k].file} bytes differ from PASSES.json`, "HOST_PASS_HASH", { frame_range: [f, f + 1] }); }
-    for (const q of r.contacts) { const mine = orthoProject(c.camera, c.resolution, q.world), e = Math.hypot(mine[0] - q.px[0], mine[1] - q.px[1]); contacts.push({ frame: f, id: q.id, world: q.world, px: q.px, engine_px: mine, agree_px: +e.toFixed(4), on_ground: Math.abs(q.world[2] - c.ground.z) });
+    for (const q of r.contacts) { const mine = projectCamera(c.camera, c.resolution, q.world), e = Math.hypot(mine[0] - q.px[0], mine[1] - q.px[1]); contacts.push({ frame: f, id: q.id, world: q.world, px: q.px, engine_px: mine, agree_px: +e.toFixed(4), on_ground: Math.abs(q.world[2] - c.ground.z) });
       if (e > 0.5) push("HOST_INTEGRATION_INVALID", c.host_id, `Blender projects contact ${q.id} to ${q.px} but the calibrated camera gives ${mine}`, "HOST_CAMERA_MATCHED", { frame_range: [f, f + 1] });
       if (Math.abs(q.world[2] - c.ground.z) > 0.01) push("HOST_INTEGRATION_INVALID", `${c.host_id}.${q.id}`, `contact ${q.id} is ${(q.world[2] - c.ground.z).toFixed(3)} world units off the ground at film frame ${f} (floating or sunk)`, "HOST_CONTACT_ON_GROUND", { frame_range: [f, f + 1] }); }
     frames[f] = { host: r.host.file, shadow: r.shadow.file }; }
