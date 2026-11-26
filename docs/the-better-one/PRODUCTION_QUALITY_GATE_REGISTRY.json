@@ -214,8 +214,8 @@
       "id": "TBO-G20",
       "phase": "film_progress",
       "owner": "FILM_LEDGER",
-      "required_proof": "8–10s accepted actual E01 segments, contiguous 90–120s proof, final film review and cost/effort ledger",
-      "negative_control": "Count diagnostic test MP4 as finished Mia scene",
+      "required_proof": "Meaningful original-film 13-second E01 qualification selected from approved complete opening (or episode-specific approved clip length); contiguous 90–120-second real hybrid proof; final film review and cost/effort ledger",
+      "negative_control": "Count a diagnostic MP4, stale V0.3 clip, local-only 780-frame reset, or unapproved image motion as accepted E01 film footage",
       "failure_code": "DIAGNOSTIC_PROMOTED_TO_FILM",
       "initial_status": "NOT_TESTED"
     }

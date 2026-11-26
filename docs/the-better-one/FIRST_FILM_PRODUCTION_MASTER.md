@@ -6,6 +6,8 @@
 
 **First feature:** *This Restaurant Is Packed. Why Is It Dying?* with Mia, working target 8–12 minutes (story may justify an 8–13-minute final). The duration is chosen by editorial pacing; do not silently stretch to 20 minutes. The final video is the deliverable, not a new universal animation system. Every 8–10-second iteration uses an actual frame interval from this feature and becomes accepted film footage.
 
+> **CURRENT E01 QUALIFICATION UPDATE (2026-11-26):** This V1 master contains historical 8–10s clip examples. The current binding process is PRODUCTION_OPERATING_STANDARD_V1.md and the E01 Episode State; latest V0.4 first-opening candidate is 32.5s and first actual selected qualification is **13s absolute [180,960), local [0,780)**. All new episodes choose an artistically meaningful contiguous extract rather than hard-coding 13 seconds. V0.4 is PROPOSED and lacks final user creative approval and real P06 pre-art proof.
+
 ## A. Creative product — what a viewer buys with their attention
 
 **Brand:** The Better One: original character-led strategic rescue/discovery adventures about money, competition, technologies and everyday systems.

@@ -1,4 +1,6 @@
 # NEW CLAUDE CODE ACCOUNT — EXECUTE THE BETTER ONE FIRST FILM
+> **LATEST E01 OVERRIDE:** Read PRODUCTION_OPERATING_STANDARD_V1.md and episodes/E01/EPISODE_STATE.json first. Proposed opening V0.4 is 32.5 seconds. Selected 13-second extract is [180,960) absolute, [0,780) local, and is NOT human-approved. This older prompt may describe E01's first clip as [0,780); that is CLIP-LOCAL only after approval. Current P06 local code may still be unpushed. Do not reset, cherry-pick or begin another full regression while one is running.
+
 **Paste the ENTIRE text below to a freshly authorized Claude Code session.** This is the mandatory first task. Do not start from the old user account's conversation summaries, an old branch, or a generic build-the-engine prompt.
 
 ## Repository and authoritative branch

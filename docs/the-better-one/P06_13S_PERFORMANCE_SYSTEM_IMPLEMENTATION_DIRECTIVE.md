@@ -1,4 +1,6 @@
 # P06 — ONE-RUN REUSABLE PERFORMANCE + HYBRID FILM INTEGRATION CONTRACT
+> **CURRENT E01 FILM FRAME NOTE:** V0.4 proposal has a 32.5s opening at absolute [0,1950) and selected 13s clip [180,960) absolute, local [0,780). The older [0,780) scene start in this technical specification must be understood only as CLIP-LOCAL time for this newer proposal. Do not use a stale 0–13s V0.3 director package. After scratch/animatic and explicit user approval, compile approved V0.4 Director and ArtJobs, preserving full-film pre-roll/f180 continuity.
+
 **Normative specification and implementation order. Not a declaration of existing software support.**
 **Task:** after the two active P05/development regressions complete, make one controlled engineering implementation pass to connect the six quality failures, reusable semantic commands, Blender host, truthful decoder and 13-second **actual first-film** vertical integration. Do not pause for unrelated long demo renders. Do not fabricate human/GPT external assets or approvals.
 

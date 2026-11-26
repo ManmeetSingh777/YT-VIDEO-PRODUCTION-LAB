@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "pack_id": "E01_PREART_ENGINEERING_V1",
+  "episode_id": "E01",
+  "stage": "P06_PREFLIGHT_NOT_EXECUTION",
+  "approval_status": "CREATIVE_INPUT_NOT_YET_APPROVED",
+  "sources": [
+    {
+      "path": "docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md",
+      "role": "Permanent stage/contract/restart standard"
+    },
+    {
+      "path": "docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md",
+      "role": "Mandatory artist/engineer ArtJob and actual real-art gate protocol"
+    },
+    {
+      "path": "docs/the-better-one/episodes/E01/EPISODE_STATE.json",
+      "role": "Status and exact 13s range"
+    },
+    {
+      "path": "docs/the-better-one/episodes/E01/E01_OPENING_V0_4_PROPOSED.md",
+      "role": "Latest provisional opening; human approval still required"
+    },
+    {
+      "path": "docs/the-better-one/P06_13S_PERFORMANCE_SYSTEM_IMPLEMENTATION_DIRECTIVE.md",
+      "role": "Current technical implementation intent"
+    },
+    {
+      "path": "docs/the-better-one/PERFORMANCE_COMMAND_SCHEMA_V1.json",
+      "role": "Proposed command schema; runtime must validate actual used version"
+    },
+    {
+      "path": "docs/the-better-one/PRODUCTION_QUALITY_GATE_REGISTRY.json",
+      "role": "All twenty required check classes"
+    },
+    {
+      "path": "docs/gpt-creative-control/OPERATOR_WORKFLOW.md",
+      "role": "Published P05 native CLI/approval mechanism; verify P06 changes"
+    },
+    {
+      "path": "schemas/creative_packet_v1_1.schema.json",
+      "role": "Actual P05 creative packet structure"
+    },
+    {
+      "path": "docs/the-better-one/ART_MOTION_AND_HYBRID_QUALITY_GATES.md",
+      "role": "Visual and geometry risk acceptance"
+    },
+    {
+      "path": "inputs/EXPERIENCE_DIRECTOR_V1.md",
+      "role": "Full 12-part director field source"
+    },
+    {
+      "path": "docs/the-better-one/ART_TO_FILM_ENFORCEMENT_GAP_AUDIT_V1.md",
+      "role": "Verified code producer and consumer mapping, explicit unproven real-art capability checks"
+    }
+  ],
+  "missing_source_warning": "Actual V0.4 approved 12-part director, sealed CREATIVE_PACKET v1.1.0, measured sound, GPT image ArtJobs/masters and final P06 tested code SHA do not exist in this source pack; cannot truthfully pass production preart."
+}

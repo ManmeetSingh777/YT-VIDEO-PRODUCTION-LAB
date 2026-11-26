@@ -1,5 +1,9 @@
 # CLAUDE CODE — MANDATORY SESSION START: THE BETTER ONE
 
+> **CURRENT E01 OVERRIDE (26 November 2026; applies to new sessions):** Before any engine change, read docs/the-better-one/PRODUCTION_OPERATING_STANDARD_V1.md, docs/the-better-one/SESSION_RECOVERY_AND_HANDOFF_V1.md, and docs/the-better-one/episodes/E01/EPISODE_STATE.json. The newest creative proposal is E01_OPENING_V0_4_PROPOSED.md (32.5s, not yet user-approved); first selected 13s actual film extract has absolute frames [180,960) and local [0,780). Older 8–10s examples in historical docs are superseded for E01. The P06 code in the user's running local Claude worktree may be ahead of this GitHub documentation branch; DO NOT reset, switch, merge or invalidate a running regression to obtain these docs. Resolve the source branches safely after its results are preserved. A proposal is not a signed human approval.
+
+Read docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md BEFORE generating any E01 art-related producer, GPT handoff, art review or post-art motion; it is the mandatory current manual/semi-automatic operator contract based on actual P06 art_outbox/gpt_handoff implementation. Do not rerun complete frozen P06 test suites merely because SOP docs change. The tested engineering branch is production/better-one-first-film-engineering (engine source b2c6931a...); merge docs safely with its live work rather than replacing engine files.
+
 **This is the CURRENT binding instruction set on the production branch.** The former P02 instructions were archived to `docs/history/LEGACY_P02_CLAUDE.md`. Do not follow the old P02-only stop point or assume the default `main` contains the latest production engine.
 
 ## 0. Do these FIRST on every new account/session
@@ -36,9 +40,9 @@
 
 **Never assume 2D source PNG = 3D mesh.** The recurring host needs a genuine rigged, expressive Blender source character with alpha/depth/occluder/contact/shadow passes coherently composited into the 2D film. The decoder must use actual source-backed model calculations, not floating decorative counters.
 
-**Every accepted film clip** must be 8–10 seconds of the REAL E01 film (480–600 frames @ 1920×1080/60fps), correct source art, correct acting/contacts, final audio, owner/art-state/semantic QA and signed human artistic playback review. The chosen frame interval is decided from approved script, not a synthetic test prompt.
+**The first selected E01 qualification clip** must be 13 seconds of the REAL E01 film (780 frames @ 1920×1080/60fps), using its APPROVED absolute film interval; later clip durations are selected from the actual story, correct source art, correct acting/contacts, final audio, owner/art-state/semantic QA and signed human artistic playback review. The chosen frame interval is decided from approved script, not a synthetic test prompt.
 
-**The Bible mandates** a contiguous 90–120-second professional hybrid proof demonstrating genuine acted dialogue, freeze/memory, actual host breach, strategy decoder and sound before committing to a full long flagship. Build it from the real approved 8–10-second clips. Then finish the 8–12-minute pilot; extend toward ~13 min only if the film earns it.
+**The Bible mandates** a contiguous 90–120-second professional hybrid proof demonstrating genuine acted dialogue, freeze/memory, actual host breach, strategy decoder and sound before committing to a full long flagship. Build it from real approved, story-sized contiguous clips (13s first for E01). Then finish the 8–12-minute pilot; extend toward ~13 min only if the film earns it.
 
 ## 3. TESTING AND ECONOMICS
 
@@ -49,7 +53,7 @@
 
 ## 4. FIRST REQUIRED WORK, IN PARALLEL
 
-**Engineering thread:** freeze and qualify P05; review actual source and capability registry; wire approved creative packet into required per-shot motion/art demand; build only needed film compositing routes/negative tests. Fix stale root instructions (done on this branch; preserve them). The FIRST 8–10-second real-art shot tests the actual critical dependency; don't create unrelated demo clips.
+**Engineering thread:** freeze and qualify P05; review actual source and capability registry; wire approved creative packet into required per-shot motion/art demand; build only needed film compositing routes/negative tests. Fix stale root instructions (done on this branch; preserve them). The FIRST 13-second real-art extract for E01 tests the actual critical dependency; don't create unrelated demo clips.
 
 **Creative thread (GPT + user, not Claude as writer):** audience-relevant packaging; research-backed Mia economic model and honest ending; Value Blueprint; full 8–12-min screenplay, dialogue, scratch audio and 12-field direction packet; derive actual 2D/3D/graphics shots and first real acceptance interval.
 

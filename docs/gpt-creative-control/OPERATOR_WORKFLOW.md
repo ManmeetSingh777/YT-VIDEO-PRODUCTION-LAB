@@ -1,4 +1,6 @@
-# Operator workflow: from a new GPT creative package to a finished 600-frame film
+# Operator workflow: from a new GPT creative package to a finished film
+
+**E01 V0.4 CURRENT EXTRACT NOTE:** Historical references below to 600 frames/10 seconds are examples only. The actual first selected E01 clip is absolute [180,960), local [0,780), 780 frames, from the proposed 32.5s opening. Read PRODUCTION_OPERATING_STANDARD_V1.md and ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md for binding artistic quality/manual GPT repair requirements. P06 can use this CLI on its tested engineering source; no real-art release is qualified yet. Do not rewrite registered real source images to fit simplified geometry.
 
 This is the executable workflow. Everything in `<angle brackets>` is yours. The engine authors no story, direction or art, and approves nothing. Every step that cannot continue prints a typed reason and the next permitted operation.
 
