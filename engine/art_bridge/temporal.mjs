@@ -23,6 +23,7 @@ import { compilePerformance } from "./performance_commands.mjs";
 import { validateDeformBinding, deformAt, validateMorphBinding, morphAt, solveHinge, comX } from "./execution.mjs";
 import { balance } from "./contact_solver.mjs";
 import { multiSupportWithoutContract, segmentAt, evaluatePropSupport } from "./prop_support.mjs";
+import { canonicalContact, validateContactShots } from "./contact_continuity.mjs";
 
 const EASES = {
   linear: (p) => p, none: (p) => p,
@@ -129,8 +130,9 @@ export function compileMotionTracks(actions, shots, ctx) {
     if (!ikc) { errors.push(err("UNREACHABLE_IK", { record_id: a.id, reason: `no TWO_BONE_IK chain ends at ${sock.joint_id}` })); continue; }
     const tgtRig = socketOwner.get(c.target_socket) || null;
     if (!tgtRig && !c.target_world_xy && !["PLANT", "SUPPORT"].includes(c.contact_type)) { /* P05: a plant with no fixed point holds the place where the sole is when the contact starts (measured, never invented) */ errors.push(err("UNKNOWN_REFERENCE", { record_id: a.id, dependency: c.target_socket, reason: "contact target is neither a rig socket nor a fixed world point" })); continue; }
-    contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig });
+    contacts.push({ action: a, c, rig: srcRig, socket: sock, chain: ikc.chain, bend: ikc.bend_sign ?? 1, tgtRig, identity: canonicalContact(a, c, { actorRig: srcRig, targetOwner: tgtRig ?? (c.target_world_xy ? "WORLD" : null) }) });
   }
+  errors.push(...validateContactShots(contacts, shots)); // P08 A02: one id per contact; crossing a cut only as a declared, fully mapped persistent contact
   const contactDriven = new Set(contacts.map((k) => k.rig));
   // precedence report: contact IK (layer 4) owns its chain joints while a contact is locked; acting on those joints is overridden there, never silently
   for (const k of contacts) for (const j of k.chain) if ((plan.__acting_report?.[k.rig]?.lagged || {})[j] !== undefined || (plan.__additive || {})[`${k.rig}.${j}`]) layerReport.suppressed_by_contact.push({ action: k.action.id, rig: k.rig, joint: j, frames: [k.c.start_frame, k.c.end_frame] });
@@ -264,7 +266,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   C.contactsAt = (f) => {
     const out = [];
     for (const k of contacts) {
-      if (C.shotAt(f)?.id !== k.action.shot_id) continue;
+      if (!k.identity.persists && C.shotAt(f)?.id !== k.action.shot_id) continue; // a declared persistent contact is physics across the cut, not per-shot
       if (k.c.start_frame <= f && f < k.c.end_frame) { out.push({ ...k, w: 1, locked: true }); continue; }
       const r = rampOf(k); if (!r) continue;
       if (r.approach && r.approach[0] <= f && f < k.c.start_frame) out.push({ ...k, w: smooth((f - r.approach[0]) / (k.c.start_frame - r.approach[0])), locked: false });
@@ -279,7 +281,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     for (const rid of Object.keys(st)) if (!contactDriven.has(rid)) M[rid] = fk(rid, st[rid]);
     const writers = C.actorDriversAt(f);
     for (const k of active) {
-      if (k.locked && writers.has(`${k.rig}|${k.c.source_socket}|${k.tgtRig}|${k.c.target_socket}`) && M[k.tgtRig]) { solved.push({ action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target: socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket), contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: true, w: 1, ik_joints: [], transform_writer: true }); continue; }
+      if (k.locked && writers.has(`${k.rig}|${k.c.source_socket}|${k.tgtRig}|${k.c.target_socket}`) && M[k.tgtRig]) { solved.push({ contact_id: k.identity.contact_id, visibility: k.identity.shot_visibility?.[C.shotAt(f)?.id]?.visibility ?? "VISIBLE", action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target: socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket), contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: true, w: 1, ik_joints: [], transform_writer: true }); continue; }
       const s = st[k.rig]; if (!s) { failures.push(err("UNKNOWN_REFERENCE", { record_id: k.action.id, frame_range: [f, f + 1], reason: `rig ${k.rig} not placed in shot` })); continue; }
       let target = k.tgtRig ? (M[k.tgtRig] ? socketWorld(k.tgtRig, M[k.tgtRig], k.c.target_socket) : null) : k.c.target_world_xy ?? worldHold(k);
       if (!target) { failures.push(err("CONTACT_DRIFT", { record_id: k.action.id, frame_range: [f, f + 1], reason: `target rig ${k.tgtRig} not placed` })); continue; }
@@ -304,13 +306,13 @@ export function compileMotionTracks(actions, shots, ctx) {
         }
         s.theta[js] = ts; s.theta[je] = te; s.theta[jw] = tw;
         for (const [j, v] of [[js, ts], [je, te], [jw, tw]]) { ikSolved.add(`${k.rig}.${j}`); const lim = R_.joints.get(j).rotation_limits_deg; if (v < lim[0] - 1e-6 || v > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${k.rig}.${j}`, shot_id: k.action.shot_id, frame_range: [f, f + 1], dependency: k.action.id, suggested_producer: "re-stage within approved range or GPT pose cel for this extreme", reason: `${j} needs ${v.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: v, limits: lim } })); }
-        solved.push({ action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target, contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: k.locked, w: k.w, ik_joints: [js, je, jw] });
+        solved.push({ contact_id: k.identity.contact_id, visibility: k.identity.shot_visibility?.[C.shotAt(f)?.id]?.visibility ?? "VISIBLE", action: k.action.id, socket: k.c.source_socket, target_rig: k.tgtRig, target_socket: k.c.target_socket ?? null, start_frame: k.c.start_frame, target, contact_type: k.c.contact_type, allowed_error_px: k.c.allowed_error_px, locked: k.locked, w: k.w, ik_joints: [js, je, jw] });
       } catch (e) { if (!e.code) throw e; e.frame_range = [f, f + 1]; e.record_id = k.action.id; e.shot_id = k.action.shot_id; failures.push(e); }
     }
     for (const rid of contactDriven) if (st[rid]) M[rid] = fk(rid, st[rid]);
     for (const [rid, s] of Object.entries(st)) for (const [j, v] of Object.entries(s.theta)) { if (ikSolved.has(`${rid}.${j}`)) continue; const lim = rigs.get(rid).joints.get(j).rotation_limits_deg, w = wrap180(v); if (w < lim[0] - 1e-6 || w > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${rid}.${j}`, shot_id: C.shotAt(f)?.id, frame_range: [f, f + 1], suggested_producer: "GPT pose/bend cel for this extreme, or re-stage within the approved range", reason: `${j} at ${w.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: w, limits: lim } })); }
     for (const [rid, gz] of Object.entries(plan.gaze || {})) for (const [j, g] of Object.entries(gz)) { const o = st[rid]?.offset?.[j]; if (!o) continue; const pupil = assets.get(g.pupil_asset), surf = assets.get(g.surface_asset), [px, py, pw, ph] = pupil.canonical_rect, [sx, sy, sw, sh] = surf.canonical_rect; if (px + o[0] < sx || py + o[1] < sy || px + o[0] + pw > sx + sw || py + o[1] + ph > sy + sh) failures.push(err("UNSUPPORTED_STATE_EDGE", { record_id: `${rid}.${j}`, frame_range: [f, f + 1], reason: `gaze offset [${o.map((v) => v.toFixed(2))}] leaves owned eye surface ${surf.id}` })); }
-    for (const s of solved) { if (!s.locked) continue; const k = contacts.find((x) => x.action.id === s.action && x.c.source_socket === s.socket && x.c.start_frame === s.start_frame); /* P07: one socket may hold several props in one action at different times */ s.achieved = socketWorld(k.rig, M[k.rig], s.socket); s.error_px = dist(s.achieved, s.target);
+    for (const s of solved) { if (!s.locked) continue; const k = contacts.find((x) => x.identity.contact_id === s.contact_id); /* P07: one socket may hold several props in one action at different times */ s.achieved = socketWorld(k.rig, M[k.rig], s.socket); s.error_px = dist(s.achieved, s.target);
       // directive I2/N4: contact = position AND orientation. When the contact declares a target basis angle and the socket a palm/sole basis,
       // the post-FK world angle must match (wrapped) — a reversed palm fails even with zero XY error
       if (Number.isFinite(k.c.target_angle_deg) && Number.isFinite(k.socket.basis_angle_deg)) { const tgtAng = k.c.target_angle_deg + (k.tgtRig && M[k.tgtRig] ? angleOf(M[k.tgtRig][rigs.get(k.tgtRig).socketById.get(k.c.target_socket)?.joint_id] || [1, 0, 0, 1, 0, 0]) : 0); s.angle_residual_deg = Math.abs(wrap180(angleOf(M[k.rig][k.socket.joint_id]) + k.socket.basis_angle_deg - tgtAng)); if (s.angle_residual_deg > (k.c.allowed_angle_deg ?? 12)) failures.push(err("CONTACT_ORIENTATION_UNSATISFIABLE", { record_id: s.action, frame_range: [f, f + 1], dependency: s.socket, reason: `palm/sole basis off by ${s.angle_residual_deg.toFixed(2)}° (allowed ${k.c.allowed_angle_deg ?? 12}°)`, details: { angle_residual_deg: s.angle_residual_deg } })); } if (s.error_px > s.allowed_error_px) failures.push(err("CONTACT_DRIFT", { record_id: s.action, frame_range: [f, f + 1], reason: `contact error ${s.error_px.toFixed(3)}px > ${s.allowed_error_px}` })); }

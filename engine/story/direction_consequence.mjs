@@ -44,7 +44,7 @@ const MEASURE = {
     return changes ? ok({ states: set, before: before ?? null }) : no(`${rig.id}.${ch} stays "${set[0]}" (nothing changes in the interval)`, { states: set });
   },
   CONTACT: ({ rig, S, op, C }) => {
-    let n = 0; for (const s of S) if (s.contacts.some((c) => { const k = C.contacts.find((x) => x.action.id === c.action && x.c.source_socket === c.socket && (c.start_frame === undefined || x.c.start_frame === c.start_frame)); return k && c.locked && (k.rig === rig?.id || k.c.source_socket === op.owner) && (!op.target || k.c.target_socket === op.target) && c.error_px <= c.allowed_error_px; })) n++;
+    let n = 0; for (const s of S) if (s.contacts.some((c) => { const k = C.contacts.find((x) => (c.contact_id ? x.identity?.contact_id === c.contact_id : x.action.id === c.action && x.c.source_socket === c.socket && (c.start_frame === undefined || x.c.start_frame === c.start_frame))); return k && c.locked && (k.rig === rig?.id || k.c.source_socket === op.owner) && (!op.target || k.c.target_socket === op.target) && c.error_px <= c.allowed_error_px; })) n++;
     return n ? ok({ locked_frames: n }) : no(`no contact of ${op.owner}${op.target ? ` with ${op.target}` : ""} is locked within tolerance in the interval`);
   },
   REACT: ({ rig, S, op, plan }) => {

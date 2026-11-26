@@ -28,7 +28,7 @@ export function verifyPerformance(C, { only = null } = {}) {
   const handOfSocket = (rid, sid) => { const roles = rep.capability_profiles[rid]?.roles || {}; const k = Object.keys(roles).find((x) => /^hand\.[^.]+\.socket$/.test(x) && roles[x].id === sid); return k ? k.split(".")[1] : null; };
   // P07: possession = the authoritative transform DRIVER. A prop with a support contract takes it from the contract's per-frame record (a hand
   // ref, or null while a surface drives it); a prop without one keeps the single-holder reading (one locked grip). supportsObject = ANY valid support.
-  const legacyHolders = (s) => { const out = {}; for (const k of s.contacts || []) { if (!k.locked || !["GRIP", "PINCH"].includes(k.contact_type) || k.error_px > k.allowed_error_px) continue; const src = C.contacts.find((x) => x.action.id === k.action && x.c.source_socket === k.socket && (k.start_frame === undefined || x.c.start_frame === k.start_frame)), tgt = k.target_rig ?? src?.tgtRig; if (!src || !tgt) continue; const obj = rig(tgt).rec.identity_id ?? tgt, h = handOfSocket(src.rig, k.socket), ref = h ? `${src.rig}#${h}` : src.rig; (out[obj] ||= new Set()).add(ref); out[tgt] = out[obj]; } return out; };
+  const legacyHolders = (s) => { const out = {}; for (const k of s.contacts || []) { if (!k.locked || !["GRIP", "PINCH"].includes(k.contact_type) || k.error_px > k.allowed_error_px) continue; const src = C.contacts.find((x) => (k.contact_id ? x.identity?.contact_id === k.contact_id : x.action.id === k.action && x.c.source_socket === k.socket && (k.start_frame === undefined || x.c.start_frame === k.start_frame))), tgt = k.target_rig ?? src?.tgtRig; if (!src || !tgt) continue; const obj = rig(tgt).rec.identity_id ?? tgt, h = handOfSocket(src.rig, k.socket), ref = h ? `${src.rig}#${h}` : src.rig; (out[obj] ||= new Set()).add(ref); out[tgt] = out[obj]; } return out; };
   const contractOf = (s, obj) => (s.prop_support || []).find((r) => r.object === obj || r.prop_rig === obj) || null;
   const possessionAt = (s) => { const out = {}; for (const [obj, set] of Object.entries(legacyHolders(s))) out[obj] = [...set].at(-1); for (const r of s.prop_support || []) { out[r.object] = out[r.prop_rig] = r.driver_kind === "HAND" ? r.driver : null; } return out; };
   const supportsObject = (s, obj, ref) => { const r = contractOf(s, obj); if (r) return r.valid_supporters.includes(ref); return legacyHolders(s)[obj]?.has(ref) ?? false; };
@@ -87,6 +87,7 @@ export function verifyPerformance(C, { only = null } = {}) {
     }
   }
   // P07: every prop support contract, on every frame of its span
+  for (const k of C.contacts || []) { if (!k.identity?.persists || (only && !only.includes(k.identity.contact_id))) continue; const r = verifyContactContinuity(C, k, st); results.push(r); if (!r.ok) failures.push(err(r.code || "PERFORMANCE_EFFECT_UNMET", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `persistent contact ${k.identity.contact_id}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyContactContinuity" })); }
   for (const p of C.propSupport || []) { if (only && !only.includes(p.id)) continue; const r = verifyPropSupport(C, p, st); results.push(r); if (!r.ok) failures.push(err("PERFORMANCE_EFFECT_UNMET", { record_id: p.id, frame_range: p.span, reason: `prop support ${p.id} (${p.test_id}): ${r.reason}`, failed_invariant: "PropSupportContract", details: { prop: p.id, frame_range: p.span, failed_invariant: "PropSupportContract", earliest_producer: "engine/art_bridge/prop_support.mjs", needed_art_or_capability: null, user_approval_needed: false } })); }
   return { ok: failures.length === 0 && results.length > 0, results, failures, human_review_pending: results.map((r) => ({ command: r.command, test_id: r.test_id, check: r.human_review.check })) };
 }
@@ -118,3 +119,20 @@ export function verifyPropSupport(C, p, st = (f) => stateAtFrame(C, f)) {
   res.frames_checked = n; res.ok = !bad.length; res.reason = bad.slice(0, 6).join("; ") || null; return res;
 }
 
+
+/** P08 A02 — a declared persistent contact is ONE physical contact from its start to its release: on every frame (across cuts) the solver
+ *  returns that contact id, locked within its allowed error, no new contact starts on its socket at a cut (no regrip), and the DECLARED per-shot
+ *  visibility matches where the camera actually projects the contact point (VISIBLE/OCCLUDED: inside the frame; OFFSCREEN: outside). */
+export function verifyContactContinuity(C, k, st = (f) => stateAtFrame(C, f)) {
+  const id = k.identity.contact_id, bad = [], W = C.doc.stage.width, H = C.doc.stage.height; let n = 0, code = null; const seen = { VISIBLE: 0, OCCLUDED: 0, OFFSCREEN: 0 }, cuts = [];
+  for (let f = k.c.start_frame; f < k.c.end_frame; f++) { if (f >= C.totalFrames) break; const s = st(f); if (s.error) { bad.push(`frame ${f}: ${s.error.message}`); continue; }
+    const rec = s.contacts.find((x) => x.contact_id === id); if (!rec) { bad.push(`frame ${f}: contact ${id} absent (reset at a cut?)`); continue; } n++;
+    if (!rec.locked || !(rec.error_px <= rec.allowed_error_px)) bad.push(`frame ${f}: ${id} not held (locked ${rec.locked}, error ${rec.error_px?.toFixed?.(2)}px)`);
+    if (f > k.c.start_frame && C.shotAt(f - 1)?.id !== C.shotAt(f)?.id) { cuts.push(f); if ((s.contacts || []).some((x) => x.socket === k.c.source_socket && x.start_frame === f)) bad.push(`frame ${f}: a new contact starts on ${k.c.source_socket} at the cut (regrip)`); }
+    const shotId = C.shotAt(f)?.id, decl = k.identity.shot_visibility?.[shotId]?.visibility; if (!decl) { bad.push(`frame ${f}: shot ${shotId} has no declared visibility`); continue; } seen[decl]++;
+    const cam = s.camera, cx0 = W / 2, cy0 = H / 2, z = cam.zoom, r = (-(cam.rot || 0) * Math.PI) / 180, p = rec.achieved || rec.target, dx = (p[0] - cam.x) * z, dy = (p[1] - cam.y) * z, sx = cx0 + dx * Math.cos(r) - dy * Math.sin(r), sy = cy0 + dx * Math.sin(r) + dy * Math.cos(r);
+    const inside = sx >= 0 && sx < W && sy >= 0 && sy < H; if ((decl === "OFFSCREEN") === inside) { bad.push(`frame ${f}: declared ${decl} in ${shotId} but the contact projects ${inside ? "inside" : "outside"} the frame at (${sx.toFixed(0)},${sy.toFixed(0)})`); code = "CONTACT_VISIBILITY_MISMATCH"; } }
+  if (!n) bad.push("zero frames checked");
+  return { command: id, verb: "contact_continuity", kind: "ContactContinuity", owner: `${k.rig}.${k.c.source_socket}`, frames: [k.c.start_frame, k.c.end_frame], frames_checked: n, ok: !bad.length, code: bad.length ? code : null, reason: bad.slice(0, 6).join("; ") || null,
+    measurement: { cuts_crossed: cuts, visibility_frames: seen, source_action_ids: k.identity.source_action_ids }, human_review: { check: `native playback: ${id} reads as one continuous hold across the cuts`, status: "NEEDS_HUMAN" } };
+}
