@@ -10,10 +10,11 @@ import { stateAtFrame } from "../art_bridge/temporal.mjs";
 import { apply, angleOf, wrap180 } from "../art_bridge/math2d.mjs";
 import { err } from "../art_bridge/errors.mjs";
 import { pinchGeometry } from "../art_bridge/pinch.mjs";
+import { verifyPupilContainment } from "./integrity_qa.mjs";
 const deg = (r) => (r * 180) / Math.PI, dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 export const EFFECT_EXECUTORS = Object.freeze(["GazeTowardTarget", "EyeStateTransition", "ApprovedViewTransition", "SpeechAudioVisualSync", "ContactApproach", "PaintedGripMaintained", "ReleaseAndSeparation", "PlantedFootStable", "PurposefulEmotionRendered", "ExpressionStateReached", "ApprovedPointerAligned", "LegalIdleHold", "ApprovedBodyTurn", "PoseContactHold", "PropSupportContract", "VisemeSync", "ExpressionTransitionTraversed", "ContactContinuity"]);
 /** verifyPerformance(C, {perturb}) → {ok, results:[{command, verb, kind, test_id, ok, frames_checked, reason, measurement, human_review}], failures} */
-export function verifyPerformance(C, { only = null } = {}) {
+export function verifyPerformance(C, { only = null, film = null } = {}) {
   const rep = C.performance; if (!rep) return { ok: false, results: [], failures: [err("PERFORMANCE_EFFECT_UNMET", { record_id: "(film)", reason: "no compiled performance commands" })] };
   const cache = new Map(), st = (f) => { f = Math.max(0, Math.min(C.totalFrames - 1, f)); if (!cache.has(f)) { try { cache.set(f, stateAtFrame(C, f)); } catch (e) { cache.set(f, { error: e }); } } return cache.get(f); };
   const results = [], failures = [], rig = (id) => C.rigs.get(id), J = (rid, j) => rig(rid).joints.get(j);
@@ -94,7 +95,7 @@ export function verifyPerformance(C, { only = null } = {}) {
   }
   // P07: every prop support contract, on every frame of its span
   for (const k of C.contacts || []) { const pc = C.pinch?.get(k.identity?.contact_id); if (!pc) continue; const r = verifyPinch(C, k, pc, st); results.push(r); if (!r.ok) failures.push(err("PINCH_INVALID", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `pinch ${pc.id}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyPinch" })); }
-  for (const [rid, R_] of C.rigs) { const fc = R_.rec.face_composition; if (!fc) continue; const ivs = (rep.commands || []).filter((r) => r.rig === rid).map((r) => r.frames); if (!ivs.length) continue; const r = verifyFaceComposition(C, rid, ivs, st); results.push(r); if (!r.ok) failures.push(err("FACE_TUPLE_INVALID", { record_id: rid, reason: `face composition ${rid}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyFaceComposition" })); }
+  for (const [rid, R_] of C.rigs) { const fc = R_.rec.face_composition; if (!fc) continue; const ivs = (rep.commands || []).filter((r) => r.rig === rid).map((r) => r.frames); if (!ivs.length) continue; const r = verifyFaceComposition(C, rid, ivs, st, { film }); results.push(r); if (!r.ok) failures.push(err("FACE_TUPLE_INVALID", { record_id: rid, reason: `face composition ${rid}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyFaceComposition" })); }
   for (const k of C.contacts || []) { if (!k.identity?.persists || (only && !only.includes(k.identity.contact_id))) continue; const r = verifyContactContinuity(C, k, st); results.push(r); if (!r.ok) failures.push(err(r.code || "PERFORMANCE_EFFECT_UNMET", { record_id: k.identity.contact_id, frame_range: [k.c.start_frame, k.c.end_frame], reason: `persistent contact ${k.identity.contact_id}: ${r.reason}`, producer: "engine/film/performance_qa.mjs#verifyContactContinuity" })); }
   for (const p of C.propSupport || []) { if (only && !only.includes(p.id)) continue; const r = verifyPropSupport(C, p, st); results.push(r); if (!r.ok) failures.push(err("PERFORMANCE_EFFECT_UNMET", { record_id: p.id, frame_range: p.span, reason: `prop support ${p.id} (${p.test_id}): ${r.reason}`, failed_invariant: "PropSupportContract", details: { prop: p.id, frame_range: p.span, failed_invariant: "PropSupportContract", earliest_producer: "engine/art_bridge/prop_support.mjs", needed_art_or_capability: null, user_approval_needed: false } })); }
   return { ok: failures.length === 0 && results.length > 0, results, failures, human_review_pending: results.map((r) => ({ command: r.command, test_id: r.test_id, check: r.human_review.check })) };
@@ -149,7 +150,7 @@ export function verifyContactContinuity(C, k, st = (f) => stateAtFrame(C, f)) {
  *  Disjoint slots are not enough: the mouth family must be the one the visible expression requires, an expression drawn with a baked mouth may not
  *  be combined with a separate visible mouth (double mouth), a view-specific mouth may only show in its view, and every face slot must be owned
  *  by exactly the channel the ownership map names. */
-export function verifyFaceComposition(C, rid, intervals, st = (f) => stateAtFrame(C, f)) {
+export function verifyFaceComposition(C, rid, intervals, st = (f) => stateAtFrame(C, f), { film = null } = {}) {
   const R_ = C.rigs.get(rid).rec, fc = R_.face_composition, chs = new Map((R_.state_channels || []).map((c) => [c.id, c])), bad = []; let n = 0; const seen = new Set();
   const X = chs.get(fc.expression_channel), M = chs.get(fc.mouth_channel); if (!X || !M) return { command: rid, kind: "FaceComposition", ok: false, frames_checked: 0, reason: "face_composition names a channel the rig does not have" };
   const mouthSlots = new Set(fc.regions.filter((r) => r.role === "MOUTH").map((r) => r.slot));
@@ -162,7 +163,9 @@ export function verifyFaceComposition(C, rid, intervals, st = (f) => stateAtFram
     if (xs.face.bundled_mouth) { const vis = s.passes.filter((p) => p.rig === rid && mouthSlots.has(p.slot) && p.visible); if (vis.length) bad.push(`frame ${f}: expression ${xs.id} carries a baked mouth but ${vis.map((p) => p.asset_id)} is also visible (double mouth)`); }
     const mouthPasses = s.passes.filter((p) => p.rig === rid && mouthSlots.has(p.slot) && p.visible); if (mouthPasses.length > 1) bad.push(`frame ${f}: ${mouthPasses.length} visible mouth drawings`); }
   if (!n) bad.push("zero frames checked");
-  return { command: rid, verb: "face", kind: "FaceComposition", owner: rid, frames_checked: n, ok: !bad.length, reason: bad.slice(0, 6).join("; ") || null, human_review: { check: `native playback: ${rid}'s face reads as one coherent drawing in every expression and spoken shape`, status: "NEEDS_HUMAN" } };
+  // P08 C04: a declared pupil is checked against the registered eye MASK on every checked frame (a bbox test is not containment)
+  let pupil = null; if (fc.pupil) { if (!film) bad.push("face_composition declares a pupil/eye mask but no film was given: pupil containment on the registered art was not evaluated"); else { const fr = []; for (const [a, b] of intervals) for (let f = a; f < b; f++) if (f >= 0 && f < C.totalFrames && C.shotAt(f) && !fr.includes(f)) fr.push(f); pupil = verifyPupilContainment(C, film, rid, fr, st); if (!pupil.ok) bad.push(`pupil: ${pupil.reason}`); } }
+  return { pupil_containment: pupil?.measurement ?? null, command: rid, verb: "face", kind: "FaceComposition", owner: rid, frames_checked: n, ok: !bad.length, reason: bad.slice(0, 6).join("; ") || null, human_review: { check: `native playback: ${rid}'s face reads as one coherent drawing in every expression and spoken shape`, status: "NEEDS_HUMAN" } };
 }
 
 /** P08 B03 — every locked frame of a PINCH: the contact is locked on its edge, the patches satisfy the contract's opposition for its view, the

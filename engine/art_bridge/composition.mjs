@@ -61,6 +61,11 @@ export function compileComposition(doc, plan) {
     if (fr[1] > total) { no("INVALID_FRAME_RANGE", { invariant: "INSIDE_FILM", reason: `${p.id} [${fr}) leaves the film [0,${total})` }); continue; }
     const [rid, sub] = String(p.owner).split("."), rig = rigs.get(rid), rec = { id: p.id, kind: p.kind, owner: p.owner, frames: fr, mode: dom.modes[0], space: dom.space, effect: p.expected_effect, inputs: p.inputs, end: p.end ?? dom.end[0], depends_on: [...(p.depends_on || []), ...(p.sync ? [p.sync.ref] : [])], required_art: p.required_art || [] };
     if (p.kind !== "CAMERA_MOVE" && !rig) { no("UNKNOWN_REFERENCE", { invariant: "OWNER_EXISTS", reason: `${p.id}: owner rig ${rid} is not in the manifest` }); continue; }
+    // P08 A01: every primitive is bound to exactly one directed source action (declared `action`, or the one action of its owner that contains it);
+    // the film-level obligation ledger joins producers to obligations through this binding. A declared action that does not own the interval is refused.
+    { const A0 = p.action ? D.actions.find((a) => a.id === p.action) : p.kind === "CAMERA_MOVE" ? null : actionFor(rid, fr);
+      if (p.action && (!A0 || A0.frame_range[0] > fr[0] || fr[1] > A0.frame_range[1] || (p.kind !== "CAMERA_MOVE" && !A0.actors.some((x) => x.rig_id === rid)))) { no("UNKNOWN_REFERENCE", { invariant: "PRIMITIVE_ACTION_BOUND", reason: `${p.id}: declared action ${p.action} ${A0 ? `does not contain [${fr}) for owner ${rid}` : "is not in the manifest"}` }); continue; }
+      rec.action = A0?.id ?? null; rec.action_binding = p.action ? "DECLARED" : A0 ? "DERIVED" : "UNBOUND"; }
     const J = (j) => rig.joints.find((x) => x.id === j);
     switch (p.kind) {
       case "JOINT_ROTATE": { const j = J(sub); if (!j) { no("UNKNOWN_REFERENCE", { invariant: "JOINT_EXISTS", reason: `${p.owner} is not a joint` }); break; } const ks = p.inputs?.keys; if (!Array.isArray(ks) || !ks.length || ks[0][0] !== 0 || ks.at(-1)[0] > fr[1] - fr[0]) { no("COMPOSITION_INVALID", { invariant: "KEYS_RELATIVE_INSIDE", reason: `${p.id}: keys are relative frames starting at 0 and ending ≤ ${fr[1] - fr[0]}` }); break; }
