@@ -9,12 +9,15 @@
 //   decoders: [{ id, shot_id, action_id, model_card, output, unit, symbol_art_id, scenario_keys: [[frame, scenario, ease?]], baseline_xy, px_per_unit,
 //                displays: [{ value_ref, shown_provenance }] }],
 //   hosts:    [{ id, shot_id, frames: [a,b), band, host_asset: { status: APPROVED_HOST|PENDING, blend_file, blend_sha256, approval_receipt_id },
-//                camera: {type, location, rotation_euler_deg, ortho_scale}, ground: {z}, contact_points: [{id, object}],
+//                camera: {type: ORTHO|PERSP, location, rotation_euler_deg, ortho_scale | lens_mm + sensor_width_mm}, ground: {z}, contact_points: [{id, object}],
 //                calibration_landmarks: [{ id, world: [x,y,z], plate_art_id, landmark }], performance: [{ frames, action, intent }] }],
-//   dialogue: [{ line_id, speaker, text, frames, audio_file, audio_sha256, alignment_file, mouth_scheme: "REST_MID_OPEN", limited_mouth_approved: bool }] }
+//   dialogue: [{ line_id, speaker, text, frames, audio_file, audio_sha256, alignment_file, mouth_scheme: "VISEME" | "REST_MID_OPEN", limited_mouth_approved: bool }] }
+//   P08 C03: mouth_scheme "VISEME" routes the line to the measured-phone viseme producer (engine/art_bridge/speech_visemes.mjs, EN_ARPABET_VISEME_V1)
+//   and needs the measured PHONE alignment (alignment_file). "REST_MID_OPEN" is the LIMITED legacy swap and needs explicit approval per line.
 import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto";
 import { packetDigest } from "./creative_packet.mjs";
 import { feedback } from "./creative_preflight.mjs";
+import { VISEME_INVENTORY } from "../art_bridge/speech_visemes.mjs";
 import { validateModelCard, evaluateModel, displayLabelAudit, scenarioClaimAudit } from "../decoder/model_card.mjs";
 
 const PR = "engine/story/hybrid_contract.mjs#hybridPreflight";
@@ -23,7 +26,7 @@ const TRUTH = ["F", "R", "M", "H", "X"];
 export const HYBRID_PRODUCERS = Object.freeze({
   DECODER: { producer: "engine/decoder/model_bar.mjs#compileModelBars", consumer: "engine/art_bridge/scene_graph.mjs#composeShot (symbol pass)", qa: "engine/decoder/decoder_qa.mjs#verifyModelBarFrames", test: "tests/tbo/decoder_model.test.mjs" },
   HOST: { producer: "engine/host3d/blender_host_passes.py + engine/host3d/host_pass.mjs#compileHostPasses", consumer: "engine/art_bridge/scene_graph.mjs#composeShot (host passes)", qa: "engine/host3d/host_pass.mjs#verifyHostComposite", test: "tests/tbo/host_pass.test.mjs" },
-  DIALOGUE: { producer: "measured word alignment (external recording + aligner)", consumer: "engine/art_bridge/acting.mjs#compileActing (speech channel)", qa: "engine/film/audio_mix.mjs#verifyAudioSync", test: "tests/p03 acting/speech tests" },
+  DIALOGUE: { producer: "measured phone alignment (external recording + MFA) → engine/art_bridge/speech_visemes.mjs VISEME route (P08 C03); REST_MID_OPEN legacy swap only when approved", consumer: "engine/art_bridge/acting.mjs#compileActing (speech channel)", qa: "engine/film/audio_mix.mjs#verifyAudioSync", test: "tests/p03 acting/speech tests" },
 });
 
 export function hybridPreflight(packet, H, { sourceDir = null } = {}) {
@@ -65,7 +68,8 @@ export function hybridPreflight(packet, H, { sourceDir = null } = {}) {
       for (const m of s.camera.moves) if (m.operation !== "STATIC" && h.frames && m.frames[0] < h.frames[1] && m.frames[1] > h.frames[0]) bad("HOST_CAMERA_MATCHED", "MISSING_ENGINE_PRODUCER", `shot camera ${m.operation} over [${m.frames}] overlaps the host pass: adapter v1 composites a host only under a static 2D camera (a camera-matched Blender move is not implemented)`, { options: ["implement per-frame camera export from the 2D camera track into Blender, then re-run", "the creative author holds the 2D camera static during the host pass (new packet revision)"] });
       const w = worlds.get(s.world_id); for (const l of h.calibration_landmarks || []) { const p = arts.get(l.plate_art_id); if (!p || p.kind !== "WORLD_PLANE" || !w?.planes.some((q) => q.art_id === p.id)) bad("HOST_WORLD_CALIBRATED", "MISSING_ART_REQUIREMENT", `calibration landmark ${l.id} must sit on a WORLD_PLANE of shot ${s.id}'s world`, { art_requirement_id: l.plate_art_id }); else if (!p.landmarks.includes(l.landmark)) bad("HOST_WORLD_CALIBRATED", "MISSING_ART_REQUIREMENT", `world plane ${p.id} does not request landmark ${l.landmark}; the floor calibration point must be a reviewed landmark of the painting`, { art_requirement_id: p.id }); } }
     if ((h.calibration_landmarks || []).length < 2) bad("HOST_WORLD_CALIBRATED", "INCOMPLETE_DIRECTION", "at least two floor calibration landmarks tie the 3D ground to the painted floor");
-    if (h.camera?.type !== "ORTHO") bad("HOST_CAMERA_ORTHO", "MISSING_ENGINE_PRODUCER", `host camera ${h.camera?.type} is not supported by adapter v1 (orthographic only)`, { options: ["implement a calibrated perspective camera (focal length, sensor, principal point) in engine/host3d, then re-run", "direct the host shot with an orthographic camera"] });
+    if (h.camera?.type === "PERSP") { if (!(h.camera.lens_mm > 0) || !(h.camera.sensor_width_mm > 0)) bad("HOST_CAMERA_INTRINSICS", "INCOMPLETE_DIRECTION", `perspective host camera needs its calibrated lens_mm and sensor_width_mm (P08 E03)`); }
+    else if (h.camera?.type !== "ORTHO") bad("HOST_CAMERA_MODEL", "MISSING_ENGINE_PRODUCER", `host camera ${h.camera?.type} is not supported (ORTHO | calibrated PERSP, engine/host3d/host_pass.mjs#projectCamera)`, { options: ["direct the host shot with an orthographic or a calibrated perspective camera"] });
     if (!(h.contact_points || []).length) bad("HOST_CONTACT_DECLARED", "INCOMPLETE_DIRECTION", "a host on the floor declares its contact points (soles)");
     if (!(h.performance || []).length) bad("HOST_PERFORMANCE_DIRECTED", "INCOMPLETE_DIRECTION", "the host's acting beats (walk, stop, look, point, speak …) are directed per frame interval");
     for (const p of h.performance || []) if (!within(p.frames, h.frames)) bad("HOST_PERFORMANCE_DIRECTED", "INCOMPLETE_DIRECTION", `performance beat ${p.action} [${p.frames}] is outside the host interval`);
@@ -78,8 +82,9 @@ export function hybridPreflight(packet, H, { sourceDir = null } = {}) {
     const who = ids.get(l.speaker);
     if (!who) bad("DIALOGUE_SPEAKER_EXISTS", "INCOMPLETE_DIRECTION", `unknown speaker ${l.speaker}`);
     else if (!who.acting?.speech) bad("DIALOGUE_MOUTH_CHANNEL", "MISSING_ART_REQUIREMENT", `${l.speaker} speaks but its acting block declares no speech channel and mouth drawings`);
-    if (l.mouth_scheme === "REST_MID_OPEN" && !l.limited_mouth_approved) bad("DIALOGUE_MOUTH_SCHEME_APPROVED", "INCOMPLETE_DIRECTION", "the engine's mouth is a syllable-timed rest/mid/open swap (no phoneme visemes). Approve that limited scheme for this line, or direct phoneme mouths (requires a new viseme producer + mouth drawings)");
-    else if (l.mouth_scheme !== "REST_MID_OPEN") bad("DIALOGUE_MOUTH_SCHEME_SUPPORTED", "MISSING_ENGINE_PRODUCER", `mouth scheme ${l.mouth_scheme} has no producer (only REST_MID_OPEN exists)`);
+    if (l.mouth_scheme === "VISEME") { row.mouth_route = { route: "VISEME", inventory: VISEME_INVENTORY.id, version: VISEME_INVENTORY.version }; if (!l.alignment_file) bad("DIALOGUE_PHONE_ALIGNMENT", "INCOMPLETE_DIRECTION", `the viseme route needs the measured PHONE alignment of ${l.line_id} (alignment_file); no timing is invented`); }
+    else if (l.mouth_scheme === "REST_MID_OPEN" && !l.limited_mouth_approved) bad("DIALOGUE_MOUTH_SCHEME_APPROVED", "INCOMPLETE_DIRECTION", "REST_MID_OPEN is the LIMITED legacy syllable swap. Approve that limited scheme for this line, or direct mouth_scheme VISEME (measured phones → viseme mouth drawings, P08)");
+    else if (l.mouth_scheme !== "REST_MID_OPEN") bad("DIALOGUE_MOUTH_SCHEME_SUPPORTED", "MISSING_ENGINE_PRODUCER", `mouth scheme ${l.mouth_scheme} has no producer (VISEME | REST_MID_OPEN)`);
     for (const [f, k] of [[l.audio_file, "recorded line"], [l.alignment_file, "measured word alignment"]]) { const p = f && sourceDir ? path.join(sourceDir, path.basename(f)) : null; if (!p || !fs.existsSync(p)) bad("DIALOGUE_AUDIO_PRESENT", "AUTHORITY_REQUIRED", `NEEDS_RECORDED_VOICE: the ${k} for ${l.line_id} is not supplied (no timing is invented)`); else if (k === "recorded line" && l.audio_sha256 && crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex") !== l.audio_sha256) bad("DIALOGUE_AUDIO_PRESENT", "AUTHORITY_REQUIRED", `${f} does not match its declared sha256`); }
     ledger.dialogue.push(row); }
   return done();

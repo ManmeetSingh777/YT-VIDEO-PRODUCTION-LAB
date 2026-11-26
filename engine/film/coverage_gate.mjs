@@ -32,6 +32,10 @@ export function ownerAttributionGate({ owners, first = 0, doc, requireUnits = tr
       for (const f of missed) failures.push({ code: "INERT_ACTION_OWNER", record_id: `${a.id}:${u}`, frame_ranges: [[f, f + 1]], reason: `${u} swaps its approved drawing at frame ${f} but its isolated pixels are unchanged`, failed_invariant: "DISCRETE_STATE_NOT_RENDERED" }); } }
   return { ok: failures.length === 0, failures, units: report };
 }
+/** P08 A01: the per-owner isolated captures recorded in the render receipts, as absolute-frame arrays (the ledger's rendered evidence) */
+export function renderedOwners(FILM, total) { const F = path.resolve(FILM), mf = J(path.join(F, "render", "FRAME_MANIFEST.json")), owners = {};
+  for (const c of mf.chunks) { const rc = J(path.join(F, c.mkv.replace(/.mkv$/, ".json"))); for (const [u, o] of Object.entries(rc.owners || {})) { const t = (owners[u] ||= {}); for (const k of Object.keys(o)) { t[k] ||= new Array(total).fill(null); (o[k] || []).forEach((v, i) => { t[k][c.frames[0] + i] = v; }); } } }
+  return owners; }
 /** coverageGate({FILM, index, doc, plan, narration}) → {ok, failures[], coverage{}} */
 export function coverageGate({ FILM, index, doc, plan = null, narration = null, requireOwnerAttribution = true, total: totalOverride = null, diagnosticBounded = false, decisions = [] }) {
   const F = path.resolve(FILM), mf = J(path.join(F, "render", "FRAME_MANIFEST.json")), total = totalOverride && diagnosticBounded ? totalOverride : doc.stage.total_frames, failures = [], hashes = new Array(total).fill(null), states = new Array(total).fill(null);

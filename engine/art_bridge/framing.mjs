@@ -7,7 +7,7 @@
 import fs from "node:fs"; import path from "node:path";
 import { err } from "./errors.mjs";
 import { mul, apply, inv } from "./math2d.mjs";
-import { cameraMatrix } from "./scene_graph.mjs";
+import { cameraMatrix, composeShot as composeShotDefault } from "./scene_graph.mjs";
 import { stateAtFrame } from "./temporal.mjs";
 import { canonicalQuad, canonicalToCrop } from "./asset_geometry.mjs";
 import { readPNG } from "./png.mjs";
@@ -67,3 +67,41 @@ export function verifyShadowContinuity({ film, compiled: C, doc, plan = {}, tota
   return { ok: failures.length === 0, failures, results };
 }
 void fs;
+
+/** P08 C05 — directed readable-attention windows, measured on the target's ACTUAL VISIBLE PIXELS on every frame of each window:
+ *  the target's visible drawings (registered alpha) are projected through the shot camera (per band), clipped to the frame, and every sample of
+ *  the target that a later-painted drawing covers with alpha is occluded (the renderer's own paint order from composeShot). A window passes only when
+ *  EVERY frame is readable (visible fraction ≥ min_visible_fraction and on-screen height ≥ min_target_height_px) and the window lasts at least
+ *  min_window_frames. Inside a shot that directs attention, frames no window covers are an ATTENTION_GAP (accidental empty attention interval).
+ *  Targets resolve to rig ids (rig id, identity id, or a socket of a rig). A moving camera or a filled background never proves readability.
+ *  windows come from SHOT_SCORE shots[].attention [{frames, target}] (the packet's shots[].attention); policy from plan.attention_policy. */
+export function verifyAttention({ film, compiled: C, registry, doc, plan = {}, score, total = null, composeShot = composeShotDefault, policy = {} }) {
+  const P = { min_visible_fraction: DEFAULT_MIN_VISIBLE, min_target_height_px: 0, min_window_frames: 12, samples: 40, ...(plan.attention_policy || {}), ...policy };
+  const assets = new Map(doc.assets.map((a) => [a.id, a])), W = doc.stage.width, H = doc.stage.height, png = new Map(), failures = [], windows = [];
+  const raster = (a) => { if (!png.has(a.id)) png.set(a.id, readPNG(path.join(path.resolve(film), a.file))); return png.get(a.id); };
+  const alpha = (a, M, w) => { const u = canonicalToCrop(a, apply(inv(M), w)), [sx, sy, sw, sh] = a.source_pixel_crop; if (u[0] < 0 || u[1] < 0 || u[0] >= sw || u[1] >= sh) return 0; const p = raster(a), x = Math.floor(sx + u[0]), y = Math.floor(sy + u[1]); return x < 0 || y < 0 || x >= p.width || y >= p.height ? 0 : p.rgba[(y * p.width + x) * 4 + 3]; };
+  const rigsOf = (t) => { const r = doc.rigs.filter((x) => x.id === t || x.identity_id === t || (x.sockets || []).some((s) => s.id === t)).map((x) => x.id); if (r.length) return r; const a = doc.actions.find((x) => x.id === t); return a ? a.actors.map((x) => x.rig_id) : []; }; // rig | identity | socket | action (its actors)
+  const F = (code, shot, rec, frames, reason, o = {}) => failures.push(err(code, { shot_id: shot, record_id: rec, frame_range: frames, reason, failed_invariant: o.inv ?? code, details: o.details }));
+  const scenes = new Map(), orderOf = (sh) => { if (!scenes.has(sh.id)) { const sc = composeShot(sh, registry, C, { prefix: "" }), idx = new Map(); let k = 0; for (const b of ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND"]) for (const id of sc.order[b] || []) idx.set(id, k++); scenes.set(sh.id, idx); } return scenes.get(sh.id); };
+  for (const sh of doc.shots) { const ss = (score?.shots || []).find((x) => x.shot === sh.id), ws = (ss?.attention || []).filter((w) => Array.isArray(w.frames)), end = total === null ? sh.end_frame : Math.min(total, sh.end_frame); if (!ws.length) continue;
+    // accidental empty attention interval: shot frames no directed window covers
+    const cov = ws.map((w) => [Math.max(w.frames[0], sh.start_frame), Math.min(w.frames[1], end)]).sort((a, b) => a[0] - b[0]); let at = sh.start_frame; const gaps = []; for (const [a, b] of cov) { if (a > at) gaps.push([at, a]); at = Math.max(at, b); } if (at < end) gaps.push([at, end]);
+    for (const g of gaps) F("ATTENTION_GAP", sh.id, sh.id, g, `frames [${g}) of ${sh.id} have no directed attention target (an accidental empty attention interval)`);
+    const order = orderOf(sh), world = doc.worlds.find((x) => x.id === sh.world_id), plates = (world?.depth_owners || []).flatMap((d) => d.asset_ids.map((aid) => ({ id: `world--${d.id}--${aid}`, a: assets.get(aid), band: d.depth_band }))).filter((q) => q.a && q.a.kind !== "VECTOR_PATH");
+    for (const w of ws) { const fr = [Math.max(w.frames[0], sh.start_frame), Math.min(w.frames[1], end)]; if (fr[1] <= fr[0]) continue; const rigs = rigsOf(w.target), rec = { shot: sh.id, target: w.target, frames: fr, rigs, frames_checked: 0, unreadable: [], min_fraction: 1, min_height_px: Infinity };
+      windows.push(rec); if (!rigs.length) { { const act = doc.actions.find((x) => x.id === w.target); F("ATTENTION_TARGET_UNKNOWN", sh.id, w.target, fr, act ? `attention target ${w.target} is an action with no rig actors (${act.mode}): its readability cannot be measured on drawn pixels; direct attention to a drawn owner` : `attention target ${w.target} is no rig, identity, socket or action of this film`); } continue; }
+      if (fr[1] - fr[0] < P.min_window_frames) F("ATTENTION_WINDOW_TOO_SHORT", sh.id, w.target, fr, `the window on ${w.target} lasts ${fr[1] - fr[0]} frames, below the ${P.min_window_frames}-frame readable minimum`);
+      for (let f = fr[0]; f < fr[1]; f++) { const st = stateAtFrame(C, f), cam = (p) => mul(cameraMatrix(st.camera, assets.get(p.asset_id)?.depth_band || "FOCAL", plan.parallax, doc.stage), p.matrix);
+        const tp = st.passes.filter((p) => p.visible && rigs.includes(p.rig) && assets.get(p.asset_id) && assets.get(p.asset_id).kind !== "VECTOR_PATH"), above = (p) => order.get(p.pass_id) ?? -1;
+        if (!tp.length) { rec.unreadable.push(f); rec.min_fraction = 0; continue; } rec.frames_checked++;
+        const TM = tp.map((p) => ({ p, a: assets.get(p.asset_id), M: cam(p), o: above(p) })), quads = TM.flatMap((t) => canonicalQuad(t.a).map((c) => apply(t.M, c))), xs = quads.map((q) => q[0]), ys = quads.map((q) => q[1]), x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+        const occ = st.passes.filter((p) => p.visible && !rigs.includes(p.rig) && assets.get(p.asset_id) && assets.get(p.asset_id).kind !== "VECTOR_PATH").map((p) => ({ p, a: assets.get(p.asset_id), M: cam(p), o: above(p) }))
+          .concat(plates.map((q) => ({ a: q.a, M: cameraMatrix(st.camera, q.band, plan.parallax, doc.stage), o: order.get(q.id) ?? -1 }))); // painted world plates occlude too (a near rock hides an actor)
+        let tot = 0, vis = 0, oy0 = Infinity, oy1 = -Infinity;
+        for (let i = 0; i < P.samples; i++) for (let j = 0; j < P.samples; j++) { const w_ = [x0 + ((i + 0.5) / P.samples) * (x1 - x0), y0 + ((j + 0.5) / P.samples) * (y1 - y0)]; let top = -1; for (const t of TM) if (alpha(t.a, t.M, w_) >= 128) top = Math.max(top, t.o); if (top < 0) continue; tot++; oy0 = Math.min(oy0, w_[1]); oy1 = Math.max(oy1, w_[1]);
+          if (w_[0] < 0 || w_[1] < 0 || w_[0] >= W || w_[1] >= H) continue; if (occ.some((q) => q.o > top && alpha(q.a, q.M, w_) >= 128)) continue; vis++; }
+        const frac = tot ? vis / tot : 0, hpx = tot ? oy1 - oy0 + (y1 - y0) / P.samples : 0; rec.min_fraction = Math.min(rec.min_fraction, frac); rec.min_height_px = Math.min(rec.min_height_px, hpx);
+        if (frac < P.min_visible_fraction || hpx < P.min_target_height_px) rec.unreadable.push(f); }
+      if (rec.unreadable.length) { const u = rec.unreadable; F("ATTENTION_TARGET_UNREADABLE", sh.id, w.target, [u[0], u.at(-1) + 1], `${w.target} is not readable on ${u.length} of ${fr[1] - fr[0]} frames of its attention window [${fr}) (min visible fraction ${rec.min_fraction.toFixed(2)} < ${P.min_visible_fraction}${P.min_target_height_px ? `, min height ${rec.min_height_px.toFixed(0)}px vs ${P.min_target_height_px}` : ""}; first ${u[0]})`, { details: { frames: u.length } }); } } }
+  return { ok: failures.length === 0, failures, windows, policy: P };
+}

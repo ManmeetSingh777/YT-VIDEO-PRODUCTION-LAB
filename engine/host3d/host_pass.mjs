@@ -6,11 +6,14 @@
 // Neutrino/Chrome compositor, between depth bands, under painted foreground occluders. verifyHostComposite() judges final pixels with a
 // counterfactual (same frame without the host): hidden where an occluder covers it, visible elsewhere, grounded shadow, planted contact.
 //
-// What this version does NOT do (typed refusals, never silent): perspective cameras, a 2D camera move during a host pass, depth-tested
-// interpenetration with 2D props (ordering is by depth band + paint order only), host hand contact with a 2D prop.
+// P08: calibrated PERSPECTIVE cameras (E03); per-pixel depth/matte compositing (E04, contract.depth_composite): Blender's metric Z pass splits every
+// host frame into slices painted at their depth among the declared 2D band depths (verified on final pixels by verifyDepthComposite).
+// What this version does NOT do (typed refusals, never silent): a 2D camera move during a host pass, depth WITHIN one flat 2D layer (each painted
+// layer has one declared depth), host hand contact with a 2D prop.
 import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto"; import { spawnSync } from "node:child_process"; import url from "node:url";
 import { err } from "../art_bridge/errors.mjs";
-import { decodePNG } from "../art_bridge/png.mjs";
+import { decodePNG, writeRGBA } from "../art_bridge/png.mjs";
+import zlib from "node:zlib";
 
 const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", "..");
 export const BLENDER = process.env.BLENDER_PATH || "C:/Program Files/Blender Foundation/Blender 5.1/blender.exe";
@@ -41,10 +44,19 @@ export function projectCamera(cam, [W, H], p) {
   if (!(depth > 1e-9)) throw E("HOST_INTEGRATION_INVALID", "camera", `world point ${p} is at or behind the camera (depth ${depth.toFixed(4)})`, "POINT_IN_FRONT_OF_CAMERA", { fn: "projectCamera" });
   const fx = (W * cam.lens_mm) / cam.sensor_width_mm; return [W / 2 + (fx * x) / depth, H / 2 - (fx * y) / depth];
 }
+/** P08 E04 — planar camera-space depth of a world point (distance along the camera's viewing axis, world units): the unit Blender's Cycles Z pass
+ *  reports (verified per frame at the contacts by compileHostPasses), and the unit of the contract's declared 2D band depths */
+export function cameraDepth(cam, p) { const { R, C } = cameraBasis(cam), d = [p[0] - C[0], p[1] - C[1], p[2] - C[2]]; return -(R[0][2] * d[0] + R[1][2] * d[1] + R[2][2] * d[2]); }
+export const DEPTH_POSITIONS = Object.freeze(["BEHIND_FAR", "AFTER_FAR", "AFTER_MID", "AFTER_FOCAL", "AFTER_NEAR", "AFTER_FOREGROUND"]);
+/** readDepth(file) → Float32Array (row-major, top row first) of Blender's metric Z */
+export function readDepth(file) { const b = zlib.gunzipSync(fs.readFileSync(file)); return new Float32Array(b.buffer.slice(b.byteOffset, b.byteOffset + b.length)); }
+/** depthPosition(z, bandDepths) — where a host pixel at depth z is painted among the 2D bands (FAR farthest). Tie-break: z equal to a band's depth is
+ *  BEHIND that band (stable, never "host always in front"). */
+export function depthPosition(z, bd) { const B = ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND"]; for (let i = 0; i < B.length; i++) if (z >= bd[B[i]]) return DEPTH_POSITIONS[i]; return DEPTH_POSITIONS[5]; }
 /** renderHostPasses({contract, frames, outDir}) — runs Blender headless; returns PASSES.json (the engine never trusts it without compileHostPasses) */
 export function renderHostPasses({ contract, frames, outDir, blendFile = null, samples = 16 }) {
   fs.mkdirSync(outDir, { recursive: true });
-  const req = { film_frames: contract.film_frames, blender_frame_offset: contract.blender_frame_offset, frames, resolution: contract.resolution, camera: contract.camera, host_object: contract.host_object, ground: contract.ground, contact_points: contract.contact_points, diagnostic_fixture: contract.provenance === "DIAGNOSTIC_FIXTURE", samples };
+  const req = { film_frames: contract.film_frames, blender_frame_offset: contract.blender_frame_offset, frames, resolution: contract.resolution, camera: contract.camera, host_object: contract.host_object, ground: contract.ground, contact_points: contract.contact_points, diagnostic_fixture: contract.provenance === "DIAGNOSTIC_FIXTURE", samples, depth_pass: !!contract.depth_composite, ...(contract.diagnostic_path ? { diagnostic_path: contract.diagnostic_path } : {}) };
   const rf = path.join(outDir, "RENDER_REQUEST.json"); fs.writeFileSync(rf, JSON.stringify(req, null, 1));
   const args = ["-b", ...(blendFile ? [blendFile] : ["--factory-startup"]), "--python", path.join(REPO, "engine", "host3d", "blender_host_passes.py"), "--", "--request", rf, "--out", outDir];
   const r = spawnSync(BLENDER, args, { encoding: "utf8", maxBuffer: 64 << 20 });
@@ -102,9 +114,26 @@ export function compileHostPasses({ contract: c, passesDir, assetRoot, runType =
   // drive count as "under" the asset root. Containment = relative, not absolute, and not climbing out.
   const relNative = path.relative(path.resolve(assetRoot), path.resolve(passesDir)), rel = relNative.split(path.sep).join("/");
   if (path.isAbsolute(relNative) || rel === ".." || rel.startsWith("../")) push("HOST_INTEGRATION_INVALID", c.host_id, "passes must live under the film asset root", "HOST_PASS_PRESENT");
+  // 4. P08 E04: per-pixel depth/matte compositing. Blender's real Z pass (planar camera distance, world units) is checked against the engine's own
+  // camera depth of every contact (same coordinate and unit, or refused); each host pixel is then painted at its depth among the DECLARED 2D band depths
+  // (contract.depth_composite.band_depths, same unit): one straight-alpha slice per occupied position, so a host walks behind a painted counter and in front of it.
+  let depthReport = null; if (c.depth_composite) { const B = ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND"], bd = c.depth_composite.band_depths || {}, tolD = c.depth_composite.tolerance_world ?? 0.05; depthReport = { band_depths: bd, contacts: [], slices: {} };
+    if (!B.every((b) => Number.isFinite(bd[b])) || B.some((b, i) => i && !(bd[B[i - 1]] > bd[b]))) push("HOST_INTEGRATION_INVALID", c.host_id, `depth_composite.band_depths must give every band a camera depth, strictly decreasing FAR > MID > FOCAL > NEAR > FOREGROUND (got ${JSON.stringify(bd)})`, "HOST_BAND_DEPTHS");
+    else if (P.depth_units !== "BLENDER_Z_WORLD_UNITS") push("HOST_INTEGRATION_INVALID", c.host_id, `the passes carry no metric depth (depth_units ${P.depth_units ?? "absent"}): re-render with the depth pass`, "HOST_DEPTH_PRESENT");
+    else for (const f of Object.keys(frames).map(Number)) { const r = have.get(f); if (!r.depth) { push("HOST_INTEGRATION_INVALID", c.host_id, `film frame ${f} has no depth pass`, "HOST_DEPTH_PRESENT", { frame_range: [f, f + 1] }); continue; }
+      const df = path.join(passesDir, r.depth.file); if (!fs.existsSync(df)) { push("HOST_INTEGRATION_INVALID", c.host_id, `depth pass ${r.depth.file} missing`, "HOST_DEPTH_PRESENT", { frame_range: [f, f + 1] }); continue; } if (fsha(df) !== r.depth.sha256) { push("STALE_DEPENDENCY", c.host_id, `depth pass ${r.depth.file} bytes differ from PASSES.json`, "HOST_PASS_HASH", { frame_range: [f, f + 1] }); continue; }
+      const [W, H] = c.resolution; if (r.depth.width !== W || r.depth.height !== H) { push("HOST_INTEGRATION_INVALID", c.host_id, `depth pass is ${r.depth.width}×${r.depth.height}, the film ${W}×${H}`, "HOST_DEPTH_PRESENT", { frame_range: [f, f + 1] }); continue; }
+      const Z = readDepth(df), host = decodePNG(fs.readFileSync(path.join(passesDir, r.host.file)), r.host.file);
+      for (const q of r.contacts) { const want_ = cameraDepth(c.camera, q.world), [cx, cy] = q.px.map(Math.round); let got = Infinity; for (let y = Math.max(0, cy - 6); y <= Math.min(H - 1, cy); y++) for (let x = Math.max(0, cx - 3); x <= Math.min(W - 1, cx + 3); x++) { const v = Z[y * W + x]; if (v < 1e9) got = Math.min(got, v); }
+        depthReport.contacts.push({ frame: f, id: q.id, engine_depth: +want_.toFixed(4), blender_depth: Number.isFinite(got) ? +got.toFixed(4) : null }); if (!(Math.abs(got - want_) <= tolD)) push("HOST_INTEGRATION_INVALID", `${c.host_id}.${q.id}`, `Blender's depth at contact ${q.id} is ${Number.isFinite(got) ? got.toFixed(4) : "absent"}, the engine's camera depth of that world point is ${want_.toFixed(4)} (tolerance ${tolD}): the depth pass is not in the contract's coordinates/units`, "HOST_DEPTH_UNITS", { frame_range: [f, f + 1] }); }
+      // assign every host pixel to its depth position; an anti-aliased edge pixel whose centre sample missed the host takes the nearest host depth within 2 px
+      const slices = new Map(); for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { const i = (y * W + x) * 4; if (!host.rgba[i + 3]) continue; let z = Z[y * W + x];
+        if (!(z < 1e9)) { let best = Infinity; for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) { const xx = x + dx, yy = y + dy; if (xx < 0 || yy < 0 || xx >= W || yy >= H) continue; const v = Z[yy * W + xx]; if (v < best) best = v; } z = best; }
+        const pos = z < 1e9 ? depthPosition(z, bd) : "BEHIND_FAR"; let sl = slices.get(pos); if (!sl) slices.set(pos, (sl = new Uint8Array(W * H * 4))); sl.set(host.rgba.subarray(i, i + 4), i); }
+      frames[f].slices = {}; for (const [pos, buf] of slices) { const file = `slice_${pos}_${String(f).padStart(6, "0")}.png`; writeRGBA(path.join(passesDir, file), W, H, buf); frames[f].slices[pos] = file; (depthReport.slices[pos] ||= []).push(f); } } }
   const first = frames[want[0]] || { host: P.frames[0]?.host.file, shadow: P.frames[0]?.shadow.file };
-  const entry = { shot_id: c.shot_id, band: c.band || "FOCAL", resolution: c.resolution, url_prefix: `assets/${rel}/`, frames, first, passes_sha256: fsha(pf), provenance: c.provenance };
-  return { entry, errors, report: { host_id: c.host_id, provenance: c.provenance, adapter_version: P.adapter_version ?? null, blender_version: P.blender_version, fps: P.fps, alpha_mode: P.alpha_mode, host_mesh_sha256: P.host_mesh_sha256, rig_action_sha256: P.rig_action_sha256, camera_deviation: dev, calibration: calib, contacts, frames_checked: Object.keys(frames).length } };
+  const entry = { ...(c.depth_composite ? { depth_composite: { band_depths: c.depth_composite.band_depths, positions: DEPTH_POSITIONS.filter((p) => depthReport?.slices?.[p]), units: "BLENDER_Z_WORLD_UNITS" } } : {}), shot_id: c.shot_id, band: c.band || "FOCAL", resolution: c.resolution, url_prefix: `assets/${rel}/`, frames, first, passes_sha256: fsha(pf), provenance: c.provenance };
+  return { entry, errors, report: { depth: depthReport, host_id: c.host_id, provenance: c.provenance, adapter_version: P.adapter_version ?? null, blender_version: P.blender_version, fps: P.fps, alpha_mode: P.alpha_mode, host_mesh_sha256: P.host_mesh_sha256, rig_action_sha256: P.rig_action_sha256, camera_deviation: dev, calibration: calib, contacts, frames_checked: Object.keys(frames).length } };
 }
 
 const px = (png, x, y) => { const i = (y * png.width + x) * 4; return png.rgba.subarray(i, i + 4); };
@@ -134,3 +163,22 @@ export function verifyHostComposite({ frame, final, noHost, hostPass, shadowPass
   return { ok: !failures.length, failures, frame, visible_px: vis, visible_ok: visOk, hidden_px: hid, hidden_ok: hidOk, shadow_px: shadowPx, shadow_dark: shadowDark, lowest_host_px: low, contact_px: contactPx };
 }
 export const readPng = (f) => decodePNG(fs.readFileSync(f));
+
+/**
+ * P08 E04 — verifyDepthComposite({frame, final, noHost, hostPass, depth, bandDepths, layers}) — per-pixel judgement of ONE composited frame from the
+ * DEPTHS: a host pixel (alpha ≥ 250) must be visible exactly where its Blender depth is nearer than every 2D layer covering that pixel
+ * (layers: [{id, depth, covers:(x,y)→bool}] — the declared depths of the painted occluders), and hidden where a nearer painted layer covers it.
+ * Visible means the final pixel shows the HOST's colour (|Δ| ≤ tol.colour per channel: no halo, no darkened premultiplied edge); hidden means the
+ * final pixel equals the no-host frame. Wrong depth order, "host always in front", a missing slice/matte and a stale pass all fail here on pixels.
+ */
+export function verifyDepthComposite({ frame, final, noHost, hostPass, depth, layers = [], tol = { colour: 6, visible_ratio: 0.98, hidden_ratio: 0.99 }, stride = 2 }) {
+  const W = hostPass.width, H = hostPass.height, failures = []; let vis = 0, visOk = 0, hid = 0, hidOk = 0, halo = 0;
+  for (let y = 0; y < H; y += stride) for (let x = 0; x < W; x += stride) { const h = px(hostPass, x, y); if (h[3] < 250) continue; const z = depth[y * W + x]; if (!(z < 1e9)) continue;
+    const front = layers.every((l) => !l.covers(x, y) || z < l.depth), F = px(final, x, y), N = px(noHost, x, y), eqHost = [0, 1, 2].every((k) => Math.abs(F[k] - h[k]) <= tol.colour), eqNone = [0, 1, 2].every((k) => Math.abs(F[k] - N[k]) <= 2);
+    if (front) { vis++; if (eqHost) visOk++; else if (!eqNone) halo++; } else { hid++; if (eqNone) hidOk++; } }
+  const E_ = (inv, reason) => failures.push(E("HOST_INTEGRATION_INVALID", `frame_${frame}`, reason, inv, { fn: "verifyDepthComposite", frame_range: [frame, frame + 1] }));
+  if (vis && visOk / vis < tol.visible_ratio) E_(halo > (vis - visOk) / 2 ? "HOST_EDGE_CLEAN" : "HOST_DEPTH_FRONT_VISIBLE", `${vis - visOk} of ${vis} host pixels that are NEARER than every painted layer do not show the host's colour (${halo} show a blended colour: halo or premultiplied edge)`);
+  if (hid && hidOk / hid < tol.hidden_ratio) E_("HOST_DEPTH_BEHIND_HIDDEN", `${hid - hidOk} of ${hid} host pixels that are BEHIND a nearer painted layer show through it (wrong depth order or host always in front)`);
+  if (!vis && !hid) E_("HOST_DEPTH_FRONT_VISIBLE", "no opaque host pixel with a metric depth was found on this frame");
+  return { ok: failures.length === 0, frame, failures, visible_px: vis, visible_ok: visOk, hidden_px: hid, hidden_ok: hidOk, halo_px: halo };
+}

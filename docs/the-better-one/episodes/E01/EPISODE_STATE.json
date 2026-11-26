@@ -59,10 +59,9 @@
     },
     "older": "V0.3 corrected 13s award direction: HISTORICAL; not executable for V0.4 without explicit reconciliation",
     "creative_artifacts_missing": [
-      "Actual user-approved final dialogue/character performance and natural scratch audio timings",
-      "Full 32.5-second updated 12-part Experience Director V1 shot/action/continuity/audio direction",
-      "Approved complete first episode screenplay and ending",
-      "Recomputed V0.4 source-hashed CREATIVE_PACKET v1.1.0",
+      "Executable CREATIVE_PACKET v1.1.0 + HYBRID_CONTRACT for [0,960) (compilation handoff issued: E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip, engine 1c7d9c1)",
+      "Signed creative_packet / story / direction receipts for that digest",
+      "Direction for phases after f960 (SH04–SH07) and the ending",
       "Actual local versioned full financial model/evidence from V0.3"
     ],
     "estimated_host_entrance_absolute_s": [
@@ -89,20 +88,28 @@
       ],
       "approved_by_user": [
         "D1–D6",
-        "selected audio identities/performances/chuckle"
+        "selected audio identities/performances/chuckle",
+        "P3.2 revised animatic: creative composition, blocking, timing and performance intentions for phase-one production (user statement 2026-11-26, after watching it)"
       ],
       "not_approved": [
-        "revised storyboard",
-        "revised animatic (separate session producing it)",
+        "temporary drawings",
+        "temporary motion",
         "final audio mix",
-        "formal production packet",
-        "art",
+        "production artwork",
+        "executable creative packet (to be compiled by Creative GPT; human signs its digest via review_sign)",
         "later phases",
         "ending"
       ],
       "audio_vs_p3_1": "6 masters, 3 stems, dialogue preview, phone and word timelines verified byte-identical",
       "use_for": "production-packet reconciliation and ArtJobs",
-      "coverage": "engineering/p08/P08_ACTION_COVERAGE_P3_2.json"
+      "coverage": "engineering/p08/P08_ACTION_COVERAGE_P3_2.json",
+      "scoped_approval_record": {
+        "date": "2026-11-26",
+        "by": "user (chat statement)",
+        "scope": "E01 phase 1 [0,960): composition, blocking, timing, performance intentions of the revised P3.2 animatic",
+        "not_a_signed_receipt": true,
+        "note": "recorded as the user's statement; the packet digest still needs a signed creative_packet receipt"
+      }
     }
   },
   "engineering": {
@@ -132,8 +139,15 @@
       "accepted_hybrid_film": false
     },
     "capabilities": {
-      "diagnostic_working": "look_at, blink, idle, limited turn_head, coarse speak, reach, grip, release, hold, react, change_expression, point (per P06 report; varying test-rig coverage)",
-      "typed_refusal_or_missing": "articulated walk, body-turn without view cels, CARRY, PINCH, LOAD_CONTAINER, INSERT_TOKEN, visemes, camera orbit, 3D dolly, perspective host camera, depth/matte"
+      "source": "engineering/p08/P08_REQUIREMENT_RESULTS.json (frozen ef0a722 + fixes 5314269); all on DIAGNOSTIC fixtures, none qualified on real E01 art",
+      "diagnostic_working": "composition primitives (JOINT_ROTATE, ROOT_MOVE, OSCILLATE, AIM, STATE_SWAP, PLANT, REACH, CAMERA_MOVE, WALK, CARRY, LOAD_CONTAINER, INSERT_TOKEN); contact continuity; prop authority ACTOR/OBJECT/SURFACE/FREE with transfers; oriented contacts; PINCH; WRAP grips; measured-phone VISEME speech; expression transitions; face composition; time remaps; grades; DOLLY/ORBIT camera ops; calibrated PERSP host camera; photo intent; phase boundary + phase audio; selective chunk re-render",
+      "missing_or_being_closed": [
+        "E04 per-pixel host depth/matte: IMPLEMENTED on diagnostic fixtures (004ce11); approved host design pending",
+        "CAPTION_OVERLAY: IMPLEMENTED (cf4ad3c); FINDING: approved 'Too much?' cue 0.633 s < 1.0 s default dwell (creative decision)",
+        "A01 obligation ledger, C04 pupil mask, C05 attention windows, D03 native resolution: IMPLEMENTED (3a03343, 576f067)",
+        "no automatic packet → P08 MOTION_PLAN compiler (Claude reconciles; A01 ledger checks)",
+        "none of the above qualified on real E01 art; comprehensive release regression pending on the consolidated revision"
+      ]
     },
     "art_operator_standard": "docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md",
     "status": "ENGINEERING_TESTED_ON_DIAGNOSTICS; REAL_ART_NOT_YET_QUALIFIED",
@@ -201,26 +215,32 @@
       "id": "N01",
       "owner": "GPT+USER",
       "action": "Perform/review V0.4 full opening with scratch audio/animatic, finalize dialogue and approve specific opening and 13s interval.",
-      "blocker": "UNAPPROVED_TIMING"
+      "blocker": "UNAPPROVED_TIMING",
+      "status": "DONE_FOR_PHASE1",
+      "evidence": "P3.2 revised animatic approved (composition/blocking/timing/performance intentions) 2026-11-26"
     },
     {
       "id": "N02",
       "owner": "CLAUDE",
       "action": "Finish P06 current regression; publish actual code SHA and evidence; do not claim that diagnostics prove real artwork.",
       "blocker": "P06_REPORT_PUBLISHED; VERIFY_SAFE_DOC_MERGE; DO_NOT_RERUN_UNCHANGED_ENGINE",
-      "status": "P06_DIAGNOSTIC_ENGINEERING_COMPLETE"
+      "status": "SUPERSEDED_BY_P08"
     },
     {
       "id": "N03",
       "owner": "GPT+USER",
       "action": "Generate updated full 12-part Experience Director and corrected V0.4 action/audio/art maps for [0,1950), including pre-roll state for [180,960).",
-      "blocker": "N01"
+      "blocker": "N01",
+      "status": "DONE_FOR_PHASE1",
+      "evidence": "docs/the-better-one/episodes/E01/P3_2_MEASURED/original"
     },
     {
       "id": "N04",
       "owner": "CLAUDE",
       "action": "Import/validate approved v1.1.0 packet, run pre-art capability+art closure, return ArtJobs, unresolved producers and direct user choices.",
-      "blocker": "N02_N03"
+      "blocker": "N02_N03",
+      "status": "WAITING_FOR_CREATIVE_GPT_PACKET",
+      "evidence": "E:/TBO_PRIVATE/E01_CREATIVE_PACKET_COMPILATION_HANDOFF.zip (sha256 d4d4784405ee05106fe8696bec099d57a755791e0703b69b5b7bd55174c041f3)"
     },
     {
       "id": "N05",
@@ -244,19 +264,41 @@
       "id": "N-P08-1",
       "owner": "MANMEET",
       "action": "Decide: second comprehensive regression on 5314269 (or current tip) to qualify P08, or accept targeted re-test as for P07",
-      "status": "PENDING_HUMAN"
+      "status": "RESOLVED",
+      "resolution": "User 2026-11-26: accept the frozen 365/367 + targeted 2/2 evidence for controlled production progression; NOT full release qualification; no second standalone P08 regression"
     },
     {
       "id": "N-P08-2",
       "owner": "GPT/MANMEET",
       "action": "Approve the P3.2 revised animatic (separate session), then sign the phase-1 [0,960) packet; update only the P3.2-affected design requirements in the unsigned art preparation",
-      "status": "PENDING_HUMAN",
-      "blocker": "NO_APPROVED_PHASE1_PACKET"
+      "status": "PARTLY_DONE",
+      "blocker": "NO_APPROVED_PHASE1_PACKET",
+      "resolution": "P3.2 animatic approved for phase-1 composition/blocking/timing/performance; packet digest signature still pending"
     },
     {
       "id": "N-P08-3",
       "owner": "MANMEET",
       "action": "Decide whether CAPTION_OVERLAY (P3.2 issue 7) becomes an engine requirement",
+      "status": "RESOLVED",
+      "resolution": "User 2026-11-26: CAPTION_OVERLAY is required (compositor in the production path)"
+    },
+    {
+      "id": "N-P08-4",
+      "owner": "CLAUDE",
+      "action": "Close A01 ledger, C04, C05, D03, CAPTION_OVERLAY, E04 with targeted tests; then ONE comprehensive release regression on the consolidated final engineering revision (does not block authorized phase-1 artwork)",
+      "status": "IMPLEMENTED_TARGETED_TESTS_PASS",
+      "evidence": "engineering/p08/P08_CLOSURE_ADDENDUM.md"
+    },
+    {
+      "id": "N-P08-5",
+      "owner": "CLAUDE",
+      "action": "One comprehensive release regression on the consolidated final engineering revision (integration branch with P08 closure)",
+      "status": "SCHEDULED"
+    },
+    {
+      "id": "N-P08-6",
+      "owner": "GPT/MANMEET",
+      "action": "Decide the caption minimum dwell (or re-time 'Too much?' [135,173) = 0.633 s)",
       "status": "PENDING_HUMAN"
     }
   ],

@@ -70,8 +70,12 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   // band camera must stay at identity while a host pass is visible (camera-matched host moves are not implemented: typed failure, never a slide).
   const hostPasses = [];
   for (const [hid, hp] of Object.entries(plan.host_passes || {})) { if (hp.shot_id !== shot.id) continue; const band = hp.band || "FOCAL";
-    for (const kind of ["shadow", "host"]) { const id = `host--${hid}--${kind}`; (bands[band] || bands.FOCAL).push({ id, asset_id: null, slot: kind === "host" ? hid : `${hid}:shadow`, rig: kind === "host" ? hid : `${hid}:shadow`, after: kind === "host" ? `host--${hid}--shadow` : undefined,
-      markup: `<image id="${xml(P(id))}" data-asset="${xml(hid)}" data-seq="${kind}" href="${xml(hp.url_prefix + hp.first[kind])}" x="0" y="0" width="${hp.resolution[0]}" height="${hp.resolution[1]}" preserveAspectRatio="none"/>` }); runtimeIds.push(id); hostPasses.push({ id, hid, kind, hp, band }); } }
+    for (const kind of (hp.depth_composite ? ["shadow"] : ["shadow", "host"])) { const id = `host--${hid}--${kind}`; (bands[band] || bands.FOCAL).push({ id, asset_id: null, slot: kind === "host" ? hid : `${hid}:shadow`, rig: kind === "host" ? hid : `${hid}:shadow`, after: kind === "host" ? `host--${hid}--shadow` : undefined,
+      markup: `<image id="${xml(P(id))}" data-asset="${xml(hid)}" data-seq="${kind}" href="${xml(hp.url_prefix + hp.first[kind])}" x="0" y="0" width="${hp.resolution[0]}" height="${hp.resolution[1]}" preserveAspectRatio="none"/>` }); runtimeIds.push(id); hostPasses.push({ id, hid, kind, hp, band }); }
+    // P08 E04 (after the shadow, which lies on the floor beneath the host): a depth-composited host is painted as per-frame SLICES, each at its own depth position among the 2D bands (BEHIND_FAR … AFTER_FOREGROUND)
+    if (hp.depth_composite) for (const pos of hp.depth_composite.positions || []) { const id = `host--${hid}--slice-${pos}`, b = pos === "BEHIND_FAR" ? "FAR" : pos.slice(6), firstFile = Object.values(hp.frames).find((x) => x.slices?.[pos])?.slices[pos];
+      const item = { id, asset_id: null, slot: `${hid}:${pos}`, rig: hid, markup: `<image id="${xml(P(id))}" data-asset="${xml(hid)}" data-seq="${pos}" href="${xml(hp.url_prefix + firstFile)}" x="0" y="0" width="${hp.resolution[0]}" height="${hp.resolution[1]}" preserveAspectRatio="none"/>` };
+      if (pos === "BEHIND_FAR") bands.FAR.unshift(item); else bands[b].push(item); runtimeIds.push(id); hostPasses.push({ id, hid, kind: "slice", pos, hp, band: b }); } }
   // P03 E: approved raster mesh deformation = one clipped copy of the APPROVED drawing per mesh triangle, each moved by its own affine
   const triPasses = [];
   for (const [mid, m] of Object.entries(plan.deform_maps || {})) { if (!inThisShot(mid) || !rigIds.includes(m.rig)) continue; const base = rigPasses.find((q) => q.rig === m.rig && q.slot === m.slot && q.asset_id === m.asset); if (!base) throw err("DEFORM_RENDER_FAILURE", { record_id: mid, reason: `deform map targets ${m.rig}.${m.slot}=${m.asset}, which has no paint pass in shot ${shot.id}` });
@@ -102,6 +106,10 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
       runtimeIds.push(id);
     });
   }
+  // CAPTION_OVERLAY: captions compiled from the approved subtitle files (engine/film/captions.mjs → plan.__captions) are painted above everything,
+  // one element per cue, switched by frameState on the film frame clock (never by wall time)
+  const caps = (plan.__captions || []).filter((c) => c.frames[0] < shot.end_frame && shot.start_frame < c.frames[1]);
+  for (const c of caps) runtimeIds.push(c.id);
   const ids = new Set(); for (const id of runtimeIds) { if (ids.has(id)) throw err("DUPLICATE_ELEMENT_ID", { record_id: id, reason: "runtime id emitted twice" }); ids.add(id); }
   const camIds = BANDS.filter((b) => ordered[b].length).map((b) => `cam-${b}`);
   const W = doc.stage.width, H = doc.stage.height;
@@ -111,7 +119,8 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" id="${xml(P("stage"))}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"><defs>${[...new Set(defs)].join("")}</defs>` +
     (background ? `<rect id="${xml(P("sentinel"))}" x="0" y="0" width="${W}" height="${H}" fill="${sentinel}"/>` : "") +
     BANDS.filter((b) => ordered[b].length).map((b) => `<g id="${xml(P(`cam-${b}`))}" data-band="${b}">${ordered[b].map((it) => it.markup).join("")}</g>`).join("") +
-    (screen.length ? `<g id="${xml(P("screen"))}">${[...screen].sort((x, y) => y.k - x.k).map((s) => s.markup).join("")}</g>` : "") + `</svg>`; // P05: IN is painted first, then MIDDLE, then OUT: each plate is seen only through the aperture of the plate in front of it
+    (screen.length ? `<g id="${xml(P("screen"))}">${[...screen].sort((x, y) => y.k - x.k).map((s) => s.markup).join("")}</g>` : "") +
+    (caps.length ? `<g id="${xml(P("captions"))}">${caps.map((c) => { const [x, y, w, h] = c.box, lh = c.font_px * c.line_height; return `<g id="${xml(P(c.id))}" data-caption="${xml(c.id)}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${(c.font_px * 0.25).toFixed(1)}" fill="#000000" fill-opacity="0.62"/><text font-family="Arial, Helvetica, sans-serif" font-size="${c.font_px}" fill="#ffffff" text-anchor="middle">${c.text_lines.map((l, i) => `<tspan x="${(x + w / 2).toFixed(2)}" y="${(y + c.pad_px + (i + 0.78) * lh).toFixed(2)}">${xml(l)}</tspan>`).join("")}</text></g>`; }).join("")}</g>` : "") + `</svg>`; // P05: IN is painted first, then MIDDLE, then OUT: each plate is seen only through the aperture of the plate in front of it
   const pivotOf = (aid) => assets.get(aid).pivot_xy;
 
   /** full runtime state for frame f: [[elementId, transform, visible, opacity]] for every runtime-owned element (+ the raw stateAtFrame) */
@@ -160,10 +169,11 @@ export function composeShot(shot, registry, compiled, { prefix = "", sentinel = 
     for (const id of runtimeIds) if (id.includes("--cel--")) { const c = cels.get(id), aid = id.slice(id.indexOf("--cel--") + 7); rows.push([P(id), fmt(mul(c ? c.matrix : [1, 0, 0, 1, 0, 0], T(...pivotOf(aid)))), c ? 1 : 0, 1]); }
     const syms = new Map(st.procedural.map((s) => [s.pass_id, s]));
     for (const id of runtimeIds) if (id.includes("--sym")) { const s = syms.get(id), aid = s?.asset_id; rows.push([P(id), s ? fmt(mul(s.matrix, T(...pivotOf(aid)))) : "matrix(1 0 0 1 0 0)", s ? 1 : 0, 1]); }
-    for (const h of hostPasses) { const fr = inShot ? h.hp.frames[f] : null; rows.push([P(h.id), "matrix(1 0 0 1 0 0)", fr ? 1 : 0, 1, { href: h.hp.url_prefix + (fr ? fr[h.kind] : h.hp.first[h.kind]) }]);
-      if (fr && h.kind === "host") { const m = cameraMatrix(cam, h.band, plan.parallax, doc.stage); if ([m[0] - 1, m[1], m[2], m[3] - 1, m[4], m[5]].some((x) => Math.abs(x) > 1e-6)) st.failures.push(err("HOST_INTEGRATION_INVALID", { record_id: h.hid, shot_id: shot.id, frame_range: [f, f + 1], reason: `the 2D camera of band ${h.band} moves (${fmt(m)}) while Blender host pass ${h.hid} is visible: the pass was rendered for a static calibrated camera`, producer: "engine/art_bridge/scene_graph.mjs#frameState", details: { failed_invariant: "HOST_CAMERA_MATCHED" } })); } }
+    for (const h of hostPasses) { const fr = inShot ? h.hp.frames[f] : null; if (h.kind === "slice") { const file = fr?.slices?.[h.pos]; rows.push([P(h.id), "matrix(1 0 0 1 0 0)", file ? 1 : 0, 1, ...(file ? [{ href: h.hp.url_prefix + file }] : [])]); continue; } rows.push([P(h.id), "matrix(1 0 0 1 0 0)", fr ? 1 : 0, 1, { href: h.hp.url_prefix + (fr ? fr[h.kind] : h.hp.first[h.kind]) }]);
+      if (fr && (h.kind === "host" || h.kind === "slice")) { const m = cameraMatrix(cam, h.band, plan.parallax, doc.stage); if ([m[0] - 1, m[1], m[2], m[3] - 1, m[4], m[5]].some((x) => Math.abs(x) > 1e-6)) st.failures.push(err("HOST_INTEGRATION_INVALID", { record_id: h.hid, shot_id: shot.id, frame_range: [f, f + 1], reason: `the 2D camera of band ${h.band} moves (${fmt(m)}) while Blender host pass ${h.hid} is visible: the pass was rendered for a static calibrated camera`, producer: "engine/art_bridge/scene_graph.mjs#frameState", details: { failed_invariant: "HOST_CAMERA_MATCHED" } })); } }
     const transitions = {};
     for (const s of screen) { const fr = s.tr.frameAt(f); transitions[s.tr.id] = fr; const L = fr?.layers.find((l) => l.asset_id === s.asset_id); rows.push([P(s.id), fmt(L ? mul(L.matrix, T(...pivotOf(s.asset_id))) : [1, 0, 0, 1, 0, 0]), L ? 1 : 0, 1]); }
+    for (const c of caps) rows.push([P(c.id), "matrix(1 0 0 1 0 0)", inShot && c.frames[0] <= f && f < c.frames[1] ? 1 : 0, 1]);
     return { rows, state: st, transitions, execution };
   }
   /** camera footprint over [f0,f1): the viewport mapped into each band must lie inside an opaque painted plate of that band */
