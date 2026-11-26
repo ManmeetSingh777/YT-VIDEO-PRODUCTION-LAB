@@ -4,6 +4,8 @@ This file is a short entrypoint. Full technical requirements and acceptance rule
 
 **New F01–F80 art chats:** The mandatory art-specific contract is docs/the-better-one/ART_TO_FINISHED_FILM_OPERATING_STANDARD_V1.md. DO NOT start from a generic character-generation prompt. Get the actual sealed GPT_ART_HANDOFF_<JOB> ZIP from art_outbox.mjs export-gpt-job after current approved creative/demand preflight; follow the included WHAT_TO_DO_IN_CHATGPT.md and exact skill/witness checks. Return actual image bytes and the hash-correct import manifest for native source-attached candidate review.
 
+**New art chat operator prompt file:** docs/the-better-one/NEW_F01_F80_ART_OPERATOR_CHAT_V1.md. This is used only after a genuine exported P06 GPT ArtJob ZIP exists and the current F01–F80 installed skill/witnesses are verified.
+
 ## 1. New session: required five facts, in this exact order
 
 1. REPOSITORY: ManmeetSingh777/YT-VIDEO-PRODUCTION-LAB, current film branch production/better-one-mia-first-film **unless the latest verified active branch says otherwise**. Claude also has LOCAL hv2-system-correction and may not have pushed P06 yet. Never replace it or discard work merely to follow the docs branch.
