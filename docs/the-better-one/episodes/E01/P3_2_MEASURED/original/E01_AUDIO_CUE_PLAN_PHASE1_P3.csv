@@ -1,0 +1,16 @@
+cue_id,absolute_start,absolute_end_exclusive,source,dialogue_or_sound,intent,status,parent_absolute_start,parent_absolute_end_exclusive,absolute_start_sample,absolute_end_sample_exclusive,selected_take_id
+AUD01,0,960,WORLD_RESTAURANT,Restaurant bed,"Live restaurant bed; duck430–462, recover588–618; cut live bed at960; no duplicate with AUD11.",TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING,0,960,0,768000,
+AUD02,326,355,CHAR_MIA,Thanks.,"Automatic warmth, still smiling. Caption display 5.433–6.633s (local 2.433–3.633), speech and alignment unchanged; bottom safe lane.",MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING,270,297,260800,283840,E01_AUD02_MIA_af_heart_TC
+AUD03,15,119,CHAR_REGULAR,"Hold it up, Mia. Big smile.","Warm, already familiar, not announcer.",MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING,15,120,12000,94560,E01_AUD03_REGULAR_am_michael_TC
+AUD04,284,304,PROP_AWARD,Plaque base contact,"Soft base contact284, settle toward296; no clang.",TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING,264,284,227200,243200,
+AUD05,346,386,PROP_REPORT,Paper transfer,Quiet rustle approach/closure/release; strongest lead release.,TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING,334,374,276800,308800,
+AUD06,380,416,PROP_REPORT,Paper reading settle,Page flex/settle; decay before insert444.,TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING,368,404,304000,332800,
+AUD07,0,960,SCORE,Sparse warm score,"Optional sparse score; thin426–444 at discovery, no sting.",DIRECTED_NOT_RECORDED_OR_MIXED,0,960,0,768000,
+AUD08,444,591,M01,Comprehension window,"Speech-free; report visible [444,588) exactly144f; continues through cut for3f.",DIRECTED_SPEECH_FREE_CHECKED,432,579,355200,472800,
+AUD09,783,859,CHAR_MIA,Let's get through today.,"Dry but kindly, one breath; not overt despair.",MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING,783,861,626400,686880,E01_AUD09_MIA_af_heart_TB
+AUD10,900,912,PROP_PHONE,Shutter,"Single click at900 only, no flash. P3.1 temporary click reported in reviewed MP4; reuse existing temporary mix for one preview, final source approval pending.",TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING,900,912,720000,729600,
+AUD11,861,960,WORLD_RESTAURANT,Reaction and freeze bridge,"Reaction/freeze bridge, parent end987; exact continuation [960,987), only first6f successor nondiegetic room tail, no duplicate bed.",TEMP_PREVIS_MIX_REPORTED_FINAL_SOURCE_MIX_PENDING,861,987,688800,768000,
+AUD12,135,173,CHAR_MIA,Too much?,Mock-regal; eyes already amused.,MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING,135,177,108000,138240,E01_AUD12_MIA_af_heart_TA
+AUD13,225,320,CHAR_LEAD,Mia? Yesterday's numbers.,"Discreet, ordinary work, no ominous tone.",MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING,189,261,180000,255840,E01_AUD13_LEAD_af_sarah_TC
+AUD14,591,745,CHAR_REGULAR,"At this rate, you're gonna need a bigger place.","Encouragement, sincere; glance across room then back.",MEASURED_SOURCE_AUDIO_APPROVED_AV_PLACEMENT_PENDING,579,756,472800,595680,E01_AUD14_REGULAR_am_michael_TB
+AUD20,177,220,CHAR_REGULAR,Small chuckle,"Regular chuckle, energy bounds only, no phoneme tier; user approved chuckle match after preview listening.",MEASURED_ENERGY_AUDIO_APPROVED_AV_PLACEMENT_PENDING,177,189,141600,175680,E01_AUD20_CHUCKLE_fs458101

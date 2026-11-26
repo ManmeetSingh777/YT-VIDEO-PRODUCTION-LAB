@@ -1,0 +1,1466 @@
+{
+ "schema_version": "1.0.0",
+ "kind": "P08_ACTION_COVERAGE",
+ "source": {
+  "package": "E01_PHASE1_MEASURED_P3_2_CREATIVE_PRODUCTION",
+  "copied_text_sources": "docs/the-better-one/episodes/E01/P3_2_MEASURED/original",
+  "verified_files": 90,
+  "revision": "E01_V0.4_DIR_P1_PHASE1_P3.2",
+  "status": "AUDIO_AND_D1_D6_APPROVED; REVISED_PREVIS_PROPOSED; AV_AND_PACKET_PENDING"
+ },
+ "scope": {
+  "parent": [
+   0,
+   1950
+  ],
+  "phase": [
+   0,
+   960
+  ],
+  "qualification_extract": [
+   180,
+   960
+  ],
+  "shots": [
+   [
+    "E01-S001-SH01",
+    0,
+    444
+   ],
+   [
+    "E01-S001-SH02",
+    444,
+    588
+   ],
+   [
+    "E01-S001-SH03",
+    588,
+    960
+   ]
+  ]
+ },
+ "registry": [
+  {
+   "capability": "PROP_ACTOR_DRIVEN",
+   "available": true,
+   "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+  },
+  {
+   "capability": "PROP_SURFACE_DRIVEN",
+   "available": true,
+   "producer": "temporal.mjs B01 SURFACE_DRIVEN"
+  },
+  {
+   "capability": "PROP_OBJECT_DRIVEN",
+   "available": true,
+   "producer": "prop track + IK supporters"
+  },
+  {
+   "capability": "CONTACT_CONTINUITY",
+   "available": true,
+   "producer": "contact_continuity.mjs"
+  },
+  {
+   "capability": "PINCH",
+   "available": true,
+   "producer": "pinch.mjs"
+  },
+  {
+   "capability": "WRAP_GRIP",
+   "available": true,
+   "producer": "grip + finger_layers + B02 solved palm basis"
+  },
+  {
+   "capability": "RELEASE",
+   "available": true,
+   "producer": "performance_commands release"
+  },
+  {
+   "capability": "REACH",
+   "available": true,
+   "producer": "performance_commands reach"
+  },
+  {
+   "capability": "LOOK_AT",
+   "available": true,
+   "producer": "performance_commands look_at / composition AIM"
+  },
+  {
+   "capability": "VISEME_SPEECH",
+   "available": true,
+   "producer": "speech_visemes.mjs VISEME route"
+  },
+  {
+   "capability": "EXPRESSION_TRANSITION",
+   "available": true,
+   "producer": "EXPRESSION_TRANSITION v1 (approved edges)"
+  },
+  {
+   "capability": "WALK_ARTICULATED",
+   "available": true,
+   "producer": "composition WALK"
+  },
+  {
+   "capability": "JOINT_ROTATE",
+   "available": true,
+   "producer": "composition"
+  },
+  {
+   "capability": "ROOT_MOVE",
+   "available": true,
+   "producer": "composition"
+  },
+  {
+   "capability": "OSCILLATE",
+   "available": true,
+   "producer": "composition"
+  },
+  {
+   "capability": "AIM",
+   "available": true,
+   "producer": "composition"
+  },
+  {
+   "capability": "STATE_SWAP",
+   "available": true,
+   "producer": "composition"
+  },
+  {
+   "capability": "CAMERA_MOVE",
+   "available": true,
+   "producer": "composition"
+  },
+  {
+   "capability": "PHOTO_INTENT",
+   "available": true,
+   "producer": "photo_intent.mjs"
+  },
+  {
+   "capability": "WORLD_FREEZE",
+   "available": true,
+   "producer": "temporal.mjs time_remaps"
+  },
+  {
+   "capability": "PHASE_BOUNDARY",
+   "available": true,
+   "producer": "phase_boundary.mjs"
+  },
+  {
+   "capability": "PHASE_AUDIO_SAMPLE_CLOCK",
+   "available": true,
+   "producer": "phase_audio.mjs"
+  }
+ ],
+ "actions": [
+  {
+   "action_id": "E01-S001-A01",
+   "frames": [
+    0,
+    960
+   ],
+   "owner": "WORLD_RESTAURANT; BG_DINER_A/B; BG_OCCUPANCY; BG_QUEUE",
+   "shots": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD01"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "JOINT_ROTATE",
+    "OSCILLATE",
+    "STATE_SWAP",
+    "ROOT_MOVE",
+    "WORLD_FREEZE"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "OSCILLATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "STATE_SWAP",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "ROOT_MOVE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "WORLD_FREEZE",
+     "available": true,
+     "producer": "temporal.mjs time_remaps"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_ENV01 ART_BG01 ART_BG02"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD01 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A02",
+   "frames": [
+    0,
+    225
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD12"
+   ],
+   "measured_audio": [
+    "AUD12"
+   ],
+   "decomposition": [
+    "PROP_ACTOR_DRIVEN",
+    "WRAP_GRIP",
+    "JOINT_ROTATE",
+    "ROOT_MOVE",
+    "EXPRESSION_TRANSITION",
+    "AIM",
+    "CONTACT_CONTINUITY"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "WRAP_GRIP",
+     "available": true,
+     "producer": "grip + finger_layers + B02 solved palm basis"
+    },
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "ROOT_MOVE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "EXPRESSION_TRANSITION",
+     "available": true,
+     "producer": "EXPRESSION_TRANSITION v1 (approved edges)"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "CONTACT_CONTINUITY",
+     "available": true,
+     "producer": "contact_continuity.mjs"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M01–06 ART_P01",
+      "Mia two-hand WRAP holds (near thumb / far finger layers) on the award",
+      "expression intermediates mock-regal → grin (D4)",
+      "Mia mouth tuples for AUD12 (SMILE/NEUTRAL families × used visemes)"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD12 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A03",
+   "frames": [
+    0,
+    882
+   ],
+   "owner": "CHAR_REGULAR",
+   "shots": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD03",
+    "AUD14"
+   ],
+   "measured_audio": [
+    "AUD03",
+    "AUD14"
+   ],
+   "decomposition": [
+    "PROP_ACTOR_DRIVEN",
+    "WRAP_GRIP",
+    "JOINT_ROTATE",
+    "CONTACT_CONTINUITY",
+    "PHOTO_INTENT",
+    "AIM"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "WRAP_GRIP",
+     "available": true,
+     "producer": "grip + finger_layers + B02 solved palm basis"
+    },
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "CONTACT_CONTINUITY",
+     "available": true,
+     "producer": "contact_continuity.mjs"
+    },
+    {
+     "capability": "PHOTO_INTENT",
+     "available": true,
+     "producer": "photo_intent.mjs"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_R01 ART_P03"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD03, AUD14 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A04",
+   "frames": [
+    225,
+    342
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD04",
+    "AUD02"
+   ],
+   "measured_audio": [
+    "AUD02"
+   ],
+   "decomposition": [
+    "PROP_ACTOR_DRIVEN",
+    "PROP_SURFACE_DRIVEN",
+    "RELEASE",
+    "AIM"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "PROP_SURFACE_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 SURFACE_DRIVEN"
+    },
+    {
+     "capability": "RELEASE",
+     "available": true,
+     "producer": "performance_commands release"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M02 ART_M03 ART_P01 ART_ENV01"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD04, AUD02 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A05",
+   "frames": [
+    15,
+    119
+   ],
+   "owner": "CHAR_REGULAR",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD03"
+   ],
+   "measured_audio": [
+    "AUD03"
+   ],
+   "decomposition": [
+    "VISEME_SPEECH",
+    "AIM"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "VISEME_SPEECH",
+     "available": true,
+     "producer": "speech_visemes.mjs VISEME route"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_R01 ART_R02"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD03 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A06",
+   "frames": [
+    132,
+    342
+   ],
+   "owner": "CHAR_LEAD",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD13"
+   ],
+   "measured_audio": [
+    "AUD13"
+   ],
+   "decomposition": [
+    "WALK_ARTICULATED",
+    "ROOT_MOVE",
+    "WRAP_GRIP",
+    "PROP_ACTOR_DRIVEN"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "WALK_ARTICULATED",
+     "available": true,
+     "producer": "composition WALK"
+    },
+    {
+     "capability": "ROOT_MOVE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "WRAP_GRIP",
+     "available": true,
+     "producer": "grip + finger_layers + B02 solved palm basis"
+    },
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_L01 ART_L02 ART_L03 ART_P02",
+      "lead walk: legs only if framing shows them (D1 waist-up); grounded torso rhythm drawings"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD13 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A07",
+   "frames": [
+    306,
+    350
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD05"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "REACH",
+    "AIM",
+    "JOINT_ROTATE"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "REACH",
+     "available": true,
+     "producer": "performance_commands reach"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M02 ART_M03 ART_M04"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD05 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A08",
+   "frames": [
+    350,
+    386
+   ],
+   "owner": "CHAR_MIA; CHAR_LEAD",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD05"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "WRAP_GRIP",
+    "PROP_ACTOR_DRIVEN",
+    "RELEASE"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "WRAP_GRIP",
+     "available": true,
+     "producer": "grip + finger_layers + B02 solved palm basis"
+    },
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "RELEASE",
+     "available": true,
+     "producer": "performance_commands release"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M03 ART_L02 ART_P02",
+      "page-edge WRAP: lead lower-right, Mia lower-left (D2) with near/far layers"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD05 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A09",
+   "frames": [
+    380,
+    416
+   ],
+   "owner": "CHAR_MIA; CHAR_LEAD",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD06"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "PROP_ACTOR_DRIVEN",
+    "ROOT_MOVE",
+    "AIM"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "ROOT_MOVE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M02 ART_M03 ART_M04 ART_L01 ART_P02"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD06 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A10",
+   "frames": [
+    404,
+    444
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD07"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "AIM",
+    "EXPRESSION_TRANSITION"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "EXPRESSION_TRANSITION",
+     "available": true,
+     "producer": "EXPRESSION_TRANSITION v1 (approved edges)"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M04 ART_M05"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD07 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A12",
+   "frames": [
+    444,
+    588
+   ],
+   "owner": "CAMERA",
+   "shots": [
+    "E01-S001-SH02"
+   ],
+   "linked_audio": [
+    "AUD08"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "CAMERA_MOVE",
+    "CONTACT_CONTINUITY",
+    "PROP_ACTOR_DRIVEN"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "CAMERA_MOVE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "CONTACT_CONTINUITY",
+     "available": true,
+     "producer": "contact_continuity.mjs"
+    },
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_P02 ART_TXT01 ART_CAM01",
+      "SH02 native insert: report page + right grip at insert resolution (registered editorial type, literal values)"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD08 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A13",
+   "frames": [
+    588,
+    882
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD14",
+    "AUD09"
+   ],
+   "measured_audio": [
+    "AUD14",
+    "AUD09"
+   ],
+   "decomposition": [
+    "AIM",
+    "EXPRESSION_TRANSITION",
+    "PROP_ACTOR_DRIVEN",
+    "PHOTO_INTENT",
+    "CONTACT_CONTINUITY"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "EXPRESSION_TRANSITION",
+     "available": true,
+     "producer": "EXPRESSION_TRANSITION v1 (approved edges)"
+    },
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "PHOTO_INTENT",
+     "available": true,
+     "producer": "photo_intent.mjs"
+    },
+    {
+     "capability": "CONTACT_CONTINUITY",
+     "available": true,
+     "producer": "contact_continuity.mjs"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M02–06 ART_P02"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD14, AUD09 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A14",
+   "frames": [
+    783,
+    859
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD09"
+   ],
+   "measured_audio": [
+    "AUD09"
+   ],
+   "decomposition": [
+    "VISEME_SPEECH"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "VISEME_SPEECH",
+     "available": true,
+     "producer": "speech_visemes.mjs VISEME route"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M05 ART_M06"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD09 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A15",
+   "frames": [
+    882,
+    960
+   ],
+   "owner": "CHAR_REGULAR; CHAR_MIA",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD10",
+    "AUD11"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "PHOTO_INTENT",
+    "STATE_SWAP",
+    "JOINT_ROTATE",
+    "PROP_ACTOR_DRIVEN",
+    "WORLD_FREEZE",
+    "PHASE_BOUNDARY"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "PHOTO_INTENT",
+     "available": true,
+     "producer": "photo_intent.mjs"
+    },
+    {
+     "capability": "STATE_SWAP",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "PROP_ACTOR_DRIVEN",
+     "available": true,
+     "producer": "temporal.mjs B01 (prop_support ACTOR_DRIVEN)"
+    },
+    {
+     "capability": "WORLD_FREEZE",
+     "available": true,
+     "producer": "temporal.mjs time_remaps"
+    },
+    {
+     "capability": "PHASE_BOUNDARY",
+     "available": true,
+     "producer": "phase_boundary.mjs"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_R01 ART_R02 ART_M04–06 ART_P01–03"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD10, AUD11 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A16",
+   "frames": [
+    177,
+    220
+   ],
+   "owner": "CHAR_REGULAR",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD20"
+   ],
+   "measured_audio": [
+    "AUD20"
+   ],
+   "decomposition": [
+    "STATE_SWAP",
+    "OSCILLATE",
+    "JOINT_ROTATE"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "STATE_SWAP",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "OSCILLATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_R01 ART_R02",
+      "regular laugh cels (cheeks/lids/jaw) timed to the measured AUD20 energy region; no phoneme labels"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD20 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A17",
+   "frames": [
+    225,
+    320
+   ],
+   "owner": "CHAR_LEAD",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD13"
+   ],
+   "measured_audio": [
+    "AUD13"
+   ],
+   "decomposition": [
+    "VISEME_SPEECH",
+    "AIM"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "VISEME_SPEECH",
+     "available": true,
+     "producer": "speech_visemes.mjs VISEME route"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_L03"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD13 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A18",
+   "frames": [
+    326,
+    355
+   ],
+   "owner": "CHAR_MIA",
+   "shots": [
+    "E01-S001-SH01"
+   ],
+   "linked_audio": [
+    "AUD02"
+   ],
+   "measured_audio": [
+    "AUD02"
+   ],
+   "decomposition": [
+    "VISEME_SPEECH",
+    "REACH"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "VISEME_SPEECH",
+     "available": true,
+     "producer": "speech_visemes.mjs VISEME route"
+    },
+    {
+     "capability": "REACH",
+     "available": true,
+     "producer": "performance_commands reach"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_M06"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD02 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A19",
+   "frames": [
+    591,
+    745
+   ],
+   "owner": "CHAR_REGULAR",
+   "shots": [
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD14"
+   ],
+   "measured_audio": [
+    "AUD14"
+   ],
+   "decomposition": [
+    "VISEME_SPEECH",
+    "AIM"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "VISEME_SPEECH",
+     "available": true,
+     "producer": "speech_visemes.mjs VISEME route"
+    },
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_R01 ART_R02"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD14 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  },
+  {
+   "action_id": "E01-S001-A27",
+   "frames": [
+    404,
+    960
+   ],
+   "owner": "CHAR_LEAD",
+   "shots": [
+    "E01-S001-SH01",
+    "E01-S001-SH02",
+    "E01-S001-SH03"
+   ],
+   "linked_audio": [
+    "AUD01"
+   ],
+   "measured_audio": [],
+   "decomposition": [
+    "AIM",
+    "JOINT_ROTATE",
+    "WALK_ARTICULATED",
+    "ROOT_MOVE"
+   ],
+   "decomposition_provenance": "PROVISIONAL engineering reading (Claude) of the P3.2 directed text",
+   "capabilities": [
+    {
+     "capability": "AIM",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "JOINT_ROTATE",
+     "available": true,
+     "producer": "composition"
+    },
+    {
+     "capability": "WALK_ARTICULATED",
+     "available": true,
+     "producer": "composition WALK"
+    },
+    {
+     "capability": "ROOT_MOVE",
+     "available": true,
+     "producer": "composition"
+    }
+   ],
+   "primary_status": "NEEDS_REAL_ART",
+   "blockers": [
+    {
+     "kind": "NEEDS_REAL_ART",
+     "detail": [
+      "approved masters and derived states for ART_L01 ART_L02 ART_ENV01 ART_CAM01",
+      "lead gaze/torso turn toward the staff lane (ART_L01/L02 view states)",
+      "cropped gait: the SH01 crop hides the feet, so the step must read in torso/shoulder rhythm with a grounded (planted, path-target) WALK even when the soles are offscreen",
+      "settled hands-free station pose held to f959 (no reset at the phase boundary)"
+     ]
+    },
+    {
+     "kind": "NEEDS_HUMAN_APPROVAL",
+     "detail": [
+      "signed phase-1 [0,960) packet digest (P3.2 is a proposal)",
+      "A/V placement + storyboard/animatic review",
+      "audio placement of AUD01 (selected takes user-approved; placement not approved)"
+     ]
+    }
+   ]
+  }
+ ],
+ "tally_phase": {
+  "NEEDS_REAL_ART": 19
+ },
+ "tally_extract": {
+  "NEEDS_REAL_ART": 18
+ },
+ "counts": {
+  "phase_actions": 19,
+  "extract_actions": 18
+ },
+ "note": "P08 producers are CODE_VERIFIED on diagnostic fixtures; none is qualified on real E01 art (zero accepted seconds). D1–D6 and the selected audio are user-approved by statement; the phase packet, A/V placement and storyboard are not.",
+ "master_artjob_readiness": [
+  {
+   "asset": "MIA_MASTER",
+   "owner": "CHAR_MIA",
+   "conditional_job_id": "ARTJOB_MASTER_MIA_MASTER_cf7e5c4c",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "face_composition ownership map",
+    "MOUTH states with face {family, viseme, view_id} for the used tuples only",
+    "EXPRESSION states with face.family and approved within-channel edges (D4 intermediates)",
+    "hands: separate near thumb / far finger layers + reviewed patch sockets (WRAP/PINCH)",
+    "socket basis_angle_deg on every holding socket (production contacts are oriented)",
+    "seam/underpaint for joints the directed poses bend"
+   ]
+  },
+  {
+   "asset": "REGULAR_MASTER",
+   "owner": "CHAR_REGULAR",
+   "conditional_job_id": "ARTJOB_MASTER_REGULAR_MASTER_6907d6f6",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "face_composition ownership map",
+    "MOUTH states with face {family, viseme, view_id} for the used tuples only",
+    "EXPRESSION states with face.family and approved within-channel edges (D4 intermediates)",
+    "hands: separate near thumb / far finger layers + reviewed patch sockets (WRAP/PINCH)",
+    "socket basis_angle_deg on every holding socket (production contacts are oriented)",
+    "seam/underpaint for joints the directed poses bend"
+   ]
+  },
+  {
+   "asset": "LEAD_MASTER",
+   "owner": "CHAR_LEAD",
+   "conditional_job_id": "ARTJOB_MASTER_LEAD_MASTER_63a6b44a",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "face_composition ownership map",
+    "MOUTH states with face {family, viseme, view_id} for the used tuples only",
+    "EXPRESSION states with face.family and approved within-channel edges (D4 intermediates)",
+    "hands: separate near thumb / far finger layers + reviewed patch sockets (WRAP/PINCH)",
+    "socket basis_angle_deg on every holding socket (production contacts are oriented)",
+    "seam/underpaint for joints the directed poses bend"
+   ]
+  },
+  {
+   "asset": "ENV_RESTAURANT_SH01",
+   "owner": "WORLD_RESTAURANT",
+   "conditional_job_id": "ARTJOB_MASTER_ENV_RESTAURANT_SH01_9855d2f0",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "camera footprint/overscan for the directed SH01–SH03 framings"
+   ]
+  },
+  {
+   "asset": "PROP_AWARD",
+   "owner": "PROP_AWARD",
+   "conditional_job_id": "ARTJOB_MASTER_PROP_AWARD_e8fad9e2",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "registered grip/edge sockets with basis (and lens socket for the phone, PHOTO_INTENT)",
+    "separate front/aperture layers only if the prop contains or occludes"
+   ]
+  },
+  {
+   "asset": "PROP_REPORT",
+   "owner": "PROP_REPORT",
+   "conditional_job_id": "ARTJOB_MASTER_PROP_REPORT_71b2ddee",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "registered grip/edge sockets with basis (and lens socket for the phone, PHOTO_INTENT)",
+    "separate front/aperture layers only if the prop contains or occludes"
+   ]
+  },
+  {
+   "asset": "PROP_PHONE",
+   "owner": "PROP_PHONE",
+   "conditional_job_id": "ARTJOB_MASTER_PROP_PHONE_a2925388",
+   "depends_on_later_shot_capability": false,
+   "ready_after": [
+    "signed phase-1 packet (story + direction receipts)",
+    "design JSON + ten-pass pre-generation audit (GPT ART)",
+    "check-design PASS",
+    "human design signature",
+    "art_outbox export → export-gpt-job (manual route; never submit)"
+   ],
+   "p08_contract_delta_applies": [
+    "registered grip/edge sockets with basis (and lens socket for the phone, PHOTO_INTENT)",
+    "separate front/aperture layers only if the prop contains or occludes"
+   ]
+  }
+ ],
+ "phase_requirements": [
+  {
+   "requirement": "CAPTION_OVERLAY",
+   "source": "P3.2 issue 7 (AUD02/A18 'Thanks' display 5.433→6.633 s; 8 SRT/VTT files; safe lane clear of the grip; no caption over the report insert)",
+   "available": false,
+   "producer": null,
+   "status": "NEEDS_ENGINE_PRODUCER",
+   "detail": "the engine has no caption/subtitle compositor or caption-lane QA; captions exist only as sidecar SRT/VTT. Not part of the P08 requirement set; recorded, not built."
+  },
+  {
+   "requirement": "ALTERNATE_VIEW_FAMILIES",
+   "source": "P3.2 issue 4 + PERFORMANCE_STATES_P3_2.csv (actor-specific 3/4 views, gaze, torso direction)",
+   "available": true,
+   "producer": "face_composition view_id + STATE_SWAP",
+   "status": "NEEDS_REAL_ART",
+   "detail": "engine selects source-attached view states; the alternate head/body view art itself is owed (P3.2: 'true source-attached alternate head/body views later')"
+  }
+ ]
+}

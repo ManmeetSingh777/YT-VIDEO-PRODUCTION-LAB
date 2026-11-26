@@ -1,0 +1,90 @@
+{
+  "status": "UNSIGNED_REVIEW_DRAFT; not CREATIVE_PACKET",
+  "phase_id": "E01_S001_PHASE1",
+  "parent_frames": [
+    0,
+    1950
+  ],
+  "frames": [
+    0,
+    960
+  ],
+  "qualification_frames": [
+    180,
+    960
+  ],
+  "extract_local_frames": [
+    0,
+    780
+  ],
+  "fps": 60,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "parent_director_sha256": "b8933e6c5c013659db65493168fc1e049fd0e646166b576113e233a87160217d",
+  "excluded_shot_ids": [
+    "E01-S001-SH04",
+    "E01-S001-SH05",
+    "E01-S001-SH06",
+    "E01-S001-SH07"
+  ],
+  "scope_statement_for_future_human_review": "Approve ONLY E01 frames [0,960) (SH01–SH03); frames [960,1950) are NOT approved by this digest. This draft is not signed.",
+  "outgoing": {
+    "last_frame": 959,
+    "successor_frame": 960,
+    "owners": [
+      "CHAR_MIA",
+      "CHAR_REGULAR",
+      "CHAR_LEAD",
+      "BG_DINER_A",
+      "BG_DINER_B",
+      "BG_OCCUPANCY",
+      "BG_QUEUE",
+      "PROP_AWARD",
+      "PROP_REPORT",
+      "PROP_PHONE"
+    ],
+    "obligation": "Capture exact live pose, contacts, driver, expression, view, camera and world state at f959, freeze it at f960. No reset, no separately generated still. Audio tail below."
+  },
+  "audio_continuity": {
+    "phase_samples": [
+      0,
+      768000
+    ],
+    "extract_samples": [
+      144000,
+      768000
+    ],
+    "AUD08": [
+      355200,
+      472800
+    ],
+    "AUD11_parent_samples": [
+      688800,
+      789600
+    ],
+    "AUD11_phase_samples": [
+      688800,
+      768000
+    ],
+    "AUD11_successor_samples": [
+      768000,
+      789600
+    ],
+    "successor_nondiegetic_tail_samples": [
+      768000,
+      772800
+    ],
+    "status": "source assets and actual bridge mix not supplied; timing obligation only, no fabricated tail"
+  },
+  "approved_decisions": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6"
+  ],
+  "cast_voice_identity_approval": "User explicitly approved selected voice identities, dialogue performances and regular chuckle after listening to assembled full phase and qualification previews. Does not approve storyboard, animatic, final mix or production digest."
+}

@@ -42,7 +42,7 @@ No approvals were recorded, no images were generated, no paid call was made, not
 | E07 | `photo_intent.mjs` | photo_intent |
 | F01 | `phase_audio.mjs` (800 samples/frame; split = continuous) | phase_freeze_audio |
 | F02 | input-keyed chunk reuse + pixel-keyed cache | selective_invalidation |
-| F03/D01 | `tools/tbo/e01_p31_action_coverage.mjs` | (generated P08_ACTION_COVERAGE.json) |
+| F03/D01 | `tools/tbo/e01_action_coverage.mjs` | (generated P08_ACTION_COVERAGE.json) |
 
 ## 2. Not implemented / remaining gaps (never claimed)
 - **E04** per-pixel host depth/matte compositing: `BLOCKED_IMPLEMENTATION`. Band-level host compositing (P06) is the only route.

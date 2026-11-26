@@ -1,0 +1,30 @@
+{
+  "inputs": [
+    {
+      "supplied_file": "E01_PHASE1_ANIMATIC_CONTACT_SHEET(1).png",
+      "actual_sha256": "6952f573467e1f8ddd42483180a6e940dcd08643db5899593f60ca488a767a12",
+      "reported_sha256": "473ca8b0a53a43c3741deb6499f291b5cb6ec7b2a9dda0d8133d64c058a40649",
+      "matches": false
+    },
+    {
+      "supplied_file": "E01_PHASE1_ROUGH_ANIMATIC(1).mp4",
+      "actual_sha256": "1aeda676d365e4dd0eda4be1234c77cbbdf61e59f47ffecb5c89937ab7dce9b2",
+      "reported_sha256": "1aeda676d365e4dd0eda4be1234c77cbbdf61e59f47ffecb5c89937ab7dce9b2",
+      "matches": true
+    },
+    {
+      "supplied_file": "E01_QUALIFICATION_ROUGH_ANIMATIC(1).mp4",
+      "actual_sha256": "bb4aa7a81efbec9be13534e2200e1fe4993d28d2b7101af91f789355db09aece",
+      "reported_sha256": "bb4aa7a81efbec9be13534e2200e1fe4993d28d2b7101af91f789355db09aece",
+      "matches": true
+    },
+    {
+      "supplied_file": "E01_ROUGH_ANIMATIC_VERIFICATION_REPORT(1).md",
+      "actual_sha256": "1dbc550408aa16cb99001ef91c030d6963433c8f7fcf607c3d7e8be527c6b990",
+      "reported_sha256": "1dbc550408aa16cb99001ef91c030d6963433c8f7fcf607c3d7e8be527c6b990",
+      "matches": true
+    }
+  ],
+  "independently_probed_video": "phase 960 frames/16.000s, extract 780 frames/13.000s, both 1920x1080 60fps H264 AAC48kHz",
+  "review": "Selected decoded phase frames f150/f180/f360/f900 visually inspected; user watched whole preview. No independent continuous audio playback or actual renderer verification. Source report machine checks are reported claims, not rerun. Contact sheet mismatch; no inferred reason; use hash-matching MP4 and exact P3.1 sources as evidence."
+}
