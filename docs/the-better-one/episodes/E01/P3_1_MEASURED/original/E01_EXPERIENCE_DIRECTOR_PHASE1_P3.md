@@ -1,0 +1,50 @@
+# E01 — V0.4-DIR-P1 / Phase 1 measured-audio revision P3.1
+Status: USER_APPROVED D1–D6, selected audio performances, voice identities and regular chuckle in assembled phase/extract previews; visual placement/blocking and proposed motion timing pending animatic review. Not a signed packet, approved animatic, measured motion, or engine preflight. Parent [0,1950) unchanged on disk. Phase [0,960), extract [180,960), local [0,780), 1920×1080, 60fps. Use this delta with immutable P1 and P2. For SH01–03 timing this P3.1 and its CSVs supersede earlier estimated timing; the later SH04–07 specifications are not authorized or re-authored. Screenplay and model unchanged.
+
+## Authority and time model
+Original parent SHA-256 is b8933e6c5c013659db65493168fc1e049fd0e646166b576113e233a87160217d (see manifest actual hash). User approved D1 waist-up, D2 page-edge WRAP, D3 framing/2× native, D4 intermediate states, D5 phoneme-aligned visemes, D6 no flash/screen reveal. Voice identities af_heart, am_michael, af_sarah approved by user statement. Selected takes, dialogue performances and regular chuckle approved by user after listening to both previews. DEC-043 future memory/host remains open; DEC-045 audio performance portion approved, audiovisual placement/animatic and scoped digest pending. The exact sample clock is 48kHz; 800 samples/frame. MEASURED_WORD_TIMELINE and MEASURED_PHONE_TIMELINE retain original MFA boundaries in source samples and translate them to absolute movie samples. Action frame intervals are proposed integer cover (start floor/end ceil); not assertions of measured gesture durations. Use source-linked alignment, not independently invented timing. Frame-center table only diagnostic, not viseme routing. No retime/stretch/pitch shift. Source audio masters untouched.
+
+## SH01 [0,444) / extract [0,264): twelve fields
+1. Narrative purpose: establish genuine warmth, ordinary work interruption, then first crack in confidence.
+2. Experience: playful regal pose, chuckle, responsible work response, increasingly private concern. Never stage the lead as a dramatic bad-news messenger.
+3. Starting composition: locked medium-wide, Mia at counter with both hands on plaque, regular public-side left, lead approaches staff-side right. Crowded visible room/queue in depth. D1 natural waist-up; grounded motion even if feet obscured. D3 SH01 head 110–130px approximate; counter and hands visible.
+4. Main action: A05 invitation [15,119); A02 pose/line [135,173), genuine grin [173,189), alive hold until225; A16 regular chuckle [177,220), actual detected energy 2.95–3.66s; A17 lead [225,320), A06 approach/present; A04 setdown [225,342), A18 thanks [326,355), A07 reach [306,350), A08 contact [350,386), A09 draw/settle [380,416), A10 read [404,444). Exact internal edges in action table; no dialogue changes. 
+5. Secondary choreography: A01 retains asynchronous diners, queue and world; regular lowers phone [225,271), waits at chest; lead waits until finished speaking and counter supports plaque before presenting [320,342). Left withdrawal overlaps independent right reach; no slide.
+6. Character acting/contact: award base284, valid counter support by295, transfer296, Mia R clear306, L clear320, settle342; sole initial prop driver proposed Mia R, L supports, counter sole after transfer. Report lead right lower-right / Mia right lower-left viewed from front; thumb near, supporting fingertips far; contact350, secure360, transfer368, lead clear380. Lead valid support until transfer, Mia valid at367 before transfer, residual release afterwards. Mia reading angle416; eyes top404–416, second416–428, concern428–444. No pose swap or fake contact. D4 actual expression inbetweens; D5 measured context-specific mouths.
+7. Camera: no push, orbit or new full-body test. Keep locked P1 framing/axis, verify actual waist-up crop and visible contacts with blocking. Exact geometry not supplied.
+8. Transformation: no abstract effect; true approved head/hand views and contact states; no rigid flat head rotation.
+9. Attention: invitation/pose → chuckle → lead → plaque → shared page → Mia eyes. Keep background subdominant.
+10. Sound: real selected voices and chuckle (see selection/timing), contact AUD04 onset284, paper AUD05 [346,386), AUD06 [380,416); bed duck430–462, score thin426–444. Only voice/chuckle audio provided; rest directed and pending source/mix.
+11. Exit: f443 right grip stable, left free, concerned eyes, lead withdrew, phone low; cut444 to same report, no time reset.
+12. Fail: unmotivated pauses, lead slide, report visible to customer, invalid counter/hand support, hidden handover, face jumps, poor genuine smile, framing hides required contact, or dialogue/viseme overwrite.
+
+## SH02 [444,588) / extract [264,408): twelve fields
+1. Narrative purpose: undeniable contradiction before ten seconds.
+2. Experience: viewer reads sales and operating loss and asks how a packed restaurant loses money.
+3. Starting composition: P1 native insert, page 55–65% width (~60% target), Mia's same right thumb at near lower edge, stable light, clear typography and hand masks. 2× native page width ≥2304 at 60%, ≥2496 at 65%; actual max governs.
+4. Main action: A12 cut444, residual micro-settle [444,456), readable for full 144f/2.4s, no animated numbers. YESTERDAY / Sales $3,210 / Operating result −$120 / LOSS (M01; not cash). No subtitle overlay.
+5. Secondary choreography: all offscreen bodies and props continue original time; no pose resets. Page sole Mia grip; others wait.
+6. Character acting: right hand WRAP near/far layers, reading angle held from416. Mia concern persists offscreen; no hand swap.
+7. Camera: fixed, motivated object insert; same page orientation, type plane registered, no mirrored figures, crop/hand cannot occlude figures.
+8. Transformation: none; type on registered page plane, no fake money graphic.
+9. Attention: heading → sales → loss; no competing moving elements.
+10. Sound: AUD08 [444,591) speech-free (3 frames into next shot), bed lowered, score restrained; AUD06 ended416. No dialogue captions in report interval.
+11. Exit: f587 page held, f588 return same gaze/position and elapsed world state.
+12. Fail: less than 144f display, unreadable at mobile scale, wrong data/sign/financial meaning, new page/grip or jitter, subtitle covers report. Human read test remains mandatory.
+
+## SH03 [588,960) / extract [408,780): twelve fields
+1. Narrative purpose: expansion irony and emotional photograph payoff.
+2. Experience: regular's sincere encouragement contrasts with Mia's private loss; audience recognizes smile echo and cares.
+3. Starting composition: P1 tighter static medium close, Mia center, award lower center counter, low page eventually outside phone framing; regular near-left face/phone visible enough for speaking and capture, lead on right or off crop. Mia head target230–270px, 2× max ≥540px. Determine actual sizes for all actors.
+4. Main action: A19 speech [591,745), A13 gaze down until690, look/head rise690–745, pause745–783; report lowers750–807; A14 reply [783,859), smile develops859–882; A03 late raise825–882; A15 aim/press900/release/lower/check/settle959. Photo after last measured phone at14.31s, never early.
+5. Secondary choreography: background and lead wait discreetly; regular glance room591–690, back by720; hand keeps phone support while thumb moves; no new actions solely to test technology.
+6. Character acting: concerned eyes survive restrained speech and smile recovery. Left arm relaxed, right holds report privately. Source-attached intermediate expression states with separate mouth/gaze/brow ownership. Phone lift after privacy/re-engagement, settled aim882, thumb approaches891–900, shutter900, releases901–912, lowers912–942, glances at screen942–953 (screen not shown), settles953–960.
+7. Camera: fixed tighter angle on same axis; ensure Mia face, award and thumb visible at photo; actual camera frustum excludes report, includes plaque. No flash/screen reveal. Require human/geometry check rather than invented frustum.
+8. Transformation: none. Freeze is successor SH04, outside phase.
+9. Attention: regular/room → Mia's eyes and restrained reply → thumb contact/click → social smile.
+10. Sound: AUD14 exact9.85–12.41, AUD09 exact13.05–14.31; AUD10 single shutter900 (not supplied), AUD11 parent861–987, phase861–960 and exact successor960–987, only 6f nondiegetic room tail. Bed stops960. No extra speech. Subtitles aligned to exact sample times.
+11. Exit: exact f959 world/actor/prop states owed at f960. Mia low right report, left free, social smile; regular phone lowered; lead hands clear; all background owners preserve f959. No separate frozen artwork or reset. 
+12. Fail: photo before reply, secret report in photo, wrong thumb contact, award absent, flash/screen reveal, generic emotion, copied neutral freeze, changed ownership or duplicated sound tail.
+
+## Art requirement delta (P1 families retained)
+ART_M01–06: approved identity, true views, source-attached inbetweens, independent face channels. ART_M03/ART_L02/ART_P02: WRAP exact support chronology above, front thumb/back fingertips and measured sockets; no geometry invented. ART_L01/03: waist-up with real torso rhythm, speaking context; actual visible legs require supported gait if crop differs. ART_R01/02: full chuckle jaw/cheek/lid breath, invitation and expansion phone-compatible views, independent shutter thumb. ART_P01–03/ENV01/BG01/BG02/TXT01/CAM01: exact existing objects/room/type/crop with revised checkpoint timing. Recompute derivative needs by actual phoneme labels and context in PHONEME_ART_DEMANDS_PENDING_P08.json, not a generic mouth set. P1 families for future SH04–07 remain future scope. No art generated or job exported. Review at f180,225,284,295,296,306,320,342,350,360,368,380,416,443,444,456,587,588,807,825,859,882,900,912,942,959,960. Actual renderer must prove contact, geometry and support, not just arithmetic.

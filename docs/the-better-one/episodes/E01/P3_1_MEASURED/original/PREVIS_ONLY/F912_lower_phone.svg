@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<title>E01 PREVIS ONLY — schematic screen-space blocking</title>
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#657a83"/></marker></defs>
+<g id="WORLD_RESTAURANT">
+<rect x="0" y="0" width="1920" height="1080" rx="0" fill="#f4f0e8" stroke="none" stroke-width="2"/>
+<rect x="0" y="130" width="1920" height="590" rx="0" fill="#ebe8e0" stroke="none" stroke-width="2"/>
+<rect x="0" y="720" width="1920" height="360" rx="0" fill="#d8d5cd" stroke="none" stroke-width="2"/>
+<rect x="1180" y="130" width="650" height="510" rx="0" fill="#d7e3e6" stroke="#39414c" stroke-width="6"/>
+<line x1="1505.0" y1="130" x2="1505.0" y2="640" stroke="#a4b1b4" stroke-width="5" stroke-linecap="round"  />
+<g id="BG_QUEUE">
+<ellipse cx="1280" cy="359.5" rx="28" ry="35" fill="#a4b0b4" stroke="none" stroke-width="2"/>
+<path d="M1240 394.5 Q1280 376.5 1320 394.5 L1335 628 H1225 Z" fill="#b8c5c8" stroke="#a0aeb2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="1460" cy="359.5" rx="28" ry="35" fill="#a4b0b4" stroke="none" stroke-width="2"/>
+<path d="M1420 394.5 Q1460 376.5 1500 394.5 L1515 628 H1405 Z" fill="#b8c5c8" stroke="#a0aeb2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="1640" cy="359.5" rx="28" ry="35" fill="#a4b0b4" stroke="none" stroke-width="2"/>
+<path d="M1600 394.5 Q1640 376.5 1680 394.5 L1695 628 H1585 Z" fill="#b8c5c8" stroke="#a0aeb2" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="1200" y="165" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="bold" fill="#64747a" text-anchor="start">QUEUE / WINDOW</text>
+<g id="BG_OCCUPANCY">
+<ellipse cx="30" cy="245" rx="28" ry="32" fill="#b8aca0" stroke="none" stroke-width="2"/>
+<ellipse cx="135" cy="253" rx="28" ry="32" fill="#a4b2b4" stroke="none" stroke-width="2"/>
+<rect x="-5" y="281" width="180" height="90" rx="20" fill="#c9c3b8" stroke="none" stroke-width="2"/>
+<ellipse cx="83" cy="336" rx="112" ry="30" fill="#b6a997" stroke="none" stroke-width="2"/>
+<ellipse cx="375" cy="200" rx="28" ry="32" fill="#b8aca0" stroke="none" stroke-width="2"/>
+<ellipse cx="480" cy="208" rx="28" ry="32" fill="#a4b2b4" stroke="none" stroke-width="2"/>
+<rect x="340" y="236" width="180" height="90" rx="20" fill="#c9c3b8" stroke="none" stroke-width="2"/>
+<ellipse cx="428" cy="291" rx="112" ry="30" fill="#b6a997" stroke="none" stroke-width="2"/>
+<ellipse cx="615" cy="215" rx="28" ry="32" fill="#b8aca0" stroke="none" stroke-width="2"/>
+<ellipse cx="720" cy="223" rx="28" ry="32" fill="#a4b2b4" stroke="none" stroke-width="2"/>
+<rect x="580" y="251" width="180" height="90" rx="20" fill="#c9c3b8" stroke="none" stroke-width="2"/>
+<ellipse cx="668" cy="306" rx="112" ry="30" fill="#b6a997" stroke="none" stroke-width="2"/>
+</g>
+<g id="BG_DINER_A">
+<ellipse cx="720" cy="255" rx="32" ry="38" fill="#bbaea0" stroke="none" stroke-width="2"/>
+<rect x="680" y="293" width="80" height="95" rx="20" fill="#adb9b7" stroke="none" stroke-width="2"/>
+<line x1="696" y1="312" x2="675" y2="355" stroke="#adb9b7" stroke-width="23" stroke-linecap="round"  />
+</g>
+<g id="BG_DINER_B">
+<ellipse cx="900" cy="263" rx="32" ry="38" fill="#b5afa8" stroke="none" stroke-width="2"/>
+<rect x="858" y="301" width="84" height="90" rx="20" fill="#b8afa3" stroke="none" stroke-width="2"/>
+</g>
+<ellipse cx="810" cy="377" rx="150" ry="36" fill="#baa990" stroke="none" stroke-width="2"/>
+<text x="650" y="205" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="normal" fill="#667077" text-anchor="start">DINERS A / B</text>
+</g>
+<g id="CHAR_MIA">
+<g id="MIA_TORSO">
+<path d="M845.5 530.0 Q998 455.0 1150.5 530.0 L1254.2 1020 H741.8 Z" fill="#61958e" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="MIA_HEAD">
+<ellipse cx="998" cy="410" rx="97.5" ry="125.0" fill="#e3bc98" stroke="#39414c" stroke-width="4"/>
+<path d="M900.5 390.0 Q898.55 250.0 1077.95 302.5 L1095.5 380.0" fill="#777777" stroke="#39414c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="960.5" cy="390.0" rx="15.75" ry="10.75" fill="#fffdf7" stroke="#39414c" stroke-width="2"/>
+<ellipse cx="948.0" cy="390.0" rx="5.5" ry="6.0" fill="#39414c" stroke="none" stroke-width="2"/>
+<ellipse cx="1035.5" cy="390.0" rx="15.75" ry="10.75" fill="#fffdf7" stroke="#39414c" stroke-width="2"/>
+<ellipse cx="1023.0" cy="390.0" rx="5.5" ry="6.0" fill="#39414c" stroke="none" stroke-width="2"/>
+<path d="M945.5 370.0 L978.0 355.0 M1018.0 360.0 L1050.5 377.5" fill="none" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M965.5 462.5 Q998 485.0 1030.5 460.0" fill="none" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<g id="CHAR_LEAD">
+<g id="LEAD_TORSO">
+<path d="M1571.05 531.6 Q1690 473.1 1808.95 531.6 L1889.836 1020 H1490.164 Z" fill="#a6a0b8" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="LEAD_HEAD">
+<ellipse cx="1690" cy="438" rx="76.05" ry="97.5" fill="#e3bc98" stroke="#39414c" stroke-width="4"/>
+<path d="M1613.95 422.4 Q1612.429 313.2 1752.361 354.15 L1766.05 414.6" fill="#777777" stroke="#39414c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="1660.75" cy="422.4" rx="12.285" ry="8.385" fill="#fffdf7" stroke="#39414c" stroke-width="2"/>
+<ellipse cx="1670.5" cy="422.4" rx="4.29" ry="4.68" fill="#39414c" stroke="none" stroke-width="2"/>
+<ellipse cx="1719.25" cy="422.4" rx="12.285" ry="8.385" fill="#fffdf7" stroke="#39414c" stroke-width="2"/>
+<ellipse cx="1729.0" cy="422.4" rx="4.29" ry="4.68" fill="#39414c" stroke="none" stroke-width="2"/>
+<path d="M1649.05 404.84999999999997 h23.4 M1707.55 404.84999999999997 h23.4" fill="none" stroke="#39414c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1664.65 478.95 Q1690 496.5 1715.35 477.0" fill="none" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<g id="COUNTER_SURFACE">
+<path d="M630 821 H1850 L1920 876 H540 Z" fill="#d5b99b" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="540" y="876" width="1380" height="204" rx="0" fill="#b89b7c" stroke="#39414c" stroke-width="4"/>
+</g>
+<g id="CHAR_REGULAR">
+<g id="REGULAR_TORSO">
+<path d="M118.35 532.2 Q280 452.7 441.65 532.2 L551.572 1020 H8.427999999999997 Z" fill="#8195ad" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="REGULAR_HEAD">
+<ellipse cx="280" cy="405" rx="103.35000000000001" ry="132.5" fill="#e3bc98" stroke="#39414c" stroke-width="4"/>
+<path d="M176.64999999999998 383.8 Q174.58299999999997 235.4 364.747 291.05 L383.35 373.2" fill="#777777" stroke="#39414c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="240.25" cy="383.8" rx="16.695" ry="11.395" fill="#fffdf7" stroke="#39414c" stroke-width="2"/>
+<ellipse cx="253.5" cy="383.8" rx="5.83" ry="6.36" fill="#39414c" stroke="none" stroke-width="2"/>
+<ellipse cx="319.75" cy="383.8" rx="16.695" ry="11.395" fill="#fffdf7" stroke="#39414c" stroke-width="2"/>
+<ellipse cx="333.0" cy="383.8" rx="5.83" ry="6.36" fill="#39414c" stroke="none" stroke-width="2"/>
+<path d="M224.35 359.95 h31.799999999999997 M303.85 359.95 h31.799999999999997" fill="none" stroke="#39414c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M245.55 460.65 Q280 484.5 314.45 458.0" fill="none" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+</g>
+<g id="PROP_AWARD">
+<ellipse cx="978.0" cy="825" rx="100.3" ry="9" fill="#a49888" stroke="none" stroke-width="2"/>
+<rect x="883.0" y="809" width="190" height="12" rx="2" fill="#d1a968" stroke="#39414c" stroke-width="3"/>
+<rect x="893.0" y="666" width="170" height="143" rx="6" fill="#d1a968" stroke="#39414c" stroke-width="4"/>
+<text x="978.0" y="701.65" font-family="DejaVu Sans, sans-serif" font-size="13.6" font-weight="bold" fill="#39414c" text-anchor="middle">LOCAL FAVORITE</text>
+<path d="M933.8 749.7 Q967.8 709.4 1010.3 731.1 Q1039.2 765.2 986.5 786.9 Q930.4 793.1 933.8 749.7 Z" fill="#a5735d" stroke="#39414c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="PROP_REPORT">
+<path d="M1140 880 L1350 887 L1340 1050 L1146 1042 Z" fill="#fffdf5" stroke="#39414c" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g id="MIA_L_ARM">
+<path d="M885.5 600.0 Q887.75 743.22 890 841" fill="none" stroke="#39414c" stroke-width="46" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M885.5 600.0 Q887.75 743.22 890 841" fill="none" stroke="#61958e" stroke-width="40" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="890" cy="841" rx="14.399999999999999" ry="12.4" fill="#e3bc98" stroke="#39414c" stroke-width="3"/>
+<line x1="883" y1="837" x2="895" y2="828" stroke="#39414c" stroke-width="2" stroke-linecap="round"  />
+</g>
+<g id="MIA_R_ARM">
+<path d="M1113.0 600.0 Q1132.5 825.96 1152 1038" fill="none" stroke="#39414c" stroke-width="46" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1113.0 600.0 Q1132.5 825.96 1152 1038" fill="none" stroke="#61958e" stroke-width="40" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="1152" cy="1038" rx="14.399999999999999" ry="12.4" fill="#e3bc98" stroke="#39414c" stroke-width="3"/>
+</g>
+<g id="LEAD_R_ARM">
+<path d="M1612.0 586.2 Q1618.5 722.616 1625 811" fill="none" stroke="#39414c" stroke-width="42" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1612.0 586.2 Q1618.5 722.616 1625 811" fill="none" stroke="#a6a0b8" stroke-width="36" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="1625" cy="811" rx="12.959999999999999" ry="11.16" fill="#e3bc98" stroke="#39414c" stroke-width="3"/>
+<line x1="1618" y1="807" x2="1630" y2="798" stroke="#39414c" stroke-width="2" stroke-linecap="round"  />
+</g>
+<g id="LEAD_L_ARM">
+<path d="M1773.85 586.2 Q1770.925 722.616 1768 811" fill="none" stroke="#39414c" stroke-width="36" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1773.85 586.2 Q1770.925 722.616 1768 811" fill="none" stroke="#a6a0b8" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="1768" cy="811" rx="10.799999999999999" ry="9.3" fill="#e3bc98" stroke="#39414c" stroke-width="3"/>
+<line x1="1761" y1="807" x2="1773" y2="798" stroke="#39414c" stroke-width="2" stroke-linecap="round"  />
+</g>
+<g id="REGULAR_PHONE_ARM">
+<path d="M386.0 617.0 Q503.375 654.5312 620.75 606.36" fill="none" stroke="#39414c" stroke-width="52" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M386.0 617.0 Q503.375 654.5312 620.75 606.36" fill="none" stroke="#8195ad" stroke-width="46" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="620.75" cy="606.36" rx="16.56" ry="14.26" fill="#e3bc98" stroke="#39414c" stroke-width="3"/>
+</g>
+<g id="PROP_PHONE">
+<rect x="574" y="485" width="85" height="148" rx="12" fill="#48525d" stroke="#39414c" stroke-width="4"/>
+<ellipse cx="592.7" cy="508.68" rx="8.5" ry="8.5" fill="#a8b9c1" stroke="#39414c" stroke-width="2"/>
+<line x1="643.7" y1="526.44" x2="643.7" y2="591.56" stroke="#c7cdd0" stroke-width="3" stroke-linecap="round"  />
+</g>
+<ellipse cx="629.25" cy="600.44" rx="18.7" ry="23.8" fill="#e3bc98" stroke="#39414c" stroke-width="3"/>
+<g id="BLOCKING_LABELS">
+<text x="280" y="250.5" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="bold" fill="#39414c" text-anchor="middle">REGULAR</text>
+<text x="998" y="263.0" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="bold" fill="#39414c" text-anchor="middle">MIA</text>
+<text x="1690" y="318.5" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="bold" fill="#39414c" text-anchor="middle">LEAD</text>
+<text x="978.0" y="650" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="bold" fill="#39414c" text-anchor="middle">AWARD / BASE</text>
+<text x="1245.0" y="868" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="bold" fill="#39414c" text-anchor="middle">REPORT / PRIVATE ANGLE</text>
+<line x1="1140" y1="870" x2="1350" y2="870" stroke="#a85b54" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 8" />
+<text x="1245.0" y="1080" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="bold" fill="#8c4946" text-anchor="middle">PRIVATE / BELOW PHOTO</text>
+</g>
+<g id="PREVIS_ANNOTATION">
+<rect x="0" y="0" width="1920" height="108" rx="0" fill="#39414c" stroke="none" stroke-width="2"/>
+<text x="36" y="45" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="start">E01  /  PREVIS ONLY  /  f912  •  15.200s</text>
+<text x="36" y="83" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="normal" fill="#f0ede7" text-anchor="start">Thumb clear; regular begins lowering phone</text>
+<text x="1880" y="45" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="bold" fill="#e1c9a5" text-anchor="end">NOT ART / NOT RIG GEOMETRY</text>
+<rect x="0" y="1004" width="1920" height="76" rx="0" fill="#39414c" stroke="none" stroke-width="2"/>
+<text x="36" y="1047" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="normal" fill="white" text-anchor="start">Phone continuous support, report low</text>
+</g>
+</svg>

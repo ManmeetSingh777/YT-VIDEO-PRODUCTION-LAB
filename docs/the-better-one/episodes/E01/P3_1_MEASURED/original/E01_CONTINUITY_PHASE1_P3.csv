@@ -1,0 +1,28 @@
+absolute_frame,extract_local_frame,mia,lead,regular,award_support,report_support,phone_support,world_camera
+0,,Both hands plaque; playful ready,Report right hand; offside,Phone chest,"Mia R driver proposed, L support",Lead R driver,Regular continuous,SH01 live
+180,0,"Genuine grin, both hands plaque","Approaching, report right","Chuckle active, phone ready","Mia R driver, L support",Lead R driver,Regular continuous,"Inherited live state, no reset"
+225,45,"Attention shifts, both hands plaque","Speech starts, settle",Starts lowering phone,"Mia R driver, L support",Lead R driver,Regular continuous,SH01
+271,91,Lowering plaque,Speaking,Phone low,"Mia R driver, L support",Lead R driver,Regular continuous,SH01
+284,104,Base contacts counter,Speaking,Phone low,Mia R driver; L and counter contact,Lead R driver,Regular continuous,SH01
+295,115,Both hands still on base,Speaking,Phone low,Mia R driver; valid counter support by this frame,Lead R driver,Regular continuous,SH01
+296,116,Right grip begins opening,Speaking,Phone low,Counter sole driver; hands release sequentially,Lead R driver,Regular continuous,SH01
+306,126,"Right clear, begins anticipation; left steady",Speaking,Phone low,"Counter driver, L support",Lead R driver,Regular continuous,SH01
+320,140,"Left clear, withdraw; right reaches",Speech done; presents page,Phone low,Counter only,Lead R driver,Regular continuous,SH01
+342,162,Left settled; right approaching,Presentation held,Phone low,Counter only,Lead R driver,Regular continuous,SH01
+350,170,Right fingertips contact; thanks ongoing,Grip remains secure,Phone low,Counter only,Lead R driver; Mia contact not yet secure,Regular continuous,SH01
+360,180,Right WRAP secure,Grip secure,Phone low,Counter only,Lead R driver; Mia R valid support,Regular continuous,SH01
+368,188,Right drives sheet,Opens fingers,Phone low,Counter only,Mia R driver; lead residual support/contact,Regular continuous,SH01
+380,200,"Sole grip, draws inward",Right clear/retract,Phone low,Counter only,Mia R only,Regular continuous,SH01
+416,236,Reading angle settled; eyes shift to loss,Withdrawn,Phone low,Counter only,Mia R only,Regular continuous,SH01
+443,263,"Concern visible, right grip stable",Discreet,Phone low,Counter only,Mia R only,Regular continuous,SH01 last frame
+444,264,"Same grip, body offscreen",Offscreen state persists,Offscreen state persists,Counter only,Mia R only,Regular continuous,"SH02 cut, text readable"
+587,407,Same grip; concern held offscreen,Discreet,Phone low,Counter only,Mia R only,Regular continuous,SH02 last frame
+588,408,"Down gaze, concern continuous",Discreet,"About to speak, phone low",Counter only,Mia R only,Regular continuous,SH03 return
+807,627,"Report below photo crop, eyes engaged",Discreet,Phone low,Counter only,Mia R only,Regular continuous,SH03 privacy checkpoint
+825,645,"Reply ongoing, low report",Discreet,Late raise begins,Counter only,Mia R only,Regular continuous,SH03
+859,679,"Reply finished, social smile develops",Discreet,Raising phone,Counter only,Mia R only,Regular continuous,SH03
+882,702,"Social smile, worried eyes",Discreet,Stable aim,Counter only,Mia R only,Regular continuous,SH03
+900,720,"Social smile, low page",Discreet,"Thumb press, capture once",Counter only,Mia R only,Regular continuous,"SH03 award in photo/report out, actual frustum pending"
+942,762,"Smile held, left free",Discreet,"Phone lowered, check begins",Counter only,Mia R only,Regular continuous,SH03
+959,779,"Social smile, low right page, free left","Hands free, grounded",Lowered and settled,Counter only,Mia R only,Regular continuous,"Exact outgoing live state, all BG owners preserved"
+960,,Frozen f959 pose,Frozen f959 pose,Frozen f959 pose,Counter only,Mia R only,Regular continuous,"Successor obligation, outside phase; bed stops"
