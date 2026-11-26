@@ -1,0 +1,7 @@
+linked_gear_frozen_while_lever_moves detected true control true
+near_rock_does_not_uncover_the_creature detected true control true
+transition_plates_missing detected true control true
+view_turn_not_drawn detected true control true
+tokens_frozen_while_camera_pushes detected true control true
+camera_frozen_while_tokens_flow detected true control true
+lever_frozen_while_body_pulls detected true control true

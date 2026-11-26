@@ -1,0 +1,827 @@
+{
+ "film": "C:\\Users\\gmanm\\TBO_P08_REGRESSION\\hybrid_v2\\work\\p05\\chain_film\\film",
+ "packet_sha256": "3c2c2e69f067f98d19204d1a6a2aa2c13fd75fc55f7708517901da8041388e31",
+ "handoff_exchanges": 91,
+ "drawings_through_handoff": 33,
+ "drawings_direct": [
+  "lever_master",
+  "gear_master",
+  "room_far",
+  "cave_far",
+  "cave_rock",
+  "chart_far",
+  "port_out",
+  "port_mid",
+  "port_in",
+  "port_mask",
+  "token",
+  "lever_base",
+  "lever_arm",
+  "gear_stand",
+  "gear_wheel"
+ ],
+ "handoffs": [
+  {
+   "job": "ARTJOB_MASTER_nova_master_99a7e955",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_MASTER_nova_master_99a7e955_b2c202e4d0a9c28c78f83b53_1",
+   "candidate": "9c0b0b8d01b0e6720a0821902900c6bf933bd5a1e23d37c9c2eec101b08e5c47"
+  },
+  {
+   "job": "ARTJOB_MASTER_nova_master_99a7e955",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_MASTER_nova_master_99a7e955_b2c202e4d0a9c28c78f83b53_2",
+   "candidate": "975da7e289a8bab5077958985639df087b69dde2a7d0de06280f5992bc1b2b83"
+  },
+  {
+   "job": "ARTJOB_MASTER_nova_master_99a7e955",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_MASTER_nova_master_99a7e955_b2c202e4d0a9c28c78f83b53_3",
+   "candidate": "491f324384ed1d567cc1a3ba25e1a4d3f9e1ab67ca134f33dc9402e7e25e0061",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "2b807b6ed70df3a7eec71b749b6d633a82953a3adfb6dec586401b82b0122a9e",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_MASTER_lumen_master_02540fe5",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_MASTER_lumen_master_02540fe5_9b7526e24fc3154011e834db_1",
+   "candidate": "a618c2be07d17efa2d3b8ef9c49045386b2d57dff311ca6e17343f5d404b7607"
+  },
+  {
+   "job": "ARTJOB_MASTER_lumen_master_02540fe5",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_MASTER_lumen_master_02540fe5_9b7526e24fc3154011e834db_2",
+   "candidate": "8f43a4d2e3894d76206a60d2f1d848818ca07a4b49b3b5e0fb55cbf1bef15661"
+  },
+  {
+   "job": "ARTJOB_MASTER_lumen_master_02540fe5",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_MASTER_lumen_master_02540fe5_9b7526e24fc3154011e834db_3",
+   "candidate": "e6810a9ce9e6c0e97e44e2da11389026a11fca6c7ec399eee7ff03a5f4fb786f",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "ba0083557460bfcbc076d9e54a0ad72e973b52c0a389a4622e2c2c7dff7eacb0",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_43fcdd49",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_43fcdd49_9c4b3d5a67da0dff0eab4f5a_1",
+   "candidate": "675ad7ef05f747c7263cb108274951058521049da4864b9b52e21df548603c63"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_43fcdd49",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_43fcdd49_9c4b3d5a67da0dff0eab4f5a_2",
+   "candidate": "280cd2a473ad3cfa639a04ddb0a5942dc5df675ecd353d1733d400992412e797"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_43fcdd49",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_43fcdd49_9c4b3d5a67da0dff0eab4f5a_3",
+   "candidate": "f4b460c1d9eb120b3193a7cccb4e2ec6f5e6833222c36b206d1acf7c8b857592",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "a4d10ae5b91b25c50e3e5589ff1d56a14b0db851bb88d3368d1f1e294ebe5066",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1_f1574394287a627e055d9b89_1",
+   "candidate": "1e44708efffc882f023ae69c922ff9fa7daf6d96db9c337f1953d572c7622a72"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1_f1574394287a627e055d9b89_2",
+   "candidate": "3e6de067fb97f9b7d57f519c3942719e0e1821618e6dcf6dff5d64680b24ca0b"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_thigh_l_c26094e1_f1574394287a627e055d9b89_3",
+   "candidate": "d6da4a2f3db8e13a7622cba04bc8f166d768519507f5ebe4650485bcf3ae5244",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "9343b2b220a54ed59e10df78bdfba330cd75968f6e0259bcfc0e205cf27e869f",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e_8813724a20281afae8a65475_1",
+   "candidate": "3872ca093a76aa213c4117bf21d1166fb01cdd0c83c6ebbf8724b452ffd6fef6"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e_8813724a20281afae8a65475_2",
+   "candidate": "0149d12996650bf4e04b0d4f4b12687f5ccac7f1e3e9d01192a7163dd31bc464"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_shin_l_6ad4ee0e_8813724a20281afae8a65475_3",
+   "candidate": "d4557a98d6826fdc43ebcb4da62dd2583a8b497a137c0afa8cbaf2215e32ff48",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "073daceca914eac1a55b13e534170b1960363a8d0483341b0d79c16eca06477a",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478_7919dd0a8a8412a2e26dd2b7_1",
+   "candidate": "01bedb5db3a37956630048e5b517b4bc7463f55cc05b9a7c75c7b0aff07a698f"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478_7919dd0a8a8412a2e26dd2b7_2",
+   "candidate": "8076ba96f2a7947e05179bf60ef3b0248a299e574cdcafdaa15cde2b7c24c3f9"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_thigh_r_2d04f478_7919dd0a8a8412a2e26dd2b7_3",
+   "candidate": "9a7e83857ffcc8a87916f993d5274cc4f60aea9f9c4a21e7bd33621c0de711f5",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "ad779b6196c2b99dd267311f685e7364921798eed9875f448081ddae6196fc1e",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18_85b9db7e9a3958fc4253da2a_1",
+   "candidate": "f386d8591d6c9075a5c4e59dd885bc8975b7713323047ae7e98f645d43cc729e"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18_85b9db7e9a3958fc4253da2a_2",
+   "candidate": "6e7a2b28b901a46a8b12342dd4914ee169e90fcd6560af32ab690831cf9f405b"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_shin_r_d8391c18_85b9db7e9a3958fc4253da2a_3",
+   "candidate": "e8be24f6e97c15437c6440bf4eb911d50a9e20e1b0f7bb82866415c33b4dbd59",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "ea83f10d239e6dbdc901b22bbe0776a72ae4978cef4df58bf3ed3e6cdf40f2cb",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_b4c4a504",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_b4c4a504_fbb0e4133465e00c59cb3a2a_1",
+   "candidate": "94409ad4b87b058180fb3a603d8e1734d3ba38a5d6a469cbe01da6c52e6e6829"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_b4c4a504",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_b4c4a504_fbb0e4133465e00c59cb3a2a_2",
+   "candidate": "baee0acdee2ee43536790e5bf6b97247647c060ad6ef1009eea36ef278da7026"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_b4c4a504",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_b4c4a504_fbb0e4133465e00c59cb3a2a_3",
+   "candidate": "0c0ddbd759e175eec39c6423774f850512bece424d12e25f77f9e1ce55350332",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "f424ad036b68f0789b970075f48d1b32c05db489fa160e21580b7a3f820fbb04",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hair_b601cab1",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hair_b601cab1_c6b11b7c025ff3c6483e1b49_1",
+   "candidate": "89ed287f87971c5e16d86e9bc74cb40cad386f405c1d13741741a23a694591c0"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hair_b601cab1",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hair_b601cab1_c6b11b7c025ff3c6483e1b49_2",
+   "candidate": "a2ba2ef6c74244070f9fbaa3c5cfc2bc7c85e448958b82b53b5f7ee910eaf5cd"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hair_b601cab1",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hair_b601cab1_c6b11b7c025ff3c6483e1b49_3",
+   "candidate": "50b4da44a4fbc10dc7ce95f00eb237309576f49179bfa2de469709d758cb5c73",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "4d364e65f627dbf9305ddc2f0c9daaab24689820dac18abf134e98aedfbaa3a3",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e_4d3dac54d8984d93c3908622_1",
+   "candidate": "238bbe3065972f755e11bf085316f26503c24a25d4b183200049bba00521441a"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e_4d3dac54d8984d93c3908622_2",
+   "candidate": "3731cc5fa274677932df6a29156d3a6678e6cd3f17c47704d979a1fd5b9d79de"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_eye_open_29fc8d5e_4d3dac54d8984d93c3908622_3",
+   "candidate": "3b222a4c6390f0fee0fe7d0e9177050f075200a85db9b89a6121244656e2eaaa",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "ccb0c2b1945370e88a7d607274b56f780d01a481fc2c51471299d13ac697b490",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5_5d060da06b0fae32becce1f4_1",
+   "candidate": "6c6656e6a589e5fdfdbb8db681ec7e8cba6d7d37a15bb340b710d4acfa59a020"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5_5d060da06b0fae32becce1f4_2",
+   "candidate": "27804a9af83bb7b89b46e0331efc645f0dc322e7f6b7a5c147f5ba547320532e"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_rest_af54fee5_5d060da06b0fae32becce1f4_3",
+   "candidate": "712d612b32772d216732e5bc12e3a4f863df91ea85dbee06b608b8316c7dbda7",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "e794dfb59919e8641c6bc6c239c64b4c1dee28d3fe931fa1c4623365d867c658",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_UNDERPAINT_nova_underpaint_786724aa",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_UNDERPAINT_nova_underpaint_786724aa_2847ab46e9221903afaf551f_1",
+   "candidate": "6c8851cf9dd1d98f5c5fb1b39118806531ca3038ef962edc7f5fb6b29ce7586e"
+  },
+  {
+   "job": "ARTJOB_UNDERPAINT_nova_underpaint_786724aa",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_UNDERPAINT_nova_underpaint_786724aa_2847ab46e9221903afaf551f_2",
+   "candidate": "c051362c4e3f6069fe4e485616d8b5f87a007215fbcbc0bdfe614d2b2289f501"
+  },
+  {
+   "job": "ARTJOB_UNDERPAINT_nova_underpaint_786724aa",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_UNDERPAINT_nova_underpaint_786724aa_2847ab46e9221903afaf551f_3",
+   "candidate": "ef7788f322ad9f12ed89326bac514b45a1d20835ceb7fa32e9556f3a181ed748",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "2e708dece9c3ae60c77d037b5a24216ff3f440ee4d7f417e2014f76dd32a966d",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d_815f8fe68b84e85b114ed796_1",
+   "candidate": "7f46e9d41f20a050e50db08f1f20f252572e49b63a1bf501d7b11d2fbb4b6a30"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d_815f8fe68b84e85b114ed796_2",
+   "candidate": "5598fe2b365ecd5cf308efe148f941259b3ef34589ca62038bc6f0447404c5f3"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_upper_arm_7f480d5d_815f8fe68b84e85b114ed796_3",
+   "candidate": "2c78f1d87bd65c89d9797bb2fc5d8b9c171c5753850822664672900dd01e3a48",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "1f9a6cfc8cf49bc24a2cd679d1a79a7281c7cbe1fb3d0e8579304b23916bd624",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e_08cc2bfa332314be35353fec_1",
+   "candidate": "cb4e0a671f37a00ff074250231b47f9ba5e8f80262875bdc67bf8ff65e6466c0"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e_08cc2bfa332314be35353fec_2",
+   "candidate": "5377c28a0b0822e595f7c98365ca1b8ebf42ef05a61adfc00d066dc47472ecb2"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_forearm_3d915c1e_08cc2bfa332314be35353fec_3",
+   "candidate": "b2cfb4ed389bc4b2d735c43c5dccc49a90561d1124096c52df62c9b656fb4d13",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "9e4f6134ebeb69532e6b53558dd9e1d377e8e8853c1d7881638800da6a5bdeff",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b_659a8d080ce95e288f1d5a19_1",
+   "candidate": "314804dd36db656f0992c718bf0554b84b0a503cfe6660d66d7596a1e08a40c1"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b_659a8d080ce95e288f1d5a19_2",
+   "candidate": "45d4efd8d57426a2c09a18690204175a36c98969e310a50522029e35311f5fd2"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hand_open_2ecc6d5b_659a8d080ce95e288f1d5a19_3",
+   "candidate": "1e20c85998cef54d24cff8235f9f2ad1a450dbfeaa1e911fbfae4d80cfd9acb0",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "dce33c8c2e6280dbc1cdb102114e38fab00523616bff38a6fd887dc95324f0e5",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53_5d8277f861c0122447853b22_1",
+   "candidate": "61216b1c80c0d5b4885096e315d93261fd08cb6154d4ea215de0cdcabde976ab"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53_5d8277f861c0122447853b22_2",
+   "candidate": "c56e618f60807e12e18213ba347ccbfee3da05e608e9a9a6d20eca4a81210d11"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_eye_closed_6d5c7e53_5d8277f861c0122447853b22_3",
+   "candidate": "3681b5b8e1ea622801e249f39353fea960cc51f225da00bbdb1e44c09005bac0",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "4c232916a2a754c2126935bb760b22cd7f31c9a604145b1547cc00ce67d14d7b",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3_06ab71e9384ae7ce55c2b558_1",
+   "candidate": "1d005473df72097df0bb2268096e3148de3960bd6d19b745cd0d4dbdb74c28f1"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3_06ab71e9384ae7ce55c2b558_2",
+   "candidate": "81f3cfb754cdef8af00d6457ba79f7ac44f64ba50df7d645ec2551f0884869a2"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_open_f1669db3_06ab71e9384ae7ce55c2b558_3",
+   "candidate": "b48334c5cae106a19d4a55b83865c28cca663532f3dfb93a81c1acb8db697128",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "6246a431151dbf5d19c02f9899ff73b07383375d441ab672b97c675344b23414",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1_d96b50fccc09ae34ca76746e_1",
+   "candidate": "26e652c2d46c583c56854cd3c2d167b82b6d71f47649e6abb99fd57cb492b636"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1_d96b50fccc09ae34ca76746e_2",
+   "candidate": "a34de9a3fc7d98b62cffc315636fdba7d52650ea3cfd199d371d012ddc7080a6"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_mouth_mid_23119cd1_d96b50fccc09ae34ca76746e_3",
+   "candidate": "56abbe37eaf3dc0c511197d0ef1b3f1b9035275e6b85674f95504f0ad63f4017",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "5c03358380a035f148f2a4c2568f3640670da2726c86c82b07fcb2f19f321ede",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51_4c4ed6f18df47953a2bbfc44_1",
+   "candidate": "3c5c78c347bedc2d73af494af926549a72c930b6eefe4f8e037ec2f0f18b2f03"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51_4c4ed6f18df47953a2bbfc44_2",
+   "candidate": "4a5a4903a470298e49db14292eeae20fefb88c5b95b609b1439c46f5e6f87c5e"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_hand_grip_a8397f51_4c4ed6f18df47953a2bbfc44_3",
+   "candidate": "bcad5abd1953f079033adbe724ef36e3c03e7f8abc4129ff55499618ee33b097",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "44fcae6f8700ad2d2482dfbbca747ccbea2684bd1d085166e6f49a3d6e71fc3c",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e_8b75ef604b47417c69fa4ffe_1",
+   "candidate": "2806852359abe443ca68270c2f0c395e6b90f973ca4a38b7ad7363cf933ed3c2"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e_8b75ef604b47417c69fa4ffe_2",
+   "candidate": "9d1b175a0ca28d15d31ef979ad0fd53e1b36f2c4ce5421825defc01078bb6ffa"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_turned_3c8a004e_8b75ef604b47417c69fa4ffe_3",
+   "candidate": "43467b2bf81f3e8ca808e62e35a92e43b929d1733b73cf9380caa4426de49ee1",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "7dd7dbb1a3f9c9ba964100a267cdb5a354e2d935c31f77bed9601b055b480d8a",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828_f95e11c204be3897ab51d91f_1",
+   "candidate": "b41b6e26f365caa51f01430ec33a2d39e76ecf37fe60d2243be995013f6d7061"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828_f95e11c204be3897ab51d91f_2",
+   "candidate": "bfe6fbbebb01d790e05797bd210ba4d6ee9b4e654735c522c4defb2aca668534"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_turned_954eb828_f95e11c204be3897ab51d91f_3",
+   "candidate": "3ece0bf8c1d4004f1aee1d49abb26b220d995a0b430f1b0ceff7a17234a5312a",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "b96bd27b9c88b7799a5f6ffe3dd043ecdf1da818ae2ee9b81eebb21bd4ee531e",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e_72cbf5b1e9ff37295fe524d1_1",
+   "candidate": "da594b0e509d1703218a860c4aa0b312a087d1f2385cb083de69897281bb45a6"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e_72cbf5b1e9ff37295fe524d1_2",
+   "candidate": "ff6a61647c9ceb2b328a3fc01c8ee47807606746cf3c0e637e7d08885d04331e"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_head_front_f9239c7e_72cbf5b1e9ff37295fe524d1_3",
+   "candidate": "38e7d38b1fc15ad7cc6bb73d9054efc9b8b7e2c914fadfe72283f934caa68eb8",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "c952c654069a66e568dd2331c345241ce6f3a9a17de99a5031dd82b46019e563",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7_4d933c7e2c266d979b9d9fc0_1",
+   "candidate": "126a57ebc1de84f18a10b0753d70f4f6fed51a830663db8805fed0ae22e6cfdb"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7_4d933c7e2c266d979b9d9fc0_2",
+   "candidate": "835613d93ee2580bde1a2e90c57c2ce32f2f9e68175c81abe1486a0ef1af9c15"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_torso_front_dfb474a7_4d933c7e2c266d979b9d9fc0_3",
+   "candidate": "39010c4119eb6bf2d4e587c44205474dc485765c5e7d5af93ecaece7a8e6d7e0",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "e2322933fa2538b4a82fe0c4a999230b6cf7b9ca069e1175389e38e4926cec5a",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80_6aa4c9d8ec5a26321b85bc19_1",
+   "candidate": "02402965d92838f8802867c6574c87c1ebb2ea8bf7565a0c7e9e19fee3d34817"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80_6aa4c9d8ec5a26321b85bc19_2",
+   "candidate": "36e50e16dca6d60b2370e2f9ffd26d49713e926e496a25a2a4b611ba3a3bd64c"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_brow_neutral_d9902e80_6aa4c9d8ec5a26321b85bc19_3",
+   "candidate": "c2788a2707f00e1ba6b547bd8c878c232722cc335b32862663f378f53fe16a5c",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "c4886c07f357764fcad6d7fe61082e20b08e29877a1a13eea9c255e105d56b60",
+    "media": ".svg"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7",
+   "stage": 1,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7_ee6fa71c463c356030570ecc_1",
+   "candidate": "afaf25dde43ed5d914b0fb8321e3246473f17f4dd3f7d3ab4b75c2e4ddff0200"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7",
+   "stage": 2,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7_ee6fa71c463c356030570ecc_2",
+   "candidate": "629247ec11c7e4aa6ae839cb75573edd6b268a751a7db999328f9ac36855d7ff"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7",
+   "stage": 3,
+   "of": 3,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_nova_brow_raised_fb36bff7_ee6fa71c463c356030570ecc_3",
+   "candidate": "1f4ac2890fbd5aee445292fa61f3848b575d326f983768ce44e16c392e8c6fa0",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "46415ed52e13c5f4dd8a1326b7e600a10ce4177525d917d970e25decf9550888",
+    "media": ".svg"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_tail2_160aef7d",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_tail2_160aef7d_a70ff2cc318c82e7dfada4d6_1",
+   "candidate": "a87f98664da760ca7b07d69eb227f1733e32969cea522f85cacee417fc7f8aac"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_tail2_160aef7d",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_tail2_160aef7d_a70ff2cc318c82e7dfada4d6_2",
+   "candidate": "2a12f378531b039135ae1391aa3c4a3de65c39c1e99d306370225b35e2dab032",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "1f5b2d65d7f16a577ff7135df0a5dffa9e53d89361f997e025f4a8054ceee866",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_tail1_7c16d015",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_tail1_7c16d015_92fcadaf898d091f1d728702_1",
+   "candidate": "e5730d8b26da9b48546abcad75478f8b552e3d5a05c6c51730f05d814f34966b"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_tail1_7c16d015",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_tail1_7c16d015_92fcadaf898d091f1d728702_2",
+   "candidate": "312e1654c3a6e643f01188ed0ef3d30a1042acf9f5bd4a439cff691cbbef14c1",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "6a037904d218e955fbc3e52887385450e61dd403ad7a9c4936f9945a6f371686",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_body_68d465ca",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_body_68d465ca_a9d55812bf234ff433f29115_1",
+   "candidate": "9ad66554100fc23bbf8de1e6ccf9ef522f9c56e39c5d6504b78fbd7922551372"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_body_68d465ca",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_body_68d465ca_a9d55812bf234ff433f29115_2",
+   "candidate": "6d61fcbb428532f4cb453304c6cfdc7550d3dd802d5a42d93013a2e6ccc8ee6a",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "ee5f04540051292fff4823f0785b147783ede37ebbd68ed5449b2f0b71d2e9d1",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_neck1_f0439327",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_neck1_f0439327_5147748e8825c71904450bf2_1",
+   "candidate": "874399a1f4c8b4bc88ca4ea38bae90bf426eaf59a78e3fc5fc7f4b63ec11a514"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_neck1_f0439327",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_neck1_f0439327_5147748e8825c71904450bf2_2",
+   "candidate": "f5bba8440abdf4ae204ceca44379ba801c2625c5225e193e3f9ae5276b2f26cd",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "b187db8fc3c9a9662444d16583f871d16fbf3a00b01d1f8e424156723a2daa49",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_neck2_9f961a07",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_neck2_9f961a07_b61e619c4385839f6e994729_1",
+   "candidate": "3d342dc3f2e3d9a64c11401cb9e700f0abbcd8c057e694e883311f4aa7354b0c"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_neck2_9f961a07",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_neck2_9f961a07_b61e619c4385839f6e994729_2",
+   "candidate": "2a6c10475ca032a7b9a9315fc54d9d948835d0b83751315de3eddd90a44c61df",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "e7f059f245dc7bfc07c4e5b0ea74a82f2e5840e3a92a2c7d226f232d423eb7c5",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_head_7ff8de76",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_head_7ff8de76_d34dff4e06baff110ae002b1_1",
+   "candidate": "239826b8df9ab08d0a0a6fcba4f1b4e97f664789990082bf0279dbb2bc947fbf"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_head_7ff8de76",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_head_7ff8de76_d34dff4e06baff110ae002b1_2",
+   "candidate": "2df397fe4228a5254ff6984ceb3faa95071efcca349cd7595d920a508de583f6",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "1c08ce627fb91a30fe8c3c740ac34224e04bcf559bc46744aebb4c25b55e5ec3",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_eye_open_125e084c",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_eye_open_125e084c_4ad929f4b5111d5fc2584b7c_1",
+   "candidate": "cd8543a674c7485899085651c118332bb9abca2b2d995b4428e3b2158ecb5e64"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_eye_open_125e084c",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_eye_open_125e084c_4ad929f4b5111d5fc2584b7c_2",
+   "candidate": "b3774d6bddf7e3345132f54da7b15123e6195d210061d1d785e5eb31f4815f8b",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "0d139a8210aad0dc1e664761491c0de299527b852178d722c983d403a4929ddd",
+    "media": ".png"
+   }
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_eye_closed_21d46f59",
+   "stage": 1,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_eye_closed_21d46f59_e6ebf06361b4def6833e4dc3_1",
+   "candidate": "1818f84142d8d853207f8889328a90ad52b96ef9b7053dc8d7db77adab22f353"
+  },
+  {
+   "job": "ARTJOB_PART_OR_STATE_lumen_eye_closed_21d46f59",
+   "stage": 2,
+   "of": 2,
+   "handoff": "GPT_ART_HANDOFF_ARTJOB_PART_OR_STATE_lumen_eye_closed_21d46f59_e6ebf06361b4def6833e4dc3_2",
+   "candidate": "0fc39755090d0c8b5a2236f42de5ab46b3855b3ab983b589a439c5d2a7584d1f",
+   "lineage": {
+    "origin": "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED",
+    "record": "2690a7589fbd807607a821fb2e5fb3c1c6cb7d97850f4b6da1346b1689dbb633",
+    "media": ".png"
+   }
+  }
+ ]
+}

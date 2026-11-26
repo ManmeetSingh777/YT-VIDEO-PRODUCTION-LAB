@@ -1,0 +1,1224 @@
+{
+ "schema_version": "1.0",
+ "contract_sha256": "6609d8cf26fb2aa8ae01795730087c05eda93f483a9d4cf8b771efaa6c2fd39d",
+ "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+ "tap_sha256": "3008f6bc1bb930f3fa3f142a4de3a043830fa5f2269e11379402c52747826aba",
+ "status_counts": {
+  "CODE_VERIFIED_AWAITING_REAL_INPUT": 29,
+  "VERIFIED_CODE": 3,
+  "BLOCKED_EXTERNAL_INPUT": 1,
+  "BLOCKED_IMPLEMENTATION": 4,
+  "NEEDS_HUMAN": 1
+ },
+ "rows": [
+  {
+   "requirement_id": "A01",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/art_bridge/composition.mjs#compileComposition (+ performance_commands)",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph.composeShot → Chrome",
+   "test_ids": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-1",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-2",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-6",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    }
+   ],
+   "positive_evidence": "every composed primitive's owner effect measured on every frame of its interval; semantic + composed share one compile",
+   "negative_evidence": "each producer removed → exactly its consequence fails; camera motion never stands in for actor motion",
+   "checked_frame_count_or_non_frame_check_count": "≥ 1 frame per primitive (COMP-1 asserts frames_checked > 0 for every primitive)",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "explicit union-of-covered-frames obligation ledger across ALL directed rows (incl. purposeful holds, occluded contacts, offscreen sound) is enforced per primitive/command, not yet as one film-level ledger"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    }
+   ]
+  },
+  {
+   "requirement_id": "A02",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/art_bridge/contact_continuity.mjs + temporal contactsAt",
+   "consumer": "performance_qa#verifyContactContinuity, prop support, scene graph",
+   "test_ids": [
+    {
+     "file": "tests/p08/contact_continuity.test.mjs",
+     "prefix": "A02-",
+     "passing_tests": 5,
+     "failing": [],
+     "file_sha256": "336b9e20a5f7073df8036515a57530bfa2a3ea4f648edae84cde34e4b539e561"
+    }
+   ],
+   "positive_evidence": "one contact id per hand across two cuts (offscreen middle shot), released by another action; shuffled seek identical",
+   "negative_evidence": "continuity removed, shot unmapped, wrong mapping, duplicate id, camera-contradicted visibility, undeclared cross-cut contact, mismatched release",
+   "checked_frame_count_or_non_frame_check_count": "[10,700) both hands, every frame",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/contact_continuity.test.mjs",
+     "sha256": "336b9e20a5f7073df8036515a57530bfa2a3ea4f648edae84cde34e4b539e561"
+    }
+   ]
+  },
+  {
+   "requirement_id": "A03",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "composition.mjs#writeSet + ONE_PRIMARY_WRITER + MANDATORY_EFFECT_SUPPRESSED",
+   "consumer": "composition_qa#verifyComposition",
+   "test_ids": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-1",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-4",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-6",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/photo_intent.test.mjs",
+     "prefix": "E07-2",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "dbbfb1c8fdcf9cc37cddaefcc78e140a59f9fea7cf56c050c538a0ab4b6401f7"
+    }
+   ],
+   "positive_evidence": "interval-indexed (owner, property, interval, producer, mode) write set; speech/expression/recoil/plant concurrent with no conflict",
+   "negative_evidence": "overlapping composed primary writers refused; a mandatory rotation under a locked constraint refused (never silently lost)",
+   "checked_frame_count_or_non_frame_check_count": "whole compiled plan",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/photo_intent.test.mjs",
+     "sha256": "dbbfb1c8fdcf9cc37cddaefcc78e140a59f9fea7cf56c050c538a0ab4b6401f7"
+    }
+   ]
+  },
+  {
+   "requirement_id": "A04",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/film/phase_boundary.mjs#boundaryBundle",
+   "consumer": "phase_boundary#verifySuccessor",
+   "test_ids": [
+    {
+     "file": "tests/p08/phase_freeze_audio.test.mjs",
+     "prefix": "A04-",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "484d8965a1b79876583b90ba033221d596da95bc4cac75e541202a2d63ff22a0"
+    }
+   ],
+   "positive_evidence": "sealed bundle reproduced owner-by-owner by a separately compiled successor; resumed frames = continuous; Chrome f400 pixel-identical",
+   "negative_evidence": "tampered bundle, wrong digest, gap, overlap, other revision, other parent, different state, missing owner, no predecessor",
+   "checked_frame_count_or_non_frame_check_count": "boundary frame + 6 resumed frames × 4 owners + Chrome frame",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "phases starting after parent f0 in the creative PACKET schema (P07 PRODUCTION_PHASE) still start at f0; the engine-side successor verifier exists"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/phase_freeze_audio.test.mjs",
+     "sha256": "484d8965a1b79876583b90ba033221d596da95bc4cac75e541202a2d63ff22a0"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B01",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "temporal.mjs (ACTOR/OBJECT/SURFACE/FREE authority, baked transfer)",
+   "consumer": "prop_support#evaluatePropSupport + performance_qa#verifyPropSupport",
+   "test_ids": [
+    {
+     "file": "tests/p08/prop_authority.test.mjs",
+     "prefix": "B01-",
+     "passing_tests": 7,
+     "failing": [],
+     "file_sha256": "846f03a3dbbf0f27a35933e92b51902e4e9ec02e9c815a87f3020d6c092c2475"
+    }
+   ],
+   "positive_evidence": "hand path lowers the plaque with no plaque keys; moving surface; actor hand-over; object-driven reverse; free flight; Chrome owner pixels",
+   "negative_evidence": "driver consumer deleted, conflicting writers, undeclared mode, mode/driver mismatch, path vs arm track, invalid transfer, free flight with grip",
+   "checked_frame_count_or_non_frame_check_count": "[228,276) every frame + transfers",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/prop_authority.test.mjs",
+     "sha256": "846f03a3dbbf0f27a35933e92b51902e4e9ec02e9c815a87f3020d6c092c2475"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B02",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "temporal.mjs#solveConstraints (palm basis SOLVED, blended)",
+   "consumer": "solved contact angle residual + prop support",
+   "test_ids": [
+    {
+     "file": "tests/p08/contact_orientation.test.mjs",
+     "prefix": "B02-",
+     "passing_tests": 3,
+     "failing": [],
+     "file_sha256": "c088b028952aceacac58717b9097cc0a0288dcee3d785acc7163e54ec0599e82"
+    }
+   ],
+   "positive_evidence": "residual ~0 on every locked frame for a basis FK would not have",
+   "negative_evidence": "reversed palm refused by IK/limits, production contact without basis, one socket holding two objects",
+   "checked_frame_count_or_non_frame_check_count": "5 locked frames + approach ramp",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/contact_orientation.test.mjs",
+     "sha256": "c088b028952aceacac58717b9097cc0a0288dcee3d785acc7163e54ec0599e82"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B03",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/art_bridge/pinch.mjs (PINCH_CONTRACT v1)",
+   "consumer": "performance_qa#verifyPinch + scene graph paint order",
+   "test_ids": [
+    {
+     "file": "tests/p08/pinch.test.mjs",
+     "prefix": "B03-",
+     "passing_tests": 3,
+     "failing": [],
+     "file_sha256": "0bb3c2599c337d5289bf7a934155995cb17f23e5a4ecd580763269a4c82218c3"
+    }
+   ],
+   "positive_evidence": "page FACE_ON (near/far layers) + coin EDGE_ON (opposed faces) on two unlike actors, every locked frame; Chrome thumb over page / fingers behind",
+   "negative_evidence": "no contract, missing closure art, missing layer, same-side, hover, intersect, fist drawing; inverted/removed layer order on the same frame",
+   "checked_frame_count_or_non_frame_check_count": "≥ 199 locked frames per pinch",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/pinch.test.mjs",
+     "sha256": "0bb3c2599c337d5289bf7a934155995cb17f23e5a4ecd580763269a4c82218c3"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B04",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "composition WALK + temporal target_path contacts",
+   "consumer": "composition_qa WALK",
+   "test_ids": [
+    {
+     "file": "tests/p08/walk.test.mjs",
+     "prefix": "B04-",
+     "passing_tests": 3,
+     "failing": [],
+     "file_sha256": "bf0e389aed5d834496c74101234cc12ccb7f8057a3c4082092b0a14ccde00610"
+    },
+    {
+     "file": "tests/p08/carry_load_insert.test.mjs",
+     "prefix": "B07-3",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "73ef1ed93d29184fa70c9f2b0d854108ffaef97b9885027043de2b891f02b7ba"
+    }
+   ],
+   "positive_evidence": "tall + short bipeds from approved step schedules; stance planted, toe clearance, dynamic support, monotone progress; Chrome stance foot vs torso",
+   "negative_evidence": "no schedule, impossible stride, flight, same foot twice, non-biped topology, slid stance, swapped knee branch",
+   "checked_frame_count_or_non_frame_check_count": "≥ 240 frames per biped",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "approved APPROVED_CELS gait route unchanged (P05); running/flight phases accepted only when directed (not separately exercised)"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/walk.test.mjs",
+     "sha256": "bf0e389aed5d834496c74101234cc12ccb7f8057a3c4082092b0a14ccde00610"
+    },
+    {
+     "file": "tests/p08/carry_load_insert.test.mjs",
+     "sha256": "73ef1ed93d29184fa70c9f2b0d854108ffaef97b9885027043de2b891f02b7ba"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B05",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/film/integrity_qa.mjs#verifySeams (registered alpha)",
+   "consumer": "integrity QA on evaluated frames",
+   "test_ids": [
+    {
+     "file": "tests/p08/integrity.test.mjs",
+     "prefix": "B05",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "7650471cbfd158259f6ae177b8b24ebb92cf2830c2ede290bb7b8e96fbabd2c8"
+    }
+   ],
+   "positive_evidence": "elbow seam covered on every frame of the rehearsal film's bend with owned underpaint",
+   "negative_evidence": "without underpaint: holes on bent frames only; scale change = stretched limb",
+   "checked_frame_count_or_non_frame_check_count": "every frame of the rig's shot",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "vector homologous-morph triangle flip checks rely on the P03 morph validator"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/integrity.test.mjs",
+     "sha256": "7650471cbfd158259f6ae177b8b24ebb92cf2830c2ede290bb7b8e96fbabd2c8"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B06",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "performance_commands reach/point/look_at/turn/hold + composition AIM/REACH + A02 persistence",
+   "consumer": "performance_qa executors + composition_qa",
+   "test_ids": [
+    {
+     "file": "tests/tbo/performance_commands.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 9,
+     "failing": [],
+     "file_sha256": "a6f1aed60980c48031fca7aa253eae68b6529c0c50643d64b0c7a1d2f5029c51"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-1",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/contact_continuity.test.mjs",
+     "prefix": "A02-5",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "336b9e20a5f7073df8036515a57530bfa2a3ea4f648edae84cde34e4b539e561"
+    }
+   ],
+   "positive_evidence": "P06 executors + holds persisting across cuts + bounded aims",
+   "negative_evidence": "P06 negatives; out-of-reach gaze reported as needing a view cel",
+   "checked_frame_count_or_non_frame_check_count": "per command interval",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/tbo/performance_commands.test.mjs",
+     "sha256": "a6f1aed60980c48031fca7aa253eae68b6529c0c50643d64b0c7a1d2f5029c51"
+    },
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/contact_continuity.test.mjs",
+     "sha256": "336b9e20a5f7073df8036515a57530bfa2a3ea4f648edae84cde34e4b539e561"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B07",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "composition CARRY / LOAD_CONTAINER / INSERT_TOKEN on B01 + paint order",
+   "consumer": "composition_qa",
+   "test_ids": [
+    {
+     "file": "tests/p08/carry_load_insert.test.mjs",
+     "prefix": "B07-",
+     "passing_tests": 4,
+     "failing": [],
+     "file_sha256": "73ef1ed93d29184fa70c9f2b0d854108ffaef97b9885027043de2b891f02b7ba"
+    }
+   ],
+   "positive_evidence": "insert aligned/monotone/stopped; load through opening to inside socket; carry by walking carrier hand; Chrome aperture occlusion",
+   "negative_evidence": "wall pass, wrong orientation, overshoot, withdrawal, missing layer, teleport, short of floor, separately owned prop",
+   "checked_frame_count_or_non_frame_check_count": "[100,200) every frame",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/carry_load_insert.test.mjs",
+     "sha256": "73ef1ed93d29184fa70c9f2b0d854108ffaef97b9885027043de2b891f02b7ba"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B08",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/film/integrity_qa.mjs#verifySupportIntents/#verifyCollisions",
+   "consumer": "integrity QA",
+   "test_ids": [
+    {
+     "file": "tests/p08/integrity.test.mjs",
+     "prefix": "B08",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "7650471cbfd158259f6ae177b8b24ebb92cf2830c2ede290bb7b8e96fbabd2c8"
+    }
+   ],
+   "positive_evidence": "grounded, held, offstage intents; apart owners",
+   "negative_evidence": "floating, sinking, unheld, offstage-in-frame, same-depth interpenetration; different depths = occlusion not collision",
+   "checked_frame_count_or_non_frame_check_count": "per intent interval",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/integrity.test.mjs",
+     "sha256": "7650471cbfd158259f6ae177b8b24ebb92cf2830c2ede290bb7b8e96fbabd2c8"
+    }
+   ]
+  },
+  {
+   "requirement_id": "B09",
+   "status": "VERIFIED_CODE",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "real runtime path in every B test",
+   "consumer": "Chrome owner pixels",
+   "test_ids": [
+    {
+     "file": "tests/p08/prop_authority.test.mjs",
+     "prefix": "B01-7",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "846f03a3dbbf0f27a35933e92b51902e4e9ec02e9c815a87f3020d6c092c2475"
+    },
+    {
+     "file": "tests/p08/pinch.test.mjs",
+     "prefix": "B03-3",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "0bb3c2599c337d5289bf7a934155995cb17f23e5a4ecd580763269a4c82218c3"
+    },
+    {
+     "file": "tests/p08/walk.test.mjs",
+     "prefix": "B04-3",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "bf0e389aed5d834496c74101234cc12ccb7f8057a3c4082092b0a14ccde00610"
+    },
+    {
+     "file": "tests/p08/carry_load_insert.test.mjs",
+     "prefix": "B07-4",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "73ef1ed93d29184fa70c9f2b0d854108ffaef97b9885027043de2b891f02b7ba"
+    }
+   ],
+   "positive_evidence": "owner-specific pixel measurements on real Chrome frames",
+   "negative_evidence": "producer deleted / order inverted on the same frame",
+   "checked_frame_count_or_non_frame_check_count": "per test",
+   "external_input_blocker": null,
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/prop_authority.test.mjs",
+     "sha256": "846f03a3dbbf0f27a35933e92b51902e4e9ec02e9c815a87f3020d6c092c2475"
+    },
+    {
+     "file": "tests/p08/pinch.test.mjs",
+     "sha256": "0bb3c2599c337d5289bf7a934155995cb17f23e5a4ecd580763269a4c82218c3"
+    },
+    {
+     "file": "tests/p08/walk.test.mjs",
+     "sha256": "bf0e389aed5d834496c74101234cc12ccb7f8057a3c4082092b0a14ccde00610"
+    },
+    {
+     "file": "tests/p08/carry_load_insert.test.mjs",
+     "sha256": "73ef1ed93d29184fa70c9f2b0d854108ffaef97b9885027043de2b891f02b7ba"
+    }
+   ]
+  },
+  {
+   "requirement_id": "C01",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "composition primitives parameterised by approved per-character envelopes + rig geometry",
+   "consumer": "composition_qa",
+   "test_ids": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-3",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    }
+   ],
+   "positive_evidence": "excited vs tired envelope → different measured amplitude; short vs tall biped → own knee solution; same code",
+   "negative_evidence": "out-of-domain envelopes refused (COMP-4)",
+   "checked_frame_count_or_non_frame_check_count": "full primitive intervals",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "profiles are test-supplied tables; the approved E01 actor profiles do not exist yet"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    }
+   ]
+  },
+  {
+   "requirement_id": "C02",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "EXPRESSION_TRANSITION v1 in performance_commands",
+   "consumer": "performance_qa ExpressionTransitionTraversed",
+   "test_ids": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "prefix": "C02",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ],
+   "positive_evidence": "anchored intermediates visible in order (Chrome brows)",
+   "negative_evidence": "missing middle cel, wrong order, endpoint-only, unordered, morph route on raster, swap producer removed",
+   "checked_frame_count_or_non_frame_check_count": "≥ 50 frames per transition",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ]
+  },
+  {
+   "requirement_id": "C03",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/art_bridge/speech_visemes.mjs + speak VISEME route",
+   "consumer": "performance_qa VisemeSync + Chrome mouth pixels",
+   "test_ids": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "prefix": "C03-",
+     "passing_tests": 3,
+     "failing": [],
+     "file_sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ],
+   "positive_evidence": "midpoint-sample visemes; forced sub-frame closure reported; family follows expression; real P3.1 phones reproduced exactly (86/86, tools/tbo/e01_speech_preflight.mjs); P3.2 audio and phone timelines byte-identical to P3.1",
+   "negative_evidence": "wrong take, wrong character, OOV, word-only aligner, diagnostic schedule in PRODUCTION, LIMITED substituted, shifted/deleted mouth events",
+   "checked_frame_count_or_non_frame_check_count": "≥ 30 frames per cue",
+   "external_input_blocker": "approved mouth drawings for the used tuples; A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ]
+  },
+  {
+   "requirement_id": "C04",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "face_composition + expression-driven resting mouth family",
+   "consumer": "performance_qa#verifyFaceComposition",
+   "test_ids": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "prefix": "C04",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ],
+   "positive_evidence": "legal tuples on every directed frame",
+   "negative_evidence": "wrong-family mouth, baked double mouth, wrong region owner, stale-view mouth",
+   "checked_frame_count_or_non_frame_check_count": "all command frames of the rig",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "pupil-inside-eye-MASK check still uses the P03 bbox check"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ]
+  },
+  {
+   "requirement_id": "C05",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "AIM / look_at + contact visibility + framing (P04)",
+   "consumer": "composition_qa AIM, verifyContactContinuity visibility, framing.verifyFraming",
+   "test_ids": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "prefix": "COMP-1",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/contact_continuity.test.mjs",
+     "prefix": "A02-4",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "336b9e20a5f7073df8036515a57530bfa2a3ea4f648edae84cde34e4b539e561"
+    },
+    {
+     "file": "tests/p08/photo_intent.test.mjs",
+     "prefix": "E07-1",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "dbbfb1c8fdcf9cc37cddaefcc78e140a59f9fea7cf56c050c538a0ab4b6401f7"
+    }
+   ],
+   "positive_evidence": "bounded gaze holds; declared visibility checked against the camera",
+   "negative_evidence": "unreachable gaze reported; visibility contradicted by the camera",
+   "checked_frame_count_or_non_frame_check_count": "hold windows",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "readable-attention-window scale gate per directed interval not yet a separate verifier"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/composition.test.mjs",
+     "sha256": "e82cd661daf9aa897f4abf856e0e35fafa45e839d5b61b75121372c626a8a57d"
+    },
+    {
+     "file": "tests/p08/contact_continuity.test.mjs",
+     "sha256": "336b9e20a5f7073df8036515a57530bfa2a3ea4f648edae84cde34e4b539e561"
+    },
+    {
+     "file": "tests/p08/photo_intent.test.mjs",
+     "sha256": "dbbfb1c8fdcf9cc37cddaefcc78e140a59f9fea7cf56c050c538a0ab4b6401f7"
+    }
+   ]
+  },
+  {
+   "requirement_id": "C06",
+   "status": "BLOCKED_EXTERNAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "tools/tbo/e01_action_coverage.mjs (decomposition) + all P08 producers",
+   "consumer": "real E01 packet render + human review",
+   "test_ids": [],
+   "positive_evidence": "P3.2 (current): 19 phase-1 actions incl. A27 mapped to existing producers (P08_ACTION_COVERAGE_P3_2.json); P3.1 18/18 kept as history (P08_ACTION_COVERAGE.json); phase gap CAPTION_OVERLAY has no engine producer",
+   "negative_evidence": "n/a until the signed packet exists",
+   "checked_frame_count_or_non_frame_check_count": "0 real frames",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": []
+  },
+  {
+   "requirement_id": "D01",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "art_demand + planJobs + pregen audit + P08 tuple demands",
+   "consumer": "art_outbox export → export-gpt-job",
+   "test_ids": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "prefix": "C03-2",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    },
+    {
+     "file": "tests/tbo/p07_creative.test.mjs",
+     "prefix": "P07-A",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "f00350d759faa7483a26c7a024f05ad1e5766074c6d90c69524b7fa669597f11"
+    },
+    {
+     "file": "tests/p08/evaluation_identity.test.mjs",
+     "prefix": "EID-",
+     "passing_tests": 7,
+     "failing": [],
+     "file_sha256": "782235a523ed292b4bf04fa5db305352e22a043dfc9a95220c58c6242e05d5cf"
+    }
+   ],
+   "positive_evidence": "used viseme tuples only; master readiness scoped (P08_ACTION_COVERAGE.master_artjob_readiness); evaluation identity binds rules",
+   "negative_evidence": "stale approval/generation, missing audit, missing tuple drawing",
+   "checked_frame_count_or_non_frame_check_count": "per job",
+   "external_input_blocker": "approved designs + ten-pass audits from GPT ART; signed packet",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    },
+    {
+     "file": "tests/tbo/p07_creative.test.mjs",
+     "sha256": "f00350d759faa7483a26c7a024f05ad1e5766074c6d90c69524b7fa669597f11"
+    },
+    {
+     "file": "tests/p08/evaluation_identity.test.mjs",
+     "sha256": "782235a523ed292b4bf04fa5db305352e22a043dfc9a95220c58c6242e05d5cf"
+    }
+   ]
+  },
+  {
+   "requirement_id": "D02",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "registration.mjs + art_intake (P0–P05)",
+   "consumer": "asset registry",
+   "test_ids": [
+    {
+     "file": "tests/art_bridge/p0_audit.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 10,
+     "failing": [],
+     "file_sha256": "d0b3a2198cd26b29c6090dc061a3d304cd6bf47f40556c841aedb8ba2092e5c7"
+    },
+    {
+     "file": "tests/art_bridge/stage3_contract.test.mjs",
+     "prefix": "S3C-8",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "0c5b38cbe46f953f934c50606329e22ce869dea07e1183076570c86f5e993d62"
+    }
+   ],
+   "positive_evidence": "measured registration through the real intake (all P08 fixtures)",
+   "negative_evidence": "P0 negatives (moved pivot, replaced PNG, foreign receipt)",
+   "checked_frame_count_or_non_frame_check_count": "per asset",
+   "external_input_blocker": "real GPT art",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/art_bridge/p0_audit.test.mjs",
+     "sha256": "d0b3a2198cd26b29c6090dc061a3d304cd6bf47f40556c841aedb8ba2092e5c7"
+    },
+    {
+     "file": "tests/art_bridge/stage3_contract.test.mjs",
+     "sha256": "0c5b38cbe46f953f934c50606329e22ce869dea07e1183076570c86f5e993d62"
+    }
+   ]
+  },
+  {
+   "requirement_id": "D03",
+   "status": "BLOCKED_IMPLEMENTATION",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "post_art_feedback + cameraSizedArtworkDemand",
+   "consumer": "production stages",
+   "test_ids": [
+    {
+     "file": "tests/p05/p05_film.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 12,
+     "failing": [
+      "P05-R1 an interrupted run resumes from its verified chunks with its own plan, length and chunking (found when the computer slept during a render)"
+     ],
+     "file_sha256": "62da1a72d7bf1ffe3a57bc505a1f886df48ec825b9820ab0b7a79c6c13f164f4"
+    }
+   ],
+   "positive_evidence": "P05 post-art feasibility",
+   "negative_evidence": "P05 negatives",
+   "checked_frame_count_or_non_frame_check_count": "per frame (P05)",
+   "external_input_blocker": "real art",
+   "remaining_gaps": [
+    "2× native-resolution policy from the D3 framing is reported in the art delta, not yet a hard gate"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p05/p05_film.test.mjs",
+     "sha256": "62da1a72d7bf1ffe3a57bc505a1f886df48ec825b9820ab0b7a79c6c13f164f4"
+    }
+   ]
+  },
+  {
+   "requirement_id": "D04",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "state_router + occlusion graph + paint order",
+   "consumer": "scene graph",
+   "test_ids": [
+    {
+     "file": "tests/p03/p03_capabilities.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 19,
+     "failing": [],
+     "file_sha256": "dac8881964abf93110eb19c57e1029192c973ef5697d6a6ecb8186b29a4edbb9"
+    },
+    {
+     "file": "tests/p08/pinch.test.mjs",
+     "prefix": "B03-3",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "0bb3c2599c337d5289bf7a934155995cb17f23e5a4ecd580763269a4c82218c3"
+    }
+   ],
+   "positive_evidence": "view edges + declared paint order on pixels",
+   "negative_evidence": "inverted order on the same frame",
+   "checked_frame_count_or_non_frame_check_count": "per test",
+   "external_input_blocker": "real view families",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p03/p03_capabilities.test.mjs",
+     "sha256": "dac8881964abf93110eb19c57e1029192c973ef5697d6a6ecb8186b29a4edbb9"
+    },
+    {
+     "file": "tests/p08/pinch.test.mjs",
+     "sha256": "0bb3c2599c337d5289bf7a934155995cb17f23e5a4ecd580763269a4c82218c3"
+    }
+   ]
+  },
+  {
+   "requirement_id": "D05",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "repair_memory + candidate_store + production_run resume (P02)",
+   "consumer": "outbox/import",
+   "test_ids": [
+    {
+     "file": "tests/p02/p02_repairs.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 10,
+     "failing": [],
+     "file_sha256": "e9ceb699ffdce787d6fb3857f3923897e390a316df16a66a37c08a01066eba63"
+    }
+   ],
+   "positive_evidence": "P02 repair routing",
+   "negative_evidence": "P02 negatives",
+   "checked_frame_count_or_non_frame_check_count": "per repair",
+   "external_input_blocker": "real art reviews",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p02/p02_repairs.test.mjs",
+     "sha256": "e9ceb699ffdce787d6fb3857f3923897e390a316df16a66a37c08a01066eba63"
+    }
+   ]
+  },
+  {
+   "requirement_id": "D06",
+   "status": "VERIFIED_CODE",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "approvals + film review (S09)",
+   "consumer": "production stages",
+   "test_ids": [
+    {
+     "file": "tests/art_bridge/p01_film_qa.test.mjs",
+     "prefix": "B3-6",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "6080d9c0e31d13fbe6b942af678e80c1ae34ae15763bc11d9f11e7f35290ede7"
+    },
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "prefix": "C03-3",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ],
+   "positive_evidence": "DIAGNOSTIC trust never becomes PRODUCTION; S09 blocked without human review",
+   "negative_evidence": "diagnostic schedule in PRODUCTION refused; test trust refused for real providers",
+   "checked_frame_count_or_non_frame_check_count": "per gate",
+   "external_input_blocker": null,
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/art_bridge/p01_film_qa.test.mjs",
+     "sha256": "6080d9c0e31d13fbe6b942af678e80c1ae34ae15763bc11d9f11e7f35290ede7"
+    },
+    {
+     "file": "tests/p08/face_speech.test.mjs",
+     "sha256": "5c638993bb6be62c140b7fdb9c2ff404d0374004838c0c1d8e68ddcf400062a5"
+    }
+   ]
+  },
+  {
+   "requirement_id": "E01",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "temporal.mjs plan.time_remaps",
+   "consumer": "stateAtFrame → composeShot → Chrome",
+   "test_ids": [
+    {
+     "file": "tests/p08/phase_freeze_audio.test.mjs",
+     "prefix": "E01-",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "484d8965a1b79876583b90ba033221d596da95bc4cac75e541202a2d63ff22a0"
+    }
+   ],
+   "positive_evidence": "frozen group = exact source-frame state; others live; Chrome frozen region byte-identical",
+   "negative_evidence": "source inside interval, unnamed group, unapproved reverse, two remaps, unknown camera policy, off-by-one source",
+   "checked_frame_count_or_non_frame_check_count": "[400,460) × group",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/phase_freeze_audio.test.mjs",
+     "sha256": "484d8965a1b79876583b90ba033221d596da95bc4cac75e541202a2d63ff22a0"
+    }
+   ]
+  },
+  {
+   "requirement_id": "E02",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "scene_graph plan.grades (linear-light Rec.709 filters)",
+   "consumer": "Chrome runtime attribute map",
+   "test_ids": [
+    {
+     "file": "tests/p08/selective_grade.test.mjs",
+     "prefix": "E02-",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "6090c196ef968db1fa915798c85542ad9b2e43d3350bd723a18930d82b781165"
+    }
+   ],
+   "positive_evidence": "exact expected grays at full/half weight; protected owner colour kept",
+   "negative_evidence": "unnamed group, protected-in-group, weight range; producer removed restores colour",
+   "checked_frame_count_or_non_frame_check_count": "3 frames on pixels",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [
+    "directed present↔memory transition mattes use the existing transition system (not re-tested here)"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/selective_grade.test.mjs",
+     "sha256": "6090c196ef968db1fa915798c85542ad9b2e43d3350bd723a18930d82b781165"
+    }
+   ]
+  },
+  {
+   "requirement_id": "E03",
+   "status": "BLOCKED_IMPLEMENTATION",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "host_pass.projectCamera PERSP + blender_host_passes.py",
+   "consumer": "compileHostPasses calibration gate",
+   "test_ids": [
+    {
+     "file": "tests/p08/host_perspective.test.mjs",
+     "prefix": "E03",
+     "passing_tests": 0,
+     "failing": [
+      "E03 perspective host: engine K[R|t] projection = Blender's projection of the contact; wrong lens / moved camera refused; behind-camera refused"
+     ],
+     "file_sha256": "b99b6b22049952aee91c5aa49c14d55180fe8258300923b57d39cd52270b349b"
+    }
+   ],
+   "positive_evidence": "engine K[R|t] = Blender projection < 0.05 px (real Blender 5.1)",
+   "negative_evidence": "wrong lens, moved camera, behind camera",
+   "checked_frame_count_or_non_frame_check_count": "1 rendered frame",
+   "external_input_blocker": "approved host .blend + host design",
+   "remaining_gaps": [
+    "actual host rig acting/expressions need the approved host"
+   ],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/host_perspective.test.mjs",
+     "sha256": "b99b6b22049952aee91c5aa49c14d55180fe8258300923b57d39cd52270b349b"
+    }
+   ]
+  },
+  {
+   "requirement_id": "E04",
+   "status": "BLOCKED_IMPLEMENTATION",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "(missing) per-pixel host depth/matte compositing",
+   "consumer": "(missing)",
+   "test_ids": [],
+   "positive_evidence": "none",
+   "negative_evidence": "none",
+   "checked_frame_count_or_non_frame_check_count": "0",
+   "external_input_blocker": null,
+   "remaining_gaps": [
+    "Blender depth pass export, depth-unit conversion and per-pixel occlusion against declared 2D foreground depth are NOT implemented; band-level host compositing (P06) remains the only route"
+   ],
+   "artifact_digests": []
+  },
+  {
+   "requirement_id": "E05",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "temporal camera_ops DOLLY/ORBIT + scene_graph per-band pinhole",
+   "consumer": "Chrome camera rows",
+   "test_ids": [
+    {
+     "file": "tests/p08/camera_ops.test.mjs",
+     "prefix": "E05-",
+     "passing_tests": 3,
+     "failing": [],
+     "file_sha256": "74948d3f3d093d43ce2e6422116126d6720bd2b7a521e7675bf7d8ce720d49f4"
+    }
+   ],
+   "positive_evidence": "rows = pinhole math; near/far scale differently; Chrome focal-band growth = factor",
+   "negative_evidence": "flat zoom detected; depths/lens/through-band refused; orbit beyond coverage → exact art request",
+   "checked_frame_count_or_non_frame_check_count": "dolly interval",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/camera_ops.test.mjs",
+     "sha256": "74948d3f3d093d43ce2e6422116126d6720bd2b7a521e7675bf7d8ce720d49f4"
+    }
+   ]
+  },
+  {
+   "requirement_id": "E06",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "decoder model_card + MODEL_BAR (P06)",
+   "consumer": "decoder_qa + composition combo",
+   "test_ids": [
+    {
+     "file": "tests/tbo/decoder_model.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 5,
+     "failing": [],
+     "file_sha256": "e0da520162c92b12054d34678644a2a8c538772180a400a08fe884e9c783ccd9"
+    },
+    {
+     "file": "tests/p08/combo_mechanism_model.test.mjs",
+     "prefix": "COMBO-4",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "e5220a0960269da9c78e5a57a18c0a31ed7cb93c76e85694e55b628d4001d7bc"
+    }
+   ],
+   "positive_evidence": "bars follow the model on pixels; gear train concurrent",
+   "negative_evidence": "stale digest, frozen graph, changed input moves pixels",
+   "checked_frame_count_or_non_frame_check_count": "P06 frames + combo frames",
+   "external_input_blocker": "approved E01 model values (strategy undecided)",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/tbo/decoder_model.test.mjs",
+     "sha256": "e0da520162c92b12054d34678644a2a8c538772180a400a08fe884e9c783ccd9"
+    },
+    {
+     "file": "tests/p08/combo_mechanism_model.test.mjs",
+     "sha256": "e5220a0960269da9c78e5a57a18c0a31ed7cb93c76e85694e55b628d4001d7bc"
+    }
+   ]
+  },
+  {
+   "requirement_id": "E07",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/film/photo_intent.mjs",
+   "consumer": "photo intent verifier",
+   "test_ids": [
+    {
+     "file": "tests/p08/photo_intent.test.mjs",
+     "prefix": "E07-",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "dbbfb1c8fdcf9cc37cddaefcc78e140a59f9fea7cf56c050c538a0ab4b6401f7"
+    }
+   ],
+   "positive_evidence": "subject in, page/photographer out, settled aim, shutter press after cue, no flash",
+   "negative_evidence": "9 negatives",
+   "checked_frame_count_or_non_frame_check_count": "aim window + capture frame",
+   "external_input_blocker": "approved phone lens socket + D6 reviewed polygon on real art",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/photo_intent.test.mjs",
+     "sha256": "dbbfb1c8fdcf9cc37cddaefcc78e140a59f9fea7cf56c050c538a0ab4b6401f7"
+    }
+   ]
+  },
+  {
+   "requirement_id": "F01",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "engine/film/phase_audio.mjs",
+   "consumer": "phase_boundary audio crossing + mux",
+   "test_ids": [
+    {
+     "file": "tests/p08/phase_freeze_audio.test.mjs",
+     "prefix": "F01",
+     "passing_tests": 2,
+     "failing": [],
+     "file_sha256": "484d8965a1b79876583b90ba033221d596da95bc4cac75e541202a2d63ff22a0"
+    }
+   ],
+   "positive_evidence": "split PCM = continuous bit-for-bit; crossing cue continues at exact source sample; phase WAV = frames × 800",
+   "negative_evidence": "truncated, duplicated onset, wrong take, fractional placement",
+   "checked_frame_count_or_non_frame_check_count": "480 000 samples",
+   "external_input_blocker": "approved A/V placement; real SFX/score",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/phase_freeze_audio.test.mjs",
+     "sha256": "484d8965a1b79876583b90ba033221d596da95bc4cac75e541202a2d63ff22a0"
+    }
+   ]
+  },
+  {
+   "requirement_id": "F02",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "segment_render input-keyed chunk reuse + pixel-keyed cache",
+   "consumer": "renderFilm",
+   "test_ids": [
+    {
+     "file": "tests/p08/selective_invalidation.test.mjs",
+     "prefix": "F02",
+     "passing_tests": 1,
+     "failing": [],
+     "file_sha256": "9e711945dc8c4616e32321e2e03c9d196fd198863dea6bf4202507c91bf8900a"
+    }
+   ],
+   "positive_evidence": "one mouth change inside one chunk re-renders only that chunk (Chrome)",
+   "negative_evidence": "tampered stored chunk regenerated; injected failure disables reuse",
+   "checked_frame_count_or_non_frame_check_count": "3 chunks × 20 frames",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p08/selective_invalidation.test.mjs",
+     "sha256": "9e711945dc8c4616e32321e2e03c9d196fd198863dea6bf4202507c91bf8900a"
+    }
+   ]
+  },
+  {
+   "requirement_id": "F03",
+   "status": "CODE_VERIFIED_AWAITING_REAL_INPUT",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "tools/tbo/e01_action_coverage.mjs + this generator",
+   "consumer": "P08_ACTION_COVERAGE_P3_2.json (+ P3.1 history), P08_CAPABILITY_MATRIX.json",
+   "test_ids": [],
+   "positive_evidence": "P3.2: 19 actions, tally sums to rows, 0 missing per-action producers; P3.1 output byte-identical on re-run",
+   "negative_evidence": "tally assertion; registry lookups (no hard-coded success); source files hash-verified against the delta manifest",
+   "checked_frame_count_or_non_frame_check_count": "19 rows (P3.2) + 18 (P3.1)",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": []
+  },
+  {
+   "requirement_id": "F04",
+   "status": "VERIFIED_CODE",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "one comprehensive regression on the frozen P08 SHA",
+   "consumer": "engineering/p08/final_run",
+   "test_ids": [],
+   "positive_evidence": "see FINAL_ENGINEERING_TAP.tap",
+   "negative_evidence": "remove-one-producer / tamper negatives throughout",
+   "checked_frame_count_or_non_frame_check_count": "full suite",
+   "external_input_blocker": null,
+   "remaining_gaps": [],
+   "artifact_digests": []
+  },
+  {
+   "requirement_id": "F05",
+   "status": "BLOCKED_IMPLEMENTATION",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "production stages S00–S09 (P02–P05)",
+   "consumer": "production_run",
+   "test_ids": [
+    {
+     "file": "tests/p02/p02_injection.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 12,
+     "failing": [],
+     "file_sha256": "557a83ef1e283d6ea5b3fffcbcd5e25374d024a695a3b0815a4fc00f4f824e43"
+    },
+    {
+     "file": "tests/p05/p05_film.test.mjs",
+     "prefix": "(whole file)",
+     "passing_tests": 12,
+     "failing": [
+      "P05-R1 an interrupted run resumes from its verified chunks with its own plan, length and chunking (found when the computer slept during a render)"
+     ],
+     "file_sha256": "62da1a72d7bf1ffe3a57bc505a1f886df48ec825b9820ab0b7a79c6c13f164f4"
+    }
+   ],
+   "positive_evidence": "staged chain with typed first failures",
+   "negative_evidence": "injections at every stage",
+   "checked_frame_count_or_non_frame_check_count": "per stage",
+   "external_input_blocker": "approved E01 art (masters + derived states), signed phase-1 packet and A/V placement approval",
+   "remaining_gaps": [],
+   "artifact_digests": [
+    {
+     "file": "tests/p02/p02_injection.test.mjs",
+     "sha256": "557a83ef1e283d6ea5b3fffcbcd5e25374d024a695a3b0815a4fc00f4f824e43"
+    },
+    {
+     "file": "tests/p05/p05_film.test.mjs",
+     "sha256": "62da1a72d7bf1ffe3a57bc505a1f886df48ec825b9820ab0b7a79c6c13f164f4"
+    }
+   ]
+  },
+  {
+   "requirement_id": "F06",
+   "status": "NEEDS_HUMAN",
+   "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+   "producer": "branch reconciliation report",
+   "consumer": "reviewed PR to main",
+   "test_ids": [],
+   "positive_evidence": "see P08_FINAL_REPORT §F06",
+   "negative_evidence": "no merge/delete without the user",
+   "checked_frame_count_or_non_frame_check_count": "ancestry only",
+   "external_input_blocker": null,
+   "remaining_gaps": [],
+   "artifact_digests": []
+  }
+ ]
+}

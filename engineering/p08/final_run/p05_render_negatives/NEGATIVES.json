@@ -1,0 +1,65 @@
+{
+ "linked_gear_frozen_while_lever_moves": {
+  "frames": [
+   110,
+   140
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 29
+ },
+ "near_rock_does_not_uncover_the_creature": {
+  "frames": [
+   300,
+   320
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 19
+ },
+ "transition_plates_missing": {
+  "frames": [
+   424,
+   440
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 16
+ },
+ "view_turn_not_drawn": {
+  "frames": [
+   32,
+   38
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 4
+ },
+ "tokens_frozen_while_camera_pushes": {
+  "frames": [
+   500,
+   520
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 19
+ },
+ "camera_frozen_while_tokens_flow": {
+  "frames": [
+   500,
+   520
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 19
+ },
+ "lever_frozen_while_body_pulls": {
+  "frames": [
+   120,
+   150
+  ],
+  "detected": true,
+  "control_clean": true,
+  "diverging_frames": 29
+ }
+}

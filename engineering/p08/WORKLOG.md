@@ -59,3 +59,14 @@ C02/C03/C04 → E01/E07 → F01/A04 → D01 → B04–B08 → C01/C05 → E02/E0
 - Report tools: tools/tbo/p08_results.mjs --tap <TAP> --sha <sha> → P08_REQUIREMENT_RESULTS / CAPABILITY_MATRIX / ART_CONTRACT_DELTA / NEGATIVE_EVIDENCE.
 - F06: our head contains mia-first-film + 3 repair branches; missing only main (README, 3 commits) and design/gpt-creative-production-contract-v1
   (8 doc files under docs/gpt-creative-control) → integration branch + one PR after publication (no merge).
+
+## 2026-11-26 — regression executed, failures corrected, P3.2 intake
+- The frozen ef0a722 regression gave 365/367 and all three follow-ons exited 0 (evidence: `final_run/`).
+  - E03 failed on a real engine containment bug across drives.
+  - P05-R1 failed on a stale chunk count (it counted the F02 store).
+  - Both are fixed in 5314269; the targeted re-test is 2/2. No second comprehensive run: that decision is Manmeet's.
+- `p08_results.mjs` now attributes whole-file evidence by declared test titles.
+- P3.2 is now the creative source (text/SVG in `docs/.../P3_2_MEASURED/original`).
+  - Coverage: 19 actions incl. A27, 0 missing per-action producers.
+  - CAPTION_OVERLAY has no engine producer (recorded).
+  - P3.2 audio and timelines are byte-identical to P3.1. The revised animatic is NOT approved.

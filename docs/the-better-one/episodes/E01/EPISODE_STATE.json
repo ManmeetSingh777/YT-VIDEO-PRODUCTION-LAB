@@ -68,20 +68,63 @@
     "estimated_host_entrance_absolute_s": [
       24.75,
       32.5
-    ]
+    ],
+    "phase1_current": {
+      "revision": "E01_V0.4_DIR_P1_PHASE1_P3.2",
+      "package": "E01_PHASE1_MEASURED_P3_2_CREATIVE_PRODUCTION.zip",
+      "package_sha256": "ecd054815e4610805fe6861b6020554fef6d6f40c72c893b84e3a3382a0eeffc",
+      "path": "docs/the-better-one/episodes/E01/P3_2_MEASURED/original/",
+      "supersedes": "P3.1 (docs/the-better-one/episodes/E01/P3_1_MEASURED/original/, kept as history)",
+      "phase_frames": [
+        0,
+        960
+      ],
+      "qualification_frames": [
+        180,
+        960
+      ],
+      "actions": 19,
+      "new_actions": [
+        "E01-S001-A27 lead withdrawal [404,960)"
+      ],
+      "approved_by_user": [
+        "D1–D6",
+        "selected audio identities/performances/chuckle"
+      ],
+      "not_approved": [
+        "revised storyboard",
+        "revised animatic (separate session producing it)",
+        "final audio mix",
+        "formal production packet",
+        "art",
+        "later phases",
+        "ending"
+      ],
+      "audio_vs_p3_1": "6 masters, 3 stems, dialogue preview, phone and word timelines verified byte-identical",
+      "use_for": "production-packet reconciliation and ArtJobs",
+      "coverage": "engineering/p08/P08_ACTION_COVERAGE_P3_2.json"
+    }
   },
   "engineering": {
     "published_engineering_branch": "production/better-one-first-film-engineering",
     "report_commit_sha": "efc49aec656b723559be0f05c9d9148f6a042b7b",
     "tested_engine_code_sha": "b2c6931a628f68773349dc2565d7aae5530ad41d",
     "regression": {
-      "source": "P06_FINAL_REPORT.md",
-      "result": "REPORTED_PASS",
-      "passed": 296,
-      "failed": 0,
-      "skipped": 0,
-      "frozen_source": true,
-      "independently_reexecuted_here": false
+      "source": "engineering/p08/P08_FINAL_REPORT.md",
+      "phase": "P08",
+      "frozen_source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+      "result": "NOT_FULLY_QUALIFIED",
+      "tests": 367,
+      "passed": 365,
+      "failed": 2,
+      "failing": [
+        "E03 perspective host (cross-drive containment bug)",
+        "P05-R1 resume chunk count (stale test vs F02 store)"
+      ],
+      "follow_ons": "Chrome negatives 0, render negatives 0, chain 0 (S09 BLOCKED by design on DIAGNOSTIC)",
+      "fix_commit": "5314269",
+      "fix_verification": "targeted re-test 2/2; no second comprehensive regression (needs Manmeet's decision)",
+      "evidence": "engineering/p08/final_run/"
     },
     "actual_render_evidence": {
       "real_mia_art_film_seconds": 0,
@@ -99,6 +142,23 @@
       "merged_commit": "7e9fb4e",
       "docs_branch_sha": "2a34719",
       "engine_changed_since_freeze": false
+    },
+    "regression_history": [
+      {
+        "source": "P06_FINAL_REPORT.md",
+        "result": "REPORTED_PASS",
+        "passed": 296,
+        "failed": 0,
+        "skipped": 0,
+        "frozen_source": true,
+        "independently_reexecuted_here": false,
+        "phase": "P06"
+      }
+    ],
+    "previous_p07": {
+      "frozen_source_sha": "ecd0aa8",
+      "result": "NOT_FULLY_QUALIFIED 304/305 (S3C-7, fixed fb01ca4)",
+      "evidence": "engineering/p07/final_run/"
     }
   },
   "art": {
@@ -179,6 +239,25 @@
       "owner": "ALL",
       "action": "Prove real Blender host, real decoder, contiguous hybrid 90–120s, then full 8–13min/earned longer episode.",
       "blocker": "N06_AND_APPROVED_FULL_FILM"
+    },
+    {
+      "id": "N-P08-1",
+      "owner": "MANMEET",
+      "action": "Decide: second comprehensive regression on 5314269 (or current tip) to qualify P08, or accept targeted re-test as for P07",
+      "status": "PENDING_HUMAN"
+    },
+    {
+      "id": "N-P08-2",
+      "owner": "GPT/MANMEET",
+      "action": "Approve the P3.2 revised animatic (separate session), then sign the phase-1 [0,960) packet; update only the P3.2-affected design requirements in the unsigned art preparation",
+      "status": "PENDING_HUMAN",
+      "blocker": "NO_APPROVED_PHASE1_PACKET"
+    },
+    {
+      "id": "N-P08-3",
+      "owner": "MANMEET",
+      "action": "Decide whether CAPTION_OVERLAY (P3.2 issue 7) becomes an engine requirement",
+      "status": "PENDING_HUMAN"
     }
   ],
   "warning": "Status file is a human-readable production ledger, not an engine-produced attestable output. Current engineering evidence proves diagnostics only; user and GPT must approve genuine V0.4 creative packet, then generate actual F01-F80 art, rig and film."

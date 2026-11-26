@@ -1,0 +1,282 @@
+{
+ "schema_version": "1.0",
+ "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+ "rows": [
+  {
+   "requirement_id": "A01",
+   "negative_evidence": "each producer removed → exactly its consequence fails; camera motion never stands in for actor motion",
+   "tests": [
+    "tests/p08/composition.test.mjs :: COMP-1 (1 passing)",
+    "tests/p08/composition.test.mjs :: COMP-2 (1 passing)",
+    "tests/p08/composition.test.mjs :: COMP-6 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "A02",
+   "negative_evidence": "continuity removed, shot unmapped, wrong mapping, duplicate id, camera-contradicted visibility, undeclared cross-cut contact, mismatched release",
+   "tests": [
+    "tests/p08/contact_continuity.test.mjs :: A02- (5 passing)"
+   ]
+  },
+  {
+   "requirement_id": "A03",
+   "negative_evidence": "overlapping composed primary writers refused; a mandatory rotation under a locked constraint refused (never silently lost)",
+   "tests": [
+    "tests/p08/composition.test.mjs :: COMP-1 (1 passing)",
+    "tests/p08/composition.test.mjs :: COMP-4 (1 passing)",
+    "tests/p08/composition.test.mjs :: COMP-6 (1 passing)",
+    "tests/p08/photo_intent.test.mjs :: E07-2 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "A04",
+   "negative_evidence": "tampered bundle, wrong digest, gap, overlap, other revision, other parent, different state, missing owner, no predecessor",
+   "tests": [
+    "tests/p08/phase_freeze_audio.test.mjs :: A04- (2 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B01",
+   "negative_evidence": "driver consumer deleted, conflicting writers, undeclared mode, mode/driver mismatch, path vs arm track, invalid transfer, free flight with grip",
+   "tests": [
+    "tests/p08/prop_authority.test.mjs :: B01- (7 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B02",
+   "negative_evidence": "reversed palm refused by IK/limits, production contact without basis, one socket holding two objects",
+   "tests": [
+    "tests/p08/contact_orientation.test.mjs :: B02- (3 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B03",
+   "negative_evidence": "no contract, missing closure art, missing layer, same-side, hover, intersect, fist drawing; inverted/removed layer order on the same frame",
+   "tests": [
+    "tests/p08/pinch.test.mjs :: B03- (3 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B04",
+   "negative_evidence": "no schedule, impossible stride, flight, same foot twice, non-biped topology, slid stance, swapped knee branch",
+   "tests": [
+    "tests/p08/walk.test.mjs :: B04- (3 passing)",
+    "tests/p08/carry_load_insert.test.mjs :: B07-3 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B05",
+   "negative_evidence": "without underpaint: holes on bent frames only; scale change = stretched limb",
+   "tests": [
+    "tests/p08/integrity.test.mjs :: B05 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B06",
+   "negative_evidence": "P06 negatives; out-of-reach gaze reported as needing a view cel",
+   "tests": [
+    "tests/tbo/performance_commands.test.mjs :: (whole file) (9 passing)",
+    "tests/p08/composition.test.mjs :: COMP-1 (1 passing)",
+    "tests/p08/contact_continuity.test.mjs :: A02-5 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B07",
+   "negative_evidence": "wall pass, wrong orientation, overshoot, withdrawal, missing layer, teleport, short of floor, separately owned prop",
+   "tests": [
+    "tests/p08/carry_load_insert.test.mjs :: B07- (4 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B08",
+   "negative_evidence": "floating, sinking, unheld, offstage-in-frame, same-depth interpenetration; different depths = occlusion not collision",
+   "tests": [
+    "tests/p08/integrity.test.mjs :: B08 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "B09",
+   "negative_evidence": "producer deleted / order inverted on the same frame",
+   "tests": [
+    "tests/p08/prop_authority.test.mjs :: B01-7 (1 passing)",
+    "tests/p08/pinch.test.mjs :: B03-3 (1 passing)",
+    "tests/p08/walk.test.mjs :: B04-3 (1 passing)",
+    "tests/p08/carry_load_insert.test.mjs :: B07-4 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "C01",
+   "negative_evidence": "out-of-domain envelopes refused (COMP-4)",
+   "tests": [
+    "tests/p08/composition.test.mjs :: COMP-3 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "C02",
+   "negative_evidence": "missing middle cel, wrong order, endpoint-only, unordered, morph route on raster, swap producer removed",
+   "tests": [
+    "tests/p08/face_speech.test.mjs :: C02 (2 passing)"
+   ]
+  },
+  {
+   "requirement_id": "C03",
+   "negative_evidence": "wrong take, wrong character, OOV, word-only aligner, diagnostic schedule in PRODUCTION, LIMITED substituted, shifted/deleted mouth events",
+   "tests": [
+    "tests/p08/face_speech.test.mjs :: C03- (3 passing)"
+   ]
+  },
+  {
+   "requirement_id": "C04",
+   "negative_evidence": "wrong-family mouth, baked double mouth, wrong region owner, stale-view mouth",
+   "tests": [
+    "tests/p08/face_speech.test.mjs :: C04 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "C05",
+   "negative_evidence": "unreachable gaze reported; visibility contradicted by the camera",
+   "tests": [
+    "tests/p08/composition.test.mjs :: COMP-1 (1 passing)",
+    "tests/p08/contact_continuity.test.mjs :: A02-4 (1 passing)",
+    "tests/p08/photo_intent.test.mjs :: E07-1 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "C06",
+   "negative_evidence": "n/a until the signed packet exists",
+   "tests": []
+  },
+  {
+   "requirement_id": "D01",
+   "negative_evidence": "stale approval/generation, missing audit, missing tuple drawing",
+   "tests": [
+    "tests/p08/face_speech.test.mjs :: C03-2 (1 passing)",
+    "tests/tbo/p07_creative.test.mjs :: P07-A (2 passing)",
+    "tests/p08/evaluation_identity.test.mjs :: EID- (7 passing)"
+   ]
+  },
+  {
+   "requirement_id": "D02",
+   "negative_evidence": "P0 negatives (moved pivot, replaced PNG, foreign receipt)",
+   "tests": [
+    "tests/art_bridge/p0_audit.test.mjs :: (whole file) (10 passing)",
+    "tests/art_bridge/stage3_contract.test.mjs :: S3C-8 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "D03",
+   "negative_evidence": "P05 negatives",
+   "tests": [
+    "tests/p05/p05_film.test.mjs :: (whole file) (12 passing)"
+   ]
+  },
+  {
+   "requirement_id": "D04",
+   "negative_evidence": "inverted order on the same frame",
+   "tests": [
+    "tests/p03/p03_capabilities.test.mjs :: (whole file) (19 passing)",
+    "tests/p08/pinch.test.mjs :: B03-3 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "D05",
+   "negative_evidence": "P02 negatives",
+   "tests": [
+    "tests/p02/p02_repairs.test.mjs :: (whole file) (10 passing)"
+   ]
+  },
+  {
+   "requirement_id": "D06",
+   "negative_evidence": "diagnostic schedule in PRODUCTION refused; test trust refused for real providers",
+   "tests": [
+    "tests/art_bridge/p01_film_qa.test.mjs :: B3-6 (1 passing)",
+    "tests/p08/face_speech.test.mjs :: C03-3 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "E01",
+   "negative_evidence": "source inside interval, unnamed group, unapproved reverse, two remaps, unknown camera policy, off-by-one source",
+   "tests": [
+    "tests/p08/phase_freeze_audio.test.mjs :: E01- (2 passing)"
+   ]
+  },
+  {
+   "requirement_id": "E02",
+   "negative_evidence": "unnamed group, protected-in-group, weight range; producer removed restores colour",
+   "tests": [
+    "tests/p08/selective_grade.test.mjs :: E02- (2 passing)"
+   ]
+  },
+  {
+   "requirement_id": "E03",
+   "negative_evidence": "wrong lens, moved camera, behind camera",
+   "tests": [
+    "tests/p08/host_perspective.test.mjs :: E03 (0 passing)"
+   ]
+  },
+  {
+   "requirement_id": "E04",
+   "negative_evidence": "none",
+   "tests": []
+  },
+  {
+   "requirement_id": "E05",
+   "negative_evidence": "flat zoom detected; depths/lens/through-band refused; orbit beyond coverage → exact art request",
+   "tests": [
+    "tests/p08/camera_ops.test.mjs :: E05- (3 passing)"
+   ]
+  },
+  {
+   "requirement_id": "E06",
+   "negative_evidence": "stale digest, frozen graph, changed input moves pixels",
+   "tests": [
+    "tests/tbo/decoder_model.test.mjs :: (whole file) (5 passing)",
+    "tests/p08/combo_mechanism_model.test.mjs :: COMBO-4 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "E07",
+   "negative_evidence": "9 negatives",
+   "tests": [
+    "tests/p08/photo_intent.test.mjs :: E07- (2 passing)"
+   ]
+  },
+  {
+   "requirement_id": "F01",
+   "negative_evidence": "truncated, duplicated onset, wrong take, fractional placement",
+   "tests": [
+    "tests/p08/phase_freeze_audio.test.mjs :: F01 (2 passing)"
+   ]
+  },
+  {
+   "requirement_id": "F02",
+   "negative_evidence": "tampered stored chunk regenerated; injected failure disables reuse",
+   "tests": [
+    "tests/p08/selective_invalidation.test.mjs :: F02 (1 passing)"
+   ]
+  },
+  {
+   "requirement_id": "F03",
+   "negative_evidence": "tally assertion; registry lookups (no hard-coded success); source files hash-verified against the delta manifest",
+   "tests": []
+  },
+  {
+   "requirement_id": "F04",
+   "negative_evidence": "remove-one-producer / tamper negatives throughout",
+   "tests": []
+  },
+  {
+   "requirement_id": "F05",
+   "negative_evidence": "injections at every stage",
+   "tests": [
+    "tests/p02/p02_injection.test.mjs :: (whole file) (12 passing)",
+    "tests/p05/p05_film.test.mjs :: (whole file) (12 passing)"
+   ]
+  },
+  {
+   "requirement_id": "F06",
+   "negative_evidence": "no merge/delete without the user",
+   "tests": []
+  }
+ ]
+}

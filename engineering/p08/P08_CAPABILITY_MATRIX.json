@@ -1,0 +1,244 @@
+{
+ "schema_version": "1.0",
+ "source_sha": "ef0a722e4442e8d7424c9b5e286b5073979745a5",
+ "routes": [
+  {
+   "route": "composition:JOINT_ROTATE",
+   "owner": "rig.joint",
+   "space": "LOCAL_DEG",
+   "modes": [
+    "PRIMARY"
+   ],
+   "domain": "joint rotation_limits_deg",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:ROOT_MOVE",
+   "owner": "rig",
+   "space": "WORLD_PX",
+   "modes": [
+    "PRIMARY"
+   ],
+   "domain": "max_speed_px_per_frame (declared)",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:OSCILLATE",
+   "owner": "rig.joint",
+   "space": "LOCAL_DEG",
+   "modes": [
+    "ADDITIVE"
+   ],
+   "domain": "amplitude ≤ max_amplitude_deg (declared, ≤ 45) and inside joint limits",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:AIM",
+   "owner": "rig.joint",
+   "space": "WORLD_TARGET",
+   "modes": [
+    "AIM"
+   ],
+   "domain": "max_deg ≤ joint limit span",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:STATE_SWAP",
+   "owner": "rig.channel",
+   "space": "APPROVED_STATE",
+   "modes": [
+    "STATE"
+   ],
+   "domain": "approved channel states (and approved edges when the channel declares edges)",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:PLANT",
+   "owner": "rig.socket",
+   "space": "WORLD_PX",
+   "modes": [
+    "CONSTRAINT"
+   ],
+   "domain": "IK reach + joint limits + approved bend branch",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:REACH",
+   "owner": "rig.socket",
+   "space": "WORLD_OR_SOCKET",
+   "modes": [
+    "CONSTRAINT"
+   ],
+   "domain": "IK reach + joint limits",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:WALK",
+   "owner": "rig",
+   "space": "WORLD_PX on a ground line",
+   "modes": [
+    "PRIMARY",
+    "CONSTRAINT"
+   ],
+   "domain": "biped legged role map; stride ≤ max_stride_px (approved); IK reach + joint limits; no flight unless running is directed",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "engine/film/composition_qa.mjs + temporal/stateAtFrame",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:CARRY",
+   "owner": "prop rig",
+   "space": "carrier hand frame",
+   "modes": [
+    "ACTOR_DRIVEN (prop_support)"
+   ],
+   "domain": "the prop's transform is written by the carrier's hand (B01 ACTOR_DRIVEN) for the whole carry; no separate prop track",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "engine/film/composition_qa.mjs + temporal/stateAtFrame",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:LOAD_CONTAINER",
+   "owner": "prop rig",
+   "space": "container socket frame",
+   "modes": [
+    "SURFACE_DRIVEN at rest",
+    "paint order"
+   ],
+   "domain": "enters through the opening (never through a wall), rests on the inside socket, occluded by the container's front layer",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "engine/film/composition_qa.mjs + temporal/stateAtFrame",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:INSERT_TOKEN",
+   "owner": "token rig",
+   "space": "slot frame (axis = slot socket basis)",
+   "modes": [
+    "path measured along the slot axis",
+    "paint order"
+   ],
+   "domain": "aligned with the slot, monotone depth, inside the slot laterally while inserted, stops at the directed depth, hidden by the aperture layer",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "engine/film/composition_qa.mjs + temporal/stateAtFrame",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "composition:CAMERA_MOVE",
+   "owner": "camera",
+   "space": "WORLD_PX",
+   "modes": [
+    "PRIMARY"
+   ],
+   "domain": "framing gate (subjects stay visible)",
+   "producer": "engine/art_bridge/composition.mjs",
+   "consumer": "temporal.mjs#stateAtFrame → scene_graph → Chrome",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "prop_support:ACTOR_DRIVEN|OBJECT_DRIVEN|SURFACE_DRIVEN|FREE_AUTHORED",
+   "requirement": "B01",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "contact_continuity",
+   "requirement": "A02",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "pinch_contract (FACE_ON / EDGE_ON)",
+   "requirement": "B03",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "speak:VISEME",
+   "requirement": "C03",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "expression_transition",
+   "requirement": "C02",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "face_composition",
+   "requirement": "C04",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "time_remaps (FREEZE / REMAP)",
+   "requirement": "E01",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "grades",
+   "requirement": "E02",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "camera_ops DOLLY",
+   "requirement": "E05",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "camera_ops ORBIT (2D world, approved flat coverage)",
+   "requirement": "E05",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "host camera PERSP",
+   "requirement": "E03",
+   "class": "BLOCKED_IMPLEMENTATION"
+  },
+  {
+   "route": "photo_intent",
+   "requirement": "E07",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "phase_boundary",
+   "requirement": "A04",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "phase_audio",
+   "requirement": "F01",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "chunk input reuse",
+   "requirement": "F02",
+   "class": "IMPLEMENTED_CODE_VERIFIED"
+  },
+  {
+   "route": "host depth/matte per-pixel compositing",
+   "requirement": "E04",
+   "class": "UNSUPPORTED_PRODUCER (BLOCKED_IMPLEMENTATION)"
+  },
+  {
+   "route": "camera_ops ORBIT beyond approved flat coverage",
+   "requirement": "E05",
+   "class": "NEEDS_EXTERNAL_ART (view/depth drawings)"
+  },
+  {
+   "route": "approved host acting (rig, face, walk)",
+   "requirement": "E03",
+   "class": "NEEDS_EXTERNAL_ART (approved host .blend)"
+  }
+ ],
+ "note": "IMPLEMENTED_CODE_VERIFIED = real producer + consumer + positive/negative tests on DIAGNOSTIC fixtures; no route is qualified on real E01 art"
+}
