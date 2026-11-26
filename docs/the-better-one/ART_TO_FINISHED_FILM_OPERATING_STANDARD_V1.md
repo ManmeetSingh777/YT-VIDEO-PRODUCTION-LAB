@@ -6,6 +6,8 @@
 
 **FIRST E01 FILM:** proposed 32.5s opening absolute [0,1950), with first 13s extract absolute [180,960), local [0,780), 60fps, 1920×1080. The proposed V0.4-DIR-P1 full director package has seven shots, 25 actions, 24 audio cues, 27 art families. Story/dialogue/performances and actual art still need human approval. The original smile in f0–179 and freeze continuity at f960 are necessary for review.
 
+**Portable artist-operator chat starter:** docs/the-better-one/NEW_F01_F80_ART_OPERATOR_CHAT_V1.md. Only after real art_outbox export-gpt-job creates a job-scoped ZIP. **Source-code enforcement gap register:** docs/the-better-one/ART_TO_FILM_ENFORCEMENT_GAP_AUDIT_V1.md.
+
 ## 0. Definition of success, not a hollow test pass
 
 The audience watches an exceptionally entertaining original film with distinct character personalities, convincing expressions and body dynamics, consistent beautiful construction, truthful motion graphics, actual 3D host integration when directed, readable cinematic choices and good sound. Real art and every relevant frame are checked. The user approves moving footage and its exact current source SHA. There is no "engine passed therefore art looks good" shortcut.
