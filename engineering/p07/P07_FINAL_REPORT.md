@@ -1,6 +1,6 @@
 # P07: E01 pre-art critical path (engineering report)
 
-**Status:** reusable engine work + E01 planning artefacts. Accepted real E01 film seconds: **0**. Real artwork: **none**.
+**Status:** NOT fully release-qualified (304/305; S3C-7, section 9). Reusable engine work + E01 planning artefacts. Accepted real E01 film seconds: **0**. Real artwork: **none**.
 No approvals were recorded, no images were generated, no paid call was made and no receipt was forged.
 
 ## 1. Code changes (frozen source SHA and regression: section 9)
@@ -99,8 +99,42 @@ No approvals were recorded, no images were generated, no paid call was made and 
   5. Design JSON plus ten-pass audit per master (GPT ART); `check-design` PASS; the user's design signature.
   6. `art_outbox export`, then `export-gpt-job`.
 
-## 9. Frozen source and full regression
-(filled in when the one comprehensive run on the frozen SHA finishes)
+## 9. Frozen source and full regression — P07 did NOT achieve full release qualification
+- **Frozen source:** `ecd0aa82a9bfa8d8d67d2916aa08e5f60e2aace0`. Detached worktree `C:\Users\gmanm\TBO_DEV_REGRESSION`; node v22.20.0; `nu.js`
+  sha256 `773baf91…e7be` (unchanged).
+- **Run:** 2026-11-26 03:29:13Z → 06:01:45Z (2 h 32 m). Evidence: `engineering/p07/final_run/` (TAP sha256 `bb7471eb…d2f3`; the 14.7 MB chain
+  MP4 is hashed in `HASHES.txt` and kept outside git).
+
+| Step | Result |
+|---|---|
+| Full suite, 40 files | **304 / 305 pass, 1 FAIL** (93.2 min, `suite_exit=1`) |
+| p03 Chrome negatives | exit 0; every negative detected, every control ok |
+| p05 render negatives | exit 0; every negative detected, every control ok |
+| p05 production chain | exit 0; S01–S08 committed, S09 BLOCKED on the film review a diagnostic run can never satisfy (same as P06) |
+
+**The failure: S3C-7, `OUTBOX_IMMUTABLE_VIOLATION`** (`tests/art_bridge/stage3_contract.test.mjs:56`).
+- **What happened:** the regression worktree still held the outbox record `outbox7/jobs/ARTJOB_MASTER_ines_master_211539ad/c26272cf…/job.json`,
+  written by the P06 run under the P06 rules (`gate.pass: true`). Under P07 the same inputs give `PREGEN_AUDIT_MISSING`, the new rule working as
+  intended. The record id was derived from the job inputs only, not from the checking rules, so the same id was due to receive a different body,
+  and the write-once store correctly refused.
+- **Classification:** a real production defect (evaluation identity did not include the rule version), exposed by a test that shares a persistent
+  mutable output directory. The development checkout had already rewritten its record under P07, so it passed there.
+- **Disposition (user decision, 2026-11-26):** an engine + test fix lands at the start of P08. The fix is verified by targeted tests here and
+  covered by the single P08 comprehensive regression. P07 is NOT re-run as a standalone baseline, because P08 supersedes this source.
+  This run's evidence is preserved unchanged, and the 304/305 result stands as P07's record.
+
+**Slowest files (cumulative test time):**
+
+| File | Time |
+|---|---|
+| `p02_injection` | 82.0 min |
+| `p02_render` | 70.8 min |
+| `p01_film_qa` | 65.6 min |
+| `p02_trace` | 27.2 min |
+| `p05_film` | 6.6 min |
+| All other files | ~1 min or less |
+
+The four slowest files account for about 97% of the time; the P08 efficiency addendum addresses them.
 
 ## 10. The single next action
 The user decides D1–D6 (`engineering/e01_v04/decisions/E01_DIRECTOR_DECISION_SHEET.md`) and records the natural scratch takes (handoff in the

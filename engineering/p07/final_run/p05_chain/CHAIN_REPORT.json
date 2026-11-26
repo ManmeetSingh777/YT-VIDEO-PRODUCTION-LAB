@@ -1,0 +1,1503 @@
+{
+ "film": "hybrid_v2\\work\\p05\\chain_film\\film",
+ "total_frames": 600,
+ "run_id": "DIAG-20261126053820-1505b6",
+ "build_seconds": 425.661,
+ "run_seconds": 1404.549,
+ "packet_sha256": "3c2c2e69f067f98d19204d1a6a2aa2c13fd75fc55f7708517901da8041388e31",
+ "handoff_exchanges": 91,
+ "drawings_through_handoff": 33,
+ "drawings_direct": [
+  "lever_master",
+  "gear_master",
+  "room_far",
+  "cave_far",
+  "cave_rock",
+  "chart_far",
+  "port_out",
+  "port_mid",
+  "port_in",
+  "port_mask",
+  "token",
+  "lever_base",
+  "lever_arm",
+  "gear_stand",
+  "gear_wheel"
+ ],
+ "results": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "COMMITTED"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "BLOCKED"
+  }
+ ],
+ "stages": [
+  {
+   "stage": "S00_IDEA",
+   "status": "COMMITTED",
+   "tasks": 1,
+   "verified": 1,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S01_STORY",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "status": "COMMITTED",
+   "tasks": 4,
+   "verified": 4,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "status": "COMMITTED",
+   "tasks": 7,
+   "verified": 7,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "status": "COMMITTED",
+   "tasks": 43,
+   "verified": 43,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "status": "COMMITTED",
+   "tasks": 48,
+   "verified": 48,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "status": "COMMITTED",
+   "tasks": 73,
+   "verified": 73,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "status": "COMMITTED",
+   "tasks": 5,
+   "verified": 5,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "status": "COMMITTED",
+   "tasks": 3,
+   "verified": 3,
+   "failed": 0,
+   "blocked": 0,
+   "stale": 0
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "status": "BLOCKED",
+   "tasks": 5,
+   "verified": 4,
+   "failed": 1,
+   "blocked": 0,
+   "stale": 0
+  }
+ ],
+ "failures": [
+  {
+   "failure": "FAIL-S09_FILM_AUDIO_FINAL-film_review-b4059e",
+   "first_violated_invariant": "verified HUMAN film receipt over the current bundle",
+   "observed": "DIAGNOSTIC run: a film review can never be satisfied",
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "film_review",
+   "root_producer": "engine/film/final_review.mjs#reviewFinalFilm (independent human)",
+   "failure_class": "EXTERNAL_HUMAN_REQUIRED",
+   "repair_owner": "INDEPENDENT_HUMAN_REVIEWER",
+   "blast_radius": [],
+   "frames": [],
+   "evidence_event": "DIAG-20261126053820-1505b6:597",
+   "resume_from": "S09_FILM_AUDIO_FINAL",
+   "retry_safe": false,
+   "external_spend_risk": false,
+   "next_operation": "resolve film_review"
+  }
+ ],
+ "tasks": [
+  {
+   "stage": "S00_IDEA",
+   "task": "film_intent",
+   "status": "COMPLETED",
+   "measurement": "complete"
+  },
+  {
+   "stage": "S01_STORY",
+   "task": "story_contract",
+   "status": "COMPLETED",
+   "measurement": "0 failures"
+  },
+  {
+   "stage": "S01_STORY",
+   "task": "story_approval",
+   "status": "COMPLETED",
+   "measurement": "APPROVED TEST_TRUSTED"
+  },
+  {
+   "stage": "S01_STORY",
+   "task": "creative_packet",
+   "status": "COMPLETED",
+   "measurement": "packet 3c2c2e69f067f98d approved (TEST_TRUSTED); every compiled input matches"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "task": "attention_sh_pull",
+   "status": "COMPLETED",
+   "measurement": "all consumed"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "task": "attention_sh_watch",
+   "status": "COMPLETED",
+   "measurement": "all consumed"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "task": "attention_sh_flow",
+   "status": "COMPLETED",
+   "measurement": "all consumed"
+  },
+  {
+   "stage": "S02_EXPERIENCE",
+   "task": "direction_approval",
+   "status": "COMPLETED",
+   "measurement": "APPROVED"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "tiling",
+   "status": "COMPLETED",
+   "measurement": "600 frames tiled"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "creative_preflight",
+   "status": "COMPLETED",
+   "measurement": "7 actions SUPPORTED_IN_PRINCIPLE"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "actions_sh_pull",
+   "status": "COMPLETED",
+   "measurement": "complete"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "actions_sh_watch",
+   "status": "COMPLETED",
+   "measurement": "complete"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "actions_sh_flow",
+   "status": "COMPLETED",
+   "measurement": "complete"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "manifest_integrity",
+   "status": "COMPLETED",
+   "measurement": "manifest structurally valid"
+  },
+  {
+   "stage": "S03_TIMING_MOTION",
+   "task": "narration_timeline",
+   "status": "COMPLETED",
+   "measurement": "1 anchors; d_hold FOLLOWS c_voice (70f)"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "creative_art_complete",
+   "status": "COMPLETED",
+   "measurement": "48 drawings planned with jobs"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_eye_closed",
+   "status": "COMPLETED",
+   "measurement": "nova_rig state-channel repertoire nova_eye_open@eyes:closed (P03 B: blink/speech/expression drawings) frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_mouth_open",
+   "status": "COMPLETED",
+   "measurement": "nova_rig state-channel repertoire nova_mouth_rest@mouth:open (P03 B: blink/speech/expression drawings) frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_mouth_mid",
+   "status": "COMPLETED",
+   "measurement": "nova_rig state-channel repertoire nova_mouth_rest@mouth:mid (P03 B: blink/speech/expression drawings) frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_hand_grip",
+   "status": "COMPLETED",
+   "measurement": "nova_rig state-channel repertoire nova_hand_open@hand_r:grip (P03 B: blink/speech/expression drawings) frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_torso",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_torso frames [[0,34]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_thigh_l",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_thigh_l frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_shin_l",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_shin_l frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_thigh_r",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_thigh_r frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_shin_r",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_shin_r frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_head",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_head frames [[0,34]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_hair",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_hair frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_eye_open",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_eye_open frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_mouth_rest",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_mouth_rest frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_underpaint",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_underpaint frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_upper_arm",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_upper_arm frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_forearm",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_forearm frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_hand_open",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_hand_open frames [[0,98],[220,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_brow_neutral",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open binds nova_brow_neutral frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_torso_turned",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open/v_turned binds nova_torso frames [[34,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_head_turned",
+   "status": "COMPLETED",
+   "measurement": "nova_rig open/v_turned binds nova_head frames [[34,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lever_base",
+   "status": "COMPLETED",
+   "measurement": "lever_rig rest binds lever_base frames [[50,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lever_arm",
+   "status": "COMPLETED",
+   "measurement": "lever_rig rest binds lever_arm frames [[50,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_gear_stand",
+   "status": "COMPLETED",
+   "measurement": "gear_rig rest binds gear_stand frames [[50,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_gear_wheel",
+   "status": "COMPLETED",
+   "measurement": "gear_rig rest binds gear_wheel frames [[50,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_eye_closed",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig state-channel repertoire lumen_eye_open@eye:closed (P03 B: blink/speech/expression drawings) frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_tail2",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_tail2 frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_tail1",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_tail1 frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_body",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_body frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_neck1",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_neck1 frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_neck2",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_neck2 frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_head",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_head frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_lumen_eye_open",
+   "status": "COMPLETED",
+   "measurement": "lumen_rig idle binds lumen_eye_open frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_port_out",
+   "status": "COMPLETED",
+   "measurement": "continuous transition sh_watch->sh_flow needs its OUT plate frames [[420,480]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_port_mid",
+   "status": "COMPLETED",
+   "measurement": "continuous transition sh_watch->sh_flow needs its MIDDLE plate frames [[420,480]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_port_in",
+   "status": "COMPLETED",
+   "measurement": "continuous transition sh_watch->sh_flow needs its IN plate frames [[420,480]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_port_mask",
+   "status": "COMPLETED",
+   "measurement": "continuous transition sh_watch->sh_flow needs its MASK plate frames [[420,480]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_room_far",
+   "status": "COMPLETED",
+   "measurement": "shot sh_pull shows world w_room (FAR); camera cam_a needs coverage [-68,68,1536,864] at >=1.35 px/unit frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_cave_far",
+   "status": "COMPLETED",
+   "measurement": "shot sh_watch shows world w_cave (FAR); camera cam_b needs coverage [-249.54,111.38,1919.08,897.23] at >=1.3 px/unit frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_cave_rock",
+   "status": "COMPLETED",
+   "measurement": "shot sh_watch shows world w_cave (FOREGROUND); camera cam_b needs coverage [-249.54,111.38,1919.08,897.23] at >=1.3 px/unit frames [[270,450]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_chart_far",
+   "status": "COMPLETED",
+   "measurement": "shot sh_flow shows world w_chart (FAR); camera cam_c needs coverage [-76.8,-43.2,2073.6,1166.4] at >=1.25 px/unit frames [[450,600]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_nova_brow_raised",
+   "status": "COMPLETED",
+   "measurement": "morph a_enter interpolates nova_brow_neutral and nova_brow_raised frames [[0,270]]"
+  },
+  {
+   "stage": "S04_ART_DEMAND",
+   "task": "demand_token",
+   "status": "COMPLETED",
+   "measurement": "procedural action a_flow places this symbol frames [[450,600]]"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_master",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_torso",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_thigh_l",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_shin_l",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_thigh_r",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_shin_r",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_head",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_hair",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_eye_open",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_mouth_rest",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_underpaint",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_upper_arm",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_forearm",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_hand_open",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_eye_closed",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_mouth_open",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_mouth_mid",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_hand_grip",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_head_turned",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_torso_turned",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_head_front",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_torso_front",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_brow_neutral",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_nova_brow_raised",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_master",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_tail2",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_tail1",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_body",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_neck1",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_neck2",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_head",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_eye_open",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lumen_eye_closed",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lever_master",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lever_base",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_lever_arm",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_gear_master",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_gear_stand",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_gear_wheel",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_room_far",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_cave_far",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_cave_rock",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_chart_far",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_port_out",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_port_mid",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_port_in",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_port_mask",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S05_ART_PRODUCTION",
+   "task": "asset_token",
+   "status": "COMPLETED",
+   "measurement": "DIAGNOSTIC_FIXTURE; approval VERIFIED TEST_TRUSTED"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_master",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_master",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lever_master",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_gear_master",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_room_far",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_cave_far",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_cave_rock",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_chart_far",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_port_out",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_port_mid",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_port_in",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_port_mask",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_token",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_torso",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_thigh_l",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_shin_l",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_thigh_r",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_shin_r",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_head",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_hair",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_eye_open",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_mouth_rest",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_underpaint",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_upper_arm",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_forearm",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_hand_open",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_eye_closed",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_mouth_open",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_mouth_mid",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_hand_grip",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_head_turned",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_torso_turned",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_head_front",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_torso_front",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_brow_neutral",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_nova_brow_raised",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_tail2",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_tail1",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_body",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_neck1",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_neck2",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_head",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_eye_open",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lumen_eye_closed",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lever_base",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_lever_arm",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_gear_stand",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "registration_gear_wheel",
+   "status": "COMPLETED",
+   "measurement": "verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_complete_nova",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE complete"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_complete_lumen",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE complete"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_complete_lever",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE complete"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_complete_gear",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE complete"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "contact_patch",
+   "status": "COMPLETED",
+   "measurement": "a_pull:nova_grip: 120 held frames, min cover 168px2"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "transition_geometry",
+   "status": "COMPLETED",
+   "measurement": "sh_watch->sh_flow: 60 frames, anchor drift 0.0000 px"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "shadow_continuity",
+   "status": "COMPLETED",
+   "measurement": "nova_rig: 270 frames, 5 casters connected"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "geometry_measured",
+   "status": "COMPLETED",
+   "measurement": "4 rigs measured"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "states_edges",
+   "status": "COMPLETED",
+   "measurement": "all verified"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "motion_obligations",
+   "status": "COMPLETED",
+   "measurement": "{\"actions\":7,\"grips\":1,\"camera\":3,\"acting\":2,\"audio\":4}"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_nova",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE; 270/270 frames evaluated (plans (supplied restaging plan))"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_lumen",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE; 180/180 frames evaluated (plans (supplied restaging plan))"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_lever",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE; 220/220 frames evaluated (plans (supplied restaging plan))"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "feasibility_gear",
+   "status": "COMPLETED",
+   "measurement": "FEASIBLE; 220/220 frames evaluated (plans (supplied restaging plan))"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "motion_layers",
+   "status": "COMPLETED",
+   "measurement": "{\"phrases\":0,\"acting\":{\"nova_rig\":{\"lagged\":2,\"anticipations\":0,\"settles\":0,\"blinks\":2,\"speech_swaps\":4,\"follow\":[\"hair\"],\"gaze\":\"head\"},\"lumen_rig\":{\"lagged\":3,\"anticipations\":0,\"settles\":0,\"blinks\":2,\"speech_swaps\":0,\"follow\":[\"tail2\"],\"gaze\":\"head\"}},\"suppressed_by_contact\":0}"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "deform_a_body",
+   "status": "COMPLETED",
+   "measurement": "177 active frames verified of 180/180 evaluated; worst residual 0.0000"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "morph_a_enter",
+   "status": "COMPLETED",
+   "measurement": "270 active frames verified of 270/270 evaluated; worst residual 0.0000"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "reaction_lever_follow",
+   "status": "COMPLETED",
+   "measurement": "120 active frames verified of 120/120 evaluated; worst residual 0.0000"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "support_nova_rig",
+   "status": "COMPLETED",
+   "measurement": "270 active frames verified of 270/270 evaluated; worst residual 0.0000"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "production_ir",
+   "status": "COMPLETED",
+   "measurement": "28 decisions, 5 actions, 42 art requirements, 25 motion entities: all arrows resolve"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "direction_decisions",
+   "status": "COMPLETED",
+   "measurement": "d_enter=MOVE {\"travel_px\":90}; d_turn=STATE_CHANGE {\"states\":[null,\"v_turned\"],\"before\":null}; d_brow=DEFORM {\"distinct_weights\":31}; d_reach=ARTICULATE {\"joint\":\"shoulder_r\",\"rotation_deg\":133.7285}; d_close=STATE_CHANGE {\"states\":[\"open\",\"grip\"],\"before\":\"open\"}; d_hold=CONTACT {\"locked_frames\":120}; d_open=STATE_CHANGE {\"states\":[\"grip\",\"open\"],\"before\":\"grip\"}; d_lever=REACT {\"rotation_deg\":13.6527}; d_gear=REACT {\"linked_rotation_deg\":27.0321}; d_watch=ARTICULATE {\"joint\":\"neck1\",\"rotation_deg\":18}; d_breathe=DEFORM {\"distinct_weights\":79}; d_reveal=CAMERA_MOVE {\"x\":299.9562}; d_portal=TRANSITION {\"mode\":\"CONTINUOUS\"}; d_flow=EFFECT {\"distinct_states\":130}; d_push=CAMERA_MOVE {\"zoom\":0.25}"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "framing",
+   "status": "COMPLETED",
+   "measurement": "sh_pull: 270 frames, subjects nova_rig; sh_watch: 180 frames, subjects lumen_rig; sh_flow: 150 frames, subjects none"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "motion_plan_source",
+   "status": "COMPLETED",
+   "measurement": "MOTION_PLAN.json (explicit)"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "semantic_consequences",
+   "status": "COMPLETED",
+   "measurement": "4 consequences met"
+  },
+  {
+   "stage": "S06_REGISTRATION_RIG",
+   "task": "grip_a_pull_nova_grip",
+   "status": "COMPLETED",
+   "measurement": "contract + HAND hand_r:grip"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_0_150",
+   "status": "COMPLETED",
+   "measurement": "150 frames 1920x1080@60/1; rss 187 MiB"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_150_300",
+   "status": "COMPLETED",
+   "measurement": "150 frames 1920x1080@60/1; rss 178 MiB"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_300_450",
+   "status": "COMPLETED",
+   "measurement": "150 frames 1920x1080@60/1; rss 178 MiB"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "chunk_450_600",
+   "status": "COMPLETED",
+   "measurement": "150 frames 1920x1080@60/1; rss 170 MiB"
+  },
+  {
+   "stage": "S07_NEUTRINO_RENDER",
+   "task": "assemble",
+   "status": "COMPLETED",
+   "measurement": "{\"codec\":\"h264\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":null}"
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "task": "render_receipt",
+   "status": "COMPLETED",
+   "measurement": "resampled 0,149,150,294,295,299,300,388,449,450,599"
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "task": "frame_trace_index",
+   "status": "COMPLETED",
+   "measurement": "600/600 frames owned in 12 segments"
+  },
+  {
+   "stage": "S08_QA_REPAIR",
+   "task": "coverage_gate",
+   "status": "COMPLETED",
+   "measurement": "600/600 frames hashed; 11 moving intervals change pixels; 1 static holds; action 7/7, art_state 11/11, camera 3/3, transition 2/2, shot_boundary 2/2, sound_cue 1/1"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "audio_mix",
+   "status": "COMPLETED",
+   "measurement": "mix 0e3bdcd14729; 3 stems; 2 sfx"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "av_sync",
+   "status": "COMPLETED",
+   "measurement": "4 cues on stems; worst 0.02 ms; -16.1 LUFS; duck 15.66 dB"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "final_mux",
+   "status": "COMPLETED",
+   "measurement": "final 56873ca4089a; video packets identical; 4 cues verified inside the published MP4"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "final_media",
+   "status": "COMPLETED",
+   "measurement": "{\"codec\":\"h264\",\"width\":1920,\"height\":1080,\"r_frame_rate\":\"60/1\",\"frames\":600,\"video_duration\":10,\"audio_duration\":10}"
+  },
+  {
+   "stage": "S09_FILM_AUDIO_FINAL",
+   "task": "film_review",
+   "status": "FAILED",
+   "measurement": "DIAGNOSTIC run: a film review can never be satisfied"
+  }
+ ],
+ "ledger_verification": {
+  "chain": {
+   "ok": true,
+   "events": 598,
+   "head_sha256": "b21086a971cc72058e82adbe2caf90b7e4ec205ac0de6386f2a9f552978f73d3",
+   "problems": []
+  },
+  "handoffs": [
+   {
+    "stage": "S00_IDEA",
+    "ok": true
+   },
+   {
+    "stage": "S01_STORY",
+    "ok": true
+   },
+   {
+    "stage": "S02_EXPERIENCE",
+    "ok": true
+   },
+   {
+    "stage": "S03_TIMING_MOTION",
+    "ok": true
+   },
+   {
+    "stage": "S04_ART_DEMAND",
+    "ok": true
+   },
+   {
+    "stage": "S05_ART_PRODUCTION",
+    "ok": true
+   },
+   {
+    "stage": "S06_REGISTRATION_RIG",
+    "ok": true
+   },
+   {
+    "stage": "S07_NEUTRINO_RENDER",
+    "ok": true
+   },
+   {
+    "stage": "S08_QA_REPAIR",
+    "ok": true
+   }
+  ],
+  "ok": true
+ },
+ "traces": {
+  "60": {
+   "shot": "sh_pull",
+   "blockers": []
+  },
+  "150": {
+   "shot": "sh_pull",
+   "blockers": []
+  },
+  "350": {
+   "shot": "sh_watch",
+   "blockers": []
+  },
+  "440": {
+   "shot": "sh_watch",
+   "blockers": []
+  },
+  "560": {
+   "shot": "sh_flow",
+   "blockers": []
+  }
+ },
+ "final_media": {
+  "out": "C:\\Users\\gmanm\\TBO_DEV_REGRESSION\\hybrid_v2\\work\\p05\\chain_film\\film\\render\\film_final.mp4",
+  "ok": true,
+  "failures": [],
+  "video_essence_sha256": "a040b3eadfbc3728d960b5f5944eee9036d5c16ccb71b04b1336ec2e36640e8e",
+  "video_packets_sha256": "800fa0b1cc5f15c55f7c7cf22413b1208f22ba649d1c539e9186d97e6db071e4",
+  "mix_sha256": "0e3bdcd14729ba01b298b24a4149bf3f7c4e6da975128620588701caf83d22c1",
+  "stems": {
+   "narration": "57d30559f96f5af2904eb3d1ebb9980f7455c57feff8eea926403127d9662354",
+   "sfx:grip_clunk": "9f7c55ffe6511d7ac003bfc97b41e6a51847a4fb72643a7e7bb319a0bee57e27",
+   "sfx:release_click": "e6dbc596982103d53c44f515cef6eb8574216d876c70b617784b5a91ffe78d77"
+  },
+  "final_sha256": "56873ca4089af091e3c33d0029b87e6ea09afaf4cc61389bf5c3b45ec4432c76",
+  "streams": {
+   "video_s": 10,
+   "audio_s": 10
+  },
+  "cue_verification": {
+   "ok": true,
+   "cues": [
+    {
+     "id": "grip_clunk",
+     "kind": "SFX",
+     "frame": 100,
+     "t": 1.6666666666666667,
+     "measured_s": 1.6666875,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    },
+    {
+     "id": "release_click",
+     "kind": "SFX",
+     "frame": 220,
+     "t": 3.6666666666666665,
+     "measured_s": 3.6666875,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    },
+    {
+     "id": "word0:pull",
+     "kind": "WORD",
+     "w": "pull",
+     "t": 0.5,
+     "frame": 30,
+     "measured_s": 0.5000208333333334,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    },
+    {
+     "id": "word1:together",
+     "kind": "WORD",
+     "w": "together",
+     "t": 1,
+     "frame": 60,
+     "measured_s": 1.0000208333333334,
+     "offset_ms": 0.021,
+     "ok": true,
+     "verified_on": "stem"
+    }
+   ],
+   "duck": {
+    "stem_rms_db_under_narration": -50.96,
+    "stem_rms_db_reference": -35.31,
+    "depth_db": 15.66
+   },
+   "integrated_lufs": -16.1,
+   "stem_verified": true
+  },
+  "audible_in_final": [
+   {
+    "id": "word0:pull",
+    "t": 0.5,
+    "frame": 30,
+    "measured_s": 0.500125
+   },
+   {
+    "id": "word1:together",
+    "t": 1,
+    "frame": 60,
+    "measured_s": 1.0000416666666667
+   },
+   {
+    "id": "grip_clunk",
+    "t": 1.6666666666666667,
+    "frame": 100,
+    "measured_s": 1.665625
+   },
+   {
+    "id": "release_click",
+    "t": 3.6666666666666665,
+    "frame": 220,
+    "measured_s": 3.6666875
+   }
+  ],
+  "render_receipt_mp4_sha256": "a040b3eadfbc3728d960b5f5944eee9036d5c16ccb71b04b1336ec2e36640e8e",
+  "at": "2026-11-26T06:01:22.973Z"
+ }
+}

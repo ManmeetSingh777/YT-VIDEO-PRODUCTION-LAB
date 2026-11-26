@@ -1,0 +1,9 @@
+start=2026-11-26T03:29:13Z
+sha=ecd0aa82a9bfa8d8d67d2916aa08e5f60e2aace0
+node=v22.20.0
+nu_js_sha256=773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be
+suite_exit=1 at=2026-11-26T05:02:27Z
+p03_chrome_negatives_exit=0 at=2026-11-26T05:17:46Z
+p05_render_negatives_exit=0 at=2026-11-26T05:31:09Z
+p05_chain_exit=0 at=2026-11-26T06:01:45Z
+end=2026-11-26T06:01:45Z

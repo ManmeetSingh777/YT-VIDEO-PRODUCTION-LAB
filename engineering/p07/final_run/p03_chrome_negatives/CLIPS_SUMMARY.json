@@ -1,0 +1,398 @@
+{
+ "film": "hybrid_v2\\work\\p03\\subjects\\film",
+ "started_at": "2026-11-26T05:03:19.952Z",
+ "clips": {},
+ "negatives": {
+  "frozen_character_particles_move": {
+   "frames": [
+    [
+     80,
+     120
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "diverging_frames": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86
+   ],
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig",
+    "failed_invariant": "OWNER_MOTION_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_eye_open changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       84,
+       85
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest swaps its approved drawing at frame 84 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       96,
+       97
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest swaps its approved drawing at frame 96 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_hand_open changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_brow_neutral",
+     "frame_ranges": [
+      [
+       80,
+       120
+      ]
+     ],
+     "reason": "nova_rig:nova_brow_neutral changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_grip_transition": {
+   "frames": [
+    [
+     64,
+     76
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "diverging_frames": [
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+   ],
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+    "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+     "frame_ranges": [
+      [
+       70,
+       71
+      ]
+     ],
+     "reason": "nova_rig:nova_hand_open swaps its approved drawing at frame 70 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_blink": {
+   "frames": [
+    [
+     26,
+     40
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "diverging_frames": [
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+   ],
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+    "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+     "frame_ranges": [
+      [
+       30,
+       31
+      ]
+     ],
+     "reason": "nova_rig:nova_eye_open swaps its approved drawing at frame 30 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_deformation": {
+   "frames": [
+    [
+     280,
+     310
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "diverging_frames": [
+    280,
+    281,
+    282,
+    283,
+    284,
+    285
+   ],
+   "expected": {
+    "record_id": "lumen_watch:lumen_rig:lumen_body",
+    "failed_invariant": "DEFORMATION_NOT_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "lumen_watch:lumen_rig:lumen_body",
+     "frame_ranges": [
+      [
+       280,
+       310
+      ]
+     ],
+     "reason": "lumen_rig:lumen_body: 30/30 frames with an active deformation/morph render identical to the rigid drawing",
+     "failed_invariant": "DEFORMATION_NOT_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "missing_object_reaction": {
+   "frames": [
+    [
+     110,
+     150
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "diverging_frames": [
+    111,
+    112,
+    113,
+    114,
+    115,
+    116
+   ],
+   "expected": {
+    "record_id": "nova_pull_lever:lever_rig",
+    "failed_invariant": "OWNER_MOTION_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:lever_rig",
+     "frame_ranges": [
+      [
+       110,
+       150
+      ]
+     ],
+     "reason": "lever_rig changes expected state 40× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "frozen_character_under_blur_and_camera": {
+   "frames": [
+    [
+     80,
+     104
+    ]
+   ],
+   "perturbed_gate_ok": false,
+   "diverging_frames": [],
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig",
+    "failed_invariant": "OWNER_MOTION_RENDERED"
+   },
+   "detected": true,
+   "perturbed_failures": [
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig",
+     "frame_ranges": [
+      [
+       80,
+       104
+      ]
+     ],
+     "reason": "nova_rig changes expected state 24× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_eye_open",
+     "frame_ranges": [
+      [
+       80,
+       104
+      ]
+     ],
+     "reason": "nova_rig:nova_eye_open changes expected state 24× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       80,
+       104
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest changes expected state 24× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       84,
+       85
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest swaps its approved drawing at frame 84 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_mouth_rest",
+     "frame_ranges": [
+      [
+       96,
+       97
+      ]
+     ],
+     "reason": "nova_rig:nova_mouth_rest swaps its approved drawing at frame 96 but its isolated pixels are unchanged",
+     "failed_invariant": "DISCRETE_STATE_NOT_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+     "frame_ranges": [
+      [
+       80,
+       104
+      ]
+     ],
+     "reason": "nova_rig:nova_hand_open changes expected state 24× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    },
+    {
+     "code": "INERT_ACTION_OWNER",
+     "record_id": "nova_pull_lever:nova_rig:nova_brow_neutral",
+     "frame_ranges": [
+      [
+       80,
+       104
+      ]
+     ],
+     "reason": "nova_rig:nova_brow_neutral changes expected state 24× in nova_pull_lever but its isolated pixels never change (frozen owner)",
+     "failed_invariant": "OWNER_MOTION_RENDERED"
+    }
+   ],
+   "control_gate_ok": true,
+   "control_failures": []
+  },
+  "wrong_hand_closure": {
+   "frames": [
+    [
+     100,
+     112
+    ]
+   ],
+   "perturbed_gate_ok": true,
+   "diverging_frames": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+   ],
+   "expected": {
+    "record_id": "nova_pull_lever:nova_rig:nova_hand_open",
+    "failed_invariant": "FRAME_DIVERGES_FROM_STATE"
+   },
+   "detected": true,
+   "perturbed_failures": [],
+   "control_gate_ok": true,
+   "control_failures": []
+  }
+ },
+ "finished_at": "2026-11-26T05:17:46.580Z"
+}
