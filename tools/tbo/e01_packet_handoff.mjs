@@ -66,5 +66,6 @@ copy("engineering/e01_packet/P08_CONTRACT_ROUTING.md", "01_READ_FIRST/P08_CONTRA
 const all = fs.readdirSync(STAGE, { recursive: true }).map(String).filter((f) => fs.statSync(path.join(STAGE, f)).isFile()).map((f) => f.split(path.sep).join("/")).sort();
 put("MANIFEST.json", JSON.stringify({ kind: "E01_CREATIVE_PACKET_COMPILATION_HANDOFF", engine_source_sha: head, status: "DIAGNOSTIC EXAMPLE ONLY; no approval, receipt, artwork or signature inside", files: all.map((f) => ({ file: f, sha256: fsha(path.join(STAGE, f)) })) }, null, 1) + "\n");
 fs.mkdirSync(path.dirname(OUT), { recursive: true }); if (fs.existsSync(OUT)) { console.error(`refusing to overwrite ${OUT}`); process.exit(4); }
-execFileSync("tar", ["-a", "-c", "-f", OUT, "-C", STAGE, "."], { stdio: "inherit" });
+const TAR = process.platform === "win32" ? path.join(process.env.SystemRoot || "C:/Windows", "System32", "tar.exe") : "zip"; // Windows bsdtar writes .zip with -a; GNU tar (Git Bash) cannot
+if (process.platform === "win32") execFileSync(TAR, ["-a", "-c", "-f", OUT, "-C", STAGE, "."], { stdio: "inherit" }); else execFileSync(TAR, ["-r", "-q", OUT, "."], { cwd: STAGE, stdio: "inherit" });
 console.log(JSON.stringify({ out: OUT, sha256: fsha(OUT), bytes: fs.statSync(OUT).size, files: all.length + 1, engine_source_sha: head, example: v.status, hybrid_example: hv.status }));
