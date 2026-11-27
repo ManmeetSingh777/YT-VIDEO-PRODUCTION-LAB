@@ -123,7 +123,8 @@ export function compiledCanvas(compiledDir) {
 /** componentCrop — the crop plan from the master's REGISTERED pixels and reviewed landmarks (null until the master is registered) */
 function componentCrop({ film, root, job, req, sizes }) {
   if (!film) return { ok: false, reason: "no film to read the master registration from" };
-  const F = path.resolve(film), doc = JSON.parse(fs.readFileSync(path.join(F, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"), "utf8")), m = (doc.assets || []).find((a) => a.id === root), rf = path.join(F, "registration", root, "MASTER_REGISTRATION_RECEIPT.json");
+  const F = path.resolve(film), docF = path.join(F, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"); if (!fs.existsSync(docF)) return { ok: false, reason: `the master ${root} is not registered yet (no compiled manifest)` };
+  const doc = JSON.parse(fs.readFileSync(docF, "utf8")), m = (doc.assets || []).find((a) => a.id === root), rf = path.join(F, "registration", root, "MASTER_REGISTRATION_RECEIPT.json");
   if (!m?.file || !fs.existsSync(rf)) return { ok: false, reason: `the master ${root} is not registered yet; its crop is measured from the registered master's reviewed landmarks` };
   const rtext = fs.readFileSync(rf, "utf8"), rec = JSON.parse(rtext), mf = path.join(F, m.file);
   if (!fs.existsSync(mf) || sha(fs.readFileSync(mf)) !== m.sha256 || rec.source?.sha256 !== m.sha256) return { ok: false, reason: `the registration receipt of ${root} does not measure the current master bytes` };
