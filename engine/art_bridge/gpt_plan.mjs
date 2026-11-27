@@ -17,7 +17,9 @@ import { loadSelection, selectCandidate } from "./candidate_store.mjs";
 import { exportGptJob, importGptCandidates, engineSectionDiff } from "./gpt_handoff.mjs";
 import { nextStage, zipDir, unzipSafe } from "./gpt_batch.mjs";
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), fsha = (f) => sha(fs.readFileSync(f)), J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), pad = (n) => String(n).padStart(2, "0");
-const OPS = ["GENERATE", "EDIT", "REPAIR_EDIT"];
+// REFERENCE_GENERATE: a new generation conditioned on the parent image attached as a REFERENCE (when the tool cannot take it as an edit target);
+// its parent is still the exact bytes it was conditioned on, and the same predecessor comparison and identity checks apply.
+const OPS = ["GENERATE", "EDIT", "REPAIR_EDIT", "REFERENCE_GENERATE"];
 
 /** the compact source-attached repair edit for one seed: exact preserve list, exact candidate findings, the director's correction, the canvas */
 export function repairEditPrompt({ asset, stage, of, methods, canvas, transparent, seedSha, audit = {}, directive = null }) {
@@ -69,14 +71,14 @@ function protocol(m) {
     "You are Artwork GPT with the installed construct-kurzgesagt-art (F01–F80) skill. This plan AUTHORIZES you to execute, without returning to the user between steps, every listed stage of every entry, including image EDITS of your own candidates, following the skill's AUTONOMOUS_VISUAL_PRODUCTION_LOOP.md §3B (prompt → pixels → repair) and ITERATIVE_REPAIR.md. A report that describes a correctable defect is NOT completion; a repair instruction without an actual edited image is NOT a repair.", "",
     "## For every entry, for every stage in order", "1. Verify the skill (SKILL.md sha256 = entry.skill_md_sha256). Read the stage's REQUEST_PROMPT, the entry's DESIGN.json, CONTRACT_BRIEF.md, ART_MOTION_CONSTRAINTS.json and RESOLUTION_CONTRACT.json.",
     "2. Resolve the applicable molecular construction questions (F57–F80) for this stage before drawing.",
-    "3. Produce the stage image. FIRST STAGE WITH REPAIR SEEDS: do not regenerate from nothing; EDIT the seed with its REPAIR_EDIT_PROMPT.txt (seed attached as the image to edit, the stage witnesses attached as STYLE ONLY). FIRST STAGE WITHOUT SEEDS: generate with the stage REQUEST_PROMPT verbatim (plus edit_input if listed). LATER STAGES: edit the image you chose at the previous stage with that stage's REQUEST_PROMPT verbatim.",
+    "3. Produce the stage image with the best AUTHORIZED construction method the tool supports: an EDIT of the parent image when it can be the edit target, otherwise REFERENCE_GENERATE (a new generation with the parent attached as the identity reference). Record which one you used. FIRST STAGE WITH REPAIR SEEDS: do not regenerate from nothing; correct the seed with its REPAIR_EDIT_PROMPT.txt (seed attached; the stage witnesses attached as STYLE ONLY). FIRST STAGE WITHOUT SEEDS: generate with the stage REQUEST_PROMPT verbatim (plus edit_input if listed). LATER STAGES: edit the image you chose at the previous stage with that stage's REQUEST_PROMPT verbatim.",
     "4. Recover the actual generated PNG bytes and inspect them at full size, at a representative native crop and at 1/10 scale.", "5. Evaluate every method of the stage, the motion constraints (attached anatomy, joints, contacts, hidden surfaces, alternate views) and the resolution contract (accepted canvas, margins, alpha; plates bleed).",
     "6. For each defect name the producing cause (which construction decision is wrong).", "7. Write a source-grounded corrective construction instruction (method id + the visible operation).", "8. Execute that correction as an actual image EDIT of the image you just inspected (never describe it instead).",
     "9. Inspect the corrected pixels.", "10. Verify the edit did not damage identity, anatomy, style or any requirement that already passed; if it did, keep the better parent and try a narrower edit.", "11. Repeat 6–10 while a correctable defect remains, at most 3 repair rounds per stage. Never claim a repair you did not run.",
     "12. Choose the best image of the stage (`machine_choice`) only if it passes; set status PASS. Otherwise set status UNRESOLVED with exact blockers and STOP that entry (do not run its later stages).", "",
     "## Rules", "- Every image you create goes in the return, including failed intermediate ones, with its lineage: {file, operation GENERATE|EDIT|REPAIR_EDIT, parent_sha256 (the exact bytes you edited; null only for a from-nothing generation), round, evaluation}.",
     "- Never resize, crop to fit or upscale. Accepted sizes per entry: entry.accepted_canvases. Never bake another identity's prop or person into an asset: each owner is its own asset.", "- Your machine_choice is NOT an approval. The human reviews the consolidated results; canonical masters are approved only by signed human review.",
-    "- If the tool cannot do something (e.g. attach the seed for an edit), record it as an unresolved blocker with the exact limitation; do not substitute a different operation silently.", "",
+    "- If the tool cannot do something (e.g. attach the seed for an edit), record it as an unresolved blocker with the exact limitation; do not substitute a different operation silently.", "- For the final stage image of each MASTER also return `<image>.LANDMARKS.json` = {landmarks: {name: [x, y]}} in that image's pixels for every required_continuity_landmark you can actually locate (plus cranium_top for characters: the cranial crown, excluding hair); set the image entry's `landmarks_file`. These are PROPOSED; the human confirms them at master review. Never guess a point you cannot see.", "",
     "## Return", "ONE zip: RETURN_MANIFEST.json (from RETURN_MANIFEST.template.json) + `returns/<entry folder name>/stageNN/<files>.png`. In each stage: status, machine_choice (file name), images[], unresolved_blockers[], model, session/generation ids if shown. The importer computes hashes; you may include them.", "",
     "| # | asset | stages | canvas | seeds |", "|---|---|---|---|---|"];
   for (const e of m.entries) L.push(`| ${e.n} | ${e.asset} | ${e.plan_stages.join("–")} of ${e.stages_total}${e.final_stage_is_job_final ? "" : " (held after)"} | ${e.accepted_canvases.join(" / ")} | ${e.repair_seeds.length} |`);
@@ -109,7 +111,12 @@ export async function importPlan({ film, out, zip, operator }) {
         const b = path.join(root, "bundles", `${pe.n}_${ps.stage}`); fs.mkdirSync(b, { recursive: true }); imgs.forEach((x, k) => fs.copyFileSync(x.abs, path.join(b, `img_${k + 1}.png`)));
         fs.writeFileSync(path.join(b, "IMPORT_MANIFEST.json"), JSON.stringify({ handoff_id: h.handoff_id, images: imgs.map((x, k) => ({ file: `img_${k + 1}.png`, sha256: x.sha256, lineage: { returned_as: x.file, operation: x.operation, parent_sha256: x.parent_sha256 ?? null, round: x.round ?? null, evaluation: x.evaluation ?? null } })), origin_claim: { model: rs.model ?? re.model ?? null, session: rs.session ?? null, operator: String(operator) }, operator_submission_id: `${rm.plan_id}:${pe.n}:${ps.stage}:${zsha.slice(0, 8)}` }, null, 1));
         const rec = importGptCandidates({ film, out, bundleDir: b }), byFile = Object.fromEntries(imgs.map((x, k) => [x.file, rec.candidates[k]]));
-        const r = { ...tag, outcome: "IMPORTED", status: rs.status, ...(requestDelta ? { request_changed_since_plan: requestDelta.map((x) => x.section) } : {}), candidates: rec.candidates.map((c, k) => ({ candidate_id: c.id, file: imgs[k].file, operation: imgs[k].operation, parent: imgs[k].parent_sha256 ?? null, valid: c.valid, problems: c.problems })), unresolved_blockers: rs.unresolved_blockers || [] };
+        // PROPOSED landmarks for registration (operator-proposed pixel coordinates; a human confirms them in the master review — never auto-reviewed)
+        const proposed = []; for (const [k, x] of imgs.entries()) { if (!x.landmarks_file) continue; const lf = path.resolve(path.dirname(x.abs), x.landmarks_file); if (!lf.startsWith(path.resolve(base) + path.sep) || !fs.existsSync(lf)) throw err("ASSET_PATH_INVALID", { reason: `${x.landmarks_file} is missing from the return zip` });
+          const L = J(lf), pts = L.landmarks || L; if (!pts || typeof pts !== "object" || !Object.values(pts).every((v) => Array.isArray(v) && v.length === 2 && v.every(Number.isFinite))) throw err("SCHEMA_VIOLATION", { reason: `${x.landmarks_file}: landmarks must be {name: [x, y]} pixel coordinates` });
+          const c = rec.candidates[k], dst = path.join(path.dirname(c.file), `${path.basename(c.file, ".png")}.PROPOSED_LANDMARKS.json`), body = JSON.stringify({ candidate_sha256: c.sha256, status: "PROPOSED_BY_OPERATOR_NOT_REVIEWED", proposed_by: String(operator), landmarks: pts }, null, 1);
+          if (!fs.existsSync(dst)) fs.writeFileSync(dst, body); proposed.push({ candidate_id: c.id, file: dst, sha256: sha(fs.readFileSync(dst)), count: Object.keys(pts).length }); }
+        const r = { ...tag, outcome: "IMPORTED", status: rs.status, ...(proposed.length ? { proposed_landmarks: proposed } : {}), ...(requestDelta ? { request_changed_since_plan: requestDelta.map((x) => x.section) } : {}), candidates: rec.candidates.map((c, k) => ({ candidate_id: c.id, file: imgs[k].file, operation: imgs[k].operation, parent: imgs[k].parent_sha256 ?? null, valid: c.valid, problems: c.problems })), unresolved_blockers: rs.unresolved_blockers || [] };
         const continues = ps.stage < pe.plan_stages[1];
         if (rs.status === "PASS" && rs.machine_choice && continues) { const c = byFile[rs.machine_choice]; if (!c?.valid) throw err("STAGE_PREDECESSOR_MISSING", { reason: `machine_choice ${rs.machine_choice} is not a valid imported candidate (${c?.problems?.join("; ") || "absent"})` });
           selectCandidate({ out, job: pe.artjob, stage: ps.stage, generation: cur.digest, candidateId: c.id, selector: "MACHINE_GPT" }); r.machine_selected = c.id; }
@@ -133,4 +140,24 @@ export function planAttachments({ out, plan_id }) {
   fs.writeFileSync(path.join(dest, "ATTACHMENT_MAP.json"), JSON.stringify(map, null, 1));
   fs.writeFileSync(path.join(dest, "ATTACHMENT_MAP.csv"), ["file,sha256,artjob,asset,stage,role,use_with", ...rows.map((r) => [r.file, r.sha256, r.artjob, r.asset, r.stage, r.role, r.use_with].map((v) => `"${String(v).replace(/"/g, '""')}"`).join(","))].join("\n") + "\n");
   return { dir: dest, files: new Set(rows.map((r) => r.file)).size, rows: rows.length };
+}
+
+/** advanceProduction({film, out, operator}) — ONE command after any return or approval: refresh generations, carry verified selections, export one
+ *  plan of every newly executable job/stage (masters' next stages and dependents released by an approved master) that no existing plan covers,
+ *  and write PRODUCTION_PROGRAM.json: per job its state, the plan carrying it, or the exact dependency it waits on. Never selects or approves. */
+export async function advanceProduction({ film, out, operator, exportOutbox }) { // exportOutbox is passed in by the CLI (it lives in the CLI module)
+  const FILM = path.resolve(film), B = await import("./gpt_batch.mjs");
+  await exportOutbox({ film: FILM, out }); const cur = J(path.join(out, "CURRENT.json")), idx = new Map(J(path.join(out, "OUTBOX_INDEX.json")).index.map((r) => [r.artjob_id, r]));
+  const plans = fs.existsSync(path.join(out, "gpt_plans")) ? fs.readdirSync(path.join(out, "gpt_plans")).filter((f) => /^GPT_ART_PLAN_\w+$/.test(f) && fs.existsSync(path.join(out, "gpt_plans", f, "PLAN_MANIFEST.json"))).map((f) => J(path.join(out, "gpt_plans", f, "PLAN_MANIFEST.json"))) : [];
+  const covers = (job, stage) => plans.find((pm) => pm.entries.some((e) => e.artjob === job && e.plan_stages[0] <= stage && stage <= e.plan_stages[1]));
+  const program = [], fresh = [];
+  for (const job of Object.keys(cur)) { const rec = idx.get(job);
+    if (operator) await B.rebaseSelections({ film: FILM, out, job, operator }).catch(() => null);
+    const ns = B.nextStage({ out, job });
+    if (ns.eligible) { const pm = covers(job, ns.stage); if (pm) program.push({ job, state: "IN_FLIGHT", stage: ns.stage, of: ns.stages, plan: pm.plan_id }); else { fresh.push(job); program.push({ job, state: "EXPORTED_NOW", stage: ns.stage, of: ns.stages }); } }
+    else program.push({ job, state: rec?.status === "WAITING_ON_MASTER_APPROVAL" ? "WAITING_ON_MASTER_APPROVAL" : ns.reason?.startsWith("all ") ? "ALL_STAGES_SELECTED_READY_FOR_INGEST_AND_REVIEW" : rec?.status || "WAITING", detail: ns.reason || rec?.blocked_on?.join("; ") || null, derived_from: rec?.derived_from || null, derivation: rec?.derivation?.route || null }); }
+  const r = fresh.length ? await exportPlan({ film: FILM, out, jobs: fresh }) : { plan_id: null, skipped: [] };
+  const summary = program.reduce((m, x) => ((m[x.state] = (m[x.state] || 0) + 1), m), {});
+  const doc = { at: new Date().toISOString(), summary, new_plan: r.plan_id ? { plan_id: r.plan_id, zip: r.zip, attachments: r.attachments, entries: r.manifest.entries.length } : null, plans_in_flight: plans.map((pm) => pm.plan_id), program };
+  fs.writeFileSync(path.join(out, "PRODUCTION_PROGRAM.json"), JSON.stringify(doc, null, 1)); return doc;
 }

@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-27T11:50:41.832Z",
+ "generation_events_observed": {
+  "mia_stage1": 1,
+  "batch1_originals": 10,
+  "round1_corrections_v1": 10,
+  "round1_corrections_v2": 6,
+  "total_images_generated": 27,
+  "repair_images_executed": 16,
+  "note": "from returns on disk (round-1 corrections are reference-conditioned generations; provider edit lineage not attested)"
+ },
+ "import_records": 5,
+ "candidate_records": 5,
+ "valid_candidate_records": 5,
+ "human_signatures_imported": 16,
+ "selections_by_selector": {
+  "OPERATOR": 1,
+  "OPERATOR_REBASE": 4
+ },
+ "pending_human_requests": [],
+ "returns_on_disk": [
+  "E01_10_ORIGINAL_REPAIR_SEEDS.zip",
+  "E01_MIA_STAGE1_ORIGINAL_CANDIDATE_BLOCKED.zip",
+  "GPT_ART_BATCH_20261127_8b2ca7263773_AUDITED_RETURN.zip",
+  "GPT_ART_PLAN_20261127_1334776b15b3_BLOCKED_RETURN.zip",
+  "GPT_ART_PLAN_20261127_1334776b15b3_RECONCILED_CANDIDATES.zip"
+ ],
+ "approved_masters": 0,
+ "registered_masters": 0,
+ "rendered_frames": 0,
+ "plans": {
+  "in_flight": [
+   "GPT_ART_PLAN_20261127_e7c852ccb0de (Mia stages 2-9)",
+   "GPT_ART_PLAN_20261127_cade2e182954 (10 masters round 2; LEAD/REGULAR stages 1-6)"
+  ],
+  "superseded": [
+   "GPT_ART_PLAN_20261127_1334776b15b3 (round 1: returned, all stage 1 UNRESOLVED)"
+  ]
+ }
+}
