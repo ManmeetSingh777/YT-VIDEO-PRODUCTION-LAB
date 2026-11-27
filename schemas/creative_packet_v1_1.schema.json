@@ -419,6 +419,59 @@
          "source": {
           "type": "string",
           "minLength": 3
+         },
+         "convention": {
+          "type": "string",
+          "minLength": 10
+         },
+         "span": {
+          "enum": [
+           "vertical",
+           "euclidean"
+          ]
+         },
+         "projections": {
+          "type": "array",
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "required": [
+            "shot",
+            "visibility"
+           ],
+           "properties": {
+            "shot": {
+             "type": "string",
+             "minLength": 1
+            },
+            "visibility": {
+             "enum": [
+              "VISIBLE",
+              "OFFSCREEN"
+             ]
+            },
+            "px": {
+             "type": "number",
+             "exclusiveMinimum": 0
+            },
+            "range_px": {
+             "type": "array",
+             "items": {
+              "type": "number",
+              "exclusiveMinimum": 0
+             },
+             "minItems": 2,
+             "maxItems": 2
+            }
+           }
+          }
+         },
+         "native_min_px": {
+          "type": "number",
+          "exclusiveMinimum": 0
+         },
+         "supersedes": {
+          "type": "string"
          }
         }
        }

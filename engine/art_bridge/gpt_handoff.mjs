@@ -94,3 +94,9 @@ export function verifyCarryForward({ out, from, to }) {
   if (why.length) throw err("STALE_COMPILED_REQUEST", { record_id: to.handoff_id, reason: `cannot carry an image from ${from}: ${why.join("; ")}` });
   return { handoff_id: from, request_sha256: old.request_sha256, requested_size_then: old.size, requested_size_now: to.size, delta: ENGINE.map((e) => { const x = secs(a).find((q) => q.startsWith(e)) ?? null, y = secs(b).find((q) => q.startsWith(e)) ?? null; return x === y ? null : { section: e.replace(/^## /, "").replace(/ \(.*$/, ""), before: x, after: y }; }).filter(Boolean), verified: ["handoff seal", "same job and stage", "request text identical outside the engine-computed canvas and detail-budget sections", "same reference images", "same predecessor"] };
 }
+
+/** engineSectionDiff(a, b) — compare two request texts outside the ENGINE-COMPUTED sections (size contract, detail budget); returns the delta */
+export function engineSectionDiff(a, b) {
+  const ENGINE = ["## GENERATION CANVAS (engine resolution contract", "## DETAIL BUDGET ("], secs = (t) => t.split(/\n(?=## )/), cut = (t) => secs(t).filter((s) => !ENGINE.some((e) => s.startsWith(e))).join("\n");
+  return { equal_outside_engine_sections: cut(a) === cut(b), delta: ENGINE.map((e) => { const x = secs(a).find((q) => q.startsWith(e)) ?? null, y = secs(b).find((q) => q.startsWith(e)) ?? null; return x === y ? null : { section: e.replace(/^## /, "").replace(/ \(.*$/, ""), before: x, after: y }; }).filter(Boolean) };
+}

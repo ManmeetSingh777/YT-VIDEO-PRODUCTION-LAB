@@ -14,7 +14,7 @@ import fs from "node:fs"; import path from "node:path"; import crypto from "node
 import { err } from "./errors.mjs";
 import { readCurrent } from "./outbox_store.mjs";
 import { loadSelection, selectCandidate } from "./candidate_store.mjs";
-import { exportGptJob, importGptCandidates } from "./gpt_handoff.mjs";
+import { exportGptJob, importGptCandidates, engineSectionDiff } from "./gpt_handoff.mjs";
 import { nextStage, zipDir, unzipSafe } from "./gpt_batch.mjs";
 const sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), fsha = (f) => sha(fs.readFileSync(f)), J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), pad = (n) => String(n).padStart(2, "0");
 const OPS = ["GENERATE", "EDIT", "REPAIR_EDIT"];
@@ -61,7 +61,7 @@ export async function exportPlan({ film, out, jobs, maxStage = {}, seeds = {} })
   const mtxt = JSON.stringify(manifest, null, 1); fs.writeFileSync(path.join(dir, "PLAN_MANIFEST.json"), mtxt, { flag: "wx" }); fs.writeFileSync(path.join(out, "gpt_plans", `${plan_id}.sha256`), sha(mtxt), { flag: "wx" });
   fs.writeFileSync(path.join(dir, "ARTWORK_GPT_EXECUTION_PROTOCOL.md"), protocol(manifest));
   fs.writeFileSync(path.join(dir, "RETURN_MANIFEST.template.json"), JSON.stringify({ plan_id, entries: entries.map((e) => ({ artjob: e.artjob, stages: e.stages.map((s) => ({ stage: s.stage, status: null, machine_choice: null, images: [], unresolved_blockers: [] })) })) }, null, 1));
-  zipDir(dir, `${dir}.zip`); return { plan_id, zip: `${dir}.zip`, manifest, skipped };
+  zipDir(dir, `${dir}.zip`); const attachments = planAttachments({ out, plan_id }); return { plan_id, zip: `${dir}.zip`, attachments: attachments.dir, manifest, skipped };
 }
 
 function protocol(m) {
@@ -99,14 +99,16 @@ export async function importPlan({ film, out, zip, operator }) {
       try {
         const cur = readCurrent(out, pe.artjob); try { loadSelection({ out, job: pe.artjob, stage: ps.stage, generation: cur.digest }); results.push({ ...tag, outcome: "ALREADY_SELECTED" }); continue; } catch { /* open */ }
         const ns = nextStage({ out, job: pe.artjob }); if (ns.stage !== ps.stage) throw err("STAGE_PREDECESSOR_MISSING", { reason: `stage ${ps.stage} is not open (${ns.reason || `open stage ${ns.stage}`})` });
-        const h = await exportGptJob({ film, out, job: pe.artjob, stage: ps.stage }); if (h.manifest.request_sha256 !== ps.request_sha256) throw err("STALE_COMPILED_REQUEST", { record_id: h.handoff_id, reason: "the current stage request differs from the plan's sealed request: re-export the plan" });
+        const h = await exportGptJob({ film, out, job: pe.artjob, stage: ps.stage }); let requestDelta = null; if (h.manifest.request_sha256 !== ps.request_sha256) { // an approved change may alter only engine-computed sections (size contract, detail budget)
+          const d = engineSectionDiff(fs.readFileSync(path.join(out, "gpt_plans", rm.plan_id, ps.prompt_file), "utf8"), fs.readFileSync(path.join(out, "gpt_handoffs", h.handoff_id, "REQUEST_PROMPT.txt"), "utf8"));
+          if (!d.equal_outside_engine_sections) throw err("STALE_COMPILED_REQUEST", { record_id: h.handoff_id, reason: "the current stage request differs from the plan's sealed request beyond engine-computed sections: re-export the plan" }); requestDelta = d.delta; }
         const sd = new Set(ps.stage === pe.plan_stages[0] ? pe.repair_seeds.map((s) => s.sha256) : []), pred = h.manifest.predecessor_sha256 || null, imgs = rs.images.map((x) => { const p = path.resolve(base, x.path || `returns/${path.basename(pe.folder)}/stage${pad(ps.stage)}/${x.file}`); if (!p.startsWith(path.resolve(base) + path.sep) || !fs.existsSync(p)) throw err("ASSET_PATH_INVALID", { reason: `${x.file} is missing from the return zip` }); return { ...x, abs: p, sha256: fsha(p) }; });
         const seen = new Set(); for (const x of imgs) { if (!OPS.includes(x.operation)) throw err("SCHEMA_VIOLATION", { reason: `${x.file}: operation must be one of ${OPS}` }); const par = x.parent_sha256 ?? null;
           const ok = par === null ? x.operation === "GENERATE" && !sd.size && !pred : sd.has(par) || par === pred || seen.has(par); if (!ok) throw err("STAGE_PREDECESSOR_MISSING", { reason: `${x.file}: parent ${par ?? "none"} is not this stage's seed, predecessor or an earlier image of the stage (${x.operation})` }); seen.add(x.sha256); }
         const b = path.join(root, "bundles", `${pe.n}_${ps.stage}`); fs.mkdirSync(b, { recursive: true }); imgs.forEach((x, k) => fs.copyFileSync(x.abs, path.join(b, `img_${k + 1}.png`)));
         fs.writeFileSync(path.join(b, "IMPORT_MANIFEST.json"), JSON.stringify({ handoff_id: h.handoff_id, images: imgs.map((x, k) => ({ file: `img_${k + 1}.png`, sha256: x.sha256, lineage: { returned_as: x.file, operation: x.operation, parent_sha256: x.parent_sha256 ?? null, round: x.round ?? null, evaluation: x.evaluation ?? null } })), origin_claim: { model: rs.model ?? re.model ?? null, session: rs.session ?? null, operator: String(operator) }, operator_submission_id: `${rm.plan_id}:${pe.n}:${ps.stage}:${zsha.slice(0, 8)}` }, null, 1));
         const rec = importGptCandidates({ film, out, bundleDir: b }), byFile = Object.fromEntries(imgs.map((x, k) => [x.file, rec.candidates[k]]));
-        const r = { ...tag, outcome: "IMPORTED", status: rs.status, candidates: rec.candidates.map((c, k) => ({ candidate_id: c.id, file: imgs[k].file, operation: imgs[k].operation, parent: imgs[k].parent_sha256 ?? null, valid: c.valid, problems: c.problems })), unresolved_blockers: rs.unresolved_blockers || [] };
+        const r = { ...tag, outcome: "IMPORTED", status: rs.status, ...(requestDelta ? { request_changed_since_plan: requestDelta.map((x) => x.section) } : {}), candidates: rec.candidates.map((c, k) => ({ candidate_id: c.id, file: imgs[k].file, operation: imgs[k].operation, parent: imgs[k].parent_sha256 ?? null, valid: c.valid, problems: c.problems })), unresolved_blockers: rs.unresolved_blockers || [] };
         const continues = ps.stage < pe.plan_stages[1];
         if (rs.status === "PASS" && rs.machine_choice && continues) { const c = byFile[rs.machine_choice]; if (!c?.valid) throw err("STAGE_PREDECESSOR_MISSING", { reason: `machine_choice ${rs.machine_choice} is not a valid imported candidate (${c?.problems?.join("; ") || "absent"})` });
           selectCandidate({ out, job: pe.artjob, stage: ps.stage, generation: cur.digest, candidateId: c.id, selector: "MACHINE_GPT" }); r.machine_selected = c.id; }
@@ -115,4 +117,19 @@ export async function importPlan({ film, out, zip, operator }) {
       } catch (e) { const r = { ...tag, outcome: "FAILED", code: e.code || null, reason: e.human_readable_reason || e.message }; log(r); results.push(r); break; }
     } }
   return { plan_id: rm.plan_id, summary: results.reduce((m, r) => ((m[r.outcome] = (m[r.outcome] || 0) + 1), m), {}), results };
+}
+
+/** planAttachments({out, plan_id}) — a FLAT operator-attachment folder beside the sealed plan (the plan itself is untouched): every image the
+ *  operator must attach, clearly named, with ATTACHMENT_MAP.json/.csv giving its exact ArtJob, stage, role, sha256 and the prompt to use it with. */
+export function planAttachments({ out, plan_id }) {
+  const dir = path.join(out, "gpt_plans", plan_id), pm = J(path.join(dir, "PLAN_MANIFEST.json")), dest = path.join(out, "gpt_plans", `${plan_id}__OPERATOR_ATTACHMENTS`); fs.mkdirSync(dest, { recursive: true });
+  const rows = [], put = (src, name, row) => { const f = path.join(dest, name); if (!fs.existsSync(f)) fs.copyFileSync(path.join(dir, src), f); const h = fsha(f); if (row.sha256 && h !== row.sha256) throw err("ASSET_HASH_MISMATCH", { reason: `${src} ≠ ${row.sha256}` }); rows.push({ file: name, sha256: h, ...row }); };
+  for (const e of pm.entries) { const a = e.asset.replace(/[^\w.-]/g, "_"), N = pad(e.n);
+    e.repair_seeds.forEach((s, i) => put(s.seed, `${N}_${a}__stage${pad(e.plan_stages[0])}__REPAIR_SEED_${i + 1}__${s.sha256.slice(0, 8)}.png`, { artjob: e.artjob, asset: e.asset, stage: e.plan_stages[0], role: "IMAGE_TO_EDIT (repair seed: this job's own original candidate)", use_with: s.repair_edit_prompt, sha256: s.sha256 }));
+    const ei = e.stages[0].edit_input; if (ei && typeof ei === "object") put(ei.file, `${N}_${a}__stage${pad(e.plan_stages[0])}__EDIT_INPUT__${ei.sha256.slice(0, 8)}.png`, { artjob: e.artjob, asset: e.asset, stage: e.plan_stages[0], role: "IMAGE_TO_EDIT (selected predecessor / approved master)", use_with: e.stages[0].prompt_file, sha256: ei.sha256 });
+    for (const w of e.witnesses) put(w.file, `W_${w.sha256.slice(0, 8)}__${w.original_name}`, { artjob: e.artjob, asset: e.asset, stage: `${e.plan_stages[0]}-${e.plan_stages[1]}`, role: "STYLE_ONLY witness (attach with every stage of this job)", use_with: e.stages.map((s) => s.prompt_file).join(" | "), sha256: w.sha256 }); }
+  const map = { plan_id, plan_manifest_sha256: fsha(path.join(dir, "PLAN_MANIFEST.json")), note: "Flat copies for attaching in ChatGPT. The sealed plan zip remains the authority; every file here is hash-identical to its plan source.", attachments: rows };
+  fs.writeFileSync(path.join(dest, "ATTACHMENT_MAP.json"), JSON.stringify(map, null, 1));
+  fs.writeFileSync(path.join(dest, "ATTACHMENT_MAP.csv"), ["file,sha256,artjob,asset,stage,role,use_with", ...rows.map((r) => [r.file, r.sha256, r.artjob, r.asset, r.stage, r.role, r.use_with].map((v) => `"${String(v).replace(/"/g, '""')}"`).join(","))].join("\n") + "\n");
+  return { dir: dest, files: new Set(rows.map((r) => r.file)).size, rows: rows.length };
 }

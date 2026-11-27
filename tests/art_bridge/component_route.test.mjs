@@ -52,3 +52,9 @@ test("CR-5 deterministic routes: TYPE is live vector text with the exact copy; M
   assert.equal(derivationRoute({ asset_kind: "TYPE" }).generates_image, false); assert.equal(derivationRoute({ asset_kind: "MASK" }).generates_image, false);
   for (const k of ["CEL", "UNDERPAINT", "WORLD_PLANE", "PART"]) assert.equal(derivationRoute({ asset_kind: k }).generates_image, true);
 });
+test("CR-6 a requirement may name its own landmarks and a vertical span (cranium_top → chin, upright pose)", async () => {
+  const { measureSpan } = await import("../../engine/art_bridge/component_route.mjs"), lm = { cranium_top: [100, 40], chin: [160, 240] };
+  assert.equal(measureSpan({ png: master, landmarks: lm, measure: "head_height_px", from: "cranium_top", to: "chin", span: "vertical" }), 200);
+  assert.ok(Math.abs(measureSpan({ png: master, landmarks: lm, measure: "head_height_px", from: "cranium_top", to: "chin" }) - Math.hypot(60, 200)) < 1e-9);
+  const p = componentCropPlan({ masterPng: master, landmarks: { ...LM, ...lm }, componentLandmarks: [], requirement: { ...req, from_landmark: "cranium_top", to_landmark: "chin", span: "vertical" }, canvases: ["1024x1536"] }); assert.equal(p.master_span_px, 200);
+});

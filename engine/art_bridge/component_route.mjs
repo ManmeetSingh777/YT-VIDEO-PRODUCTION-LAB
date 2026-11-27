@@ -14,20 +14,20 @@ export const MEASURES = Object.freeze({ head_height_px: { from: "head_top", to: 
 const alphaBox = (png, box = [0, 0, png.width, png.height], t = 8) => { let x0 = Infinity, y0 = Infinity, x1 = -1, y1 = -1; const [bx, by, bw, bh] = box;
   for (let y = by; y < by + bh; y++) for (let x = bx; x < bx + bw; x++) if (png.rgba[(y * png.width + x) * 4 + 3] > t) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
   return x1 < 0 ? null : [x0, y0, x1 - x0 + 1, y1 - y0 + 1]; };
-export function measureSpan({ png, landmarks = {}, measure, box = null }) {
-  const m = MEASURES[measure]; if (!m) throw err("SCHEMA_VIOLATION", { reason: `unknown measure ${measure}`, producer: P });
-  if (m.from) { const a = landmarks[m.from], b = landmarks[m.to]; if (!a || !b) throw err("UNREGISTERED_PIVOT", { reason: `${measure} needs landmarks ${m.from} and ${m.to}`, producer: P }); return Math.hypot(b[0] - a[0], b[1] - a[1]); }
+export function measureSpan({ png, landmarks = {}, measure, box = null, from = null, to = null, span = null }) {
+  const m0 = MEASURES[measure]; if (!m0) throw err("SCHEMA_VIOLATION", { reason: `unknown measure ${measure}`, producer: P }); const m = from && to ? { from, to, span } : m0;
+  if (m.from) { const a = landmarks[m.from], b = landmarks[m.to]; if (!a || !b) throw err("UNREGISTERED_PIVOT", { reason: `${measure} needs landmarks ${m.from} and ${m.to}`, producer: P }); return m.span === "vertical" ? Math.abs(b[1] - a[1]) : Math.hypot(b[0] - a[0], b[1] - a[1]); }
   const ab = alphaBox(png, box || undefined); if (!ab) throw err("ALPHA_INVALID", { reason: "no painted pixels to measure", producer: P }); return m.alpha_axis === "x" ? ab[2] : ab[3];
 }
 
 /** componentCropPlan — where to crop the approved master and at which canvas the component edit must be delivered to meet its minimum */
 export function componentCropPlan({ masterPng, landmarks, componentLandmarks = [], requirement, canvases, pad = 0.18, margin = 0.04 }) {
-  const pts = [...new Set([...componentLandmarks, ...(MEASURES[requirement.measure]?.from ? [MEASURES[requirement.measure].from, MEASURES[requirement.measure].to] : [])])].map((k) => landmarks[k]).filter(Boolean);
+  const ends = requirement.from_landmark ? [requirement.from_landmark, requirement.to_landmark] : MEASURES[requirement.measure]?.from ? [MEASURES[requirement.measure].from, MEASURES[requirement.measure].to] : [], pts = [...new Set([...componentLandmarks, ...ends])].map((k) => landmarks[k]).filter(Boolean);
   let box; if (pts.length >= 2) { const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]), w = Math.max(...xs) - Math.min(...xs), h = Math.max(...ys) - Math.min(...ys), e = pad * Math.max(w, h, 1);
     box = [Math.min(...xs) - e, Math.min(...ys) - e, w + 2 * e, h + 2 * e]; } else box = alphaBox(masterPng);
   if (!box) throw err("UNREGISTERED_PIVOT", { reason: "the component has no measured landmarks or painted pixels in the master", producer: P });
   const x0 = Math.max(0, Math.floor(box[0])), y0 = Math.max(0, Math.floor(box[1])), x1 = Math.min(masterPng.width, Math.ceil(box[0] + box[2])), y1 = Math.min(masterPng.height, Math.ceil(box[1] + box[3])), crop = [x0, y0, x1 - x0, y1 - y0];
-  const span = measureSpan({ png: masterPng, landmarks, measure: requirement.measure, box: crop });
+  const span = measureSpan({ png: masterPng, landmarks, measure: requirement.measure, box: crop, from: requirement.from_landmark, to: requirement.to_landmark, span: requirement.span });
   const ranked = canvases.map((s) => { const [cw, ch] = dims(s), k = Math.min(cw / crop[2], ch / crop[3]) * (1 - 2 * margin); return { s, k, same: orient(cw, ch) === orient(crop[2], crop[3]) }; }).sort((a, b) => b.k - a.k || b.same - a.same), best = ranked[0];
   const expected = span * best.k, feasible = expected >= requirement.min_native_px;
   return { crop_box: crop, canvas: best.s, scale_from_master: +best.k.toFixed(4), master_span_px: +span.toFixed(1), expected_delivered_span_px: Math.floor(expected), requirement, feasible,
@@ -53,7 +53,7 @@ export function nativeDetailRatio(png, factor) {
 export const nativeDetailThreshold = (factor) => 1 + 0.5 * (Math.max(2, Math.round(factor)) - 1); // native ≈ f, enlargement ≈ 1–1.7 (measured: flat disc 3.0 vs 1.38, fine detail 7.9 vs 1.71 at f = 3)
 /** verifyComponentNative — the delivered component meets its directed span with its OWN pixels and is not an upscaled crop */
 export function verifyComponentNative({ deliveredPng, deliveredLandmarks, requirement, scaleFromMaster }) {
-  const span = measureSpan({ png: deliveredPng, landmarks: deliveredLandmarks, measure: requirement.measure }), ratio = scaleFromMaster > 1.05 ? nativeDetailRatio(deliveredPng, scaleFromMaster) : null;
+  const span = measureSpan({ png: deliveredPng, landmarks: deliveredLandmarks, measure: requirement.measure, from: requirement.from_landmark, to: requirement.to_landmark, span: requirement.span }), ratio = scaleFromMaster > 1.05 ? nativeDetailRatio(deliveredPng, scaleFromMaster) : null;
   const problems = [...(span >= requirement.min_native_px ? [] : [`${requirement.measure} ${span.toFixed(0)} px < ${requirement.min_native_px} px native`]), ...(ratio !== null && ratio < nativeDetailThreshold(scaleFromMaster) ? [`edge sharpness ${ratio.toFixed(3)} < ${nativeDetailThreshold(scaleFromMaster).toFixed(2)} at ${scaleFromMaster.toFixed(2)}x the master density: the component is an upscale, not a native redraw`] : [])];
   return { ok: problems.length === 0, measured_span_px: +span.toFixed(1), native_detail_ratio: ratio === null ? null : +ratio.toFixed(5), problems };
 }

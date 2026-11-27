@@ -166,7 +166,7 @@ export function measuredFrame(reg, png, asset, lm = null) {
   if (y1 < 0) throw err("ALPHA_INVALID", { record_id: asset, reason: "the delivered drawing has no painted pixel" });
   const ref = reg.on_stage_reference; if (ref) { // a directed measurement (e.g. head height): scale so the MEASURED landmark span has the directed px — never the whole painted extent
     const a = lm?.landmarks?.[ref.from_landmark], b = lm?.landmarks?.[ref.to_landmark]; if (!a || !b) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `on_stage_reference ${ref.measure} needs reviewed landmarks ${ref.from_landmark} and ${ref.to_landmark}` });
-    const d = Math.hypot(b[0] - a[0], b[1] - a[1]); if (!(d > 4)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `${ref.from_landmark}→${ref.to_landmark} span ${d.toFixed(1)}px is not measurable` }); const s = ref.px / d; return [s, 0, 0, s, 0, 0]; }
+    const d = ref.span === "vertical" ? Math.abs(b[1] - a[1]) : Math.hypot(b[0] - a[0], b[1] - a[1]); if (!(d > 4)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `${ref.from_landmark}→${ref.to_landmark} span ${d.toFixed(1)}px is not measurable` }); const s = ref.px / d; return [s, 0, 0, s, 0, 0]; }
   const s = reg.on_stage_height_px ? reg.on_stage_height_px / (y1 - y0 + 1) : 1; return [s, 0, 0, s, 0, 0];
 }
 export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
@@ -326,8 +326,8 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   { // a directed component minimum is checked on the DELIVERED pixels before registration: native span, and real detail above the master density
     const own = (await import("./resolution_contract.mjs")).loadNativeRequirements(FILM).requirements.filter((r) => r.component === asset);
     if (own.length) { const CR = await import("./component_route.mjs"), mpng = readPNG(path.join(FILM, m.file));
-      for (const r of own) { let ms = null; try { ms = CR.measureSpan({ png: mpng, landmarks: masterPx, measure: r.measure }); } catch { ms = null; }
-        const ds = CR.measureSpan({ png, landmarks: lm.landmarks, measure: r.measure }), v = CR.verifyComponentNative({ deliveredPng: png, deliveredLandmarks: lm.landmarks, requirement: r, scaleFromMaster: ms ? ds / ms : 1 });
+      for (const r of own) { let ms = null; try { ms = CR.measureSpan({ png: mpng, landmarks: masterPx, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }); } catch { ms = null; }
+        const ds = CR.measureSpan({ png, landmarks: lm.landmarks, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }), v = CR.verifyComponentNative({ deliveredPng: png, deliveredLandmarks: lm.landmarks, requirement: r, scaleFromMaster: ms ? ds / ms : 1 });
         if (!v.ok) throw err("COMPONENT_NATIVE_RESOLUTION_UNVERIFIED", { record_id: asset, reason: v.problems.join("; "), details: v }); } } }
   const rec = registerPart({ partId: asset, master: path.join(FILM, m.file), rawPart: file, canonicalLandmarks: masterPx, partLandmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])), pivotId: p.pivot_landmark_id, underpaintIds, hiddenSurfaces: p.hidden_surfaces || [], mode, requirePivotOnArt: p.kind !== "MASK",
     maxResidualPx: maxResidualPx / masterScale, sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, outDir: path.join(FILM, "registration", asset, `attempt_${fsha(file).slice(0, 12)}`) });
