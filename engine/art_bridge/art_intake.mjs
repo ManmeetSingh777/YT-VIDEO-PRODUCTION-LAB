@@ -323,6 +323,12 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   const masterPx = Object.fromEntries(names.map((k) => [k, ap(Minv, m.landmarks[k] ?? ident.landmarks[k])]));
   const underpaintIds = (p.hidden_surfaces || []).map((s) => p.surface_underpaint[s]); // B2: ownership carried from the plan contract
   const masterScale = Math.sqrt(Math.abs(M[0] * M[3] - M[1] * M[2]));
+  { // a directed component minimum is checked on the DELIVERED pixels before registration: native span, and real detail above the master density
+    const own = (await import("./resolution_contract.mjs")).loadNativeRequirements(FILM).requirements.filter((r) => r.component === asset);
+    if (own.length) { const CR = await import("./component_route.mjs"), mpng = readPNG(path.join(FILM, m.file));
+      for (const r of own) { let ms = null; try { ms = CR.measureSpan({ png: mpng, landmarks: masterPx, measure: r.measure }); } catch { ms = null; }
+        const ds = CR.measureSpan({ png, landmarks: lm.landmarks, measure: r.measure }), v = CR.verifyComponentNative({ deliveredPng: png, deliveredLandmarks: lm.landmarks, requirement: r, scaleFromMaster: ms ? ds / ms : 1 });
+        if (!v.ok) throw err("COMPONENT_NATIVE_RESOLUTION_UNVERIFIED", { record_id: asset, reason: v.problems.join("; "), details: v }); } } }
   const rec = registerPart({ partId: asset, master: path.join(FILM, m.file), rawPart: file, canonicalLandmarks: masterPx, partLandmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])), pivotId: p.pivot_landmark_id, underpaintIds, hiddenSurfaces: p.hidden_surfaces || [], mode, requirePivotOnArt: p.kind !== "MASK",
     maxResidualPx: maxResidualPx / masterScale, sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, outDir: path.join(FILM, "registration", asset, `attempt_${fsha(file).slice(0, 12)}`) });
   rec.master_asset_id = m.id; rec.master_sha256 = m.sha256; rec.tolerance_px = maxResidualPx / masterScale; rec.planned_alpha_mode = p.alpha_mode;

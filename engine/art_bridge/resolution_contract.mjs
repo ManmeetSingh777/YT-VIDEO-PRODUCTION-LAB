@@ -11,6 +11,8 @@
 // count as native: delivered sizes are measured, and a requirement is satisfied only by a component's own delivered pixels.
 import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto";
 import { err } from "./errors.mjs";
+import { componentCropPlan } from "./component_route.mjs";
+import { readPNG } from "./png.mjs";
 
 export const DEFAULT_PROVIDER_CANVASES = Object.freeze(["1024x1024", "1536x1024", "1024x1536"]); // gpt-image sizes (API and ChatGPT image tool)
 export const CANVAS_MARGIN = 0.02; // transparent margin kept on each edge of the long axis for a figure (the drawing must not touch the edge)
@@ -68,8 +70,13 @@ export function resolutionContract({ job, design, film = null, jobs = [], env = 
   const problems = [];
   for (const r of mine) if (r.component !== job.root_dependency && !components.includes(r.component)) problems.push(`directed requirement for ${r.component} (${r.measure} >= ${r.min_native_px}px) names no component job of ${root}`);
   const own = mine.filter((r) => r.component === job.root_dependency);
-  if (!master && own.length && !(env.ART_COMPONENT_CROP_EDIT === "1"))
-    throw err("COMPONENT_NATIVE_RESOLUTION_UNVERIFIED", { record_id: job.artjob_id, reason: `${job.root_dependency} must reach ${own.map((r) => `${r.measure} >= ${r.min_native_px}px`).join(", ")} natively; the whole-master edit route keeps the master's density (fit ${k}), so this component needs its own source-attached high-resolution edit (a crop of the approved master at the full provider canvas, registered back by its landmarks), which is compiled only once the master's landmarks are measured`, producer: P, failed_invariant: "a directed component minimum is met by that component's own delivered pixels", repair_owner: "ENGINE", resume_at: "MASTER_REGISTRATION" });
+  if (!master && own.length) { // a directed component minimum: only the source-attached crop route of the REGISTERED, approved master can meet it
+    const req = [...own].sort((a, b) => b.min_native_px - a.min_native_px)[0], cc = componentCrop({ film, root, job, req, sizes: sizes.flatMap(acceptedCanvases) });
+    if (!cc.ok) throw err("COMPONENT_NATIVE_RESOLUTION_UNVERIFIED", { record_id: job.artjob_id, reason: `${job.root_dependency} must reach ${own.map((r) => `${r.measure} >= ${r.min_native_px}px`).join(", ")} natively with its own pixels: ${cc.reason}`, producer: P, failed_invariant: "a directed component minimum is met by that component's own delivered pixels", repair_owner: "ENGINE", resume_at: "MASTER_REGISTRATION" });
+    const c = { schema: "resolution_contract_v1", artjob: job.artjob_id, requested_canvas: cc.plan.canvas, accepted_canvases: [cc.plan.canvas], canvas_px: dims(cc.plan.canvas), canvas_orientation: orient(...dims(cc.plan.canvas)), provider_canvases: sizes, authored_target: { width_px: aw, height_px: ah, figure_height_px: fig || null, meaning: "the assembled, registered canonical asset (design.output) — not one provider image" },
+      fit_scale: cc.plan.scale_from_master, expected_native: { [req.measure]: cc.plan.expected_delivered_span_px }, route: "SOURCE_ATTACHED_COMPONENT_CROP", component_crop: { ...cc.plan, master_file: cc.master_file, master_sha256: cc.master_sha256, registration_receipt_sha256: cc.receipt_sha256 }, delegated_to_components: [],
+      component_requirements: own.map((r) => ({ component: r.component, measure: r.measure, min_native_px: r.min_native_px, basis: r.basis, source: r.source })), projected_screen_px: "DERIVED_AT_MOTION_PLAN (measured camera exposure; never assumed here)", native_rule: "only the component's own delivered pixels count; an upscaled crop is refused (native detail check)", requirements_file: reqs.file, requirements_sha256: reqs.sha256 };
+    return { ...c, key: `${c.requested_canvas}|${sha(JSON.stringify(c))}` }; }
   let route;
   if (k >= 1) route = "NATIVE_IN_ONE_IMAGE";
   else if (master && components.length) route = "IDENTITY_MASTER_THEN_SOURCE_ATTACHED_COMPONENTS";
@@ -88,6 +95,10 @@ export function resolutionContract({ job, design, film = null, jobs = [], env = 
 
 /** the text the request carries so the artist receives ONE consistent size statement (appended after the design's OUTPUT block) */
 export function canvasSection(c) {
+  if (c.route === "SOURCE_ATTACHED_COMPONENT_CROP") { const cc = c.component_crop; return [`## GENERATION CANVAS (engine resolution contract — source-attached high-resolution component)`,
+    `Deliver exactly ${c.requested_canvas} px, lossless PNG, transparent background, never upscaled or resized.`,
+    `Attached COMPONENT_SOURCE_CROP.png is the APPROVED master's exact pixels (crop ${cc.crop_box.join(",")}, master density). Redraw THIS component natively at the canvas, ${cc.scale_from_master}x the master density, preserving identity, construction, colour planes and the landmark layout (normalised positions: ${Object.entries(cc.landmarks_in_crop).map(([k, v]) => `${k} ${v.join(",")}`).join("; ")}).`,
+    `Native requirement: ${cc.requirement.measure} >= ${cc.requirement.min_native_px} px in the delivered pixels (expected ~${cc.expected_delivered_span_px} px). New native edge detail is required: a smooth enlargement of the crop is refused at import.`].join("\n"); }
   if (!c.authored_target) return `## GENERATION CANVAS (engine resolution contract)
 Deliver exactly ${c.requested_canvas} px (${c.canvas_orientation.toLowerCase()}), lossless PNG, unmodified and never upscaled.`;
   const fig = c.authored_target.figure_height_px;
@@ -107,4 +118,15 @@ export function compiledCanvas(compiledDir) {
   const f = path.join(compiledDir, "RESOLUTION_CONTRACT.json");
   if (!fs.existsSync(f)) throw err("STALE_COMPILED_REQUEST", { reason: `${compiledDir} has no RESOLUTION_CONTRACT.json (compiled before the resolution contract): re-export`, producer: P, resume_at: "EXPORT" });
   return JSON.parse(fs.readFileSync(f, "utf8")).requested_canvas;
+}
+
+/** componentCrop — the crop plan from the master's REGISTERED pixels and reviewed landmarks (null until the master is registered) */
+function componentCrop({ film, root, job, req, sizes }) {
+  if (!film) return { ok: false, reason: "no film to read the master registration from" };
+  const F = path.resolve(film), doc = JSON.parse(fs.readFileSync(path.join(F, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"), "utf8")), m = (doc.assets || []).find((a) => a.id === root), rf = path.join(F, "registration", root, "MASTER_REGISTRATION_RECEIPT.json");
+  if (!m?.file || !fs.existsSync(rf)) return { ok: false, reason: `the master ${root} is not registered yet; its crop is measured from the registered master's reviewed landmarks` };
+  const rtext = fs.readFileSync(rf, "utf8"), rec = JSON.parse(rtext), mf = path.join(F, m.file);
+  if (!fs.existsSync(mf) || sha(fs.readFileSync(mf)) !== m.sha256 || rec.source?.sha256 !== m.sha256) return { ok: false, reason: `the registration receipt of ${root} does not measure the current master bytes` };
+  const plan = componentCropPlan({ masterPng: readPNG(mf), landmarks: rec.landmark_sidecar?.landmarks || {}, componentLandmarks: job.motion_context?.required_continuity_landmarks || [], requirement: req, canvases: [...new Set(sizes)] });
+  return plan.feasible ? { ok: true, plan, master_file: m.file, master_sha256: m.sha256, receipt_sha256: sha(rtext) } : { ok: false, reason: plan.reason };
 }
