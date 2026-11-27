@@ -14,6 +14,11 @@ import { err } from "./errors.mjs";
 
 export const DEFAULT_PROVIDER_CANVASES = Object.freeze(["1024x1024", "1536x1024", "1024x1536"]); // gpt-image sizes (API and ChatGPT image tool)
 export const CANVAS_MARGIN = 0.02; // transparent margin kept on each edge of the long axis for a figure (the drawing must not touch the edge)
+// Same-aspect native sizes a route is OBSERVED to return for a requested canvas (never smaller, never another aspect). Evidence: E01 batch
+// GPT_ART_BATCH_20261127_8b2ca7263773 — all 6 square ChatGPT image-tool requests returned 1254x1254, all 4 portrait/landscape requests
+// returned exactly the requested size. Such an image is accepted as delivered (more native pixels, never resized); its size is recorded.
+export const ROUTE_EQUIVALENT_CANVASES = Object.freeze({ "1024x1024": ["1254x1254"] });
+export const acceptedCanvases = (requested) => [requested, ...(ROUTE_EQUIVALENT_CANVASES[requested] || [])];
 const P = "engine/art_bridge/resolution_contract.mjs";
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
 const dims = (s) => { const m = /^(\d+)x(\d+)$/.exec(String(s)); if (!m) throw err("SCHEMA_VIOLATION", { reason: `canvas ${s} is not WxH`, producer: P }); return [+m[1], +m[2]]; };
@@ -71,7 +76,7 @@ export function resolutionContract({ job, design, film = null, jobs = [], env = 
   else if (!master) route = "MASTER_DENSITY_EDIT_EXPOSURE_CHECKED_AT_MOTION_PLAN"; // no directed number for this component: it keeps the measured master density, and its native need is checked against measured camera exposure (never assumed satisfied)
   else problems.push(`the authored target ${fig ? `figure ${fig}px` : `${aw}x${ah}`} needs ${(1 / k).toFixed(2)}x the largest supported canvas (${sizes.join(", ")}) and ${master ? "this master has no component jobs" : "a component cannot delegate further"} to carry the remaining native detail`);
   if (problems.length) throw err("IMPOSSIBLE_RESOLUTION_REQUEST", { record_id: job.artjob_id, reason: problems.join("; "), producer: P, failed_invariant: "every exported request can actually be delivered at its required native resolution", repair_owner: "HUMAN_ART_DIRECTOR", resume_at: "ART_DESIGN_COMPILATION", details: { canvases: sizes, authored: [aw, ah], figure_height_px: fig || null, fit: k } });
-  const c = { schema: "resolution_contract_v1", artjob: job.artjob_id, requested_canvas: pick.s, canvas_px: [cw, ch], canvas_orientation: orient(cw, ch), provider_canvases: sizes,
+  const c = { schema: "resolution_contract_v1", artjob: job.artjob_id, requested_canvas: pick.s, accepted_canvases: acceptedCanvases(pick.s), canvas_px: [cw, ch], canvas_orientation: orient(cw, ch), provider_canvases: sizes,
     authored_target: { width_px: aw, height_px: ah, figure_height_px: fig || null, meaning: "the assembled, registered canonical asset (design.output) — not one provider image" },
     fit_scale: k, expected_native: fig ? { figure_height_px: Math.floor(fig * k) } : { width_px: Math.floor(aw * k), height_px: Math.floor(ah * k) }, route,
     delegated_to_components: route === "IDENTITY_MASTER_THEN_SOURCE_ATTACHED_COMPONENTS" ? components : [],
@@ -87,7 +92,7 @@ export function canvasSection(c) {
 Deliver exactly ${c.requested_canvas} px (${c.canvas_orientation.toLowerCase()}), lossless PNG, unmodified and never upscaled.`;
   const fig = c.authored_target.figure_height_px;
   return [`## GENERATION CANVAS (engine resolution contract — this overrides any single-image reading of the OUTPUT block above)`,
-    `Deliver exactly ${c.requested_canvas} px (${c.canvas_orientation.toLowerCase()}), lossless PNG, unmodified and never upscaled.`,
+    `Deliver exactly ${c.requested_canvas} px (${c.canvas_orientation.toLowerCase()}), lossless PNG, unmodified and never upscaled.${(c.accepted_canvases || []).length > 1 ? ` If the image tool returns its native ${c.accepted_canvases.slice(1).join(" or ")} for this request, return that image as delivered: never resize it.` : ""}`,
     fig ? `Draw the complete figure as large as the canvas allows: about ${c.expected_native.figure_height_px} px tall, with at least ${Math.round(CANVAS_MARGIN * 100)}% transparent margin top and bottom; nothing touches the edge.` : `Fill the canvas with the complete subject at about ${c.expected_native.width_px}x${c.expected_native.height_px} px of native detail; nothing touches the edge unless it is a plate that must bleed.`,
     c.route === "NATIVE_IN_ONE_IMAGE" ? "This image carries the authored target natively." : `The OUTPUT block is the assembled canonical target. This image is the IDENTITY MASTER at ${Math.round(c.fit_scale * 100)}% of that density; the remaining native detail is delivered later by source-attached component edits of this approved master${c.component_requirements.length ? ` (${c.component_requirements.map((r) => `${r.component}: ${r.measure} >= ${r.min_native_px} px native`).join("; ")})` : ""}. Do not compromise identity, proportion or construction to fit more detail here.`].join("\n");
 }
