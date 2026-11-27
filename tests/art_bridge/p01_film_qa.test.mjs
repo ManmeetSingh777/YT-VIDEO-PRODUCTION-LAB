@@ -14,6 +14,7 @@ import { buildFilmRevision } from "../../engine/film/film_revision.mjs";
 import crypto from "node:crypto";
 import { writeReceipt } from "../../engine/art_bridge/approvals.mjs";
 import { shotReviewBundle, unlikeBundle } from "../../engine/film/evidence_auth.mjs";
+import { copyFilmTree, reclaim } from "../_lib/work_storage.mjs";
 const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
 const render = (d, o = {}) => renderFilm({ film: d, revision: buildFilmRevision(d), audio: path.join(d, "audio", "narration_TEST_TONE.wav"), ...o });
 
@@ -22,7 +23,7 @@ const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), MF = "handoff/ART_AND_M
 const ff = (...args) => execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...args]);
 const synthMp4 = (file, { fps = 60, frames = 7200, audio }) => ff("-f", "lavfi", "-i", `color=c=gray:s=1920x1080:r=${fps}`, "-i", audio, "-frames:v", String(frames), "-c:v", "libx264", "-preset", "ultrafast", "-crf", "45", "-pix_fmt", "yuv420p", "-c:a", "aac", "-t", "120", file);
 let film;
-const copy = (tag) => { const d = path.join(W, tag); fs.rmSync(d, { recursive: true, force: true }); fs.cpSync(film, d, { recursive: true }); return d; };
+const copy = (tag) => { const d = path.join(W, tag); fs.rmSync(d, { recursive: true, force: true }); copyFilmTree(film, d); return d; }; // segments hard-linked (immutable); everything a negative edits is a real copy
 
 before(async () => {
   const rt = await runRoundTrip(path.join(W, "rt")); film = rt.film;
@@ -62,14 +63,14 @@ test("B3-3 positive path: film receipt after all gates → TEST_PASS (never PROD
 });
 test("B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt", async () => {
   const d = copy("neg_mp4_replaced"); fs.appendFileSync(path.join(d, "render", "film.mp4"), Buffer.from([0]));
-  const r = await qualifyFilm({ film: d }); assert.equal(r.verdict, "FAIL"); assert.equal(r.gates.render, false); assert.equal(r.gates.human_film_review, false);
+  const r = await qualifyFilm({ film: d }); assert.equal(r.verdict, "FAIL"); assert.equal(r.gates.render, false); assert.equal(r.gates.human_film_review, false); reclaim(d);
 });
 test("B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame", async () => {
-  { const d = copy("neg_missing_shot"), m = J(path.join(d, MF)); m.shots = m.shots.filter((s) => s.id !== "rt_world_shot"); m.shots[0].continuity_to = null; fs.writeFileSync(path.join(d, MF), JSON.stringify(m, null, 1)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.coverage, false); assert.equal(r.verdict, "FAIL"); }
-  { const d = copy("neg_missing_audio"); fs.rmSync(path.join(d, "audio", "narration_TEST_TONE.wav")); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.audio, false); assert.equal(r.verdict, "FAIL"); }
-  { const d = copy("neg_stale_art"), m = J(path.join(d, MF)), a = m.assets.find((x) => x.id === "pilot_hand_grip"); fs.appendFileSync(path.join(d, a.file), Buffer.from([0])); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.manifest_production, false); assert.equal(r.verdict, "FAIL"); }
-  { const d = copy("neg_30fps"); await render(d, { fps: 30, total: 3600 }); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.render, false); assert.match(r.details.render.reasons.join(" "), /fps 30\/1/); }
-  { const d = copy("neg_missing_frame"); await render(d, { total: 7199 }); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.render, false); assert.match(r.details.render.reasons.join(" "), /frames 7199/); }
+  { const d = copy("neg_missing_shot"), m = J(path.join(d, MF)); m.shots = m.shots.filter((s) => s.id !== "rt_world_shot"); m.shots[0].continuity_to = null; fs.writeFileSync(path.join(d, MF), JSON.stringify(m, null, 1)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.coverage, false); assert.equal(r.verdict, "FAIL"); reclaim(d); }
+  { const d = copy("neg_missing_audio"); fs.rmSync(path.join(d, "audio", "narration_TEST_TONE.wav")); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.audio, false); assert.equal(r.verdict, "FAIL"); reclaim(d); }
+  { const d = copy("neg_stale_art"), m = J(path.join(d, MF)), a = m.assets.find((x) => x.id === "pilot_hand_grip"); fs.appendFileSync(path.join(d, a.file), Buffer.from([0])); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.manifest_production, false); assert.equal(r.verdict, "FAIL"); reclaim(d); }
+  { const d = copy("neg_30fps"); await render(d, { fps: 30, total: 3600 }); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.render, false); assert.match(r.details.render.reasons.join(" "), /fps 30\/1/); reclaim(d); }
+  { const d = copy("neg_missing_frame"); await render(d, { total: 7199 }); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.render, false); assert.match(r.details.render.reasons.join(" "), /frames 7199/); reclaim(d); }
 });
 test("B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)", async () => {
   delete process.env.ART_BRIDGE_TEST_TRUST;
@@ -78,15 +79,15 @@ test("B3-6 without test trust the same package is refused (diagnostic art, non-h
 });
 
 test("B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail", async () => {
-  { const d = copy("neg_qa_bool"), f = path.join(d, "qa", "shots", "rt_shot", "QA_RESULT.json"), q = J(f); q.gates.art_registration_pass = !q.gates.art_registration_pass; fs.writeFileSync(f, JSON.stringify(q)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); assert.equal(r.verdict, "FAIL"); }
-  { const d = copy("neg_no_shot_review"); fs.rmSync(path.join(d, "qa", "shots", "rt_world_shot", "SHOT_REVIEW_POINTER.json")); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); }
-  { const d = copy("neg_forged_unlike"), f = path.join(d, "qa", "film", "UNLIKE_TRANSFER.json"); fs.writeFileSync(f, JSON.stringify({ passages: [{ family: "ACTING_HUMAN", pass: true }, { family: "MACHINE_OR_MECHANISM", pass: true }] })); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.unlike_transfer, false); }
-  { const d = copy("neg_one_family"), f = path.join(d, "qa", "film", "UNLIKE_TRANSFER.json"), u = J(f); u.passages = u.passages.slice(0, 1); fs.writeFileSync(f, JSON.stringify(u)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.unlike_transfer, false); assert.match(JSON.stringify(r.details.unlike_transfer), /two materially unlike families/); }
-  { const d = copy("neg_revision"); fs.appendFileSync(path.join(d, "handoff", "MOTION_PLAN.json"), " "); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); assert.equal(r.verdict, "FAIL"); }
+  { const d = copy("neg_qa_bool"), f = path.join(d, "qa", "shots", "rt_shot", "QA_RESULT.json"), q = J(f); q.gates.art_registration_pass = !q.gates.art_registration_pass; fs.writeFileSync(f, JSON.stringify(q)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); assert.equal(r.verdict, "FAIL"); reclaim(d); }
+  { const d = copy("neg_no_shot_review"); fs.rmSync(path.join(d, "qa", "shots", "rt_world_shot", "SHOT_REVIEW_POINTER.json")); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); reclaim(d); }
+  { const d = copy("neg_forged_unlike"), f = path.join(d, "qa", "film", "UNLIKE_TRANSFER.json"); fs.writeFileSync(f, JSON.stringify({ passages: [{ family: "ACTING_HUMAN", pass: true }, { family: "MACHINE_OR_MECHANISM", pass: true }] })); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.unlike_transfer, false); reclaim(d); }
+  { const d = copy("neg_one_family"), f = path.join(d, "qa", "film", "UNLIKE_TRANSFER.json"), u = J(f); u.passages = u.passages.slice(0, 1); fs.writeFileSync(f, JSON.stringify(u)); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.unlike_transfer, false); assert.match(JSON.stringify(r.details.unlike_transfer), /two materially unlike families/); reclaim(d); }
+  { const d = copy("neg_revision"); fs.appendFileSync(path.join(d, "handoff", "MOTION_PLAN.json"), " "); const r = await qualifyFilm({ film: d }); assert.equal(r.gates.shots_qa, false); assert.equal(r.verdict, "FAIL"); reclaim(d); }
 });
 
 test("P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render", async () => {
   const d = copy("p06_claim"); fs.rmSync(path.join(d, "render", "RENDER_COMPLETION_RECEIPT.json")); const mp4 = path.join(d, "render", "film.mp4");
   recordFilmRender({ film: d, mp4, source: "ART_BRIDGE_CAPTURE" }); const r = await qualifyFilm({ film: d });
-  assert.equal(r.gates.render, false); assert.match(r.details.render.reasons.join(" "), /no render-completion receipt/); assert.ok(fs.existsSync(path.join(d, "render", "CLAIMED_RENDER_RECEIPT.json")));
+  assert.equal(r.gates.render, false); assert.match(r.details.render.reasons.join(" "), /no render-completion receipt/); assert.ok(fs.existsSync(path.join(d, "render", "CLAIMED_RENDER_RECEIPT.json"))); reclaim(d);
 });

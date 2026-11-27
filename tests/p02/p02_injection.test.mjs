@@ -6,6 +6,7 @@ import test, { before } from "node:test"; import assert from "node:assert/strict
 import fs from "node:fs"; import path from "node:path"; import url from "node:url";
 import * as P from "../../engine/tools/production_run.mjs";
 import * as S from "../../engine/production/stages.mjs";
+import { reclaim } from "../_lib/work_storage.mjs"; // rendered FFV1 segments are reclaimed only after every assertion on the copy passed (TBO_RECLAIM_WORK=1)
 const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", ".."), W = path.join(REPO, "hybrid_v2", "work", "p02", "injection");
 const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), Wj = (f, o) => fs.writeFileSync(f, JSON.stringify(o, null, 1));
 let BASE;
@@ -21,7 +22,7 @@ async function expectFirst(tag, mutate, { stage, task, cls, owner }, o = {}) {
   summary.push({ injection: tag, first_failure: f0, why: { invariant: w.first_violated_invariant, observed: String(w.observed).slice(0, 240), producer: w.root_producer, owner: w.repair_owner, blast_radius: w.blast_radius, resume_from: w.resume_from } });
   fs.writeFileSync(path.join(W, "INJECTION_SUMMARY.json"), JSON.stringify(summary, null, 1));
   assert.equal(f0.stage, stage, `${tag}: first failure stage ${f0.stage} (${f0.observed})`); assert.match(f0.task, task, tag); assert.equal(f0.class, cls, `${tag}: class (${f0.observed})`);
-  assert.match(String(w.repair_owner), owner, tag); assert.ok(w.blast_radius.length >= 1, `${tag}: blast radius`); assert.equal(P.verifyRun(F, r.run_id).chain.ok, true); return { F, run: r.run_id, w };
+  assert.match(String(w.repair_owner), owner, tag); assert.ok(w.blast_radius.length >= 1, `${tag}: blast radius`); assert.equal(P.verifyRun(F, r.run_id).chain.ok, true); reclaim(path.join(F, "render", "chunks")); return { F, run: r.run_id, w };
 }
 test("P02-R23 S00 missing film intent", () => expectFirst("s00_no_intent", (F) => fs.rmSync(path.join(F, "story", "FILM_INTENT.json")), { stage: "S00_IDEA", task: /film_intent/, cls: "MISSING_AUTHORITY", owner: /HUMAN/ }));
 test("P02-R23 S01 story approval withdrawn", () => expectFirst("s01_no_story_approval", (F) => fs.rmSync(path.join(F, "approvals", "STORY.POINTER.json")), { stage: "S01_STORY", task: /story_approval/, cls: "EXTERNAL_HUMAN_REQUIRED", owner: /HUMAN/ }));
@@ -41,11 +42,11 @@ test("P02-R23 S08 final MP4 replaced after the render", async () => {
   await P.resume(F, r.run_id, opts(F)); const st = P.statusTable(F, r.run_id), s8 = st.stages.find((x) => x.stage === "S08_QA_REPAIR"); assert.equal(s8.status, "BLOCKED");
   const L = await import("../../engine/production/ledger.mjs"), blk = L.readEvents(F, r.run_id).filter((e) => e.event_type === "STAGE_BLOCKED" && e.stage_id === "S08_QA_REPAIR").at(-1);
   assert.match(blk.blocked_on.join(" "), /film\.mp4: named file bytes differ from the recorded hash/); assert.equal(st.stages.find((x) => x.stage === "S09_FILM_AUDIO_FINAL").status, "NOT_STARTED", "nothing downstream ran");
-  summary.push({ injection: "s08_mp4", first_failure: { stage: "S08_QA_REPAIR", task: "(handoff gate)", class: "QA_EVIDENCE_INVALID", observed: blk.blocked_on.join("; ") } }); fs.writeFileSync(path.join(W, "INJECTION_SUMMARY.json"), JSON.stringify(summary, null, 1));
+  summary.push({ injection: "s08_mp4", first_failure: { stage: "S08_QA_REPAIR", task: "(handoff gate)", class: "QA_EVIDENCE_INVALID", observed: blk.blocked_on.join("; ") } }); fs.writeFileSync(path.join(W, "INJECTION_SUMMARY.json"), JSON.stringify(summary, null, 1)); reclaim(path.join(F, "render", "chunks"));
 });
 test("P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied", async () => {
   const F = await copy("s09_audio"), r = await P.start(F, { diagnostic: true, ...opts(F, { audio: null }) }), st = P.statusTable(F, r.run_id);
   const f0 = st.failures[0]; assert.equal(f0.stage, "S09_FILM_AUDIO_FINAL", JSON.stringify(st.failures)); assert.ok(["audio_mix", "final_media"].includes(f0.task), `P04 §7.7: the FIRST audio failure is now reported earlier (audio declared but no buses): ${f0.task}`); assert.equal(f0.class, "AUDIO_ALIGNMENT"); assert.match(f0.observed, /no audio stream|audio_buses|nothing to mix/);
   const rv = st.failures.find((f) => f.task === "film_review") || null; const s9 = st.stages.find((s) => s.stage === "S09_FILM_AUDIO_FINAL"); assert.notEqual(s9.status, "COMMITTED");
-  summary.push({ injection: "s09_audio", first_failure: f0, film_review: rv }); fs.writeFileSync(path.join(W, "INJECTION_SUMMARY.json"), JSON.stringify(summary, null, 1));
+  summary.push({ injection: "s09_audio", first_failure: f0, film_review: rv }); fs.writeFileSync(path.join(W, "INJECTION_SUMMARY.json"), JSON.stringify(summary, null, 1)); reclaim(path.join(F, "render", "chunks"));
 });

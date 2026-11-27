@@ -1,0 +1,61 @@
+TAP version 13
+# Subtest: P02-R23 S00 missing film intent
+ok 1 - P02-R23 S00 missing film intent
+  ---
+  duration_ms: 16162.0038
+  type: 'test'
+  ...
+# Subtest: P02-R23 S01 story approval withdrawn
+ok 2 - P02-R23 S01 story approval withdrawn
+  ---
+  duration_ms: 4994.3896
+  type: 'test'
+  ...
+# Subtest: P02-R23 S02 attention on an element nothing animates
+ok 3 - P02-R23 S02 attention on an element nothing animates
+  ---
+  duration_ms: 5984.6425
+  type: 'test'
+  ...
+# Subtest: P02-R23 S03 missing measured narration
+ok 4 - P02-R23 S03 missing measured narration
+  ---
+  duration_ms: 9159.3126
+  type: 'test'
+  ...
+# Subtest: P02-R23 S04 absent art (a bound state has no planned drawing)
+ok 5 - P02-R23 S04 absent art (a bound state has no planned drawing)
+  ---
+  duration_ms: 12288.2255
+  type: 'test'
+  ...
+# Subtest: P02-R23 S05 delivered art bytes changed after approval
+ok 6 - P02-R23 S05 delivered art bytes changed after approval
+  ---
+  duration_ms: 16905.3533
+  type: 'test'
+  ...
+# Subtest: P02-R23 S06 invalid canonical registration (first observed at S05, where the asset approval bound to it goes stale; attributed to registration)
+ok 7 - P02-R23 S06 invalid canonical registration (first observed at S05, where the asset approval bound to it goes stale; attributed to registration)
+  ---
+  duration_ms: 17271.5203
+  type: 'test'
+  ...
+# Subtest: P02-R23 S06 a state edge approval revoked
+ok 8 - P02-R23 S06 a state edge approval revoked
+  ---
+  duration_ms: 23992.2175
+  type: 'test'
+  ...
+# Subtest: P02-R23 S07 renderer crash mid-chunk (non-transient)
+ok 9 - P02-R23 S07 renderer crash mid-chunk (non-transient)
+  ---
+  duration_ms: 43020.0827
+  type: 'test'
+  ...
+# Subtest: P02-R23 S07 frozen required action (pixels stop while the expected state moves)
+ok 10 - P02-R23 S07 frozen required action (pixels stop while the expected state moves)
+  ---
+  duration_ms: 968495.8738
+  type: 'test'
+  ...

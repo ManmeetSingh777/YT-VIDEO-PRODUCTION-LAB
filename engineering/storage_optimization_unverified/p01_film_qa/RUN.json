@@ -1,0 +1,82 @@
+{
+ "runner": "tools/tbo/release_regression.mjs",
+ "started": "2026-11-26T22:39:40.174Z",
+ "worktree": "C:\\Users\\gmanm\\TBO_STORAGE_CHECK",
+ "revision": "3f8e3258eab7b4777aa1eff91e44b3518a64882e",
+ "dirty": [
+  " M engine/art_bridge/acting.mjs",
+  " M engine/art_bridge/art_intake.mjs",
+  " M engine/art_bridge/asset_registry.mjs",
+  " M engine/art_bridge/coverage.mjs",
+  " M engine/art_bridge/framing.mjs",
+  " M engine/art_bridge/load_manifest.mjs",
+  " M engine/art_bridge/scene_graph.mjs",
+  " M engine/art_bridge/temporal.mjs",
+  " M engine/story/creative_adapter.mjs",
+  " M engine/story/creative_packet.mjs",
+  " M engine/story/creative_preflight.mjs",
+  " M schemas/creative_packet_v1_1.schema.json",
+  " M schemas/motion_art_manifest_v2.schema.json",
+  " M tests/art_bridge/p01_film_qa.test.mjs",
+  " M tests/p02/p02_injection.test.mjs",
+  "?? engine/story/action_span.mjs",
+  "?? tests/p08/continuous_action.test.mjs"
+ ],
+ "node": "v22.20.0",
+ "nu_js_sha256": "773baf915657a2d95e120b52359e476651314673906293e261cdb86db793e7be",
+ "scope": "targeted",
+ "files": [
+  "tests/art_bridge/p01_film_qa.test.mjs"
+ ],
+ "test_name_pattern": null,
+ "stages": [
+  "suite"
+ ],
+ "storage": {
+  "estimate_bytes": 64424509440,
+  "estimate_basis": "OPERATOR OVERRIDE --estimate-gb 60",
+  "margin": 0.25,
+  "stop_floor_bytes": 8589934592,
+  "preflight": {
+   "ok": true,
+   "required_bytes": 89120571392,
+   "volumes": [
+    {
+     "volume": "C:\\",
+     "roles": [
+      "worktree",
+      "out",
+      "cache",
+      "tmp"
+     ],
+     "free_bytes": 99309903872,
+     "required_bytes": 89120571392
+    }
+   ],
+   "reasons": [],
+   "warnings": []
+  },
+  "start_free_bytes": 99309899776,
+  "min_free_bytes": 89830264832,
+  "peak_bytes": 9479634944,
+  "cache_bytes": 8960101783
+ },
+ "results": [
+  {
+   "stage": "suite",
+   "started": "2026-11-26T22:39:40.289Z",
+   "ended": "2026-11-26T23:19:07.141Z",
+   "exit": 0,
+   "storage_stop": null,
+   "min_free_bytes": 89830264832,
+   "tap": {
+    "tests": 8,
+    "pass": 8,
+    "fail": 0,
+    "cancelled": 0
+   }
+  }
+ ],
+ "outcome": "COMPLETE_PASS",
+ "ended": "2026-11-26T23:19:07.146Z"
+}

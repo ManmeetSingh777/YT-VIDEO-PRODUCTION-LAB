@@ -1,0 +1,23 @@
+{
+ "status": "INCOMPLETE_STOPPED_BY_USER",
+ "stopped_utc": "2026-11-27T00:08:56.397Z",
+ "reason": "user priority correction: no further long diagnostic renders",
+ "passed": [
+  "P02-R23 S00 missing film intent",
+  "P02-R23 S01 story approval withdrawn",
+  "P02-R23 S02 attention on an element nothing animates",
+  "P02-R23 S03 missing measured narration",
+  "P02-R23 S04 absent art (a bound state has no planned drawing)",
+  "P02-R23 S05 delivered art bytes changed after approval",
+  "P02-R23 S06 invalid canonical registration (first observed at S05, where the asset approval bound to it goes stale; attributed to registration)",
+  "P02-R23 S06 a state edge approval revoked",
+  "P02-R23 S07 renderer crash mid-chunk (non-transient)",
+  "P02-R23 S07 frozen required action (pixels stop while the expected state moves)"
+ ],
+ "failed": [],
+ "not_completed": [
+  "P02-R23 S08 final MP4 replaced after the render",
+  "P02-R23 S09 final film without its audio stream; and the DIAGNOSTIC film review can never be satisfied"
+ ],
+ "note": "the 2 not-completed tests are NOT passed; the RUN.json outcome of this run is not a qualification"
+}

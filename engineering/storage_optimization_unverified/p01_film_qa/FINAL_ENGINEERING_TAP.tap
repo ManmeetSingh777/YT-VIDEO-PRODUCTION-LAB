@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: B3-1 single-scene QA never certifies a film (whole_film_pass false)
+ok 1 - B3-1 single-scene QA never certifies a film (whole_film_pass false)
+  ---
+  duration_ms: 974874.5099
+  type: 'test'
+  ...
+# Subtest: B3-2 automated gates pass; without a film review the verdict is FAIL
+ok 2 - B3-2 automated gates pass; without a film review the verdict is FAIL
+  ---
+  duration_ms: 10273.9811
+  type: 'test'
+  ...
+# Subtest: B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)
+ok 3 - B3-3 positive path: film receipt after all gates → TEST_PASS (never PRODUCTION_PASS under test trust or diagnostic rendering)
+  ---
+  duration_ms: 20169.2972
+  type: 'test'
+  ...
+# Subtest: B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+ok 4 - B3-4 rerun re-hashes: a replaced MP4 fails render and stales the film receipt
+  ---
+  duration_ms: 5420.2924
+  type: 'test'
+  ...
+# Subtest: B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame
+ok 5 - B3-5 negatives: missing shot, missing audio, stale art, 30-fps file, missing frame
+  ---
+  duration_ms: 1291827.3855
+  type: 'test'
+  ...
+# Subtest: B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)
+ok 6 - B3-6 without test trust the same package is refused (diagnostic art, non-human reviews, synthetic render)
+  ---
+  duration_ms: 10304.6266
+  type: 'test'
+  ...
+# Subtest: B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail
+ok 7 - B3-7 F078/F082 negatives: an edited QA boolean, a missing shot review, a forged unlike PASS, one family only, or a revision change each fail
+  ---
+  duration_ms: 42617.2578
+  type: 'test'
+  ...
+# Subtest: P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render
+ok 8 - P06 a stub/synthetic MP4 recorded through the CLI source flag can never become the render
+  ---
+  duration_ms: 11031.0049
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2366786.7178
