@@ -9,7 +9,7 @@
   "schemas/pregen_audit_v1.schema.json",
   "engine/methods/source/F_SOURCE.json"
  ],
- "current": "E01.2",
+ "current": "E01.1",
  "versions": [
   {
    "version": "P06",
@@ -38,7 +38,7 @@
   {
    "version": "E01.2",
    "rule_source_sha256": "291a02dec2e7fa40c1899a21ca89680c7b01015b86118e7d10cf07e76c8ff873",
-   "reason": "requiredFigureHeightPx: an identity whose directed size is an on_stage_reference (e.g. a head height) states no figure height before measurement (null, never 0 or the authored canvas); a figure_height_px reference is the figure height",
+   "reason": "requiredFigureHeightPx: an identity whose directed size is an on_stage_reference (e.g. a head height) states no figure height before measurement (null, never 0 or the authored canvas); a figure_height_px reference is the figure height — WITHDRAWN 2026-11-27 before any approval used it: the change was unnecessary (0 already reads as no requirement) and E01.1 rule sources were restored byte-for-byte",
    "source": "WORKING_TREE"
   }
  ]
