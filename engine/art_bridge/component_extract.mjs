@@ -4,7 +4,8 @@
 //   approved master's sealed candidate) → reviewed master landmarks carried by the exact crop offset → ingest-part (registration receipt,
 //   REGISTERED_PENDING_REVIEW). A human approves each part through the normal signed review. Parts whose contract cannot be met by existing
 //   pixels (pivot hidden, native minimum) are REFUSED by ingest-part and reported, never forced.
-//   node tools/tbo/e01_extract_components.mjs --film films/e01 --out <outbox> --master MIA_MASTER --seg <dir> --map <json> [--dry]
+// General-purpose: every film-specific input (segmentation seeds/masks, component→asset map) is film data under films/<film>/segmentation/.
+//   node engine/art_bridge/component_extract.mjs --film films/<film> --out <outbox> --master <MASTER_ID> --seg <dir> --map <json> [--dry]
 import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
 const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".."), J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex");
 const arg = (k) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : null; };

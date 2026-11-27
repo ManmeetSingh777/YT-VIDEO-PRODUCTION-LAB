@@ -106,7 +106,7 @@ export async function planJobs({ film, manifest = MF }) {
 
 /* ───────────── P0-3: master registration, review, part registration, resumption ───────────── */
 const KIND_SPACE = { CHARACTER: "CHARACTER_LOCAL", PROP: "PROP_LOCAL", MACHINE: "PROP_LOCAL", WORLD: "WORLD_LOCAL", DIAGRAM: "WORLD_LOCAL", EFFECT: "WORLD_LOCAL" };
-const PROVENANCE = ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE"];
+const PROVENANCE = ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE", "ENGINE_VECTOR_CONSTRUCTION"];
 /** F091: a GPT provenance claim is accepted ONLY when the exact bytes are a valid candidate of a SEALED provider-result / operator-handoff record
  *  (outbox = arg or ART_BRIDGE_OUTBOX) whose recorded provenance equals the claim; a typed --provenance flag never establishes origin. */
 export function requireProvenanceLineage({ file, provenance, outbox = process.env.ART_BRIDGE_OUTBOX || null, record_id = null }) {
@@ -183,7 +183,7 @@ export function measuredFrame(reg, png, asset, lm = null) {
 }
 export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
-  const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
+  const lineage = provenance === "ENGINE_VECTOR_CONSTRUCTION" ? await vectorLineage({ film, file, asset, outbox }) : requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
   const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset), I = doc.identities.find((i) => i.canonical_asset_id === asset);
   if (!p || !I) throw new Error(`${asset} is not a planned canonical master`);
   const png = readPNG(file); checkAlphaContract(asset, p.alpha_mode, png);
@@ -345,12 +345,25 @@ function masterApproved(doc, FILM, masterId) {
   return va.ok && vi.ok ? { ok: true, master: m, identity: I } : { ok: false, reason: `master ${masterId} not approved (${va.status}/${vi.status})` };
 }
 
+/** vectorLineage — ENGINE_VECTOR_CONSTRUCTION is accepted only when (1) the ACTIVE approved packet authorizes it for this asset bound to the exact spec hash and (2) the sealed
+ *  construction record (outbox/prepared/vector/<sha16>.CONSTRUCTION.json) re-executes to exactly these bytes. */
+export async function vectorLineage({ film, file, asset, outbox = process.env.ART_BRIDGE_OUTBOX || null }) {
+  const FILM = path.resolve(film), pk = JSON.parse(fs.readFileSync(path.join(FILM, "creative", "CURRENT.json"), "utf8")).packet_sha256, packet = JSON.parse(fs.readFileSync(path.join(FILM, "creative", "packets", pk, "CREATIVE_PACKET.json"), "utf8"));
+  const req = (packet.art_requirements || []).find((r) => r.id === asset), auth = /ENGINE_VECTOR_CONSTRUCTION authorized: spec sha256 ([0-9a-f]{64})/.exec(req?.construction || "");
+  if (!auth) throw err("PROVENANCE_COUNTERFEIT", { record_id: asset, reason: `the active packet ${pk.slice(0, 12)} does not authorize engine vector construction for ${asset}`, producer: "engine/art_bridge/art_intake.mjs#vectorLineage", repair_owner: "DIRECTOR", resume_at: "SIGN_PACKET_AMENDMENT" });
+  const h = fsha(file), dir = outbox && path.join(path.resolve(outbox), "prepared", "vector"), rf = dir && path.join(dir, `${h.slice(0, 16)}.CONSTRUCTION.json`);
+  if (!rf || !fs.existsSync(rf)) throw err("PROVENANCE_COUNTERFEIT", { record_id: asset, reason: `no sealed vector construction record for ${path.basename(file)}`, producer: "engine/art_bridge/art_intake.mjs#vectorLineage" });
+  const rec = JSON.parse(fs.readFileSync(rf, "utf8")), V = await import("./vector_construct.mjs");
+  if (rec.spec_sha256 !== auth[1]) throw err("PROVENANCE_COUNTERFEIT", { record_id: asset, reason: `construction spec ${rec.spec_sha256.slice(0, 12)} is not the spec the active packet authorizes (${auth[1].slice(0, 12)})`, producer: "engine/art_bridge/art_intake.mjs#vectorLineage" });
+  if (rec.result_sha256 !== h || !(await V.verifyConstruction(rec, dir))) throw err("PROVENANCE_COUNTERFEIT", { record_id: asset, reason: "the vector construction record does not re-execute to these bytes", producer: "engine/art_bridge/art_intake.mjs#vectorLineage" });
+  return { vector_construction: { record_sha256: fsha(rf), spec_sha256: rec.spec_sha256, svg_sha256: rec.svg_sha256, font_sha256: rec.font_sha256, chrome: rec.chrome }, packet_sha256: pk };
+}
 /** overlaySlotOwner — a facial/overlay part that rides another part's joint (same joint_id and pivot, and a distinct PART named after the joint,
  *  e.g. eyes/brows/mouth on joint `head` owned by `….head`) does not hinge itself: its pivot lies on the OWNER's art, where the hinge is verified. */
 export function overlaySlotOwner(plan, p) { if (!p?.joint_id || p.kind === "MASK") return null; return plan.assets.find((o) => o.asset_id !== p.asset_id && o.kind === "PART" && o.joint_id === p.joint_id && o.pivot_landmark_id === p.pivot_landmark_id && o.asset_id.endsWith(`.${p.joint_id}`) && !p.asset_id.endsWith(`.${p.joint_id}`))?.asset_id || null; }
 export async function ingestPart({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
-  const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
+  const lineage = provenance === "ENGINE_VECTOR_CONSTRUCTION" ? await vectorLineage({ film, file, asset, outbox }) : requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
   const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset);
   if (!p || !p.derived_from) throw new Error(`${asset} is not a planned derived state`);
   const contract = validatePlanContract(doc, { assets: plan.assets.filter((x) => x.asset_id === asset || Object.values(p.surface_underpaint || {}).includes(x.asset_id)) }).filter((e) => e.record_id === asset || e.dependency === asset);
@@ -361,7 +374,7 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   const ident = ma.identity, names = Object.keys(lm.landmarks).filter((k) => k in ident.landmarks);
   // ≥3 correspondences: a 4-DOF similarity fitted to 2 points has zero residual by construction, so a wrong landmark could never be detected
   if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `part registration needs ≥3 reviewed landmarks shared with identity ${ident.id} (got ${names.length}); two points cannot reveal a misregistration` });
-  if (!names.includes(p.pivot_landmark_id)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
+  if (p.pivot_landmark_id != null ? !names.includes(p.pivot_landmark_id) : !["WORLD_PLANE", "CLEAN_PLATE"].includes(p.kind)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
   const masterPx = Object.fromEntries(names.map((k) => [k, ap(Minv, m.landmarks[k] ?? ident.landmarks[k])]));
   const underpaintIds = (p.hidden_surfaces || []).map((s) => p.surface_underpaint[s]); // B2: ownership carried from the plan contract
   const masterScale = Math.sqrt(Math.abs(M[0] * M[3] - M[1] * M[2]));
@@ -399,7 +412,7 @@ function fitSimilarity(src, dst) { const n = src.length, ms = [0, 1].map((k) => 
   const c = a / ss, s = b / ss; return [c, s, -s, c, md[0] - c * ms[0] + s * ms[1], md[1] - s * ms[0] - c * ms[1]]; }
 export async function ingestVectorPart({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, outbox = undefined }) {
   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
-  const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
+  const lineage = provenance === "ENGINE_VECTOR_CONSTRUCTION" ? await vectorLineage({ film, file, asset, outbox }) : requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
   const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset);
   if (!p || !p.derived_from || p.kind !== "VECTOR_PATH") throw new Error(`${asset} is not a planned derived VECTOR_PATH state`);
   const ma = masterApproved(doc, FILM, p.derived_from); if (!ma.ok) throw new Error(`refused: ${ma.reason}; derived art is registered only against an approved master`);
@@ -407,7 +420,7 @@ export async function ingestVectorPart({ film, asset, file, landmarks, provenanc
   for (const q of paths) parsePath(q.d); // absolute M/L/C/Q/Z only (relative commands are refused, not guessed)
   const lm = sidecar(landmarks), ident = ma.identity, names = Object.keys(lm.landmarks).filter((k) => k in ident.landmarks);
   if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `vector registration needs ≥3 reviewed landmarks shared with identity ${ident.id} (got ${names.length})` });
-  if (!names.includes(p.pivot_landmark_id)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
+  if (p.pivot_landmark_id != null ? !names.includes(p.pivot_landmark_id) : !["WORLD_PLANE", "CLEAN_PLATE"].includes(p.kind)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
   const Tm = fitSimilarity(names.map((k) => lm.landmarks[k]), names.map((k) => ident.landmarks[k])), ap = (q) => [Tm[0] * q[0] + Tm[2] * q[1] + Tm[4], Tm[1] * q[0] + Tm[3] * q[1] + Tm[5]];
   const residual = Math.max(...names.map((k) => { const q = ap(lm.landmarks[k]); return Math.hypot(q[0] - ident.landmarks[k][0], q[1] - ident.landmarks[k][1]); }));
   if (residual > maxResidualPx) { log(FILM, { op: "ingest-vector", asset, status: "REGISTRATION_FAILED", max_residual: residual }); return { status: "REGISTRATION_FAILED", failures: [{ code: "REGISTRATION_RESIDUAL", reason: `landmark residual ${residual.toFixed(3)} > ${maxResidualPx}` }] }; }

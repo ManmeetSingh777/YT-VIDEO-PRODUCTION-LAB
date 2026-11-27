@@ -105,3 +105,26 @@
   - 4 diner, 4 group and 6 prop-view edits;
   - restaurant, LEAD and REGULAR corrections.
 - **Rendering:** 0 legitimate E01 frames. No derived part is approved yet, the restaurant plate is uncorrected, and LEAD and REGULAR are unapproved. Amendment 04 (vector report) has not been executed yet.
+
+## Construction round (2026-11-28)
+- **Reusable mechanisms:** moved into the engine with generic names: `engine/tools/segment_master.py`, `engine/art_bridge/component_extract.mjs`, `engine/tools/measure_seat_contact.py`.
+  - Every film-specific input (seeds, colour rules, component→asset maps, landmarks) lives under `films/<film>/segmentation`.
+  - Test CE-1 runs on a synthetic figure.
+- **Native vector construction** (`engine/art_bridge/vector_construct.mjs`, VC-1):
+  - Page and layered-environment specs, rasterized through the controlled Chrome path and re-executed byte-identically.
+  - Provenance ENGINE_VECTOR_CONSTRUCTION is accepted in master/part intake only when the ACTIVE packet authorizes the exact spec hash.
+  - World planes register without a hinge pivot.
+- **Constructed (pending amendment 04):**
+  - Report page: 2,539 px page width, native detail ratio 2.38.
+  - Exact type layer: Bahnschrift.
+  - Public-side restaurant (P3.2 SH01 geography, existing palette) as master plus far/mid/counter/counter_occluder planes.
+  - Packet amendment 04 (`ecee2867…`) is imported with its signature request; intake refuses all seven until it is signed.
+- **View reconciliation:** the Mia master faces screen-right (lead side, F360).
+  - torso_to_regular was withdrawn (unsigned) and torso_to_lead registered instead.
+  - hand_l_near, ART_P01.body and ART_P03.body were registered from exact pixels.
+  - 20 extracted components in total.
+- **Artwork handoff V3** (fixes the V2 inspection): 53 images, 13 deduplicated attachments.
+  - Per-view featureless heads; every expression bound to its selected directed-view head; far hand layers edit their selected near layer.
+  - Explicit plan asset IDs; per-item F01–F80 obligations (METHOD_OBLIGATIONS.md); continuity rules; coverage audit with 0 unaccounted.
+  - The restaurant left the GPT handoff (engine-constructed).
+- **Rigging, fitting and rendering:** none executed; no derived part is signed yet. 0 legitimate E01 frames.

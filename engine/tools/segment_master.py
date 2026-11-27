@@ -1,8 +1,8 @@
-# Deterministic component SELECTION on an approved master: marker-based watershed on the master's own colour edges.
+# General-purpose (film inputs only: master, seeds JSON). Deterministic component SELECTION on an approved master: marker-based watershed on the master's own colour edges.
 # Inputs: master PNG + seeds JSON {labels: {name: [[x0,y0,x1,y1,...], ...polylines]}, groups: {component: [label,...]}}.
 # Output: one keep-mask PNG per component (white opaque = keep) + LABELS.png overlay + SEGMENTATION.json (seeds sha, master sha, mask shas).
 # Every opaque master pixel gets exactly one label, so the components re-composite to the master exactly. Nothing is painted.
-#   python -I tools/tbo/e01_segment_master.py <master.png> <seeds.json> <out_dir>
+#   python -I engine/tools/segment_master.py <master.png> <seeds.json> <out_dir>
 import sys, json, hashlib, os
 import numpy as np, cv2
 master, seeds_f, out = sys.argv[1], sys.argv[2], sys.argv[3]; os.makedirs(out, exist_ok=True)
@@ -47,7 +47,7 @@ for feat, rule in (S.get("colour_refine") or {}).items():
 if S.get("whole_figure"): lab[alpha > 0] = names.index(S["whole_figure"]) + 1  # the component IS the whole approved figure (every opaque pixel)
 lab[alpha == 0] = BG
 opaque_unlabelled = int(((alpha > 0) & ((lab <= 0) | (lab == BG))).sum())
-res = {"tool": "e01_segment_master_v1", "master_sha256": sha(raw), "seeds_sha256": sha(seeds_raw), "size": [W, H], "opaque_unlabelled_px": opaque_unlabelled, "components": {}}
+res = {"tool": "segment_master_v1", "master_sha256": sha(raw), "seeds_sha256": sha(seeds_raw), "size": [W, H], "opaque_unlabelled_px": opaque_unlabelled, "components": {}}
 for comp, labs in S["groups"].items():
     ids = [names.index(l) + 1 for l in labs]; keep = np.isin(lab, ids) & (alpha > 0)
     m = np.zeros((H, W, 4), np.uint8); m[keep] = (255, 255, 255, 255)
