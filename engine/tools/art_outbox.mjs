@@ -18,7 +18,7 @@
 //   import-gpt-candidates --film DIR --bundle DIR    operator-returned PNGs → sealed OPERATOR-ATTESTED candidates (approves nothing)
 //   select-candidate --job ID --stage K --candidate KEY16:IDX   explicit selection by candidate id under a fenced lock
 //   resume        --film DIR [--out DIR]                                         (= export: recomputes readiness, invalidation, compiles ready jobs)
-import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import { spawnSync } from "node:child_process";
+import os from "node:os"; import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import { spawnSync } from "node:child_process";
 import { compileArtJob, dependencyDigest } from "../art_bridge/art_requests.mjs";
 import * as C from "../art_bridge/art_contract.mjs";
 import { compileFilmContracts } from "./compile_film_contracts.mjs";
@@ -121,7 +121,13 @@ if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(proces
       const C = await import("../art_bridge/art_contract.mjs"), FILM = path.resolve(film), doc = JSON.parse(fs.readFileSync(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"), "utf8")), job = (await I.planJobs({ film: FILM })).jobs.find((j) => j.root_dependency === get("--asset"));
       if (!job) throw new Error(`no planned job for ${get("--asset")}`);
       const masterJob = job.derived_from ? (await I.planJobs({ film: FILM })).jobs.find((j) => j.root_dependency === job.derived_from) : null;
-      if (cmd === "check-design") { const { applicability_table, ...g } = C.gateForJob({ film: FILM, doc, job, masterJob }); show(g); process.exit(g.pass ? 0 : 1); }
+      if (cmd === "check-design") { const { applicability_table, ...g } = C.gateForJob({ film: FILM, doc, job, masterJob });
+        // PASS must mean exportable: a gated design is also compiled through the skill + stage planner into a throwaway folder (nothing is sent)
+        if (g.pass) { const R = await import("../art_bridge/art_requests.mjs"), tmp = fs.mkdtempSync(path.join(os.tmpdir(), "check-design-"));
+          try { const r = R.compileArtJob(job, { film: FILM, masterJob, outDir: tmp }); g.compile_preview = { status: "COMPILED", stages: r.stages.map((x) => ({ index: x.index, characters: x.characters, methods: x.methods })) }; }
+          catch (e) { g.compile_preview = { status: "REFUSED", code: e.code ?? null, reason: e.human_readable_reason || e.message, required: e.required_art_or_operation ?? null }; g.pass = false; g.status = "REFUSED"; g.failures = [...g.failures, { code: e.code || "COMPILE_REFUSED", reason: g.compile_preview.reason }]; }
+          finally { fs.rmSync(tmp, { recursive: true, force: true }); } }
+        show(g); process.exit(g.pass ? 0 : 1); }
       show(await C.approveDesign({ film: FILM, doc, job, masterJob, reviewer: get("--reviewer"), verdict: get("--verdict"), notes: get("--notes") || "", scope_note: get("--scope-note") || "", human: a.includes("--human") })); process.exit(0); }
     if (cmd === "review-story" || cmd === "review-direction") { const C = await import("../art_bridge/art_contract.mjs"); show(await C.approveScope({ film, scope: cmd.split("-")[1], reviewer: get("--reviewer"), verdict: get("--verdict"), notes: get("--notes") || "", human: a.includes("--human") })); process.exit(0); }
     if (cmd === "review-art") { const AR = await import("../art_bridge/art_review.mjs"), RM = await import("../art_bridge/repair_memory.mjs"), FILM = path.resolve(film), design = JSON.parse(fs.readFileSync(path.join(FILM, "art_designs", `${get("--asset")}.design.json`), "utf8"));
