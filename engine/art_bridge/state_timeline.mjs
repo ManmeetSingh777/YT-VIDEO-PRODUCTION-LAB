@@ -23,8 +23,8 @@ export function resolveConflicts(events, keyOf, { rig = null } = {}) {
 export function rigPoseTimeline(rig, actions) {
   const pose = [], view = [], resets = [], own = new Set([...rig.pose_states, ...rig.view_states].map((s) => s.id)), ids = new Set(rig.pose_states.map((s) => s.id));
   for (const a of actions) if (a.actors?.some((x) => x.rig_id === rig.id)) { if (a.state_reset === true) resets.push(a.frame_range[0]);
-    for (const e of a.pose_events || []) if (ids.has(e.state_id)) pose.push({ frame: e.frame, state: e.state_id, channel: "POSE", source: a.id, shot: a.shot_id });
-    for (const e of a.view_events || []) if (own.has(e.to_state)) view.push({ frame: e.frame, state: e.to_state, channel: "VIEW", source: a.id, shot: a.shot_id }); }
+    for (const e of a.pose_events || []) if (ids.has(e.state_id) && (!e.rig_id || e.rig_id === rig.id)) pose.push({ frame: e.frame, state: e.state_id, channel: "POSE", source: a.id, shot: a.shot_id });
+    for (const e of a.view_events || []) if (own.has(e.to_state) && (!e.rig_id || e.rig_id === rig.id)) view.push({ frame: e.frame, state: e.to_state, channel: "VIEW", source: a.id, shot: a.shot_id }); }
   const p = resolveConflicts(pose, () => "POSE", { rig: rig.id }), v = resolveConflicts(view, () => "VIEW", { rig: rig.id });
   return { pose: p.events, view: v.events, resets: resets.sort((x, y) => x - y), errors: [...p.errors, ...v.errors] };
 }
