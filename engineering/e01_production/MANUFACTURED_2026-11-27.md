@@ -62,3 +62,21 @@
 - **Award and report contact geometry:** award `bottom` = flat plinth contact edge, `base` = plinth mass centre. Report edge_mia lower-left and edge_lead lower-right, as seen from the page front (P3.2).
 - **Diners:** seated rest artwork with world-owned seats. Their support points are validated against the world seat geometry when placed.
 - **Next blocker:** the post-art feasibility gate is film-wide ("other rigs of the film are still unmeasured"). It holds 114 dependents even after their own master is approved.
+
+## Production round (2026-11-27, night): signatures, amendment 03, released dependents, consolidated handoff
+- **Signatures:** the 7 signed receipts were already imported (nonces replayed); six masters APPROVED (HUMAN): Mia, award, report, phone, Diner A, Diner B. Registrations survived amendment 03 (packet 9d8a7ef5).
+- **Latest return (a76e9d60…):** 8 attempts imported as candidates; none resolves its obligations.
+  - LEAD faces screen-right and holds the report.
+  - REGULAR's phone is raised and drawn in, or a giant blank page appears.
+  - Occupancy keeps the raised hand and white sclera; one attempt adds an opaque scene.
+  - Queue keeps the white sclera.
+- **Released dependents (advance):** 108 jobs exported as sealed plan GPT_ART_PLAN_20261127_fcff8788f0a4 (508 stage requests). Every one is a source-attached art edit (parts, hidden-surface underpaints, expression/pose cels); none can be done deterministically.
+- **Blocked:**
+  - 12 BLOCKED_COMPILE: the prop designs mark no method decision `applies_to_states` (needs a design decision and re-signature).
+  - 1 BLOCKED_RESOLUTION: the report page is 942 px against 2,496 px (needs amendment 04, a vector page).
+- **One consolidated Artwork GPT handoff:** E01_CONSOLIDATED_20261127_fcff8788f0a4.zip (`tools/tbo/e01_consolidated_handoff.mjs build`).
+  - Section A: five localized master corrections (public-side restaurant, LEAD view turn without mirroring, REGULAR right-arm-only grip, occupancy and queue eyes/hand).
+  - Section B: all 108 released jobs.
+  - One flat ATTACHMENTS folder (852 hash-identical files), one EXECUTION_PROMPT, one RETURN_MANIFEST.
+  - `split` turns the return back into the verified import-handoff and import-plan routes (test CH-1).
+- **Motion:** no family is renderable yet. Mia's parts and states, the props' derived jobs and the corrected restaurant plate are prerequisites. 0 frames of the 960-frame Phase 1 qualify.
