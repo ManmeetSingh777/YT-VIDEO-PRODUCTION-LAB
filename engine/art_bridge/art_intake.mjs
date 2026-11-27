@@ -118,7 +118,7 @@ export function requireProvenanceLineage({ file, provenance, outbox = process.en
   // a DETERMINISTICALLY PREPARED derivative (art_prepare.mjs) inherits its parent's lineage only if re-executing its ops on the parent reproduces it exactly
   const prepF = outbox && path.join(path.resolve(outbox), "prepared", `${h.slice(0, 16)}.PREPARATION.json`);
   if (prepF && fs.existsSync(prepF)) { const rec = JSON.parse(fs.readFileSync(prepF, "utf8")), parentFile = path.join(path.resolve(outbox), "prepared", "parents", `${rec.parent_sha256.slice(0, 16)}.png`);
-    if (rec.result_sha256 === h && fs.existsSync(parentFile) && verifyPreparation(rec, parentFile)) { const parent = requireProvenanceLineage({ file: parentFile, provenance, outbox, record_id }); return { ...parent, prepared: { from_sha256: rec.parent_sha256, ops: rec.ops, tool: rec.tool } }; } }
+    if (rec.result_sha256 === h && fs.existsSync(parentFile) && verifyPreparation(rec, parentFile, { maskDir: path.join(path.resolve(outbox), "prepared", "masks") })) { const parent = requireProvenanceLineage({ file: parentFile, provenance, outbox, record_id }); return { ...parent, prepared: { from_sha256: rec.parent_sha256, ops: rec.ops, tool: rec.tool } }; } }
   throw err("PROVENANCE_COUNTERFEIT", { record_id, reason: `provenance ${provenance} claimed for ${path.basename(file)} but no sealed ${provenance} record in the outbox contains these bytes as a valid candidate`, producer: "engine/art_bridge/art_intake.mjs#requireProvenanceLineage", repair_owner: "ART_OPERATOR", resume_at: "SUBMIT_OR_IMPORT_CANDIDATE" });
 }
 // shot_usage from the action graph (which shot shows this asset on which frames) — the asset carries its own motion obligation
@@ -345,6 +345,9 @@ function masterApproved(doc, FILM, masterId) {
   return va.ok && vi.ok ? { ok: true, master: m, identity: I } : { ok: false, reason: `master ${masterId} not approved (${va.status}/${vi.status})` };
 }
 
+/** overlaySlotOwner — a facial/overlay part that rides another part's joint (same joint_id and pivot, and a distinct PART named after the joint,
+ *  e.g. eyes/brows/mouth on joint `head` owned by `….head`) does not hinge itself: its pivot lies on the OWNER's art, where the hinge is verified. */
+export function overlaySlotOwner(plan, p) { if (!p?.joint_id || p.kind === "MASK") return null; return plan.assets.find((o) => o.asset_id !== p.asset_id && o.kind === "PART" && o.joint_id === p.joint_id && o.pivot_landmark_id === p.pivot_landmark_id && o.asset_id.endsWith(`.${p.joint_id}`) && !p.asset_id.endsWith(`.${p.joint_id}`))?.asset_id || null; }
 export async function ingestPart({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
   const lineage = requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
@@ -368,7 +371,7 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
       for (const r of own) { let ms = null; try { ms = CR.measureSpan({ png: mpng, landmarks: masterPx, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }); } catch { ms = null; }
         const ds = CR.measureSpan({ png, landmarks: lm.landmarks, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }), v = CR.verifyComponentNative({ deliveredPng: png, deliveredLandmarks: lm.landmarks, requirement: r, scaleFromMaster: ms ? ds / ms : 1 });
         if (!v.ok) throw err("COMPONENT_NATIVE_RESOLUTION_UNVERIFIED", { record_id: asset, reason: v.problems.join("; "), details: v }); } } }
-  const rec = registerPart({ partId: asset, master: path.join(FILM, m.file), rawPart: file, canonicalLandmarks: masterPx, partLandmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])), pivotId: p.pivot_landmark_id, underpaintIds, hiddenSurfaces: p.hidden_surfaces || [], mode, requirePivotOnArt: p.kind !== "MASK",
+  const rec = registerPart({ partId: asset, master: path.join(FILM, m.file), rawPart: file, canonicalLandmarks: masterPx, partLandmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])), pivotId: p.pivot_landmark_id, underpaintIds, hiddenSurfaces: p.hidden_surfaces || [], mode, requirePivotOnArt: p.kind !== "MASK" && !overlaySlotOwner(plan, p),
     maxResidualPx: maxResidualPx / masterScale, sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, outDir: path.join(FILM, "registration", asset, `attempt_${fsha(file).slice(0, 12)}`) });
   rec.master_asset_id = m.id; rec.master_sha256 = m.sha256; rec.tolerance_px = maxResidualPx / masterScale; rec.planned_alpha_mode = p.alpha_mode;
   writeJ(path.join(path.dirname(rec.approved_part_file), `${asset}__REGISTRATION_RECEIPT.json`), rec);

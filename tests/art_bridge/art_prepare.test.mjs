@@ -16,3 +16,12 @@ test("AP-2 a preparation record re-executes to the same bytes; any changed paren
   assert.equal(verifyPreparation({ ...r.record, ops: [{ op: "alpha_ceiling", from: 254 }] }, f), false);
   const g = mk(path.join(d, "q.png")); const px = readPNG(g); px.rgba[0] ^= 1; writeRGBA(g, px.width, px.height, px.rgba); assert.equal(verifyPreparation(r.record, g), false);
 });
+test("AP-3 mask_bitmap selects existing pixels exactly (no painting); missing or altered mask fails verification", () => {
+  const d = T(), f = mk(path.join(d, "p.png")), md = path.join(d, "masks"); fs.mkdirSync(md); const mpx = Buffer.alloc(20 * 10 * 4); for (let i = 0; i < 200; i++) if (i % 20 < 7) mpx.set([255, 255, 255, 255], i * 4);
+  const tmp = path.join(d, "m.png"); writeRGBA(tmp, 20, 10, mpx); const ms = sha(tmp); fs.copyFileSync(tmp, path.join(md, `${ms.slice(0, 16)}.png`));
+  const src = readPNG(f), out = applyOps(src, [{ op: "mask_bitmap", mask_sha256: ms }], { maskDir: md });
+  for (let i = 0; i < 200; i++) { const k = i * 4; if (i % 20 < 7) assert.deepEqual([...out.rgba.subarray(k, k + 4)], [...src.rgba.subarray(k, k + 4)]); else assert.deepEqual([...out.rgba.subarray(k, k + 4)], [0, 0, 0, 0]); }
+  const r = prepareImage({ parentFile: f, ops: [{ op: "mask_bitmap", mask_sha256: ms }, { op: "crop", rect: [0, 0, 7, 10] }], outDir: d, maskDir: md });
+  assert.equal(verifyPreparation(r.record, f, { maskDir: md }), true); assert.equal(verifyPreparation(r.record, f, { maskDir: path.join(d, "nowhere") }), false);
+  fs.writeFileSync(path.join(md, `${ms.slice(0, 16)}.png`), "x"); assert.equal(verifyPreparation(r.record, f, { maskDir: md }), false);
+});

@@ -80,3 +80,28 @@
   - One flat ATTACHMENTS folder (852 hash-identical files), one EXECUTION_PROMPT, one RETURN_MANIFEST.
   - `split` turns the return back into the verified import-handoff and import-plan routes (test CH-1).
 - **Motion:** no family is renderable yet. Mia's parts and states, the props' derived jobs and the corrected restaurant plate are prerequisites. 0 frames of the 960-frame Phase 1 qualify.
+
+## Component manufacturing round (2026-11-27, late)
+- **New deterministic extraction route:**
+  - `art_prepare` mask_bitmap op: selection of existing pixels, content-addressed mask, re-executable (AP-3).
+  - `tools/tbo/e01_segment_master.py`: watershed on the master's own edges, plus colour refinement for features painted on skin.
+  - `tools/tbo/e01_extract_components.mjs`: lineage inherited from the approved master's sealed candidate; landmarks carried by the exact crop offset; normal ingest-part.
+  - Facial overlay slots ride the head joint (`overlaySlotOwner`, OS-1).
+- **Registered from approved pixels (REGISTERED_PENDING_REVIEW, 0 px residual):**
+  - Mia: torso, upper_r, fore_r, upper_l, fore_l, eyes, brows, cheeks, mouth; plus torso_to_regular, hand_l_open_near, eyes_blink_open, mouth_rest.
+  - Diner A/B: body and rest.
+  - Mia's parts tile her master exactly: 0 overlap, 0 uncovered visible pixels.
+- **Background groups:** occupancy and queue masters registered as they stand. The occupancy root/support were re-measured on the pedestal base.
+- **Measurements:**
+  - Diner seat-contact surfaces measured, distinct from the internal roots (support points lie 29–30 px inside the body).
+  - Award recessed-grip feasibility verified.
+- **Prop designs:** `applies_to_states` on F01/F59/F62 (+F75, +F13/F63). The audit was rebound with a delta record. Gate PASS; design re-approval requested.
+- **Artwork handoff V2:** 51 images (from 508 stages), 16 deduplicated attachments in 3 upload groups. Only genuinely new pixels:
+  - feature-free 540 px head;
+  - 13 expression faces and 3 speech/blink faces, from which the engine extracts all eye, brow, cheek and mouth states;
+  - 3 upper-body views;
+  - torso and arm hidden surfaces;
+  - 11 hand grips;
+  - 4 diner, 4 group and 6 prop-view edits;
+  - restaurant, LEAD and REGULAR corrections.
+- **Rendering:** 0 legitimate E01 frames. No derived part is approved yet, the restaurant plate is uncorrected, and LEAD and REGULAR are unapproved. Amendment 04 (vector report) has not been executed yet.
