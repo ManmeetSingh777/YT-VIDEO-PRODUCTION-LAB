@@ -9,6 +9,9 @@ import { err } from "./errors.mjs";
 import { operativeText, operativeSha, title, SOURCE } from "./method_applicability.mjs";
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
 export const PROVIDER_PROMPT_LIMIT = 32000;
+// Stages are FILLED to at most this many characters (headroom under the provider maximum); a single method block that only fits between the
+// target and the maximum still gets a stage of its own. Refusal stays at the provider maximum; nothing is ever truncated.
+export const STAGE_PACKING_TARGET = 30000;
 const ORDER = { STRUCTURE: 0, SURFACE: 1, STATE: 2 };
 // engine/review consumers that EXECUTE the non-pixel methods (their consumer receipts are written by those producers)
 export const ENGINE_CONSUMERS = {
@@ -26,7 +29,8 @@ export const methodBlock = (id, d) => `### ${title(id)}\nSOURCE OPERATIVE INSTRU
 
 /** planStages({design, gate, header, derived, footer}) → {brief, stages[], delivery}. header = the skill's validated identity/control block
  *  (repeated in EVERY stage so no edit drifts from the identity); footer = motion requirements + output + negative tests. */
-export function planStages({ design, gate, header, footer, derived = false, limit = PROVIDER_PROMPT_LIMIT, record_id = null }) {
+export function planStages({ design, gate, header, footer, derived = false, limit = PROVIDER_PROMPT_LIMIT, pack = STAGE_PACKING_TARGET, record_id = null }) {
+  const fill = Math.min(pack, limit);
   const byId = new Map((design.method_decisions || []).map((d) => [d.method_id, d])), req = gate.required_methods;
   const authored = req.filter((r) => ORDER[r.phase] !== undefined).filter((r) => (derived ? r.phase === "STATE" || byId.get(r.method)?.applies_to_states === true : r.phase !== "STATE"));
   authored.sort((a, b) => ORDER[a.phase] - ORDER[b.phase] || a.method.localeCompare(b.method));
@@ -35,7 +39,7 @@ export function planStages({ design, gate, header, footer, derived = false, limi
   const stages = []; let cur = null;
   for (const b of blocks) {
     if (fixed + b.text.length > limit) throw err("REQUEST_BUDGET_EXCEEDED", { record_id, reason: `method ${b.method} block (${b.text.length} chars) + identity header (${header.length}) + footer (${footer.length}) exceeds the provider limit ${limit} on its own`, producer: "engine/art_bridge/request_stages.mjs#planStages", failed_invariant: "every applicable method is delivered in full; nothing is truncated", repair_owner: "HUMAN_ART_DIRECTOR", resume_at: "ART_DESIGN_COMPILATION", required_art_or_operation: [`shorten the identity control block or the ${b.method} decision`] });
-    if (!cur || cur.phase !== b.phase || fixed + cur.size + b.text.length > limit) { cur = { phase: b.phase, blocks: [], size: 0 }; stages.push(cur); }
+    if (!cur || cur.phase !== b.phase || fixed + cur.size + b.text.length > fill) { cur = { phase: b.phase, blocks: [], size: 0 }; stages.push(cur); }
     cur.blocks.push(b); cur.size += b.text.length;
   }
   // Stage A: the complete contract decision brief (all required methods, including engine-executed ones, with their consumers)

@@ -13,7 +13,8 @@ test("DRQ-1 a design request addressed by ArtJob id binds and shows the asset's 
     const rel = `art_designs/${job.root_dependency}.design.json`, got = req.packet.files.find((x) => x.file === rel);
     assert.ok(got, `request binds ${rel}`); assert.equal(got.sha256, sha(path.join(F, rel)));
     assert.ok(fs.existsSync(path.join(r.dir, "look_at", rel.replace(/\//g, "__"))), "reviewer sees the design");
-    const audit = rel.replace(/\.design\.json$/, ".pregen_audit.json");
+    const audit = rel.replace(/\.design\.json$/, ".pregen_audit.json"), amend = rel.replace(/\.design\.json$/, ".AMENDMENT_RECORD.json");
     assert.equal(req.packet.files.some((x) => x.file === audit), fs.existsSync(path.join(F, audit)), "the audit is bound exactly when it exists");
+    assert.equal(req.packet.files.some((x) => x.file === amend), fs.existsSync(path.join(F, amend)), "an amendment record is bound exactly when it exists");
   } finally { fs.rmSync(F, { recursive: true, force: true }); }
 });
