@@ -138,6 +138,13 @@ function assetRecord(doc, p, fields, provenance, receiptRef, lineage = null) {
 /** reviewed landmark sidecar: values + reviewer + its own hash (bound into the registration receipt, re-audit hardening 2) */
 const sidecar = (f) => { const j = readJ(f); if (!j.landmarks || !j.reviewed_by) throw err("UNREGISTERED_PIVOT", { reason: `landmark sidecar ${f} needs {landmarks:{name:[x,y]}, reviewed_by, method}: unreviewed correspondences are not accepted` }); return { ...j, sha256: fsha(f) }; };
 
+/** deferredLandmarks — a landmark on a face the canonical view cannot show (e.g. a phone's rear lens) may be DEFERRED to a named alternate-view
+ *  asset of the same master: {landmark: {to_asset, face, reason}}. It stays an open registration obligation (never measured here). */
+export function deferredLandmarks({ lm, doc, plan, asset }) {
+  const out = {}; for (const [k, v] of Object.entries(lm.deferred_landmarks || {})) { const t = (plan.assets || []).find((x) => x.asset_id === v.to_asset);
+    if (!t || t.derived_from !== asset || !v.face || !v.reason) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `deferred landmark ${k} must name an alternate-view asset derived from ${asset}, its face and a reason` }); out[k] = { to_asset: v.to_asset, face: v.face, reason: v.reason, status: "DEFERRED_TO_ALTERNATE_VIEW_NOT_MEASURED" }; }
+  return out;
+}
 /** planned alpha contract (re-audit hardening 1): the DELIVERED pixels must satisfy the plan; the requirement is never rewritten to fit them */
 export function checkAlphaContract(asset, planned, png) {
   const { transparent, partial } = png.alpha;
@@ -187,7 +194,7 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   // P05: MEASURE_FRAME — the approved pixels ARE the canonical frame (uniformly scaled so the painted subject has its directed on-stage height);
   // COVERAGE_RECT — a world/transition plate covers exactly its directed area. No provisional geometry exists in either mode.
   const measureMode = ["MEASURE_FRAME", "COVERAGE_RECT"].includes(p.registration?.mode), rigOf = doc.rigs.find((r) => r.identity_id === I.id);
-  if (measureMode && rigOf) { const need = [...new Set([...rigOf.joints.map((j) => j.landmark_id ?? j.id), ...rigOf.sockets.map((s) => s.landmark_id).filter(Boolean)])], absent = need.filter((k) => !names.includes(k)); if (absent.length) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `the reviewed landmarks do not contain ${absent.join(", ")}: those joints/sockets cannot be measured from this artwork` }); }
+  if (measureMode && rigOf) { const need = [...new Set([...rigOf.joints.map((j) => j.landmark_id ?? j.id), ...rigOf.sockets.map((s) => s.landmark_id).filter(Boolean)])], deferredLm = deferredLandmarks({ lm, doc, plan, asset }), absent = need.filter((k) => !names.includes(k) && !deferredLm[k]); if (absent.length) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `the reviewed landmarks do not contain ${absent.join(", ")}: those joints/sockets cannot be measured from this artwork` }); }
   const fitMode = p.registration?.mode === "FIT_RIG" || measureMode, anchors = measureMode ? [] : fitMode ? (p.registration.frame_anchors || []).filter((k) => names.includes(k)) : names;
   if (fitMode && !measureMode && anchors.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `FIT_RIG needs >=3 reviewed frame anchors (${(p.registration.frame_anchors || []).join(", ")}); got ${anchors.length}` });
   const T = measureMode ? measuredFrame(p.registration, png, asset, lm) : solveTransform(anchors.map((k) => lm.landmarks[k]), anchors.map((k) => I.landmarks[k]), mode), ap = (q) => [T[0] * q[0] + T[2] * q[1] + T[4], T[1] * q[0] + T[3] * q[1] + T[5]];
@@ -198,7 +205,7 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   const regDir = path.join(FILM, "registration", asset); fs.mkdirSync(regDir, { recursive: true });
   const receipt = { asset, identity: I.id, status: maxRes <= maxResidualPx ? "REGISTERED_PENDING_REVIEW" : "REGISTRATION_FAILED", raster_to_canonical: T, scale: Math.sqrt(Math.abs(T[0] * T[3] - T[1] * T[2])), rotation_deg: (Math.atan2(T[1], T[0]) * 180) / Math.PI, residuals, max_residual_px: maxRes, tolerance_px: maxResidualPx,
     registration_mode: measureMode ? p.registration.mode : fitMode ? "FIT_RIG" : mode, frame_anchors: anchors, provisional_deviation: fitMode && !measureMode ? names.filter((k) => !anchors.includes(k)).map((k) => ({ landmark: k, provisional: planned[k], measured: ap(lm.landmarks[k]), deviation_canonical_px: Math.hypot(ap(lm.landmarks[k])[0] - planned[k][0], ap(lm.landmarks[k])[1] - planned[k][1]) })) : null,
-    accepted_geometry: geom, landmark_sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, source: { file: path.basename(file), sha256: fsha(file), width: png.width, height: png.height, alpha: png.alpha }, planned_alpha_mode: p.alpha_mode, provenance };
+    accepted_geometry: geom, deferred_landmarks: lm.deferred_landmarks || null, landmark_sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, source: { file: path.basename(file), sha256: fsha(file), width: png.width, height: png.height, alpha: png.alpha }, planned_alpha_mode: p.alpha_mode, provenance };
   const attempt = path.join(regDir, `attempt_${fsha(file).slice(0, 12)}`); writeJ(path.join(attempt, "MASTER_REGISTRATION_RECEIPT.json"), receipt);
   if (receipt.status !== "REGISTERED_PENDING_REVIEW") { log(FILM, { op: "ingest-master", asset, status: receipt.status, max_residual_px: maxRes }); return receipt; }
   writeJ(path.join(regDir, "MASTER_REGISTRATION_RECEIPT.json"), receipt); // only an accepted registration becomes the asset's evidence

@@ -39,3 +39,26 @@
 
 ## Not yet possible
 - **Animation and rendering:** no master is approved or registered in the real film yet. The first family that can move is the award, after the director's review → `apply` → signature → `advance` releases its 4 dependents.
+
+## Master registration round (2026-11-27, evening)
+- **Checkpoint E01_ARTWORK_PARTIAL_RETURN.zip:** no image generation; image-bound landmark proposals for 7 masters imported (Mia 30/32, restaurant 7/8, props, diners A/B).
+- **Constructed anchors (rule-based, reviewed through the signed master receipt):**
+  - Mia cranium_top (522,137): eyes-halfway canon, with the hair apex excluded per amendment 02.
+  - Mia pelvis (495,889): on the body axis between the legs. The first construction (595,889) was off-axis and corrected before signing.
+  - Restaurant staff_station: withdrawn together with the plate.
+- **Phone:** the rear-face LENS/lens_axis are deferred to the registered back-view asset ART_P03.alternate_views (ingest-master `deferred_landmarks`, recorded as not measured).
+- **Registered in the real film (REGISTERED_PENDING_REVIEW); all scales equal the directed on-screen size:**
+  - Mia 0.617 (174 px head);
+  - award 0.139 (≈165 px);
+  - report 0.114 (≈144 px);
+  - phone 0.043 (≈50 px);
+  - Diner A 0.090 and Diner B 0.061 (≈70 px).
+
+  Six master-approval requests are created (SIGNING_GUIDE.md). Signing approves the artwork and its registration together: the bundle binds the registration receipt, including the coordinates.
+- **Restaurant v1 failed the geography check:**
+  - The plate is drawn from the staff side (till and storage shelves face the camera; staff equipment on the left).
+  - The directed SH01 is a public-side three-quarter counter view with the staff side on the right (P3.2 storyboard lines 10, 15).
+  - Its request was withdrawn unsigned and routed to artistic correction (image request 04). Furniture is compatible with the table cluster.
+- **Award and report contact geometry:** award `bottom` = flat plinth contact edge, `base` = plinth mass centre. Report edge_mia lower-left and edge_lead lower-right, as seen from the page front (P3.2).
+- **Diners:** seated rest artwork with world-owned seats. Their support points are validated against the world seat geometry when placed.
+- **Next blocker:** the post-art feasibility gate is film-wide ("other rigs of the film are still unmeasured"). It holds 114 dependents even after their own master is approved.
