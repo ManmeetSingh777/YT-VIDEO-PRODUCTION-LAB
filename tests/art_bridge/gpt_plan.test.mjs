@@ -47,3 +47,13 @@ test("GP-3 a parent that is not the seed, predecessor or an earlier image of the
   const z = path.join(W, "ret3.zip"); zip(R, z); const r = await PL.importPlan({ film: rt.film, out: rt.outbox, zip: z, operator: "gp-test" });
   assert.ok(r.results.some((x) => x.outcome === "FAILED" && /parent/.test(x.reason)) || r.results.some((x) => x.outcome === "ALREADY_SELECTED"));
 });
+test("GP-4 import-handoff: one consolidated return imported per master with its attestation; the final choice is recorded for review, never selected", async () => {
+  const job = Object.keys(cur).find((j) => /^ARTJOB_MASTER_/.test(j) && B.nextStage({ out: rt.outbox, job: j }).eligible); if (!job) return; const asset = J(path.join(rt.outbox, "CURRENT.json"))[job] && job.replace(/^ARTJOB_MASTER_/, "").replace(/_[0-9a-f]{8}$/, "");
+  const G = await import("../../engine/art_bridge/gpt_handoff.mjs"), h = await G.exportGptJob({ film: rt.film, out: rt.outbox, job, stage: B.nextStage({ out: rt.outbox, job }).stage }), R = path.join(W, "ho"), f = path.join(R, "returns", "01", "a.png"); png(f, h.manifest.size, 41); const g = path.join(R, "returns", "01", "b.png"); png(g, h.manifest.size, 42);
+  fs.writeFileSync(path.join(R, "returns", "01", "b.LANDMARKS.json"), JSON.stringify({ landmarks: { top: [10, 10] } }));
+  fs.writeFileSync(path.join(R, "RETURN_MANIFEST.json"), JSON.stringify({ results: [{ id: "01", asset, images: [{ file: "returns/01/a.png", operation: "REFERENCE_GENERATE", attestation: "OPERATOR_ATTESTED_REFERENCE_GENERATION", parent_sha256: "a".repeat(64) }, { file: "returns/01/b.png", operation: "EDIT", attestation: "UNKNOWN_ANCESTRY", parent_sha256: null }], final_choice: "returns/01/b.png", landmarks_file: "returns/01/b.LANDMARKS.json", status: "PASS" }, { id: "02", asset, images: [{ file: "returns/02/x.png", operation: "EDIT", attestation: "MADE_UP" }] }] }));
+  const z = path.join(W, "ho.zip"); zip(R, z); const r = await PL.importMasterHandoff({ film: rt.film, out: rt.outbox, zip: z, operator: "gp-test" }), a = r.results.find((x) => x.id === "01");
+  assert.equal(a.outcome, "IMPORTED", JSON.stringify(r.results)); assert.deepEqual(a.candidates.map((c) => c.attestation), ["OPERATOR_ATTESTED_REFERENCE_GENERATION", "UNKNOWN_ANCESTRY"]); assert.ok(a.final_choice_for_review && fs.existsSync(a.proposed_landmarks));
+  assert.equal(r.results.find((x) => x.id === "02").outcome, "FAILED");
+  assert.equal(B.nextStage({ out: rt.outbox, job }).eligible, false, "candidates await review; nothing selected");
+});

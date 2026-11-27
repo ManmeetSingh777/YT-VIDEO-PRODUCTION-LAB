@@ -161,3 +161,27 @@ export async function advanceProduction({ film, out, operator, exportOutbox }) {
   const doc = { at: new Date().toISOString(), summary, new_plan: r.plan_id ? { plan_id: r.plan_id, zip: r.zip, attachments: r.attachments, entries: r.manifest.entries.length } : null, plans_in_flight: plans.map((pm) => pm.plan_id), program };
   fs.writeFileSync(path.join(out, "PRODUCTION_PROGRAM.json"), JSON.stringify(doc, null, 1)); return doc;
 }
+
+/** importMasterHandoff({film, out, zip, operator}) — the single return of the complete production handoff: each result's images are imported into
+ *  its master's open handoff with the attested lineage (VERIFIED_EDIT | OPERATOR_ATTESTED_REFERENCE_GENERATION | UNKNOWN_ANCESTRY) and any
+ *  proposed landmarks; the operator's final_choice is RECORDED for the director's review, never selected or approved here. Resumable. */
+export async function importMasterHandoff({ film, out, zip, operator }) {
+  if (!operator || !String(operator).trim()) throw err("SCHEMA_VIOLATION", { reason: "import-handoff needs --operator <your id>" });
+  const zsha = fsha(zip), root = path.join(out, "handoff_returns", zsha.slice(0, 16)); fs.mkdirSync(root, { recursive: true }); const files = unzipSafe(zip, root);
+  const rmF = files.find((f) => /(^|\/)RETURN_MANIFEST\.json$/.test(f)); if (!rmF) throw err("SCHEMA_VIOLATION", { reason: "no RETURN_MANIFEST.json" }); const base = path.join(root, path.dirname(rmF)), rm = J(path.join(root, rmF));
+  const cur = J(path.join(out, "CURRENT.json")), B = await import("./gpt_batch.mjs"), results = [], ATT = ["VERIFIED_EDIT", "OPERATOR_ATTESTED_REFERENCE_GENERATION", "UNKNOWN_ANCESTRY"];
+  for (const r of rm.results || []) {
+    try { const job = Object.keys(cur).find((j) => j.startsWith(`ARTJOB_MASTER_${r.asset}_`)); if (!job) throw err("SCHEMA_VIOLATION", { reason: `unknown asset ${r.asset}` });
+      const ns = B.nextStage({ out, job }); if (!ns.eligible) throw err("STAGE_PREDECESSOR_MISSING", { reason: ns.reason });
+      const h = await exportGptJob({ film, out, job, stage: ns.stage }), imgs = (r.images || []).map((x) => { const p = path.resolve(base, x.file); if (!p.startsWith(path.resolve(base) + path.sep) || !fs.existsSync(p)) throw err("ASSET_PATH_INVALID", { reason: `${x.file} missing` }); if (!ATT.includes(x.attestation)) throw err("SCHEMA_VIOLATION", { reason: `${x.file}: attestation must be one of ${ATT}` }); return { ...x, abs: p, sha256: fsha(p) }; });
+      if (!imgs.length) { // review-only master: landmarks proposed for its CURRENT strongest artwork (no new image)
+        let lm = null; if (r.landmarks_file) { const lf = path.resolve(base, r.landmarks_file); if (lf.startsWith(path.resolve(base) + path.sep) && fs.existsSync(lf)) { const d = path.join(out, "prepared", "landmark_proposals"); fs.mkdirSync(d, { recursive: true }); lm = path.join(d, `${r.asset}.PROPOSED_LANDMARKS.json`); fs.writeFileSync(lm, JSON.stringify({ asset: r.asset, applies_to: "the master's STRONGEST artwork in the handoff", image_sha256: r.strongest_sha256 ?? null, status: "PROPOSED_BY_OPERATOR_NOT_REVIEWED", proposed_by: String(operator), landmarks: (J(lf).landmarks || J(lf)) }, null, 1)); } }
+        results.push({ id: r.id, asset: r.asset, outcome: lm ? "LANDMARKS_PROPOSED" : "NO_IMAGES", proposed_landmarks: lm, status: r.status, unresolved_blockers: r.unresolved_blockers || [] }); continue; }
+      const b = path.join(root, "bundles", r.id); fs.mkdirSync(b, { recursive: true }); imgs.forEach((x, k) => fs.copyFileSync(x.abs, path.join(b, `img_${k + 1}.png`)));
+      fs.writeFileSync(path.join(b, "IMPORT_MANIFEST.json"), JSON.stringify({ handoff_id: h.handoff_id, images: imgs.map((x, k) => ({ file: `img_${k + 1}.png`, sha256: x.sha256, lineage: { returned_as: x.file, operation: x.operation, attestation: x.attestation, parent_sha256: x.parent_sha256 ?? null, round: x.round ?? null, evaluation: x.evaluation ?? null } })), origin_claim: { model: r.model ?? null, session: r.session ?? null, operator: String(operator) }, operator_submission_id: `handoff:${r.id}:${zsha.slice(0, 8)}` }, null, 1));
+      const rec = importGptCandidates({ film, out, bundleDir: b }), fc = imgs.findIndex((x) => x.file === r.final_choice || path.basename(x.file) === r.final_choice);
+      let landmarks = null; if (r.landmarks_file && fc >= 0) { const lf = path.resolve(base, r.landmarks_file); if (lf.startsWith(path.resolve(base) + path.sep) && fs.existsSync(lf)) { const c = rec.candidates[fc], dst = path.join(path.dirname(c.file), `${path.basename(c.file, ".png")}.PROPOSED_LANDMARKS.json`); fs.writeFileSync(dst, JSON.stringify({ candidate_sha256: c.sha256, status: "PROPOSED_BY_OPERATOR_NOT_REVIEWED", proposed_by: String(operator), landmarks: (J(lf).landmarks || J(lf)) }, null, 1)); landmarks = dst; } }
+      results.push({ id: r.id, asset: r.asset, outcome: "IMPORTED", status: r.status, candidates: rec.candidates.map((c, k) => ({ candidate_id: c.id, file: imgs[k].file, attestation: imgs[k].attestation, valid: c.valid, problems: c.problems })), final_choice_for_review: fc >= 0 ? rec.candidates[fc].id : null, proposed_landmarks: landmarks, unresolved_blockers: r.unresolved_blockers || [] });
+    } catch (e) { results.push({ id: r.id, outcome: "FAILED", code: e.code || null, reason: e.human_readable_reason || e.message }); } }
+  fs.writeFileSync(path.join(root, "IMPORT_RESULT.json"), JSON.stringify(results, null, 1)); return { results };
+}

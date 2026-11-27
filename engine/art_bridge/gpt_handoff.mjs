@@ -56,7 +56,7 @@ export async function exportGptJob({ film, out, job, stage = 1, masterJob = null
 /** importGptCandidates({film, out, bundleDir}) → sealed provider-result-equivalent record of OPERATOR-ATTESTED candidates */
 export function importGptCandidates({ film, out, bundleDir }) {
   const im = J(path.join(bundleDir, "IMPORT_MANIFEST.json")), hd = path.join(out, "gpt_handoffs", String(im.handoff_id)), hmF = path.join(hd, "HANDOFF_MANIFEST.json");
-  if (!/^GPT_ART_HANDOFF_[\w-]+$/.test(String(im.handoff_id)) || !fs.existsSync(hmF)) throw err("STAGE_PREDECESSOR_MISSING", { reason: `unknown handoff ${im.handoff_id} (import must answer an exported handoff)` });
+  if (!/^GPT_ART_HANDOFF_[\w.-]+$/.test(String(im.handoff_id)) || String(im.handoff_id).includes("..") || !fs.existsSync(hmF)) throw err("STAGE_PREDECESSOR_MISSING", { reason: `unknown handoff ${im.handoff_id} (import must answer an exported handoff)` });
   const sealF = path.join(out, "gpt_handoffs", `${im.handoff_id}.sha256`); if (!fs.existsSync(sealF) || sha(fs.readFileSync(hmF, "utf8")) !== fs.readFileSync(sealF, "utf8").trim()) throw err("OUTBOX_IMMUTABLE_VIOLATION", { reason: "handoff manifest altered after export (or unsealed)" });
   const hm = J(hmF), cur = readCurrent(out, hm.artjob); const mfF = path.join(path.resolve(film), "handoff", "ART_AND_MOTION_MANIFEST_V2.json"), pid = fs.existsSync(mfF) ? J(mfF).project_id : null; // P04 §3.6: identity is the PROJECT and the content-bound generation, never an absolute path: a relocated copy of the same project imports; a foreign or
   // stale bundle refuses with the exact remapping it would need (project id, or re-export)
@@ -84,7 +84,7 @@ export function importGptCandidates({ film, out, bundleDir }) {
  *  predecessor. The image's size is then checked against the CURRENT contract by the normal import. Recorded on the candidate; never silent. */
 export function verifyCarryForward({ out, from, to }) {
   const dir = path.join(out, "gpt_handoffs", String(from)), mF = path.join(dir, "HANDOFF_MANIFEST.json"), seal = path.join(out, "gpt_handoffs", `${from}.sha256`);
-  if (!/^GPT_ART_HANDOFF_[\w-]+$/.test(String(from)) || !fs.existsSync(mF) || !fs.existsSync(seal) || sha(fs.readFileSync(mF, "utf8")) !== fs.readFileSync(seal, "utf8").trim()) throw err("OUTBOX_IMMUTABLE_VIOLATION", { reason: `carried-from handoff ${from} is unknown or its seal does not verify` });
+  if (!/^GPT_ART_HANDOFF_[\w.-]+$/.test(String(from)) || String(from).includes("..") || !fs.existsSync(mF) || !fs.existsSync(seal) || sha(fs.readFileSync(mF, "utf8")) !== fs.readFileSync(seal, "utf8").trim()) throw err("OUTBOX_IMMUTABLE_VIOLATION", { reason: `carried-from handoff ${from} is unknown or its seal does not verify` });
   // ENGINE-COMPUTED sections (derived by the engine from directed facts, never authored by the design): the size contract and the detail budget
   const ENGINE = ["## GENERATION CANVAS (engine resolution contract", "## DETAIL BUDGET ("], secs = (t) => t.split(/\n(?=## )/), cut = (t) => secs(t).filter((sec) => !ENGINE.some((e) => sec.startsWith(e))).join("\n");
   const old = J(mF), newDir = path.join(out, "gpt_handoffs", to.handoff_id);

@@ -9,6 +9,7 @@
 //                        invalidate dependents and emit re-manufacture/re-review work
 //   submitJob          the ONE production path that invokes a provider (generate for masters, edit with master bytes for dependents)
 // Nothing in this module draws, fabricates or approves art.
+import { verifyPreparation } from "./art_prepare.mjs";
 import fs from "node:fs"; import path from "node:path"; import crypto from "node:crypto"; import { execFileSync } from "node:child_process";
 import { runCheck } from "../tools/art_bridge_check.mjs";
 import { missingArtJobs, completeMotionContext, routeMedium, assertMediumContract, assertMotionContext } from "./art_requests.mjs";
@@ -114,6 +115,10 @@ export function requireProvenanceLineage({ file, provenance, outbox = process.en
   if (subs && fs.existsSync(subs)) for (const j of fs.readdirSync(subs)) { const jd = path.join(subs, j); if (!fs.statSync(jd).isDirectory()) continue;
     for (const k of fs.readdirSync(jd)) { const sd = path.join(jd, k); if (!fs.existsSync(path.join(sd, "RESULT.sha256"))) continue; let r; try { r = loadResult(sd); } catch { continue; }
       const c = (r.record.candidates || []).find((x) => x.sha256 === h && x.valid === true); if (c && r.record.provenance_to_ingest === provenance) return { artjob: j, submission: k, candidate_id: c.id, record_sha256: r.record_sha256, origin_verification: r.record.origin_verification || "PROVIDER_API_RESPONSE" }; } }
+  // a DETERMINISTICALLY PREPARED derivative (art_prepare.mjs) inherits its parent's lineage only if re-executing its ops on the parent reproduces it exactly
+  const prepF = outbox && path.join(path.resolve(outbox), "prepared", `${h.slice(0, 16)}.PREPARATION.json`);
+  if (prepF && fs.existsSync(prepF)) { const rec = JSON.parse(fs.readFileSync(prepF, "utf8")), parentFile = path.join(path.resolve(outbox), "prepared", "parents", `${rec.parent_sha256.slice(0, 16)}.png`);
+    if (rec.result_sha256 === h && fs.existsSync(parentFile) && verifyPreparation(rec, parentFile)) { const parent = requireProvenanceLineage({ file: parentFile, provenance, outbox, record_id }); return { ...parent, prepared: { from_sha256: rec.parent_sha256, ops: rec.ops, tool: rec.tool } }; } }
   throw err("PROVENANCE_COUNTERFEIT", { record_id, reason: `provenance ${provenance} claimed for ${path.basename(file)} but no sealed ${provenance} record in the outbox contains these bytes as a valid candidate`, producer: "engine/art_bridge/art_intake.mjs#requireProvenanceLineage", repair_owner: "ART_OPERATOR", resume_at: "SUBMIT_OR_IMPORT_CANDIDATE" });
 }
 // shot_usage from the action graph (which shot shows this asset on which frames) — the asset carries its own motion obligation
