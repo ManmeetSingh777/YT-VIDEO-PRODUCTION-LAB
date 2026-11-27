@@ -29,9 +29,15 @@ export function reconcileOutcome(subDir, { outcome, operator, evidence }) { if (
 /** seal a provider result record (content hash sidecar written once) */
 export function sealResult(subDir, result) { const f = path.join(subDir, "PROVIDER_RESULT.json"), s = JSON.stringify(result, null, 1); writeOnce(f, s); writeOnce(path.join(subDir, "RESULT.sha256"), sha(s)); return sha(s); }
 export function loadResult(subDir) { const f = path.join(subDir, "PROVIDER_RESULT.json"), h = path.join(subDir, "RESULT.sha256"); if (!fs.existsSync(f) || !fs.existsSync(h)) throw err("STAGE_PREDECESSOR_MISSING", { reason: `no sealed provider result in ${subDir}` }); const s = fs.readFileSync(f, "utf8"); if (sha(s) !== fs.readFileSync(h, "utf8").trim()) throw err("OUTBOX_IMMUTABLE_VIOLATION", { reason: "provider result record altered after sealing" }); return { record: JSON.parse(s), record_sha256: sha(s) }; }
-const selFile = (out, job, stage) => path.join(out, "submissions", job, `STAGE_${String(stage).padStart(2, "0")}_SELECTION.json`);
+// one winner per (job, stage, GENERATION): a changed generation never inherits or overwrites another generation's selection. The legacy
+// per-(job, stage) file stays valid for the generation it names.
+const legacySel = (out, job, stage) => path.join(out, "submissions", job, `STAGE_${String(stage).padStart(2, "0")}_SELECTION.json`);
+const selFile = (out, job, stage, generation) => { const l = legacySel(out, job, stage); if (fs.existsSync(l) && JSON.parse(fs.readFileSync(l, "utf8")).generation === generation) return l; return path.join(out, "submissions", job, `STAGE_${String(stage).padStart(2, "0")}__${generation}_SELECTION.json`); };
+/** every committed selection of a job (all generations), oldest first */
+export function listSelections({ out, job }) { const d = path.join(out, "submissions", job); if (!fs.existsSync(d)) return [];
+  return fs.readdirSync(d).filter((f) => /^STAGE_\d{2}(__\w+)?_SELECTION\.json$/.test(f)).map((f) => JSON.parse(fs.readFileSync(path.join(d, f), "utf8"))).sort((a, b) => a.selected_utc.localeCompare(b.selected_utc)); }
 /** selectCandidate({out, job, stage, generation, candidateId}) — candidateId = "<key16>:<index>"; one winner per (job, stage) */
-export function selectCandidate({ out, job, stage, generation, candidateId, selector = "OPERATOR" }) {
+export function selectCandidate({ out, job, stage, generation, candidateId, selector = "OPERATOR", rebased_from = null }) {
   const [key16, idx] = String(candidateId).split(":"); if (!/^[0-9a-f]{16}$/.test(key16 || "") || !/^\d+$/.test(idx || "")) throw err("STAGE_PREDECESSOR_MISSING", { reason: `malformed candidate id ${candidateId}` });
   const subDir = path.join(out, "submissions", job, key16), { record, record_sha256 } = loadResult(subDir), c = record.candidates?.[+idx];
   if (!c) throw err("STAGE_PREDECESSOR_MISSING", { reason: `candidate ${candidateId} is not a member of the result record` });
@@ -39,14 +45,14 @@ export function selectCandidate({ out, job, stage, generation, candidateId, sele
   if (c.valid !== true) throw err("STAGE_PREDECESSOR_MISSING", { reason: `candidate ${candidateId} failed output validation` });
   const store = path.join(out, "inbox", "candidates", job); if (!fs.existsSync(c.file) || !inside(store, c.file)) throw err("ASSET_PATH_INVALID", { reason: `candidate file outside the immutable candidate store: ${c.file}` });
   if (fsha(c.file) !== c.sha256) throw err("ASSET_HASH_MISMATCH", { reason: `candidate ${candidateId} bytes changed after receipt` });
-  const lock = acquireLock(out, `select-${job}-${stage}`); try { const f = selFile(out, job, stage); if (fs.existsSync(f)) { const w = JSON.parse(fs.readFileSync(f, "utf8")); throw err("OUTBOX_IMMUTABLE_VIOLATION", { reason: `stage ${stage} of ${job} already selected ${w.candidate_id} (winner kept)`, details: { winner: w } }); }
-    lock.check(); writeOnce(f, JSON.stringify({ job, stage, generation, candidate_id: candidateId, result_record_sha256: record_sha256, candidate_sha256: c.sha256, provenance: record.provenance_to_ingest, selector, selected_utc: new Date().toISOString(), lock_generation: lock.token.generation }, null, 1)); }
+  const lock = acquireLock(out, `select-${job}-${stage}`); try { const f = selFile(out, job, stage, generation); if (fs.existsSync(f)) { const w = JSON.parse(fs.readFileSync(f, "utf8")); throw err("OUTBOX_IMMUTABLE_VIOLATION", { reason: `stage ${stage} of ${job} already selected ${w.candidate_id} (winner kept)`, details: { winner: w } }); }
+    lock.check(); writeOnce(f, JSON.stringify({ job, stage, generation, candidate_id: candidateId, result_record_sha256: record_sha256, candidate_sha256: c.sha256, provenance: record.provenance_to_ingest, selector, ...(rebased_from ? { rebased_from } : {}), selected_utc: new Date().toISOString(), lock_generation: lock.token.generation }, null, 1)); }
   finally { lock.release(); }
   return loadSelection({ out, job, stage, generation });
 }
 /** loadSelection — the ONLY way a next stage obtains its predecessor; everything is re-verified */
 export function loadSelection({ out, job, stage, generation }) {
-  const f = selFile(out, job, stage); if (!fs.existsSync(f)) throw err("STAGE_PREDECESSOR_MISSING", { reason: `stage ${stage} of ${job} has no committed selection` });
+  const f = selFile(out, job, stage, generation); if (!fs.existsSync(f)) throw err("STAGE_PREDECESSOR_MISSING", { reason: `stage ${stage} of ${job} has no committed selection` });
   const s = JSON.parse(fs.readFileSync(f, "utf8")); if (s.generation !== generation) throw err("STALE_COMPILED_REQUEST", { reason: `selection belongs to generation ${s.generation}` });
   const [key16, idx] = s.candidate_id.split(":"), { record, record_sha256 } = loadResult(path.join(out, "submissions", job, key16)), c = record.candidates[+idx];
   if (record_sha256 !== s.result_record_sha256 || c.sha256 !== s.candidate_sha256 || fsha(c.file) !== c.sha256) throw err("ASSET_HASH_MISMATCH", { reason: "selected candidate lineage no longer verifies" });

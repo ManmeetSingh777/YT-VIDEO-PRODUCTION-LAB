@@ -9,7 +9,7 @@
   "schemas/pregen_audit_v1.schema.json",
   "engine/methods/source/F_SOURCE.json"
  ],
- "current": "E01.1",
+ "current": "E01.2",
  "versions": [
   {
    "version": "P06",
@@ -33,6 +33,12 @@
    "version": "E01.1",
    "rule_source_sha256": "f7bb3759ffef4943079235b846c2d879a2bef140c445e55589c9db81e33cfd7d",
    "reason": "fixedFrameRig: a zero-freedom rig (one locked root joint, one pose, no views/channels/edges/constraints) is a socket frame, not an articulated subject; any freedom still requires ARTICULATED/REGISTERED_CELS/EXPLICIT_DEFORM (E01 WORLD_RESTAURANT counter_support)",
+   "source": "WORKING_TREE"
+  },
+  {
+   "version": "E01.2",
+   "rule_source_sha256": "291a02dec2e7fa40c1899a21ca89680c7b01015b86118e7d10cf07e76c8ff873",
+   "reason": "requiredFigureHeightPx: an identity whose directed size is an on_stage_reference (e.g. a head height) states no figure height before measurement (null, never 0 or the authored canvas); a figure_height_px reference is the figure height",
    "source": "WORKING_TREE"
   }
  ]

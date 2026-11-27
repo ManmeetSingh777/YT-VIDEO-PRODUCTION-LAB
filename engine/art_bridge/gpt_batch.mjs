@@ -78,7 +78,7 @@ function batchInstructions(m) {
 }
 
 /** importBatch({film, out, zip, operator, submission}) → per-entry outcomes (resumable: imported images are skipped, failures reported exactly) */
-export function importBatch({ film, out, zip, operator, submission = null }) {
+export async function importBatch({ film, out, zip, operator, submission = null }) {
   if (!operator || !String(operator).trim()) throw err("SCHEMA_VIOLATION", { reason: "import-batch needs --operator <your id>: the person attesting the images came from the handoff (never defaulted)" });
   const zsha = fsha(zip), root = path.join(out, "batch_returns", zsha.slice(0, 16)); fs.mkdirSync(root, { recursive: true }); const files = unzipSafe(zip, root);
   const rmF = files.find((f) => /(^|\/)RETURN_MANIFEST\.json$/.test(f)); if (!rmF) throw err("SCHEMA_VIOLATION", { reason: "the return zip has no RETURN_MANIFEST.json" });
@@ -99,8 +99,14 @@ export function importBatch({ film, out, zip, operator, submission = null }) {
       const im = { handoff_id: be.handoff_id, images: fresh.map((i, k) => ({ file: `candidate_${k + 1}.png`, sha256: i.sha256 })), origin_claim: { model: re.model ?? null, session: re.session ?? (re.generation_ids?.length ? re.generation_ids.join(",") : null), operator: String(operator) },
         operator_submission_id: `${rm.batch_id}:${submission || zsha.slice(0, 12)}`, ...(re.carried_from ? { carried_from: re.carried_from } : {}) };
       fs.writeFileSync(path.join(bundle, "IMPORT_MANIFEST.json"), JSON.stringify(im, null, 1)); fs.writeFileSync(path.join(bundle, "VISUAL_EVALUATION.json"), JSON.stringify(re.visual_evaluation ?? null, null, 1));
-      const rec = importGptCandidates({ film, out, bundleDir: bundle });
-      const r = { n: be.n, handoff_id: be.handoff_id, artjob: be.artjob, stage: be.stage, outcome: rec.status === "CANDIDATES_RECEIVED_PENDING_SELECTION" ? "IMPORTED" : "IMPORTED_ALL_INVALID", images: rec.candidates.map((c) => ({ candidate_id: c.id, sha256: c.sha256, size: [c.width, c.height], valid: c.valid, problems: c.problems })), visual_evaluation: re.visual_evaluation ?? null, carried_from: rec.carried_from ?? null };
+      let rec; try { rec = importGptCandidates({ film, out, bundleDir: bundle }); }
+      catch (e) { // the job's request changed after this batch was exported (e.g. an approved packet amendment): route the image to the CURRENT handoff of
+        // the same stage, accepted only if verifyCarryForward proves the requests differ solely in engine-computed sections
+        if (e.code !== "STALE_COMPILED_REQUEST" || !/not the job's current generation/.test(e.human_readable_reason || "")) throw e;
+        const ns = nextStage({ out, job: be.artjob }); if (!ns.eligible || ns.stage !== be.stage) throw err("STALE_COMPILED_REQUEST", { record_id: be.handoff_id, reason: `the request changed since export and stage ${be.stage} is not the job's open stage (${ns.reason || `open stage ${ns.stage}`})` });
+        const now = await exportGptJob({ film, out, job: be.artjob, stage: be.stage }); fs.writeFileSync(path.join(bundle, "IMPORT_MANIFEST.json"), JSON.stringify({ ...im, handoff_id: now.handoff_id, carried_from: { handoff_id: be.handoff_id } }, null, 1));
+        rec = importGptCandidates({ film, out, bundleDir: bundle }); }
+      const r = { n: be.n, handoff_id: be.handoff_id, imported_into: rec.handoff_id, artjob: be.artjob, stage: be.stage, outcome: rec.status === "CANDIDATES_RECEIVED_PENDING_SELECTION" ? "IMPORTED" : "IMPORTED_ALL_INVALID", images: rec.candidates.map((c) => ({ candidate_id: c.id, sha256: c.sha256, size: [c.width, c.height], valid: c.valid, problems: c.problems })), visual_evaluation: re.visual_evaluation ?? null, carried_from: rec.carried_from ?? null };
       log(r); results.push(r);
     } catch (e) { const r = { n: be.n, handoff_id: be.handoff_id, outcome: "FAILED", code: e.code || null, reason: e.human_readable_reason || e.message }; log(r); results.push(r); }
   }
@@ -142,4 +148,28 @@ export async function carryForwardImport({ film, out, fromHandoff, png, operator
   const im = { handoff_id: now.handoff_id, images: [{ file: "candidate_1.png", sha256: sha(b) }], origin_claim: { model, session, operator: String(operator) }, operator_submission_id: submission || `carry-forward:${sha(b).slice(0, 12)}`, carried_from: { handoff_id: fromHandoff } };
   fs.writeFileSync(path.join(bundle, "IMPORT_MANIFEST.json"), JSON.stringify(im, null, 1));
   return importGptCandidates({ film, out, bundleDir: bundle });
+}
+
+/** rebaseSelections({film, out, job, operator}) — when a job's generation changes (e.g. an approved packet amendment), re-record its earlier
+ *  stage selections in the CURRENT generation, stage by stage, ONLY where verifyCarryForward proves each stage's request differs solely in
+ *  engine-computed sections and the predecessor chain is the same bytes. The original origin claim travels unchanged; the person confirming the
+ *  reuse is recorded on the new selection (rebased_from). Stops at the first stage that cannot be carried, with the exact reason. */
+export async function rebaseSelections({ film, out, job, operator }) {
+  if (!operator || !String(operator).trim()) throw err("SCHEMA_VIOLATION", { reason: "rebase-selections needs --operator <your id> (the person confirming the reuse)" });
+  const { listSelections } = await import("./candidate_store.mjs"), cur = readCurrent(out, job)?.digest, all = listSelections({ out, job }), done = [];
+  const prev = [...all].reverse().find((s) => s.generation !== cur)?.generation; if (!prev) return { job, generation: cur, rebased: [], note: "no earlier generation has selections" };
+  const chain = all.filter((s) => s.generation === prev).sort((a, b) => a.stage - b.stage);
+  for (const s of chain) {
+    try { loadSelection({ out, job, stage: s.stage, generation: cur }); done.push({ stage: s.stage, outcome: "ALREADY_SELECTED_IN_CURRENT" }); continue; } catch { /* not yet */ }
+    const ns = nextStage({ out, job }); if (!ns.eligible || ns.stage !== s.stage) { done.push({ stage: s.stage, outcome: "STOPPED", reason: ns.reason || `open stage is ${ns.stage}` }); break; }
+    const [key16, idx] = s.candidate_id.split(":"), { record } = loadResult(path.join(out, "submissions", job, key16)), c = record.candidates[+idx];
+    try {
+      const now = await exportGptJob({ film, out, job, stage: s.stage }), bundle = path.join(out, "batch_returns", "rebase", `${now.handoff_id}__${c.sha256.slice(0, 12)}`); fs.mkdirSync(bundle, { recursive: true }); fs.copyFileSync(c.file, path.join(bundle, "candidate_1.png"));
+      fs.writeFileSync(path.join(bundle, "IMPORT_MANIFEST.json"), JSON.stringify({ handoff_id: now.handoff_id, images: [{ file: "candidate_1.png", sha256: c.sha256 }], origin_claim: record.origin_claim, operator_submission_id: `rebase:${prev}:${s.stage}`, carried_from: { handoff_id: record.handoff_id } }, null, 1));
+      const rec = importGptCandidates({ film, out, bundleDir: bundle }), nc = rec.candidates.find((x) => x.sha256 === c.sha256 && x.valid); if (!nc) throw err("STAGE_PREDECESSOR_MISSING", { reason: `the carried image failed the current contract: ${rec.candidates.flatMap((x) => x.problems).join("; ")}` });
+      selectCandidate({ out, job, stage: s.stage, generation: cur, candidateId: nc.id, selector: "OPERATOR_REBASE", rebased_from: { generation: prev, candidate_id: s.candidate_id, candidate_sha256: s.candidate_sha256, confirmed_by: String(operator), carried: rec.carried_from } });
+      done.push({ stage: s.stage, outcome: "REBASED", candidate_id: nc.id, sha256: c.sha256, delta: rec.carried_from?.delta ?? [] });
+    } catch (e) { done.push({ stage: s.stage, outcome: "STOPPED", code: e.code || null, reason: e.human_readable_reason || e.message }); break; }
+  }
+  return { job, from_generation: prev, to_generation: cur, rebased: done };
 }

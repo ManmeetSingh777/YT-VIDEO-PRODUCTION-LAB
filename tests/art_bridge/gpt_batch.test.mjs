@@ -27,23 +27,23 @@ test("GB-2 import-batch: routed per entry; partial success, wrong size reported,
   png(path.join(ret, es[0].return_folder, "candidate_1.png"), es[0].requested_canvas, 1); png(path.join(ret, es[1].return_folder, "candidate_1.png"), "1024x1024" === es[1].requested_canvas ? "1536x1024" : "1024x1024", 2);
   fs.writeFileSync(path.join(ret, "RETURN_MANIFEST.json"), JSON.stringify({ batch_id: GB.batch, entries: [es[0], es[1]].map((e, i) => ({ handoff_id: e.handoff_id, return_folder: e.return_folder, images: ["candidate_1.png"], model: "synthetic", generation_ids: [`g${i}`], visual_evaluation: { identity_preserved: true } })) }));
   const z = path.join(W, "return1.zip"); zip(ret, z);
-  assert.throws(() => B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "" }), /operator/);
-  const r = B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "gb-test" }), by = Object.fromEntries(r.results.map((x) => [x.handoff_id, x]));
+  await assert.rejects(B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "" }), /operator/);
+  const r = await B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "gb-test" }), by = Object.fromEntries(r.results.map((x) => [x.handoff_id, x]));
   assert.equal(by[es[0].handoff_id].outcome, "IMPORTED"); assert.equal(by[es[1].handoff_id].outcome, "IMPORTED_ALL_INVALID"); assert.match(by[es[1].handoff_id].images[0].problems.join(), /size/);
   for (const e of es.slice(2)) assert.equal(by[e.handoff_id].outcome, "NOT_RETURNED");
   const subs = (job) => fs.readdirSync(path.join(rt.outbox, "submissions", job)).filter((k) => fs.existsSync(path.join(rt.outbox, "submissions", job, k, "PROVIDER_RESULT.json"))).length, n0 = subs(es[0].artjob);
-  const r2 = B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "gb-test" }); assert.equal(r2.results.find((x) => x.handoff_id === es[0].handoff_id).outcome, "ALREADY_IMPORTED"); assert.equal(subs(es[0].artjob), n0, "resume imported nothing twice");
+  const r2 = await B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "gb-test" }); assert.equal(r2.results.find((x) => x.handoff_id === es[0].handoff_id).outcome, "ALREADY_IMPORTED"); assert.equal(subs(es[0].artjob), n0, "resume imported nothing twice");
   const rec = fs.readdirSync(path.join(rt.outbox, "submissions", es[0].artjob)).map((k) => path.join(rt.outbox, "submissions", es[0].artjob, k, "PROVIDER_RESULT.json")).filter(fs.existsSync).map(J).find((x) => x.handoff_id === es[0].handoff_id);
   assert.equal(rec.origin_claim.operator, "gb-test"); assert.equal(rec.origin_verification, "MODEL_ORIGIN_CLAIM_OPERATOR_ATTESTED");
   // a return that lists a file it does not contain fails for that entry only
   const ret2 = path.join(W, "return2"); fs.rmSync(ret2, { recursive: true, force: true }); png(path.join(ret2, es[2].return_folder, "candidate_1.png"), es[2].requested_canvas, 3); fs.mkdirSync(ret2, { recursive: true });
   fs.writeFileSync(path.join(ret2, "RETURN_MANIFEST.json"), JSON.stringify({ batch_id: GB.batch, entries: [{ handoff_id: es[2].handoff_id, return_folder: es[2].return_folder, images: ["candidate_1.png"] }, { handoff_id: es[3]?.handoff_id ?? es[1].handoff_id, return_folder: "returns/nowhere", images: ["candidate_1.png"] }] }));
-  const z2 = path.join(W, "return2.zip"); zip(ret2, z2); const r3 = B.importBatch({ film: rt.film, out: rt.outbox, zip: z2, operator: "gb-test" });
+  const z2 = path.join(W, "return2.zip"); zip(ret2, z2); const r3 = await B.importBatch({ film: rt.film, out: rt.outbox, zip: z2, operator: "gb-test" });
   assert.equal(r3.results.find((x) => x.handoff_id === es[2].handoff_id).outcome, "IMPORTED"); assert.ok(r3.results.some((x) => x.outcome === "FAILED" && /missing from the return zip/.test(x.reason)));
 });
-test("GB-3 unsafe return zips are refused before anything is imported", () => {
+test("GB-3 unsafe return zips are refused before anything is imported", async () => {
   const z = path.join(W, "evil.zip"); execFileSync("python", ["-I", "-c", "import zipfile,sys\nwith zipfile.ZipFile(sys.argv[1],'w') as z: z.writestr('../escape.txt','x'); z.writestr('RETURN_MANIFEST.json','{}')", z]);
-  assert.throws(() => B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "gb-test" }), /unsafe entry/); assert.ok(!fs.existsSync(path.join(rt.outbox, "batch_returns", "escape.txt")));
+  await assert.rejects(B.importBatch({ film: rt.film, out: rt.outbox, zip: z, operator: "gb-test" }), /unsafe entry/); assert.ok(!fs.existsSync(path.join(rt.outbox, "batch_returns", "escape.txt")));
 });
 test("GB-4 grouped review + explicit selection: nothing is selected until a human chooses; a later stage opens only after its predecessor is selected", async () => {
   const rv = B.reviewSheet({ out: rt.outbox, batch: GB.batch }); assert.ok(fs.existsSync(rv.sheet)); const tpl = J(rv.selections_template); assert.ok(tpl.selections.every((s) => s.choose === null));
@@ -61,8 +61,10 @@ test("GB-5 carry-forward: accepted only for an earlier sealed request identical 
     const p = edit(fs.readFileSync(path.join(d, "REQUEST_PROMPT.txt"), "utf8")); fs.writeFileSync(path.join(d, "REQUEST_PROMPT.txt"), p); const m = { ...hm, handoff_id: id, size: "1536x1024", request_sha256: sha(p) }, t = JSON.stringify(m, null, 1);
     fs.writeFileSync(path.join(d, "HANDOFF_MANIFEST.json"), t); fs.writeFileSync(path.join(rt.outbox, "gpt_handoffs", `${id}.sha256`), sha(t)); return id; };
   const noCanvas = (t) => t.split(/\n(?=## )/).filter((s) => !s.startsWith("## GENERATION CANVAS (engine resolution contract")).join("\n");
-  assert.ok(G.verifyCarryForward({ out: rt.outbox, from: fake("a", noCanvas), to: hm }).verified.length >= 5);
-  assert.throws(() => G.verifyCarryForward({ out: rt.outbox, from: fake("b", (t) => noCanvas(t).replace("Specific decision:", "Specific  decision:")), to: hm }), /differ beyond the GENERATION CANVAS/);
+  const va = G.verifyCarryForward({ out: rt.outbox, from: fake("a", noCanvas), to: hm }); assert.ok(va.verified.length >= 5); assert.deepEqual(va.delta.map((d) => d.section), ["GENERATION CANVAS"]);
+  const db = (t) => noCanvas(t).split(/\n(?=## )/).filter((s) => !s.startsWith("## DETAIL BUDGET (")).join("\n") + "\n## DETAIL BUDGET (computed: figure up to 999 px on screen)\nx: focal, at most 1 interior mark";
+  const vd = G.verifyCarryForward({ out: rt.outbox, from: fake("d", db), to: hm }); assert.ok(vd.delta.some((d) => d.section === "DETAIL BUDGET" && /999/.test(d.before)), "an engine-computed detail-budget change is allowed and recorded");
+  assert.throws(() => G.verifyCarryForward({ out: rt.outbox, from: fake("b", (t) => noCanvas(t).replace("Specific decision:", "Specific  decision:")), to: hm }), /differ beyond the engine-computed GENERATION CANVAS \/ DETAIL BUDGET/);
   const idc = fake("c", noCanvas), t = fs.readFileSync(path.join(rt.outbox, "gpt_handoffs", `${idc}.sha256`), "utf8"); fs.writeFileSync(path.join(rt.outbox, "gpt_handoffs", `${idc}.sha256`), t.replace(/^./, (c) => (c === "0" ? "1" : "0")));
   assert.throws(() => G.verifyCarryForward({ out: rt.outbox, from: idc, to: hm }), /seal does not verify/);
 });

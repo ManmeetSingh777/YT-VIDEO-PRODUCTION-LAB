@@ -160,10 +160,13 @@ export function validatePlanContract(doc, plan) {
 }
 
 /** the canonical frame a delivered drawing defines by itself */
-function measuredFrame(reg, png, asset) {
+export function measuredFrame(reg, png, asset, lm = null) {
   if (reg.mode === "COVERAGE_RECT") { const [x, y, w, h] = reg.rect, sx = w / png.width, sy = h / png.height; if (Math.abs(sx / sy - 1) > 0.005) throw err("IMAGE_DIMENSION_MISMATCH", { record_id: asset, reason: `the delivered plate is ${png.width}x${png.height}; its directed coverage ${w}x${h} has another aspect ratio and is never stretched` }); return [sx, 0, 0, sx, x, y]; }
   let y0 = Infinity, y1 = -1; for (let y = 0; y < png.height; y++) for (let x = 0; x < png.width; x++) if (png.rgba[(y * png.width + x) * 4 + 3] > 8) { if (y < y0) y0 = y; y1 = y; break; }
   if (y1 < 0) throw err("ALPHA_INVALID", { record_id: asset, reason: "the delivered drawing has no painted pixel" });
+  const ref = reg.on_stage_reference; if (ref) { // a directed measurement (e.g. head height): scale so the MEASURED landmark span has the directed px — never the whole painted extent
+    const a = lm?.landmarks?.[ref.from_landmark], b = lm?.landmarks?.[ref.to_landmark]; if (!a || !b) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `on_stage_reference ${ref.measure} needs reviewed landmarks ${ref.from_landmark} and ${ref.to_landmark}` });
+    const d = Math.hypot(b[0] - a[0], b[1] - a[1]); if (!(d > 4)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `${ref.from_landmark}→${ref.to_landmark} span ${d.toFixed(1)}px is not measurable` }); const s = ref.px / d; return [s, 0, 0, s, 0, 0]; }
   const s = reg.on_stage_height_px ? reg.on_stage_height_px / (y1 - y0 + 1) : 1; return [s, 0, 0, s, 0, 0];
 }
 export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
@@ -182,7 +185,7 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   if (measureMode && rigOf) { const need = [...new Set([...rigOf.joints.map((j) => j.landmark_id ?? j.id), ...rigOf.sockets.map((s) => s.landmark_id).filter(Boolean)])], absent = need.filter((k) => !names.includes(k)); if (absent.length) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `the reviewed landmarks do not contain ${absent.join(", ")}: those joints/sockets cannot be measured from this artwork` }); }
   const fitMode = p.registration?.mode === "FIT_RIG" || measureMode, anchors = measureMode ? [] : fitMode ? (p.registration.frame_anchors || []).filter((k) => names.includes(k)) : names;
   if (fitMode && !measureMode && anchors.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `FIT_RIG needs >=3 reviewed frame anchors (${(p.registration.frame_anchors || []).join(", ")}); got ${anchors.length}` });
-  const T = measureMode ? measuredFrame(p.registration, png, asset) : solveTransform(anchors.map((k) => lm.landmarks[k]), anchors.map((k) => I.landmarks[k]), mode), ap = (q) => [T[0] * q[0] + T[2] * q[1] + T[4], T[1] * q[0] + T[3] * q[1] + T[5]];
+  const T = measureMode ? measuredFrame(p.registration, png, asset, lm) : solveTransform(anchors.map((k) => lm.landmarks[k]), anchors.map((k) => I.landmarks[k]), mode), ap = (q) => [T[0] * q[0] + T[2] * q[1] + T[4], T[1] * q[0] + T[3] * q[1] + T[5]];
   assertDrawingPreserved(T, asset);
   const planned = { ...I.landmarks }, target = (k) => (fitMode && !anchors.includes(k) ? ap(lm.landmarks[k]) : I.landmarks[k]); // measured landmarks are their own target (residual 0 by definition)
   const residuals = names.map((k) => ({ landmark: k, role: anchors.includes(k) ? "FRAME_ANCHOR" : "MEASURED", residual_canonical_px: Math.hypot(ap(lm.landmarks[k])[0] - target(k)[0], ap(lm.landmarks[k])[1] - target(k)[1]) })), maxRes = Math.max(...residuals.map((r) => r.residual_canonical_px));
