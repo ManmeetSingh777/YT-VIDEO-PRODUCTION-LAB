@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+// E01 packet amendment 05 (directive 2026-11-28 §4): view-specific facial channel drawings. Builds ON amendment 04's packet (one signature
+// carries both). For every channel state the directed timeline performs in more than one head view (engine/art_bridge/performance_views.mjs on
+// the compiled manifest + measured speech intervals + blink-eligible holds), the state keeps its existing drawing in its primary view and gains
+// a view-qualified drawing `<asset>__<view>` (new CEL art requirement, same construction, state.view set) bound through bindings_by_view.
+// No dialogue, timing, choreography or expression is added or moved. Approves nothing.
+//   node tools/tbo/e01_amend_05_view_channels.mjs --film films/e01 --base-packet <amendment-04 packet dir> --hybrid-base <dir> --out <private dir>
+import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
+const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".."), imp = (rel) => import(url.pathToFileURL(path.join(REPO, rel)));
+const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), arg = (k) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : null; };
+const FILM = path.resolve(REPO, arg("film")), BASE = path.resolve(arg("base-packet")), HB = path.resolve(arg("hybrid-base")), OUT = path.resolve(arg("out"));
+const { validatePacket, packetDigest } = await imp("engine/story/creative_packet.mjs"), { creativePreflight } = await imp("engine/story/creative_preflight.mjs"), { hybridPreflight } = await imp("engine/story/hybrid_contract.mjs");
+const PV = J(path.join(FILM, "geometry", "PERFORMANCE_VIEWS.json")), before = J(path.join(BASE, "CREATIVE_PACKET.json")), after = structuredClone(before), base = packetDigest(before), added = [];
+for (const [rid, r] of Object.entries(PV)) { const ident = after.identities.find((i) => i.rig?.id === rid || i.id === rid), chans = ident.rig.channels;
+  for (const x of r.view_qualified) { const req = after.art_requirements.find((a) => a.id === x.base_asset); if (!req) throw new Error(`no art requirement ${x.base_asset}`);
+    if (!after.art_requirements.some((a) => a.id === x.asset)) after.art_requirements.push({ ...structuredClone(req), id: x.asset, kind: "CEL", state: { ...req.state, view: x.view },
+      purpose: `${req.purpose} — drawn for the ${x.view} head view (performed there for ${x.frames} frames; Amendment 05).`, construction: `${req.construction} AMENDMENT 05: the same state drawn on the selected ${x.view} head of ${rid} (view-qualified channel drawing).` });
+    for (const aid of req.required_by) { const act = after.actions.find((a) => a.id === aid); if (act && !act.art_ids.includes(x.asset)) act.art_ids.push(x.asset); } // symmetric usage links
+    const st = chans.find((c) => c.id === x.channel).states.find((s) => s.id === x.state); ((st.bindings_by_view ||= {})[x.view] ||= {})[x.slot] = x.asset; added.push(x); } }
+const DOC = "AMENDMENT_05_VIEW_CHANNELS.md", doc = [`# E01 packet amendment 05: view-specific facial channel drawings`, "", `Builds on amendment 04 (packet \`${base}\`); signing this packet approves amendments 04 and 05 together. Prepared by Claude Code at the director's directive (§4); it takes effect only under a newly signed packet receipt.`, "",
+  "The directed timeline performs facial states in several head views (view events), Mia's \"Thanks.\" spans to_lead and down_report, and blinks occur in every long-held view. A facial drawing belongs to the head view it is drawn on, so each state keeps its existing drawing in the view where it is performed longest and gains a view-qualified drawing for every other view it is performed in. Blinks and speech now return to the directed expression when they end (engine fix, not a packet change). No dialogue, timing, choreography or expression is added or moved.", "",
+  ...added.map((x) => `- ${x.asset} (${x.channel}.${x.state} in ${x.view}, ${x.frames} frames)`), ""].join("\n");
+fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(path.join(OUT, "sources"), { recursive: true }); for (const f of fs.readdirSync(path.join(BASE, "source"))) fs.copyFileSync(path.join(BASE, "source", f), path.join(OUT, "sources", f)); fs.writeFileSync(path.join(OUT, "sources", DOC), doc);
+after.source.documents.push({ role: "amendment", file: DOC, sha256: sha(doc) });
+const back = structuredClone(after); back.art_requirements = back.art_requirements.filter((a) => !added.some((x) => x.asset === a.id)); for (const a of back.actions) a.art_ids = a.art_ids.filter((id) => !added.some((x) => x.asset === id)); for (const i of back.identities) for (const c of i.rig?.channels || []) for (const s of c.states) delete s.bindings_by_view; back.source.documents = back.source.documents.filter((x) => x.file !== DOC);
+const d1 = packetDigest(after); fs.writeFileSync(path.join(OUT, "CREATIVE_PACKET.json"), JSON.stringify(after, null, 1) + "\n");
+const hyb = { ...J(path.join(HB, "HYBRID_CONTRACT.json")), packet_sha256: d1 }; fs.writeFileSync(path.join(OUT, "HYBRID_CONTRACT.json"), JSON.stringify(hyb, null, 1) + "\n");
+const V = validatePacket(after), PF = creativePreflight(after), HY = hybridPreflight(after, hyb, { sourceDir: path.join(HB, "private_audio_for_hybrid") });
+const rep = { amends: base, includes: "amendment 04", digest: d1, view_qualified_added: added.length, only_delta: JSON.stringify(back) === JSON.stringify(before) ? `${added.length} view-qualified art requirements + bindings_by_view + amendment document` : "UNEXPECTED_DIFFERENCE", validate: V.status, errors: V.errors.map((e) => `${e.code} ${e.id}`).slice(0, 10), preflight: PF.status, hybrid: HY.status };
+fs.writeFileSync(path.join(OUT, "AMENDMENT_REPORT.json"), JSON.stringify(rep, null, 1)); console.log(JSON.stringify(rep, null, 1)); if (rep.only_delta === "UNEXPECTED_DIFFERENCE" || V.status !== "STRUCTURAL_VALID") process.exit(1);

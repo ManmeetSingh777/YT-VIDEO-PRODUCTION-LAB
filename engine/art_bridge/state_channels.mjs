@@ -17,7 +17,7 @@ export function validateChannels(rig, { assets = null } = {}) {
     if (ch.default && !ch.states?.some((s) => s.id === ch.default)) errs.push(err("UNSUPPORTED_STATE_EDGE", { record_id: `${rig.id}.${ch.id}`, reason: `default state ${ch.default} is not a state of the channel` }));
     for (const s of ch.slots || []) { if (!slots.has(s)) errs.push(err("UNKNOWN_REFERENCE", { record_id: `${rig.id}.${ch.id}`, dependency: s, reason: `channel slot ${s} is not a render part of ${rig.id}` }));
       if (owner.has(s)) errs.push(err("STATE_CHANNEL_CONFLICT", { record_id: `${rig.id}.${s}`, reason: `slot ${s} is owned by channels ${owner.get(s)} and ${ch.id}` })); else owner.set(s, ch.id); }
-    for (const st of ch.states || []) for (const [slot, aid] of Object.entries(st.asset_bindings || {})) {
+    for (const st of ch.states || []) for (const [slot, aid] of [...Object.entries(st.asset_bindings || {}), ...Object.values(st.asset_bindings_by_view || {}).flatMap((m) => Object.entries(m))]) {
       if (!(ch.slots || []).includes(slot)) errs.push(err("STATE_CHANNEL_CONFLICT", { record_id: `${rig.id}.${ch.id}.${st.id}`, dependency: slot, reason: `state binds slot ${slot}, which channel ${ch.id} does not own` }));
       if (assets && !assets.has(aid)) errs.push(err("MISSING_ART_ASSET", { record_id: aid, dependency: `${rig.id}.${ch.id}.${st.id}`, suggested_producer: "GPT state manufacture (source-attached edit of the approved master)", reason: `channel ${ch.id} state ${st.id} needs drawing ${aid} for slot ${slot}` })); } }
   return errs;
@@ -42,9 +42,9 @@ export function channelStatesAt(rig, events, f, _shotId = null) { const st = Obj
 export function resolveBindings(rig, pose, view, chStates) {
   const all = [...rig.pose_states, ...rig.view_states], ps = all.find((s) => s.id === pose), vs = view ? all.find((s) => s.id === view) : null, b = { ...(ps?.asset_bindings || {}), ...(vs?.asset_bindings || {}) }, byKind = {};
   for (const ch of rig.state_channels || []) { const s = ch.states.find((x) => x.id === (chStates[ch.id] ?? ch.default ?? ch.states[0].id)); for (const slot of ch.slots || []) delete b[slot]; // a channel owns its slots exclusively: a pose/view drawing never leaks into them (absent binding = the slot's own drawing)
-    Object.assign(b, s?.asset_bindings || {}); (byKind[ch.kind] ||= {})[ch.id] = s?.id ?? null; }
+    Object.assign(b, s?.asset_bindings || {}, (view && s?.asset_bindings_by_view?.[view]) || {}); (byKind[ch.kind] ||= {})[ch.id] = s?.id ?? null; } // view-qualified drawings (a facial state drawn per head view) override the default binding in that view
   const first = (k) => (byKind[k] ? Object.values(byKind[k])[0] : null);
   return { bindings: b, channels: { ...chStates }, expression: first("EXPRESSION"), eyes: first("EYES"), mouth: first("MOUTH"), hand: byKind.HAND || {}, clothing: byKind.CLOTHING || {}, lighting: byKind.LIGHTING || {}, occlusion: byKind.OCCLUSION || {} };
 }
 /** every drawing a slot may show (pose, view and channel states) — the paint passes the scene must pre-emit */
-export function bindableAssets(rig, slot) { const s = new Set([slot]); for (const st of [...rig.pose_states, ...rig.view_states, ...(rig.state_channels || []).flatMap((c) => c.states)]) if (st.asset_bindings?.[slot]) s.add(st.asset_bindings[slot]); return [...s]; }
+export function bindableAssets(rig, slot) { const s = new Set([slot]); for (const st of [...rig.pose_states, ...rig.view_states, ...(rig.state_channels || []).flatMap((c) => c.states)]) { if (st.asset_bindings?.[slot]) s.add(st.asset_bindings[slot]); for (const m of Object.values(st.asset_bindings_by_view || {})) if (m[slot]) s.add(m[slot]); } return [...s]; }

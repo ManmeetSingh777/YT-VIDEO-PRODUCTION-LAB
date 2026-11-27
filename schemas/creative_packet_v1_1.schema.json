@@ -2001,6 +2001,16 @@
            "additionalProperties": {
             "$ref": "#/$defs/id"
            }
+          },
+          "bindings_by_view": {
+           "type": "object",
+           "description": "view id -> {slot: drawing}: this state drawn for that head view (Amendment 05)",
+           "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+             "$ref": "#/$defs/id"
+            }
+           }
           }
          }
         },
