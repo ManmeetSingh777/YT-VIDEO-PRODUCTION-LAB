@@ -172,6 +172,7 @@ export async function importMasterHandoff({ film, out, zip, operator }) {
   const cur = J(path.join(out, "CURRENT.json")), B = await import("./gpt_batch.mjs"), results = [], ATT = ["VERIFIED_EDIT", "OPERATOR_ATTESTED_REFERENCE_GENERATION", "UNKNOWN_ANCESTRY"];
   for (const r of rm.results || []) {
     try { const job = Object.keys(cur).find((j) => j.startsWith(`ARTJOB_MASTER_${r.asset}_`)); if (!job) throw err("SCHEMA_VIOLATION", { reason: `unknown asset ${r.asset}` });
+      if (!(r.images || []).length && !r.landmarks_file) { results.push({ id: r.id, asset: r.asset, outcome: "NO_IMAGES", status: r.status ?? null, unresolved_blockers: r.unresolved_blockers || [] }); continue; } // notes only (e.g. an already-approved master)
       const ns = B.nextStage({ out, job }); if (!ns.eligible) throw err("STAGE_PREDECESSOR_MISSING", { reason: ns.reason });
       const h = await exportGptJob({ film, out, job, stage: ns.stage }), imgs = (r.images || []).map((x) => { const p = path.resolve(base, x.file); if (!p.startsWith(path.resolve(base) + path.sep) || !fs.existsSync(p)) throw err("ASSET_PATH_INVALID", { reason: `${x.file} missing` }); if (!ATT.includes(x.attestation)) throw err("SCHEMA_VIOLATION", { reason: `${x.file}: attestation must be one of ${ATT}` }); return { ...x, abs: p, sha256: fsha(p) }; });
       if (!imgs.length) { // review-only master: landmarks proposed for its CURRENT strongest artwork (no new image)
