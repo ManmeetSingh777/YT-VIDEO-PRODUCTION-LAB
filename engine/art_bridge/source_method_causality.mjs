@@ -40,12 +40,19 @@ export function cameraSizedArtworkDemand({ camera, frames, canvas = [1920, 1080]
   return { canonical_coverage_rect: rect.map((v) => +v.toFixed(2)), min_density_px_per_unit: +(zmax * parallax).toFixed(3), authored_px: [Math.ceil(rect[2] * zmax * parallax), Math.ceil(rect[3] * zmax * parallax)] };
 }
 
-/* F49 — world construction data compiles into the skill's machine-checkable world_system (refuses when the design lacks it) */
+/* F49 — world construction data compiles into the skill's machine-checkable world_system (refuses when the design lacks it).
+ *  The COMPLETE authored specification crosses the bridge: every field the design authors (world_purpose, substrate, coord_system,
+ *  focal_read_test, regions, detail_generators, material_ownership, visibility_masks, native_crop_tests, content_noncopy_invariants,
+ *  forbidden_extras, …) is preserved verbatim; the strict skill compiler (compile_art_job.py) is the authority on what is required.
+ *  A design that also carries its own world_system must carry the identical specification (two different world systems are refused). */
+const canon = (v) => Array.isArray(v) ? `[${v.map(canon).join(",")}]` : v && typeof v === "object" ? `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${canon(v[k])}`).join(",")}}` : JSON.stringify(v);
 export function compileWorldSystem(design) {
-  const w = design.world_construction; if (!w) throw err("ART_DESIGN_UNSPECIFIED", { record_id: design.job_id, reason: "world family without world_construction (parts, relationships, projection, witnesses)", producer: "engine/art_bridge/source_method_causality.mjs#compileWorldSystem" });
+  const P = "engine/art_bridge/source_method_causality.mjs#compileWorldSystem", w = design.world_construction;
+  if (!w) throw err("ART_DESIGN_UNSPECIFIED", { record_id: design.job_id, reason: "world family without world_construction (parts, relationships, projection, witnesses)", producer: P });
   const ids = new Set((w.parts || []).map((p) => p.id)); const bad = (w.relationships || []).filter((r) => !ids.has(r.from) || !ids.has(r.to));
-  if (!w.parts?.length || bad.length) throw err("ART_DESIGN_UNSPECIFIED", { record_id: design.job_id, reason: `world parts/relationships invalid (${bad.length} dangling)` });
-  return { world_class: w.world_class, purpose: w.purpose, projection: w.projection, depth_layers: w.depth_layers, parts: w.parts, relationships: w.relationships, material_owners: w.material_owners, source_only_witnesses: w.source_only_witnesses, effect_ownership: w.effect_ownership || [], allowed_subject_ids: w.allowed_subject_ids || [] };
+  if (!w.parts?.length || bad.length) throw err("ART_DESIGN_UNSPECIFIED", { record_id: design.job_id, reason: `world parts/relationships invalid (${bad.length} dangling)`, producer: P });
+  if (design.world_system !== undefined && canon(design.world_system) !== canon(w)) throw err("ART_DESIGN_UNSPECIFIED", { record_id: design.job_id, reason: "design carries a world_system that differs from its world_construction: one world specification is required", producer: P, details: { differing_keys: [...new Set([...Object.keys(w), ...Object.keys(design.world_system || {})])].filter((k) => canon(w[k]) !== canon(design.world_system?.[k])) } });
+  return { ...structuredClone(w), effect_ownership: w.effect_ownership || [], allowed_subject_ids: w.allowed_subject_ids || [] };
 }
 /* F50 — unfamiliar-world transfer plan: the holdout checks a world design must survive (not resemblance to one frame) */
 export function unfamiliarTransferPlan(worldSystem) { return (worldSystem.parts || []).map((p) => ({ part: p.id, holdout: `re-stage ${p.id} under a different projection and scale; its function "${p.function}" must still read`, fails_if: "the part only reads in its original crop" })); }

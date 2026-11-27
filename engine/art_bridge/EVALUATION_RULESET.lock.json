@@ -9,7 +9,7 @@
   "schemas/pregen_audit_v1.schema.json",
   "engine/methods/source/F_SOURCE.json"
  ],
- "current": "P08.0",
+ "current": "E01.1",
  "versions": [
   {
    "version": "P06",
@@ -27,6 +27,12 @@
    "version": "P08.0",
    "rule_source_sha256": "2e4d5755c57b95438a1f38be7a0c82323133bb0da5fd5dcc19366766a7411cf1",
    "reason": "design approvals bind the explicit ruleset version; evaluation identity in outbox generations (S3C-7 correction)",
+   "source": "WORKING_TREE"
+  },
+  {
+   "version": "E01.1",
+   "rule_source_sha256": "f7bb3759ffef4943079235b846c2d879a2bef140c445e55589c9db81e33cfd7d",
+   "reason": "fixedFrameRig: a zero-freedom rig (one locked root joint, one pose, no views/channels/edges/constraints) is a socket frame, not an articulated subject; any freedom still requires ARTICULATED/REGISTERED_CELS/EXPLICIT_DEFORM (E01 WORLD_RESTAURANT counter_support)",
    "source": "WORKING_TREE"
   }
  ]

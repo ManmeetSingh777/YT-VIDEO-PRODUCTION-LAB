@@ -174,6 +174,13 @@ export function validateTopics(design, facts, req) {
     const stray = v.methods.filter((m) => !reqIds.has(m)); if (stray.length) out.push(f("METHOD_NOT_APPLICABLE", { field: `construction_topics.${k}`, reason: `topic grounded by non-applicable methods ${stray}` })); }
   return out;
 }
+/** fixedFrameRig: a rig with no degree of freedom (one root joint locked at 0° and scale 1, a single pose, no views, channels or state edges).
+ *  It only carries sockets/landmarks in its identity's frame; it is not an articulated subject. Any freedom at all makes it articulated. */
+export function fixedFrameRig(r) {
+  const j = r.joints || [], locked = (x) => !x || (Array.isArray(x) && x.length === 2 && x[0] === x[1]);
+  return j.length === 1 && j[0].parent_id == null && locked(j[0].rotation_limits_deg) && (j[0].rotation_limits_deg?.[0] ?? 0) === 0 && locked(j[0].scale_limits) && (j[0].scale_limits?.[0] ?? 1) === 1
+    && (r.pose_states || []).length <= 1 && !(r.view_states || []).length && !(r.state_channels || []).length && !(r.allowed_state_edges || []).length && !(r.constraints || []).length;
+}
 /** ArtMotionAgreement for non-human families (humans use the character layout in validateAgreement) */
 export function validateAgreementUniversal({ design, job, doc, facts, motionPlans }) {
   if (facts.human) return validateAgreement({ design, job, doc, motionPlans });
@@ -181,7 +188,8 @@ export function validateAgreementUniversal({ design, job, doc, facts, motionPlan
   if (mc.view_id && ag.view_id !== mc.view_id) out.push(f("CONTRACT_VIEW_MISMATCH", { reason: `design view ${ag.view_id ?? "(undeclared)"} ≠ motion view ${mc.view_id}` }));
   if (design.output?.alpha_mode !== mc.alpha_requirement) out.push(f("CONTRACT_ALPHA_MISMATCH", { reason: `design alpha ${design.output?.alpha_mode} ≠ motion alpha ${mc.alpha_requirement}` }));
   if (!REPRESENTATIONS.includes(ag.motion_representation)) out.push(f("CONTRACT_REPRESENTATION_MISSING", { reason: `motion_representation must be one of ${REPRESENTATIONS.join("/")}` }));
-  else if (facts.rigs.length && !["ARTICULATED", "REGISTERED_CELS", "EXPLICIT_DEFORM"].includes(ag.motion_representation)) out.push(f("CONTRACT_REPRESENTATION_MISSING", { reason: `rigged identity (${facts.rigs}) cannot be ${ag.motion_representation}` }));
+  else { const moving = (doc.rigs || []).filter((r) => facts.rigs.includes(r.id) && !fixedFrameRig(r)).map((r) => r.id); // a zero-freedom rig is only a socket frame (e.g. a world's support surface)
+    if (moving.length && !["ARTICULATED", "REGISTERED_CELS", "EXPLICIT_DEFORM"].includes(ag.motion_representation)) out.push(f("CONTRACT_REPRESENTATION_MISSING", { reason: `rigged identity (${moving}) cannot be ${ag.motion_representation}` })); }
   const mj = facts.joints.filter((j) => !nonEmpty(mr.attachment_semantics?.[j])); if (mj.length) out.push(f("CONTRACT_INTERFACE_MISSING", { reason: `attachment semantics missing for ${mj.join(", ")}` }));
   const ms = facts.sockets.filter((s) => !nonEmpty(mr.contact_semantics?.[s])); if (ms.length) out.push(f("CONTRACT_INTERFACE_MISSING", { reason: `contact semantics missing for ${ms.join(", ")}` }));
   const sf = new Set(ag.state_family || []), missS = facts.states.filter((s) => !sf.has(s)); if (missS.length) out.push(f("CONTRACT_STATE_MISSING", { reason: `state_family lacks ${missS.join(", ")}` }));
