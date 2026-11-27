@@ -93,6 +93,7 @@ export async function importPlan({ film, out, zip, operator }) {
   const pm = J(pmF), ledger = path.join(out, "gpt_plans", `${rm.plan_id}.IMPORT_LEDGER.jsonl`), log = (r) => fs.appendFileSync(ledger, JSON.stringify({ at: new Date().toISOString(), return_zip_sha256: zsha, ...r }) + "\n"), results = [];
   for (const pe of pm.entries) {
     const re = (rm.entries || []).find((x) => x.artjob === pe.artjob); if (!re) { results.push({ artjob: pe.artjob, outcome: "NOT_RETURNED" }); continue; }
+    { const B = await import("./gpt_batch.mjs"), rb = await B.rebaseSelections({ film, out, job: pe.artjob, operator }); if (rb.rebased?.some((x) => x.outcome === "REBASED")) results.push({ artjob: pe.artjob, outcome: "EARLIER_SELECTIONS_REBASED", rebased: rb.rebased }); } // code/approved changes renew generations; verified-identical choices carry
     for (const ps of pe.stages) {
       const rs = (re.stages || []).find((x) => x.stage === ps.stage), tag = { artjob: pe.artjob, stage: ps.stage };
       if (!rs || !(rs.images || []).length) { results.push({ ...tag, outcome: "NOT_RETURNED" }); break; }
