@@ -36,12 +36,16 @@ export function planStages({ design, gate, header, footer, derived = false, limi
   authored.sort((a, b) => ORDER[a.phase] - ORDER[b.phase] || a.method.localeCompare(b.method));
   const blocks = authored.map((r) => ({ method: r.method, phase: r.phase, text: methodBlock(r.method, byId.get(r.method)) }));
   const fixed = header.length + footer.length + 600; // stage banner + predecessor line
-  const stages = []; let cur = null;
-  for (const b of blocks) {
-    if (fixed + b.text.length > limit) throw err("REQUEST_BUDGET_EXCEEDED", { record_id, reason: `method ${b.method} block (${b.text.length} chars) + identity header (${header.length}) + footer (${footer.length}) exceeds the provider limit ${limit} on its own`, producer: "engine/art_bridge/request_stages.mjs#planStages", failed_invariant: "every applicable method is delivered in full; nothing is truncated", repair_owner: "HUMAN_ART_DIRECTOR", resume_at: "ART_DESIGN_COMPILATION", required_art_or_operation: [`shorten the identity control block or the ${b.method} decision`] });
-    if (!cur || cur.phase !== b.phase || fixed + cur.size + b.text.length > fill) { cur = { phase: b.phase, blocks: [], size: 0 }; stages.push(cur); }
-    cur.blocks.push(b); cur.size += b.text.length;
-  }
+  // pack at the target where practical: the 30k target is used unless it adds a sequential image edit, in which case stages fill to the provider
+  // maximum (each extra stage is one more manual edit and one more chance of identity drift; every block is still delivered whole and verbatim)
+  const packAt = (lim) => { const st = []; let cur = null;
+    for (const b of blocks) {
+      if (fixed + b.text.length > limit) throw err("REQUEST_BUDGET_EXCEEDED", { record_id, reason: `method ${b.method} block (${b.text.length} chars) + identity header (${header.length}) + footer (${footer.length}) exceeds the provider limit ${limit} on its own`, producer: "engine/art_bridge/request_stages.mjs#planStages", failed_invariant: "every applicable method is delivered in full; nothing is truncated", repair_owner: "HUMAN_ART_DIRECTOR", resume_at: "ART_DESIGN_COMPILATION", required_art_or_operation: [`shorten the identity control block or the ${b.method} decision`] });
+      if (!cur || cur.phase !== b.phase || fixed + cur.size + b.text.length > lim) { cur = { phase: b.phase, blocks: [], size: 0 }; st.push(cur); }
+      cur.blocks.push(b); cur.size += b.text.length; }
+    return st; };
+  const atTarget = packAt(fill), atMax = fill < limit ? packAt(limit) : atTarget, stages = atMax.length < atTarget.length ? atMax : atTarget;
+  const packing = { target: fill, maximum: limit, used: stages === atTarget ? fill : limit, stages_at_target: atTarget.length, stages_at_maximum: atMax.length, reason: stages === atTarget ? "target adds no sequential edit" : `the ${fill}-char target would add ${atTarget.length - atMax.length} sequential edit(s); stages fill to the ${limit}-char provider maximum` };
   // Stage A: the complete contract decision brief (all required methods, including engine-executed ones, with their consumers)
   const brief = [`# CONTRACT DECISION BRIEF — ${design.job_id} (${gate.family})`, `Required methods (${req.length}) with source applicability:`, ...req.map((r) => `- ${r.method} [${r.phase}] ${r.reason}`), "",
     ...req.map((r) => (byId.get(r.method) ? methodBlock(r.method, byId.get(r.method)) : `### ${title(r.method)}\nSOURCE OPERATIVE INSTRUCTION (verbatim, sha256 ${operativeSha(r.method)}):\n${operativeText(r.method)}\n\nEXECUTED BY ENGINE CONSUMER: ${ENGINE_CONSUMERS[r.method] || "(none registered)"}\n`)),
@@ -59,5 +63,5 @@ export function planStages({ design, gate, header, footer, derived = false, limi
     : { method_id: r.method, phase: r.phase, delivered: "BRIEF_AND_ENGINE_CONSUMER", consumer: ENGINE_CONSUMERS[r.method] || null, operative_sha256: operativeSha(r.method) }; });
   const unconsumed = delivery.filter((d) => d.delivered === "BRIEF_AND_ENGINE_CONSUMER" && !d.consumer);
   if (unconsumed.length) throw err("METHOD_NO_REAL_CONSUMER", { record_id, reason: `engine-phase methods without a registered consumer: ${unconsumed.map((d) => d.method_id)}`, producer: "engine/art_bridge/request_stages.mjs#planStages" });
-  return { brief, brief_sha256: briefSha, stages: out, delivery };
+  return { brief, brief_sha256: briefSha, stages: out, delivery, packing };
 }

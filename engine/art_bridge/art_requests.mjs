@@ -9,6 +9,7 @@ import { preGenerationGate, assertGate, resolveContractContext, gateForJob } fro
 import { evaluationIdentity } from "./evaluation_identity.mjs";
 import { planStages } from "./request_stages.mjs";
 import { allocateDetail, compileWorldSystem, styleConstructionGraph } from "./source_method_causality.mjs";
+import { resolutionContract, canvasSection } from "./resolution_contract.mjs";
 import { matchingRulesDigest, selectRules } from "./repair_memory.mjs";
 
 const here = path.dirname(url.fileURLToPath(import.meta.url)), REPO = path.resolve(here, "..", "..");
@@ -173,14 +174,16 @@ export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null
   const cut = skillReq.prompt.indexOf(SKILL_SPLIT); if (cut < 0) throw err("UNQUALIFIED_STYLE_ASSET", { record_id: job.artjob_id, reason: "skill compile lacks its control block boundary" });
   const header = skillReq.prompt.slice(0, cut).trim(), mr = design.motion_requirements || {};
   // F33/F47/F53/F77: detail budgets computed from PROJECTED on-screen size × semantic role (the projected figure height comes from the action graph)
+  // the resolution contract: what ONE generation can deliver, and where native detail must come from instead (throws IMPOSSIBLE_RESOLUTION_REQUEST)
+  const resolution = resolutionContract({ job, design, film: FILM, jobs: (c.plan?.assets || []).map((a) => ({ root_dependency: a.asset_id, derived_from: a.derived_from })) });
   const projH = gate.required_figure_height_px || design.output?.authored_height_px || null;
   const detail = design.detail_regions && projH ? allocateDetail(design.detail_regions.map((r) => ({ ...r, projected_px: [Math.round(r.fraction_of_figure[0] * projH), Math.round(r.fraction_of_figure[1] * projH)] }))) : null;
   const footer = [...(detail ? [`## DETAIL BUDGET (computed: figure up to ${projH} px on screen)`, ...detail.map((x) => `${x.id}: ${x.detail_owner}, ≤${x.mark_budget} interior marks at ~${x.projected_px.join("×")} px`)] : []), "## MOTION REQUIREMENTS (what must articulate, separate, contact or change — requirements, never coordinates)", ...Object.entries(mr).map(([k, v]) => `${k}: ${typeof v === "string" ? v : JSON.stringify(v)}`),
-    `## OUTPUT: ${JSON.stringify(design.output || {})}`, `## OBSERVABLE FAILURE CONDITIONS: ${JSON.stringify(design.observable_negative_tests || [])}`].join("\n");
+    `## OUTPUT: ${JSON.stringify(design.output || {})}`, canvasSection(resolution), `## OBSERVABLE FAILURE CONDITIONS: ${JSON.stringify(design.observable_negative_tests || [])}`].join("\n");
   const plan = planStages({ design, gate, header, footer, derived: c.derived, record_id: job.artjob_id, ...(limit ? { limit } : {}) });
   if (!plan.stages.length) throw err("ART_DESIGN_UNSPECIFIED", { record_id: job.artjob_id, reason: c.derived ? "no approved-master method decision governs this derived edit (mark the governing decisions applies_to_states)" : "no authored method produces this master", producer: "engine/art_bridge/request_stages.mjs#planStages", repair_owner: "HUMAN_ART_DIRECTOR", resume_at: "ART_DESIGN_COMPILATION" });
   const transparent = job.motion_context.alpha_requirement !== "OPAQUE", refs = skillReq.referenced_image_paths;
-  fs.writeFileSync(path.join(outDir, "STAGE_A_CONTRACT_BRIEF.md"), plan.brief);
+  fs.writeFileSync(path.join(outDir, "STAGE_A_CONTRACT_BRIEF.md"), plan.brief); fs.writeFileSync(path.join(outDir, "RESOLUTION_CONTRACT.json"), JSON.stringify(resolution, null, 1));
   fs.writeFileSync(path.join(outDir, "STYLE_CONSTRUCTION_DECISION.json"), JSON.stringify({ ...styleConstructionGraph({ design, gate, stages: plan.stages, sha: (x) => sha(Buffer.from(x)) }), detail_budget: detail }, null, 1));
   for (const s of plan.stages) fs.writeFileSync(path.join(outDir, `STAGE_${String(s.index).padStart(2, "0")}_REQUEST.json`), JSON.stringify({ prompt: s.prompt, referenced_image_paths: refs, transparent_background: transparent, mode: s.mode, stage: s.index, of: plan.stages.length, predecessor_sha256: s.predecessor_sha256, methods: s.methods }, null, 2) + "\n");
   const reqF = path.join(outDir, "IMAGEGEN_REQUEST.json"); fs.copyFileSync(path.join(outDir, "STAGE_01_REQUEST.json"), reqF);
@@ -189,10 +192,10 @@ export function compileArtJob(job, { baseJob = null, outDir, repairMemory = null
   fs.writeFileSync(path.join(outDir, "PROVIDER_PRE_SUBMISSION_MANIFEST.json"), JSON.stringify(pre, null, 1));
   fs.writeFileSync(path.join(outDir, "BRIDGE_MOTION_CONTEXT.json"), JSON.stringify({ artjob_id: job.artjob_id, note: "machine rig/motion contract: kept by the bridge, NOT sent to the artist (the artist receives motion only as requirements)", motion_context: job.motion_context, null_reasons: job.null_reasons, registration_contract: job.registration_contract, medium: job.medium }, null, 1));
   const { applicability_table, ...gateSummary } = gate;
-  fs.writeFileSync(path.join(outDir, "BRIDGE_REQUEST_CONTRACT.json"), JSON.stringify({ artjob_id: job.artjob_id, gate: gateSummary, applicability_table, method_delivery: plan.delivery, stages: stagesMeta, contract_brief_sha256: plan.brief_sha256, transparent_background: { value: transparent, source: `motion_context.alpha_requirement=${job.motion_context.alpha_requirement}` },
-    dependency_digest: dg.digest, provider_ready: false, provider_ready_requires: ["verified HUMAN story receipt", "verified HUMAN direction receipt", "verified HUMAN design receipt", "unchanged request hash"], request_sha256: fileSha(reqF) }, null, 1));
+  fs.writeFileSync(path.join(outDir, "BRIDGE_REQUEST_CONTRACT.json"), JSON.stringify({ artjob_id: job.artjob_id, gate: gateSummary, applicability_table, method_delivery: plan.delivery, packing: plan.packing, stages: stagesMeta, contract_brief_sha256: plan.brief_sha256, transparent_background: { value: transparent, source: `motion_context.alpha_requirement=${job.motion_context.alpha_requirement}` },
+    dependency_digest: dg.digest, resolution, provider_ready: false, provider_ready_requires: ["verified HUMAN story receipt", "verified HUMAN direction receipt", "verified HUMAN design receipt", "unchanged request hash"], request_sha256: fileSha(reqF) }, null, 1));
   return { gate, status: "COMPILED_WAITING_FOR_GPT_ART", provider_ready: false, job_file: path.relative(REPO, jobFile).split(path.sep).join("/"), request_file: path.relative(REPO, reqF).split(path.sep).join("/"), prompt_sha256: pre.prompt_sha256, prompt_characters: pre.prompt_characters, stages: stagesMeta,
-    contract_brief_sha256: plan.brief_sha256, method_delivery: plan.delivery, compiled_method_ids: manifest.compiled_method_ids, applied_repair_rule_ids: manifest.applied_repair_rule_ids, repair_memory_applied: manifest.repair_memory_applied, witnesses, dependency_digest: dg.digest, motion_context_sha256: sha(Buffer.from(JSON.stringify(job.motion_context))) };
+    contract_brief_sha256: plan.brief_sha256, method_delivery: plan.delivery, compiled_method_ids: manifest.compiled_method_ids, applied_repair_rule_ids: manifest.applied_repair_rule_ids, repair_memory_applied: manifest.repair_memory_applied, witnesses, dependency_digest: dg.digest, motion_context_sha256: sha(Buffer.from(JSON.stringify(job.motion_context))), resolution };
 }
 
 /** applyRepairMemory(job, {baseJob, outDir, repairMemory}) → which repair rules the skill compiler applied to THIS job's first-pass payload */

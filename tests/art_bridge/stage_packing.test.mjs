@@ -17,3 +17,12 @@ test("PK-2 a block that only fits between 30k and 32k gets a stage of its own; a
   assert.deepEqual(big.methods, ["F05"]); assert.ok(big.characters > 30000 && big.characters <= 32000, String(big.characters));
   assert.throws(() => run([3000, 17500]), (e) => e.code === "REQUEST_BUDGET_EXCEEDED");
 });
+test("PK-3 the 30k target is used only where it adds no sequential edit; otherwise stages fill to the 32k maximum", () => {
+  let sawTarget = false, sawMax = false;
+  for (let n = 4000; n <= 9000; n += 250) { const { design, r } = run([n, n, n]);
+    assert.equal(r.stages.length, Math.min(r.packing.stages_at_target, r.packing.stages_at_maximum));
+    for (const s of r.stages) assert.ok(s.characters <= (r.packing.used === 30000 ? 30000 : 32000), `${s.characters} > ${r.packing.used}`);
+    for (const d of design.method_decisions) assert.ok(r.stages.some((s) => s.prompt.includes(methodBlock(d.method_id, d))));
+    if (r.packing.used === 30000) sawTarget = true; else { sawMax = true; assert.ok(r.packing.stages_at_target > r.packing.stages_at_maximum); } }
+  assert.ok(sawTarget && sawMax, "both branches exercised");
+});

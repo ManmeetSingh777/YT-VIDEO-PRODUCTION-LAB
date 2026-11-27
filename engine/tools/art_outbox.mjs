@@ -40,7 +40,7 @@ import { contractContext as contractFor } from "../art_bridge/art_contract.mjs";
 export async function exportOutbox({ film, out = path.join(REPO, "hybrid_v2", "art_outbox") }) {
   const FILM = path.resolve(film), filmContracts = compileFilmContracts({ film: FILM }); // story / actions / continuity / attention / demand BEFORE art
   const { check, jobs, doc } = await I.planJobs({ film: FILM }), readiness = new Map((await I.resumeDependentJobs({ film: FILM })).map((r) => [r.asset, r]));
-  const provider = discoverProvider(), caps = await provider.capabilities(), size = process.env.IMAGE_PROVIDER_SIZE || "1536x1024";
+  const provider = discoverProvider(), caps = await provider.capabilities(); const { resolutionKey } = await import("../art_bridge/resolution_contract.mjs");
   for (const d of ["jobs", "inbox", "compiled"]) fs.mkdirSync(path.join(out, d), { recursive: true });
   const story = C.scopeApprovalStatus(FILM, doc, "story"), direction = C.scopeApprovalStatus(FILM, doc, "direction"), storyB = C.scopeBundle(FILM, "story"), dirB = C.scopeBundle(FILM, "direction");
   const byRoot = new Map(jobs.map((j) => [j.root_dependency, j])), index = [], current = fs.existsSync(path.join(out, "CURRENT.json")) ? JSON.parse(fs.readFileSync(path.join(out, "CURRENT.json"), "utf8")) : {};
@@ -51,7 +51,7 @@ export async function exportOutbox({ film, out = path.join(REPO, "hybrid_v2", "a
     const gate = C.gateForJob({ film: FILM, doc, job: j, masterJob });
     let status = j.unused_in_action_graph ? "UNUSED_IN_ACTION_GRAPH" : rd?.status || "WAITING_FOR_GPT_ART";
     const compilable = j.state_kind === "MASTER" ? !["APPROVED", "PENDING_REVIEW"].includes(status) : status === "READY_FOR_SOURCE_ATTACHED_EDIT";
-    const dg = dependencyDigest({ job: j, design, repairMemory: mem, editReference: rd?.edit_reference || null, storyBundle: storyB, directionBundle: dirB, size, doc, film: FILM }), digest = dg.digest.slice(0, 24);
+    const dg = dependencyDigest({ job: j, design, repairMemory: mem, editReference: rd?.edit_reference || null, storyBundle: storyB, directionBundle: dirB, size: design ? resolutionKey({ job: j, design, film: FILM, jobs }) : null, doc, film: FILM }), digest = dg.digest.slice(0, 24);
     let compiled = null;
     if (!gate.pass) { compiled = { status: "BLOCKED_CONTRACT", failures: gate.failures.map((x) => `${x.code}${x.method ? ":" + x.method : ""}`) }; status = "BLOCKED_CONTRACT"; }
     else if (compilable) {
@@ -61,7 +61,7 @@ export async function exportOutbox({ film, out = path.join(REPO, "hybrid_v2", "a
         const brc = JSON.parse(fs.readFileSync(path.join(final, "BRIDGE_REQUEST_CONTRACT.json"), "utf8"));
         compiled = { status: "COMPILED_WAITING_FOR_GPT_ART", generation: digest, prompt_sha256: brc.stages[0].prompt_sha256, stages: brc.stages.length, provider_ready: false, witnesses: (m.result?.witnesses || []).map((w) => `${w.path} ${w.sha256.slice(0, 12)} ${w.verified ? "verified" : "UNVERIFIED"}`) };
         if (j.state_kind === "MASTER") status = "WAITING_FOR_APPROVALS_THEN_GPT_ART"; }
-      catch (e) { compiled = { status: "COMPILE_BLOCKED", error: e.toJSON ? e.toJSON() : String(e) }; status = "BLOCKED_COMPILE"; }
+      catch (e) { compiled = { status: "COMPILE_BLOCKED", error: e.toJSON ? e.toJSON() : String(e) }; status = ["IMPOSSIBLE_RESOLUTION_REQUEST", "COMPONENT_NATIVE_RESOLUTION_UNVERIFIED"].includes(e.code) ? "BLOCKED_RESOLUTION" : "BLOCKED_COMPILE"; }
     } else if (compilable && !design) status = "BLOCKED_NO_DESIGN_BRIEF";
     const rec = { ...j, status, generation: digest, dependency_parts_digest: dg.digest, gate: { pass: gate.pass, family: gate.family ?? null, failures: gate.failures, required_methods: gate.required_methods.map((x) => x.method) }, readiness: rd || null,
       blocked_on: [...(story.ok ? [] : [`STORY_APPROVAL_REQUIRED: ${story.reason}`]), ...(direction.ok ? [] : [`DIRECTION_APPROVAL_REQUIRED: ${direction.reason}`]), ...(gate.pass ? [] : ["ART_CONTRACT_REFUSED"]), ...(caps.available ? [] : [`NO_IMAGE_PROVIDER: ${caps.blocker}`]), ...(j.derived_from && status !== "READY_FOR_SOURCE_ATTACHED_EDIT" ? [`MASTER_APPROVAL: ${j.derived_from}`] : [])],
@@ -114,6 +114,12 @@ if (process.argv[1] && import.meta.url === url.pathToFileURL(path.resolve(proces
     if (cmd === "status") { const s = JSON.parse(fs.readFileSync(path.join(out, "OUTBOX_INDEX.json"), "utf8")); console.log(`${s.status}: ${s.jobs} jobs ${JSON.stringify(s.by_status)}`); process.exit(0); }
     if (cmd === "submit" && film && get("--job")) { const r = show(await I.submitJob({ film, out, job: get("--job") })); process.exit(r.status.startsWith("PIXELS") || r.status.startsWith("ALREADY") ? 0 : 3); }
     if (cmd === "export-gpt-job") { const G = await import("../art_bridge/gpt_handoff.mjs"), r = await G.exportGptJob({ film, out, job: get("--job"), stage: +(get("--stage") || 1) }); show({ zip: r.zip, handoff_id: r.handoff_id, instructions: "WHAT_TO_DO_IN_CHATGPT.md inside the zip" }); process.exit(0); }
+    if (["export-batch", "import-batch", "batch-review", "select-batch", "carry-forward"].includes(cmd)) { const B = await import("../art_bridge/gpt_batch.mjs");
+      if (cmd === "export-batch") { const r = await B.exportBatch({ film, out, only: get("--jobs") ? get("--jobs").split(",") : null }); show({ batch_id: r.batch_id, zip: r.zip, entries: r.entries.map((e) => `${e.n}. ${e.artjob} stage ${e.stage}/${e.of} ${e.requested_canvas} (${e.prompt_characters} chars, ${e.witnesses.length} witnesses${e.edit_inputs.length ? ", edits " + e.edit_inputs.map((x) => x.file.split("/").pop()).join("+") : ""})`), skipped: r.skipped }); process.exit(r.batch_id ? 0 : 1); }
+      if (cmd === "import-batch") { const r = show(B.importBatch({ film, out, zip: get("--zip"), operator: get("--operator"), submission: get("--submission") })); process.exit(r.results.some((x) => x.outcome === "FAILED") ? 1 : 0); }
+      if (cmd === "batch-review") { show(B.reviewSheet({ out, batch: get("--batch") })); process.exit(0); }
+      if (cmd === "select-batch") { const r = show(B.selectBatch({ out, file: get("--selections") })); process.exit(r.results.some((x) => x.outcome === "FAILED") ? 1 : 0); }
+      if (cmd === "carry-forward") { const r = show(await B.carryForwardImport({ film, out, fromHandoff: get("--from-handoff"), png: get("--png"), operator: get("--operator"), session: get("--session"), model: get("--model") })); process.exit(r.status === "CANDIDATES_RECEIVED_PENDING_SELECTION" ? 0 : 1); } }
     if (cmd === "import-gpt-candidates") { const G = await import("../art_bridge/gpt_handoff.mjs"), r = show(G.importGptCandidates({ film, out, bundleDir: get("--bundle") })); process.exit(r.status === "CANDIDATES_RECEIVED_PENDING_SELECTION" ? 0 : 1); }
     if (cmd === "select-candidate") { show(I.selectStageCandidate({ out, job: get("--job"), stage: +get("--stage"), candidateId: get("--candidate") })); process.exit(0); }
     if (cmd === "ingest-master") { const r = show(await I.ingestMaster({ film, asset: get("--asset"), file: get("--file"), landmarks: get("--landmarks"), provenance: get("--provenance"), outbox: out })); process.exit(r.status === "REGISTERED_PENDING_REVIEW" ? 0 : 1); }

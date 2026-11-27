@@ -52,7 +52,7 @@ export class OpenAIImagesProvider {
     const imgs = [...(reference ? [reference] : []), ...attachments];
     if (imgs.length > 1 && !caps.multipleReferences) throw Object.assign(new Error("multiple reference images not supported; refusing to drop style witnesses silently"), { code: "WAITING_FOR_GPT_ART" });
     for (const a of imgs) if (sha(fs.readFileSync(a.path)) !== a.sha256) throw Object.assign(new Error(`attachment hash mismatch ${a.path}`), { code: "UNQUALIFIED_STYLE_ASSET" });
-    const body = { model: this.cfg.model, prompt, size: opts.size || "1536x1024", ...(opts.transparent ? { background: "transparent", output_format: "png" } : { output_format: "png" }) };
+    const body = { model: this.cfg.model, prompt, size: opts.size || (() => { throw new Error("image request without a size: the job resolution contract must supply it (no default)"); })(), ...(opts.transparent ? { background: "transparent", output_format: "png" } : { output_format: "png" }) };
     const receipt = this.receipt(job, mode, attachments, reference, body); fs.mkdirSync(opts.outDir, { recursive: true }); fs.writeFileSync(path.join(opts.outDir, "PROVIDER_REQUEST_RECEIPT.json"), JSON.stringify(receipt, null, 1));
     let res;
     if (imgs.length) { const fd = new FormData(); for (const [k, v] of Object.entries(body)) fd.append(k, String(v)); for (const a of imgs) fd.append("image[]", new Blob([fs.readFileSync(a.path)]), path.basename(a.path)); res = await fetch(`${this.cfg.base}/images/edits`, { method: "POST", headers: { authorization: `Bearer ${this.cfg.key}` }, body: fd, signal: AbortSignal.timeout(opts.timeoutMs || 300000) }); }
