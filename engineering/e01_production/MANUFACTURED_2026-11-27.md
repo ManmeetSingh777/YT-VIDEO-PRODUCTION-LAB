@@ -148,3 +148,20 @@
 - **Closure ledger** (`CLOSURE_LEDGER.json`): 345 obligations, 0 unresolved, 1 proposed supersession (REGULAR mouth_warm, never performed). 29 manufactured, 0 motion-qualified.
 - **Restaurant:** second quality pass (arched pass-through, wainscot, booth tables, light pools, grounding shadows, counter lip); re-bound in amendment 04.
 - **Rendering:** 0 legitimate E01 frames (no derived part signed). `tools/tbo/e01_after_signatures.mjs` continues the chain after signing.
+
+## Signatures V4 applied (2026-11-28)
+- **Receipts:** 26 signed receipts imported and verified (HUMAN, trust anchor). Packet 5887127c… (amendments 04+05) accepted and ACTIVE. All 28 earlier approvals (8 masters, 20 parts) re-verified after acceptance.
+- **After-signature chain:**
+  - Registered: report page; occupancy body+gesture and queue body+rest (extraction); restaurant master and report type (after the intake fixes below).
+  - Restaurant planes wait for the restaurant master's signature.
+- **General intake fixes, each tested:**
+  - Full-frame WORLD plates may be opaque under STRAIGHT alpha; cutouts still need transparency (AC-1).
+  - Non-hinging TYPE layers and world planes carry a null pivot through intake, registration, loader and schema.
+  - New provenance class ENGINE_VECTOR_CONSTRUCTION in the manifest schema.
+- **REGULAR.mouth_warm:** verified unused and omitted for E01 (ledger SUPERSEDED_FOR_E01); slot and channel state preserved.
+- **Program V4:** compatible with the accepted packet. Every yield is in the plan. Regeneration changes only orchestration metadata (registration landmarks and motion text for 36 amendment-05 items, in REQUESTS_V4.resolved.json); the image requests and attachments are unchanged, so the package is preserved.
+- **The real pipeline (art_bridge_qa SH01) now runs and refuses to render:** 369 unique assets absent, all accounted for except two classes it exposed:
+  1. View-matched arm drawings: Mia upper/fore r/l + hand_l_near in to_lead, down_report and to_lens (15). Not in the plan inventory, so missing from the 345-row ledger. Needs packet amendment 06 (view states bind arm/hand slots), then V4 items. LEAD/REGULAR will surface theirs once their base parts exist.
+  2. The channel "repertoire" rule demands every state of every channel, even unreachable ones (it still demands REGULAR.mouth_warm). It should demand reachable states only (default + directed + acting blink/speech), but that needs the motion plan's acting block.
+- **No film-level motion plan:** handoff/MOTION_PLAN.json does not exist. The engine has never compiled E01's choreography (joint keys, acting, contacts, camera); this is the next production step after the artwork.
+- **Storage:** drive E: is 100% full (≈320 MB free). Render-based tests failed from truncated chunks (p01_film_qa, p02_injection); this is environmental, not code. No rendering is possible until space is freed.

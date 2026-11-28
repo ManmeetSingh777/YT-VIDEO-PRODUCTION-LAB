@@ -146,10 +146,10 @@ export function deferredLandmarks({ lm, doc, plan, asset }) {
   return out;
 }
 /** planned alpha contract (re-audit hardening 1): the DELIVERED pixels must satisfy the plan; the requirement is never rewritten to fit them */
-export function checkAlphaContract(asset, planned, png) {
-  const { transparent, partial } = png.alpha;
+export function checkAlphaContract(asset, planned, png, { fullFrameWorld = false } = {}) {
+  const { transparent, partial } = png.alpha; // a full-frame WORLD plate (environment master / back plane) is legitimately opaque; cutouts are not
   if (planned === "OPAQUE" && (transparent || partial)) throw err("ALPHA_INVALID", { record_id: asset, reason: `planned OPAQUE but delivered pixels contain ${transparent} transparent and ${partial} partial-alpha pixels` });
-  if ((planned === "STRAIGHT" || planned === "PREMULTIPLIED") && (!png.hasAlphaChannel || transparent === 0)) throw err("ALPHA_INVALID", { record_id: asset, reason: `planned ${planned} (true transparency) but delivered pixels have no transparent pixel: an opaque/keyed image is not a cutout` });
+  if ((planned === "STRAIGHT" || planned === "PREMULTIPLIED") && (!png.hasAlphaChannel || (transparent === 0 && !fullFrameWorld))) throw err("ALPHA_INVALID", { record_id: asset, reason: `planned ${planned} (true transparency) but delivered pixels have no transparent pixel: an opaque/keyed image is not a cutout` });
   if (planned === "BINARY_MASK" && partial > 0) throw err("ALPHA_INVALID", { record_id: asset, reason: `planned BINARY_MASK but ${partial} pixels have partial alpha` });
 }
 
@@ -186,7 +186,7 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   const lineage = provenance === "ENGINE_VECTOR_CONSTRUCTION" ? await vectorLineage({ film, file, asset, outbox }) : requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
   const FILM = path.resolve(film), doc = loadDoc(FILM), plan = loadPlan(FILM), p = plan.assets.find((x) => x.asset_id === asset), I = doc.identities.find((i) => i.canonical_asset_id === asset);
   if (!p || !I) throw new Error(`${asset} is not a planned canonical master`);
-  const png = readPNG(file); checkAlphaContract(asset, p.alpha_mode, png);
+  const png = readPNG(file); checkAlphaContract(asset, p.alpha_mode, png, { fullFrameWorld: ["WORLD_PLANE", "CLEAN_PLATE"].includes(p.kind) || doc.identities.find((i) => i.id === p.identity_id)?.kind === "WORLD" });
   const lm = sidecar(landmarks), names = Object.keys(lm.landmarks).filter((k) => k in I.landmarks);
   if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `master registration needs ≥3 reviewed landmarks shared with identity ${I.id} (got ${names.length})` });
   // Contract E (FIT_RIG): the APPROVED ART determines the rig. Only the declared frame anchors define the canonical frame; every other landmark
@@ -369,12 +369,12 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   const contract = validatePlanContract(doc, { assets: plan.assets.filter((x) => x.asset_id === asset || Object.values(p.surface_underpaint || {}).includes(x.asset_id)) }).filter((e) => e.record_id === asset || e.dependency === asset);
   if (contract.length) throw err(contract[0].code, { record_id: asset, reason: `refused by plan contract: ${contract.map((e) => e.human_readable_reason).join("; ")}` });
   const ma = masterApproved(doc, FILM, p.derived_from); if (!ma.ok) throw new Error(`refused: ${ma.reason}; derived art is registered only against an approved master`);
-  const png = readPNG(file); checkAlphaContract(asset, p.alpha_mode, png);
+  const png = readPNG(file); checkAlphaContract(asset, p.alpha_mode, png, { fullFrameWorld: ["WORLD_PLANE", "CLEAN_PLATE"].includes(p.kind) || doc.identities.find((i) => i.id === p.identity_id)?.kind === "WORLD" });
   const m = ma.master, lm = sidecar(landmarks), M = cropToCanonical(m), Minv = inv(M), ap = (A, q) => [A[0] * q[0] + A[2] * q[1] + A[4], A[1] * q[0] + A[3] * q[1] + A[5]];
   const ident = ma.identity, names = Object.keys(lm.landmarks).filter((k) => k in ident.landmarks);
   // ≥3 correspondences: a 4-DOF similarity fitted to 2 points has zero residual by construction, so a wrong landmark could never be detected
   if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `part registration needs ≥3 reviewed landmarks shared with identity ${ident.id} (got ${names.length}); two points cannot reveal a misregistration` });
-  if (p.pivot_landmark_id != null ? !names.includes(p.pivot_landmark_id) : !["WORLD_PLANE", "CLEAN_PLATE"].includes(p.kind)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
+  if (p.pivot_landmark_id != null ? !names.includes(p.pivot_landmark_id) : !["WORLD_PLANE", "CLEAN_PLATE", "TYPE"].includes(p.kind)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
   const masterPx = Object.fromEntries(names.map((k) => [k, ap(Minv, m.landmarks[k] ?? ident.landmarks[k])]));
   const underpaintIds = (p.hidden_surfaces || []).map((s) => p.surface_underpaint[s]); // B2: ownership carried from the plan contract
   const masterScale = Math.sqrt(Math.abs(M[0] * M[3] - M[1] * M[2]));
@@ -396,7 +396,7 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   const Tc = mul(M, rec.raster_to_canonical), geom = geometryFields(Tc, rec.source_pixel_crop_in_raw, rec.manifest_fields.width_px, rec.manifest_fields.height_px);
   const dest = path.join(FILM, "assets", "art", `${asset}.png`); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.copyFileSync(rec.approved_part_file, dest);
   const measured = Object.fromEntries(names.map((k) => [k, ap(Tc, lm.landmarks[k])]));
-  const fields = { file: path.relative(FILM, dest).split(path.sep).join("/"), sha256: fsha(dest), width_px: geom.width_px, height_px: geom.height_px, canonical_rect: geom.canonical_rect, source_pixel_crop: [0, 0, geom.width_px, geom.height_px], crop_to_canonical_matrix: geom.crop_to_canonical_matrix, pivot_xy: measured[p.pivot_landmark_id], pivot_landmark_id: p.pivot_landmark_id, landmarks: measured, underpaint_asset_ids: underpaintIds };
+  const fields = { file: path.relative(FILM, dest).split(path.sep).join("/"), sha256: fsha(dest), width_px: geom.width_px, height_px: geom.height_px, canonical_rect: geom.canonical_rect, source_pixel_crop: [0, 0, geom.width_px, geom.height_px], crop_to_canonical_matrix: geom.crop_to_canonical_matrix, pivot_xy: p.pivot_landmark_id != null ? measured[p.pivot_landmark_id] : null, pivot_landmark_id: p.pivot_landmark_id, landmarks: measured, underpaint_asset_ids: underpaintIds };
   const a = assetRecord(doc, p, fields, provenance, `partreg_${asset}`, lineage);
   doc.assets = doc.assets.filter((x) => x.id !== asset).concat(a); saveDoc(FILM, doc);
   log(FILM, { op: "ingest-part", asset, kind: p.kind, sha256: fields.sha256, master: m.id, max_residual_px: rec.max_residual_px, canonical_rect: geom.canonical_rect, underpaint_asset_ids: underpaintIds });
@@ -420,7 +420,7 @@ export async function ingestVectorPart({ film, asset, file, landmarks, provenanc
   for (const q of paths) parsePath(q.d); // absolute M/L/C/Q/Z only (relative commands are refused, not guessed)
   const lm = sidecar(landmarks), ident = ma.identity, names = Object.keys(lm.landmarks).filter((k) => k in ident.landmarks);
   if (names.length < 3) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `vector registration needs ≥3 reviewed landmarks shared with identity ${ident.id} (got ${names.length})` });
-  if (p.pivot_landmark_id != null ? !names.includes(p.pivot_landmark_id) : !["WORLD_PLANE", "CLEAN_PLATE"].includes(p.kind)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
+  if (p.pivot_landmark_id != null ? !names.includes(p.pivot_landmark_id) : !["WORLD_PLANE", "CLEAN_PLATE", "TYPE"].includes(p.kind)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `reviewed landmarks must include the pivot landmark ${p.pivot_landmark_id}` });
   const Tm = fitSimilarity(names.map((k) => lm.landmarks[k]), names.map((k) => ident.landmarks[k])), ap = (q) => [Tm[0] * q[0] + Tm[2] * q[1] + Tm[4], Tm[1] * q[0] + Tm[3] * q[1] + Tm[5]];
   const residual = Math.max(...names.map((k) => { const q = ap(lm.landmarks[k]); return Math.hypot(q[0] - ident.landmarks[k][0], q[1] - ident.landmarks[k][1]); }));
   if (residual > maxResidualPx) { log(FILM, { op: "ingest-vector", asset, status: "REGISTRATION_FAILED", max_residual: residual }); return { status: "REGISTRATION_FAILED", failures: [{ code: "REGISTRATION_RESIDUAL", reason: `landmark residual ${residual.toFixed(3)} > ${maxResidualPx}` }] }; }

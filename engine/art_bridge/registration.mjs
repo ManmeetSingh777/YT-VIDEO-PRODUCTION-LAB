@@ -52,7 +52,7 @@ export function registerPart(o) {
   let rgba = raw.rgba;
   if (o.regionMask) { const m = readPNG(o.regionMask); if (m.width !== raw.width || m.height !== raw.height) throw err("IMAGE_DIMENSION_MISMATCH", { record_id: o.partId, reason: "region mask size differs from raw part" }); rgba = Uint8Array.from(rgba); for (let i = 3; i < rgba.length; i += 4) rgba[i] = Math.round((rgba[i] * m.rgba[i]) / 255); }
   const ids = Object.keys(o.partLandmarks).filter((k) => k in o.canonicalLandmarks);
-  if (!(o.pivotId in o.canonicalLandmarks)) throw err("UNREGISTERED_PIVOT", { record_id: o.partId, reason: `pivot landmark ${o.pivotId} is not a canonical landmark` });
+  if (o.pivotId != null && !(o.pivotId in o.canonicalLandmarks)) throw err("UNREGISTERED_PIVOT", { record_id: o.partId, reason: `pivot landmark ${o.pivotId} is not a canonical landmark` });
   const T = solveTransform(ids.map((k) => o.partLandmarks[k]), ids.map((k) => o.canonicalLandmarks[k]), mode);
   const residuals = ids.map((k) => { const p = ap(T, o.partLandmarks[k]), q = o.canonicalLandmarks[k]; return { landmark: k, residual_px: Math.hypot(p[0] - q[0], p[1] - q[1]) }; });
   const maxRes = Math.max(...residuals.map((r) => r.residual_px)), scale = Math.sqrt(Math.abs(T[0] * T[3] - T[1] * T[2]));
@@ -86,7 +86,7 @@ export function registerPart(o) {
     source: { master: o.master, master_sha256: fsha(o.master), raw_part: o.rawPart, raw_sha256: fsha(o.rawPart), region_mask: o.regionMask || null },
     approved_part_file: partFile, approved_part_sha256: fsha(partFile), source_pixel_crop_in_raw: [x0, y0, cw, ch],
     // geometry contract (re-audit B1): the approved file IS the crop, so crop→canonical = T · translate(crop origin in the raw raster)
-    manifest_fields: { ...geometryFields(T, [x0, y0, cw, ch], cw, ch), source_pixel_crop: [0, 0, cw, ch], pivot_xy: o.canonicalLandmarks[o.pivotId], pivot_landmark_id: o.pivotId, landmarks: Object.fromEntries(ids.map((k) => [k, o.canonicalLandmarks[k]])), alpha_mode: partial ? "STRAIGHT" : "BINARY_MASK", underpaint_asset_ids: o.underpaintIds || [], hidden_surfaces: o.hiddenSurfaces || [] },
+    manifest_fields: { ...geometryFields(T, [x0, y0, cw, ch], cw, ch), source_pixel_crop: [0, 0, cw, ch], pivot_xy: o.pivotId != null ? o.canonicalLandmarks[o.pivotId] : null, pivot_landmark_id: o.pivotId ?? null, landmarks: Object.fromEntries(ids.map((k) => [k, o.canonicalLandmarks[k]])), alpha_mode: partial ? "STRAIGHT" : "BINARY_MASK", underpaint_asset_ids: o.underpaintIds || [], hidden_surfaces: o.hiddenSurfaces || [] },
     landmark_sidecar: o.sidecar || null, // the reviewed correspondences actually used (hash + reviewer + values) — bound into approvals
     landmark_residuals: residuals, max_residual_px: maxRes, alpha_report: { transparent, partial, opaque },
     rest_overlay: { overlay_file: overlayFile, difference_file: diffFile, mean_abs_diff_opaque: cnt ? sum / cnt : null, max_abs_diff_opaque: maxd, pixels_compared: cnt },

@@ -70,7 +70,7 @@
         "approved_review_id": { "$ref": "#/$defs/idOrNull" }, "provider_receipt_id": { "$ref": "#/$defs/idOrNull" },
         "canonical_rect": { "$ref": "#/$defs/rect" }, "source_pixel_crop": { "$ref": "#/$defs/rect" }, "crop_to_canonical_matrix": { "$ref": "#/$defs/affine" }, "asset_to_canonical": { "$ref": "#/$defs/affine" },
         "coordinate_space": { "enum": ["CHARACTER_LOCAL", "PROP_LOCAL", "WORLD_LOCAL", "SCREEN"] },
-        "parent_part_id": { "$ref": "#/$defs/idOrNull" }, "pivot_xy": { "$ref": "#/$defs/xy" }, "pivot_landmark_id": { "$ref": "#/$defs/idOrNull" },
+        "parent_part_id": { "$ref": "#/$defs/idOrNull" }, "pivot_xy": { "anyOf": [{ "$ref": "#/$defs/xy" }, { "type": "null" }], "description": "null only for non-hinging assets (world planes, type layers) whose pivot_landmark_id is null" }, "pivot_landmark_id": { "$ref": "#/$defs/idOrNull" },
         "sockets": { "$ref": "#/$defs/namedPoints" }, "landmarks": { "$ref": "#/$defs/namedPoints" }, "layer_owner": { "$ref": "#/$defs/id" },
         "draw_order_constraints": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["relation", "asset_id"], "properties": { "relation": { "enum": ["ABOVE", "BELOW"] }, "asset_id": { "$ref": "#/$defs/id" } } } },
         "depth_band": { "enum": ["FAR", "MID", "FOCAL", "NEAR", "FOREGROUND", "SCREEN"] }, "render_scale_range": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "exclusiveMinimum": 0 } },
@@ -79,7 +79,7 @@
         "camera_footprint": { "anyOf": [{ "$ref": "#/$defs/rect" }, { "type": "null" }] }, "overscan_rect": { "anyOf": [{ "$ref": "#/$defs/rect" }, { "type": "null" }] },
         "motion_modes_allowed": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/motionClass" } }, "incompatible_states": { "$ref": "#/$defs/idList" }, "valid_interpolation_targets": { "$ref": "#/$defs/idList" }, "required_contact_sockets": { "$ref": "#/$defs/idList" },
         "shot_usage": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["shot_id", "frame_range"], "properties": { "shot_id": { "$ref": "#/$defs/id" }, "frame_range": { "$ref": "#/$defs/frameRange" } } } },
-        "provenance_class": { "enum": ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE"] },
+        "provenance_class": { "enum": ["GPT_PROVIDER_ART", "GPT_OPERATOR_HANDOFF", "USER_APPROVED_ART", "PROVIDER_SVG", "DIAGNOSTIC_FIXTURE", "ENGINE_VECTOR_CONSTRUCTION"] },
         "vector_paths": {"type": "array", "description": "P03: registered canonical paths of a VECTOR_PATH asset (must equal the approved SVG file)", "items": {"type": "object", "required": ["d", "fill"], "properties": {"d": {"type": "string"}, "fill": {"type": "string"}, "stroke": {"type": "string"}, "stroke_width": {"type": "number"}}, "additionalProperties": false}},
         "provider_lineage": { "type": ["object", "null"] }
       }

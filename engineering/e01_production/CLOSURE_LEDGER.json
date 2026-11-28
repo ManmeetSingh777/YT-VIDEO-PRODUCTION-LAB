@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T23:04:24.497Z",
+ "generated": "2026-11-27T23:46:54.060Z",
  "obligations": 345,
  "from_original_inventory": 304,
  "from_amendment_05": 41,
@@ -9,25 +9,24 @@
   "NATIVE_PROCEDURAL_CONSTRUCTION": 9,
   "EXISTING_MASTER_AWAITING_APPROVAL": 2,
   "NEW_ARTISTIC_MANUFACTURING": 277,
-  "REGISTERED_COMPONENT_AWAITING_APPROVAL": 20,
-  "DETERMINISTIC_EXTRACTION": 22,
+  "REGISTERED_COMPONENT_AWAITING_APPROVAL": 24,
+  "DETERMINISTIC_EXTRACTION": 18,
   "DETERMINISTIC_FROM_APPROVED_PARTS": 6,
-  "STATE_NOT_PERFORMED_BY_TIMELINE": 1
+  "SUPERSEDED_FOR_E01": 1
  },
  "by_status": {
   "APPROVED": 6,
   "IN_PROGRAM_V4": 279,
   "CONSTRUCTED_AWAITING_PACKET_SIGNATURE": 7,
-  "REGISTERED_PENDING_REVIEW": 22,
+  "REGISTERED_PENDING_REVIEW": 26,
   "WAITING_ON_CORRECTED_MASTER": 18,
   "SPEC_READY_WAITING_ON_PARTS": 6,
   "EMPTY_BY_DESIGN": 1,
   "WAITING_ON_ENV01_PLANES": 1,
-  "WAITING_ON_MASTER_SIGNATURE": 4,
-  "PROPOSED_SUPERSESSION_NEEDS_DIRECTOR": 1
+  "OMITTED_UNUSED": 1
  },
  "unresolved": [],
- "manufactured": 29,
+ "manufactured": 33,
  "motion_qualified": 0,
  "rows": [
   {
@@ -169,7 +168,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": true,
+   "manufactured": false,
    "motion_qualified": false
   },
   {
@@ -5657,7 +5656,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -6104,15 +6103,15 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "DETERMINISTIC_EXTRACTION",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_BG01.BG_OCCUPANCY.MASTER"
    ],
-   "required_evidence": "extraction record + registration receipt after the master is signed",
-   "status": "WAITING_ON_MASTER_SIGNATURE",
-   "producer": "engine/art_bridge/component_extract.mjs (map in films/e01/segmentation)",
-   "manufactured": false,
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -6140,15 +6139,15 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "DETERMINISTIC_EXTRACTION",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "ART_BG01.BG_OCCUPANCY.MASTER"
    ],
-   "required_evidence": "extraction record + registration receipt after the master is signed",
-   "status": "WAITING_ON_MASTER_SIGNATURE",
-   "producer": "engine/art_bridge/component_extract.mjs (map in films/e01/segmentation)",
-   "manufactured": false,
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -6176,15 +6175,15 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "DETERMINISTIC_EXTRACTION",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_BG02.BG_QUEUE.MASTER"
    ],
-   "required_evidence": "extraction record + registration receipt after the master is signed",
-   "status": "WAITING_ON_MASTER_SIGNATURE",
-   "producer": "engine/art_bridge/component_extract.mjs (map in films/e01/segmentation)",
-   "manufactured": false,
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -6194,15 +6193,15 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "DETERMINISTIC_EXTRACTION",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "ART_BG02.BG_QUEUE.MASTER"
    ],
-   "required_evidence": "extraction record + registration receipt after the master is signed",
-   "status": "WAITING_ON_MASTER_SIGNATURE",
-   "producer": "engine/art_bridge/component_extract.mjs (map in films/e01/segmentation)",
-   "manufactured": false,
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -6478,14 +6477,14 @@
    "owning_actions": [
     "E01-S001-A03"
    ],
-   "disposition": "STATE_NOT_PERFORMED_BY_TIMELINE",
+   "disposition": "SUPERSEDED_FOR_E01",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "REGULAR_MASTER"
    ],
-   "required_evidence": "performance_views: no action state event selects it; supersede only by signed direction",
-   "status": "PROPOSED_SUPERSESSION_NEEDS_DIRECTOR",
-   "producer": "engine/art_bridge/performance_views.mjs",
+   "required_evidence": "director 2026-11-28: omit if genuinely unused — verified: no action state event selects it; channel default is rest; speech ends restore the directed state (rest until the f177 chuckle); no channel edge or transition references it; the plan slot and channel state stay (capability preserved)",
+   "status": "OMITTED_UNUSED",
+   "producer": "director instruction 2026-11-28 + performance_views/acting analysis",
    "manufactured": false,
    "motion_qualified": false
   },
