@@ -1,17 +1,22 @@
 {
- "generated": "2026-11-28T01:48:33.917Z",
- "obligations": 393,
+ "generated": "2026-11-28T03:45:21.000Z",
+ "obligations": 395,
  "from_original_inventory": 304,
  "from_amendment_05": 41,
  "from_amendment_06": 40,
  "from_amendment_07": 8,
+ "from_accepted_packet_unlisted": 2,
+ "unlisted_ids": [
+  "ART_M02.CHAR_MIA.fore_r__award_hold",
+  "ART_M02.CHAR_MIA.fore_l__award_hold"
+ ],
  "by_disposition": {
   "EXISTING_APPROVED_MASTER": 6,
   "NEW_ARTISTIC_MANUFACTURING (master correction)": 2,
   "NATIVE_PROCEDURAL_CONSTRUCTION": 9,
   "EXISTING_MASTER_AWAITING_APPROVAL": 2,
-  "NEW_ARTISTIC_MANUFACTURING": 279,
-  "EXISTING_APPROVED_COMPONENT": 24,
+  "NEW_ARTISTIC_MANUFACTURING": 280,
+  "REGISTERED_COMPONENT_AWAITING_APPROVAL": 25,
   "SUPERSEDED_UNREACHABLE": 22,
   "BASE_SLOT_DEFAULT_NEVER_DISPLAYED": 7,
   "DETERMINISTIC_EXTRACTION": 32,
@@ -20,10 +25,10 @@
   "SUPERSEDED_FOR_E01": 1
  },
  "by_status": {
-  "APPROVED": 30,
-  "IN_PROGRAM_V6": 284,
+  "APPROVED": 6,
+  "IN_PROGRAM_V6": 285,
   "CONSTRUCTED_AWAITING_PACKET_SIGNATURE": 7,
-  "REGISTERED_PENDING_REVIEW": 2,
+  "REGISTERED_PENDING_REVIEW": 27,
   "NOT_GENERATED": 29,
   "WAITING_ON_CORRECTED_MASTER": 32,
   "SPEC_READY_WAITING_ON_PARTS": 6,
@@ -32,7 +37,7 @@
   "OMITTED_UNUSED": 1
  },
  "unresolved": [],
- "manufactured": 39,
+ "manufactured": 36,
  "motion_qualified": 0,
  "rows": [
   {
@@ -76,7 +81,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item A03",
+   "producer": "program V6 delta 01 item A03",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -96,7 +101,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item A02",
+   "producer": "program V6 delta 01 item A02",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -260,7 +265,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.torso",
+   "producer": "program V6 item MIA.U.torso",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -276,14 +281,14 @@
     "E01-S001-A13",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -306,7 +311,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.H.to_regular",
+   "producer": "program V6 delta 01 item MIA.H.to_regular",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -330,7 +335,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.H.to_regular",
+   "producer": "program V6 delta 01 item MIA.H.to_regular",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -353,7 +358,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -368,14 +373,14 @@
     "E01-S001-A09",
     "E01-S001-A13"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -398,7 +403,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -413,14 +418,14 @@
     "E01-S001-A09",
     "E01-S001-A13"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -444,7 +449,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -494,7 +499,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -589,7 +594,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.r.award_wrap.near",
+   "producer": "program V6 item MIA.K.r.award_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -613,7 +618,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.r.award_wrap.far",
+   "producer": "program V6 item MIA.K.r.award_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -639,7 +644,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.r.page_wrap.near",
+   "producer": "program V6 item MIA.K.r.page_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -666,7 +671,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.r.page_wrap.far",
+   "producer": "program V6 item MIA.K.r.page_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -689,7 +694,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -704,14 +709,14 @@
     "E01-S001-A09",
     "E01-S001-A13"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -734,7 +739,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -749,14 +754,14 @@
     "E01-S001-A09",
     "E01-S001-A13"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -780,7 +785,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -796,14 +801,14 @@
     "E01-S001-A09",
     "E01-S001-A13"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -827,7 +832,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -866,14 +871,14 @@
     "E01-S001-A09",
     "E01-S001-A13"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -896,7 +901,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.l.open.far",
+   "producer": "program V6 item MIA.K.l.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -919,7 +924,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.l.award_wrap.near",
+   "producer": "program V6 item MIA.K.l.award_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -943,7 +948,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.K.l.award_wrap.far",
+   "producer": "program V6 item MIA.K.l.award_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1005,14 +1010,14 @@
     "E01-S001-A14",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -1035,7 +1040,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1058,7 +1063,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1081,7 +1086,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_onset",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1104,7 +1109,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_mid",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1127,7 +1132,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1151,7 +1156,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1174,7 +1179,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1197,7 +1202,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1220,7 +1225,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1243,7 +1248,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.restrained_reply",
+   "producer": "program V6 item MIA.F.to_regular.restrained_reply",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1266,7 +1271,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1289,7 +1294,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1312,7 +1317,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1329,14 +1334,14 @@
     "E01-S001-A13",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -1360,7 +1365,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1384,7 +1389,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1408,7 +1413,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_onset",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1432,7 +1437,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_mid",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1456,7 +1461,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1481,7 +1486,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1505,7 +1510,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1529,7 +1534,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1553,7 +1558,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1577,7 +1582,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.restrained_reply",
+   "producer": "program V6 item MIA.F.to_regular.restrained_reply",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1601,7 +1606,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1625,7 +1630,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1649,7 +1654,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1673,7 +1678,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.blink_closed",
+   "producer": "program V6 item MIA.F.down_report.blink_closed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1689,14 +1694,14 @@
     "E01-S001-A13",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -1712,14 +1717,14 @@
     "E01-S001-A14",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -1742,7 +1747,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1765,7 +1770,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1788,7 +1793,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_onset",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1811,7 +1816,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_mid",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1834,7 +1839,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1858,7 +1863,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1881,7 +1886,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1904,7 +1909,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1927,7 +1932,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1950,7 +1955,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.restrained_reply",
+   "producer": "program V6 item MIA.F.to_regular.restrained_reply",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1973,7 +1978,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -1996,7 +2001,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2019,7 +2024,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2036,14 +2041,14 @@
     "E01-S001-A15",
     "E01-S001-A18"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -2058,14 +2063,14 @@
     "E01-S001-A15",
     "E01-S001-A18"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -2088,7 +2093,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.open",
+   "producer": "program V6 item MIA.F.to_regular.open",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2111,7 +2116,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.mid",
+   "producer": "program V6 item MIA.F.to_regular.mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2128,15 +2133,15 @@
     "E01-S001-A13",
     "E01-S001-A15"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_HIGH_RES_COMPONENT_CROP",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.H.to_regular",
-   "manufactured": false,
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -2151,14 +2156,14 @@
     "E01-S001-A13",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "MIA_MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -2182,7 +2187,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.H.to_lead",
+   "producer": "program V6 delta 01 item MIA.H.to_lead",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2204,7 +2209,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.T.to_lead",
+   "producer": "program V6 delta 01 item MIA.T.to_lead",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2227,7 +2232,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.H.down_report",
+   "producer": "program V6 item MIA.H.down_report",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2272,7 +2277,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.H.to_lens",
+   "producer": "program V6 item MIA.H.to_lens",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2319,7 +2324,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.torso",
+   "producer": "program V6 item REGULAR.U.torso",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2365,7 +2370,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2388,7 +2393,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2412,7 +2417,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2459,7 +2464,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2506,7 +2511,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2552,7 +2557,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2641,7 +2646,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.K.r.phone_wrap.near",
+   "producer": "program V6 item REGULAR.K.r.phone_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2664,7 +2669,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.K.r.phone_wrap.far",
+   "producer": "program V6 item REGULAR.K.r.phone_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2688,7 +2693,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2735,7 +2740,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2782,7 +2787,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2828,7 +2833,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2896,7 +2901,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.K.l.open.far",
+   "producer": "program V6 item REGULAR.K.l.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2963,7 +2968,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.K.r.phone_wrap.near",
+   "producer": "program V6 item REGULAR.K.r.phone_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2986,7 +2991,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.thumb.rest",
+   "producer": "program V6 item REGULAR.thumb.rest",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3009,7 +3014,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.thumb.rest",
+   "producer": "program V6 item REGULAR.thumb.rest",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3032,7 +3037,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.thumb.approach",
+   "producer": "program V6 item REGULAR.thumb.approach",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3055,7 +3060,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.thumb.pressed",
+   "producer": "program V6 item REGULAR.thumb.pressed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3078,7 +3083,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.thumb.release",
+   "producer": "program V6 item REGULAR.thumb.release",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3123,7 +3128,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.warm",
+   "producer": "program V6 item REGULAR.F.to_mia.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3145,7 +3150,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3167,7 +3172,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3189,7 +3194,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3212,7 +3217,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3234,7 +3239,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.encouraging",
+   "producer": "program V6 item REGULAR.F.to_mia.encouraging",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3257,7 +3262,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3279,7 +3284,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3301,7 +3306,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3347,7 +3352,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.warm",
+   "producer": "program V6 item REGULAR.F.to_mia.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3370,7 +3375,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3393,7 +3398,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3416,7 +3421,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3439,7 +3444,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3462,7 +3467,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.encouraging",
+   "producer": "program V6 item REGULAR.F.to_mia.encouraging",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3485,7 +3490,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3508,7 +3513,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3531,7 +3536,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3554,7 +3559,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.blink_closed",
+   "producer": "program V6 item REGULAR.F.to_mia.blink_closed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3622,7 +3627,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.warm",
+   "producer": "program V6 item REGULAR.F.to_mia.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3644,7 +3649,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3666,7 +3671,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3688,7 +3693,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3711,7 +3716,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3733,7 +3738,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.encouraging",
+   "producer": "program V6 item REGULAR.F.to_mia.encouraging",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3756,7 +3761,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3778,7 +3783,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3800,7 +3805,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3867,7 +3872,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.open",
+   "producer": "program V6 item REGULAR.F.to_mia.open",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3889,7 +3894,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.mid",
+   "producer": "program V6 item REGULAR.F.to_mia.mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3912,7 +3917,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3958,7 +3963,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.H.to_lead",
+   "producer": "program V6 item REGULAR.H.to_lead",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4003,7 +4008,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.H.room",
+   "producer": "program V6 item REGULAR.H.room",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4048,7 +4053,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.H.own_screen",
+   "producer": "program V6 item REGULAR.H.own_screen",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4092,7 +4097,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.torso",
+   "producer": "program V6 item LEAD.U.torso",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4134,7 +4139,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4155,7 +4160,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4177,7 +4182,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4220,7 +4225,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4263,7 +4268,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4306,7 +4311,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4348,7 +4353,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.K.r.open.near",
+   "producer": "program V6 item LEAD.K.r.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4369,7 +4374,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.K.r.open.far",
+   "producer": "program V6 item LEAD.K.r.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4391,7 +4396,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.K.r.page_wrap.near",
+   "producer": "program V6 item LEAD.K.r.page_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4413,7 +4418,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.K.r.page_wrap.far",
+   "producer": "program V6 item LEAD.K.r.page_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4435,7 +4440,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4478,7 +4483,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4521,7 +4526,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4563,7 +4568,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4625,7 +4630,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.K.l.open.far",
+   "producer": "program V6 item LEAD.K.l.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4687,7 +4692,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.leg_r",
+   "producer": "program V6 item LEAD.U.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4730,7 +4735,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.leg_r",
+   "producer": "program V6 item LEAD.U.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4773,7 +4778,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.leg_r",
+   "producer": "program V6 item LEAD.U.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4816,7 +4821,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.leg_l",
+   "producer": "program V6 item LEAD.U.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4859,7 +4864,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.leg_l",
+   "producer": "program V6 item LEAD.U.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4902,7 +4907,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.U.leg_l",
+   "producer": "program V6 item LEAD.U.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4966,7 +4971,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4988,7 +4993,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.discreet",
+   "producer": "program V6 item LEAD.F.to_mia.discreet",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5009,7 +5014,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5030,7 +5035,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5073,7 +5078,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5095,7 +5100,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.discreet",
+   "producer": "program V6 item LEAD.F.to_mia.discreet",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5116,7 +5121,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5137,7 +5142,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5158,7 +5163,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.staff_side.blink_closed",
+   "producer": "program V6 item LEAD.F.staff_side.blink_closed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5222,7 +5227,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5244,7 +5249,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.discreet",
+   "producer": "program V6 item LEAD.F.to_mia.discreet",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5265,7 +5270,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5286,7 +5291,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5347,7 +5352,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.open",
+   "producer": "program V6 item LEAD.F.to_mia.open",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5367,7 +5372,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.mid",
+   "producer": "program V6 item LEAD.F.to_mia.mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5388,7 +5393,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5430,7 +5435,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.H.to_edge",
+   "producer": "program V6 item LEAD.H.to_edge",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5471,7 +5476,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.H.to_staff",
+   "producer": "program V6 item LEAD.H.to_staff",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5492,7 +5497,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.T.to_staff",
+   "producer": "program V6 item LEAD.T.to_staff",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5513,7 +5518,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.H.staff_side",
+   "producer": "program V6 item LEAD.H.staff_side",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5534,7 +5539,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.T.staff_side",
+   "producer": "program V6 item LEAD.T.staff_side",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5547,14 +5552,14 @@
     "E01-S001-A04",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_P01.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -5742,14 +5747,14 @@
     "E01-S001-A03",
     "E01-S001-A15"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_P03.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -5830,7 +5835,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": true,
+   "manufactured": false,
    "motion_qualified": false
   },
   {
@@ -5851,7 +5856,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": true,
+   "manufactured": false,
    "motion_qualified": false
   },
   {
@@ -5873,7 +5878,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": true,
+   "manufactured": false,
    "motion_qualified": false
   },
   {
@@ -5894,7 +5899,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": true,
+   "manufactured": false,
    "motion_qualified": false
   },
   {
@@ -5944,14 +5949,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_BG01.BG_DINER_A.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -5962,14 +5967,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "ART_BG01.BG_DINER_A.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -5987,7 +5992,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item D1",
+   "producer": "program V6 item D1",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6005,7 +6010,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item D2",
+   "producer": "program V6 item D2",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6016,14 +6021,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_BG01.BG_DINER_B.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -6034,14 +6039,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "ART_BG01.BG_DINER_B.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -6059,7 +6064,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item D3",
+   "producer": "program V6 item D3",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6077,7 +6082,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item D4",
+   "producer": "program V6 item D4",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6088,14 +6093,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_BG01.BG_OCCUPANCY.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -6113,7 +6118,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item B1",
+   "producer": "program V6 item B1",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6124,14 +6129,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "ART_BG01.BG_OCCUPANCY.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -6149,7 +6154,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item B2",
+   "producer": "program V6 item B2",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6160,14 +6165,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "ART_BG02.BG_QUEUE.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -6178,14 +6183,14 @@
    "owning_actions": [
     "E01-S001-A01"
    ],
-   "disposition": "EXISTING_APPROVED_COMPONENT",
+   "disposition": "REGISTERED_COMPONENT_AWAITING_APPROVAL",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "ART_BG02.BG_QUEUE.MASTER"
    ],
-   "required_evidence": "signed HUMAN part receipt verified against the trust anchor",
-   "status": "APPROVED",
-   "producer": "component_extract / vector construction + review_sign",
+   "required_evidence": "deterministic extraction record + registration receipt; signed part review",
+   "status": "REGISTERED_PENDING_REVIEW",
+   "producer": "engine/art_bridge/component_extract.mjs",
    "manufactured": true,
    "motion_qualified": false
   },
@@ -6203,7 +6208,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item B3",
+   "producer": "program V6 item B3",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6221,7 +6226,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item B4",
+   "producer": "program V6 item B4",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6240,7 +6245,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6259,7 +6264,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6278,7 +6283,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_onset",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6297,7 +6302,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.grin_mid",
+   "producer": "program V6 delta 01 item MIA.F.to_regular.grin_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6316,7 +6321,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6335,7 +6340,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6354,7 +6359,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6373,7 +6378,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6392,7 +6397,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6412,7 +6417,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6432,7 +6437,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6451,7 +6456,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6488,7 +6493,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6507,7 +6512,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6526,7 +6531,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6545,7 +6550,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6564,7 +6569,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6583,7 +6588,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6602,7 +6607,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6621,7 +6626,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6640,7 +6645,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6659,7 +6664,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6675,7 +6680,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6691,7 +6696,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6707,7 +6712,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6723,7 +6728,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6739,7 +6744,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6755,7 +6760,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6771,7 +6776,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.blink_closed",
+   "producer": "program V6 item MIA.F.to_regular.blink_closed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6787,7 +6792,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.blink_closed",
+   "producer": "program V6 item MIA.F.to_lead.blink_closed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6803,7 +6808,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6819,7 +6824,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6835,7 +6840,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6851,7 +6856,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6867,7 +6872,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6883,7 +6888,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6899,7 +6904,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.open",
+   "producer": "program V6 item MIA.F.to_lead.open",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6915,7 +6920,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.open",
+   "producer": "program V6 item MIA.F.down_report.open",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6931,7 +6936,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.to_lead.mid",
+   "producer": "program V6 item MIA.F.to_lead.mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6947,7 +6952,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.F.down_report.mid",
+   "producer": "program V6 item MIA.F.down_report.mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6963,7 +6968,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6979,7 +6984,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -6995,7 +7000,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7011,7 +7016,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7027,7 +7032,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_mia.blink_closed",
+   "producer": "program V6 item LEAD.F.to_mia.blink_closed",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7043,7 +7048,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7059,7 +7064,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7075,7 +7080,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7091,7 +7096,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7107,7 +7112,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7123,7 +7128,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.room.encouraging",
+   "producer": "program V6 item REGULAR.F.room.encouraging",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7139,7 +7144,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7155,7 +7160,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7171,7 +7176,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.room.encouraging",
+   "producer": "program V6 item REGULAR.F.room.encouraging",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7187,7 +7192,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7203,7 +7208,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7219,7 +7224,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.room.encouraging",
+   "producer": "program V6 item REGULAR.F.room.encouraging",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7235,7 +7240,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7251,7 +7256,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7267,7 +7272,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.room.waiting",
+   "producer": "program V6 item REGULAR.F.room.waiting",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7283,7 +7288,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7299,7 +7304,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.room.open",
+   "producer": "program V6 item REGULAR.F.room.open",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7315,7 +7320,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item REGULAR.F.room.mid",
+   "producer": "program V6 item REGULAR.F.room.mid",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7332,7 +7337,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.arm_l",
+   "producer": "program V6 item MIA.A6.to_lead.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7349,7 +7354,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.arm_r",
+   "producer": "program V6 item MIA.A6.to_lead.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7366,7 +7371,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.arm_l",
+   "producer": "program V6 item MIA.A6.to_lead.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7383,7 +7388,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.arm_r",
+   "producer": "program V6 item MIA.A6.to_lead.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7399,7 +7404,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.hand_l.award_wrap.far",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.award_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7415,7 +7420,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.hand_l.award_wrap.near",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.award_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7431,7 +7436,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.hand_l.open.far",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7447,7 +7452,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.hand_l.open.near",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7491,7 +7496,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.hand_r.open.far",
+   "producer": "program V6 item MIA.A6.to_lead.hand_r.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7507,7 +7512,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A6.to_lead.hand_r.open.near",
+   "producer": "program V6 item MIA.A6.to_lead.hand_r.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7524,7 +7529,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.leg_l",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7541,7 +7546,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.leg_l",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7558,7 +7563,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.leg_r",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7575,7 +7580,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.leg_r",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7592,7 +7597,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.arm_l",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7609,7 +7614,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.arm_l",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7626,7 +7631,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.arm_r",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7643,7 +7648,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.arm_r",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7660,7 +7665,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.leg_l",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7677,7 +7682,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.leg_l",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7694,7 +7699,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.leg_r",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7711,7 +7716,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.leg_r",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7728,7 +7733,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.leg_l",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7745,7 +7750,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.leg_l",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7762,7 +7767,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.leg_r",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7779,7 +7784,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.leg_r",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7796,7 +7801,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.arm_l",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7813,7 +7818,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.arm_l",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_l",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7830,7 +7835,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.arm_r",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7847,7 +7852,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.arm_r",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_r",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7863,7 +7868,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.hand_l.open.far",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_l.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7879,7 +7884,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.hand_l.open.far",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_l.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7895,7 +7900,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.hand_l.open.near",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_l.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7911,7 +7916,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.hand_l.open.near",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_l.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7927,7 +7932,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.hand_r.open.far",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_r.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7943,7 +7948,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.hand_r.open.far",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_r.open.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7959,7 +7964,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.staff_side.hand_r.open.near",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_r.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7975,7 +7980,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item LEAD.A6.to_staff.hand_r.open.near",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_r.open.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -7991,7 +7996,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A7.to_lead.hand_r.page_wrap.far",
+   "producer": "program V6 item MIA.A7.to_lead.hand_r.page_wrap.far",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8007,7 +8012,7 @@
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item MIA.A7.to_lead.hand_r.page_wrap.near",
+   "producer": "program V6 item MIA.A7.to_lead.hand_r.page_wrap.near",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8021,7 +8026,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item P1",
+   "producer": "program V6 item P1",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8035,7 +8040,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item P2",
+   "producer": "program V6 item P2",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8049,7 +8054,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item P3",
+   "producer": "program V6 item P3",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8063,7 +8068,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item P4",
+   "producer": "program V6 item P4",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8077,7 +8082,7 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item P5",
+   "producer": "program V6 item P5",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -8091,7 +8096,45 @@
    "dependencies": [],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V6",
-   "producer": "program V4 item P6",
+   "producer": "program V6 item P6",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M02.CHAR_MIA.fore_r__award_hold",
+   "kind": "PART",
+   "identity": "CHAR_MIA",
+   "owning_actions": [
+    "E01-S001-A02",
+    "E01-S001-A04"
+   ],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "accepted packet (not in earlier inventories)",
+   "dependencies": [
+    "MIA_MASTER"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V6",
+   "producer": "program V6 delta 01 item MIA.U.fore_r_award_hold",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M02.CHAR_MIA.fore_l__award_hold",
+   "kind": "PART",
+   "identity": "CHAR_MIA",
+   "owning_actions": [
+    "E01-S001-A02",
+    "E01-S001-A04"
+   ],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "accepted packet (not in earlier inventories)",
+   "dependencies": [
+    "MIA_MASTER"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V6",
+   "producer": "program V6 delta 01 item MIA.U.fore_l_award_hold",
    "manufactured": false,
    "motion_qualified": false
   }

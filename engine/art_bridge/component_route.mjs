@@ -52,10 +52,20 @@ export function nativeDetailRatio(png, factor) {
 }
 export const nativeDetailThreshold = (factor) => 1 + 0.5 * (Math.max(2, Math.round(factor)) - 1); // native ≈ f, enlargement ≈ 1–1.7 (measured: flat disc 3.0 vs 1.38, fine detail 7.9 vs 1.71 at f = 3)
 /** verifyComponentNative — the delivered component meets its directed span with its OWN pixels and is not an upscaled crop */
-export function verifyComponentNative({ deliveredPng, deliveredLandmarks, requirement, scaleFromMaster }) {
+/** enlargeBilinear — the master enlarged by `factor` (bilinear, premultiplied-free luminance use only): the reference an upscale would produce */
+export function enlargeBilinear(png, factor) { const W = png.width, H = png.height, w = Math.max(1, Math.round(W * factor)), h = Math.max(1, Math.round(H * factor)), out = Buffer.alloc(w * h * 4), s = png.rgba;
+  for (let y = 0; y < h; y++) { const fy = Math.min(H - 1, (y + 0.5) / factor - 0.5), y0 = Math.max(0, Math.floor(fy)), y1 = Math.min(H - 1, y0 + 1), ty = Math.max(0, fy - y0);
+    for (let x = 0; x < w; x++) { const fx = Math.min(W - 1, (x + 0.5) / factor - 0.5), x0 = Math.max(0, Math.floor(fx)), x1 = Math.min(W - 1, x0 + 1), tx = Math.max(0, fx - x0), o = (y * w + x) * 4;
+      for (let c = 0; c < 4; c++) { const a = s[(y0 * W + x0) * 4 + c], b = s[(y0 * W + x1) * 4 + c], d = s[(y1 * W + x0) * 4 + c], e = s[(y1 * W + x1) * 4 + c]; out[o + c] = Math.round((a * (1 - tx) + b * tx) * (1 - ty) + (d * (1 - tx) + e * tx) * ty); } } }
+  return { width: w, height: h, rgba: out }; }
+/** masterCalibratedThreshold — the provider's OWN native edge profile: midpoint between the master's ratio at f and the ratio of the master
+ *  enlarged by the same factor (a fixed formula cannot separate a soft-edged native drawing from an upscale at small f) */
+export function masterCalibratedThreshold(masterPng, factor) { const nat = nativeDetailRatio(masterPng, factor), up = nativeDetailRatio(enlargeBilinear(masterPng, factor), factor); return { native_ref: nat, upscale_ref: up, threshold: (nat + up) / 2, separable: nat - up > 0.15 }; }
+export function verifyComponentNative({ deliveredPng, deliveredLandmarks, requirement, scaleFromMaster, masterPng = null }) {
   const span = measureSpan({ png: deliveredPng, landmarks: deliveredLandmarks, measure: requirement.measure, from: requirement.from_landmark, to: requirement.to_landmark, span: requirement.span }), ratio = scaleFromMaster > 1.05 ? nativeDetailRatio(deliveredPng, scaleFromMaster) : null;
-  const problems = [...(span >= requirement.min_native_px ? [] : [`${requirement.measure} ${span.toFixed(0)} px < ${requirement.min_native_px} px native`]), ...(ratio !== null && ratio < nativeDetailThreshold(scaleFromMaster) ? [`edge sharpness ${ratio.toFixed(3)} < ${nativeDetailThreshold(scaleFromMaster).toFixed(2)} at ${scaleFromMaster.toFixed(2)}x the master density: the component is an upscale, not a native redraw`] : [])];
-  return { ok: problems.length === 0, measured_span_px: +span.toFixed(1), native_detail_ratio: ratio === null ? null : +ratio.toFixed(5), problems };
+  const cal = ratio !== null && masterPng ? masterCalibratedThreshold(masterPng, scaleFromMaster) : null, thr = cal?.separable ? cal.threshold : nativeDetailThreshold(scaleFromMaster);
+  const problems = [...(span >= requirement.min_native_px ? [] : [`${requirement.measure} ${span.toFixed(0)} px < ${requirement.min_native_px} px native`]), ...(ratio !== null && ratio < thr ? [`edge sharpness ${ratio.toFixed(3)} < ${thr.toFixed(2)} at ${scaleFromMaster.toFixed(2)}x the master density${cal?.separable ? ` (master-calibrated: native ${cal.native_ref.toFixed(3)}, enlarged ${cal.upscale_ref.toFixed(3)})` : ""}: the component is an upscale, not a native redraw`] : [])];
+  return { ok: problems.length === 0, measured_span_px: +span.toFixed(1), native_detail_ratio: ratio === null ? null : +ratio.toFixed(5), threshold: +thr.toFixed(4), calibration: cal && { ...cal, native_ref: +cal.native_ref.toFixed(4), upscale_ref: +cal.upscale_ref.toFixed(4), threshold: +cal.threshold.toFixed(4) }, problems };
 }
 
 /** derivationRoute — which dependent jobs need NO new image (deterministic) and which require a source-attached edit */

@@ -19,10 +19,10 @@ for (const a of ["ART_ENV01.MASTER", "ART_ENV01.far", "ART_ENV01.mid", "ART_ENV0
 const res = [];
 const fsha = (f) => crypto.createHash("sha256").update(fs.readFileSync(f)).digest("hex"), docNow = () => J(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json"));
 const V = await import(url.pathToFileURL(path.join(REPO, "engine/art_bridge/vector_construct.mjs"))), sha = (x) => crypto.createHash("sha256").update(x).digest("hex");
-for (const j of jobs) { const spec = J(path.join(FILM, /^ART_ENV01/.test(j.asset) ? "environment" : "vector", `${j.asset}.spec.json`)), lineage = { kind: "vector", spec: sha(JSON.stringify(spec)), svg: sha(V.svgFor(spec)) };
+const ONLY = arg("only") ? arg("only").split(",") : null; for (const j of jobs.filter((x) => !ONLY || ONLY.includes(x.asset))) { const spec = J(path.join(FILM, /^ART_ENV01/.test(j.asset) ? "environment" : "vector", `${j.asset}.spec.json`)), lineage = { kind: "vector", spec: sha(JSON.stringify(spec)), svg: sha(V.svgFor(spec)) };
   if (I.intakeUnchanged({ film: FILM, asset: j.asset, file: j.file, landmarks: j.lm, lineage })) { res.push({ asset: j.asset, outcome: "UNCHANGED (bytes + landmarks + construction spec identical; not re-registered, approval untouched)" }); continue; } // complete-fingerprint idempotence
   try { const r = j.kind === "master" ? await I.ingestMaster({ film: FILM, asset: j.asset, file: j.file, landmarks: j.lm, provenance: "ENGINE_VECTOR_CONSTRUCTION", outbox: OUT }) : await I.ingestPart({ film: FILM, asset: j.asset, file: j.file, landmarks: j.lm, provenance: "ENGINE_VECTOR_CONSTRUCTION", outbox: OUT });
     let request = null; if (r.status === "REGISTERED_PENDING_REVIEW") { const id = j.kind === "master" ? J(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json")).identities.find((i) => i.canonical_asset_id === j.asset).id : j.asset; request = JSON.parse(node([path.join(REPO, "engine/tools/review_sign.mjs"), "request", "--film", FILM, "--scope", j.kind, "--id", id])).request_id; }
     res.push({ asset: j.asset, outcome: r.status, request, failures: r.failures?.map((f) => f.human_readable_reason) || null }); }
   catch (e) { res.push({ asset: j.asset, outcome: "REFUSED", code: e.code || null, reason: e.human_readable_reason || e.message }); } }
-console.log(JSON.stringify(res, null, 1));
+console.log(JSON.stringify(res, null, 1)); if (res.some((r) => /REFUSED|REJECTED/.test(r.outcome))) process.exitCode = 1; // a refused registration FAILS the operation for dependency-aware callers

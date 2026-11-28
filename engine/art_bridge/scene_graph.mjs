@@ -42,6 +42,7 @@ function topoOrder(items, assets, extra = []) {
 
 /** composeShot(shot, registry, compiled, {prefix}) */
 export function composeShot(shot, registry, compiled, { prefix = "", sentinel = "#ff00ff", background = true } = {}) {
+  if (compiled?.geometry_only) throw Object.assign(new Error(`composeShot: refused — the compiled plan is GEOMETRY_ONLY (${compiled.deferred_art?.length ?? 0} drawings deferred); footage needs every drawing`), { code: "MISSING_ART_ASSET" });
   const doc = compiled.doc, plan = compiled.plan, assets = compiled.assets, P = (id) => `${prefix}${id}`;
   const bands = Object.fromEntries(BANDS.map((b) => [b, []])), runtimeIds = [], defs = [];
   const world = doc.worlds.find((w) => w.id === shot.world_id) || null;

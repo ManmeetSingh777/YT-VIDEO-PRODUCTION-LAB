@@ -189,6 +189,10 @@ export function compileMotionTracks(actions, shots, ctx) {
     else if (src.mode === "REMAP") { try { checkKeys(src.keys, `remap ${m.id}.keys`); } catch (e) { if (e.code) errors.push(e); else throw e; } let prev = null; for (let fr = m.frames[0]; fr < m.frames[1]; fr++) { const v = Math.round(ev(src.keys, fr)); if (v < 0 || v >= total) { no("REMAP_SOURCE_FRAME", `remap ${m.id}: output ${fr} maps to ${v}, outside the film`, [fr, fr + 1]); break; } if (prev !== null && v < prev && !src.reversed) { no("REMAP_MONOTONE", `remap ${m.id}: the source clock runs backwards at ${fr} without an approved reversed:true`, [fr, fr + 1]); break; } if (v >= m.frames[0] && v < m.frames[1]) { no("REMAP_SOURCE_OUTSIDE", `remap ${m.id}: output ${fr} samples ${v} inside its own interval`, [fr, fr + 1]); break; } prev = v; } }
     else no("REMAP_SOURCE_MODE", `remap ${m.id}: source.mode must be FREEZE or REMAP`); }
   for (let i = 0; i < remaps.length; i++) for (let k = i + 1; k < remaps.length; k++) { const a = remaps[i], b = remaps[k], shared = (a.owner_group?.rigs || []).filter((r) => (b.owner_group?.rigs || []).includes(r)); if (shared.length && a.frames[0] < b.frames[1] && b.frames[0] < a.frames[1]) errors.push(err("TIME_REMAP_INVALID", { record_id: b.id, reason: `remaps ${a.id} and ${b.id} both own ${shared} at once`, failed_invariant: "ONE_REMAP_PER_OWNER" })); }
+  // GEOMETRY-ONLY verification (ctx.geometryOnly): joints, contacts, IK and prop drivers need no drawing, so missing-ART refusals are DEFERRED
+  // (recorded, never dropped) and the result is marked geometry_only — every renderer refuses it (scene_graph.composeShot). Any other error still throws.
+  const artGap = (e) => e.code === "MISSING_ART_ASSET" || (e.code === "UNSUPPORTED_VIEW" && /MISSING_ART_ASSET|no approved .* cel/.test(e.human_readable_reason || ""));
+  const deferredArt = ctx.geometryOnly ? errors.filter(artGap) : []; if (ctx.geometryOnly) { const rest = errors.filter((e) => !artGap(e)); errors.length = 0; errors.push(...rest); }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
   const C = { totalFrames: total, doc, plan, rigs, assets, actions, shots, contacts, routes, socketOwner, secondaryBaked: {}, channelEvents: chanEvents, layers: layerReport, poseTimelines: poseTl, pendingArt: [...new Set(pendingArt)], modelTrace: modelBars.trace, performance: perfReport ?? plan.__performance ?? null, propSupport, composition: compReport, timeRemaps: remaps, pinch: pinch.byContact };
@@ -382,7 +386,7 @@ export function compileMotionTracks(actions, shots, ctx) {
       const R_ = rigs.get(rid), st = artStates[rid];
       for (const p of R_.rec.render_parts) {
         const assetId = st?.bindings?.[p.asset_id] ?? p.asset_id, a = assets.get(assetId);
-        if (!a) throw err("MISSING_ART_ASSET", { record_id: assetId, reason: `state binds ${p.asset_id} → ${assetId} which is not in the manifest` });
+        if (!a) { if (ctx.geometryOnly) { passes.push({ pass_id: `${rid}--${p.asset_id}--${assetId}`, slot: p.asset_id, asset_id: assetId, rig: rid, joint: p.joint_id, matrix: mul(M[p.joint_id], p.local_to_joint_matrix), visible: false, deferred_art: true }); continue; } throw err("MISSING_ART_ASSET", { record_id: assetId, reason: `state binds ${p.asset_id} → ${assetId} which is not in the manifest` }); }
         passes.push({ pass_id: `${rid}--${p.asset_id}--${assetId}`, slot: p.asset_id, asset_id: assetId, rig: rid, joint: p.joint_id, matrix: mul(M[p.joint_id], p.local_to_joint_matrix), visible: !st?.hidden?.has(p.asset_id) });
       }
     }
@@ -442,6 +446,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     return out;
   };
   if (propSupport.some((P_) => P_.segments.some((sg) => sg.mode === "ACTOR_DRIVEN" || sg.moving_surface || sg.hold_entry === "BAKED_PREDECESSOR"))) C.__bakePropAuthority((t) => stateAtFrame(C, t));
+  if (ctx.geometryOnly) { C.geometry_only = true; C.deferred_art = deferredArt.map((e) => ({ code: e.code, record_id: e.record_id, reason: e.human_readable_reason })); }
   return Object.freeze(C);
 }
 

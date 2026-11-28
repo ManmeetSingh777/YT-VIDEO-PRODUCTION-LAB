@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+// E01 packet amendment 09 (directive "Execute Amendment 08 …", items 3 and 7). Data-only:
+//  (a) restaurant construction authorizations re-bound to the re-constructed specs (diner table settings built from the measured seated diners;
+//      seat landmarks = the diners' measured seat contacts). far / counter / counter_occluder pixels are unchanged; master and mid changed.
+//  (b) the performance-command packet, prop support contracts and character performance profiles, carried VERBATIM as hash-bound source
+//      documents: signing this packet is the approval those runtime inputs need (the profiles' receipt is this packet's approval receipt).
+// No dialogue/timing/choreography/staging change.   node tools/tbo/e01_amend_09_world_performance.mjs --film films/e01 --hybrid-base <dir> --out <dir>
+import fs from "node:fs"; import path from "node:path"; import url from "node:url"; import crypto from "node:crypto";
+const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), "..", ".."), imp = (rel) => import(url.pathToFileURL(path.join(REPO, rel)));
+const J = (f) => JSON.parse(fs.readFileSync(f, "utf8")), sha = (b) => crypto.createHash("sha256").update(b).digest("hex"), arg = (k) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : null; };
+const FILM = path.resolve(REPO, arg("film")), HB = path.resolve(arg("hybrid-base")), OUT = path.resolve(arg("out"));
+const { validatePacket, packetDigest } = await imp("engine/story/creative_packet.mjs"), { creativePreflight } = await imp("engine/story/creative_preflight.mjs"), { hybridPreflight } = await imp("engine/story/hybrid_contract.mjs");
+const ENV = ["ART_ENV01.MASTER", "ART_ENV01.far", "ART_ENV01.mid", "ART_ENV01.counter", "ART_ENV01.counter_occluder"];
+const PERF = { "E01_PERFORMANCE_COMMANDS.json": "PERFORMANCE_COMMANDS.json", "E01_PROP_SUPPORT.json": "PROP_SUPPORT.json", "E01_PERFORMANCE_PROFILES.json": "PERFORMANCE_PROFILES.PENDING.json", "E01_PERFORMANCE_COVERAGE.json": "PERFORMANCE_COVERAGE.json" };
+const active = J(path.join(FILM, "creative", "CURRENT.json")).packet_sha256, pdir = path.join(FILM, "creative", "packets", active), before = J(path.join(pdir, "CREATIVE_PACKET.json")), after = structuredClone(before), log = { env: [] };
+for (const a of ENV) { const r = after.art_requirements.find((x) => x.id === a), c = J(path.join(FILM, "environment", "CONSTRUCTED.json"))[a], rec = J(c.file.replace(/\.png$/, ".CONSTRUCTION.json"));
+  if (rec.result_sha256 !== c.sha256) throw new Error(`${a}: construction record does not match CONSTRUCTED.json`); const re = /ENGINE_VECTOR_CONSTRUCTION authorized: spec sha256 ([0-9a-f]{64})/g, all = [...r.construction.matchAll(re)], m = all.at(-1);
+  if (!m) throw new Error(`${a}: no construction authorization`);
+  if (m[1] !== rec.spec_sha256) { r.construction = r.construction.replace(/ENGINE_VECTOR_CONSTRUCTION authorized: spec sha256 [0-9a-f]{64}/g, `ENGINE_VECTOR_CONSTRUCTION authorized: spec sha256 ${rec.spec_sha256}`) + ` AMENDMENT 09: spec re-constructed with diner table settings built from the measured seated diners; previous spec ${m[1].slice(0, 12)}; raster ${rec.result_sha256.slice(0, 12)}.`; log.env.push(`${a}: ${m[1].slice(0, 12)} → ${rec.spec_sha256.slice(0, 12)} (raster ${rec.result_sha256.slice(0, 12)})`); } }
+const perfDocs = Object.entries(PERF).map(([name, src]) => ({ name, bytes: fs.readFileSync(path.join(FILM, "handoff", src)) }));
+const DOC = "AMENDMENT_09_WORLD_AND_PERFORMANCE.md", text = [`# E01 packet amendment 09: diner table settings, performance commands, support contracts, performance profiles`, "",
+  `Amends the active packet \`${active}\`. Prepared by Claude Code under the director's directive; it takes effect only under a newly signed packet receipt.`, "",
+  "## Restaurant constructions (table settings from the measured diners)", "Both registered diners face +x; each gets an independent table in front of the knees. Floor line 667 = measured feet; seats = measured seat contacts; seat, back, table and pedestal heights are anthropometric fractions of the measured seated stature (46.5 px → S ≈ 89 px).", ...log.env.map((x) => `- ${x}`),
+  "Measured but NOT changed here (director decision): at the room's measured horizon (y ≈ 266, from the window-wall vanishing lines) the diners are about 2.8× smaller than a standing person at their floor line would be next to Mia's directed size.", "",
+  "## Runtime performance inputs (carried verbatim; their approval is this packet's receipt)", ...perfDocs.map((d) => `- \`${d.name}\` sha256 ${sha(d.bytes)}`),
+  "- Profiles: timing eases, contact tolerance 1.5 px, near/far finger layers taken from the packet's own contact directions. No new performance is directed by them.", "- Commands: every hand GRIP contact of the action graph as a grip command that adopts it, plus releases where the graph releases; LEAD/REGULAR commands are PENDING_GEOMETRY until their masters register.", ""].join("\n");
+fs.rmSync(OUT, { recursive: true, force: true }); fs.mkdirSync(path.join(OUT, "sources"), { recursive: true }); for (const f of fs.readdirSync(path.join(pdir, "source"))) fs.copyFileSync(path.join(pdir, "source", f), path.join(OUT, "sources", f)); fs.writeFileSync(path.join(OUT, "sources", DOC), text);
+after.source.documents.push({ role: "amendment", file: DOC, sha256: sha(text) }); for (const d of perfDocs) { fs.writeFileSync(path.join(OUT, "sources", d.name), d.bytes); after.source.documents.push({ role: "amendment", file: d.name, sha256: sha(d.bytes) }); }
+const d1 = packetDigest(after); fs.writeFileSync(path.join(OUT, "CREATIVE_PACKET.json"), JSON.stringify(after, null, 1) + "\n");
+const hyb = { ...J(path.join(HB, "HYBRID_CONTRACT.json")), packet_sha256: d1 }; fs.writeFileSync(path.join(OUT, "HYBRID_CONTRACT.json"), JSON.stringify(hyb, null, 1) + "\n");
+const V = validatePacket(after), PF = creativePreflight(after), HY = hybridPreflight(after, hyb, { sourceDir: path.join(HB, "private_audio_for_hybrid") });
+const strip = (p) => { const q = structuredClone(p); q.source.documents = q.source.documents.filter((d) => !d.file.startsWith("AMENDMENT_09") && !PERF[d.file]); q.art_requirements = q.art_requirements.map((r) => (ENV.includes(r.id) ? { ...r, construction: null } : r)); return JSON.stringify(q); };
+const rep = { amends: active, digest: d1, env: log.env, performance_docs: perfDocs.map((d) => `${d.name} ${sha(d.bytes).slice(0, 12)}`), only_delta: strip(before) === strip(after), validate: V.status, errors: V.errors.map((e) => `${e.code} ${e.id}`).slice(0, 10), preflight: PF.status, hybrid: HY.status };
+fs.writeFileSync(path.join(OUT, "AMENDMENT_REPORT.json"), JSON.stringify(rep, null, 1)); console.log(JSON.stringify(rep, null, 1)); if (V.status !== "STRUCTURAL_VALID" || !rep.only_delta) process.exit(1);

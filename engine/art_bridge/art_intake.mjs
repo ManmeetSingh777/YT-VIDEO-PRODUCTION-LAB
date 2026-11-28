@@ -28,7 +28,7 @@ import { prepareRequest, recordOutcome, sealResult, loadResult, selectCandidate,
 import { dependencyDigest } from "./art_requests.mjs";
 import { channelEvents } from "./state_channels.mjs";
 import { compileMotionTracks, stateAtFrame } from "./temporal.mjs";
-import { rigPoseTimeline } from "./state_timeline.mjs";
+import { rigPoseTimeline, poseAt } from "./state_timeline.mjs";
 import { actionInShot, actionShots, shotSegments, validateShotSpan } from "../story/action_span.mjs";
 
 const MF = "handoff/ART_AND_MOTION_MANIFEST_V2.json", PLAN = "handoff/ART_DEPENDENCY_PLAN.json";
@@ -281,8 +281,11 @@ function intrinsicChecks(doc, rigs, acts, failures) {
   for (const rid of rigs) { const rr = doc.rigs.find((r) => r.id === rid), tl = rigPoseTimeline(rr, doc.actions); for (const e of tl.errors) failures.push({ code: e.code, record_id: rr.id, shot: null, plan: null, frame_range: e.frame_range, reason: e.human_readable_reason });
     const ids = new Set([...rr.pose_states, ...rr.view_states].map((q) => q.id)), hist = (tl.pose || []).slice().sort((x, y) => x.frame - y.frame); let cur = rr.pose_states[0]?.id ?? null;
     // a pose change that swaps NO drawing (both states bind the same drawings, e.g. articulation keyposes) is executed by the joints, not by a state edge
-    const bindOf = (id) => JSON.stringify(Object.entries([...rr.pose_states, ...rr.view_states].find((q) => q.id === id)?.asset_bindings || {}).sort()), swaps = (x, y) => bindOf(x) !== bindOf(y);
-    for (const e of hist) { if (e.state !== cur && swaps(cur, e.state) && !rr.allowed_state_edges.some((g) => (g.from === cur && g.to === e.state) || (g.from === e.state && g.to === cur && g.reversible))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: e.source, shot: e.shot, frame_range: [e.frame, e.frame + 1], reason: `pose change ${cur} -> ${e.state} (film history) has no approved state edge in ${rr.id}` }); cur = e.state; }
+    // the VISIBLE drawing set is the pose's bindings overlaid by the view active at that frame (resolveBindings order): a pose change whose
+    // swapped slots are all overridden by the current view swaps nothing on screen and needs no edge
+    const st = (id) => [...rr.pose_states, ...rr.view_states].find((q) => q.id === id)?.asset_bindings || {}, viewAt = (f) => poseAt(rr, tl, f).view;
+    const bindOf = (id, f) => { const v = f == null ? null : viewAt(f); return JSON.stringify(Object.entries({ ...st(id), ...(v ? st(v) : {}) }).sort()); }, swaps = (x, y, f) => bindOf(x, f) !== bindOf(y, f);
+    for (const e of hist) { if (e.state !== cur && swaps(cur, e.state, e.frame) && !rr.allowed_state_edges.some((g) => (g.from === cur && g.to === e.state) || (g.from === e.state && g.to === cur && g.reversible))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: e.source, shot: e.shot, frame_range: [e.frame, e.frame + 1], reason: `pose change ${cur} -> ${e.state} (film history) has no approved state edge in ${rr.id}` }); cur = e.state; }
     for (const a of acts) if (a.actors.some((x) => x.rig_id === rid)) {
       for (const e of a.pose_events || []) if ((!e.rig_id || e.rig_id === rid) && !ids.has(e.state_id) && !doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === e.state_id))) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: a.shot_id, frame_range: [e.frame, e.frame + 1], reason: `state ${e.state_id} is not in rig ${rr.id}` });
       for (const v of a.view_events || []) { if (v.rig_id && v.rig_id !== rid) continue; if (!ids.has(v.to_state) && doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === v.to_state))) continue; /* another rig's view state: not this rig's edge */ if (!ids.has(v.to_state) && !doc.rigs.some((r2) => r2.id !== rr.id && [...r2.pose_states, ...r2.view_states].some((q) => q.id === v.to_state))) failures.push({ code: "UNSUPPORTED_VIEW", record_id: a.id, shot: a.shot_id, frame_range: [v.frame, v.frame + 1], reason: `view state ${v.to_state} is not in rig ${rr.id}` }); else if (!rr.allowed_state_edges.some((g) => g.from === v.from_state && g.to === v.to_state)) failures.push({ code: "UNSUPPORTED_STATE_EDGE", record_id: a.id, shot: a.shot_id, frame_range: [v.frame, v.frame + 1], reason: `no allowed edge ${v.from_state} -> ${v.to_state}` }); } }
@@ -403,7 +406,7 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
     const own = (await import("./resolution_contract.mjs")).loadNativeRequirements(FILM).requirements.filter((r) => r.component === asset);
     if (own.length) { const CR = await import("./component_route.mjs"), mpng = readPNG(path.join(FILM, m.file));
       for (const r of own) { let ms = null; try { ms = CR.measureSpan({ png: mpng, landmarks: masterPx, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }); } catch { ms = null; }
-        const ds = CR.measureSpan({ png, landmarks: lm.landmarks, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }), v = CR.verifyComponentNative({ deliveredPng: png, deliveredLandmarks: lm.landmarks, requirement: r, scaleFromMaster: ms ? ds / ms : 1 });
+        const ds = CR.measureSpan({ png, landmarks: lm.landmarks, measure: r.measure, from: r.from_landmark, to: r.to_landmark, span: r.span }), v = CR.verifyComponentNative({ deliveredPng: png, deliveredLandmarks: lm.landmarks, requirement: r, scaleFromMaster: ms ? ds / ms : 1, masterPng: mpng });
         if (!v.ok) throw err("COMPONENT_NATIVE_RESOLUTION_UNVERIFIED", { record_id: asset, reason: v.problems.join("; "), details: v }); } } }
   const rec = registerPart({ partId: asset, master: path.join(FILM, m.file), rawPart: file, canonicalLandmarks: masterPx, partLandmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])), pivotId: p.pivot_landmark_id, underpaintIds, hiddenSurfaces: p.hidden_surfaces || [], mode, requirePivotOnArt: p.kind !== "MASK" && !overlaySlotOwner(plan, p),
     maxResidualPx: maxResidualPx / masterScale, sidecar: { sha256: lm.sha256, reviewed_by: lm.reviewed_by, method: lm.method || null, landmarks: Object.fromEntries(names.map((k) => [k, lm.landmarks[k]])) }, outDir: path.join(FILM, "registration", asset, `attempt_${fsha(file).slice(0, 12)}`) });
