@@ -246,12 +246,19 @@ export function compileMotionTracks(actions, shots, ctx) {
     if (D[0] * D[3] - D[1] * D[2] <= 0 || Math.abs(sx - sy) > 1e-6 * Math.max(1, sx)) throw err("PROP_DRIVER_INVALID", { record_id: rid, reason: "the driving transform is not a rigid similarity (reflection or non-uniform scale): a rigid prop cannot follow it", failed_invariant: "RIGID_PROP_TRANSFORM" });
     const p = apply(D, r0); st.root = { x: p[0], y: p[1], rot: angleOf(D) - th, scale: sx }; };
   /** driver hand frame at f; with a directed driver_path the driver arm is solved to the path FIRST (two-bone IK, approved bend branch, limits checked later) */
+  // pose-dependent limb geometry: a joint offset (a drawing whose child pivot sits elsewhere, e.g. a foreshortened forearm) changes the bone the IK
+  // solves with; the approved IK branch of a limb may differ per window (plan.ik_branches: [{rig, chain, frames, bend_sign, evidence}])
+  const ikBranches = (plan.ik_branches || []).map((b) => { if (b.bend_sign !== 1 && b.bend_sign !== -1) throw err("UNAPPROVED_BEND_BRANCH", { record_id: `${b.rig}.${(b.chain || []).join(">")}`, reason: "an IK branch must be +1 or -1" }); if (!b.evidence) throw err("UNAPPROVED_BEND_BRANCH", { record_id: `${b.rig}.${(b.chain || []).join(">")}`, reason: "an IK branch override needs its solve evidence" }); return b; });
+  const ikBranch = (rig, chainIds, f, fallback) => { const b = ikBranches.find((x) => x.rig === rig && (x.chain || []).join(">") === chainIds.join(">") && f >= x.frames[0] && f < x.frames[1]); return b ? b.bend_sign : fallback; };
+  C.ikBranch = ikBranch;
+  const limbRest = (R_, s, [js, je, jw]) => { const o = (j) => s.offset?.[j] || [0, 0], rs = R_.joints.get(js).rest_xy, re0 = R_.joints.get(je).rest_xy, rw0 = R_.joints.get(jw).rest_xy;
+    return { rs, re: re0, reO: [re0[0] + o(je)[0], re0[1] + o(je)[1]], rwO: [rw0[0] + o(jw)[0], rw0[1] + o(jw)[1]] }; }; // elbow pivot (+its offset) in the upper bone's frame; wrist pivot (+its offset) in the forearm's frame
   const driverFrame = (P_, sg, out, f) => { const h = P_.hands.find((x) => x.ref === sg.driver), s = out[h?.rig]; if (!s) return null;
     if (sg.driver_path) { const R_ = rigs.get(h.rig), sk = R_.socketById.get(h.socket), ik = R_.rec.constraints.find((k) => k.type === "TWO_BONE_IK" && k.chain[2] === sk.joint_id), [js, je, jw] = ik.chain;
       const M0 = fk(h.rig, s), rs = R_.joints.get(js).rest_xy, re = R_.joints.get(je).rest_xy, rw = R_.joints.get(jw).rest_xy, sc = scaleOf(M0[js]), A = apply(M0[js], rs);
       const pj = R_.joints.get(js).parent_id, parentM = pj ? M0[pj] : chain(T(s.root.x, s.root.y), R(s.root.rot), Sc(s.root.scale), T(-R_.root.rest_xy[0], -R_.root.rest_xy[1])), pa = angleOf(parentM);
       const phi = sg.driver_path.rot ? ev(sg.driver_path.rot, f) - (sk.basis_angle_deg || 0) : angleOf(M0[jw]), local = applyVec(chain(R(phi), Sc(sc)), sk.local_xy), tgt = [ev(sg.driver_path.x, f), ev(sg.driver_path.y, f)], Wt = [tgt[0] - local[0], tgt[1] - local[1]];
-      const sol = solveTwoBonePosition(A, Wt, dist(rs, re) * sc, dist(re, rw) * sc, ik.bend_sign ?? 1), aSE = deg(Math.atan2(re[1] - rs[1], re[0] - rs[0])), aEW = deg(Math.atan2(rw[1] - re[1], rw[0] - re[0]));
+      const G = limbRest(R_, s, ik.chain), sol = solveTwoBonePosition(A, Wt, dist(rs, G.reO) * sc, dist(re, G.rwO) * sc, ikBranch(h.rig, ik.chain, Math.floor(f), ik.bend_sign ?? 1)), aSE = deg(Math.atan2(G.reO[1] - rs[1], G.reO[0] - rs[0])), aEW = deg(Math.atan2(G.rwO[1] - re[1], G.rwO[0] - re[0]));
       const ts = wrap180(deg(Math.atan2(sol.elbow[1] - A[1], sol.elbow[0] - A[0])) - aSE - pa), te = wrap180(deg(Math.atan2(Wt[1] - sol.elbow[1], Wt[0] - sol.elbow[0])) - aEW - pa - ts); s.theta[js] = ts; s.theta[je] = te; s.theta[jw] = wrap180(phi - pa - ts - te); }
     return socketFrame(h.rig, fk(h.rig, s), h.socket); };
   const surfaceFrame = (P_, sg, out) => { const sf = P_.surfaces.find((x) => x.ref === sg.driver); if (!sf?.target_rig || !out[sf.target_rig]) return null; return socketFrame(sf.target_rig, fk(sf.target_rig, out[sf.target_rig]), sf.target_socket); };
@@ -326,7 +333,7 @@ export function compileMotionTracks(actions, shots, ctx) {
       // hand orientation: "WORLD" (default) keeps the unconstrained FK world angle; "RELATIVE" keeps the wrist's own track angle relative to the
       // solved forearm (fixed-point iteration on the small socket offset; converges because |local| << bone lengths)
       const orient = rampOf(k)?.orient || "WORLD", A = apply(M0[js], rs), thW = s.theta[jw];
-      const pa = angleOf(parentM), aSE = deg(Math.atan2(re[1] - rs[1], re[0] - rs[0])), aEW = deg(Math.atan2(rw[1] - re[1], rw[0] - re[0]));
+      const G = limbRest(R_, s, k.chain), bend = ikBranch(k.rig, k.chain, Math.floor(f), k.bend), pa = angleOf(parentM), aSE = deg(Math.atan2(G.reO[1] - rs[1], G.reO[0] - rs[0])), aEW = deg(Math.atan2(G.rwO[1] - re[1], G.rwO[0] - re[0]));
       try {
         // P08 B02: a declared contact basis is SOLVED: the wrist takes the world angle that puts the socket basis on the target basis (blended in over
         // the approach ramp); the wrist limit then refuses an impossible palm instead of the contact silently keeping an arbitrary FK angle
@@ -335,13 +342,13 @@ export function compileMotionTracks(actions, shots, ctx) {
         let phi = phiT ?? phiW, sol, Wt, ts, te, tw;
         for (let it = 0; it < (orient === "RELATIVE" && phiT === null ? 12 : 1); it++) {
           const local = applyVec(chain(R(phi), Sc(sc)), k.socket.local_xy); Wt = [target[0] - local[0], target[1] - local[1]];
-          sol = solveTwoBonePosition(A, Wt, dist(rs, re) * sc, dist(re, rw) * sc, k.bend);
+          sol = solveTwoBonePosition(A, Wt, dist(rs, G.reO) * sc, dist(re, G.rwO) * sc, bend);
           ts = wrap180(deg(Math.atan2(sol.elbow[1] - A[1], sol.elbow[0] - A[0])) - aSE - pa); te = wrap180(deg(Math.atan2(Wt[1] - sol.elbow[1], Wt[0] - sol.elbow[0])) - aEW - pa - ts);
           if (phiT !== null) tw = wrap180(phiT - pa - ts - te); else if (orient === "RELATIVE") { tw = thW; phi = pa + ts + te + tw; } else tw = wrap180(phiW - pa - ts - te);
         }
         if (!k.locked) { // blending from/to FK: the approved bend branch must be the FK pose's branch, otherwise the elbow would flip on the ramp boundary
           const Efk = apply(M0[je], re), Wfk = apply(M0[jw], rw), side = Math.sign((Wfk[0] - A[0]) * (Efk[1] - A[1]) - (Wfk[1] - A[1]) * (Efk[0] - A[0])); // the FK pose's own branch
-          if (side && side !== k.bend) failures.push(err("UNAPPROVED_BEND_BRANCH", { record_id: `${k.rig}.${je}`, frame_range: [f, f + 1], dependency: k.action.id, reason: `declared bend_sign ${k.bend} contradicts the approved FK pose (elbow on side ${side}); the limb would flip branch at the reach boundary` }));
+          if (side && side !== bend) failures.push(err("UNAPPROVED_BEND_BRANCH", { record_id: `${k.rig}.${je}`, frame_range: [f, f + 1], dependency: k.action.id, reason: `declared bend_sign ${bend} contradicts the approved FK pose (elbow on side ${side}); the limb would flip branch at the reach boundary` }));
         }
         s.theta[js] = ts; s.theta[je] = te; s.theta[jw] = tw;
         for (const [j, v] of [[js, ts], [je, te], [jw, tw]]) { ikSolved.add(`${k.rig}.${j}`); const lim = R_.joints.get(j).rotation_limits_deg; if (v < lim[0] - 1e-6 || v > lim[1] + 1e-6) failures.push(err("JOINT_LIMIT_EXCEEDED", { record_id: `${k.rig}.${j}`, shot_id: k.action.shot_id, frame_range: [f, f + 1], dependency: k.action.id, suggested_producer: "re-stage within approved range or GPT pose cel for this extreme", reason: `${j} needs ${v.toFixed(2)}° outside approved [${lim}]`, details: { joint: j, angle: v, limits: lim } })); }

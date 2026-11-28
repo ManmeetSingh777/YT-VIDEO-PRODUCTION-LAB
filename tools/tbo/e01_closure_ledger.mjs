@@ -9,7 +9,8 @@ const FILM = path.resolve(REPO, arg("film")), PROG = J(path.resolve(REPO, arg("p
 const doc = J(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json")), have = new Map(doc.assets.filter((a) => a.file).map((a) => [a.id, a]));
 const approvedMasters = new Set(["MIA_MASTER", "ART_P01.MASTER", "ART_P02.MASTER", "ART_P03.MASTER", "ART_BG01.BG_DINER_A.MASTER", "ART_BG01.BG_DINER_B.MASTER"]); // signed HUMAN receipts (verified against the trust anchor 2026-11-27)
 const PITEMS = PROG.requests || PROG.items; if (!PROG.engine_constructed) PROG.engine_constructed = J(path.join(FILM, "artwork_handoff", "REQUESTS_V4.json")).engine_constructed;
-const yielded = new Map(); for (const it of PITEMS) for (const y of it.yields || []) if (!yielded.has(y)) yielded.set(y, it);
+const DELTA = arg("delta") ? J(path.resolve(REPO, arg("delta"))).items : []; // program delta: its items supersede same-id program items and add new producers
+const yielded = new Map(); for (const it of DELTA) for (const y of it.yields || []) if (!yielded.has(y)) yielded.set(y, it); for (const it of PITEMS) if (!DELTA.some((d) => d.id === it.id)) for (const y of it.yields || []) if (!yielded.has(y)) yielded.set(y, it);
 const A6F = "E:/TBO_PRIVATE/E01_PACKET_AMENDMENT_06/AMENDMENT_REPORT.json", add06 = fs.existsSync(A6F) ? J(A6F).added.map((x) => ({ art_id: x.id, kind: "CEL", identity: x.id.match(/CHAR_\w+/)[0], master: null, required_by_actions: [], route: "amendment 06 body-view limb" })) : [];
 const segMaps = fs.readdirSync(path.join(FILM, "segmentation")).filter((f) => /\.map\.json$/.test(f)).flatMap((f) => Object.values(J(path.join(FILM, "segmentation", f))).flat());
 const performed = new Set(Object.values(PV).flatMap((r) => r.assignments.map((a) => a.asset)));
