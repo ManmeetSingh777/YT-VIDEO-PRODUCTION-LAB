@@ -18,7 +18,7 @@
 //   sway:        [{ joint, amplitude_deg, period_frames, phase_frames? }] additive idle life on any joints
 //   follow:      [{ joint, driver_joint, stiffness, damping, gain }]      hair / clothing / accessory follow-through (baked springs)
 //   gaze:        { joint, target: {rig, socket} | {world_xy}, gain, max_deg, frames? }   head/eye aim toward a target (additive)
-//   blink:       { channel, open, closed, period_frames, duration_frames, phase_frames?, extra_frames?: [f] }
+//   blink:       { channel, open, closed, period_frames, duration_frames, phase_frames?, extra_frames?: [f], exclude_frames?: [[a, b)] }
 //   speech:      { channel, rest, open, mid?, words: [{start_s, end_s, w}] }   measured narration words → mouth-state swaps
 // }
 import { err } from "./errors.mjs";
@@ -95,7 +95,7 @@ export function compileActing(doc, plan, { fps = doc.stage?.fps || 60, actions =
     const directed = (ch, f, fallback) => { let st = null, at = -1; for (const a of actions) for (const e of a.state_events || []) if ((e.rig ?? (a.actors.length === 1 ? a.actors[0].rig_id : null)) === rid && e.channel === ch && e.frame <= f && e.frame >= at) { st = e.state; at = e.frame; }
       return st ?? chan(ch)?.default ?? fallback; };
     if (A.blink) { const B = A.blink, c = chan(B.channel); if (needState(c, B.open, "blink") && needState(c, B.closed, "blink")) { const fs_ = new Set(B.extra_frames || []); for (let f = B.phase_frames || 0; f < total; f += B.period_frames) fs_.add(f);
-      for (const f of [...fs_].sort((p, q) => p - q)) { const w = inWin(f); if (!w || f + B.duration_frames >= w[1]) continue; events.push({ frame: f, rig: rid, channel: B.channel, state: B.closed, shot: w[2], source: "acting:blink" }, { frame: f + B.duration_frames, rig: rid, channel: B.channel, state: directed(B.channel, f + B.duration_frames, B.open), shot: w[2], source: "acting:blink" }); rep.blinks++; } } }
+      for (const f of [...fs_].sort((p, q) => p - q)) { const w = inWin(f); if (!w || f + B.duration_frames >= w[1]) continue; if ((B.exclude_frames || []).some(([a, b]) => f < b && f + B.duration_frames > a)) continue; /* directed no-blink windows (e.g. a photo capture) */ events.push({ frame: f, rig: rid, channel: B.channel, state: B.closed, shot: w[2], source: "acting:blink" }, { frame: f + B.duration_frames, rig: rid, channel: B.channel, state: directed(B.channel, f + B.duration_frames, B.open), shot: w[2], source: "acting:blink" }); rep.blinks++; } } }
     if (A.speech) { const Sp = A.speech, c = chan(Sp.channel); if (needState(c, Sp.rest, "speech") && needState(c, Sp.open, "speech") && (!Sp.mid || needState(c, Sp.mid, "speech"))) {
       for (const w of Sp.words || []) { const f0 = Math.round(w.start_s * fps), f1 = Math.max(f0 + 1, Math.round(w.end_s * fps)), win = inWin(f0); if (!win) continue; const n = syllables(w.w), len = (f1 - f0) / n;
         for (let i = 0; i < n; i++) { const a = Math.round(f0 + i * len), m = Math.round(a + len * 0.6); events.push({ frame: a, rig: rid, channel: Sp.channel, state: Sp.open, shot: win[2], source: `acting:speech:${w.w}` }); if (Sp.mid && m > a && m < f1) events.push({ frame: m, rig: rid, channel: Sp.channel, state: Sp.mid, shot: win[2], source: `acting:speech:${w.w}` }); rep.speech_swaps++; }

@@ -38,6 +38,7 @@ export function frameDefects(b, { width = null, height = null } = {}) {
 /** renderChunk(session, [s,e], {write, onFrame, retries, crashAt}) — async, one frame in memory at a time; frozen-motion detection:
  *  if the scene's expected state changed (state_sha differs) but the pixels did not, the renderer dropped motion (FROZEN_FRAME). */
 export async function renderChunk(session, [s, e], { write = null, retries = 1, crashAt = null, prev = null } = {}) {
+  if (write) { const { requireFree, renderEstimate } = await import("../production/storage_guard.mjs"); requireFree(typeof write === "string" ? write : process.cwd(), renderEstimate(e - s), { what: `render chunk [${s},${e})` }); } // storage guard before writing frames
   const hashes = [], defects = [], stateHashes = [], owners = {}; let lastRgb = prev?.rgb_sha ?? null, lastState = prev?.state_sha ?? null;
   for (let f = s; f < e; f++) {
     let out = null;

@@ -165,3 +165,23 @@
   2. The channel "repertoire" rule demands every state of every channel, even unreachable ones (it still demands REGULAR.mouth_warm). It should demand reachable states only (default + directed + acting blink/speech), but that needs the motion plan's acting block.
 - **No film-level motion plan:** handoff/MOTION_PLAN.json does not exist. The engine has never compiled E01's choreography (joint keys, acting, contacts, camera); this is the next production step after the artwork.
 - **Storage:** drive E: is 100% full (≈320 MB free). Render-based tests failed from truncated chunks (p01_film_qa, p02_injection); this is environmental, not code. No rendering is possible until space is freed.
+
+## Motion compilation and demand closure round (2026-11-28, evening)
+- **Storage:** free space verified (E: 126 GB, C: 62, D: 58). New `engine/production/storage_guard.mjs` (SG-1): every render chunk checks real free space with a 5 GB margin before writing; scratch can be routed with TBO_SCRATCH_DIR.
+- **Semantic motion plan** (`engine/story/semantic_motion_plan.mjs`, `tools/tbo/e01_compile_motion_plan.mjs`) → films/e01/handoff/MOTION_PLAN.json:
+  - directed root positions, 32 pose targets, 14 view changes, 23 gaze intervals, 16 contact windows, prop support/photo intent;
+  - measured speech words for all 3 speakers; blinks (engine default pending the director; no blink in Mia's capture window — new acting `exclude_frames`);
+  - cuts at 444/588; recoverable f959 outgoing state.
+  - 50 symbolic geometry bindings (joints, contact transforms, camera framing) bind when art is measured. The acting compile has 0 errors.
+- **Reachable-state demand:** when the motion plan is known, channels demand only reachable states (default + directed + blink/speech) and view-qualified drawings in their view (RS-1). REGULAR.mouth_warm is no longer demanded; nothing was deleted.
+- **Body facing separated from head view** (asset_state, view_demand, adapter, schemas; BF-1). Amendment 06 (1a82ca0a…): 40 limb drawings for real body turns, 111 facial view metadata, 0 residual view mismatch.
+- **Demand reconciliation** (DEMAND_RECONCILIATION.json): the renderer's 369 missing assets → 129 standalone V5 requests + extraction + native constructions + body-facing compatibility + structural layers + 1 unreachable state. 0 unclassified.
+- **Closure ledger:** 385 obligations, 0 unresolved, 34 by deterministic extraction.
+- **V4 partial return:** preserved and verified.
+  - LEAD A02 round01 imported as a valid candidate, UNRESOLVED (arms) and not promoted.
+  - The collages are rejected.
+  - Uploads were interface-transformed copies with no verified edit binding (recorded).
+- **Program V5:** 156 standalone requests (one image each, own attachments/prompt/construction/acceptance, ORCHESTRATION.md separate).
+  - A02 becomes an arms-only repair of the candidate.
+  - Four items moved to extraction after master approval; 26 amendment-06 limb items chained to their torso views.
+- **Footage:** none yet. No E01 interval has all of its art: Mia's heads/hands, LEAD/REGULAR, the background states and the restaurant are pending art or signature.

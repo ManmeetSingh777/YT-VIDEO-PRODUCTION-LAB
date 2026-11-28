@@ -2067,6 +2067,9 @@
        "facing": {
         "$ref": "#/$defs/id"
        },
+       "body_facing": {
+        "$ref": "#/$defs/id"
+       },
        "bindings": {
         "type": "object",
         "additionalProperties": {

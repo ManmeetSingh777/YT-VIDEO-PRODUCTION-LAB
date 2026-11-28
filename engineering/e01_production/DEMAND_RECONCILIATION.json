@@ -1,0 +1,1863 @@
+{
+ "source": "art_bridge_qa SH01 missing_art (369 unique) after packet 5887 acceptance",
+ "tally": {
+  "NEW_ARTWORK": 280,
+  "NATIVE_PROCEDURAL_CONSTRUCTION": 7,
+  "NEW_ARTISTIC_MANUFACTURING": 26,
+  "DETERMINISTIC_EXTRACTION": 34,
+  "RESOLVED_BY_BODY_FACING": 10,
+  "AMENDMENT_06": 1,
+  "DETERMINISTIC_FROM_APPROVED_PARTS": 6,
+  "UNREACHABLE": 1,
+  "STRUCTURAL": 4
+ },
+ "new_artwork_requests_covering": 129,
+ "rows": [
+  {
+   "renderer_asset": "ART_BG01.BG_DINER_A.gesture",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "D1"
+  },
+  {
+   "renderer_asset": "ART_BG01.BG_DINER_A.settle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "D2"
+  },
+  {
+   "renderer_asset": "ART_BG01.BG_DINER_B.gesture",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "D3"
+  },
+  {
+   "renderer_asset": "ART_BG01.BG_DINER_B.settle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "D4"
+  },
+  {
+   "renderer_asset": "ART_BG01.BG_OCCUPANCY.rest",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "B1"
+  },
+  {
+   "renderer_asset": "ART_BG01.BG_OCCUPANCY.settle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "B2"
+  },
+  {
+   "renderer_asset": "ART_BG02.BG_QUEUE.gesture",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "B3"
+  },
+  {
+   "renderer_asset": "ART_BG02.BG_QUEUE.settle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "B4"
+  },
+  {
+   "renderer_asset": "ART_CAM01.coverage",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / WAITING_ON_ENV01_PLANES",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_ENV01.counter",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_ENV01.counter_occluder",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_ENV01.far",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_ENV01.foreground",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / EMPTY_BY_DESIGN",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_ENV01.mid",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows_discreet",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.discreet"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows_focused",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.focused"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows_ordinary",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.ordinary"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows_task_focus",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.staff_side.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows_task_focus__to_edge",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.brows_task_focus__to_staff",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_staff.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_discreet",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.discreet"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_focused",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.focused"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_ordinary",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.ordinary"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_task_focus",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.staff_side.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_task_focus__to_edge",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_task_focus__to_staff",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_staff.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_blink_closed",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.staff_side.blink_closed"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_blink_closed__to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.blink_closed"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_blink_open",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_discreet",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.discreet"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_focused",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.focused"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_ordinary",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.ordinary"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_task_focus",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.staff_side.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_task_focus__to_edge",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.eyes_task_focus__to_staff",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_staff.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.leg_l"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.leg_r"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.head",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.H.to_mia"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.head_staff_side",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.H.staff_side"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.head_to_edge",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.H.to_edge"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.head_to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.H.to_mia"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.head_to_staff",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.H.to_staff"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.head.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.H.to_mia"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.leg_l"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.leg_r"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.leg_l"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.leg_r"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.torso",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.torso_staff_side",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.T.staff_side"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.torso_to_edge",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.T.to_edge"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.torso_to_mia",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.torso_to_staff",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.T.to_staff"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.torso.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.torso"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.l.open.far"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_far.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_near",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_near.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.l.open.far"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_near",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_page_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.l.page_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_page_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.l.page_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.r.open.far"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_far.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.r.open.near"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_near.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.r.open.far"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.r.open.near"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_page_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.r.page_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_page_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.K.r.page_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_focused",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.focused"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.mid"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_open",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.open"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_ordinary",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_mia.ordinary"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_rest",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_task_focus",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.staff_side.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_task_focus__to_edge",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_edge.task_focus"
+  },
+  {
+   "renderer_asset": "ART_L03.CHAR_LEAD.mouth_task_focus__to_staff",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "LEAD.F.to_staff.task_focus"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_l@down_report",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_l@to_lead",
+   "route": "NEW_ARTWORK (V5 amendment-06 item)",
+   "ref": "MIA.A6.to_lead.arm_l"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_l@to_lens",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_r@down_report",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_r@to_lead",
+   "route": "NEW_ARTWORK (V5 amendment-06 item)",
+   "ref": "MIA.A6.to_lead.arm_r"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.fore_r@to_lens",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.torso_down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.T.down_report"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.torso_to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.T.to_lead"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.torso_to_lens",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.T.to_lens"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.torso.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.torso"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_l@down_report",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_l@to_lead",
+   "route": "NEW_ARTWORK (V5 amendment-06 item)",
+   "ref": "MIA.A6.to_lead.arm_l"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_l@to_lens",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_r@down_report",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_r@to_lead",
+   "route": "NEW_ARTWORK (V5 amendment-06 item)",
+   "ref": "MIA.A6.to_lead.arm_r"
+  },
+  {
+   "renderer_asset": "ART_M02.CHAR_MIA.upper_r@to_lens",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_award_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.l.award_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_award_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.l.award_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.l.open.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_far.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near@down_report",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near@to_lead",
+   "route": "AMENDMENT_06",
+   "ref": "ART_M03.CHAR_MIA.hand_l_near__to_lead"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near@to_lens",
+   "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_open_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.l.open.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_page_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.l.page_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_page_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.l.page_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_award_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.award_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_award_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.award_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.open.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_far.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.open.near"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_near.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_open_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.open.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_open_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.open.near"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_page_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.page_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_page_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.K.r.page_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_attentive",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.attentive"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_attentive__down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.attentive"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_blink_closed",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.blink_closed"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_blink_closed__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.blink_closed"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_blink_closed__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.blink_closed"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_concern",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.concern"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_concern__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.concern"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_genuine_grin",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.genuine_grin"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_grin_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_mid"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_grin_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_onset"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_mock_regal",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.mock_regal"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_read",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.read"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_restrained_reply",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.restrained_reply"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_slipping",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.slipping"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_mid"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_onset"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_smile",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lens.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_smile__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.eyes_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.warm"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.head",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.H.to_regular"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.head_down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.H.down_report"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.head_to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.H.to_lead"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.head_to_lens",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.H.to_lens"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.head_to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.H.to_regular"
+  },
+  {
+   "renderer_asset": "ART_M04.CHAR_MIA.head.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.H.to_regular"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_attentive",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.attentive"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_attentive__down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.attentive"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_concern",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.concern"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_concern__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.concern"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_genuine_grin",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.genuine_grin"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_grin_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_mid"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_grin_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_onset"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_mock_regal",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.mock_regal"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_read",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.read"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_restrained_reply",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.restrained_reply"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_slipping",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.slipping"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_social_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_mid"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_social_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_onset"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_social_smile",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lens.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_social_smile__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.brows_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.warm"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_attentive",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.attentive"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_attentive__down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.attentive"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_concern",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.concern"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_concern__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.concern"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_genuine_grin",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.genuine_grin"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_grin_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_mid"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_grin_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_onset"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_mock_regal",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.mock_regal"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_read",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.read"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_restrained_reply",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.restrained_reply"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_slipping",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.slipping"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_mid"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_onset"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_smile",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lens.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_smile__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M05.CHAR_MIA.cheeks_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.warm"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_attentive",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.attentive"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_attentive__down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.attentive"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_concern",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.concern"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_concern__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.concern"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_genuine_grin",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.genuine_grin"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_grin_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_mid"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_grin_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.grin_onset"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.mid"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_mid__down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.mid"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_mid__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.mid"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_mock_regal",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.mock_regal"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_open",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.open"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_open__down_report",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.open"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_open__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lead.open"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_read",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.read"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_slipping",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.down_report.slipping"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_mid"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_onset"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_smile",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_lens.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_smile__to_regular",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.social_smile"
+  },
+  {
+   "renderer_asset": "ART_M06.CHAR_MIA.mouth_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "MIA.F.to_regular.warm"
+  },
+  {
+   "renderer_asset": "ART_P01.alternate_views",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "P1"
+  },
+  {
+   "renderer_asset": "ART_P01.contact_mask",
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_P01.contact_shadow",
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_P02.alternate_views",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "P3"
+  },
+  {
+   "renderer_asset": "ART_P02.contact_mask",
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_P02.contact_shadow",
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_P03.alternate_views",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "P5"
+  },
+  {
+   "renderer_asset": "ART_P03.contact_mask",
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_P03.contact_shadow",
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_aiming",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.aiming"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_anticipating",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.anticipating"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_blink_closed",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.blink_closed"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_blink_open",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_chuckle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_chuckle_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_chuckle_recover",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_encouraging",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.encouraging"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_encouraging__room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.room.encouraging"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_satisfied",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_satisfied__to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_waiting",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.waiting"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_waiting__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_lead.waiting"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.warm"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.fore_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.fore_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.fore_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.fore_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.l.open.far"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_far.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_near",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_near.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_open_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.l.open.far"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_open_near",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_phone_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.l.phone_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_phone_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.l.phone_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.open.far"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_far.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.open.near"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_near.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_open_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.open.far"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_open_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.open.near"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_phone_wrap_far",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.phone_wrap.far"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_phone_wrap_near",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.phone_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.head",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.H.to_mia"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.head_own_screen",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.H.own_screen"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.head_room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.H.room"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.head_to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.H.to_lead"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.head_to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.H.to_mia"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.head.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.H.to_mia"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_approach",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.thumb.approach"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_control",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.thumb.rest"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_control.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.K.r.phone_wrap.near"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_pressed",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.thumb.pressed"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_release",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.thumb.release"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_rest",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.thumb.rest"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.torso",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.torso_own_screen",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.T.own_screen"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.torso_room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.T.room"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.torso_to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.T.to_lead"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.torso_to_mia",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.torso.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.torso"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.upper_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.upper_l.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_l"
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.upper_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R01.CHAR_REGULAR.upper_r.underpaint",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.U.arm_r"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_aiming",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.aiming"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_anticipating",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.anticipating"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_chuckle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_chuckle_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_chuckle_recover",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_encouraging",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.encouraging"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_encouraging__room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.room.encouraging"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_satisfied",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_satisfied__to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_waiting",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_waiting__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_lead.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.brows_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.warm"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_aiming",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.aiming"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_anticipating",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.anticipating"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_chuckle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_chuckle_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_chuckle_recover",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_encouraging",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.encouraging"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_encouraging__room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.room.encouraging"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_satisfied",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_satisfied__to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_waiting",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_waiting__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_lead.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_warm",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.warm"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_aiming",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.aiming"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_anticipating",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.anticipating"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_chuckle",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_chuckle_onset",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_chuckle_recover",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_mid",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.mid"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_mid__room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.room.mid"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_open",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.open"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_open__room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.room.open"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_rest",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
+   "ref": null
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_satisfied",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.own_screen.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_satisfied__to_mia",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.satisfied"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_waiting",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_mia.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_waiting__room",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.room.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_waiting__to_lead",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "REGULAR.F.to_lead.waiting"
+  },
+  {
+   "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_warm",
+   "route": "UNREACHABLE (no event/acting path selects it; motion plan acting known)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.brows",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.brows"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.cheeks",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.cheeks"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.eyes",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.eyes"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.foot_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.foot_l"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.foot_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.foot_r"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.fore_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.fore_l"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.fore_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.fore_r"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.head",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "LEAD.H.to_mia"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.shin_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.shin_l"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.shin_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.shin_r"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.thigh_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.thigh_l"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.thigh_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.thigh_r"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.torso",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.torso"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.upper_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.upper_l"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.upper_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_L01.CHAR_LEAD.upper_r"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_l_far",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "LEAD.K.l.open.far"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_l_near",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_L02.CHAR_LEAD.hand_l_near"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_r_far",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "LEAD.K.r.open.far"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_r_near",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "LEAD.K.r.open.near"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.ART_L03.CHAR_LEAD.mouth",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_L03.CHAR_LEAD.mouth"
+  },
+  {
+   "renderer_asset": "CHAR_LEAD.hand_r.near_far_hand_layers",
+   "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "CHAR_MIA.ART_M03.CHAR_MIA.hand_l_far",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "MIA.K.l.open.far"
+  },
+  {
+   "renderer_asset": "CHAR_MIA.ART_M03.CHAR_MIA.hand_r_far",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "MIA.K.r.open.far"
+  },
+  {
+   "renderer_asset": "CHAR_MIA.ART_M03.CHAR_MIA.hand_r_near",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "MIA.K.r.open.near"
+  },
+  {
+   "renderer_asset": "CHAR_MIA.ART_M04.CHAR_MIA.head",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "MIA.H.to_regular"
+  },
+  {
+   "renderer_asset": "CHAR_MIA.hand_l.near_far_hand_layers",
+   "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "CHAR_MIA.hand_r.near_far_hand_layers",
+   "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.eyes",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.eyes"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.fore_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.fore_l"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.fore_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.fore_r"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_l_far",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "REGULAR.K.l.open.far"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_l_near",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.hand_l_near"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_r_far",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "REGULAR.K.r.open.far"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_r_near",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "REGULAR.K.r.open.near"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.head",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "REGULAR.H.to_mia"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.thumb_control",
+   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
+   "ref": "REGULAR.thumb.rest"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.torso",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.torso"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.upper_l",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.upper_l"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.upper_r",
+   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
+   "ref": "ART_R01.CHAR_REGULAR.upper_r"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R02.CHAR_REGULAR.brows",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_R02.CHAR_REGULAR.brows"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R02.CHAR_REGULAR.cheeks",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_R02.CHAR_REGULAR.cheeks"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.ART_R02.CHAR_REGULAR.mouth",
+   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
+   "ref": "ART_R02.CHAR_REGULAR.mouth"
+  },
+  {
+   "renderer_asset": "CHAR_REGULAR.hand_r.near_far_hand_layers",
+   "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
+   "ref": null
+  },
+  {
+   "renderer_asset": "REGULAR_MASTER",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "A03"
+  },
+  {
+   "renderer_asset": "LEAD_MASTER",
+   "route": "NEW_ARTWORK (V5)",
+   "ref": "A02"
+  },
+  {
+   "renderer_asset": "WORLD_RESTAURANT.ART_ENV01.counter",
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE [rig-qualified reference]",
+   "ref": "ART_ENV01.counter"
+  }
+ ],
+ "note": "Renderer references ≠ images: 369 renderer assets map to 129 V5 standalone requests (many requests yield several assets: faces → 4 channels, multi-piece limbs, near/far pairs), plus extraction, native constructions, structural layer requirements and one unreachable state."
+}

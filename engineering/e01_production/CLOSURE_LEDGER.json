@@ -1,32 +1,33 @@
 {
- "generated": "2026-11-27T23:46:54.060Z",
- "obligations": 345,
+ "generated": "2026-11-28T01:03:37.915Z",
+ "obligations": 385,
  "from_original_inventory": 304,
  "from_amendment_05": 41,
+ "from_amendment_06": 40,
  "by_disposition": {
   "EXISTING_APPROVED_MASTER": 6,
   "NEW_ARTISTIC_MANUFACTURING (master correction)": 2,
   "NATIVE_PROCEDURAL_CONSTRUCTION": 9,
   "EXISTING_MASTER_AWAITING_APPROVAL": 2,
-  "NEW_ARTISTIC_MANUFACTURING": 277,
+  "NEW_ARTISTIC_MANUFACTURING": 301,
   "REGISTERED_COMPONENT_AWAITING_APPROVAL": 24,
-  "DETERMINISTIC_EXTRACTION": 18,
+  "DETERMINISTIC_EXTRACTION": 34,
   "DETERMINISTIC_FROM_APPROVED_PARTS": 6,
   "SUPERSEDED_FOR_E01": 1
  },
  "by_status": {
   "APPROVED": 6,
-  "IN_PROGRAM_V4": 279,
+  "IN_PROGRAM_V4": 303,
   "CONSTRUCTED_AWAITING_PACKET_SIGNATURE": 7,
   "REGISTERED_PENDING_REVIEW": 26,
-  "WAITING_ON_CORRECTED_MASTER": 18,
+  "WAITING_ON_CORRECTED_MASTER": 34,
   "SPEC_READY_WAITING_ON_PARTS": 6,
   "EMPTY_BY_DESIGN": 1,
   "WAITING_ON_ENV01_PLANES": 1,
   "OMITTED_UNUSED": 1
  },
  "unresolved": [],
- "manufactured": 33,
+ "manufactured": 35,
  "motion_qualified": 0,
  "rows": [
   {
@@ -168,7 +169,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -2798,15 +2799,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "A03"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.K.l.open.near",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2849,7 +2850,7 @@
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.K.l.open.near"
+    "A03"
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V4",
@@ -2868,15 +2869,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "A03"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.K.l.open.near",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -2895,7 +2896,7 @@
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.K.l.open.near"
+    "A03"
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V4",
@@ -3098,15 +3099,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.H.to_mia"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3321,15 +3322,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.H.to_mia"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3574,15 +3575,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.H.to_mia"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3597,15 +3598,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.H.to_mia"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3820,15 +3821,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.H.to_mia"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -3842,15 +3843,15 @@
     "E01-S001-A16",
     "E01-S001-A19"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "REGULAR_MASTER",
-    "REGULAR.H.to_mia"
+    "REGULAR_MASTER (A03) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item REGULAR.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4544,15 +4545,15 @@
     "E01-S001-A08",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "A02"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.K.l.open.near",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4591,7 +4592,7 @@
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.K.l.open.near"
+    "A02"
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V4",
@@ -4608,15 +4609,15 @@
     "E01-S001-A08",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "A02"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.K.l.open.near",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -4633,7 +4634,7 @@
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.K.l.open.near"
+    "A02"
    ],
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V4",
@@ -4951,15 +4952,15 @@
     "E01-S001-A17",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.H.to_mia"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5058,15 +5059,15 @@
     "E01-S001-A17",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.H.to_mia"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5185,15 +5186,15 @@
     "E01-S001-A09",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.H.to_mia"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5207,15 +5208,15 @@
     "E01-S001-A17",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.H.to_mia"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5313,15 +5314,15 @@
     "E01-S001-A17",
     "E01-S001-A27"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_PART_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.H.to_mia"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5333,15 +5334,15 @@
     "E01-S001-A06",
     "E01-S001-A17"
    ],
-   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "disposition": "DETERMINISTIC_EXTRACTION",
    "route": "SOURCE_ATTACHED_STATE_EDIT",
    "dependencies": [
     "LEAD_MASTER",
-    "LEAD.H.to_mia"
+    "LEAD_MASTER (A02) approved"
    ],
-   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
-   "status": "IN_PROGRAM_V4",
-   "producer": "program V4 item LEAD.F.to_mia.neutral",
+   "required_evidence": "segmentation seeds authored on the approved corrected master; extraction + registration receipt",
+   "status": "WAITING_ON_CORRECTED_MASTER",
+   "producer": "engine/tools/segment_master.py + component_extract.mjs",
    "manufactured": false,
    "motion_qualified": false
   },
@@ -5746,7 +5747,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -7331,6 +7332,670 @@
    "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
    "status": "IN_PROGRAM_V4",
    "producer": "program V4 item REGULAR.F.room.mid",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M02.CHAR_MIA.fore_l__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.arm_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M02.CHAR_MIA.fore_r__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.arm_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M02.CHAR_MIA.upper_l__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.arm_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M02.CHAR_MIA.upper_r__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.arm_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_l_award_wrap_far__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.A6.to_lead.hand_l.award_wrap.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_l.award_wrap.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_l_award_wrap_near__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_l.award_wrap.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_l_open_far__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.A6.to_lead.hand_l.open.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_l.open.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_l_open_near__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_l.open.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_r_award_wrap_far__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.A6.to_lead.hand_r.award_wrap.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_r.award_wrap.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_r_award_wrap_near__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_r.award_wrap.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_r_open_far__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.A6.to_lead.hand_r.open.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_r.open.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_M03.CHAR_MIA.hand_r_open_near__to_lead",
+   "kind": "CEL",
+   "identity": "CHAR_MIA",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "MIA.T.to_lead"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item MIA.A6.to_lead.hand_r.open.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.foot_l__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.leg_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.foot_l__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.leg_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.foot_r__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.leg_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.foot_r__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.leg_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.fore_l__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.arm_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.fore_l__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.arm_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.fore_r__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.arm_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.fore_r__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.arm_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.shin_l__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.leg_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.shin_l__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.leg_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.shin_r__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.leg_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.shin_r__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.leg_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.thigh_l__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.leg_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.thigh_l__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.leg_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.thigh_r__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.leg_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.thigh_r__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.leg_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.upper_l__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.arm_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.upper_l__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.arm_l",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.upper_r__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.arm_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L01.CHAR_LEAD.upper_r__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff",
+    "extraction map"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.arm_r",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_l_open_far__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.A6.staff_side.hand_l.open.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.hand_l.open.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_l_open_far__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.A6.to_staff.hand_l.open.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.hand_l.open.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_l_open_near__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.hand_l.open.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_l_open_near__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.hand_l.open.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_r_open_far__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.A6.staff_side.hand_r.open.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.hand_r.open.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_r_open_far__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.A6.to_staff.hand_r.open.near"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.hand_r.open.far",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_r_open_near__staff_side",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.staff_side"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.staff_side.hand_r.open.near",
+   "manufactured": false,
+   "motion_qualified": false
+  },
+  {
+   "obligation": "ART_L02.CHAR_LEAD.hand_r_open_near__to_staff",
+   "kind": "CEL",
+   "identity": "CHAR_LEAD",
+   "owning_actions": [],
+   "disposition": "NEW_ARTISTIC_MANUFACTURING",
+   "route": "amendment 06 body-view limb",
+   "dependencies": [
+    "LEAD.T.to_staff"
+   ],
+   "required_evidence": "returned image + truthful provenance + pixel inspection + extraction/registration receipt + signed review",
+   "status": "IN_PROGRAM_V4",
+   "producer": "program V4 item LEAD.A6.to_staff.hand_r.open.near",
    "manufactured": false,
    "motion_qualified": false
   }
