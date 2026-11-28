@@ -181,6 +181,26 @@ export function measuredFrame(reg, png, asset, lm = null) {
     const d = ref.span === "vertical" ? Math.abs(b[1] - a[1]) : Math.hypot(b[0] - a[0], b[1] - a[1]); if (!(d > 4)) throw err("UNREGISTERED_PIVOT", { record_id: asset, reason: `${ref.from_landmark}→${ref.to_landmark} span ${d.toFixed(1)}px is not measurable` }); const s = ref.px / d; return [s, 0, 0, s, 0, 0]; }
   const s = reg.on_stage_height_px ? reg.on_stage_height_px / (y1 - y0 + 1) : 1; return [s, 0, 0, s, 0, 0];
 }
+/** intakeFingerprint — the COMPLETE input identity of a registration: source bytes, the landmark set it is registered on, and its provenance lineage
+ *  (construction spec / preparation ops + mask / provider record). A continuation may skip re-registration only when ALL of it is unchanged. */
+export function intakeFingerprint({ file, landmarks, lineage }) {
+  const lm = JSON.parse(fs.readFileSync(landmarks, "utf8")), pts = lm.landmarks || lm, canon = Object.fromEntries(Object.keys(pts).sort().map((k) => [k, pts[k].map((v) => Math.round(v * 1000) / 1000)]));
+  const key = lineageKey(lineage), lin = key ? JSON.stringify(key) : null;
+  return { bytes_sha256: fsha(file), landmarks_sha256: crypto.createHash("sha256").update(JSON.stringify(canon)).digest("hex"), lineage_sha256: lin ? crypto.createHash("sha256").update(lin).digest("hex") : null };
+}
+/** lineageKey — the provenance identity that matters for re-registration (construction spec+svg / preparation parent+ops / provider record);
+ *  never the active packet digest, so accepting a packet amendment does not force re-registration of unchanged art. */
+export function lineageKey(l) { if (!l) return null; if (l.kind) return l; if (l.vector_construction) return { kind: "vector", spec: l.vector_construction.spec_sha256, svg: l.vector_construction.svg_sha256 };
+  if (l.prepared) return { kind: "prepared", from: l.prepared.from_sha256, ops: l.prepared.ops }; if (l.record_sha256) return { kind: "provider", record: l.record_sha256, candidate: l.candidate_id ?? null }; return null; }
+const fpFile = (FILM, asset) => path.join(FILM, "registration", asset, "INTAKE_FINGERPRINT.json");
+/** intakeUnchanged({film, asset, file, landmarks, lineage}) → true only if the asset is registered from exactly this complete input */
+export function intakeUnchanged({ film, asset, file, landmarks, lineage = null }) { const FILM = path.resolve(film), f = fpFile(FILM, asset);
+  if (!fs.existsSync(f)) { // legacy registration (before fingerprints): unchanged only if its receipt records these exact input bytes and its sidecar these exact landmarks
+    const dir = path.join(FILM, "registration", asset), rf = [path.join(dir, `${asset}__REGISTRATION_RECEIPT.json`), path.join(dir, "MASTER_REGISTRATION_RECEIPT.json")].find((x) => fs.existsSync(x)), side = path.join(dir, "LANDMARK_SIDECAR.json");
+    if (!rf || !fs.existsSync(side)) return false; const rec = JSON.parse(fs.readFileSync(rf, "utf8")), src = rec.source?.raw_sha256 ?? rec.source?.sha256 ?? rec.source?.file_sha256 ?? null;
+    const a = intakeFingerprint({ file, landmarks, lineage }), b = intakeFingerprint({ file, landmarks: side, lineage });
+    if (src !== a.bytes_sha256 || a.landmarks_sha256 !== b.landmarks_sha256) return false; writeFp(FILM, asset, { file, landmarks, lineage }); return true; } const a = JSON.parse(fs.readFileSync(f, "utf8")), b = intakeFingerprint({ file, landmarks, lineage }); return a.bytes_sha256 === b.bytes_sha256 && a.landmarks_sha256 === b.landmarks_sha256 && a.lineage_sha256 === b.lineage_sha256; }
+const writeFp = (FILM, asset, o) => { fs.mkdirSync(path.dirname(fpFile(FILM, asset)), { recursive: true }); fs.writeFileSync(fpFile(FILM, asset), JSON.stringify({ ...intakeFingerprint(o), at: new Date().toISOString() }, null, 1)); };
 export async function ingestMaster({ film, asset, file, landmarks, provenance, maxResidualPx = 1.0, mode = "SIMILARITY", outbox = undefined }) {
   if (!PROVENANCE.includes(provenance)) throw new Error(`provenance must be one of ${PROVENANCE}`);
   const lineage = provenance === "ENGINE_VECTOR_CONSTRUCTION" ? await vectorLineage({ film, file, asset, outbox }) : requireProvenanceLineage({ file, provenance, outbox, record_id: asset });
@@ -219,6 +239,7 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   const rec = assetRecord(doc, { ...p, kind: ["WORLD_PLANE", "TRANSITION_PLATE", "MASK"].includes(p.kind) ? p.kind : "MASTER" }, fields, provenance, `masterreg_${asset}`, lineage);
   doc.assets = doc.assets.filter((a) => a.id !== asset).concat(rec); I.master_sha256 = fields.sha256; I.approved_review_id = null; // new pixels always need a new review
   saveDoc(FILM, doc); log(FILM, { op: "ingest-master", asset, sha256: fields.sha256, max_residual_px: maxRes, status: receipt.status, canonical_rect: geom.canonical_rect });
+  writeFp(FILM, asset, { file, landmarks, lineage });
   return receipt;
 }
 
@@ -400,6 +421,7 @@ export async function ingestPart({ film, asset, file, landmarks, provenance, max
   const a = assetRecord(doc, p, fields, provenance, `partreg_${asset}`, lineage);
   doc.assets = doc.assets.filter((x) => x.id !== asset).concat(a); saveDoc(FILM, doc);
   log(FILM, { op: "ingest-part", asset, kind: p.kind, sha256: fields.sha256, master: m.id, max_residual_px: rec.max_residual_px, canonical_rect: geom.canonical_rect, underpaint_asset_ids: underpaintIds });
+  writeFp(FILM, asset, { file, landmarks, lineage });
   return { status: "REGISTERED_PENDING_REVIEW", asset, kind: p.kind, receipt: rec, crop_to_canonical: geom.crop_to_canonical_matrix, canonical_rect: geom.canonical_rect };
 }
 

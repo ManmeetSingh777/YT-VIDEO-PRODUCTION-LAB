@@ -10,5 +10,5 @@ run("constructions (accept packet, register report page/type and restaurant)", [
 for (const m of ["ART_BG01.BG_OCCUPANCY.MASTER", "ART_BG02.BG_QUEUE.MASTER"]) {
   run(`segment ${m}`, ["-e", `require("child_process").execFileSync(process.env.PYTHON||"python",["-I","engine/tools/segment_master.py","${FILM}/assets/art/${m}.png","${FILM}/segmentation/${m}.seeds.json","${FILM}/segmentation/${m}"],{stdio:"inherit"})`]);
   run(`extract ${m}`, ["engine/art_bridge/component_extract.mjs", "--film", FILM, "--out", OUT, "--master", m, "--seg", `${FILM}/segmentation/${m}`, "--map", `${FILM}/segmentation/${m}.map.json`]); }
-run("closure ledger", ["tools/tbo/e01_closure_ledger.mjs", "--film", FILM, "--program", `${FILM}/artwork_handoff/REQUESTS_V4.json`, "--out", "engineering/e01_production/CLOSURE_LEDGER.json"]);
+run("closure ledger", ["tools/tbo/e01_closure_ledger.mjs", "--film", FILM, "--program", "E:/TBO_PRIVATE/E01_ARTWORK_PROGRAM_V6/E01_ARTWORK_PROGRAM_V6/ITEMS.json", "--out", "engineering/e01_production/CLOSURE_LEDGER.json"]);
 run("advance", ["engine/tools/art_outbox.mjs", "advance", "--film", FILM, "--out", OUT, "--operator", "e01_director"]);

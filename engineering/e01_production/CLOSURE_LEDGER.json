@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28T01:38:03.711Z",
+ "generated": "2026-11-28T01:48:33.917Z",
  "obligations": 393,
  "from_original_inventory": 304,
  "from_amendment_05": 41,
@@ -32,7 +32,7 @@
   "OMITTED_UNUSED": 1
  },
  "unresolved": [],
- "manufactured": 35,
+ "manufactured": 39,
  "motion_qualified": 0,
  "rows": [
   {
@@ -5830,7 +5830,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -5851,7 +5851,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -5873,7 +5873,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
@@ -5894,7 +5894,7 @@
    "required_evidence": "re-executable construction record bound to the spec hash the active packet authorizes; part/master review",
    "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
    "producer": "engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
-   "manufactured": false,
+   "manufactured": true,
    "motion_qualified": false
   },
   {
