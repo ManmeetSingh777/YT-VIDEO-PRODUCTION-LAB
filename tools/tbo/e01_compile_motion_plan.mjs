@@ -8,8 +8,8 @@ const REPO = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), ".."
 const FILM = path.resolve(REPO, arg("film")), S = await import(url.pathToFileURL(path.join(REPO, "engine/story/semantic_motion_plan.mjs"))), A = await import(url.pathToFileURL(path.join(REPO, "engine/art_bridge/acting.mjs")));
 const pk = J(path.join(FILM, "creative", "CURRENT.json")).packet_sha256, pdir = path.join(FILM, "creative", "packets", pk), doc = J(path.join(FILM, "handoff", "ART_AND_MOTION_MANIFEST_V2.json")), { sources, used } = S.loadPacketSources(pdir);
 const capture = sources.reconciliation?.photo_intent?.aim_stable || [882, 912];
-const blinkDefaults = { CHAR_MIA: { period_frames: 210, duration_frames: 6, phase_frames: 96, exclude_frames: [capture], origin: "ENGINE_DEFAULT_PENDING_DIRECTOR (packet: microblink outside capture only)" },
-  CHAR_LEAD: { period_frames: 230, duration_frames: 6, phase_frames: 150, origin: "ENGINE_DEFAULT_PENDING_DIRECTOR" }, CHAR_REGULAR: { period_frames: 200, duration_frames: 6, phase_frames: 40, origin: "ENGINE_DEFAULT_PENDING_DIRECTOR" } };
+const blinkDefaults = { CHAR_MIA: { period_frames: 210, duration_frames: 6, phase_frames: 96, exclude_frames: [capture], origin: "DIRECTOR_CONFIRMED 2026-11-28" },
+  CHAR_LEAD: { period_frames: 230, duration_frames: 6, phase_frames: 150, origin: "DIRECTOR_CONFIRMED 2026-11-28" }, CHAR_REGULAR: { period_frames: 200, duration_frames: 6, phase_frames: 40, origin: "DIRECTOR_CONFIRMED 2026-11-28" } };
 const plan = S.compileSemanticMotionPlan({ doc, sources, packetSha: pk, blinkDefaults, qualification: [180, doc.stage.total_frames] }); plan.sources = used;
 const act = A.compileActing(doc, plan); plan.acting_compile = { events: act.events.length, errors: act.errors.map((e) => `${e.code} ${e.record_id}: ${(e.human_readable_reason || "").slice(0, 160)}`), report: act.report };
 const out = path.join(FILM, "handoff", "MOTION_PLAN.json"); fs.writeFileSync(out, JSON.stringify(plan, null, 1));

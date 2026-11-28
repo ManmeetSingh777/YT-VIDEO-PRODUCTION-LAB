@@ -1,12 +1,14 @@
 {
  "source": "art_bridge_qa SH01 missing_art (369 unique) after packet 5887 acceptance",
  "tally": {
-  "NEW_ARTWORK": 280,
+  "NEW_ARTWORK": 253,
   "NATIVE_PROCEDURAL_CONSTRUCTION": 7,
-  "NEW_ARTISTIC_MANUFACTURING": 26,
-  "DETERMINISTIC_EXTRACTION": 34,
+  "DETERMINISTIC_EXTRACTION": 56,
+  "SUPERSEDED_UNREACHABLE": 24,
+  "BASE_SLOT_DEFAULT_NEVER_DISPLAYED": 4,
   "RESOLVED_BY_BODY_FACING": 10,
-  "AMENDMENT_06": 1,
+  "EXISTING_APPROVED_COMPONENT": 1,
+  "EXPLICIT_VARIANT_ASSEMBLY": 3,
   "DETERMINISTIC_FROM_APPROVED_PARTS": 6,
   "UNREACHABLE": 1,
   "STRUCTURAL": 4
@@ -15,1849 +17,2791 @@
  "rows": [
   {
    "renderer_asset": "ART_BG01.BG_DINER_A.gesture",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "D1"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "D1",
+   "producer": "program V6 item D1",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG01.BG_DINER_A.settle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "D2"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "D2",
+   "producer": "program V6 item D2",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG01.BG_DINER_B.gesture",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "D3"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "D3",
+   "producer": "program V6 item D3",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG01.BG_DINER_B.settle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "D4"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "D4",
+   "producer": "program V6 item D4",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG01.BG_OCCUPANCY.rest",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "B1"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "B1",
+   "producer": "program V6 item B1",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG01.BG_OCCUPANCY.settle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "B2"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "B2",
+   "producer": "program V6 item B2",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG02.BG_QUEUE.gesture",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "B3"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "B3",
+   "producer": "program V6 item B3",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_BG02.BG_QUEUE.settle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "B4"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "B4",
+   "producer": "program V6 item B4",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_CAM01.coverage",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / WAITING_ON_ENV01_PLANES",
-   "ref": null
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": null,
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine camera coverage",
+   "status": "WAITING_ON_ENV01_PLANES"
   },
   {
    "renderer_asset": "ART_ENV01.counter",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
-   "ref": null
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": null,
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
+   "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE"
   },
   {
    "renderer_asset": "ART_ENV01.counter_occluder",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
-   "ref": null
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": null,
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
+   "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE"
   },
   {
    "renderer_asset": "ART_ENV01.far",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
-   "ref": null
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": null,
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
+   "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE"
   },
   {
    "renderer_asset": "ART_ENV01.foreground",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / EMPTY_BY_DESIGN",
-   "ref": null
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": null,
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine",
+   "status": "EMPTY_BY_DESIGN"
   },
   {
    "renderer_asset": "ART_ENV01.mid",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE",
-   "ref": null
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": null,
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
+   "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.brows",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows_discreet",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.discreet"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.discreet",
+   "producer": "program V6 item LEAD.F.to_mia.discreet",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows_focused",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.focused"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows_ordinary",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.ordinary"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows_task_focus",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.staff_side.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows_task_focus__to_edge",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.brows_task_focus__to_staff",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_staff.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.cheeks",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_discreet",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.discreet"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.discreet",
+   "producer": "program V6 item LEAD.F.to_mia.discreet",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_focused",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.focused"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_ordinary",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.ordinary"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_task_focus",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.staff_side.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_task_focus__to_edge",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.cheeks_task_focus__to_staff",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_staff.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.eyes",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_blink_closed",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.staff_side.blink_closed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.staff_side.blink_closed",
+   "producer": "program V6 item LEAD.F.staff_side.blink_closed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_blink_closed__to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.blink_closed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.blink_closed",
+   "producer": "program V6 item LEAD.F.to_mia.blink_closed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_blink_open",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.eyes_blink_open",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_discreet",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.discreet"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.discreet",
+   "producer": "program V6 item LEAD.F.to_mia.discreet",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_focused",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.focused"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_ordinary",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.ordinary"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_task_focus",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.staff_side.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_task_focus__to_edge",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.eyes_task_focus__to_staff",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_staff.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.foot_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.foot_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.foot_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.leg_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.leg_l",
+   "producer": "program V6 item LEAD.U.leg_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.foot_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.foot_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.foot_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.leg_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.leg_r",
+   "producer": "program V6 item LEAD.U.leg_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.fore_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.fore_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.fore_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.fore_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.fore_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.fore_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.head",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.head_staff_side",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.H.staff_side"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.staff_side",
+   "producer": "program V6 item LEAD.H.staff_side",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.head_to_edge",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.H.to_edge"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.to_edge",
+   "producer": "program V6 item LEAD.H.to_edge",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.head_to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.head_to_staff",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.H.to_staff"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.to_staff",
+   "producer": "program V6 item LEAD.H.to_staff",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.head.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.shin_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.shin_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.shin_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.leg_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.leg_l",
+   "producer": "program V6 item LEAD.U.leg_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.shin_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.shin_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.shin_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.leg_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.leg_r",
+   "producer": "program V6 item LEAD.U.leg_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.thigh_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.thigh_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.thigh_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.leg_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.leg_l",
+   "producer": "program V6 item LEAD.U.leg_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.thigh_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.thigh_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.thigh_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.leg_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.leg_r",
+   "producer": "program V6 item LEAD.U.leg_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.torso",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.torso",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.torso_staff_side",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.T.staff_side"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.T.staff_side",
+   "producer": "program V6 item LEAD.T.staff_side",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.torso_to_edge",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.T.to_edge"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "LEAD.T.to_edge",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.torso_to_mia",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.torso_to_mia",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.torso_to_staff",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.T.to_staff"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.T.to_staff",
+   "producer": "program V6 item LEAD.T.to_staff",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.torso.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.torso"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.torso",
+   "producer": "program V6 item LEAD.U.torso",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.upper_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.upper_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.upper_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.upper_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.upper_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L01.CHAR_LEAD.upper_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.l.open.far",
+   "producer": "program V6 item LEAD.K.l.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_far.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_near",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED",
+   "ref": null,
+   "producer": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED: engine state channels",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_near.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_l",
+   "producer": "program V6 item LEAD.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.l.open.far",
+   "producer": "program V6 item LEAD.K.l.open.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_near",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L02.CHAR_LEAD.hand_l_open_near",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_page_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.l.page_wrap.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "LEAD.K.l.page_wrap.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_page_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.l.page_wrap.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "LEAD.K.l.page_wrap.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.r.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.open.far",
+   "producer": "program V6 item LEAD.K.r.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_far.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.r.open.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.open.near",
+   "producer": "program V6 item LEAD.K.r.open.near",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_near.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.U.arm_r",
+   "producer": "program V6 item LEAD.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.r.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.open.far",
+   "producer": "program V6 item LEAD.K.r.open.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.r.open.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.open.near",
+   "producer": "program V6 item LEAD.K.r.open.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_page_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.r.page_wrap.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.page_wrap.far",
+   "producer": "program V6 item LEAD.K.r.page_wrap.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_page_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.K.r.page_wrap.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.page_wrap.near",
+   "producer": "program V6 item LEAD.K.r.page_wrap.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L03.CHAR_LEAD.mouth",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_focused",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.focused"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.focused",
+   "producer": "program V6 item LEAD.F.to_edge.focused",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.mid",
+   "producer": "program V6 item LEAD.F.to_mia.mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_open",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.open"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.open",
+   "producer": "program V6 item LEAD.F.to_mia.open",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_ordinary",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_mia.ordinary"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_mia.ordinary",
+   "producer": "program V6 item LEAD.F.to_mia.ordinary",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_rest",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L03.CHAR_LEAD.mouth_rest",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_task_focus",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.staff_side.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.staff_side.task_focus",
+   "producer": "program V6 item LEAD.F.staff_side.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_task_focus__to_edge",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_edge.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_edge.task_focus",
+   "producer": "program V6 item LEAD.F.to_edge.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_L03.CHAR_LEAD.mouth_task_focus__to_staff",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "LEAD.F.to_staff.task_focus"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.F.to_staff.task_focus",
+   "producer": "program V6 item LEAD.F.to_staff.task_focus",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_l@down_report",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_l@to_lead",
-   "route": "NEW_ARTWORK (V5 amendment-06 item)",
-   "ref": "MIA.A6.to_lead.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.A6.to_lead.arm_l",
+   "producer": "program V6 item MIA.A6.to_lead.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_l@to_lens",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_r@down_report",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_r@to_lead",
-   "route": "NEW_ARTWORK (V5 amendment-06 item)",
-   "ref": "MIA.A6.to_lead.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.A6.to_lead.arm_r",
+   "producer": "program V6 item MIA.A6.to_lead.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.fore_r@to_lens",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.torso_down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.T.down_report"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.T.down_report",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.torso_to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.T.to_lead"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.T.to_lead",
+   "producer": "program V6 item MIA.T.to_lead",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.torso_to_lens",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.T.to_lens"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.T.to_lens",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.torso.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.torso"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.torso",
+   "producer": "program V6 item MIA.U.torso",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_l@down_report",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_l@to_lead",
-   "route": "NEW_ARTWORK (V5 amendment-06 item)",
-   "ref": "MIA.A6.to_lead.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.A6.to_lead.arm_l",
+   "producer": "program V6 item MIA.A6.to_lead.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_l@to_lens",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_r@down_report",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_r@to_lead",
-   "route": "NEW_ARTWORK (V5 amendment-06 item)",
-   "ref": "MIA.A6.to_lead.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.A6.to_lead.arm_r",
+   "producer": "program V6 item MIA.A6.to_lead.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M02.CHAR_MIA.upper_r@to_lens",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_award_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.l.award_wrap.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.l.award_wrap.far",
+   "producer": "program V6 item MIA.K.l.award_wrap.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_award_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.l.award_wrap.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.l.award_wrap.near",
+   "producer": "program V6 item MIA.K.l.award_wrap.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.l.open.far",
+   "producer": "program V6 item MIA.K.l.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_far.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_l",
+   "producer": "program V6 item MIA.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near@down_report",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near@to_lead",
-   "route": "AMENDMENT_06",
-   "ref": "ART_M03.CHAR_MIA.hand_l_near__to_lead"
+   "route": "EXISTING_APPROVED_COMPONENT",
+   "ref": "ART_M03.CHAR_MIA.hand_l_near__to_lead",
+   "producer": "EXISTING_APPROVED_COMPONENT: component_extract / vector construction + review_sign",
+   "status": "APPROVED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_near@to_lens",
    "route": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)",
-   "ref": null
+   "ref": null,
+   "producer": "RESOLVED_BY_BODY_FACING (amendment 06: limbs of the base body are compatible in this head-only view)"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_open_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.l.open.far",
+   "producer": "program V6 item MIA.K.l.open.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_page_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.l.page_wrap.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.l.page_wrap.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_l_page_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.l.page_wrap.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.l.page_wrap.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_award_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.award_wrap.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.r.award_wrap.far",
+   "producer": "program V6 item MIA.K.r.award_wrap.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_award_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.award_wrap.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.r.award_wrap.near",
+   "producer": "program V6 item MIA.K.r.award_wrap.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.open.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.r.open.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_far.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.open.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.r.open.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_near.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.U.arm_r",
+   "producer": "program V6 item MIA.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_open_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.open.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.r.open.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_open_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.open.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.r.open.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_page_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.page_wrap.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.r.page_wrap.far",
+   "producer": "program V6 item MIA.K.r.page_wrap.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M03.CHAR_MIA.hand_r_page_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.K.r.page_wrap.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.r.page_wrap.near",
+   "producer": "program V6 item MIA.K.r.page_wrap.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_attentive",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_attentive__down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_blink_closed",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.blink_closed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.blink_closed",
+   "producer": "program V6 item MIA.F.down_report.blink_closed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_blink_closed__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.blink_closed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.blink_closed",
+   "producer": "program V6 item MIA.F.to_lead.blink_closed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_blink_closed__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.blink_closed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.blink_closed",
+   "producer": "program V6 item MIA.F.to_regular.blink_closed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_concern",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_concern__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_genuine_grin",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.genuine_grin"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_grin_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_mid",
+   "producer": "program V6 item MIA.F.to_regular.grin_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_grin_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_onset",
+   "producer": "program V6 item MIA.F.to_regular.grin_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_mock_regal",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.mock_regal"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_read",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.read"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_restrained_reply",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.restrained_reply"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.restrained_reply",
+   "producer": "program V6 item MIA.F.to_regular.restrained_reply",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_slipping",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.slipping"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_smile",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lens.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_social_smile__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.eyes_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.head",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.H.to_regular"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.to_regular",
+   "producer": "program V6 item MIA.H.to_regular",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.head_down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.H.down_report"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.down_report",
+   "producer": "program V6 item MIA.H.down_report",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.head_to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.H.to_lead"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.to_lead",
+   "producer": "program V6 item MIA.H.to_lead",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.head_to_lens",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.H.to_lens"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.to_lens",
+   "producer": "program V6 item MIA.H.to_lens",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.head_to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.H.to_regular"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.to_regular",
+   "producer": "program V6 item MIA.H.to_regular",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M04.CHAR_MIA.head.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.H.to_regular"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.to_regular",
+   "producer": "program V6 item MIA.H.to_regular",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_attentive",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_attentive__down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_concern",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_concern__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_genuine_grin",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.genuine_grin"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_grin_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_mid",
+   "producer": "program V6 item MIA.F.to_regular.grin_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_grin_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_onset",
+   "producer": "program V6 item MIA.F.to_regular.grin_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_mock_regal",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.mock_regal"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_read",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.read"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_restrained_reply",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.restrained_reply"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.restrained_reply",
+   "producer": "program V6 item MIA.F.to_regular.restrained_reply",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_slipping",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.slipping"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_social_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_social_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_social_smile",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lens.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_social_smile__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.brows_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_attentive",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_attentive__down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_concern",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_concern__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_genuine_grin",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.genuine_grin"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_grin_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_mid",
+   "producer": "program V6 item MIA.F.to_regular.grin_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_grin_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_onset",
+   "producer": "program V6 item MIA.F.to_regular.grin_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_mock_regal",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.mock_regal"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_read",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.read"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_restrained_reply",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.restrained_reply"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.restrained_reply",
+   "producer": "program V6 item MIA.F.to_regular.restrained_reply",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_slipping",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.slipping"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_smile",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lens.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_social_smile__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M05.CHAR_MIA.cheeks_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_attentive",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.attentive",
+   "producer": "program V6 item MIA.F.to_lead.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_attentive__down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.attentive"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.attentive",
+   "producer": "program V6 item MIA.F.down_report.attentive",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_concern",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.concern",
+   "producer": "program V6 item MIA.F.down_report.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_concern__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.concern"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.concern",
+   "producer": "program V6 item MIA.F.to_regular.concern",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_genuine_grin",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.genuine_grin"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.genuine_grin",
+   "producer": "program V6 item MIA.F.to_regular.genuine_grin",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_grin_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_mid",
+   "producer": "program V6 item MIA.F.to_regular.grin_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_grin_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.grin_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.grin_onset",
+   "producer": "program V6 item MIA.F.to_regular.grin_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.mid",
+   "producer": "program V6 item MIA.F.to_regular.mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_mid__down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.mid",
+   "producer": "program V6 item MIA.F.down_report.mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_mid__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.mid",
+   "producer": "program V6 item MIA.F.to_lead.mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_mock_regal",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.mock_regal"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.mock_regal",
+   "producer": "program V6 item MIA.F.to_regular.mock_regal",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_open",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.open"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.open",
+   "producer": "program V6 item MIA.F.to_regular.open",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_open__down_report",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.open"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.open",
+   "producer": "program V6 item MIA.F.down_report.open",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_open__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lead.open"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lead.open",
+   "producer": "program V6 item MIA.F.to_lead.open",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_read",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.read"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.read",
+   "producer": "program V6 item MIA.F.down_report.read",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_slipping",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.down_report.slipping"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.down_report.slipping",
+   "producer": "program V6 item MIA.F.down_report.slipping",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_mid",
+   "producer": "program V6 item MIA.F.to_regular.social_mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_onset",
+   "producer": "program V6 item MIA.F.to_regular.social_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_smile",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_lens.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_lens.social_smile",
+   "producer": "program V6 item MIA.F.to_lens.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_social_smile__to_regular",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.social_smile"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.social_smile",
+   "producer": "program V6 item MIA.F.to_regular.social_smile",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_M06.CHAR_MIA.mouth_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "MIA.F.to_regular.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.F.to_regular.warm",
+   "producer": "program V6 item MIA.F.to_regular.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_P01.alternate_views",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "P1"
+   "route": "EXPLICIT_VARIANT_ASSEMBLY",
+   "ref": "P1",
+   "producer": "EXPLICIT_VARIANT_ASSEMBLY: program V6 items P1 + P2",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_P01.contact_mask",
-   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
-   "ref": null
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS",
+   "ref": null,
+   "producer": "DETERMINISTIC_FROM_APPROVED_PARTS: engine contact/occlusion masks",
+   "status": "SPEC_READY_WAITING_ON_PARTS"
   },
   {
    "renderer_asset": "ART_P01.contact_shadow",
-   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
-   "ref": null
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS",
+   "ref": null,
+   "producer": "DETERMINISTIC_FROM_APPROVED_PARTS: engine contact/occlusion masks",
+   "status": "SPEC_READY_WAITING_ON_PARTS"
   },
   {
    "renderer_asset": "ART_P02.alternate_views",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "P3"
+   "route": "EXPLICIT_VARIANT_ASSEMBLY",
+   "ref": "P3",
+   "producer": "EXPLICIT_VARIANT_ASSEMBLY: program V6 items P3 + P4",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_P02.contact_mask",
-   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
-   "ref": null
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS",
+   "ref": null,
+   "producer": "DETERMINISTIC_FROM_APPROVED_PARTS: engine contact/occlusion masks",
+   "status": "SPEC_READY_WAITING_ON_PARTS"
   },
   {
    "renderer_asset": "ART_P02.contact_shadow",
-   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
-   "ref": null
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS",
+   "ref": null,
+   "producer": "DETERMINISTIC_FROM_APPROVED_PARTS: engine contact/occlusion masks",
+   "status": "SPEC_READY_WAITING_ON_PARTS"
   },
   {
    "renderer_asset": "ART_P03.alternate_views",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "P5"
+   "route": "EXPLICIT_VARIANT_ASSEMBLY",
+   "ref": "P5",
+   "producer": "EXPLICIT_VARIANT_ASSEMBLY: program V6 items P5 + P6",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_P03.contact_mask",
-   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
-   "ref": null
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS",
+   "ref": null,
+   "producer": "DETERMINISTIC_FROM_APPROVED_PARTS: engine contact/occlusion masks",
+   "status": "SPEC_READY_WAITING_ON_PARTS"
   },
   {
    "renderer_asset": "ART_P03.contact_shadow",
-   "route": "DETERMINISTIC_FROM_APPROVED_PARTS / SPEC_READY_WAITING_ON_PARTS",
-   "ref": null
+   "route": "DETERMINISTIC_FROM_APPROVED_PARTS",
+   "ref": null,
+   "producer": "DETERMINISTIC_FROM_APPROVED_PARTS: engine contact/occlusion masks",
+   "status": "SPEC_READY_WAITING_ON_PARTS"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.eyes",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_aiming",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.aiming"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_anticipating",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.anticipating"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_blink_closed",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.blink_closed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.blink_closed",
+   "producer": "program V6 item REGULAR.F.to_mia.blink_closed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_blink_open",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.eyes_blink_open",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_chuckle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_chuckle_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_chuckle_recover",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_recover"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_encouraging",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.encouraging"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.encouraging",
+   "producer": "program V6 item REGULAR.F.to_mia.encouraging",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_encouraging__room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.room.encouraging"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.room.encouraging",
+   "producer": "program V6 item REGULAR.F.room.encouraging",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_satisfied",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_satisfied__to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_waiting",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_waiting__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_lead.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.eyes_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.warm",
+   "producer": "program V6 item REGULAR.F.to_mia.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.fore_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.fore_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.fore_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.fore_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.fore_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.fore_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.K.l.open.far",
+   "producer": "program V6 item REGULAR.K.l.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_far.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_near",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED",
+   "ref": null,
+   "producer": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED: engine state channels",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_near.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_open_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.K.l.open.far",
+   "producer": "program V6 item REGULAR.K.l.open.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_open_near",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.hand_l_open_near",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_phone_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.l.phone_wrap.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.l.phone_wrap.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_l_phone_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.l.phone_wrap.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.l.phone_wrap.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.open.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.r.open.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_far.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.open.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.r.open.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_near.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_open_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.open.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.r.open.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_open_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.open.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.r.open.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_phone_wrap_far",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.phone_wrap.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.K.r.phone_wrap.far",
+   "producer": "program V6 item REGULAR.K.r.phone_wrap.far",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.hand_r_phone_wrap_near",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.phone_wrap.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.K.r.phone_wrap.near",
+   "producer": "program V6 item REGULAR.K.r.phone_wrap.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.head",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.head_own_screen",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.H.own_screen"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.own_screen",
+   "producer": "program V6 item REGULAR.H.own_screen",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.head_room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.H.room"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.room",
+   "producer": "program V6 item REGULAR.H.room",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.head_to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.H.to_lead"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.to_lead",
+   "producer": "program V6 item REGULAR.H.to_lead",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.head_to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.head.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_approach",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.thumb.approach"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.thumb.approach",
+   "producer": "program V6 item REGULAR.thumb.approach",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_control",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.thumb.rest"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.thumb.rest",
+   "producer": "program V6 item REGULAR.thumb.rest",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_control.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.K.r.phone_wrap.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.K.r.phone_wrap.near",
+   "producer": "program V6 item REGULAR.K.r.phone_wrap.near",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_pressed",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.thumb.pressed"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.thumb.pressed",
+   "producer": "program V6 item REGULAR.thumb.pressed",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_release",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.thumb.release"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.thumb.release",
+   "producer": "program V6 item REGULAR.thumb.release",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.thumb_rest",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.thumb.rest"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.thumb.rest",
+   "producer": "program V6 item REGULAR.thumb.rest",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.torso",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.torso",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.torso_own_screen",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.T.own_screen"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.T.own_screen",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.torso_room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.T.room"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.T.room",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.torso_to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.T.to_lead"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.T.to_lead",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.torso_to_mia",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.torso_to_mia",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.torso.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.torso"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.torso",
+   "producer": "program V6 item REGULAR.U.torso",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.upper_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.upper_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.upper_l.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_l"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_l",
+   "producer": "program V6 item REGULAR.U.arm_l",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.upper_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.upper_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R01.CHAR_REGULAR.upper_r.underpaint",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.U.arm_r"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.U.arm_r",
+   "producer": "program V6 item REGULAR.U.arm_r",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.brows",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_aiming",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.aiming"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_anticipating",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.anticipating"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_chuckle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_chuckle_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_chuckle_recover",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_recover"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_encouraging",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.encouraging"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.encouraging",
+   "producer": "program V6 item REGULAR.F.to_mia.encouraging",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_encouraging__room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.room.encouraging"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.room.encouraging",
+   "producer": "program V6 item REGULAR.F.room.encouraging",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_satisfied",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_satisfied__to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_waiting",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_waiting__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_lead.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.brows_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.warm",
+   "producer": "program V6 item REGULAR.F.to_mia.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.cheeks",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_aiming",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.aiming"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_anticipating",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.anticipating"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_chuckle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_chuckle_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_chuckle_recover",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_recover"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_encouraging",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.encouraging"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.encouraging",
+   "producer": "program V6 item REGULAR.F.to_mia.encouraging",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_encouraging__room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.room.encouraging"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.room.encouraging",
+   "producer": "program V6 item REGULAR.F.room.encouraging",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_satisfied",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_satisfied__to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_waiting",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_waiting__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_lead.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.cheeks_warm",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.warm"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.warm",
+   "producer": "program V6 item REGULAR.F.to_mia.warm",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.mouth",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_aiming",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.aiming"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.aiming",
+   "producer": "program V6 item REGULAR.F.own_screen.aiming",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_anticipating",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.anticipating"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.anticipating",
+   "producer": "program V6 item REGULAR.F.to_mia.anticipating",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_chuckle",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_chuckle_onset",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_onset"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_onset",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_onset",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_chuckle_recover",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.chuckle_recover"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.chuckle_recover",
+   "producer": "program V6 item REGULAR.F.to_mia.chuckle_recover",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_mid",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.mid",
+   "producer": "program V6 item REGULAR.F.to_mia.mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_mid__room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.room.mid"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.room.mid",
+   "producer": "program V6 item REGULAR.F.room.mid",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_open",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.open"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.open",
+   "producer": "program V6 item REGULAR.F.to_mia.open",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_open__room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.room.open"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.room.open",
+   "producer": "program V6 item REGULAR.F.room.open",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_rest",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4",
-   "ref": null
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": null,
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.mouth_rest",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_satisfied",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.own_screen.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.own_screen.satisfied",
+   "producer": "program V6 item REGULAR.F.own_screen.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_satisfied__to_mia",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.satisfied"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.satisfied",
+   "producer": "program V6 item REGULAR.F.to_mia.satisfied",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_waiting",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_mia.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_mia.waiting",
+   "producer": "program V6 item REGULAR.F.to_mia.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_waiting__room",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.room.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.room.waiting",
+   "producer": "program V6 item REGULAR.F.room.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_waiting__to_lead",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "REGULAR.F.to_lead.waiting"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.F.to_lead.waiting",
+   "producer": "program V6 item REGULAR.F.to_lead.waiting",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "ART_R02.CHAR_REGULAR.mouth_warm",
    "route": "UNREACHABLE (no event/acting path selects it; motion plan acting known)",
-   "ref": null
+   "ref": null,
+   "producer": "UNREACHABLE (no event/acting path selects it; motion plan acting known)"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.brows",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.brows"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.brows",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.brows",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.cheeks",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.cheeks"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.cheeks",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.cheeks",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.eyes",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.eyes"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.eyes",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.eyes",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.foot_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.foot_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.foot_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.foot_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.foot_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.foot_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.foot_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.foot_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.fore_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.fore_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.fore_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.fore_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.fore_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.fore_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.fore_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.fore_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.head",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "LEAD.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.H.to_mia",
+   "producer": "program V6 item LEAD.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.shin_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.shin_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.shin_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.shin_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.shin_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.shin_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.shin_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.shin_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.thigh_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.thigh_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.thigh_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.thigh_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.thigh_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.thigh_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.thigh_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.thigh_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.torso",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.torso"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.torso",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.torso",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.upper_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.upper_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.upper_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.upper_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L01.CHAR_LEAD.upper_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_L01.CHAR_LEAD.upper_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L01.CHAR_LEAD.upper_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L01.CHAR_LEAD.upper_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_l_far",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "LEAD.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.l.open.far",
+   "producer": "program V6 item LEAD.K.l.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_l_near",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_L02.CHAR_LEAD.hand_l_near"
+   "route": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED",
+   "ref": "ART_L02.CHAR_LEAD.hand_l_near",
+   "producer": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED: engine state channels",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_r_far",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "LEAD.K.r.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.open.far",
+   "producer": "program V6 item LEAD.K.r.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L02.CHAR_LEAD.hand_r_near",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "LEAD.K.r.open.near"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "LEAD.K.r.open.near",
+   "producer": "program V6 item LEAD.K.r.open.near",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_LEAD.ART_L03.CHAR_LEAD.mouth",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_L03.CHAR_LEAD.mouth"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_L03.CHAR_LEAD.mouth",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected LEAD_MASTER (seeds authored on it; map films/e01/segmentation/LEAD_MASTER.map.json) → asset ART_L03.CHAR_LEAD.mouth",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_LEAD.hand_r.near_far_hand_layers",
    "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
-   "ref": null
+   "ref": null,
+   "producer": "near/far hand drawings of that hand (V6 K-items / extraction)"
   },
   {
    "renderer_asset": "CHAR_MIA.ART_M03.CHAR_MIA.hand_l_far",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "MIA.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.K.l.open.far",
+   "producer": "program V6 item MIA.K.l.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_MIA.ART_M03.CHAR_MIA.hand_r_far",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "MIA.K.r.open.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.r.open.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_MIA.ART_M03.CHAR_MIA.hand_r_near",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "MIA.K.r.open.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "MIA.K.r.open.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_MIA.ART_M04.CHAR_MIA.head",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "MIA.H.to_regular"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "MIA.H.to_regular",
+   "producer": "program V6 item MIA.H.to_regular",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "CHAR_MIA.hand_l.near_far_hand_layers",
    "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
-   "ref": null
+   "ref": null,
+   "producer": "near/far hand drawings of that hand (V6 K-items / extraction)"
   },
   {
    "renderer_asset": "CHAR_MIA.hand_r.near_far_hand_layers",
    "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
-   "ref": null
+   "ref": null,
+   "producer": "near/far hand drawings of that hand (V6 K-items / extraction)"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.eyes",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.eyes"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R01.CHAR_REGULAR.eyes",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.eyes",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.fore_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.fore_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R01.CHAR_REGULAR.fore_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.fore_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.fore_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.fore_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R01.CHAR_REGULAR.fore_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.fore_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_l_far",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "REGULAR.K.l.open.far"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.K.l.open.far",
+   "producer": "program V6 item REGULAR.K.l.open.far",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_l_near",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.hand_l_near"
+   "route": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED",
+   "ref": "ART_R01.CHAR_REGULAR.hand_l_near",
+   "producer": "BASE_SLOT_DEFAULT_NEVER_DISPLAYED: engine state channels",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_r_far",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "REGULAR.K.r.open.far"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.r.open.far",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.hand_r_near",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "REGULAR.K.r.open.near"
+   "route": "SUPERSEDED_UNREACHABLE",
+   "ref": "REGULAR.K.r.open.near",
+   "producer": "SUPERSEDED_UNREACHABLE: engine/art_bridge/asset_state.mjs + tools/tbo/e01_amend_07_head_body_tracks.mjs",
+   "status": "NOT_GENERATED"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.head",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "REGULAR.H.to_mia"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.H.to_mia",
+   "producer": "program V6 item REGULAR.H.to_mia",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.thumb_control",
-   "route": "NEW_ARTWORK (V5) [rig-qualified reference]",
-   "ref": "REGULAR.thumb.rest"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "REGULAR.thumb.rest",
+   "producer": "program V6 item REGULAR.thumb.rest",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.torso",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.torso"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R01.CHAR_REGULAR.torso",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.torso",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.upper_l",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.upper_l"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R01.CHAR_REGULAR.upper_l",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.upper_l",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R01.CHAR_REGULAR.upper_r",
-   "route": "DETERMINISTIC_EXTRACTION / WAITING_ON_CORRECTED_MASTER [rig-qualified reference]",
-   "ref": "ART_R01.CHAR_REGULAR.upper_r"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R01.CHAR_REGULAR.upper_r",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R01.CHAR_REGULAR.upper_r",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R02.CHAR_REGULAR.brows",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_R02.CHAR_REGULAR.brows"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R02.CHAR_REGULAR.brows",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.brows",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R02.CHAR_REGULAR.cheeks",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_R02.CHAR_REGULAR.cheeks"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R02.CHAR_REGULAR.cheeks",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.cheeks",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.ART_R02.CHAR_REGULAR.mouth",
-   "route": "NEW_ARTISTIC_MANUFACTURING / IN_PROGRAM_V4 [rig-qualified reference]",
-   "ref": "ART_R02.CHAR_REGULAR.mouth"
+   "route": "DETERMINISTIC_EXTRACTION",
+   "ref": "ART_R02.CHAR_REGULAR.mouth",
+   "producer": "DETERMINISTIC_EXTRACTION: engine/tools/segment_master.py + engine/art_bridge/component_extract.mjs on the approved corrected REGULAR_MASTER (map films/e01/segmentation/REGULAR_MASTER.map.json) → asset ART_R02.CHAR_REGULAR.mouth",
+   "status": "WAITING_ON_CORRECTED_MASTER"
   },
   {
    "renderer_asset": "CHAR_REGULAR.hand_r.near_far_hand_layers",
    "route": "STRUCTURAL (satisfied by the near/far hand drawings of that hand: V5 K-items / extraction)",
-   "ref": null
+   "ref": null,
+   "producer": "near/far hand drawings of that hand (V6 K-items / extraction)"
   },
   {
    "renderer_asset": "REGULAR_MASTER",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "A03"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "A03",
+   "producer": "program V6 item A03",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "LEAD_MASTER",
-   "route": "NEW_ARTWORK (V5)",
-   "ref": "A02"
+   "route": "NEW_ARTWORK (V6)",
+   "ref": "A02",
+   "producer": "program V6 item A02",
+   "status": "IN_PROGRAM_V6"
   },
   {
    "renderer_asset": "WORLD_RESTAURANT.ART_ENV01.counter",
-   "route": "NATIVE_PROCEDURAL_CONSTRUCTION / CONSTRUCTED_AWAITING_PACKET_SIGNATURE [rig-qualified reference]",
-   "ref": "ART_ENV01.counter"
+   "route": "NATIVE_PROCEDURAL_CONSTRUCTION",
+   "ref": "ART_ENV01.counter",
+   "producer": "NATIVE_PROCEDURAL_CONSTRUCTION: engine/art_bridge/vector_construct.mjs → tools/tbo/e01_ingest_constructions.mjs",
+   "status": "CONSTRUCTED_AWAITING_PACKET_SIGNATURE"
   }
  ],
- "note": "Renderer references ≠ images: 369 renderer assets map to 129 V5 standalone requests (many requests yield several assets: faces → 4 channels, multi-piece limbs, near/far pairs), plus extraction, native constructions, structural layer requirements and one unreachable state."
+ "note": "Renderer references ≠ images: 369 renderer assets map to 129 V5 standalone requests (many requests yield several assets: faces → 4 channels, multi-piece limbs, near/far pairs), plus extraction, native constructions, structural layer requirements and one unreachable state.",
+ "amendment_body_drawings": [
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_open_near__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A6.to_lead.hand_r.open.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_open_far__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A6.to_lead.hand_r.open.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_open_near__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.open.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_open_far__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.open.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_award_wrap_near__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.award_wrap.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_l_award_wrap_far__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A6.to_lead.hand_l.award_wrap.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_r__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_r__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_r__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_r__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_r__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_near__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_r.open.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_far__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_r.open.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_l__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_l__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.arm_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_l__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_l__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_l__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.leg_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_near__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_l.open.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_far__staff_side",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.staff_side.hand_l.open.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_r__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_r__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_r__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_r__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_r__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_r",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_near__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_r.open.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_r_open_far__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_r.open.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.upper_l__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.fore_l__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.arm_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.thigh_l__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.shin_l__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L01.CHAR_LEAD.foot_l__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.leg_l",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_near__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_l.open.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_L02.CHAR_LEAD.hand_l_open_far__to_staff",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item LEAD.A6.to_staff.hand_l.open.far",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_page_wrap_near__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A7.to_lead.hand_r.page_wrap.near",
+   "active_in_amended_timeline": true
+  },
+  {
+   "renderer_asset": "ART_M03.CHAR_MIA.hand_r_page_wrap_far__to_lead",
+   "route": "AMENDMENT_06/07 BODY DRAWING",
+   "producer": "program V6 item MIA.A7.to_lead.hand_r.page_wrap.far",
+   "active_in_amended_timeline": true
+  }
+ ],
+ "null_producers": []
 }

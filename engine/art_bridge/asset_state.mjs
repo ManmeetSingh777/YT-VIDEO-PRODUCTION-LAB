@@ -22,6 +22,7 @@ export function assetStateCoverage(doc, { plan = null } = {}) {
     const states = new Map([...r.pose_states, ...r.view_states].map((s) => [s.id, s]));
     const chEv = channelEvents(r, doc.actions).events, ptl = rigPoseTimeline(r, doc.actions); // the rig's WHOLE-FILM channel and pose/view history (persistent)
     const reach = reachableStates(r, doc.actions, plan ? (plan.acting || {}) : null);
+    const actingCh = new Set(plan ? [plan.acting?.[r.id]?.blink?.channel, plan.acting?.[r.id]?.speech?.channel].filter(Boolean) : []);
     const cuts = [...new Set([a.frame_range[0], ...a.pose_events.map((e) => e.frame), ...a.view_events.map((e) => e.frame), ...a.contact_events.flatMap((c) => [c.start_frame, c.end_frame]), ...chEv.map((e) => e.frame), a.frame_range[1]])].filter((f) => f >= a.frame_range[0] && f <= a.frame_range[1]).sort((p, q) => p - q);
     for (let i = 0; i + 1 < cuts.length; i++) {
       const f = cuts[i], g = cuts[i + 1]; if (f === g) continue;
@@ -41,7 +42,7 @@ export function assetStateCoverage(doc, { plan = null } = {}) {
         cell.parts[p.asset_id] = aid; for (const m of art.material_plane_ids || []) cell.light.push(m);
       }
       // every approved state of every declared channel is part of the rig's acting repertoire here (blink/speech can occur on any frame)
-      for (const ch of r.state_channels || []) for (const st of ch.states) { if (reach && !reach.get(ch.id)?.has(st.id)) continue; for (const [slot, aid] of Object.entries({ ...(st.asset_bindings || {}), ...((view && st.asset_bindings_by_view?.[view]) || {}) })) if (!assets.get(aid)) cell.missing.push({ slot, need: aid, why: `channel ${ch.id} state ${st.id} has no approved drawing` }); } // reachable states only when the motion plan is known
+      for (const ch of r.state_channels || []) for (const st of ch.states) { if (reach && (!actingCh.has(ch.id) || !reach.get(ch.id)?.has(st.id))) continue; /* with a known plan only acting-driven channels (blink/speech) keep a standing repertoire; others show their active, already-bound drawing */ for (const [slot, aid] of Object.entries({ ...(st.asset_bindings || {}), ...((view && st.asset_bindings_by_view?.[view]) || {}) })) if (!assets.get(aid)) cell.missing.push({ slot, need: aid, why: `channel ${ch.id} state ${st.id} has no approved drawing` }); } // reachable states only when the motion plan is known
       for (const c of contacts) if (c.contact_type === "GRIP" && r.sockets.some((s) => s.id === c.source_socket)) {
         const sock = r.sockets.find((s) => s.id === c.source_socket), handParts = r.render_parts.filter((p) => p.joint_id === sock?.joint_id).map((p) => assets.get(bind[p.asset_id] ?? p.asset_id)).filter(Boolean);
         const above = handParts.some((h) => h.draw_order_constraints.some((d) => d.relation === "ABOVE" && !handParts.some((x) => x.id === d.asset_id))), below = handParts.some((h) => h.draw_order_constraints.some((d) => d.relation === "BELOW" && !handParts.some((x) => x.id === d.asset_id)));

@@ -21,14 +21,15 @@ export function resolveConflicts(events, keyOf, { rig = null } = {}) {
 }
 /** pose/view events of one rig over the whole film (film order), validated against its declared states */
 export function rigPoseTimeline(rig, actions) {
-  const pose = [], view = [], resets = [], own = new Set([...rig.pose_states, ...rig.view_states].map((s) => s.id)), ids = new Set(rig.pose_states.map((s) => s.id));
+  const pose = [], view = [], firstFrom = [], resets = [], own = new Set([...rig.pose_states, ...rig.view_states].map((s) => s.id)), ids = new Set(rig.pose_states.map((s) => s.id));
   for (const a of actions) if (a.actors?.some((x) => x.rig_id === rig.id)) { if (a.state_reset === true) resets.push(a.frame_range[0]);
     for (const e of a.pose_events || []) if (ids.has(e.state_id) && (!e.rig_id || e.rig_id === rig.id)) pose.push({ frame: e.frame, state: e.state_id, channel: "POSE", source: a.id, shot: a.shot_id });
-    for (const e of a.view_events || []) if (own.has(e.to_state) && (!e.rig_id || e.rig_id === rig.id)) view.push({ frame: e.frame, state: e.to_state, channel: "VIEW", source: a.id, shot: a.shot_id }); }
+    for (const e of a.view_events || []) if (own.has(e.to_state) && (!e.rig_id || e.rig_id === rig.id)) { view.push({ frame: e.frame, state: e.to_state, channel: "VIEW", source: a.id, shot: a.shot_id }); if (own.has(e.from_state)) firstFrom.push([e.frame, e.from_state]); } }
   const p = resolveConflicts(pose, () => "POSE", { rig: rig.id }), v = resolveConflicts(view, () => "VIEW", { rig: rig.id });
-  return { pose: p.events, view: v.events, resets: resets.sort((x, y) => x - y), errors: [...p.errors, ...v.errors] };
+  const initial_view = firstFrom.sort((x, y) => x[0] - y[0])[0]?.[1] ?? null; // the view a rig holds BEFORE its first view event is that event's from-state (never 'no view')
+  return { pose: p.events, view: v.events, initial_view, resets: resets.sort((x, y) => x - y), errors: [...p.errors, ...v.errors] };
 }
 /** pose and view of a rig at frame f: the last event ≤ f (since the last declared reset); defaults when none yet */
-export function poseAt(rig, tl, f) { const lastReset = tl.resets.filter((r) => r <= f).at(-1) ?? -1; let pose = rig.pose_states[0]?.id ?? null, view = null; for (const e of tl.pose) { if (e.frame > f) break; if (e.frame >= lastReset) pose = e.state; } for (const e of tl.view) { if (e.frame > f) break; if (e.frame >= lastReset) view = e.state; } return { pose, view }; }
+export function poseAt(rig, tl, f) { const lastReset = tl.resets.filter((r) => r <= f).at(-1) ?? -1; let pose = rig.pose_states[0]?.id ?? null, view = tl.initial_view ?? null; for (const e of tl.pose) { if (e.frame > f) break; if (e.frame >= lastReset) pose = e.state; } for (const e of tl.view) { if (e.frame > f) break; if (e.frame >= lastReset) view = e.state; } return { pose, view }; }
 /** full timeline of a rig (pose, view, channels) — the single history every consumer reads */
 export function buildRigTimeline(rig, actions, channelEvents = []) { const pv = rigPoseTimeline(rig, actions), ch = resolveConflicts(channelEvents.map((e) => ({ ...e, priority: e.priority ?? priorityOf(e.source) })), (e) => e.channel, { rig: rig.id }); return { rig: rig.id, pose: pv.pose, view: pv.view, channels: ch.events, resets: pv.resets, errors: [...pv.errors, ...ch.errors] }; }

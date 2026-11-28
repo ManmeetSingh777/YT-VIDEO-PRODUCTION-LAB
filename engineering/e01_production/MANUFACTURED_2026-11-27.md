@@ -185,3 +185,21 @@
   - A02 becomes an arms-only repair of the candidate.
   - Four items moved to extraction after master approval; 26 amendment-06 limb items chained to their torso views.
 - **Footage:** none yet. No E01 interval has all of its art: Mia's heads/hands, LEAD/REGULAR, the background states and the restaurant are pending art or signature.
+
+## V6 signatures and head/body tracks (2026-11-28, night)
+- **Receipts:** 7 of 8 imported as approved. The report type was refused: I had changed its record after export. It was re-requested.
+- **Amendment 06** accepted.
+- **Defect (mine):** the continuation re-ran intake on already-registered assets, clearing approval pointers.
+  - The 4 group parts were restored: their receipts verify against identical bundles.
+  - The restaurant master and report page have new registration evidence, so they need re-signing.
+  - Intake (constructions + extraction) is now idempotent.
+- **Motion plan** recompiled on the accepted packet with the blink cadence director-confirmed.
+- **Engine fixes:**
+  - A rig's initial view is its first view event's from-state (IV-1). LEAD/Mia had "no view" before their first event, so view-qualified faces never resolved.
+  - Only acting-driven channels keep a standing repertoire.
+  - Face slots compare to the view facing (view_demand).
+- **Amendment 07** (d67f08bf…): explicit head/body tracks from the directed performance. Composite views; torso follows the body; 2 new page-grip hands; prop back/edge variant ids. Residual view mismatch 0; validate and preflight pass.
+- **Program V6** (versioned delta of V5): 18 requests superseded (no state cell selects them), 2 added, typed output contracts, component-pack contracts, directed face construction per expression. 140 requests.
+- **Ledger:** 393 obligations, 0 unresolved; 30 approved; 29 not generated (unreachable or never-displayed slot defaults) with engine evidence.
+- **Demand reconciliation:** 0 null producers; the 36 amendment body drawings are all active.
+- **Physical motion producer and rendering:** not executed. No character has a complete approved part set, so there are no measured joints, no rigs and no renderable interval.
