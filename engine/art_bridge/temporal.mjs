@@ -106,16 +106,22 @@ export function compileMotionTracks(actions, shots, ctx) {
   for (const [key, g0] of Object.entries(plan.__gaze || {})) { const L = [].concat(g0).map((g) => ({ fr: g.frames || [0, total], src: g.source || "acting:gaze" })); for (let i = 0; i < L.length; i++) for (let k = i + 1; k < L.length; k++) if (L[i].fr[0] < L[k].fr[1] && L[k].fr[0] < L[i].fr[1]) errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: key, frame_range: [Math.max(L[i].fr[0], L[k].fr[0]), Math.min(L[i].fr[1], L[k].fr[1])], reason: `${L[i].src} and ${L[k].src} both aim ${key}` })); }
   for (const key of Object.keys(plan.__additive || {})) { const by = owner.get(key); if (by && by !== "track") errors.push(err("INVALID_TRANSFORM_OWNER", { record_id: key, reason: `additive acting on ${key}, which is owned by ${by} (its value is not an editable track)` })); }
 
-  // route every action exactly once
+  // route every action exactly once. An action whose directed visible change is carried ENTIRELY by approved state events (pose/view/channel events
+  // of registered drawings) or by measured speech on an acting channel is executed by those producers (state router / acting compiler): its
+  // REGISTERED_CELS or PROCEDURAL label then needs no separate cel cycle or mechanism — nothing is invented, the directed events are the motion.
+  const fpsR = doc.stage?.fps || 60, speechIn = (a) => (a.actors || []).some((x) => (plan.acting?.[x.rig_id]?.speech?.words || []).some((w) => { const f = Math.round(w.start_s * fpsR); return f >= a.frame_range[0] && f < a.frame_range[1]; }));
+  const stateDriven = (a) => ((a.pose_events || []).length || (a.state_events || []).length || (a.view_events || []).length ? "STATE_EVENTS" : speechIn(a) ? "ACTING_SPEECH" : null);
+  const eventRoutes = {};
   const routes = new Map();
   for (const a of actions) {
     if (!ROUTED.includes(a.mode)) { errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: `mode ${a.mode} has no handler` })); continue; }
     if (routes.has(a.id)) { errors.push(err("DUPLICATE_ELEMENT_ID", { record_id: a.id, reason: "action routed twice" })); continue; }
     if (a.mode === "RIGID") for (const act of a.actors) { const jt = plan.tracks?.[act.rig_id]?.joints || {}; if (Object.keys(jt).length) errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: `RIGID action animates joints ${Object.keys(jt)} of ${act.rig_id}; articulation requires ARTICULATED` })); }
-    if (a.mode === "REGISTERED_CELS" && !plan.cels?.[a.id]) errors.push(err("MISSING_ART_ASSET", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, suggested_producer: "GPT registered cel manufacture", reason: "REGISTERED_CELS action has no approved cel cycle" }));
+    if ((a.mode === "REGISTERED_CELS" && !plan.cels?.[a.id]) || (a.mode === "PROCEDURAL" && !plan.procedural?.[a.id])) { const sd = stateDriven(a); if (sd) eventRoutes[a.id] = { mode: a.mode, executed_by: sd === "ACTING_SPEECH" ? "acting.mjs speech channel (measured words)" : "state router (directed pose/view/channel events)" }; }
+    if (a.mode === "REGISTERED_CELS" && !plan.cels?.[a.id] && !eventRoutes[a.id]) errors.push(err("MISSING_ART_ASSET", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, suggested_producer: "GPT registered cel manufacture", reason: "REGISTERED_CELS action has no approved cel cycle" }));
     if (a.mode === "REGISTERED_MORPH") { const vec = a.required_assets.every((id) => ["VECTOR_PATH", "SYMBOL"].includes(assets.get(id)?.kind)); if (!vec) errors.push(err("INVALID_MORPH_TOPOLOGY", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, reason: "REGISTERED_MORPH requires homologous source-authored vector paths; raster images cannot be numerically morphed — supply registered cels or new art" })); }
     if (a.mode === "EXPLICIT_DEFORM" && !plan.deform_maps?.[a.id]) errors.push(err("MISSING_ART_ASSET", { record_id: a.id, shot_id: a.shot_id, frame_range: a.frame_range, suggested_producer: "GPT deformation-state sequence", reason: "EXPLICIT_DEFORM has no approved deformation map; no universal warp is fabricated" }));
-    if (a.mode === "PROCEDURAL" && !plan.procedural?.[a.id]) errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, reason: "PROCEDURAL action has no declared mechanism" }));
+    if (a.mode === "PROCEDURAL" && !plan.procedural?.[a.id] && !eventRoutes[a.id]) errors.push(err("UNSUPPORTED_MOTION_CLASS", { record_id: a.id, reason: "PROCEDURAL action has no declared mechanism" }));
     if (a.mode === "TRANSITION" && !doc.transitions.some((t) => t.frame_range[0] < a.frame_range[1] && a.frame_range[0] < t.frame_range[1])) errors.push(err("MISSING_TRANSITION_STATE", { record_id: a.id, frame_range: a.frame_range, reason: "TRANSITION action has no transition contract" }));
     routes.set(a.id, a.mode);
   }
@@ -191,7 +197,7 @@ export function compileMotionTracks(actions, shots, ctx) {
   for (let i = 0; i < remaps.length; i++) for (let k = i + 1; k < remaps.length; k++) { const a = remaps[i], b = remaps[k], shared = (a.owner_group?.rigs || []).filter((r) => (b.owner_group?.rigs || []).includes(r)); if (shared.length && a.frames[0] < b.frames[1] && b.frames[0] < a.frames[1]) errors.push(err("TIME_REMAP_INVALID", { record_id: b.id, reason: `remaps ${a.id} and ${b.id} both own ${shared} at once`, failed_invariant: "ONE_REMAP_PER_OWNER" })); }
   // GEOMETRY-ONLY verification (ctx.geometryOnly): joints, contacts, IK and prop drivers need no drawing, so missing-ART refusals are DEFERRED
   // (recorded, never dropped) and the result is marked geometry_only — every renderer refuses it (scene_graph.composeShot). Any other error still throws.
-  const artGap = (e) => e.code === "MISSING_ART_ASSET" || (e.code === "UNSUPPORTED_VIEW" && /MISSING_ART_ASSET|no approved .* cel/.test(e.human_readable_reason || ""));
+  const artGap = (e) => e.code === "MISSING_ART_ASSET" || (e.code === "UNSUPPORTED_VIEW" && /MISSING_ART_ASSET|no approved .* cel/.test(e.human_readable_reason || "")) || (e.code === "UNSUPPORTED_STATE_EDGE" && /shares 0 registered landmarks/.test(e.human_readable_reason || "")); // an edge between drawings not yet registered
   const deferredArt = ctx.geometryOnly ? errors.filter(artGap) : []; if (ctx.geometryOnly) { const rest = errors.filter((e) => !artGap(e)); errors.length = 0; errors.push(...rest); }
   if (errors.length) { const e = new Error(`compileMotionTracks: ${errors.length} error(s)`); e.errors = errors; throw e; }
 
@@ -446,6 +452,7 @@ export function compileMotionTracks(actions, shots, ctx) {
     return out;
   };
   if (propSupport.some((P_) => P_.segments.some((sg) => sg.mode === "ACTOR_DRIVEN" || sg.moving_surface || sg.hold_entry === "BAKED_PREDECESSOR"))) C.__bakePropAuthority((t) => stateAtFrame(C, t));
+  C.event_routes = eventRoutes;
   if (ctx.geometryOnly) { C.geometry_only = true; C.deferred_art = deferredArt.map((e) => ({ code: e.code, record_id: e.record_id, reason: e.human_readable_reason })); }
   return Object.freeze(C);
 }

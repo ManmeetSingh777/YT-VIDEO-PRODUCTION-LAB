@@ -42,3 +42,19 @@ test("RI-5 native-resolution threshold calibrated on the master: a sharp native 
   assert.equal(CR.verifyComponentNative({ deliveredPng: native2, deliveredLandmarks: lm, requirement: req, scaleFromMaster: 2, masterPng: master }).ok, true);
   assert.equal(CR.verifyComponentNative({ deliveredPng: up2, deliveredLandmarks: lm, requirement: req, scaleFromMaster: 2, masterPng: master }).ok, false);
 });
+const RPj = await import("../../engine/art_bridge/room_projection.mjs"), PM = await import("../../engine/art_bridge/physical_motion.mjs"), K = await import("../../engine/art_bridge/constraints.mjs"), AI = await import("../../engine/art_bridge/art_intake.mjs");
+test("RI-6 room projection: horizon from two receding level lines; one ratio for every adult; scale-1 depth inside a floor range or null", () => {
+  const H = RPj.horizonFromLines([[0, 100], [100, 90]], [[0, 300], [100, 310]]); assert.ok(Math.abs(H.horizon - 200) < 1e-9);
+  const P = RPj.roomProjection({ horizon: 200, reference: { stature_px: 400, floor_y: 1000 } }); assert.ok(Math.abs(P.statureAt(600) - 200) < 1e-9); assert.ok(Math.abs(P.floorForStature(100) - 400) < 1e-9); assert.equal(P.floorForStature(100, [450, 900]), null);
+  const st = P.stage({ P0: 50, rel: { floor: [0, 20] }, floor_y: 600, root_x: 300 }); assert.ok(Math.abs(st.scale - 4) < 1e-9); assert.deepEqual(st.root_world_xy, [300, 520]);
+});
+test("RI-7 the solver's two-bone branch IS the runtime's (constraints.mjs) for both signs — a branch solved offline is the branch rendered", () => {
+  for (const bend of [1, -1]) for (const T of [[60, 40], [-30, 70], [10, -80]]) { const a = PM.twoBoneIK([0, 0], 70, 50, T, bend), b = K.solveTwoBonePosition([0, 0], T, 70, 50, bend), e = [70 * Math.cos(a.a1), 70 * Math.sin(a.a1)];
+    assert.ok(Math.hypot(e[0] - b.elbow[0], e[1] - b.elbow[1]) < 1e-9, `bend ${bend} target ${T}`); assert.equal(PM.restBend([0, 0], b.elbow, T), bend); }
+});
+test("RI-8 a socket whose landmark the registration DEFERS to another drawing stays pending and does not block the measured rig", () => {
+  const rig = { id: "P", geometry_source: "MEASURED_FROM_ART", geometry_status: "UNMEASURED", joints: [{ id: "root", landmark_id: "center", rest_xy: [0, 0] }], sockets: [{ id: "P.grip", joint_id: "root", landmark_id: "grip", local_xy: [0, 0] }, { id: "P.lens", joint_id: "root", landmark_id: "lens", local_xy: [0, 0] }] }, I = { landmarks: {} };
+  AI.fitInterfacesToMeasured([structuredClone(rig)], I, { center: [10, 10], grip: [4, 12] }, []).joints; const r1 = structuredClone(rig); AI.fitInterfacesToMeasured([r1], { landmarks: {} }, { center: [10, 10], grip: [4, 12] }, []); assert.equal(r1.geometry_status, "UNMEASURED", "an undeclared missing landmark still blocks");
+  const r2 = structuredClone(rig); AI.fitInterfacesToMeasured([r2], { landmarks: {} }, { center: [10, 10], grip: [4, 12] }, [], { lens: { to_asset: "P.back", face: "back", reason: "rear only" } });
+  assert.equal(r2.geometry_status, "MEASURED"); assert.deepEqual(r2.joints[0].rest_xy, [10, 10]); assert.deepEqual(r2.sockets[0].local_xy, [-6, 2]); assert.equal(r2.sockets[1].pending_landmark.deferred_to, "P.back");
+});

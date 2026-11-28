@@ -28,7 +28,7 @@ const spec = J(path.join(FILM, "environment", "ART_ENV01.MASTER.spec.json")), k 
 const regY = WORLD.root_xy[1] + wsock.local_xy[1] * WORLD.scale, specY = toW(spec.landmarks.counter_support)[1], counterY = specY, counterSource = Math.abs(regY - specY) < 0.5 ? "REGISTERED" : `CONSTRUCTION_SPEC (registered socket ${regY.toFixed(1)} is the pre-amendment-08 counter; re-registration pending)`;
 const L = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]), palm = (h) => rig.sockets.find((x) => x.id === `${ACTOR}.palm_${h}`);
 const limb = (h) => { const up = J_(`upper_${h}`), fo = J_(`fore_${h}`), ha = J_(`hand_${h}`); const rest1 = Math.atan2(fo.rest_xy[1] - up.rest_xy[1], fo.rest_xy[0] - up.rest_xy[0]), rest2 = Math.atan2(ha.rest_xy[1] - fo.rest_xy[1], ha.rest_xy[0] - fo.rest_xy[0]);
-  return { h, shoulder: W(up.rest_xy), upperTrue: L(up.rest_xy, fo.rest_xy) * s, foreTrue: L(fo.rest_xy, ha.rest_xy) * s, bend: Math.sign(Math.sin(rest2 - rest1)) || 1, palmLocal: palm(h).local_xy }; };
+  return { h, shoulder: W(up.rest_xy), upperTrue: L(up.rest_xy, fo.rest_xy) * s, foreTrue: L(fo.rest_xy, ha.rest_xy) * s, bend: PM.restBend(up.rest_xy, fo.rest_xy, ha.rest_xy), palmLocal: palm(h).local_xy }; };
 const LIMB = { r: limb("r"), l: limb("l") };
 // ---- (a) sides from geometry ----
 const sides = PM.contactSides({ shoulders: { r: LIMB.r.shoulder, l: LIMB.l.shoulder }, sockets: { grip_r: propAt(HOLD_CENTER)("grip_r"), grip_l: propAt(HOLD_CENTER)("grip_l") }, declared: { r: "grip_r", l: "grip_l" } });

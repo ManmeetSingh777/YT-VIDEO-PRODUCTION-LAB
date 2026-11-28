@@ -16,19 +16,23 @@ export function fk(tree, rel = {}, root = { xy: [0, 0], scale: 1, rot: 0 }) { co
     out[id] = w; cum[id] = c; for (const k of j.children) walk(k, w, j.rest_xy, c); };
   walk(R.id, root.xy, R.rest_xy, rad(root.rot || 0) + 0); return { pos: out, cum }; }
 /** two-bone IK: base, bone lengths, target, bend sign (+1/-1 from the rest pose) → absolute bone directions (rad) */
+// bend uses the RUNTIME convention (constraints.mjs#solveTwoBonePosition: elbow = A + a·u + bend·h·(−u_y, u_x)), so a branch solved here is the
+// branch the renderer executes. Reach beyond the bone lengths is clamped only to REPORT the residual, never to stretch.
 export function twoBoneIK(base, l1, l2, target, bend) { const d = sub(target, base), dist = len(d), reach = l1 + l2, near = Math.abs(l1 - l2);
-  const reach_ok = dist <= reach + 1e-6 && dist >= near - 1e-6, dc = Math.min(Math.max(dist, near + 1e-6), reach - 1e-6);
-  const a = Math.acos(Math.min(1, Math.max(-1, (l1 * l1 + dc * dc - l2 * l2) / (2 * l1 * dc)))), base_dir = ang(d), a1 = base_dir - bend * a, elbow = add(base, [l1 * Math.cos(a1), l1 * Math.sin(a1)]), a2 = ang(sub(add(base, [dc * Math.cos(base_dir), dc * Math.sin(base_dir)]), elbow));
-  return { a1, a2, reach_ok, residual_px: reach_ok ? 0 : Math.abs(dist - dc) }; }
+  const reach_ok = dist <= reach + 1e-6 && dist >= near - 1e-6, dc = Math.min(Math.max(dist, near + 1e-6), reach - 1e-6), u = [d[0] / (dist || 1), d[1] / (dist || 1)];
+  const a = (l1 * l1 - l2 * l2 + dc * dc) / (2 * dc), h = Math.sqrt(Math.max(0, l1 * l1 - a * a)), elbow = [base[0] + a * u[0] - bend * h * u[1], base[1] + a * u[1] + bend * h * u[0]], tgt = add(base, [dc * u[0], dc * u[1]]);
+  return { a1: ang(sub(elbow, base)), a2: ang(sub(tgt, elbow)), reach_ok, residual_px: reach_ok ? 0 : Math.abs(dist - dc) }; }
+/** restBend — the branch (runtime convention) a drawn shoulder/elbow/wrist triple is on */
+export const restBend = (A, E, W) => { const d = sub(W, A), dist = len(d) || 1, u = [d[0] / dist, d[1] / dist], v = sub(E, A); return Math.sign(-v[0] * u[1] + v[1] * u[0]) || 1; };
 /** solveLimb: chain {upper, fore, end, endPoint (canonical point carried by `end`, e.g. palm)} → relative angles for upper & fore */
 export function solveLimb(tree, chain, target, rel = {}, root = { xy: [0, 0], scale: 1, rot: 0 }) {
   const U = tree.J.get(chain.upper), F = tree.J.get(chain.fore), E = tree.J.get(chain.end), s = root.scale;
   const l1 = len(sub(F.rest_xy, U.rest_xy)) * s, l2 = len(sub(chain.endPoint, F.rest_xy)) * s; // forearm bone extended to the contact point (wrist kept straight)
-  const rest1 = ang(sub(F.rest_xy, U.rest_xy)), rest2 = ang(sub(chain.endPoint, F.rest_xy)), bend = Math.sign(Math.sin(rest2 - rest1)) || 1;
+  const rest1 = ang(sub(F.rest_xy, U.rest_xy)), rest2 = ang(sub(chain.endPoint, F.rest_xy)), bend = restBend(U.rest_xy, F.rest_xy, chain.endPoint);
   const { pos, cum } = fk(tree, rel, root), parentCum = cum[U.parent_id], ik = twoBoneIK(pos[chain.upper], l1, l2, target, bend);
   const relU = deg(ik.a1 - parentCum - rest1), relF = deg(ik.a2 - ik.a1 - (rest2 - rest1)), norm = (d) => ((d + 540) % 360) - 180;
   const elbowFlex = norm(deg((rest2 - rest1)) + relF); // signed bend after solving (same sign as rest = anatomical)
-  return { rel: { [chain.upper]: norm(relU), [chain.fore]: norm(relF) }, reach_ok: ik.reach_ok, residual_px: ik.residual_px, anatomical: Math.sign(elbowFlex) === bend || Math.abs(elbowFlex) < 1, elbow_flex_deg: elbowFlex };
+  return { rel: { [chain.upper]: norm(relU), [chain.fore]: norm(relF) }, reach_ok: ik.reach_ok, residual_px: ik.residual_px, anatomical: Math.sign(elbowFlex) === (Math.sign(Math.sin(rest2 - rest1)) || 1) || Math.abs(elbowFlex) < 1, elbow_flex_deg: elbowFlex };
 }
 /** similarity pose of a prop from two of its sockets placed on two world points (scale fixed by the prop's measured size) */
 export function propPose(propLm, sA, sB, worldA, worldB) { const pa = propLm[sA], pb = propLm[sB], a = ang(sub(pb, pa)), b = ang(sub(worldB, worldA)), r = b - a, mid = [(worldA[0] + worldB[0]) / 2, (worldA[1] + worldB[1]) / 2], pm = [(pa[0] + pb[0]) / 2, (pa[1] + pb[1]) / 2];

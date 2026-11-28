@@ -243,27 +243,36 @@ export async function ingestMaster({ film, asset, file, landmarks, provenance, m
   return receipt;
 }
 
+/** refitMaster — re-run the rig fit on an EXISTING approved master registration (no pixels, landmarks or approvals change): used when the fit
+ *  rule itself improved. measured = the registration's own landmark sidecar mapped to canonical by the registered transform. */
+export function refitMaster({ film, asset }) { const FILM = path.resolve(film), doc = loadDoc(FILM), plan = JSON.parse(fs.readFileSync(path.join(FILM, PLAN), "utf8")), regDir = path.join(FILM, "registration", asset), receipt = JSON.parse(fs.readFileSync(path.join(regDir, "MASTER_REGISTRATION_RECEIPT.json"), "utf8"));
+  const I = doc.identities.find((i) => i.canonical_asset_id === asset); if (!I) throw new Error(`no identity has canonical asset ${asset}`); const a = doc.assets.find((x) => x.id === asset); if (!a?.landmarks) throw new Error(`${asset} has no registered landmarks`);
+  const prev = fs.existsSync(path.join(regDir, "RIG_FIT_RECEIPT.json")) ? JSON.parse(fs.readFileSync(path.join(regDir, "RIG_FIT_RECEIPT.json"), "utf8")) : null;
+  const fit = fitRig({ FILM, doc, plan, identity: I, measured: { ...a.landmarks }, anchors: prev?.frame_anchors || [], asset, receipt }); saveDoc(FILM, doc); return { asset, rig: fit.rig, geometry_status: doc.rigs.find((r) => r.id === fit.rig)?.geometry_status, feasibility: fit.feasibility.status, pending_sockets: (doc.rigs.find((r) => r.id === fit.rig)?.sockets || []).filter((s) => s.pending_landmark).map((s) => s.id) }; }
 /* ───────────── Contract E: fit the rig to the approved art, then prove the planned action is still feasible ───────────── */
 /** fitRig — rig joints, identity landmarks and planned part pivots take the MEASURED art positions (frame anchors stay the frame).
  *  Proportions are the art's: limb lengths change, pixels never do. The planned action is then re-solved (checkRigFeasibility). */
 /** fitInterfacesToMeasured(rigs, identity, measured, anchors) — PURE interface fit for ANY family: every rig joint/hinge whose landmark was
  *  measured on the approved art takes the measured position (frame anchors stay the frame); identity landmarks follow. Returns the changes. */
-export function fitInterfacesToMeasured(rigs, I, measured, anchors) {
+export function fitInterfacesToMeasured(rigs, I, measured, anchors, deferred = {}) { // deferred: landmarks the approved registration formally defers to another drawing
   const joints = [], limb_changes = [];
   for (const [k, v] of Object.entries(measured)) if (!anchors.includes(k)) I.landmarks[k] = v;
   for (const rig of rigs) { const before = Object.fromEntries(rig.joints.map((j) => [j.id, j.rest_xy]));
     for (const j of rig.joints) { const k = j.landmark_id ?? j.id; if (k in measured && !anchors.includes(k)) { joints.push({ rig: rig.id, joint: j.id, landmark: k, before: j.rest_xy, after: measured[k] }); j.rest_xy = measured[k]; } }
     for (const s of rig.sockets || []) if (s.landmark_id && s.landmark_id in measured) { const j = rig.joints.find((x) => x.id === s.joint_id); s.local_xy = [measured[s.landmark_id][0] - j.rest_xy[0], measured[s.landmark_id][1] - j.rest_xy[1]]; }
-    if (rig.geometry_source === "MEASURED_FROM_ART" && rig.joints.every((j) => (j.landmark_id ?? j.id) in measured) && (rig.sockets || []).every((s) => !s.landmark_id || s.landmark_id in measured)) rig.geometry_status = "MEASURED";
+    // a socket whose landmark the approved registration DEFERS to another drawing (e.g. a rear lens on the rear view) stays PENDING; it does not
+    // block the geometry that IS measured (that socket refuses use until its own drawing registers it)
+    for (const s of rig.sockets || []) if (s.landmark_id && !(s.landmark_id in measured) && deferred[s.landmark_id]) s.pending_landmark = { deferred_to: deferred[s.landmark_id].to_asset, face: deferred[s.landmark_id].face ?? null, reason: deferred[s.landmark_id].reason };
+    if (rig.geometry_source === "MEASURED_FROM_ART" && rig.joints.every((j) => (j.landmark_id ?? j.id) in measured) && (rig.sockets || []).every((s) => !s.landmark_id || s.landmark_id in measured || deferred[s.landmark_id])) rig.geometry_status = "MEASURED";
     const after = Object.fromEntries(rig.joints.map((j) => [j.id, j.rest_xy])), Lb = (m, j) => { const P = rig.joints.find((x) => x.id === j)?.parent_id; return P && m[P] && m[j] ? Math.hypot(m[j][0] - m[P][0], m[j][1] - m[P][1]) : null; };
     limb_changes.push(...rig.joints.filter((j) => j.parent_id).map((j) => ({ rig: rig.id, bone: `${j.parent_id}->${j.id}`, provisional_length: Lb(before, j.id), fitted_length: Lb(after, j.id) })).filter((x) => x.provisional_length).map((x) => ({ ...x, ratio: x.fitted_length / x.provisional_length }))); }
   return { joints, limb_changes };
 }
 function fitRig({ FILM, doc, plan, identity: I, measured, anchors, asset, receipt }) {
-  const rig = doc.rigs.find((r) => r.identity_id === I.id), { joints, limb_changes } = fitInterfacesToMeasured(doc.rigs.filter((r) => r.identity_id === I.id), I, measured, anchors);
+  const rig = doc.rigs.find((r) => r.identity_id === I.id), { joints, limb_changes } = fitInterfacesToMeasured(doc.rigs.filter((r) => r.identity_id === I.id), I, measured, anchors, receipt.deferred_landmarks || {});
   const pivots = []; for (const a of plan.assets.filter((x) => x.identity_id === I.id && x.pivot_landmark_id && x.pivot_landmark_id in measured && !anchors.includes(x.pivot_landmark_id))) { pivots.push({ asset: a.asset_id, before: a.pivot_xy, after: measured[a.pivot_landmark_id] }); a.pivot_xy = measured[a.pivot_landmark_id]; }
   writeJ(path.join(FILM, PLAN), plan);
-  if (I.geometry_status === "UNMEASURED" && Object.keys(I.landmarks).every((k) => k in measured)) I.geometry_status = "MEASURED";
+  if (I.geometry_status === "UNMEASURED" && Object.keys(I.landmarks).every((k) => k in measured || (receipt.deferred_landmarks || {})[k])) I.geometry_status = "MEASURED";
   const feasibility = familyFeasibility(FILM, doc, I.id);
   const fit = { asset, identity: I.id, rig: rig?.id || null, pixels_changed: false, master_sha256: receipt.source.sha256, frame_anchors: anchors, joints, limb_changes, planned_pivots_updated: pivots, feasibility,
     rule: "the approved art determines the rig; if the planned action is infeasible the action is RESTAGED (approved) or new pose art is requested; proportions are never distorted", at: new Date().toISOString() };
